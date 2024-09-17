@@ -13,14 +13,29 @@
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
-            background-color: #3A3F47;
+            background-color: #100D3B;
             color: #FFFFFF;
         }
 
+        .logo {
+            height: 200px; /* Adjust the value as needed */
+            width: 200px;  /* Adjust the value as needed */
+        }
         .container {
             width: 80%;
             margin: 0 auto;
             padding: 20px 0;
+        }
+
+        .nav-link {
+            color: #FFFFFF; /* Initial color */
+            text-decoration: none; /* Remove underline */
+            transition: color 0.3s, transform 0.3s; /* Smooth transition for hover effect */
+        }
+        
+        .nav-link:hover {
+            color: #0CFFBB; /* Change color on hover */
+            transform: scale(1.1); /* Slightly increase size on hover */
         }
 
         header {
@@ -44,12 +59,12 @@
             padding: 10px 20px;
             border-radius: 5px;
             text-decoration: none;
-            color: #FFFFFF;
+            color: #000000;
         }
 
         .btn-green {
-            background-color: #00FF00;
-            border: 2px solid #00FF00;
+            background-color: #0CFFBB;
+            border: 2px solid #000000;
         }
 
         .btn-blue {
@@ -133,6 +148,15 @@
         .button-container .btn {
             margin-right: 10px; /* Adjust the value as needed */
         }
+        .icon-size {
+            font-size: 32px;
+            transition: color 0.3s, transform 0.3s; /* Smooth transition for hover effect */
+        }
+        
+        .icon-size:hover {
+            color: #0CFFBB; /* Change color on hover */
+            transform: scale(1.2); /* Slightly increase size on hover */
+        }
         footer {
             text-align: center;
             padding: 20px 0;
@@ -154,15 +178,15 @@
 <body>
     <div class="container">
         <header>
-            <img alt="Company Logo" height="100" src="/Resources/Photos/1-03-removebg-preview.png" width="100" />
+            <img class="logo" alt="Logo" src="/Resources/Logo/1-02 (2).png" />
             <nav>
-                <a href="#">
+                                <a class="nav-link" href="#">
                     Home
                 </a>
-                <a href="#">
+                <a class="nav-link" href="#">
                     About
                 </a>
-                <a href="#">
+                <a class="nav-link" href="#">
                     FAQs
                 </a>
                 <a class="btn btn-green" href="#">
@@ -174,6 +198,7 @@
         </header>
         <div class="content">
             <div class="content-row">
+                <!-- Text -->
                 <div class="text">
                     <h1>
                         Empowering Innovation
@@ -194,9 +219,10 @@
                         </a>
                     </div>
                 </div>
+                <!-- image -->
                 <div class="image">
                     <img alt="Empowering Innovation Image" height="400"
-                        src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-Hh5RPsKhtBPsWCFSiEKnUJ6x/user-8qgiVpCV0U0b7zDjfFInHgjl/img-CWIEM0wSzVYsYfaiNYJNq3o4.png?st=2024-09-17T00%3A56%3A17Z&amp;se=2024-09-17T02%3A56%3A17Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-09-16T23%3A23%3A12Z&amp;ske=2024-09-17T23%3A23%3A12Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=nmxGSCtzyZZcRMXOMDKnacvWuN%2BTJoTBkvrSHcEO0%2Bs%3D"
+                        src="/Resources/Photos/IMG_4781.jpeg"
                         width="800" />
                 </div>
             </div>
@@ -207,32 +233,32 @@
             </h1>
             <div class="cards">
                 <div class="card">
-                    <img alt="Out Reach Image" height="200"
-                        src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-Hh5RPsKhtBPsWCFSiEKnUJ6x/user-8qgiVpCV0U0b7zDjfFInHgjl/img-Xma0Ii99Q5qKbvMWGnsdC9dP.png?st=2024-09-17T00%3A56%3A20Z&amp;se=2024-09-17T02%3A56%3A20Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-09-16T22%3A51%3A49Z&amp;ske=2024-09-17T22%3A51%3A49Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=Vo0jiSrwiVYSGiFmrCfarrdPB8wyH9twd%2BpRZtyldnY%3D"
-                        width="300" />
+                    <img alt="Empowering Innovation Image" height="400"
+                        src="/Resources/Photos/IMG_4781.jpeg"
+                        width="800" />
                     <p>
                         Out Reach
                     </p>
                 </div>
                 <div class="card">
-                    <img alt="Out Reach Image" height="200"
-                        src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-Hh5RPsKhtBPsWCFSiEKnUJ6x/user-8qgiVpCV0U0b7zDjfFInHgjl/img-Xma0Ii99Q5qKbvMWGnsdC9dP.png?st=2024-09-17T00%3A56%3A20Z&amp;se=2024-09-17T02%3A56%3A20Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-09-16T22%3A51%3A49Z&amp;ske=2024-09-17T22%3A51%3A49Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=Vo0jiSrwiVYSGiFmrCfarrdPB8wyH9twd%2BpRZtyldnY%3D"
-                        width="300" />
+                    <img alt="Empowering Innovation Image" height="400"
+                        src="/Resources/Photos/IMG_4781.jpeg"
+                        width="800" />
                     <p>
                         Out Reach
                     </p>
                 </div>
                 <div class="card">
-                    <img alt="Out Reach Image" height="200"
-                        src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-Hh5RPsKhtBPsWCFSiEKnUJ6x/user-8qgiVpCV0U0b7zDjfFInHgjl/img-Xma0Ii99Q5qKbvMWGnsdC9dP.png?st=2024-09-17T00%3A56%3A20Z&amp;se=2024-09-17T02%3A56%3A20Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-09-16T22%3A51%3A49Z&amp;ske=2024-09-17T22%3A51%3A49Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=Vo0jiSrwiVYSGiFmrCfarrdPB8wyH9twd%2BpRZtyldnY%3D"
-                        width="300" />
+                    <img alt="Empowering Innovation Image" height="400"
+                        src="/Resources/Photos/IMG_4781.jpeg"
+                        width="800" />
                     <p>
                         Out Reach
                     </p>
                 </div>
             </div>
         </div>
-        <div class="newsletter">
+        <div class="content">
             <div class="content-row">
                 <div class="text">
                     <h1>
@@ -251,36 +277,40 @@
                     </a>
                 </div>
                 <div class="image">
-                    <img alt="Newsletter Image" height="400"
-                        src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-Hh5RPsKhtBPsWCFSiEKnUJ6x/user-8qgiVpCV0U0b7zDjfFInHgjl/img-9zMrcnDG9dcjms2RWf9Tr9sl.png?st=2024-09-17T00%3A56%3A15Z&amp;se=2024-09-17T02%3A56%3A15Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-09-16T23%3A06%3A29Z&amp;ske=2024-09-17T23%3A06%3A29Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=bE/Bd69pcPkUW3nG4qNZyhtr1DccgvGk9MY0nnz9iBw%3D"
-                        width="800" />
+                    <img alt="Empowering Innovation Image" height="400"
+                    src="/Resources/Photos/IMG_4781.jpeg"
+                    width="800" />
                 </div>
             </div>
         </div>
         <footer>
             <div>
-                <a href="#">
-                    <i class="fab fa-linkedin">
-                    </i>
-                </a>
-                <a href="#">
-                    <i class="fab fa-instagram">
-                    </i>
-                </a>
-                <a href="#">
-                    <i class="fab fa-facebook">
-                    </i>
-                </a>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/company/plastal-bot-builders/?originalSubdomain=zm">
+                        <i class="fab fa-linkedin icon-size"></i>
+                    </a>
+                    <a href="https://www.instagram.com">
+                        <i class="fab fa-instagram icon-size"></i>
+                    </a>
+                    <a href="https://www.facebook.com/plastalbotbuiders">
+                        <i class="fab fa-facebook icon-size"></i>
+                    </a>
+                    <a href="https://medium.com/@plastalbotbuilders">
+                        <i class="fab fa-medium icon-size"></i>
+                    </a>
+                </div>
+            <div>
+                <p>
+                    ©️2024 Plastal-Bot Builders All rights reserved.
+                    <a href="#">
+                        Privacy Policy
+                    </a>
+                    <a href="#">
+                        Terms and Conditions Apply
+                    </a>
+                </p>
+
             </div>
-            <p>
-                ©️2024 Plastal-Bot Builders All rights reserved.
-                <a href="#">
-                    Privacy Policy
-                </a>
-                <a href="#">
-                    Terms of Use
-                </a>
-            </p>
         </footer>
     </div>
 </body>
