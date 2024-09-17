@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Empowering Innovation
+    </title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #3A3F47;
+            color: #FFFFFF;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        header img {
+            width: 100px;
+        }
+
+        nav a {
+            color: #FFFFFF;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #FFFFFF;
+        }
+
+        .btn-green {
+            background-color: #00FF00;
+            border: 2px solid #00FF00;
+        }
+
+        .btn-blue {
+            background-color: #00FFFF;
+            border: 2px solid #00FFFF;
+        }
+
+        .content {
+            text-align: left;
+            margin: 40px 0;
+        }
+
+        .content h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0;
+        }
+
+        .card {
+            background-color: #FFFFFF;
+            color: #000000;
+            width: 30%;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .card p {
+            padding: 10px 0;
+            margin: 0;
+        }
+
+        .newsletter {
+            text-align: left;
+            margin: 40px 0;
+        }
+
+        .newsletter input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .content-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .content-row .text {
+            width: 50%;
+        }
+
+        .content-row .image {
+            width: 45%;
+        }
+        .button-container .btn {
+            margin-right: 10px; /* Adjust the value as needed */
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid #FFFFFF;
+        }
+
+        footer a {
+            color: #FFFFFF;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <img alt="Company Logo" height="100" src="/Resources/Photos/1-03-removebg-preview.png" width="100" />
+            <nav>
+                <a href="#">
+                    Home
+                </a>
+                <a href="#">
+                    About
+                </a>
+                <a href="#">
+                    FAQs
+                </a>
+                <a class="btn btn-green" href="#">
+                    Become a Member
+                </a>
+                <i class="fas fa-moon">
+                </i>
+            </nav>
+        </header>
+        <div class="content">
+            <div class="content-row">
+                <div class="text">
+                    <h1>
+                        Empowering Innovation
+                    </h1>
+                    <p>
+                        We're dedicated to ensuring widespread access to life-changing technology education and
+                        fostering pathways for employment, empowering individuals everywhere to leverage technological
+                        advancements for personal and professional growth. Our goal is to provide resources, support,
+                        and guidance to help individuals develop the skills they need to thrive in today's rapidly
+                        evolving technological landscape.
+                    </p>
+                    <div class="button-container">
+                        <a class="btn btn-green" href="#">
+                            Become a Member
+                        </a>
+                        <a class="btn btn-blue" href="#">
+                            Get Involved
+                        </a>
+                    </div>
+                </div>
+                <div class="image">
+                    <img alt="Empowering Innovation Image" height="400"
+                        src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-Hh5RPsKhtBPsWCFSiEKnUJ6x/user-8qgiVpCV0U0b7zDjfFInHgjl/img-CWIEM0wSzVYsYfaiNYJNq3o4.png?st=2024-09-17T00%3A56%3A17Z&amp;se=2024-09-17T02%3A56%3A17Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-09-16T23%3A23%3A12Z&amp;ske=2024-09-17T23%3A23%3A12Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=nmxGSCtzyZZcRMXOMDKnacvWuN%2BTJoTBkvrSHcEO0%2Bs%3D"
+                        width="800" />
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <h1>
+                Empowering Innovation
+            </h1>
+            <div class="cards">
+                <div class="card">
+                    <img alt="Out Reach Image" height="200"
+                        src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-Hh5RPsKhtBPsWCFSiEKnUJ6x/user-8qgiVpCV0U0b7zDjfFInHgjl/img-Xma0Ii99Q5qKbvMWGnsdC9dP.png?st=2024-09-17T00%3A56%3A20Z&amp;se=2024-09-17T02%3A56%3A20Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-09-16T22%3A51%3A49Z&amp;ske=2024-09-17T22%3A51%3A49Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=Vo0jiSrwiVYSGiFmrCfarrdPB8wyH9twd%2BpRZtyldnY%3D"
+                        width="300" />
+                    <p>
+                        Out Reach
+                    </p>
+                </div>
+                <div class="card">
+                    <img alt="Out Reach Image" height="200"
+                        src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-Hh5RPsKhtBPsWCFSiEKnUJ6x/user-8qgiVpCV0U0b7zDjfFInHgjl/img-Xma0Ii99Q5qKbvMWGnsdC9dP.png?st=2024-09-17T00%3A56%3A20Z&amp;se=2024-09-17T02%3A56%3A20Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-09-16T22%3A51%3A49Z&amp;ske=2024-09-17T22%3A51%3A49Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=Vo0jiSrwiVYSGiFmrCfarrdPB8wyH9twd%2BpRZtyldnY%3D"
+                        width="300" />
+                    <p>
+                        Out Reach
+                    </p>
+                </div>
+                <div class="card">
+                    <img alt="Out Reach Image" height="200"
+                        src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-Hh5RPsKhtBPsWCFSiEKnUJ6x/user-8qgiVpCV0U0b7zDjfFInHgjl/img-Xma0Ii99Q5qKbvMWGnsdC9dP.png?st=2024-09-17T00%3A56%3A20Z&amp;se=2024-09-17T02%3A56%3A20Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-09-16T22%3A51%3A49Z&amp;ske=2024-09-17T22%3A51%3A49Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=Vo0jiSrwiVYSGiFmrCfarrdPB8wyH9twd%2BpRZtyldnY%3D"
+                        width="300" />
+                    <p>
+                        Out Reach
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="newsletter">
+            <div class="content-row">
+                <div class="text">
+                    <h1>
+                        Subscribe to Our Newsletter
+                    </h1>
+                    <p>
+                        We're dedicated to ensuring widespread access to life-changing technology education and
+                        fostering pathways for employment, empowering individuals everywhere to leverage technological
+                        advancements for personal and professional growth. Our goal is to provide resources, support,
+                        and guidance to help individuals develop the skills they need to thrive in today's rapidly
+                        evolving technological landscape.
+                    </p>
+                    <input placeholder="Enter your email" type="text" />
+                    <a class="btn btn-blue" href="#">
+                        Get Involved
+                    </a>
+                </div>
+                <div class="image">
+                    <img alt="Newsletter Image" height="400"
+                        src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-Hh5RPsKhtBPsWCFSiEKnUJ6x/user-8qgiVpCV0U0b7zDjfFInHgjl/img-9zMrcnDG9dcjms2RWf9Tr9sl.png?st=2024-09-17T00%3A56%3A15Z&amp;se=2024-09-17T02%3A56%3A15Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=d505667d-d6c1-4a0a-bac7-5c84a87759f8&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-09-16T23%3A06%3A29Z&amp;ske=2024-09-17T23%3A06%3A29Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=bE/Bd69pcPkUW3nG4qNZyhtr1DccgvGk9MY0nnz9iBw%3D"
+                        width="800" />
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div>
+                <a href="#">
+                    <i class="fab fa-linkedin">
+                    </i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-instagram">
+                    </i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-facebook">
+                    </i>
+                </a>
+            </div>
+            <p>
+                ©️2024 Plastal-Bot Builders All rights reserved.
+                <a href="#">
+                    Privacy Policy
+                </a>
+                <a href="#">
+                    Terms of Use
+                </a>
+            </p>
+        </footer>
+    </div>
+</body>
+
+</html>
