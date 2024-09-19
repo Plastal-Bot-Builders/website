@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        Empowering Innovation
-    </title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet" />
-    <style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            Empowering Innovation
+        </title>
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+            rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap"
+            rel="stylesheet" />
+        <style>
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
@@ -173,146 +177,156 @@
             margin: 10px 0;
         }
     </style>
-</head>
+    </head>
 
-<body>
-    <div class="container">
-        <header>
-            <img class="logo" alt="Logo" src="/Resources/Logo/1-02 (2).png" />
-            <nav>
-                                <a class="nav-link" href="#">
-                    Home
-                </a>
-                <a class="nav-link" href="#">
-                    About
-                </a>
-                <a class="nav-link" href="#">
-                    FAQs
-                </a>
-                <a class="btn btn-green" href="#">
-                    Become a Member
-                </a>
-                <i class="fas fa-moon">
-                </i>
-            </nav>
-        </header>
-        <div class="content">
-            <div class="content-row">
-                <!-- Text -->
-                <div class="text">
-                    <h1>
-                        Empowering Innovation
-                    </h1>
-                    <p>
-                        We're dedicated to ensuring widespread access to life-changing technology education and
-                        fostering pathways for employment, empowering individuals everywhere to leverage technological
-                        advancements for personal and professional growth. Our goal is to provide resources, support,
-                        and guidance to help individuals develop the skills they need to thrive in today's rapidly
-                        evolving technological landscape.
-                    </p>
-                    <div class="button-container">
-                        <a class="btn btn-green" href="#">
-                            Become a Member
-                        </a>
+    <body>
+        <div class="container">
+            <header>
+                <img class="logo" alt="Logo"
+                    src="/Resources/Logo/1-02 (2).png" />
+                <nav>
+                    <a class="nav-link" href="#">
+                        Home
+                    </a>
+                    <a class="nav-link" href="#">
+                        About
+                    </a>
+                    <a class="nav-link" href="#">
+                        FAQs
+                    </a>
+                    <a class="btn btn-green" href="#">
+                        Become a Member
+                    </a>
+                    <i class="fas fa-moon">
+                    </i>
+                </nav>
+            </header>
+            <div class="content">
+                <div class="content-row">
+                    <!-- Text -->
+                    <div class="text">
+                        <h1>
+                            Empowering Innovation
+                        </h1>
+                        <p>
+                            We're dedicated to ensuring widespread access to
+                            life-changing technology education and
+                            fostering pathways for employment, empowering
+                            individuals everywhere to leverage technological
+                            advancements for personal and professional growth.
+                            Our goal is to provide resources, support,
+                            and guidance to help individuals develop the skills
+                            they need to thrive in today's rapidly
+                            evolving technological landscape.
+                        </p>
+                        <div class="button-container">
+                            <a class="btn btn-green" href="#">
+                                Become a Member
+                            </a>
+                            <a class="btn btn-blue" href="#">
+                                Get Involved
+                            </a>
+                        </div>
+                    </div>
+                    <!-- image -->
+                    <div class="image">
+                        <img alt="Empowering Innovation Image" height="400"
+                            src="/Resources/Photos/IMG_4781.jpeg"
+                            width="800" />
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <h1>
+                    Empowering Innovation
+                </h1>
+                <div class="cards">
+                    <div class="card">
+                        <img alt="Empowering Innovation Image" height="400"
+                            src="/Resources/Photos/IMG_4781.jpeg"
+                            width="800" />
+                        <p>
+                            Out Reach
+                        </p>
+                    </div>
+                    <div class="card">
+                        <img alt="Empowering Innovation Image" height="400"
+                            src="/Resources/Photos/IMG_4781.jpeg"
+                            width="800" />
+                        <p>
+                            Out Reach
+                        </p>
+                    </div>
+                    <div class="card">
+                        <img alt="Empowering Innovation Image" height="400"
+                            src="/Resources/Photos/IMG_4781.jpeg"
+                            width="800" />
+                        <p>
+                            Out Reach
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="content-row">
+                    <div class="text">
+                        <h1>
+                            Subscribe to Our Newsletter
+                        </h1>
+                        <p>
+                            We're dedicated to ensuring widespread access to
+                            life-changing technology education and
+                            fostering pathways for employment, empowering
+                            individuals everywhere to leverage technological
+                            advancements for personal and professional growth.
+                            Our goal is to provide resources, support,
+                            and guidance to help individuals develop the skills
+                            they need to thrive in today's rapidly
+                            evolving technological landscape.
+                        </p>
+                        <input placeholder="Enter your email" type="text" />
                         <a class="btn btn-blue" href="#">
                             Get Involved
                         </a>
                     </div>
-                </div>
-                <!-- image -->
-                <div class="image">
-                    <img alt="Empowering Innovation Image" height="400"
-                        src="/Resources/Photos/IMG_4781.jpeg"
-                        width="800" />
-                </div>
-            </div>
-        </div>
-        <div class="content">
-            <h1>
-                Empowering Innovation
-            </h1>
-            <div class="cards">
-                <div class="card">
-                    <img alt="Empowering Innovation Image" height="400"
-                        src="/Resources/Photos/IMG_4781.jpeg"
-                        width="800" />
-                    <p>
-                        Out Reach
-                    </p>
-                </div>
-                <div class="card">
-                    <img alt="Empowering Innovation Image" height="400"
-                        src="/Resources/Photos/IMG_4781.jpeg"
-                        width="800" />
-                    <p>
-                        Out Reach
-                    </p>
-                </div>
-                <div class="card">
-                    <img alt="Empowering Innovation Image" height="400"
-                        src="/Resources/Photos/IMG_4781.jpeg"
-                        width="800" />
-                    <p>
-                        Out Reach
-                    </p>
+                    <div class="image">
+                        <img alt="Empowering Innovation Image" height="400"
+                            src="/Resources/Photos/IMG_4781.jpeg"
+                            width="800" />
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="content">
-            <div class="content-row">
-                <div class="text">
-                    <h1>
-                        Subscribe to Our Newsletter
-                    </h1>
-                    <p>
-                        We're dedicated to ensuring widespread access to life-changing technology education and
-                        fostering pathways for employment, empowering individuals everywhere to leverage technological
-                        advancements for personal and professional growth. Our goal is to provide resources, support,
-                        and guidance to help individuals develop the skills they need to thrive in today's rapidly
-                        evolving technological landscape.
-                    </p>
-                    <input placeholder="Enter your email" type="text" />
-                    <a class="btn btn-blue" href="#">
-                        Get Involved
-                    </a>
-                </div>
-                <div class="image">
-                    <img alt="Empowering Innovation Image" height="400"
-                    src="/Resources/Photos/IMG_4781.jpeg"
-                    width="800" />
-                </div>
-            </div>
-        </div>
-        <footer>
-            <div>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/company/plastal-bot-builders/?originalSubdomain=zm">
-                        <i class="fab fa-linkedin icon-size"></i>
-                    </a>
-                    <a href="https://www.instagram.com">
-                        <i class="fab fa-instagram icon-size"></i>
-                    </a>
-                    <a href="https://www.facebook.com/plastalbotbuiders">
-                        <i class="fab fa-facebook icon-size"></i>
-                    </a>
-                    <a href="https://medium.com/@plastalbotbuilders">
-                        <i class="fab fa-medium icon-size"></i>
-                    </a>
-                </div>
-            <div>
-                <p>
-                    ©️2024 Plastal-Bot Builders All rights reserved.
-                    <a href="#">
-                        Privacy Policy
-                    </a>
-                    <a href="#">
-                        Terms and Conditions Apply
-                    </a>
-                </p>
+            <footer>
+                <div>
+                    <div class="social-links">
+                        <a
+                            href="https://www.linkedin.com/company/plastal-bot-builders/?originalSubdomain=zm">
+                            <i class="fab fa-linkedin icon-size"></i>
+                        </a>
+                        <a href="https://www.instagram.com">
+                            <i class="fab fa-instagram icon-size"></i>
+                        </a>
+                        <a href="https://www.facebook.com/plastalbotbuiders">
+                            <i class="fab fa-facebook icon-size"></i>
+                        </a>
+                        <a href="https://medium.com/@plastalbotbuilders">
+                            <i class="fab fa-medium icon-size"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <p>
+                            ©️2024 Plastal-Bot Builders All rights reserved.
+                            <a href="#">
+                                Privacy Policy
+                            </a>
+                            <a href="#">
+                                Terms and Conditions Apply
+                            </a>
+                        </p>
 
+                    </div>
+                </footer>
             </div>
-        </footer>
-    </div>
-</body>
+        </body>
 
-</html>
+    </html>
