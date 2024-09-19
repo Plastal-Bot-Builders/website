@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<<<<<<< HEAD
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +15,20 @@
             href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap"
             rel="stylesheet" />
         <style>
+=======
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Empowering Innovation
+    </title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+>>>>>>> 15987f7 (worked on the abouts page)
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
@@ -22,9 +37,12 @@
         }
 
         .logo {
-            height: 200px; /* Adjust the value as needed */
-            width: 200px;  /* Adjust the value as needed */
+            height: 200px;
+            /* Adjust the value as needed */
+            width: 200px;
+            /* Adjust the value as needed */
         }
+
         .container {
             width: 80%;
             margin: 0 auto;
@@ -32,14 +50,19 @@
         }
 
         .nav-link {
-            color: #FFFFFF; /* Initial color */
-            text-decoration: none; /* Remove underline */
-            transition: color 0.3s, transform 0.3s; /* Smooth transition for hover effect */
+            color: #FFFFFF;
+            /* Initial color */
+            text-decoration: none;
+            /* Remove underline */
+            transition: color 0.3s, transform 0.3s;
+            /* Smooth transition for hover effect */
         }
-        
+
         .nav-link:hover {
-            color: #0CFFBB; /* Change color on hover */
-            transform: scale(1.1); /* Slightly increase size on hover */
+            color: #0CFFBB;
+            /* Change color on hover */
+            transform: scale(1.1);
+            /* Slightly increase size on hover */
         }
 
         header {
@@ -68,7 +91,7 @@
 
         .btn-green {
             background-color: #0CFFBB;
-            border: 2px solid #000000;
+            border: 2px solid #ffffff;
         }
 
         .btn-blue {
@@ -149,18 +172,25 @@
         .content-row .image {
             width: 45%;
         }
+
         .button-container .btn {
-            margin-right: 10px; /* Adjust the value as needed */
+            margin-right: 10px;
+            /* Adjust the value as needed */
         }
+
         .icon-size {
             font-size: 32px;
-            transition: color 0.3s, transform 0.3s; /* Smooth transition for hover effect */
+            transition: color 0.3s, transform 0.3s;
+            /* Smooth transition for hover effect */
         }
-        
+
         .icon-size:hover {
-            color: #0CFFBB; /* Change color on hover */
-            transform: scale(1.2); /* Slightly increase size on hover */
+            color: #0CFFBB;
+            /* Change color on hover */
+            transform: scale(1.2);
+            /* Slightly increase size on hover */
         }
+
         footer {
             text-align: center;
             padding: 20px 0;
@@ -179,6 +209,7 @@
     </style>
     </head>
 
+<<<<<<< HEAD
     <body>
         <div class="container">
             <header>
@@ -285,10 +316,81 @@
                             evolving technological landscape.
                         </p>
                         <input placeholder="Enter your email" type="text" />
+=======
+<body>
+    <div class="container">
+        <header>
+            <div class="navbar">
+                <div class="navbar-start">
+                    <div class="dropdown">
+                        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h8m-8 6h16" />
+                            </svg>
+                        </div>
+                        <ul tabindex="0"
+                            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                            <li><a>Home</a></li>
+                            <li>
+                                <a>FAQs</a>
+                                <ul class="p-2">
+                                    <li><a>Submenu 1</a></li>
+                                    <li><a>Submenu 2</a></li>
+                                </ul>
+                            </li>
+                            <li><a>About</a></li>
+                            <li><a>Blogs</a></li>
+                        </ul>
+                    </div>
+                    <img class="logo" alt="Logo" src="/Resources/Logo/1-02 (2).png" />
+                </div>
+                <div class="navbar-center hidden lg:flex">
+                    <ul class="menu menu-horizontal px-1">
+                        <li><a>Home</a></li>
+                        <li>
+                            <details>
+                                <summary>FAQs</summary>
+                                <ul class="p-2">
+                                    <li><a>Submenu 1</a></li>
+                                    <li><a>Submenu 2</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li><a>About</a></li>
+                    </ul>
+                </div>
+                <div class="navbar-end">
+                    <button class="btn btn-outline btn-primary">Primary</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="content">
+            <div class="content-row">
+                <!-- Text -->
+                <div class="text">
+                    <h1>
+                        Empowering Innovation
+                    </h1>
+                    <p>
+                        We're dedicated to ensuring widespread access to life-changing technology education and
+                        fostering pathways for employment, empowering individuals everywhere to leverage technological
+                        advancements for personal and professional growth. Our goal is to provide resources, support,
+                        and guidance to help individuals develop the skills they need to thrive in today's rapidly
+                        evolving technological landscape.
+                    </p>
+                    <div class="button-container">
+                        <a class="btn btn-green" href="#">
+                            Become a Member
+                        </a>
+>>>>>>> 15987f7 (worked on the abouts page)
                         <a class="btn btn-blue" href="#">
                             Get Involved
                         </a>
                     </div>
+<<<<<<< HEAD
                     <div class="image">
                         <img alt="Empowering Innovation Image" height="400"
                             src="/Resources/Photos/IMG_4781.jpeg"
@@ -328,5 +430,113 @@
                 </footer>
             </div>
         </body>
+=======
+                </div>
+                <!-- image -->
+                <div class="image">
+                    <img alt="Empowering Innovation Image" height="400" src="/Resources/Photos/IMG_4781.jpeg"
+                        width="800" />
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <h1>
+                Empowering Innovation
+            </h1>
+            <div class="cards">
+                <div class="card">
+                    <img alt="Empowering Innovation Image" height="400" src="/Resources/Photos/IMG_4781.jpeg"
+                        width="800" />
+                    <p>
+                        Out Reach
+                    </p>
+                </div>
+                <div class="card">
+                    <img alt="Empowering Innovation Image" height="400" src="/Resources/Photos/IMG_4781.jpeg"
+                        width="800" />
+                    <p>
+                        Out Reach
+                    </p>
+                </div>
+                <div class="card">
+                    <img alt="Empowering Innovation Image" height="400" src="/Resources/Photos/IMG_4781.jpeg"
+                        width="800" />
+                    <p>
+                        Out Reach
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="content-row">
+                <div class="text">
+                    <h1>
+                        Subscribe to Our Newsletter
+                    </h1>
+                    <p>
+                        We're dedicated to ensuring widespread access to life-changing technology education and
+                        fostering pathways for employment, empowering individuals everywhere to leverage technological
+                        advancements for personal and professional growth. Our goal is to provide resources, support,
+                        and guidance to help individuals develop the skills they need to thrive in today's rapidly
+                        evolving technological landscape.
+                    </p>
+                    <input placeholder="Enter your email" type="text" />
+                    <a class="btn btn-blue" href="#">
+                        Get Involved
+                    </a>
+                </div>
+                <div class="image">
+                    <img alt="Empowering Innovation Image" height="400" src="/Resources/Photos/IMG_4781.jpeg"
+                        width="800" />
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="justify-center footer text-neutral-content p-10 space-x-24">
+                <nav>
+                    <h6 class="footer-title">Projects</h6>
+                    <a class="link link-hover">Branding</a>
+                    <a class="link link-hover">Design</a>
+                    <a class="link link-hover">Marketing</a>
+                </nav>
+                <nav>
+                    <h6 class="footer-title">Organization</h6>
+                    <a class="link link-hover">About us</a>
+                    <a class="link link-hover">Contact</a>
+                    <a class="link link-hover">Jobs</a>
+                </nav>
+                <nav>
+                    <h6 class="footer-title">Contacts</h6>
+                    <a class="link link-hover">Terms of use</a>
+                    <a class="link link-hover">Privacy policy</a>
+                    <a class="link link-hover">Cookie policy</a>
+
+            </div>
+            <hr class="border-t border-gray-300 my-4">
+            <div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/company/plastal-bot-builders/?originalSubdomain=zm">
+                        <i class="fab fa-linkedin icon-size"></i>
+                    </a>
+                    <a href="https://www.instagram.com">
+                        <i class="fab fa-instagram icon-size"></i>
+                    </a>
+                    <a href="https://www.facebook.com/plastalbotbuiders">
+                        <i class="fab fa-facebook icon-size"></i>
+                    </a>
+                    <a href="https://medium.com/@plastalbotbuilders">
+                        <i class="fab fa-medium icon-size"></i>
+                    </a>
+                </div>
+                <div>
+                    <p>
+                        ©️2024 Plastal-Bot Builders All rights reserved
+                    </p>
+
+                </div>
+        </footer>
+    </div>
+</body>
+>>>>>>> 15987f7 (worked on the abouts page)
 
     </html>
