@@ -1,26 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<<<<<<< HEAD
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>
-            Empowering Innovation
-        </title>
-        <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-            rel="stylesheet" />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap"
-            rel="stylesheet" />
-        <style>
-=======
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/Resources/Logo/logo_trans.png" type="image/x-icon" />
     <title>
-        Empowering Innovation
+        Home
     </title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet" />
@@ -28,7 +14,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
->>>>>>> 15987f7 (worked on the abouts page)
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
@@ -207,116 +192,8 @@
             margin: 10px 0;
         }
     </style>
-    </head>
+</head>
 
-<<<<<<< HEAD
-    <body>
-        <div class="container">
-            <header>
-                <img class="logo" alt="Logo"
-                    src="/Resources/Logo/1-02 (2).png" />
-                <nav>
-                    <a class="nav-link" href="#">
-                        Home
-                    </a>
-                    <a class="nav-link" href="#">
-                        About
-                    </a>
-                    <a class="nav-link" href="#">
-                        FAQs
-                    </a>
-                    <a class="btn btn-green" href="#">
-                        Become a Member
-                    </a>
-                    <i class="fas fa-moon">
-                    </i>
-                </nav>
-            </header>
-            <div class="content">
-                <div class="content-row">
-                    <!-- Text -->
-                    <div class="text">
-                        <h1>
-                            Empowering Innovation
-                        </h1>
-                        <p>
-                            We're dedicated to ensuring widespread access to
-                            life-changing technology education and
-                            fostering pathways for employment, empowering
-                            individuals everywhere to leverage technological
-                            advancements for personal and professional growth.
-                            Our goal is to provide resources, support,
-                            and guidance to help individuals develop the skills
-                            they need to thrive in today's rapidly
-                            evolving technological landscape.
-                        </p>
-                        <div class="button-container">
-                            <a class="btn btn-green" href="#">
-                                Become a Member
-                            </a>
-                            <a class="btn btn-blue" href="#">
-                                Get Involved
-                            </a>
-                        </div>
-                    </div>
-                    <!-- image -->
-                    <div class="image">
-                        <img alt="Empowering Innovation Image" height="400"
-                            src="/Resources/Photos/IMG_4781.jpeg"
-                            width="800" />
-                    </div>
-                </div>
-            </div>
-            <div class="content">
-                <h1>
-                    Empowering Innovation
-                </h1>
-                <div class="cards">
-                    <div class="card">
-                        <img alt="Empowering Innovation Image" height="400"
-                            src="/Resources/Photos/IMG_4781.jpeg"
-                            width="800" />
-                        <p>
-                            Out Reach
-                        </p>
-                    </div>
-                    <div class="card">
-                        <img alt="Empowering Innovation Image" height="400"
-                            src="/Resources/Photos/IMG_4781.jpeg"
-                            width="800" />
-                        <p>
-                            Out Reach
-                        </p>
-                    </div>
-                    <div class="card">
-                        <img alt="Empowering Innovation Image" height="400"
-                            src="/Resources/Photos/IMG_4781.jpeg"
-                            width="800" />
-                        <p>
-                            Out Reach
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="content">
-                <div class="content-row">
-                    <div class="text">
-                        <h1>
-                            Subscribe to Our Newsletter
-                        </h1>
-                        <p>
-                            We're dedicated to ensuring widespread access to
-                            life-changing technology education and
-                            fostering pathways for employment, empowering
-                            individuals everywhere to leverage technological
-                            advancements for personal and professional growth.
-                            Our goal is to provide resources, support,
-                            and guidance to help individuals develop the skills
-                            they need to thrive in today's rapidly
-                            evolving technological landscape.
-                        </p>
-                        <input placeholder="Enter your email" type="text" />
-=======
 <body>
     <div class="container">
         <header>
@@ -332,7 +209,7 @@
                         </div>
                         <ul tabindex="0"
                             class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                            <li><a>Home</a></li>
+                            <li><a href="index.html">Home</a></li>
                             <li>
                                 <a>FAQs</a>
                                 <ul class="p-2">
@@ -340,15 +217,15 @@
                                     <li><a>Submenu 2</a></li>
                                 </ul>
                             </li>
-                            <li><a>About</a></li>
-                            <li><a>Blogs</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="blog.html">Blogs</a></li>
                         </ul>
                     </div>
                     <img class="logo" alt="Logo" src="/Resources/Logo/1-02 (2).png" />
                 </div>
                 <div class="navbar-center hidden lg:flex">
                     <ul class="menu menu-horizontal px-1">
-                        <li><a>Home</a></li>
+                        <li><a href="index.html">Home</a></li>
                         <li>
                             <details>
                                 <summary>FAQs</summary>
@@ -358,185 +235,461 @@
                                 </ul>
                             </details>
                         </li>
-                        <li><a>About</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="blog.html">Blogs</a></li>
                     </ul>
                 </div>
                 <div class="navbar-end">
-                    <button class="btn btn-outline btn-primary">Primary</button>
+                    <button class="btn btn-outline btn-primary">Become a Member</button>
                 </div>
             </div>
         </header>
 
-        <div class="content">
-            <div class="content-row">
-                <!-- Text -->
+        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+
+        <div class="flex flex-col md:flex-row justify-between p-4 space-y-8 md:space-y-0 md:space-x-8">
+            <div class="w-full md:w-1/2 p-4">
                 <div class="text">
-                    <h1>
-                        Empowering Innovation
+                    <h1
+                        class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+                        <span class="text-blue-600 dark:text-blue-500">Empowering </span> Innovation
                     </h1>
-                    <p>
-                        We're dedicated to ensuring widespread access to life-changing technology education and
-                        fostering pathways for employment, empowering individuals everywhere to leverage technological
-                        advancements for personal and professional growth. Our goal is to provide resources, support,
-                        and guidance to help individuals develop the skills they need to thrive in today's rapidly
-                        evolving technological landscape.
+                    <p class="my-4 text-lg text-gray-500">
+                        We’re committed to making life-changing technology education accessible to all, regardless of
+                        background
+                        or location. By offering innovative and inclusive learning opportunities, we aim to equip
+                        individuals
+                        with the critical skills needed to thrive in today’s digital economy. From foundational courses
+                        in
+                        coding and data science to advanced programs in artificial intelligence, cybersecurity, and
+                        cloud
+                        computing, our goal is to break down barriers to education and create a pathway for everyone to
+                        explore
+                        their potential.
+                        But our mission doesn’t stop at education. We recognize that learning is only the first step;
+                        real
+                        empowerment comes when individuals can translate their knowledge into meaningful employment
+                        opportunities.
                     </p>
-                    <div class="button-container">
-                        <a class="btn btn-green" href="#">
-                            Become a Member
-                        </a>
->>>>>>> 15987f7 (worked on the abouts page)
-                        <a class="btn btn-blue" href="#">
-                            Get Involved
-                        </a>
-                    </div>
-<<<<<<< HEAD
-                    <div class="image">
-                        <img alt="Empowering Innovation Image" height="400"
-                            src="/Resources/Photos/IMG_4781.jpeg"
-                            width="800" />
+                    <p class="mb-4 text-lg font-normal text-gray-500 dark:text-gray-400">
+                        That’s why we are equally dedicated to fostering job-ready skills, bridging the gap between
+                        education
+                        and the workforce. Through partnerships with industry leaders, internships, and career
+                        development
+                        initiatives, we help learners turn their newfound expertise into tangible career success.
+                    </p>
+                    <div class="button-container space-y-2">
+                        <button class="btn btn-lg btn-outline btn-primary">Become a Member</button>
+                        <button class="btn btn-lg btn-outline btn-primary">Get Involved</button>
                     </div>
                 </div>
             </div>
-            <footer>
+            <div class="w-full md:w-1/2 p-4">
+                <div class="image">
+                    <img alt="Empowering Innovation Image" height="400" src="/Resources/Photos/IMG_4781.jpeg"
+                        width="800" class="w-full h-auto object-cover" />
+                </div>
+            </div>
+        </div>
+
+        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+        <div class="flex flex-col md:flex-row justify-between p-4 space-y-8 md:space-y-0 md:space-x-8">
+            <div class="w-full md:w-1/2 p-4">
+                <div class="image">
+                    <img alt="Empowering Innovation Image" height="200" src="/Resources/Photos/IMG_4781.jpeg"
+                        width="800" class="w-full h-auto object-cover" />
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 p-4">
+                <div class="text">
+                    <h1
+                        class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+                        <span class="text-blue-600 dark:text-blue-500">About </span> Us
+                    </h1>
+                    <p class="mb-4 text-lg font-normal text-gray-500 dark:text-gray-400">
+                        Plastal-Bot Builders is a non-profit organization dedicated to empowering the next generation of
+                        young
+                        leaders through Robotics, innovation, and Entrepreneurship in underrepresented communities. We
+                        believe that bridging the digital divide and fostering innovation are crucial for every
+                        community's socioeconomic progress.
+
+                    </p>
+                    <p class="my-4 text-lg text-gray-500">
+                        Our commitment to education, empowerment, and community development drives our core programs:
+                        D'Privilege, the School Outreach Program (SOP), Afrohacks.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+        <div class="flex flex-col md:flex-row justify-between p-4 space-y-8 md:space-y-0 md:space-x-8">
+            <!-- Sub-div 1 -->
+            <div class="w-full md:w-1/2 p-4">
                 <div>
-                    <div class="social-links">
-                        <a
-                            href="https://www.linkedin.com/company/plastal-bot-builders/?originalSubdomain=zm">
-                            <i class="fab fa-linkedin icon-size"></i>
-                        </a>
-                        <a href="https://www.instagram.com">
-                            <i class="fab fa-instagram icon-size"></i>
-                        </a>
-                        <a href="https://www.facebook.com/plastalbotbuiders">
-                            <i class="fab fa-facebook icon-size"></i>
-                        </a>
-                        <a href="https://medium.com/@plastalbotbuilders">
-                            <i class="fab fa-medium icon-size"></i>
-                        </a>
-                    </div>
+                    <h1
+                        class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+                        <span class="text-blue-600 dark:text-blue-500">Empowering </span> Innovation
+                    </h1>
+                </div>
+                <div class="p-4 rounded-lg mb-4">
+                    <!-- First child of first sub-div -->
+                    <h1 class="text-3xl font-extrabold"> Fostering Innovation </h1>
+                    <p class="mt-4"> Technology empowers people to think creatively and push boundaries. It opens new
+                        avenues for innovation, allowing entrepreneurs and researchers to develop solutions that were
+                        once thought impossible. Whether it’s artificial intelligence revolutionizing healthcare or
+                        renewable energy transforming our environmental practices, technology enables us to dream big
+                        and achieve even more.</p>
+                </div>
+                <div class="mt-8 p-4 rounded-lg">
+                    <!-- Second child of first sub-div -->
+                    <h1 class="text-3xl font-extrabold"> Bridging Gaps </h1>
+                    <p class="mt-4"> One of the most significant impacts of technology is its ability to connect people
+                        and resources. Through digital platforms, communities are no longer constrained by geographical
+                        boundaries. Remote working, virtual collaboration, and online learning platforms have made it
+                        possible for people to engage, learn, and grow from anywhere in the world. This empowerment
+                        extends beyond individuals, enabling businesses and governments to collaborate on a global
+                        scale. </p>
+                </div>
+            </div>
+
+            <!-- Sub-div 2 -->
+            <div class="w-full md:w-1/2 p-4">
+                <h1
+                    class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+                    <span class="text-blue-600 dark:text-blue-500">Empowering </span> Technology
+                </h1>
+                <div class="p-4 rounded-lg mb-4">
+                    <!-- First child of first sub-div -->
+                    <h1 class="text-3xl font-extrabold"> Enhancing Education </h1>
+                    <p class="mt-4"> In education, technology has become a catalyst for change. Digital tools such as
+                        interactive software, online courses, and e-learning platforms provide personalized learning
+                        experiences, making education more accessible to all. Students can now gain knowledge and skills
+                        from world-class institutions, regardless of their location or socioeconomic background, further
+                        leveling the playing field for future generations. Empowering technology plays a critical role
+                        in addressing climate change, resource depletion, and other global environmental challenges.
+                        Through advancements in clean energy, sustainable agriculture, and waste management
+                        technologies, we are creating a more sustainable world. These innovations empower individuals
+                        and industries to reduce their environmental impact and contribute to a healthier planet.</p>
+                </div>
+            </div>
+        </div>
+
+        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+        <div class="flex justofy-between p-4 space-x-8">
+            <div class="w-1/2 p-4">
+                <div class="text">
+                    <h1
+                        class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+                        <span class="text-blue-600 dark:text-blue-500">Subscribe </span> To <span
+                            class="text-blue-600 dark:text-blue-500">Our</span> Newsletter
+                    </h1>
+                    <p class="my-4 text-lg text-gray-500">We’re committed to making life-changing technology
+                        education
+                        accessible to all, regardless of background or location. By offering innovative and
+                        inclusive
+                        learning opportunities, we aim to equip individuals with the critical skills needed to
+                        thrive in
+                        today’s digital economy. From foundational courses in coding and data science to advanced
+                        programs in artificial intelligence, cybersecurity, and cloud computing, our goal is to
+                        break
+                        down barriers to education and create a pathway for everyone to explore their potential. But
+                        our
+                        mission doesn’t stop at education. We recognize that learning is only the first step; real
+                        empowerment comes when individuals can translate their knowledge into meaningful employment
+                        opportunities.
+                    </p>
+                    <p class="mb-4 text-lg font-normal text-gray-500 dark:text-gray-400"> That’s why we are equally
+                        dedicated to fostering job-ready skills, bridging the gap between education and the
+                        workforce.
+                        Through partnerships with industry leaders, internships, and career development initiatives,
+                        we
+                        help learners turn their newfound expertise into tangible career success.
+                    </p>
+                    <input type="text" placeholder="Enter you Email"
+                        class="input input-bordered input-lg w-full max-w-xs" />
+                    <button class="btn btn-lg btn-outline btn-primary ml-4">Become a Member</button>
+                </div>
+            </div>
+            <div class="w-1/2 p-4">
+                <div class="image">
+                    <img alt="Empowering Innovation Image" height="400" src="/Resources/Photos/IMG_4781.jpeg"
+                        width="800" />
+                </div>
+            </div>
+        </div>
+
+        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+        <div class="container mx-auto p-6 grid grid-cols-2 gap-6">
+            <!-- First Bento Box -->
+            <div class="grid grid-cols-3 grid-rows-2 gap-4">
+                <!-- Large Block (2x2) -->
+                <div class="col-span-2 row-span-2 bg-green-500 p-6">
+                    <h2 class="text-2xl font-bold mb-4">What is Robotics?</h2>
+                    <img src="/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg"
+                        alt="Introduction to Robotics" class="w-full h-64 object-cover rounded-lg mb-4">
+                    <p class="text-gray-700 text-sm">Robotics is a branch of engineering that involves the conception,
+                        design, manufacture, and operation of robots. This field overlaps with electronics, computer
+                        science, artificial intelligence, mechatronics, nanotechnology, and bioengineering.</p>
+                    <a href="#" class="text-blue-500 mt-4 inline-block">Learn more about Robotics...</a>
+                </div>
+
+                <!-- Small Block 1 -->
+                <div class="col-span-1 bg-green-500 flex items-center p-4">
+                    <img src="/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg"
+                        alt="Mechanical Engineering" class="w-16 h-16 rounded-full mr-4">
                     <div>
-                        <p>
-                            ©️2024 Plastal-Bot Builders All rights reserved.
-                            <a href="#">
-                                Privacy Policy
-                            </a>
-                            <a href="#">
-                                Terms and Conditions Apply
-                            </a>
-                        </p>
-
+                        <h3 class="text-lg font-semibold">Mechanical Engineering</h3>
+                        <p class="text-sm text-gray-600">In robotics, mechanical engineering involves the design of the
+                            physical systems of robots, like their arms, joints, and wheels.</p>
                     </div>
-                </footer>
-            </div>
-        </body>
-=======
                 </div>
-                <!-- image -->
-                <div class="image">
-                    <img alt="Empowering Innovation Image" height="400" src="/Resources/Photos/IMG_4781.jpeg"
-                        width="800" />
+
+                <!-- Small Block 2 -->
+                <div class="col-span-1 bg-green-500 flex items-center p-4">
+                    <img src="/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg"
+                        alt="Electrical Engineering" class="w-16 h-16 rounded-full mr-4">
+                    <div>
+                        <h3 class="text-lg font-semibold">Electrical Engineering</h3>
+                        <p class="text-sm text-gray-600">Electrical engineers focus on the circuitry, power systems, and
+                            control mechanisms that bring robots to life.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Bento Box (New Arrangement) -->
+            <div class="grid grid-cols-3 grid-rows-2 gap-4">
+                <!-- Small Block 1 (Top Left) -->
+                <div class="col-span-1 row-span-1 bg-green-500 flex items-center p-4">
+                    <img src="/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg" alt="AI and Robotics" class="w-16 h-16 rounded-full mr-4">
+                    <div>
+                        <h3 class="text-lg font-semibold">Artificial Intelligence (AI)</h3>
+                        <p class="text-sm text-gray-600">AI plays a pivotal role in robotics, enabling robots to learn,
+                            adapt, and perform tasks with greater precision.</p>
+                    </div>
+                </div>
+
+                <!-- Large Block (2x1) (Top Right) -->
+                <div class="col-span-2 row-span-1 bg-green-500 p-6">
+                    <h2 class="text-2xl font-bold mb-4">Applications of Robotics</h2>
+                    <img src="/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg" alt="Robotics Applications"
+                        class="w-full h-32 object-cover rounded-lg mb-4">
+                    <p class="text-gray-700 text-sm">Robotics is used in various industries, from manufacturing and
+                        healthcare to space exploration. Robots automate processes and perform tasks too dangerous or
+                        precise for humans.</p>
+                    <a href="#" class="text-blue-500 mt-4 inline-block">Explore applications of Robotics...</a>
+                </div>
+
+                <!-- Large Block (Bottom Left) (2x1) -->
+                <div class="col-span-2 row-span-1 bg-green-500 p-6">
+                    <h3 class="text-lg font-semibold mb-2">Ethics in Robotics</h3>
+                    <p class="text-gray-600 text-sm">As robots become more integrated into society, ethical concerns
+                        about autonomy, safety, and human rights arise. Understanding these issues is essential as
+                        robotics advances.</p>
+                </div>
+
+                <!-- Small Block 2 (Bottom Right) -->
+                <div class="col-span-1 row-span-1 bg-green-500 flex items-center p-4">
+                    <img src="/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg" alt="Sensors in Robotics" class="w-16 h-16 rounded-full mr-4">
+                    <div>
+                        <h3 class="text-lg font-semibold">Sensors</h3>
+                        <p class="text-sm text-gray-600">Sensors allow robots to interact with their environment. These
+                            include vision, touch, and auditory sensors, helping robots understand and adapt to their
+                            surroundings.</p>
+                    </div>
                 </div>
             </div>
         </div>
+
+
+        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+        <div class="container mx-auto p-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4">
+                <!-- Large Block -->
+                <div class="col-span-1 md:col-span-2 md:row-span-2 bg-green-500">
+                    <img src="/Resources/Photos/IMG_4781.jpeg" alt="Featured Image"
+                        class="w-full h-64 object-cover mb-4">
+                    <h2 class="text-2xl font-bold mb-4">Featured Article</h2>
+                    <p class="text-gray-700 text-sm">This is a featured article or content that occupies a large portion
+                        of the
+                        grid. You can showcase an article, a large image, or a detailed informational block here.
+                        Customize this
+                        section to fit your content needs.</p>
+                    <a href="#" class="text-blue-500 mt-4 inline-block">Read more...</a>
+                </div>
+
+                <!-- Tall Block -->
+                <div class="col-span-1 md:row-span-2 bg-green-500 flex items-center p-6">
+                    <h3 class="text-xl font-bold mb-4">Sidebar Content</h3>
+                    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+                    <h3 class="text-xl font-bold mb-4">Sidebar Content</h3>
+                    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+                    <h3 class="text-xl font-bold mb-4">Sidebar Content</h3>
+                    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+                    <h3 class="text-xl font-bold mb-4">Sidebar Content</h3>
+                    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+                </div>
+
+                <!-- Small Block 1 -->
+                <div class="col-span-1 row-span-1 bg-green-500 flex flex-col md:flex-row items-center p-4">
+                    <div class="w-full md:w-1/2 h-full">
+                        <img src="/Resources/Photos/IMG_4781.jpeg" alt="Reference Image"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full md:w-1/2 p-4">
+                        <h1
+                            class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
+                            <span class="text-blue-600 dark:text-blue-500">Research </span> Opportunities
+                        </h1>
+                        <p class="text-sm text-gray-600">Description for block 1 goes here.</p>
+                    </div>
+                </div>
+
+                <!-- Small Block 2 -->
+                <div class="col-span-1 row-span-1 bg-green-500 flex flex-col md:flex-row items-center p-4">
+                    <div class="w-full md:w-1/2 h-full">
+                        <img src="/Resources/Photos/IMG_4781.jpeg" alt="Reference Image"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full md:w-1/2 p-4">
+                        <h1
+                            class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
+                            <span class="text-blue-600 dark:text-blue-500">Mentorship </span> Opportunities
+                        </h1>
+                        <p class="text-sm text-gray-600">Description for block 2 goes here.</p>
+                    </div>
+                </div>
+
+                <!-- Small Block 3 -->
+                <div class="col-span-1 row-span-1 bg-green-500 flex flex-col md:flex-row items-center p-4">
+                    <div class="w-full md:w-1/2 h-full">
+                        <img src="/Resources/Photos/IMG_4781.jpeg" alt="Reference Image"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full md:w-1/2 p-4">
+                        <h1
+                            class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
+                            <span class="text-blue-600 dark:text-blue-500">Sponsorship </span> Opportunities
+                        </h1>
+                        <p class="text-sm text-gray-600">Description for block 3 goes here.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
         <div class="content">
-            <h1>
-                Empowering Innovation
+            <h1
+                class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+                <span class="text-blue-600 dark:text-blue-500">Empowering </span> Innovation
             </h1>
-            <div class="cards">
-                <div class="card">
-                    <img alt="Empowering Innovation Image" height="400" src="/Resources/Photos/IMG_4781.jpeg"
-                        width="800" />
-                    <p>
-                        Out Reach
-                    </p>
-                </div>
-                <div class="card">
-                    <img alt="Empowering Innovation Image" height="400" src="/Resources/Photos/IMG_4781.jpeg"
-                        width="800" />
-                    <p>
-                        Out Reach
-                    </p>
-                </div>
-                <div class="card">
-                    <img alt="Empowering Innovation Image" height="400" src="/Resources/Photos/IMG_4781.jpeg"
-                        width="800" />
-                    <p>
-                        Out Reach
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="content">
-            <div class="content-row">
-                <div class="text">
-                    <h1>
-                        Subscribe to Our Newsletter
-                    </h1>
-                    <p>
-                        We're dedicated to ensuring widespread access to life-changing technology education and
-                        fostering pathways for employment, empowering individuals everywhere to leverage technological
-                        advancements for personal and professional growth. Our goal is to provide resources, support,
-                        and guidance to help individuals develop the skills they need to thrive in today's rapidly
-                        evolving technological landscape.
-                    </p>
-                    <input placeholder="Enter your email" type="text" />
-                    <a class="btn btn-blue" href="#">
-                        Get Involved
+            <div class="cards ">
+                <div
+                    class="card relative overflow-hidden transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0">
+                    <a href="#">
+                        <img class="w-full h-full object-cover" alt="Empowering Innovation Image" height="400"
+                            src="/Resources/Photos/IMG_4781.jpeg" width="800" />
+                        <div class="card-overlay absolute px-4 text-lg text-white bottom-24">
+                            <p
+                                class="max-w-lg text-center text-3xl font-semibold leading-loose text-gray-900 dark:text-white">
+                                Lusaka Out-Reach
+                            </p>
+                        </div>
                     </a>
+                    <h2 class="card-title px-8 py-8">
+                        Lusaka Out-Reach
+                    </h2>
                 </div>
-                <div class="image">
-                    <img alt="Empowering Innovation Image" height="400" src="/Resources/Photos/IMG_4781.jpeg"
-                        width="800" />
+                <div
+                    class="card relative overflow-hidden transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0">
+                    <a href="#">
+                        <img class="w-full h-full object-cover" alt="Empowering Chililabombwe" height="400"
+                            src="/Resources/Photos/IMG_4781.jpeg" width="800" />
+                        <div class="card-overlay absolute px-4 text-lg text-white bottom-24">
+                            <p
+                                class="max-w-lg text-center text-3xl font-semibold leading-loose text-gray-900 dark:text-white">
+                                Chililabombwe Out-Reach
+                            </p>
+                        </div>
+                    </a>
+                    <h2 class="card-title px-8 py-8">
+                        Chililabombwe Out-Reach
+                    </h2>
+                </div>
+                <div
+                    class="card relative overflow-hidden transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0">
+                    <a href="#">
+                        <img class="w-full h-full object-cover" alt="Empowering Innovation Image" height="400"
+                            src="/Resources/Photos/IMG_4781.jpeg" width="800" />
+                        <div class="card-overlay absolute px-4 text-lg text-white bottom-24">
+                            <p
+                                class="max-w-lg text-center text-3xl font-semibold leading-loose text-gray-900 dark:text-white">
+                                Kitwe Out-Reach
+                            </p>
+                        </div>
+
+                    </a>
+                    <h2 class="card-title px-8 py-8">
+                        Kitwe Out-Reach
+                        <div class="badge badge-secondary">NEW</div>
+                    </h2>
                 </div>
             </div>
         </div>
-        <footer>
-            <div class="justify-center footer text-neutral-content p-10 space-x-24">
-                <nav>
-                    <h6 class="footer-title">Projects</h6>
-                    <a class="link link-hover">Branding</a>
-                    <a class="link link-hover">Design</a>
-                    <a class="link link-hover">Marketing</a>
-                </nav>
-                <nav>
-                    <h6 class="footer-title">Organization</h6>
-                    <a class="link link-hover">About us</a>
-                    <a class="link link-hover">Contact</a>
-                    <a class="link link-hover">Jobs</a>
-                </nav>
-                <nav>
-                    <h6 class="footer-title">Contacts</h6>
-                    <a class="link link-hover">Terms of use</a>
-                    <a class="link link-hover">Privacy policy</a>
-                    <a class="link link-hover">Cookie policy</a>
 
+    </div>
+    <footer>
+        <div class="justify-center footer text-neutral-content p-10 space-x-24">
+            <nav>
+                <h6 class="footer-title">Projects</h6>
+                <a class="link link-hover">Branding</a>
+                <a class="link link-hover">Design</a>
+                <a class="link link-hover">Marketing</a>
+            </nav>
+            <nav>
+                <h6 class="footer-title">Organization</h6>
+                <a class="link link-hover">About us</a>
+                <a class="link link-hover">Contact</a>
+                <a class="link link-hover">Jobs</a>
+            </nav>
+            <nav>
+                <h6 class="footer-title">Contacts</h6>
+                <a class="link link-hover">Terms of use</a>
+                <a class="link link-hover">Privacy policy</a>
+                <a class="link link-hover">Cookie policy</a>
+
+        </div>
+        <hr class="border-t border-gray-300 my-4">
+        <div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/company/plastal-bot-builders/?originalSubdomain=zm">
+                    <i class="fab fa-linkedin icon-size"></i>
+                </a>
+                <a href="https://www.instagram.com">
+                    <i class="fab fa-instagram icon-size"></i>
+                </a>
+                <a href="https://www.facebook.com/plastalbotbuiders">
+                    <i class="fab fa-facebook icon-size"></i>
+                </a>
+                <a href="https://medium.com/@plastalbotbuilders">
+                    <i class="fab fa-medium icon-size"></i>
+                </a>
             </div>
-            <hr class="border-t border-gray-300 my-4">
             <div>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/company/plastal-bot-builders/?originalSubdomain=zm">
-                        <i class="fab fa-linkedin icon-size"></i>
-                    </a>
-                    <a href="https://www.instagram.com">
-                        <i class="fab fa-instagram icon-size"></i>
-                    </a>
-                    <a href="https://www.facebook.com/plastalbotbuiders">
-                        <i class="fab fa-facebook icon-size"></i>
-                    </a>
-                    <a href="https://medium.com/@plastalbotbuilders">
-                        <i class="fab fa-medium icon-size"></i>
-                    </a>
-                </div>
-                <div>
-                    <p>
-                        ©️2024 Plastal-Bot Builders All rights reserved
-                    </p>
+                <p>
+                    ©️2024 Plastal-Bot Builders All rights reserved
+                </p>
 
-                </div>
-        </footer>
+            </div>
+    </footer>
     </div>
 </body>
->>>>>>> 15987f7 (worked on the abouts page)
 
-    </html>
+</html>
