@@ -466,7 +466,8 @@
             <div class="grid grid-cols-3 grid-rows-2 gap-4">
                 <!-- Small Block 1 (Top Left) -->
                 <div class="col-span-1 row-span-1 bg-green-500 flex items-center p-4">
-                    <img src="/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg" alt="AI and Robotics" class="w-16 h-16 rounded-full mr-4">
+                    <img src="/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg" alt="AI and Robotics"
+                        class="w-16 h-16 rounded-full mr-4">
                     <div>
                         <h3 class="text-lg font-semibold">Artificial Intelligence (AI)</h3>
                         <p class="text-sm text-gray-600">AI plays a pivotal role in robotics, enabling robots to learn,
@@ -477,8 +478,8 @@
                 <!-- Large Block (2x1) (Top Right) -->
                 <div class="col-span-2 row-span-1 bg-green-500 p-6">
                     <h2 class="text-2xl font-bold mb-4">Applications of Robotics</h2>
-                    <img src="/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg" alt="Robotics Applications"
-                        class="w-full h-32 object-cover rounded-lg mb-4">
+                    <img src="/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg"
+                        alt="Robotics Applications" class="w-full h-32 object-cover rounded-lg mb-4">
                     <p class="text-gray-700 text-sm">Robotics is used in various industries, from manufacturing and
                         healthcare to space exploration. Robots automate processes and perform tasks too dangerous or
                         precise for humans.</p>
@@ -495,7 +496,8 @@
 
                 <!-- Small Block 2 (Bottom Right) -->
                 <div class="col-span-1 row-span-1 bg-green-500 flex items-center p-4">
-                    <img src="/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg" alt="Sensors in Robotics" class="w-16 h-16 rounded-full mr-4">
+                    <img src="/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg"
+                        alt="Sensors in Robotics" class="w-16 h-16 rounded-full mr-4">
                     <div>
                         <h3 class="text-lg font-semibold">Sensors</h3>
                         <p class="text-sm text-gray-600">Sensors allow robots to interact with their environment. These
@@ -582,6 +584,94 @@
                 </div>
             </div>
         </div>
+
+        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+
+        <div class="container mx-auto p-6 grid grid-cols-2 gap-6">
+            <!-- First Bento Box (Climate Change Robotics) -->
+            <div class="grid grid-cols-3 grid-rows-2 gap-4">
+                <!-- Large Block (2x2) -->
+                <div class="col-span-2 row-span-2 bg-green-500 p-6">
+                    <h2 class="text-2xl font-bold mb-4">Robotics for Addressing Climate Change</h2>
+                    <img src="/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg"
+                        alt="Robotics and Climate Change" class="w-full h-64 object-cover rounded-lg mb-4">
+                    <p class="text-gray-700 text-sm">Robots play a crucial role in combating climate change. From
+                        monitoring deforestation to analyzing ocean health, robotics aids in environmental preservation
+                        efforts.</p>
+                    <a href="#" class="text-blue-500 mt-4 inline-block">Learn how robotics can fight climate
+                        change...</a>
+                </div>
+
+                <!-- Small Block 1 -->
+                <div class="col-span-1 bg-green-500 flex items-center p-4">
+                    <img src="/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg" alt="Robotic Drones"
+                        class="w-16 h-16 rounded-full mr-4">
+                    <div>
+                        <h3 class="text-lg font-semibold">Robotic Drones</h3>
+                        <p class="text-sm text-gray-600">Drones monitor large areas of land, providing data on
+                            deforestation, pollution, and more to help conservationists make decisions.</p>
+                    </div>
+                </div>
+
+                <!-- Small Block 2 -->
+                <div class="col-span-1 bg-green-500 flex items-center p-4">
+                    <img src="/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg" alt="Underwater Robots"
+                        class="w-16 h-16 rounded-full mr-4">
+                    <div>
+                        <h3 class="text-lg font-semibold">Underwater Robots</h3>
+                        <p class="text-sm text-gray-600">These robots explore and monitor marine ecosystems, providing
+                            critical data on ocean health and environmental shifts.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Bento Box (Rearranged Block Pattern) -->
+            <div class="grid grid-cols-3 grid-rows-3 gap-4">
+                <!-- Large Block (Bottom) -->
+                <div class="col-span-3 row-span-1 bg-green-500 p-6">
+                    <h2 class="text-2xl font-bold mb-4">Robotics in Renewable Energy</h2>
+                    <img src="/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg"
+                        alt="Robotics in Renewable Energy" class="w-full h-32 object-cover rounded-lg mb-4">
+                    <p class="text-gray-700 text-sm">Robots play a key role in building, maintaining, and optimizing
+                        renewable energy systems. They work on wind turbines, solar panels, and other renewable
+                        technologies, reducing carbon emissions.</p>
+                    <a href="#" class="text-blue-500 mt-4 inline-block">Discover more about robotics in renewable
+                        energy...</a>
+                </div>
+
+                <!-- Large Block (Top Left) -->
+                <div class="col-span-2 row-span-1 bg-green-500 p-6">
+                    <h3 class="text-lg font-semibold mb-2">Healthcare Robots</h3>
+                    <p class="text-gray-600 text-sm">In healthcare, robots assist with surgeries, patient care, and
+                        diagnostics. During pandemics, robots help with disinfection, reducing human exposure to
+                        diseases.</p>
+                    <a href="#" class="text-blue-500 mt-4 inline-block">Explore robotics in healthcare...</a>
+                </div>
+
+                <!-- Small Block 1 (Top Right) -->
+                <div class="col-span-1 row-span-2 bg-green-500 flex items-center p-4">
+                    <img src="/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg"
+                        alt="Robotic Conservation" class="w-16 h-16 rounded-full mr-4">
+                    <div>
+                        <h3 class="text-lg font-semibold">Conservation Robotics</h3>
+                        <p class="text-sm text-gray-600">Robots assist in conservation efforts, from reforestation
+                            drones planting trees to robotic wildlife monitoring that helps track endangered species.
+                        </p>
+                    </div>
+                </div>
+                <!-- Small Block 2 (Bottom Left) -->
+                <div class="col-span-1 row-span-1 bg-gray-50 border rounded-lg flex items-center p-4">
+                    <img src="agriculture-robots.jpg" alt="Agriculture Robots" class="w-16 h-16 rounded-full mr-4">
+                    <div>
+                        <h3 class="text-lg font-semibold">Agriculture Robots</h3>
+                        <p class="text-sm text-gray-600">In agriculture, robots increase efficiency and reduce waste.
+                            Automated systems plant, water, and harvest crops, reducing the environmental impact of
+                            farming.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
 
