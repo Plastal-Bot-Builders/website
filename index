@@ -891,52 +891,84 @@
 
 
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="grid gap-4">
-                <div>
-                    <img class="h-auto max-w-full " src="/Resources/Photos/foundation.jpg" alt="">
+        <div class="overflow-x-auto">
+            <div class="flex space-x-4">
+              <!-- Review 1 -->
+              <div class="max-w-xs mx-auto text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                <p class="italic text-gray-600 dark:text-gray-300">"Great design skills and attention to detail."</p>
+                <div class="mt-4">
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Rana Coder</p>
+                  <p class="text-sm font-medium text-gray-900 dark:text-white">Senior Product Designer</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">UX | Branding | Illustration</p>
                 </div>
-                <div>
-                    <img class="h-auto max-w-full " src="/Resources/Logo/logo_trans.png" alt="">
+              </div>
+              <!-- Review 2 -->
+              <div class="max-w-xs mx-auto text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                <p class="italic text-gray-600 dark:text-gray-300">"Amazing at UX writing and brand strategy."</p>
+                <div class="mt-4">
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Alice Cooper</p>
+                  <p class="text-sm font-medium text-gray-900 dark:text-white">Senior Product Designer</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">UX | Writing | Branding</p>
                 </div>
-                <div>
-                    <img class="h-auto max-w-full " src="/Resources/Photos/peace.jpeg" alt="">
+              </div>
+              <!-- Review 3 -->
+              <div class="max-w-xs mx-auto text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                <p class="italic text-gray-600 dark:text-gray-300">"Brilliant with illustrations and product design."</p>
+                <div class="mt-4">
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Colin Peter</p>
+                  <p class="text-sm font-medium text-gray-900 dark:text-white">Senior Product Designer</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">UX | Branding | Illustration</p>
                 </div>
+              </div>
+              <!-- Review 4 -->
+              <div class="max-w-xs mx-auto text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                <p class="italic text-gray-600 dark:text-gray-300">"Creative and talented with motion design."</p>
+                <div class="mt-4">
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Gaelle De Martin</p>
+                  <p class="text-sm font-medium text-gray-900 dark:text-white">Product Designer</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">UX | Illustration | Motion</p>
+                </div>
+              </div>
+              <!-- Review 5 -->
+              <div class="max-w-xs mx-auto text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                <p class="italic text-gray-600 dark:text-gray-300">"Top-notch branding and UX skills."</p>
+                <div class="mt-4">
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Gabriel Petersen</p>
+                  <p class="text-sm font-medium text-gray-900 dark:text-white">Product Designer</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">UI | UX | Branding</p>
+                </div>
+              </div>
+              <!-- Review 6 -->
+              <div class="max-w-xs mx-auto text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                <p class="italic text-gray-600 dark:text-gray-300">"A brilliant illustrator with a unique style."</p>
+                <div class="mt-4">
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Deirdre Robinson</p>
+                  <p class="text-sm font-medium text-gray-900 dark:text-white">Illustrator</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Branding | Illustration | Motion</p>
+                </div>
+              </div>
+              <!-- Review 7 -->
+              <div class="max-w-xs mx-auto text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                <p class="italic text-gray-600 dark:text-gray-300">"An expert in both UI and UX design."</p>
+                <div class="mt-4">
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">David Meyer</p>
+                  <p class="text-sm font-medium text-gray-900 dark:text-white">Product Designer</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">UI | UX | Branding</p>
+                </div>
+              </div>
+              <!-- Review 8 -->
+              <div class="max-w-xs mx-auto text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                <p class="italic text-gray-600 dark:text-gray-300">"Highly creative with branding and design."</p>
+                <div class="mt-4">
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Joseph Gonzalez</p>
+                  <p class="text-sm font-medium text-gray-900 dark:text-white">Product Designer</p>
+                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">UI | UX | Branding</p>
+                </div>
+              </div>
             </div>
-            <div class="grid gap-4">
-                <div>
-                    <img class="h-auto max-w-full " src="/Resources/Photos/resistorsepo.png" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full " src="/Resources/Logo/logo_trans.png" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full " src="/Resources/Photos/dywen.jpg" alt="">
-                </div>
-            </div>
-            <div class="grid gap-4">
-                <div>
-                    <img class="h-auto max-w-full " src="/Resources/Logo/logo_trans.png" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full " src="/Resources/Photos/group.png" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full " src="/Resources/Photos/groupproject.jpeg" alt="">
-                </div>
-            </div>
-            <div class="grid gap-4">
-                <div>
-                    <img class="h-auto max-w-full " src="/Resources/Photos/mpelembe.png" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full " src="/Resources/Logo/logo_trans.png" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full " src="/Resources/Photos/fredmpelembe.jpeg" alt="">
-                </div>
-            </div>
-        </div>
+          </div>
+          
+          
 
     </div>
 
