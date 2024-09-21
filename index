@@ -194,26 +194,32 @@
         }
 
         .text-hex {
-            color: #0CFFBB; /* using hexadecimal color */
-          }
+            color: #0CFFBB;
+            /* using hexadecimal color */
+        }
 
-            /* Base button styling */
+        /* Base button styling */
         .custom-button {
-            border: 2px solid #0CFFBB; /* Custom border color */
-            color: #0CFFBB; /* Custom text color */
+            border: 2px solid #0CFFBB;
+            /* Custom border color */
+            color: #0CFFBB;
+            /* Custom text color */
             font-weight: bold;
             padding: 10px 20px;
             border-radius: 10px;
             font-size: 16px;
             background-color: transparent;
             cursor: pointer;
-            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+            transition: background-color 0.3s ease, color 0.3s ease;
+            /* Smooth transition */
         }
-    
+
         /* Hover effect */
         .custom-button:hover {
-            background-color: #0CFFBB; /* Change background to custom color on hover */
-            color: white; /* Change text color to white */
+            background-color: #0CFFBB;
+            /* Change background to custom color on hover */
+            color: white;
+            /* Change text color to white */
         }
     </style>
 </head>
@@ -264,8 +270,7 @@
                     </ul>
                 </div>
                 <div class="navbar-end">
-                    <button
-                        class="custom-button">
+                    <button class="custom-button hidden sm:block">
                         Become a Member
                     </button>
                 </div>
@@ -283,11 +288,14 @@
                         <span class="text-hex">Empowering </span> Innovation
                     </h1>
                     <p class="my-4 text-sm sm:text-base md:text-lg lg:text-xl text-gray-500">
-                        We’re committed to making life-changing technology education accessible to all, regardless of background
-                        or location. By offering innovative and inclusive learning opportunities, we aim to equip individuals
+                        We’re committed to making life-changing technology education accessible to all, regardless of
+                        background
+                        or location. By offering innovative and inclusive learning opportunities, we aim to equip
+                        individuals
                         with the critical skills needed to thrive in today’s digital economy. From foundational courses
                         in coding and data science to advanced programs in artificial intelligence, cybersecurity, and
-                        cloud computing, our goal is to break down barriers to education and create a pathway for everyone to
+                        cloud computing, our goal is to break down barriers to education and create a pathway for
+                        everyone to
                         explore their potential.
                         But our mission doesn’t stop at education. We recognize that learning is only the first step;
                         real empowerment comes when individuals can translate their knowledge into meaningful employment
@@ -305,7 +313,7 @@
                         <button class="custom-button">Get Involved</button>
                     </div>
                 </div>
-                
+
             </div>
             <div class="w-full md:w-1/2 p-4">
                 <div class="image">
@@ -320,8 +328,9 @@
         <div class="flex flex-col md:flex-row justify-between p-4 space-y-8 md:space-y-0 md:space-x-8">
             <div class="w-full md:w-1/2 p-4">
                 <div class="image">
-                    <img alt="Empowering Innovation Image" height="200" src="/Resources/Illustrations/Deconstructedrobot.svg"
-                        width="800" class="w-full h-auto object-cover" />
+                    <img alt="Empowering Innovation Image" height="200"
+                        src="/Resources/Illustrations/Deconstructedrobot.svg" width="800"
+                        class="w-full h-auto object-cover" />
                 </div>
             </div>
             <div class="w-full md:w-1/2 p-4">
@@ -381,7 +390,8 @@
                         class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
                         <span class="text-hex"> Fostering </span> Innovation
                     </h1>
-                    <p class="mt-4 text-gray-700 text-lg"> Technology empowers people to think creatively and push boundaries. It opens new
+                    <p class="mt-4 text-gray-700 text-lg"> Technology empowers people to think creatively and push
+                        boundaries. It opens new
                         avenues for innovation, allowing entrepreneurs and researchers to develop solutions that were
                         once thought impossible. Whether it’s artificial intelligence revolutionizing healthcare or
                         renewable energy transforming our environmental practices, technology enables us to dream big
@@ -397,7 +407,8 @@
                         class="mt-4 mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
                         <span class="text-hex"> Bridging </span> Gaps
                     </h1>
-                    <p class="mt-4 text-gray-700 text-lg"> One of the most significant impacts of technology is its ability to connect people
+                    <p class="mt-4 text-gray-700 text-lg"> One of the most significant impacts of technology is its
+                        ability to connect people
                         and resources. Through digital platforms, communities are no longer constrained by geographical
                         boundaries. Remote working, virtual collaboration, and online learning platforms have made it
                         possible for people to engage, learn, and grow from anywhere in the world. This empowerment
@@ -420,7 +431,8 @@
                         class="mb-4">
                 </div>
 
-                <p class="mt-4 text-gray-700 text-lg"> In education, technology has become a catalyst for change. Digital tools such as
+                <p class="mt-4 text-gray-700 text-lg"> In education, technology has become a catalyst for change.
+                    Digital tools such as
                     interactive software, online courses, and e-learning platforms provide personalized learning
                     experiences, making education more accessible to all. Students can now gain knowledge and skills
                     from world-class institutions, regardless of their location or socioeconomic background, further
@@ -439,8 +451,7 @@
                 <div class="text">
                     <h1
                         class="mb-6 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-                        <span class="text-hex">Subscribe </span> To <span
-                            class="text-hex">Our</span> Newsletter
+                        <span class="text-hex">Subscribe </span> To <span class="text-hex">Our</span> Newsletter
                     </h1>
                     <p class="my-4 text-lg text-gray-500">
                         We’re committed to making life-changing technology education accessible to all, regardless of
@@ -467,8 +478,7 @@
             </div>
             <div class="w-full md:w-1/2 p-4">
                 <div class="image">
-                    <img src="/Resources/Illustrations/Subscriber1.svg" alt="Introduction to Robotics"
-                        class="">
+                    <img src="/Resources/Illustrations/Subscriber1.svg" alt="Introduction to Robotics" class="">
                 </div>
             </div>
         </div>
@@ -479,11 +489,11 @@
             <!-- First Bento Box -->
             <div class="grid grid-cols-1 sm:grid-cols-3 grid-rows-2 gap-4">
                 <!-- Large Block (2x2) -->
-                <div class="col-span-1 sm:col-span-2 row-span-2 pr-4 p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                <div
+                    class="col-span-1 sm:col-span-2 row-span-2 pr-4 p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <h1
                         class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
-                        <span class="text-hex"> What </span> is <span
-                            class="text-hex"> Robotics? </span>
+                        <span class="text-hex"> What </span> is <span class="text-hex"> Robotics? </span>
                     </h1>
                     <img src="/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg"
                         alt="Introduction to Robotics" class="w-full h-64 object-cover rounded-lg mb-4">
@@ -505,8 +515,7 @@
                             </form>
                             <h1
                                 class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
-                                <span class="text-hex"> What </span> is <span
-                                    class="text-hex"> Robotics? </span>
+                                <span class="text-hex"> What </span> is <span class="text-hex"> Robotics? </span>
                             </h1>
                             <div class="py-4">
                                 <img src="/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg"
@@ -586,11 +595,11 @@
                 </div>
 
                 <!-- Large Block (2x1) (Top Right) -->
-                <div class="col-span-1 sm:col-span-2 row-span-1 p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                <div
+                    class="col-span-1 sm:col-span-2 row-span-1 p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <h1
                         class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
-                        <span class="text-hex"> Application </span> of <span
-                            class="text-hex"> Robotics </span>
+                        <span class="text-hex"> Application </span> of <span class="text-hex"> Robotics </span>
                     </h1>
                     <img src="/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg"
                         alt="Robotics Applications" class="w-full h-32 object-cover rounded-lg mb-4">
@@ -602,11 +611,11 @@
                 </div>
 
                 <!-- Large Block (Bottom Left) (2x1) -->
-                <div class="col-span-1 sm:col-span-2 row-span-1 p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                <div
+                    class="col-span-1 sm:col-span-2 row-span-1 p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <h1
                         class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
-                        <span class="text-hex"> Ethics </span> in <span
-                            class="text-hex"> Robotics </span>
+                        <span class="text-hex"> Ethics </span> in <span class="text-hex"> Robotics </span>
                     </h1>
                     <p class="mt-4 text-gray-600 text-sm">As robots become more integrated into society, ethical
                         concerns about autonomy, safety, and human rights arise. Understanding these issues is essential
@@ -644,7 +653,8 @@
         <div class="container mx-auto p-6">
             <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4">
                 <!-- Large Block -->
-                <div class="col-span-1 md:col-span-2 md:row-span-2 mb-4 p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                <div
+                    class="col-span-1 md:col-span-2 md:row-span-2 mb-4 p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <img src="/Resources/Photos/IMG_4781.jpeg" alt="Featured Image"
                         class="w-full h-64 object-cover mb-4">
                     <h1
@@ -668,12 +678,13 @@
                     class="col-span-1 md:row-span-2 flex justify-center items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <div class="text-center">
                         <img src="/Resources/Illustrations/Visionarytechnology.svg" alt="Introduction to Robotics"
-                        class="">
+                            class="">
                     </div>
                 </div>
 
                 <!-- Small Block 1 -->
-                <div class="col-span-1 row-span-1 flex flex-col md:flex-row items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                <div
+                    class="col-span-1 row-span-1 flex flex-col md:flex-row items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <div class="w-full md:w-1/2 h-full">
                         <img src="/Resources/Photos/IMG_4781.jpeg" alt="Reference Image"
                             class="w-full h-full object-cover">
@@ -688,7 +699,8 @@
                 </div>
 
                 <!-- Small Block 2 -->
-                <div class="col-span-1 row-span-1 flex flex-col md:flex-row items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                <div
+                    class="col-span-1 row-span-1 flex flex-col md:flex-row items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <div class="w-full md:w-1/2 h-full">
                         <img src="/Resources/Photos/IMG_4781.jpeg" alt="Reference Image"
                             class="w-full h-full object-cover">
@@ -703,7 +715,8 @@
                 </div>
 
                 <!-- Small Block 3 -->
-                <div class="col-span-1 row-span-1 flex flex-col md:flex-row items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                <div
+                    class="col-span-1 row-span-1 flex flex-col md:flex-row items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <div class="w-full md:w-1/2 h-full">
                         <img src="/Resources/Photos/IMG_4781.jpeg" alt="Reference Image"
                             class="w-full h-full object-cover">
@@ -719,221 +732,180 @@
             </div>
         </div>
 
+
         <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
 
-        <div class="container mx-auto p-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <!-- First Bento Box (Climate Change Robotics) -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 grid-rows-2 gap-4">
-                <!-- Large Block (2x2) -->
-                <div class="col-span-1 sm:col-span-2 row-span-2 p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
-                    <h1
-                        class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
-                        <span class="text-hex">Robotics</span> for <span
-                            class="text-hex"> Addressing </span> climate <span
-                            class="text-hex">Change</span>
-                    </h1>
-                    <img src="/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg"
-                        alt="Robotics and Climate Change" class="w-full h-64 object-cover rounded-lg mb-4">
-                    <p class="text-gray-700 text-lg">Through these diverse applications, robotics is proving to be an
-                        indispensable tool in environmental protection and the global fight against climate change. By
-                        enhancing our ability to monitor ecosystems, gather critical data, and implement sustainable
-                        practices, robots are helping to preserve the planet for future generations.</p>
-                    <p class="mt-4 text-gray-600 text-lg">Robots play a crucial role in combating climate change by
-                        assisting in various environmental preservation efforts. Whether it's monitoring deforestation,
-                        analyzing ocean health, or supporting climate research, robotics has become a powerful tool in
-                        the fight to protect our planet from the impacts of global warming.</p>
-                    <p class="mt-4 text-gray-600 text-lg">As robotics continues to evolve, it's expected to play an
-                        increasingly significant role in addressing climate change. From developing more efficient and
-                        sustainable energy solutions to improving agricultural practices, robots are poised to make a
-                        significant impact on the environment. By harnessing the power of robotics, we can work towards
-                        a greener, more sustainable future.</p>
-                    <button href="#" class="mt-4 btn custom-button">Learn how robotics can fight climate
-                        change...</button>
-                </div>
+        <!-- Container for bento grid -->
+        <div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-4">
 
-                <!-- Small Block 1 -->
+                <!-- First Event -->
                 <div
-                    class="col-span-1 flex justify-center items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
-                    <div>
-                        <h1
-                            class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
-                            <span class="text-hex">Robotic</span> Drones
-                        </h1>
-                        <p class="text-sm text-gray-600">Drones monitor large areas of land, providing data on
-                            deforestation, pollution, and more to help conservationists make decisions.</p>
+                    class="flex items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                    <!-- Event Image -->
+                    <div class="w-1/3">
+                        <img src="/Flayers/Plastal bot builders.jpg" alt="Event 1" class="rounded-lg">
+                    </div>
+                    <!-- Event Details -->
+                    <div class="ml-4 w-2/3">
+                        <h3 class="text-xl font-semibold"> <span class="text-hex"> Kitwe Edition: </span> Introduction
+                            to Robotics and Programming Fundamentals</h3>
+                        <p class="text-sm text-gray-400">American Corner - CBU, Kitwe</p>
+                        <p class="font-bold text-lg mt-2"> Start Date</p>
+                        <p class="text-sm text-gray-500">18, 25 May 2024 and 1 June 2024 </p>
+                        <p class="text-sm bg-gray-700 rounded-full py-1 px-3 inline-block mt-2">2 days event</p>
+                        <p class="text-xs text-gray-500 mt-2">Completed</p>
                     </div>
                 </div>
 
-                <!-- Small Block 2 -->
+                <!-- Second Event -->
                 <div
-                    class="col-span-1 flex justify-center items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
-                    <div>
-                        <h1
-                            class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
-                            <span class="text-hex">Underwater</span> Robots
-                        </h1>
-                        <p class="text-sm text-gray-600">These robots explore and monitor marine ecosystems, providing
-                            critical data on ocean health and environmental shifts.</p>
+                    class="flex items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                    <!-- Event Image -->
+                    <div class="w-1/3">
+                        <img src="/Flayers/Plastal bot builders.jpg" alt="Event 2" class="rounded-lg">
                     </div>
-                </div>
-            </div>
-
-            <!-- Second Bento Box (Rearranged Block Pattern) -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 grid-rows-3 gap-4">
-                <!-- Large Block (Bottom) -->
-                <div class="col-span-1 sm:col-span-3 row-span-1 p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
-                    <h1
-                        class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
-                        <span class="text-hex">Robotics</span> in <span
-                            class="text-hex"> Renewable </span> Energy
-                    </h1>
-                    <img src="/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg"
-                        alt="Robotics in Renewable Energy" class="w-full h-32 object-cover rounded-lg mb-4">
-                    <p class="text-gray-700 text-lg">Robots play a key role in building, maintaining, and optimizing
-                        renewable energy systems. They work on wind turbines, solar panels, and other renewable
-                        technologies, reducing carbon emissions.</p>
-                    <button href="#" class="mt-4 btn custom-button">Discover more about robotics in renewable
-                        energy...</button>
-                </div>
-
-                <!-- Large Block (Top Left) -->
-                <div class="col-span-1 sm:col-span-2 row-span-1 p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
-                    <h1
-                        class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
-                        <span class="text-hex">Healthcare</span> Robotics
-                    </h1>
-                    <p class="text-gray-600 text-lg">In healthcare, robots assist with surgeries, patient care, and
-                        diagnostics. During pandemics, robots help with disinfection, reducing human exposure to
-                        diseases.</p>
-                    <p class="mt-4 text-gray-600 text-lg">In healthcare, robots are transforming the landscape of
-                        medical practice by assisting in a variety of tasks such as surgeries, patient care, and
-                        diagnostics. Their precision, efficiency, and ability to work in challenging environments have
-                        made them indispensable in modern medicine. Additionally, during global health crises like
-                        pandemics, robots have played a crucial role in disinfection and reducing human exposure to
-                        infectious diseases, ensuring both patient safety and healthcare worker protection.</p>
-                    <button href="#" class="mt-4 custom-button">Explore robotics in healthcare...</button>
-                </div>
-
-                <!-- Small Block 1 (Top Right) -->
-                <div
-                    class="col-span-1 row-span-2 flex justify-center items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
-                    <div>
-                        <h1
-                            class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
-                            <span class="text-hex">Conservation</span> Robotics
-                        </h1>
-                        <p class="text-sm text-gray-600">Robots assist in conservation efforts, from reforestation
-                            drones planting trees to robotic wildlife monitoring that helps track endangered species.
-                        </p>
-                        <p class="mt-4 text-sm text-gray-600">Robots assist in conservation efforts, from reforestation
-                            drones planting trees to robotic wildlife monitoring that helps track endangered species.
-                        </p>
+                    <!-- Event Details -->
+                    <div class="ml-4 w-2/3">
+                        <h3 class="text-xl font-semibold"> <span class="text-hex"> Outreach Program: </span> Mpelember
+                            Secondary School</h3>
+                        <p class="text-sm text-gray-400">Mpelembe Secondary School - Nkana West, Kitwe</p>
+                        <p class="font-bold text-lg mt-2"> <span class="text-hex"> Date: </span> 22 October 2024</p>
+                        <p class="text-sm text-gray-500">Start Date</p>
+                        <p class="text-sm bg-gray-700 rounded-full py-1 px-3 inline-block mt-2">3 days event</p>
+                        <p class="text-xs text-green-500 mt-2">Coming Soon..</p>
                     </div>
                 </div>
 
-                <!-- Small Block 2 (Bottom Left) -->
+                <!-- Third Event -->
                 <div
-                    class="col-span-1 row-span-1 flex justify-center items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
-                    <div>
-                        <h1
-                            class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
-                            <span class="text-hex">Agriculture</span> Robots
-                        </h1>
-                        <p class="text-sm text-gray-600">In agriculture, robots increase efficiency and reduce waste.
-                            Automated systems plant, water, and harvest crops, reducing the environmental impact of
-                            farming.</p>
+                    class="flex items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                    <!-- Event Image -->
+                    <div class="w-1/3">
+                        <img src="/Flayers/Plastal bot builders.jpg" alt="Event 3" class="rounded-lg">
+                    </div>
+                    <!-- Event Details -->
+                    <div class="ml-4 w-2/3">
+                        <h3 class="text-xl font-semibold"> <span class="text-hex"> Outreach Program: </span> Konkola
+                            Secondary School</h3>
+                        <p class="text-sm text-gray-400">Konkola Secondary School, Chililabombwe</p>
+                        <p class="font-bold text-lg mt-2"> <span class="text-hex"> Date: </span> 10 Jun 2024</p>
+                        <p class="text-sm text-gray-500">Start Date</p>
+                        <p class="text-sm bg-gray-700 rounded-full py-1 px-3 inline-block mt-2">3 days event</p>
+                        <p class="text-xs text-gray-500 mt-2">Completed</p>
+                    </div>
+                </div>
+
+                <!-- Fourth Event -->
+                <div
+                    class="flex items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                    <!-- Event Image -->
+                    <div class="w-1/3">
+                        <img src="/Flayers/Plastal bot builders.jpg" alt="Event 4" class="rounded-lg">
+                    </div>
+                    <!-- Event Details -->
+                    <div class="ml-4 w-2/3">
+                        <h3 class="text-xl font-semibold"> <span class="text-hex"> Lusaka Edition: </span>Introduction
+                            to Robotics and Programming Fundamentals</h3>
+                        <p class="text-sm text-gray-400">American Corner - CBU, Kitwe</p>
+                        <p class="font-bold text-lg mt-2">09 Jul 2024</p>
+                        <p class="text-sm text-gray-500">Start Date</p>
+                        <p class="text-sm bg-gray-700 rounded-full py-1 px-3 inline-block mt-2">3 days event</p>
+                        <p class="text-xs text-green-500 mt-2">Coming Soon..</p>
                     </div>
                 </div>
             </div>
         </div>
 
+
+
         <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
 
         <div>
-            <h1
+                <h1
                 class="p-6 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
                 <span class="text-hex"> Meet </span> the Team
-            </h1>
-            <p class="p-6 mb-4 text-lg text-gray-600">
-                Our team is comprised of passionate individuals who are committed to empowering Zambia's youth
-                through technology and entrepreneurship. We are dedicated to providing mentorship, resources, and
-                opportunities to help young people thrive and make a positive impact in their communities.
-            </p>
-            <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-4">
-                <!-- Sepo Konayuma -->
-                <div class="text-center text-gray-500 dark:text-gray-400">
-                    <img class="mx-auto mb-4 w-24 h-24 sm:w-36 sm:h-36 rounded-full" src="/Resources/founders/sepo.jpeg"
-                        alt="Sepo Avatar">
-                    <h3 class="mb-1 text-xl sm:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                        <a href="#">Sepo Konayuma</a>
-                    </h3>
-                    <p>CEO/Co-founder</p>
-                    <ul class="flex justify-center mt-4 space-x-4">
-                        <i class="fab fa-linkedin icon-size"></i>
-                        <i class="fab fa-instagram icon-size"></i>
-                        <i class="fab fa-facebook icon-size"></i>
-                    </ul>
+                </h1>
+                <p class="p-6 mb-4 text-lg text-gray-600">
+                    Our team is comprised of passionate individuals who are committed to empowering Zambia's youth
+                    through technology and entrepreneurship. We are dedicated to providing mentorship, resources, and
+                    opportunities to help young people thrive and make a positive impact in their communities.
+                </p>
+                <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-4">
+                    <!-- Sepo Konayuma -->
+                    <div class="text-center text-gray-500 dark:text-gray-400">
+                        <img class="mx-auto mb-4 w-24 h-24 sm:w-36 sm:h-36 rounded-full"
+                            src="/Resources/founders/sepo.jpeg" alt="Sepo Avatar">
+                        <h3 class="mb-1 text-xl sm:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                            <a href="#">Sepo Konayuma</a>
+                        </h3>
+                        <p>CEO/Co-founder</p>
+                        <ul class="flex justify-center mt-4 space-x-4">
+                            <i class="fab fa-linkedin icon-size"></i>
+                            <i class="fab fa-instagram icon-size"></i>
+                            <i class="fab fa-facebook icon-size"></i>
+                        </ul>
+                    </div>
+                    <!-- Fredrick Mwepu -->
+                    <div class="text-center text-gray-500 dark:text-gray-400">
+                        <img class="mx-auto mb-4 w-24 h-24 sm:w-36 sm:h-36 rounded-full"
+                            src="/Resources/founders/fredrick.jpg" alt="Fredrick Avatar">
+                        <h3 class="mb-1 text-xl sm:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                            <a href="#">Fredrick Mwepu</a>
+                        </h3>
+                        <p>CTO/Co-founder</p>
+                        <ul class="flex justify-center mt-4 space-x-4">
+                            <i class="fab fa-linkedin icon-size"></i>
+                            <i class="fab fa-instagram icon-size"></i>
+                            <i class="fab fa-facebook icon-size"></i>
+                        </ul>
+                    </div>
+                    <!-- Mapalo Kazembe -->
+                    <div class="text-center text-gray-500 dark:text-gray-400">
+                        <img class="mx-auto mb-4 w-24 h-24 sm:w-36 sm:h-36 rounded-full"
+                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
+                            alt="Mapalo Kazembe Avatar">
+                        <h3 class="mb-1 text-xl sm:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                            <a href="#">Mapalo Kazembe</a>
+                        </h3>
+                        <p>Lead-Trainer & Co-Founder</p>
+                        <ul class="flex justify-center mt-4 space-x-4">
+                            <i class="fab fa-linkedin icon-size"></i>
+                            <i class="fab fa-instagram icon-size"></i>
+                            <i class="fab fa-facebook icon-size"></i>
+                        </ul>
+                    </div>
+                    <!-- Fred M'kuna -->
+                    <div class="text-center text-gray-500 dark:text-gray-400">
+                        <img class="mx-auto mb-4 w-24 h-24 sm:w-36 sm:h-36 rounded-full"
+                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png"
+                            alt="Joseph Avatar">
+                        <h3 class="mb-1 text-xl sm:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                            <a href="#">Fred M'kuna</a>
+                        </h3>
+                        <p>Lead Trainer</p>
+                        <ul class="flex justify-center mt-4 space-x-4">
+                            <i class="fab fa-linkedin icon-size"></i>
+                            <i class="fab fa-instagram icon-size"></i>
+                            <i class="fab fa-facebook icon-size"></i>
+                        </ul>
+                    </div>
+                    <!-- Wazingwe Mugala -->
+                    <div class="text-center text-gray-500 dark:text-gray-400">
+                        <img class="mx-auto mb-4 w-24 h-24 sm:w-36 sm:h-36 rounded-full"
+                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/sofia-mcguire.png"
+                            alt="Wazingwe Mugala">
+                        <h3 class="mb-1 text-xl sm:text-2xl font-bold tracking-tight text-gray-900dark:text-white">
+                            <a href="#">Wazingwe Mugala</a>
+                        </h3>
+                        <p>Creative Director</p>
+                        <ul class="flex justify-center mt-4 space-x-4">
+                            <i class="fab fa-linkedin icon-size"></i>
+                            <i class="fab fa-instagram icon-size"></i>
+                            <i class="fab fa-facebook icon-size"></i>
+                        </ul>
+                    </div>
                 </div>
-                <!-- Fredrick Mwepu -->
-                <div class="text-center text-gray-500 dark:text-gray-400">
-                    <img class="mx-auto mb-4 w-24 h-24 sm:w-36 sm:h-36 rounded-full"
-                        src="/Resources/founders/fredrick.jpg" alt="Fredrick Avatar">
-                    <h3 class="mb-1 text-xl sm:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                        <a href="#">Fredrick Mwepu</a>
-                    </h3>
-                    <p>CTO/Co-founder</p>
-                    <ul class="flex justify-center mt-4 space-x-4">
-                        <i class="fab fa-linkedin icon-size"></i>
-                        <i class="fab fa-instagram icon-size"></i>
-                        <i class="fab fa-facebook icon-size"></i>
-                    </ul>
-                </div>
-                <!-- Mapalo Kazembe -->
-                <div class="text-center text-gray-500 dark:text-gray-400">
-                    <img class="mx-auto mb-4 w-24 h-24 sm:w-36 sm:h-36 rounded-full"
-                        src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
-                        alt="Mapalo Kazembe Avatar">
-                    <h3 class="mb-1 text-xl sm:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                        <a href="#">Mapalo Kazembe</a>
-                    </h3>
-                    <p>Lead-Trainer & Co-Founder</p>
-                    <ul class="flex justify-center mt-4 space-x-4">
-                        <i class="fab fa-linkedin icon-size"></i>
-                        <i class="fab fa-instagram icon-size"></i>
-                        <i class="fab fa-facebook icon-size"></i>
-                    </ul>
-                </div>
-                <!-- Fred M'kuna -->
-                <div class="text-center text-gray-500 dark:text-gray-400">
-                    <img class="mx-auto mb-4 w-24 h-24 sm:w-36 sm:h-36 rounded-full"
-                        src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png"
-                        alt="Joseph Avatar">
-                    <h3 class="mb-1 text-xl sm:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                        <a href="#">Fred M'kuna</a>
-                    </h3>
-                    <p>Lead Trainer</p>
-                    <ul class="flex justify-center mt-4 space-x-4">
-                        <i class="fab fa-linkedin icon-size"></i>
-                        <i class="fab fa-instagram icon-size"></i>
-                        <i class="fab fa-facebook icon-size"></i>
-                    </ul>
-                </div>
-                <!-- Wazingwe Mugala -->
-                <div class="text-center text-gray-500 dark:text-gray-400">
-                    <img class="mx-auto mb-4 w-24 h-24 sm:w-36 sm:h-36 rounded-full"
-                        src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/sofia-mcguire.png"
-                        alt="Wazingwe Mugala">
-                    <h3 class="mb-1 text-xl sm:text-2xl font-bold tracking-tight text-gray-900dark:text-white">
-                        <a href="#">Wazingwe Mugala</a>
-                    </h3>
-                    <p>Creative Director</p>
-                    <ul class="flex justify-center mt-4 space-x-4">
-                        <i class="fab fa-linkedin icon-size"></i>
-                        <i class="fab fa-instagram icon-size"></i>
-                        <i class="fab fa-facebook icon-size"></i>
-                    </ul>
-                </div>
-            </div>
         </div>
 
         <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
@@ -942,83 +914,84 @@
 
         <div class="overflow-x-auto">
             <div class="flex space-x-4">
-              <!-- Review 1 -->
-              <div class="max-w-xs mx-auto text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                <p class="italic text-gray-600 dark:text-gray-300">"Great design skills and attention to detail."</p>
-                <div class="mt-4">
-                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Rana Coder</p>
-                  <p class="text-sm font-medium text-gray-900 dark:text-white">Senior Product Designer</p>
-                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">UX | Branding | Illustration</p>
+                <!-- Review 1 -->
+                <div class="max-w-xs mx-auto text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                    <p class="italic text-gray-600 dark:text-gray-300">"Great design skills and attention to detail."
+                    </p>
+                    <div class="mt-4">
+                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Rana Coder</p>
+                        <p class="text-sm font-medium text-gray-900 dark:text-white">Senior Product Designer</p>
+                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">UX | Branding | Illustration</p>
+                    </div>
                 </div>
-              </div>
-              <!-- Review 2 -->
-              <div class="max-w-xs mx-auto text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                <p class="italic text-gray-600 dark:text-gray-300">"Amazing at UX writing and brand strategy."</p>
-                <div class="mt-4">
-                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Alice Cooper</p>
-                  <p class="text-sm font-medium text-gray-900 dark:text-white">Senior Product Designer</p>
-                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">UX | Writing | Branding</p>
+                <!-- Review 2 -->
+                <div class="max-w-xs mx-auto text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                    <p class="italic text-gray-600 dark:text-gray-300">"Amazing at UX writing and brand strategy."</p>
+                    <div class="mt-4">
+                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Alice Cooper</p>
+                        <p class="text-sm font-medium text-gray-900 dark:text-white">Senior Product Designer</p>
+                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">UX | Writing | Branding</p>
+                    </div>
                 </div>
-              </div>
-              <!-- Review 3 -->
-              <div class="max-w-xs mx-auto text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                <p class="italic text-gray-600 dark:text-gray-300">"Brilliant with illustrations and product design."</p>
-                <div class="mt-4">
-                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Colin Peter</p>
-                  <p class="text-sm font-medium text-gray-900 dark:text-white">Senior Product Designer</p>
-                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">UX | Branding | Illustration</p>
+                <!-- Review 3 -->
+                <div class="max-w-xs mx-auto text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                    <p class="italic text-gray-600 dark:text-gray-300">"Brilliant with illustrations and product
+                        design."</p>
+                    <div class="mt-4">
+                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Colin Peter</p>
+                        <p class="text-sm font-medium text-gray-900 dark:text-white">Senior Product Designer</p>
+                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">UX | Branding | Illustration</p>
+                    </div>
                 </div>
-              </div>
-              <!-- Review 4 -->
-              <div class="max-w-xs mx-auto text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                <p class="italic text-gray-600 dark:text-gray-300">"Creative and talented with motion design."</p>
-                <div class="mt-4">
-                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Gaelle De Martin</p>
-                  <p class="text-sm font-medium text-gray-900 dark:text-white">Product Designer</p>
-                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">UX | Illustration | Motion</p>
+                <!-- Review 4 -->
+                <div class="max-w-xs mx-auto text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                    <p class="italic text-gray-600 dark:text-gray-300">"Creative and talented with motion design."</p>
+                    <div class="mt-4">
+                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Gaelle De Martin</p>
+                        <p class="text-sm font-medium text-gray-900 dark:text-white">Product Designer</p>
+                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">UX | Illustration | Motion</p>
+                    </div>
                 </div>
-              </div>
-              <!-- Review 5 -->
-              <div class="max-w-xs mx-auto text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                <p class="italic text-gray-600 dark:text-gray-300">"Top-notch branding and UX skills."</p>
-                <div class="mt-4">
-                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Gabriel Petersen</p>
-                  <p class="text-sm font-medium text-gray-900 dark:text-white">Product Designer</p>
-                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">UI | UX | Branding</p>
+                <!-- Review 5 -->
+                <div class="max-w-xs mx-auto text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                    <p class="italic text-gray-600 dark:text-gray-300">"Top-notch branding and UX skills."</p>
+                    <div class="mt-4">
+                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Gabriel Petersen</p>
+                        <p class="text-sm font-medium text-gray-900 dark:text-white">Product Designer</p>
+                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">UI | UX | Branding</p>
+                    </div>
                 </div>
-              </div>
-              <!-- Review 6 -->
-              <div class="max-w-xs mx-auto text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                <p class="italic text-gray-600 dark:text-gray-300">"A brilliant illustrator with a unique style."</p>
-                <div class="mt-4">
-                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Deirdre Robinson</p>
-                  <p class="text-sm font-medium text-gray-900 dark:text-white">Illustrator</p>
-                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Branding | Illustration | Motion</p>
+                <!-- Review 6 -->
+                <div class="max-w-xs mx-auto text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                    <p class="italic text-gray-600 dark:text-gray-300">"A brilliant illustrator with a unique style."
+                    </p>
+                    <div class="mt-4">
+                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Deirdre Robinson</p>
+                        <p class="text-sm font-medium text-gray-900 dark:text-white">Illustrator</p>
+                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Branding | Illustration | Motion
+                        </p>
+                    </div>
                 </div>
-              </div>
-              <!-- Review 7 -->
-              <div class="max-w-xs mx-auto text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                <p class="italic text-gray-600 dark:text-gray-300">"An expert in both UI and UX design."</p>
-                <div class="mt-4">
-                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">David Meyer</p>
-                  <p class="text-sm font-medium text-gray-900 dark:text-white">Product Designer</p>
-                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">UI | UX | Branding</p>
+                <!-- Review 7 -->
+                <div class="max-w-xs mx-auto text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                    <p class="italic text-gray-600 dark:text-gray-300">"An expert in both UI and UX design."</p>
+                    <div class="mt-4">
+                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">David Meyer</p>
+                        <p class="text-sm font-medium text-gray-900 dark:text-white">Product Designer</p>
+                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">UI | UX | Branding</p>
+                    </div>
                 </div>
-              </div>
-              <!-- Review 8 -->
-              <div class="max-w-xs mx-auto text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                <p class="italic text-gray-600 dark:text-gray-300">"Highly creative with branding and design."</p>
-                <div class="mt-4">
-                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Joseph Gonzalez</p>
-                  <p class="text-sm font-medium text-gray-900 dark:text-white">Product Designer</p>
-                  <p class="text-sm font-medium text-gray-500 dark:text-gray-400">UI | UX | Branding</p>
+                <!-- Review 8 -->
+                <div class="max-w-xs mx-auto text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                    <p class="italic text-gray-600 dark:text-gray-300">"Highly creative with branding and design."</p>
+                    <div class="mt-4">
+                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Joseph Gonzalez</p>
+                        <p class="text-sm font-medium text-gray-900 dark:text-white">Product Designer</p>
+                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">UI | UX | Branding</p>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-          
-          
-
+        </div>
     </div>
 
     <footer class="p-6 text-neutral-content">
@@ -1042,28 +1015,30 @@
                 <a class="link link-hover block">Cookie policy</a>
             </nav>
         </div>
-        <hr class="border-t border-gray-300 my-4">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-            <div class="social-links flex space-x-4 mb-4 md:mb-0">
-                <a href="https://www.linkedin.com/company/plastal-bot-builders/?originalSubdomain=zm">
-                    <i class="fab fa-linkedin icon-size"></i>
-                </a>
-                <a href="https://www.instagram.com">
-                    <i class="fab fa-instagram icon-size"></i>
-                </a>
-                <a href="https://www.facebook.com/plastalbotbuiders">
-                    <i class="fab fa-facebook icon-size"></i>
-                </a>
-                <a href="https://medium.com/@plastalbotbuilders">
-                    <i class="fab fa-medium icon-size"></i>
-                </a>
+
+            <hr class="border-t border-gray-300 my-4">
+
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="social-links flex space-x-4 mb-4 md:mb-0">
+                    <a href="https://www.linkedin.com/company/plastal-bot-builders/?originalSubdomain=zm">
+                        <i class="fab fa-linkedin icon-size"></i>
+                    </a>
+                    <a href="https://www.instagram.com">
+                        <i class="fab fa-instagram icon-size"></i>
+                    </a>
+                    <a href="https://www.facebook.com/plastalbotbuiders">
+                        <i class="fab fa-facebook icon-size"></i>
+                    </a>
+                    <a href="https://medium.com/@plastalbotbuilders">
+                        <i class="fab fa-medium icon-size"></i>
+                    </a>
+                </div>
+                <div>
+                    <p class="text-center md:text-left">
+                        ©️2024 Plastal-Bot Builders All rights reserved
+                    </p>
+                </div>
             </div>
-            <div>
-                <p class="text-center md:text-left">
-                    ©️2024 Plastal-Bot Builders All rights reserved
-                </p>
-            </div>
-        </div>
     </footer>
 </body>
 
