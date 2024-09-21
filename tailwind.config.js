@@ -2,10 +2,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        customPurple: '#100D3B',
+        'customGreen': '#0CFFBB',
+        
+      },
+      backgroundSize: {
+        'size-200': '200%',
+        'size-150': '150%',
       },
     },
   },
   variants: {},
   plugins: [],
-};
+}

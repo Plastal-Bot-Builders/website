@@ -11,6 +11,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
@@ -21,9 +23,9 @@
         }
 
         .logo {
-            height: 200px;
+            height: 150px;
             /* Adjust the value as needed */
-            width: 200px;
+            width: 150px;
             /* Adjust the value as needed */
         }
 
@@ -190,6 +192,29 @@
         footer p {
             margin: 10px 0;
         }
+
+        .text-hex {
+            color: #0CFFBB; /* using hexadecimal color */
+          }
+
+            /* Base button styling */
+        .custom-button {
+            border: 2px solid #0CFFBB; /* Custom border color */
+            color: #0CFFBB; /* Custom text color */
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 16px;
+            background-color: transparent;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+        }
+    
+        /* Hover effect */
+        .custom-button:hover {
+            background-color: #0CFFBB; /* Change background to custom color on hover */
+            color: white; /* Change text color to white */
+        }
     </style>
 </head>
 
@@ -239,7 +264,10 @@
                     </ul>
                 </div>
                 <div class="navbar-end">
-                    <button class="btn btn-outline btn-primary">Become a Member</button>
+                    <button
+                        class="custom-button">
+                        Become a Member
+                    </button>
                 </div>
             </div>
         </header>
@@ -251,27 +279,21 @@
             <div class="w-full md:w-1/2 p-4">
                 <div class="text">
                     <h1
-                        class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-                        <span class="text-blue-600 dark:text-blue-500">Empowering </span> Innovation
+                        class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
+                        <span class="text-hex">Empowering </span> Innovation
                     </h1>
-                    <p class="my-4 text-lg text-gray-500">
-                        We’re committed to making life-changing technology education accessible to all, regardless of
-                        background
-                        or location. By offering innovative and inclusive learning opportunities, we aim to equip
-                        individuals
+                    <p class="my-4 text-sm sm:text-base md:text-lg lg:text-xl text-gray-500">
+                        We’re committed to making life-changing technology education accessible to all, regardless of background
+                        or location. By offering innovative and inclusive learning opportunities, we aim to equip individuals
                         with the critical skills needed to thrive in today’s digital economy. From foundational courses
-                        in
-                        coding and data science to advanced programs in artificial intelligence, cybersecurity, and
-                        cloud
-                        computing, our goal is to break down barriers to education and create a pathway for everyone to
-                        explore
-                        their potential.
+                        in coding and data science to advanced programs in artificial intelligence, cybersecurity, and
+                        cloud computing, our goal is to break down barriers to education and create a pathway for everyone to
+                        explore their potential.
                         But our mission doesn’t stop at education. We recognize that learning is only the first step;
-                        real
-                        empowerment comes when individuals can translate their knowledge into meaningful employment
+                        real empowerment comes when individuals can translate their knowledge into meaningful employment
                         opportunities.
                     </p>
-                    <p class="mb-4 text-lg font-normal text-gray-500 dark:text-gray-400">
+                    <p class="mb-4 text-sm sm:text-base md:text-lg lg:text-xl text-gray-500">
                         That’s why we are equally dedicated to fostering job-ready skills, bridging the gap between
                         education
                         and the workforce. Through partnerships with industry leaders, internships, and career
@@ -279,15 +301,16 @@
                         initiatives, we help learners turn their newfound expertise into tangible career success.
                     </p>
                     <div class="button-container space-y-2">
-                        <button class="btn btn-lg btn-outline btn-primary">Become a Member</button>
-                        <button class="btn btn-lg btn-outline btn-primary">Get Involved</button>
+                        <button class="custom-button">Become a Member</button>
+                        <button class="custom-button">Get Involved</button>
                     </div>
                 </div>
+                
             </div>
             <div class="w-full md:w-1/2 p-4">
                 <div class="image">
-                    <img alt="Empowering Innovation Image" height="400" src="/Resources/Photos/IMG_4781.jpeg"
-                        width="800" class="w-full h-auto object-cover " />
+                    <img alt="Empowering Innovation Image" height="200" src="/Resources/Illustrations/Cyborg-bro.svg"
+                        width="800" class="w-full h-auto object-cover" />
                 </div>
             </div>
         </div>
@@ -297,7 +320,7 @@
         <div class="flex flex-col md:flex-row justify-between p-4 space-y-8 md:space-y-0 md:space-x-8">
             <div class="w-full md:w-1/2 p-4">
                 <div class="image">
-                    <img alt="Empowering Innovation Image" height="200" src="/Resources/Photos/IMG_4781.jpeg"
+                    <img alt="Empowering Innovation Image" height="200" src="/Resources/Illustrations/Deconstructedrobot.svg"
                         width="800" class="w-full h-auto object-cover" />
                 </div>
             </div>
@@ -305,8 +328,33 @@
                 <div class="text">
                     <h1
                         class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-                        <span class="text-blue-600 dark:text-blue-500">About </span> Us
+                        <span class="text-hex">About </span> Us
                     </h1>
+                    <p class="mb-4 text-lg font-normal text-gray-500 dark:text-gray-400">
+                        Plastal-Bot Builders is a non-profit organization dedicated to empowering the next generation of
+                        young
+                        leaders through Robotics, innovation, and Entrepreneurship in underrepresented communities. We
+                        believe that bridging the digital divide and fostering innovation are crucial for every
+                        community's socioeconomic progress.
+
+                    </p>
+                    <p class="my-4 text-lg text-gray-500">
+                        Our commitment to education, empowerment, and community development drives our core programs:
+                        D'Privilege, the School Outreach Program (SOP), Afrohacks.
+                    </p>
+                    <p class="mb-4 text-lg font-normal text-gray-500 dark:text-gray-400">
+                        Plastal-Bot Builders is a non-profit organization dedicated to empowering the next generation of
+                        young
+                        leaders through Robotics, innovation, and Entrepreneurship in underrepresented communities. We
+                        believe that bridging the digital divide and fostering innovation are crucial for every
+                        community's socioeconomic progress.
+
+                    </p>
+                    <p class="my-4 text-lg text-gray-500">
+                        Our commitment to education, empowerment, and community development drives our core programs:
+                        D'Privilege, the School Outreach Program (SOP), Afrohacks.
+                    </p>
+
                     <p class="mb-4 text-lg font-normal text-gray-500 dark:text-gray-400">
                         Plastal-Bot Builders is a non-profit organization dedicated to empowering the next generation of
                         young
@@ -331,27 +379,31 @@
                 <div>
                     <h1
                         class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-                        <span class="text-blue-600 dark:text-blue-500">Empowering </span> Innovation
+                        <span class="text-hex"> Fostering </span> Innovation
                     </h1>
-                </div>
-                <div class="p-4 rounded-lg mb-4">
-                    <!-- First child of first sub-div -->
-                    <h1 class="text-3xl font-extrabold"> Fostering Innovation </h1>
-                    <p class="mt-4"> Technology empowers people to think creatively and push boundaries. It opens new
+                    <p class="mt-4 text-gray-700 text-lg"> Technology empowers people to think creatively and push boundaries. It opens new
                         avenues for innovation, allowing entrepreneurs and researchers to develop solutions that were
                         once thought impossible. Whether it’s artificial intelligence revolutionizing healthcare or
                         renewable energy transforming our environmental practices, technology enables us to dream big
-                        and achieve even more.</p>
-                </div>
-                <div class="mt-8 p-4 rounded-lg">
-                    <!-- Second child of first sub-div -->
-                    <h1 class="text-3xl font-extrabold"> Bridging Gaps </h1>
-                    <p class="mt-4"> One of the most significant impacts of technology is its ability to connect people
+                        and achieve even more.
+                    </p>
+
+                    <div class="ml-8 p-6 rounded-lg mb-4">
+                        <!-- First child of first sub-div -->
+                        <img src="/Resources/Illustrations/Cyborg-bro.svg" alt="Introduction to Robotics" class="mb-4">
+                    </div>
+
+                    <h1
+                        class="mt-4 mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+                        <span class="text-hex"> Bridging </span> Gaps
+                    </h1>
+                    <p class="mt-4 text-gray-700 text-lg"> One of the most significant impacts of technology is its ability to connect people
                         and resources. Through digital platforms, communities are no longer constrained by geographical
                         boundaries. Remote working, virtual collaboration, and online learning platforms have made it
                         possible for people to engage, learn, and grow from anywhere in the world. This empowerment
                         extends beyond individuals, enabling businesses and governments to collaborate on a global
-                        scale. </p>
+                        scale.
+                    </p>
                 </div>
             </div>
 
@@ -359,21 +411,24 @@
             <div class="w-full md:w-1/2 p-4">
                 <h1
                     class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-                    <span class="text-blue-600 dark:text-blue-500">Empowering </span> Technology
+                    <span class="text-hex">Enhancing </span> Education
                 </h1>
-                <div class="p-4 rounded-lg mb-4">
+
+                <div class="ml-8 p-6 rounded-lg mb-4">
                     <!-- First child of first sub-div -->
-                    <h1 class="text-3xl font-extrabold"> Enhancing Education </h1>
-                    <p class="mt-4"> In education, technology has become a catalyst for change. Digital tools such as
-                        interactive software, online courses, and e-learning platforms provide personalized learning
-                        experiences, making education more accessible to all. Students can now gain knowledge and skills
-                        from world-class institutions, regardless of their location or socioeconomic background, further
-                        leveling the playing field for future generations. Empowering technology plays a critical role
-                        in addressing climate change, resource depletion, and other global environmental challenges.
-                        Through advancements in clean energy, sustainable agriculture, and waste management
-                        technologies, we are creating a more sustainable world. These innovations empower individuals
-                        and industries to reduce their environmental impact and contribute to a healthier planet.</p>
+                    <img src="/Resources/Illustrations/Mathematics-bro (1) 1.svg" alt="Introduction to Robotics"
+                        class="mb-4">
                 </div>
+
+                <p class="mt-4 text-gray-700 text-lg"> In education, technology has become a catalyst for change. Digital tools such as
+                    interactive software, online courses, and e-learning platforms provide personalized learning
+                    experiences, making education more accessible to all. Students can now gain knowledge and skills
+                    from world-class institutions, regardless of their location or socioeconomic background, further
+                    leveling the playing field for future generations. Empowering technology plays a critical role
+                    in addressing climate change, resource depletion, and other global environmental challenges.
+                    Through advancements in clean energy, sustainable agriculture, and waste management
+                    technologies, we are creating a more sustainable world. These innovations empower individuals
+                    and industries to reduce their environmental impact and contribute to a healthier planet.</p>
             </div>
         </div>
 
@@ -383,9 +438,9 @@
             <div class="w-full md:w-1/2 p-4">
                 <div class="text">
                     <h1
-                        class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-                        <span class="text-blue-600 dark:text-blue-500">Subscribe </span> To <span
-                            class="text-blue-600 dark:text-blue-500">Our</span> Newsletter
+                        class="mb-6 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+                        <span class="text-hex">Subscribe </span> To <span
+                            class="text-hex">Our</span> Newsletter
                     </h1>
                     <p class="my-4 text-lg text-gray-500">
                         We’re committed to making life-changing technology education accessible to all, regardless of
@@ -397,23 +452,23 @@
                         recognize that learning is only the first step; real empowerment comes when individuals can
                         translate their knowledge into meaningful employment opportunities.
                     </p>
-                    <p class="mb-4 text-lg font-normal text-gray-500 dark:text-gray-400">
+                    <p class="mb-2 text-lg font-normal text-gray-500 dark:text-gray-400">
                         That’s why we are equally dedicated to fostering job-ready skills, bridging the gap between
                         education and the workforce. Through partnerships with industry leaders, internships, and career
                         development initiatives, we help learners turn their newfound expertise into tangible career
                         success.
                     </p>
-                    <div class="flex flex-col sm:flex-row items-start sm:items-center">
+                    <div class="mt-8 flex flex-col sm:flex-row items-start sm:items-center">
                         <input type="text" placeholder="Enter your Email"
                             class="input input-bordered input-lg w-full sm:max-w-xs mb-4 sm:mb-0 sm:mr-4" />
-                        <button class="btn btn-lg btn-outline btn-primary">Become a Member</button>
+                        <button class="custom-button">Become a Member</button>
                     </div>
                 </div>
             </div>
             <div class="w-full md:w-1/2 p-4">
                 <div class="image">
-                    <img alt="Empowering Innovation Image" src="/Resources/Photos/IMG_4781.jpeg"
-                        class="w-full h-auto rounded-lg" />
+                    <img src="/Resources/Illustrations/Subscriber1.svg" alt="Introduction to Robotics"
+                        class="">
                 </div>
             </div>
         </div>
@@ -424,11 +479,11 @@
             <!-- First Bento Box -->
             <div class="grid grid-cols-1 sm:grid-cols-3 grid-rows-2 gap-4">
                 <!-- Large Block (2x2) -->
-                <div class="col-span-1 sm:col-span-2 row-span-2 pr-4">
+                <div class="col-span-1 sm:col-span-2 row-span-2 pr-4 p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <h1
                         class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
-                        <span class="text-blue-600 dark:text-blue-500"> What </span> is <span
-                            class="text-blue-600 dark:text-blue-500"> Robotics? </span>
+                        <span class="text-hex"> What </span> is <span
+                            class="text-hex"> Robotics? </span>
                     </h1>
                     <img src="/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg"
                         alt="Introduction to Robotics" class="w-full h-64 object-cover rounded-lg mb-4">
@@ -441,7 +496,7 @@
                         and opportunities, pushing the boundaries of innovation and shaping the future of technology.
                         With ongoing research and development, the integration of advanced robotics into everyday life
                         promises to enhance efficiency, safety, and productivity across various domains.</p>
-                    <button href="#" onclick="my_modal_3.showModal()" class="mt-4 btn btn-outline btn-warning">Learn
+                    <button href="#" onclick="my_modal_3.showModal()" class="mt-4 custom-button">Learn
                         more about Robotics...</button>
                     <dialog id="my_modal_3" class="modal">
                         <div class="modal-box bg-customPurple dark:bg-gray-800">
@@ -450,8 +505,8 @@
                             </form>
                             <h1
                                 class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
-                                <span class="text-blue-600 dark:text-blue-500"> What </span> is <span
-                                    class="text-blue-600 dark:text-blue-500"> Robotics? </span>
+                                <span class="text-hex"> What </span> is <span
+                                    class="text-hex"> Robotics? </span>
                             </h1>
                             <div class="py-4">
                                 <img src="/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg"
@@ -494,20 +549,20 @@
 
                 <!-- Small Block 1 -->
                 <div
-                    class="col-span-1 bg-center bg-no-repeat bg-[url('/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg')] flex justify-center items-center p-4 overflow-auto touch-auto scale-50">
+                    class="col-span-1  flex justify-center items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <h1
                         class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
-                        <span class="text-blue-600 dark:text-blue-500"> Electrical </span> Engineering
+                        <span class="text-hex"> Electrical </span> Engineering
                     </h1>
                 </div>
 
                 <!-- Small Block 2 -->
                 <div
-                    class="col-span-1 bg-center bg-no-repeat bg-[url('/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg')] flex justify-center items-center p-4">
+                    class="col-span-1 flex justify-center items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <div>
                         <h1
                             class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
-                            <span class="text-blue-600 dark:text-blue-500"> Electrical </span> Engineering
+                            <span class="text-hex"> Electrical </span> Engineering
                         </h1>
                         <p class="text-sm text-gray-600">Electrical engineers focus on the circuitry, power systems, and
                             control mechanisms that bring robots to life.</p>
@@ -519,11 +574,11 @@
             <div class="grid grid-cols-1 sm:grid-cols-3 grid-rows-2 gap-4">
                 <!-- Small Block 1 (Top Left) -->
                 <div
-                    class="col-span-1 row-span-1 bg-center bg-no-repeat bg-[url('/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg')] flex justify-center items-center p-4">
+                    class="col-span-1 row-span-1 flex justify-center items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <div>
                         <h1
                             class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
-                            <span class="text-blue-600 dark:text-blue-500"> Artificial </span> Intelligence (AI)
+                            <span class="text-hex"> Artificial </span> Intelligence (AI)
                         </h1>
                         <p class="text-sm text-gray-600">AI plays a pivotal role in robotics, enabling robots to learn,
                             adapt, and perform tasks with greater precision.</p>
@@ -531,27 +586,27 @@
                 </div>
 
                 <!-- Large Block (2x1) (Top Right) -->
-                <div class="col-span-1 sm:col-span-2 row-span-1">
+                <div class="col-span-1 sm:col-span-2 row-span-1 p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <h1
                         class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
-                        <span class="text-blue-600 dark:text-blue-500"> Application </span> of <span
-                            class="text-blue-600 dark:text-blue-500"> Robotics </span>
+                        <span class="text-hex"> Application </span> of <span
+                            class="text-hex"> Robotics </span>
                     </h1>
                     <img src="/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg"
                         alt="Robotics Applications" class="w-full h-32 object-cover rounded-lg mb-4">
                     <p class="text-lg text-gray-500">Robotics is used in various industries, from manufacturing and
                         healthcare to space exploration. Robots automate processes and perform tasks too dangerous or
                         precise for humans.</p>
-                    <button href="#" class="mt-4 btn btn-outline btn-warning">Explore applications of
+                    <button href="#" class="mt-4 btn custom-button">Explore applications of
                         Robotics...</button>
                 </div>
 
                 <!-- Large Block (Bottom Left) (2x1) -->
-                <div class="col-span-1 sm:col-span-2 row-span-1">
+                <div class="col-span-1 sm:col-span-2 row-span-1 p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <h1
                         class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
-                        <span class="text-blue-600 dark:text-blue-500"> Ethics </span> in <span
-                            class="text-blue-600 dark:text-blue-500"> Robotics </span>
+                        <span class="text-hex"> Ethics </span> in <span
+                            class="text-hex"> Robotics </span>
                     </h1>
                     <p class="mt-4 text-gray-600 text-sm">As robots become more integrated into society, ethical
                         concerns about autonomy, safety, and human rights arise. Understanding these issues is essential
@@ -569,11 +624,11 @@
 
                 <!-- Small Block 2 (Bottom Right) -->
                 <div
-                    class="col-span-1 row-span-1 bg-center bg-no-repeat bg-[url('/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg')] flex justify-center items-center p-4">
+                    class="col-span-1 row-span-1 flex justify-center items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <div>
                         <h1
                             class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
-                            <span class="text-blue-600 dark:text-blue-500">Sensors</span>
+                            <span class="text-hex">Sensors</span>
                         </h1>
                         <p class="text-sm text-gray-600">Sensors allow robots to interact with their environment. These
                             include vision, touch, and auditory sensors, helping robots understand and adapt to their
@@ -589,42 +644,36 @@
         <div class="container mx-auto p-6">
             <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4">
                 <!-- Large Block -->
-                <div class="col-span-1 md:col-span-2 md:row-span-2 mb-4">
+                <div class="col-span-1 md:col-span-2 md:row-span-2 mb-4 p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <img src="/Resources/Photos/IMG_4781.jpeg" alt="Featured Image"
                         class="w-full h-64 object-cover mb-4">
                     <h1
                         class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
-                        <span class="text-blue-600 dark:text-blue-500">Featured </span> Article
+                        <span class="text-hex">Featured </span> Article
                     </h1>
-                    <p class="text-gray-700 text-sm">Robots play an increasingly vital role in the building,
+                    <p class="text-lg text-gray-700">Robots play an increasingly vital role in the building,
                         maintenance, and optimization of renewable energy systems, such as wind turbines, solar panels,
                         and other sustainable technologies. As the world shifts towards cleaner energy sources to combat
                         climate change, robotics is proving to be a key enabler in making these technologies more
                         efficient and cost-effective, ultimately contributing to the reduction of carbon emissions.</p>
-                    <p class="mt-2 text-gray-700 text-sm">As renewable energy systems continue to grow in scale and
+                    <p class="mt-2 text-gray-700 text-lg">As renewable energy systems continue to grow in scale and
                         importance, the role of robotics will only expand, further driving innovations in sustainability
                         and helping to meet global carbon reduction goals. By improving the efficiency and reliability
                         of these systems, robots are paving the way for a greener, more sustainable future.</p>
-                    <button href="#" class="mt-4 btn btn-outline btn-warning">Read More...</button>
+                    <button href="#" class="mt-4 custom-button">Read More...</button>
                 </div>
 
                 <!-- Tall Block -->
                 <div
-                    class="col-span-1 md:row-span-2 bg-center bg-no-repeat bg-[url('/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg')] flex justify-center items-center p-6">
+                    class="col-span-1 md:row-span-2 flex justify-center items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <div class="text-center">
-                        <h3 class="text-xl font-bold mb-4">Sidebar Content</h3>
-                        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
-                        <h3 class="text-xl font-bold mb-4">Sidebar Content</h3>
-                        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
-                        <h3 class="text-xl font-bold mb-4">Sidebar Content</h3>
-                        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
-                        <h3 class="text-xl font-bold mb-4">Sidebar Content</h3>
-                        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+                        <img src="/Resources/Illustrations/Visionarytechnology.svg" alt="Introduction to Robotics"
+                        class="">
                     </div>
                 </div>
 
                 <!-- Small Block 1 -->
-                <div class="col-span-1 row-span-1 flex flex-col md:flex-row items-center">
+                <div class="col-span-1 row-span-1 flex flex-col md:flex-row items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <div class="w-full md:w-1/2 h-full">
                         <img src="/Resources/Photos/IMG_4781.jpeg" alt="Reference Image"
                             class="w-full h-full object-cover">
@@ -632,14 +681,14 @@
                     <div class="w-full md:w-1/2 p-4">
                         <h1
                             class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
-                            <span class="text-blue-600 dark:text-blue-500">Research </span> Opportunities
+                            <span class="text-hex">Research </span> Opportunities
                         </h1>
                         <p class="text-sm text-gray-600">Description for block 1 goes here.</p>
                     </div>
                 </div>
 
                 <!-- Small Block 2 -->
-                <div class="col-span-1 row-span-1 flex flex-col md:flex-row items-center">
+                <div class="col-span-1 row-span-1 flex flex-col md:flex-row items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <div class="w-full md:w-1/2 h-full">
                         <img src="/Resources/Photos/IMG_4781.jpeg" alt="Reference Image"
                             class="w-full h-full object-cover">
@@ -647,14 +696,14 @@
                     <div class="w-full md:w-1/2 p-4">
                         <h1
                             class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
-                            <span class="text-blue-600 dark:text-blue-500">Mentorship </span> Opportunities
+                            <span class="text-hex">Mentorship </span> Opportunities
                         </h1>
                         <p class="text-sm text-gray-600">Description for block 2 goes here.</p>
                     </div>
                 </div>
 
                 <!-- Small Block 3 -->
-                <div class="col-span-1 row-span-1 flex flex-col md:flex-row items-center">
+                <div class="col-span-1 row-span-1 flex flex-col md:flex-row items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <div class="w-full md:w-1/2 h-full">
                         <img src="/Resources/Photos/IMG_4781.jpeg" alt="Reference Image"
                             class="w-full h-full object-cover">
@@ -662,7 +711,7 @@
                     <div class="w-full md:w-1/2 p-4">
                         <h1
                             class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
-                            <span class="text-blue-600 dark:text-blue-500">Sponsorship </span> Opportunities
+                            <span class="text-hex">Sponsorship </span> Opportunities
                         </h1>
                         <p class="text-sm text-gray-600">Description for block 3 goes here.</p>
                     </div>
@@ -676,39 +725,39 @@
             <!-- First Bento Box (Climate Change Robotics) -->
             <div class="grid grid-cols-1 sm:grid-cols-3 grid-rows-2 gap-4">
                 <!-- Large Block (2x2) -->
-                <div class="col-span-1 sm:col-span-2 row-span-2">
+                <div class="col-span-1 sm:col-span-2 row-span-2 p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <h1
                         class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
-                        <span class="text-blue-600 dark:text-blue-500">Robotics</span> for <span
-                            class="text-blue-600 dark:text-blue-500"> Addressing </span> climate <span
-                            class="text-blue-600 dark:text-blue-500">Change</span>
+                        <span class="text-hex">Robotics</span> for <span
+                            class="text-hex"> Addressing </span> climate <span
+                            class="text-hex">Change</span>
                     </h1>
                     <img src="/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg"
                         alt="Robotics and Climate Change" class="w-full h-64 object-cover rounded-lg mb-4">
-                    <p class="text-gray-700 text-sm">Through these diverse applications, robotics is proving to be an
+                    <p class="text-gray-700 text-lg">Through these diverse applications, robotics is proving to be an
                         indispensable tool in environmental protection and the global fight against climate change. By
                         enhancing our ability to monitor ecosystems, gather critical data, and implement sustainable
                         practices, robots are helping to preserve the planet for future generations.</p>
-                    <p class="mt-4 text-gray-600 text-sm">Robots play a crucial role in combating climate change by
+                    <p class="mt-4 text-gray-600 text-lg">Robots play a crucial role in combating climate change by
                         assisting in various environmental preservation efforts. Whether it's monitoring deforestation,
                         analyzing ocean health, or supporting climate research, robotics has become a powerful tool in
                         the fight to protect our planet from the impacts of global warming.</p>
-                    <p class="mt-4 text-gray-600 text-sm">As robotics continues to evolve, it's expected to play an
+                    <p class="mt-4 text-gray-600 text-lg">As robotics continues to evolve, it's expected to play an
                         increasingly significant role in addressing climate change. From developing more efficient and
                         sustainable energy solutions to improving agricultural practices, robots are poised to make a
                         significant impact on the environment. By harnessing the power of robotics, we can work towards
                         a greener, more sustainable future.</p>
-                    <button href="#" class="mt-4 btn btn-outline btn-warning">Learn how robotics can fight climate
+                    <button href="#" class="mt-4 btn custom-button">Learn how robotics can fight climate
                         change...</button>
                 </div>
 
                 <!-- Small Block 1 -->
                 <div
-                    class="col-span-1 bg-center bg-no-repeat bg-[url('/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg')] flex justify-center items-center p-4">
+                    class="col-span-1 flex justify-center items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <div>
                         <h1
                             class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
-                            <span class="text-blue-600 dark:text-blue-500">Robotic</span> Drones
+                            <span class="text-hex">Robotic</span> Drones
                         </h1>
                         <p class="text-sm text-gray-600">Drones monitor large areas of land, providing data on
                             deforestation, pollution, and more to help conservationists make decisions.</p>
@@ -717,11 +766,11 @@
 
                 <!-- Small Block 2 -->
                 <div
-                    class="col-span-1 bg-center bg-no-repeat bg-[url('/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg')] flex justify-center items-center p-4">
+                    class="col-span-1 flex justify-center items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <div>
                         <h1
                             class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
-                            <span class="text-blue-600 dark:text-blue-500">Underwater</span> Robots
+                            <span class="text-hex">Underwater</span> Robots
                         </h1>
                         <p class="text-sm text-gray-600">These robots explore and monitor marine ecosystems, providing
                             critical data on ocean health and environmental shifts.</p>
@@ -732,46 +781,46 @@
             <!-- Second Bento Box (Rearranged Block Pattern) -->
             <div class="grid grid-cols-1 sm:grid-cols-3 grid-rows-3 gap-4">
                 <!-- Large Block (Bottom) -->
-                <div class="col-span-1 sm:col-span-3 row-span-1">
+                <div class="col-span-1 sm:col-span-3 row-span-1 p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <h1
                         class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
-                        <span class="text-blue-600 dark:text-blue-500">Robotics</span> in <span
-                            class="text-blue-600 dark:text-blue-500"> Renewable </span> Energy
+                        <span class="text-hex">Robotics</span> in <span
+                            class="text-hex"> Renewable </span> Energy
                     </h1>
                     <img src="/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg"
                         alt="Robotics in Renewable Energy" class="w-full h-32 object-cover rounded-lg mb-4">
-                    <p class="text-gray-700 text-sm">Robots play a key role in building, maintaining, and optimizing
+                    <p class="text-gray-700 text-lg">Robots play a key role in building, maintaining, and optimizing
                         renewable energy systems. They work on wind turbines, solar panels, and other renewable
                         technologies, reducing carbon emissions.</p>
-                    <button href="#" class="mt-4 btn btn-outline btn-warning">Discover more about robotics in renewable
+                    <button href="#" class="mt-4 btn custom-button">Discover more about robotics in renewable
                         energy...</button>
                 </div>
 
                 <!-- Large Block (Top Left) -->
-                <div class="col-span-1 sm:col-span-2 row-span-1">
+                <div class="col-span-1 sm:col-span-2 row-span-1 p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <h1
                         class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
-                        <span class="text-blue-600 dark:text-blue-500">Healthcare</span> Robotics
+                        <span class="text-hex">Healthcare</span> Robotics
                     </h1>
-                    <p class="text-gray-600 text-sm">In healthcare, robots assist with surgeries, patient care, and
+                    <p class="text-gray-600 text-lg">In healthcare, robots assist with surgeries, patient care, and
                         diagnostics. During pandemics, robots help with disinfection, reducing human exposure to
                         diseases.</p>
-                    <p class="mt-4 text-gray-600 text-sm">In healthcare, robots are transforming the landscape of
+                    <p class="mt-4 text-gray-600 text-lg">In healthcare, robots are transforming the landscape of
                         medical practice by assisting in a variety of tasks such as surgeries, patient care, and
                         diagnostics. Their precision, efficiency, and ability to work in challenging environments have
                         made them indispensable in modern medicine. Additionally, during global health crises like
                         pandemics, robots have played a crucial role in disinfection and reducing human exposure to
                         infectious diseases, ensuring both patient safety and healthcare worker protection.</p>
-                    <button href="#" class="mt-4 btn btn-outline btn-warning">Explore robotics in healthcare...</button>
+                    <button href="#" class="mt-4 custom-button">Explore robotics in healthcare...</button>
                 </div>
 
                 <!-- Small Block 1 (Top Right) -->
                 <div
-                    class="col-span-1 row-span-2 bg-center bg-no-repeat bg-[url('/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg')] flex justify-center items-center p-4">
+                    class="col-span-1 row-span-2 flex justify-center items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <div>
                         <h1
                             class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
-                            <span class="text-blue-600 dark:text-blue-500">Conservation</span> Robotics
+                            <span class="text-hex">Conservation</span> Robotics
                         </h1>
                         <p class="text-sm text-gray-600">Robots assist in conservation efforts, from reforestation
                             drones planting trees to robotic wildlife monitoring that helps track endangered species.
@@ -784,11 +833,11 @@
 
                 <!-- Small Block 2 (Bottom Left) -->
                 <div
-                    class="col-span-1 row-span-1 bg-center bg-no-repeat bg-[url('/Resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg')] flex justify-center items-center p-4">
+                    class="col-span-1 row-span-1 flex justify-center items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <div>
                         <h1
                             class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
-                            <span class="text-blue-600 dark:text-blue-500">Agriculture</span> Robots
+                            <span class="text-hex">Agriculture</span> Robots
                         </h1>
                         <p class="text-sm text-gray-600">In agriculture, robots increase efficiency and reduce waste.
                             Automated systems plant, water, and harvest crops, reducing the environmental impact of
@@ -803,14 +852,14 @@
         <div>
             <h1
                 class="p-6 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
-                <span class="text-blue-600 dark:text-blue-500"> Meet </span> the Team
+                <span class="text-hex"> Meet </span> the Team
             </h1>
-            <p class="p-6 mb-4 text-sm text-gray-600">
+            <p class="p-6 mb-4 text-lg text-gray-600">
                 Our team is comprised of passionate individuals who are committed to empowering Zambia's youth
                 through technology and entrepreneurship. We are dedicated to providing mentorship, resources, and
                 opportunities to help young people thrive and make a positive impact in their communities.
             </p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-4">
+            <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-4">
                 <!-- Sepo Konayuma -->
                 <div class="text-center text-gray-500 dark:text-gray-400">
                     <img class="mx-auto mb-4 w-24 h-24 sm:w-36 sm:h-36 rounded-full" src="/Resources/founders/sepo.jpeg"
@@ -874,7 +923,7 @@
                     <img class="mx-auto mb-4 w-24 h-24 sm:w-36 sm:h-36 rounded-full"
                         src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/sofia-mcguire.png"
                         alt="Wazingwe Mugala">
-                    <h3 class="mb-1 text-xl sm:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    <h3 class="mb-1 text-xl sm:text-2xl font-bold tracking-tight text-gray-900dark:text-white">
                         <a href="#">Wazingwe Mugala</a>
                     </h3>
                     <p>Creative Director</p>
