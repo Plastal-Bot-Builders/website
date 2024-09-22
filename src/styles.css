@@ -1,0 +1,30 @@
+.carousel-block {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    10%, 90% { opacity: 1; }
+}
+
+.animate-block1, .animate-block2, .animate-block3, .animate-block4 {
+    animation: fadeInOut 8s infinite;
+}
+
+/* Customize timing for each block to stagger their appearances */
+.animate-block1 {
+    animation-delay: 0s;
+}
+
+.animate-block2 {
+    animation-delay: 2s;
+}
+
+.animate-block3 {
+    animation-delay: 4s;
+}
+
+.animate-block4 {
+    animation-delay: 6s;
+}

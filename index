@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/Resources/Logo/logo_trans.png" type="image/x-icon" />
     <title>
-        Home
+        Plastal-Bot Builders
     </title>
+    <link rel="stylesheet" href="/src/styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
@@ -221,61 +222,65 @@
             color: white;
             /* Change text color to white */
         }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #0CFFBB; }
+        }
+
+        .typing-animation {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 0.15em solid #0CFFBB;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        /* Custom CSS for fade transition */
+        .carousel img {
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+    
+        /* Make the active image visible */
+        .carousel img.active {
+            opacity: 1;
+        }
     </style>
 </head>
 
 <body class="scroll-smooth focus:scroll-auto">
     <div class="container">
-        <header>
-            <div class="navbar">
-                <div class="navbar-start">
-                    <div class="dropdown">
-                        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M4 6h16M4 12h8m-8 6h16" />
-                            </svg>
-                        </div>
-                        <ul tabindex="0"
-                            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                            <li><a href="index.html">Home</a></li>
-                            <li>
-                                <a>FAQs</a>
-                                <ul class="p-2">
-                                    <li><a>Submenu 1</a></li>
-                                    <li><a>Submenu 2</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="blog.html">Blogs</a></li>
-                        </ul>
+        <!-- Navigation Bar -->
+        <nav class="">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="flex justify-between items-center py-4">
+
+                    <!-- Logo and Title -->
+                    <div class="flex items-center space-x-2">
+                        <img src="/Resources/Logo/logo_trans.png" alt="Plastal-Bot Builders Logo" class="h-48 w-48">
                     </div>
-                    <img class="logo" alt="Logo" src="/Resources/Logo/1-02 (2).png" />
-                </div>
-                <div class="navbar-center hidden lg:flex">
-                    <ul class="menu menu-horizontal px-1">
-                        <li><a href="index.html">Home</a></li>
-                        <li>
-                            <details>
-                                <summary>FAQs</summary>
-                                <ul class="p-2">
-                                    <li><a>Submenu 1</a></li>
-                                    <li><a>Submenu 2</a></li>
-                                </ul>
-                            </details>
-                        </li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="blog.html">Blogs</a></li>
-                    </ul>
-                </div>
-                <div class="navbar-end">
-                    <button class="custom-button hidden sm:block">
-                        Become a Member
-                    </button>
+
+                    <!-- Navigation Links -->
+                    <div class="hidden md:flex space-x-8">
+                        <a href="#about" class="text-white hover:text-[#0CFFBB]">ABOUT</a>
+                        <a href="#supporters" class="text-white hover:text-[#0CFFBB]">SUPPORTERS</a>
+                        <a href="#how-it-works" class="text-white hover:text-[#0CFFBB]">HOW IT WORKS</a>
+                        <a href="#contact" class="text-white hover:text-[#0CFFBB]">CONTACT</a>
+                    </div>
+
+                    <!-- Register Button -->
+                    <div>
+                        <button class="custom-button">Become a Member</button>
+                    </div>
+
                 </div>
             </div>
-        </header>
+        </nav>
 
         <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
 
@@ -283,10 +288,26 @@
         <div class="flex flex-col md:flex-row justify-between p-4 space-y-8 md:space-y-0 md:space-x-8">
             <div class="w-full md:w-1/2 p-4">
                 <div class="text">
-                    <h1
-                        class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
-                        <span class="text-hex">Empowering </span> Innovation
+                    <h1 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
+                        <span class="text-hex typing-animation">Empowering <span class="text-white">Innovation</span></span>
                     </h1>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            const element = document.querySelector('.typing-animation');
+                            
+                            function resetAnimation() {
+                                element.style.animation = 'none';
+                                element.offsetHeight; /* trigger reflow */
+                                element.style.animation = null; 
+                            }
+                
+                            // Initial animation
+                            resetAnimation();
+                
+                            // Repeat animation every 5 seconds
+                            setInterval(resetAnimation, 5000);
+                        });
+                    </script>
                     <p class="my-4 text-sm sm:text-base md:text-lg lg:text-xl text-gray-500">
                         We’re committed to making life-changing technology education accessible to all, regardless of
                         background
@@ -471,7 +492,8 @@
                     </p>
                     <div class="mt-8 flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
                         <div class="w-full sm:w-auto">
-                            <input type="text" placeholder="Enter your Email" id="floating_outlined" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer hover:border-[#0CFFBB]">
+                            <input type="text" placeholder="Enter your Email" id="floating_outlined"
+                                class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer hover:border-[#0CFFBB]">
                         </div>
                         <button class="custom-button w-full sm:w-auto">Become a Member</button>
                     </div>
@@ -648,7 +670,6 @@
             </div>
         </div>
 
-
         <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
 
         <div class="container mx-auto p-6">
@@ -656,10 +677,38 @@
                 <!-- Large Block -->
                 <div
                     class="col-span-1 md:col-span-2 md:row-span-2 mb-4 p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
-                    <img src="/Resources/Photos/IMG_4781.jpeg" alt="Featured Image"
-                        class="w-full h-64 object-cover mb-4">
+                    <!-- Image Carousel Container -->
+                    <div class="carousel relative w-full mx-auto rounded-lg h-64 overflow-hidden">
+                        <img src="/Resources/Photos/femalerobotics.png" alt="Image 1" class="absolute w-full h-full object-cover active">
+                        <img src="/Resources/Photos/foundation.jpg" alt="Image 2" class="absolute w-full h-full object-cover">
+                        <img src="/Resources/Photos/dywen.jpg" alt="Image 3" class="absolute w-full h-full object-cover">
+                        <img src="/Resources/Photos/momentofbliss.png" alt="Image 4" class="absolute w-full h-full object-cover">
+                        <img src="/Resources/Photos/IMG_4781.jpeg" alt="Featured Image" class="absolute w-full h-full object-cover">
+                    </div>
+                    <!-- Optional: Next/Previous Controls -->
+                    <!-- <div class="carousel-control absolute top-1/2 transform -translate-y-1/2 w-full flex justify-between">
+                        <button id="prev" class="bg-gray-700 text-white px-4 py-2">Prev</button>
+                        <button id="next" class="bg-gray-700 text-white px-4 py-2">Next</button>
+                    </div> -->
+
+                    <!-- JavaScript for Carousel Functionality -->
+                    <script>
+                        const images = document.querySelectorAll('.carousel img');
+                        let currentIndex = 0;
+                        const intervalTime = 4000;
+
+                        function changeImage() {
+                        images[currentIndex].classList.remove('active');
+                        currentIndex = (currentIndex + 1) % images.length;
+                        images[currentIndex].classList.add('active');
+                        }
+
+                        setInterval(changeImage, intervalTime);
+                    </script>
+                    
+                    
                     <h1
-                        class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
+                        class="mt-4 mb-8 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
                         <span class="text-hex">Featured </span> Article
                     </h1>
                     <p class="text-lg text-gray-700">Robots play an increasingly vital role in the building,
@@ -733,10 +782,8 @@
             </div>
         </div>
 
-
         <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
 
-        <!-- Container for bento grid -->
         <div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-4">
 
@@ -751,8 +798,11 @@
                     <div class="ml-4 w-2/3">
                         <h3 class="text-xl font-semibold"> <span class="text-hex"> Kitwe Edition: </span> Introduction
                             to Robotics and Programming Fundamentals</h3>
-                        <p class="text-sm text-gray-400">American Corner - CBU, Kitwe</p>
-                        <p class="font-bold text-lg mt-2"> <span class="text-hex"> Date: </span>18, 25 May 2024 and 1 June 2024</p>
+                        <p class="text-lg text-gray-400 flex items-center"><img src="/Resources/Icons/Location.svg" alt="Location icon" class="w-6 h-6 mr-2"> American Corner - CBU, Kitwe</p>
+                        <p class="font-bold text-lg mt-2 flex items-center">
+                            <img src="/Resources/Icons/Calender.svg" alt="calendar icon" class="w-6 h-6 mr-2">
+                            18, 25 May 2024 and 1 June 2024
+                        </p>
                         <p class="text-sm text-gray-500">Start Date</p>
                         <p class="text-sm bg-gray-700 rounded-lg py-1 px-3 inline-block mt-2">3 days event</p>
                         <p class="text-xs text-gray-500 mt-2">Completed</p>
@@ -769,9 +819,14 @@
                     <!-- Event Details -->
                     <div class="ml-4 w-2/3">
                         <h3 class="text-xl font-semibold"> <span class="text-hex"> Outreach Program: </span> Mpelember
-                            Secondary School</h3>
-                        <p class="text-sm text-gray-400">Mpelembe Secondary School - Nkana West, Kitwe</p>
-                        <p class="font-bold text-lg mt-2"> <span class="text-hex"> Date: </span> 22 October 2024</p>
+                            Secondary School
+                        </h3>
+
+                        <p class="text-sm text-gray-400">Mpelembe Secondary School - Kitwe</p>
+                        <p class="font-bold text-lg mt-2 flex items-center">
+                            <img src="/Resources/Icons/Calender.svg" alt="calendar icon" class="w-6 h-6 mr-2">
+                            22 October2024
+                        </p>
                         <p class="text-sm text-gray-500">Start Date</p>
                         <p class="text-sm bg-gray-700 rounded-lg py-1 px-3 inline-block mt-2">3 days event</p>
                         <p class="text-xs text-green-500 mt-2">Coming Soon..</p>
@@ -788,9 +843,13 @@
                     <!-- Event Details -->
                     <div class="ml-4 w-2/3">
                         <h3 class="text-xl font-semibold"> <span class="text-hex"> Outreach Program: </span> Konkola
-                            Secondary School</h3>
-                        <p class="text-sm text-gray-400">Konkola Secondary School, Chililabombwe</p>
-                        <p class="font-bold text-lg mt-2"> <span class="text-hex"> Date: </span> 10 Jun 2024</p>
+                            Secondary School
+                        </h3>
+                        <p class="text-lg text-gray-400 flex items-center"><img src="/Resources/Icons/Location.svg" alt="Location icon" class="w-6 h-6 mr-2">Konkola Trust - Chililabombwe</p>
+                        <p class="font-bold text-lg mt-2 flex items-center">
+                            <img src="/Resources/Icons/Calender.svg" alt="calendar icon" class="w-6 h-6 mr-2">
+                            10 June 2024
+                        </p>
                         <p class="text-sm text-gray-500">Start Date</p>
                         <p class="text-sm bg-gray-700 rounded-lg py-1 px-3 inline-block mt-2">3 days event</p>
                         <p class="text-xs text-gray-500 mt-2">Completed</p>
@@ -807,9 +866,13 @@
                     <!-- Event Details -->
                     <div class="ml-4 w-2/3">
                         <h3 class="text-xl font-semibold"> <span class="text-hex"> Lusaka Edition: </span>Introduction
-                            to Robotics and Programming Fundamentals</h3>
-                        <p class="text-sm text-gray-400">American Corner - CBU, Kitwe</p>
-                        <p class="font-bold text-lg mt-2">09 December 2024</p>
+                            to Robotics and Programming Fundamentals
+                        </h3>
+                        <p class="text-lg text-gray-400 flex items-center"><img src="/Resources/Icons/Location.svg" alt="Location icon" class="w-6 h-6 mr-2">American Corner - CBU, Kitwe</p>
+                        <p class="font-bold text-lg mt-2 flex items-center">
+                            <img src="/Resources/Icons/Calender.svg" alt="calendar icon" class="w-6 h-6 mr-2">
+                            09 December 2024
+                        </p>
                         <p class="text-sm text-gray-500">Start Date</p>
                         <p class="text-sm bg-gray-700 rounded-lg py-1 px-3 inline-block mt-2">3 days event</p>
                         <p class="text-xs text-green-500 mt-2">Coming Soon..</p>
@@ -818,100 +881,96 @@
             </div>
         </div>
 
-
-
         <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
 
         <div>
-                <h1
+            <h1
                 class="p-6 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
                 <span class="text-hex"> Meet </span> the Team
-                </h1>
-                <p class="p-6 mb-4 text-lg text-gray-600">
-                    Our team is comprised of passionate individuals who are committed to empowering Zambia's youth
-                    through technology and entrepreneurship. We are dedicated to providing mentorship, resources, and
-                    opportunities to help young people thrive and make a positive impact in their communities.
-                </p>
-                <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-4">
-                    <!-- Sepo Konayuma -->
-                    <div class="text-center text-gray-500 dark:text-gray-400">
-                        <img class="mx-auto mb-4 w-24 h-24 sm:w-36 sm:h-36 rounded-full"
-                            src="/Resources/founders/sepo.jpeg" alt="Sepo Avatar">
-                        <h3 class="mb-1 text-xl sm:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                            <a href="#">Sepo Konayuma</a>
-                        </h3>
-                        <p>CEO/Co-founder</p>
-                        <ul class="flex justify-center mt-4 space-x-4">
-                            <i class="fab fa-linkedin icon-size"></i>
-                            <i class="fab fa-instagram icon-size"></i>
-                            <i class="fab fa-facebook icon-size"></i>
-                        </ul>
-                    </div>
-                    <!-- Fredrick Mwepu -->
-                    <div class="text-center text-gray-500 dark:text-gray-400">
-                        <img class="mx-auto mb-4 w-24 h-24 sm:w-36 sm:h-36 rounded-full"
-                            src="/Resources/founders/fredrick.jpg" alt="Fredrick Avatar">
-                        <h3 class="mb-1 text-xl sm:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                            <a href="#">Fredrick Mwepu</a>
-                        </h3>
-                        <p>CTO/Co-founder</p>
-                        <ul class="flex justify-center mt-4 space-x-4">
-                            <i class="fab fa-linkedin icon-size"></i>
-                            <i class="fab fa-instagram icon-size"></i>
-                            <i class="fab fa-facebook icon-size"></i>
-                        </ul>
-                    </div>
-                    <!-- Mapalo Kazembe -->
-                    <div class="text-center text-gray-500 dark:text-gray-400">
-                        <img class="mx-auto mb-4 w-24 h-24 sm:w-36 sm:h-36 rounded-full"
-                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
-                            alt="Mapalo Kazembe Avatar">
-                        <h3 class="mb-1 text-xl sm:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                            <a href="#">Mapalo Kazembe</a>
-                        </h3>
-                        <p>Lead-Trainer & Co-Founder</p>
-                        <ul class="flex justify-center mt-4 space-x-4">
-                            <i class="fab fa-linkedin icon-size"></i>
-                            <i class="fab fa-instagram icon-size"></i>
-                            <i class="fab fa-facebook icon-size"></i>
-                        </ul>
-                    </div>
-                    <!-- Fred M'kuna -->
-                    <div class="text-center text-gray-500 dark:text-gray-400">
-                        <img class="mx-auto mb-4 w-24 h-24 sm:w-36 sm:h-36 rounded-full"
-                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png"
-                            alt="Joseph Avatar">
-                        <h3 class="mb-1 text-xl sm:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                            <a href="#">Fred M'kuna</a>
-                        </h3>
-                        <p>Lead Trainer</p>
-                        <ul class="flex justify-center mt-4 space-x-4">
-                            <i class="fab fa-linkedin icon-size"></i>
-                            <i class="fab fa-instagram icon-size"></i>
-                            <i class="fab fa-facebook icon-size"></i>
-                        </ul>
-                    </div>
-                    <!-- Wazingwe Mugala -->
-                    <div class="text-center text-gray-500 dark:text-gray-400">
-                        <img class="mx-auto mb-4 w-24 h-24 sm:w-36 sm:h-36 rounded-full"
-                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/sofia-mcguire.png"
-                            alt="Wazingwe Mugala">
-                        <h3 class="mb-1 text-xl sm:text-2xl font-bold tracking-tight text-gray-900dark:text-white">
-                            <a href="#">Wazingwe Mugala</a>
-                        </h3>
-                        <p>Creative Director</p>
-                        <ul class="flex justify-center mt-4 space-x-4">
-                            <i class="fab fa-linkedin icon-size"></i>
-                            <i class="fab fa-instagram icon-size"></i>
-                            <i class="fab fa-facebook icon-size"></i>
-                        </ul>
-                    </div>
+            </h1>
+            <p class="p-6 mb-4 text-lg text-gray-600">
+                Our team is comprised of passionate individuals who are committed to empowering Zambia's youth
+                through technology and entrepreneurship. We are dedicated to providing mentorship, resources, and
+                opportunities to help young people thrive and make a positive impact in their communities.
+            </p>
+            <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-4">
+                <!-- Sepo Konayuma -->
+                <div class="text-center text-gray-500 dark:text-gray-400">
+                    <img class="mx-auto mb-4 w-24 h-24 sm:w-36 sm:h-36 rounded-full" src="/Resources/founders/sepo.jpeg"
+                        alt="Sepo Avatar">
+                    <h3 class="mb-1 text-xl sm:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                        <a href="#">Sepo Konayuma</a>
+                    </h3>
+                    <p>CEO/Co-founder</p>
+                    <ul class="flex justify-center mt-4 space-x-4">
+                        <i class="fab fa-linkedin icon-size"></i>
+                        <i class="fab fa-instagram icon-size"></i>
+                        <i class="fab fa-facebook icon-size"></i>
+                    </ul>
                 </div>
+                <!-- Fredrick Mwepu -->
+                <div class="text-center text-gray-500 dark:text-gray-400">
+                    <img class="mx-auto mb-4 w-24 h-24 sm:w-36 sm:h-36 rounded-full"
+                        src="/Resources/founders/fredrick.jpg" alt="Fredrick Avatar">
+                    <h3 class="mb-1 text-xl sm:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                        <a href="#">Fredrick Mwepu</a>
+                    </h3>
+                    <p>CTO/Co-founder</p>
+                    <ul class="flex justify-center mt-4 space-x-4">
+                        <i class="fab fa-linkedin icon-size"></i>
+                        <i class="fab fa-instagram icon-size"></i>
+                        <i class="fab fa-facebook icon-size"></i>
+                    </ul>
+                </div>
+                <!-- Mapalo Kazembe -->
+                <div class="text-center text-gray-500 dark:text-gray-400">
+                    <img class="mx-auto mb-4 w-24 h-24 sm:w-36 sm:h-36 rounded-full"
+                        src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
+                        alt="Mapalo Kazembe Avatar">
+                    <h3 class="mb-1 text-xl sm:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                        <a href="#">Mapalo Kazembe</a>
+                    </h3>
+                    <p>Lead-Trainer & Co-Founder</p>
+                    <ul class="flex justify-center mt-4 space-x-4">
+                        <i class="fab fa-linkedin icon-size"></i>
+                        <i class="fab fa-instagram icon-size"></i>
+                        <i class="fab fa-facebook icon-size"></i>
+                    </ul>
+                </div>
+                <!-- Fred M'kuna -->
+                <div class="text-center text-gray-500 dark:text-gray-400">
+                    <img class="mx-auto mb-4 w-24 h-24 sm:w-36 sm:h-36 rounded-full"
+                        src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png"
+                        alt="Joseph Avatar">
+                    <h3 class="mb-1 text-xl sm:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                        <a href="#">Fred M'kuna</a>
+                    </h3>
+                    <p>Lead Trainer</p>
+                    <ul class="flex justify-center mt-4 space-x-4">
+                        <i class="fab fa-linkedin icon-size"></i>
+                        <i class="fab fa-instagram icon-size"></i>
+                        <i class="fab fa-facebook icon-size"></i>
+                    </ul>
+                </div>
+                <!-- Wazingwe Mugala -->
+                <div class="text-center text-gray-500 dark:text-gray-400">
+                    <img class="mx-auto mb-4 w-24 h-24 sm:w-36 sm:h-36 rounded-full"
+                        src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/sofia-mcguire.png"
+                        alt="Wazingwe Mugala">
+                    <h3 class="mb-1 text-xl sm:text-2xl font-bold tracking-tight text-gray-900dark:text-white">
+                        <a href="#">Wazingwe Mugala</a>
+                    </h3>
+                    <p>Creative Director</p>
+                    <ul class="flex justify-center mt-4 space-x-4">
+                        <i class="fab fa-linkedin icon-size"></i>
+                        <i class="fab fa-instagram icon-size"></i>
+                        <i class="fab fa-facebook icon-size"></i>
+                    </ul>
+                </div>
+            </div>
         </div>
 
         <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
-
-
 
         <div class="overflow-x-auto">
             <div class="flex space-x-4">
@@ -1017,29 +1076,29 @@
             </nav>
         </div>
 
-            <hr class="border-t border-gray-300 my-4">
+        <hr class="border-t border-gray-300 my-4">
 
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="social-links flex space-x-4 mb-4 md:mb-0">
-                    <a href="https://www.linkedin.com/company/plastal-bot-builders/?originalSubdomain=zm">
-                        <i class="fab fa-linkedin icon-size"></i>
-                    </a>
-                    <a href="https://www.instagram.com">
-                        <i class="fab fa-instagram icon-size"></i>
-                    </a>
-                    <a href="https://www.facebook.com/plastalbotbuiders">
-                        <i class="fab fa-facebook icon-size"></i>
-                    </a>
-                    <a href="https://medium.com/@plastalbotbuilders">
-                        <i class="fab fa-medium icon-size"></i>
-                    </a>
-                </div>
-                <div>
-                    <p class="text-center md:text-left">
-                        ©️2024 Plastal-Bot Builders All rights reserved
-                    </p>
-                </div>
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="social-links flex space-x-4 mb-4 md:mb-0">
+                <a href="https://www.linkedin.com/company/plastal-bot-builders/?originalSubdomain=zm">
+                    <i class="fab fa-linkedin icon-size"></i>
+                </a>
+                <a href="https://www.instagram.com">
+                    <i class="fab fa-instagram icon-size"></i>
+                </a>
+                <a href="https://www.facebook.com/plastalbotbuiders">
+                    <i class="fab fa-facebook icon-size"></i>
+                </a>
+                <a href="https://medium.com/@plastalbotbuilders">
+                    <i class="fab fa-medium icon-size"></i>
+                </a>
             </div>
+            <div>
+                <p class="text-center md:text-left">
+                    ©️2024 Plastal-Bot Builders All rights reserved
+                </p>
+            </div>
+        </div>
     </footer>
 </body>
 
