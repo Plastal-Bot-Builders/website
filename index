@@ -451,7 +451,7 @@
                 <div class="text">
                     <h1
                         class="mb-6 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-                        <span class="text-hex">Subscribe </span> To <span class="text-hex">Our</span> Newsletter
+                        <span class="text-hex">Subscribe To Our</span> Newsletter
                     </h1>
                     <p class="my-4 text-lg text-gray-500">
                         We’re committed to making life-changing technology education accessible to all, regardless of
@@ -913,87 +913,87 @@
 
 
 
-        <div class="overflow-x-auto">
-            <div class="flex space-x-4">
-                <!-- Review 1 -->
-                <div class="max-w-xs mx-auto text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                    <p class="italic text-gray-600 dark:text-gray-300">"Great design skills and attention to detail."
-                    </p>
-                    <div class="mt-4">
-                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Mwiza Nyondo</p>
-                        <p class="text-sm font-medium text-gray-900 dark:text-white"> Pupil </p>
-                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Konkola Secondary School</p>
-                    </div>
+<div class="container mx-auto p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="flex flex-col md:flex-row justify-between p-4 space-y-8 md:space-y-0 md:space-x-8">
+        <div class="w-full md:w-1/2 p-4">
+            <div class="text">
+                <h1 class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
+                    <span class="text-hex"> What Our </span> <span class="text-white">Students Say</span>
+                </h1>
+                <p class="my-4 text-lg text-gray-500">
+                    Our students share their experiences and thoughts about our programs and services.
+                </p>
+            </div>
+        </div>
+        <div class="w-full md:w-1/2 p-4">
+            <div class="image">
+                <img src="/Resources/Photos/review2.png"  class="">
+            </div>
+        </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4">
+        <div class="col-span-1 row-span-1 flex justify-center items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+            <div>
+                <p class="italic text-gray-600 dark:text-gray-300">"Great design skills and attention to detail."</p>
+                <div class="mt-4">
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Mwiza Nyondo</p>
+                    <p class="text-sm font-medium text-gray-900 dark:text-white">Pupil</p>
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Konkola Secondary School</p>
                 </div>
-                <!-- Review 2 -->
-                <div class="max-w-xs mx-auto text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                    <p class="italic text-gray-600 dark:text-gray-300">"Amazing at UX writing and brand strategy."</p>
-                    <div class="mt-4">
-                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Alice Cooper</p>
-                        <p class="text-sm font-medium text-gray-900 dark:text-white">Senior Product Designer</p>
-                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">UX | Writing | Branding</p>
-                    </div>
+            </div>
+        </div>
+        <div class="col-span-1 row-span-1 flex justify-center items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+            <div>
+                <p class="italic text-gray-600 dark:text-gray-300">"Amazing at UX writing and brand strategy."</p>
+                <div class="mt-4">
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Alice Cooper</p>
+                    <p class="text-sm font-medium text-gray-900 dark:text-white">Senior Product Designer</p>
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">UX | Writing | Branding</p>
                 </div>
-                <!-- Review 3 -->
-                <div class="max-w-xs mx-auto text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                    <p class="italic text-gray-600 dark:text-gray-300">"Brilliant with illustrations and product
-                        design."</p>
-                    <div class="mt-4">
-                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Colin Peter</p>
-                        <p class="text-sm font-medium text-gray-900 dark:text-white">Senior Product Designer</p>
-                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">UX | Branding | Illustration</p>
-                    </div>
+            </div>
+        </div>
+        <div class="col-span-1 row-span-1 flex justify-center items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+            <div>
+                <p class="italic text-gray-600 dark:text-gray-300">"Brilliant with illustrations and product design."</p>
+                <div class="mt-4">
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Colin Peter</p>
+                    <p class="text-sm font-medium text-gray-900 dark:text-white">Senior Product Designer</p>
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">UX | Branding | Illustration</p>
                 </div>
-                <!-- Review 4 -->
-                <div class="max-w-xs mx-auto text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                    <p class="italic text-gray-600 dark:text-gray-300">"Creative and talented with motion design."</p>
-                    <div class="mt-4">
-                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Gaelle De Martin</p>
-                        <p class="text-sm font-medium text-gray-900 dark:text-white">Product Designer</p>
-                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">UX | Illustration | Motion</p>
-                    </div>
+            </div>
+        </div>
+        <div class="col-span-1 row-span-1 flex justify-center items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+            <div>
+                <p class="italic text-gray-600 dark:text-gray-300">"Creative and talented with motion design."</p>
+                <div class="mt-4">
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Gaelle De Martin</p>
+                    <p class="text-sm font-medium text-gray-900 dark:text-white">Product Designer</p>
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">UX | Illustration | Motion</p>
                 </div>
-                <!-- Review 5 -->
-                <div class="max-w-xs mx-auto text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                    <p class="italic text-gray-600 dark:text-gray-300">"Top-notch branding and UX skills."</p>
-                    <div class="mt-4">
-                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Gabriel Petersen</p>
-                        <p class="text-sm font-medium text-gray-900 dark:text-white">Product Designer</p>
-                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">UI | UX | Branding</p>
-                    </div>
+            </div>
+        </div>
+        <div class="col-span-1 row-span-1 flex justify-center items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+            <div>
+                <p class="italic text-gray-600 dark:text-gray-300">"Top-notch branding and UX skills."</p>
+                <div class="mt-4">
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Gabriel Petersen</p>
+                    <p class="text-sm font-medium text-gray-900 dark:text-white">Product Designer</p>
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">UI | UX | Branding</p>
                 </div>
-                <!-- Review 6 -->
-                <div class="max-w-xs mx-auto text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                    <p class="italic text-gray-600 dark:text-gray-300">"A brilliant illustrator with a unique style."
-                    </p>
-                    <div class="mt-4">
-                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Deirdre Robinson</p>
-                        <p class="text-sm font-medium text-gray-900 dark:text-white">Illustrator</p>
-                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Branding | Illustration | Motion
-                        </p>
-                    </div>
-                </div>
-                <!-- Review 7 -->
-                <div class="max-w-xs mx-auto text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                    <p class="italic text-gray-600 dark:text-gray-300">"An expert in both UI and UX design."</p>
-                    <div class="mt-4">
-                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">David Meyer</p>
-                        <p class="text-sm font-medium text-gray-900 dark:text-white">Product Designer</p>
-                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">UI | UX | Branding</p>
-                    </div>
-                </div>
-                <!-- Review 8 -->
-                <div class="max-w-xs mx-auto text-center p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                    <p class="italic text-gray-600 dark:text-gray-300">"Highly creative with branding and design."</p>
-                    <div class="mt-4">
-                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Joseph Gonzalez</p>
-                        <p class="text-sm font-medium text-gray-900 dark:text-white">Product Designer</p>
-                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400">UI | UX | Branding</p>
-                    </div>
+            </div>
+        </div>
+        <div class="col-span-1 row-span-1 flex justify-center items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+            <div>
+                <p class="italic text-gray-600 dark:text-gray-300">"A brilliant illustrator with a unique style."</p>
+                <div class="mt-4">
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Deirdre Robinson</p>
+                    <p class="text-sm font-medium text-gray-900 dark:text-white">Illustrator</p>
+                    <p class="text-sm font-medium text-gray-500 dark:text-gray-400">Branding | Illustration | Motion</p>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
     <footer class="p-6 text-neutral-content">
         <div class="flex flex-col md:flex-row justify-center space-y-6 md:space-y-0 md:space-x-24">
