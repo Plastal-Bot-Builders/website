@@ -222,3 +222,29 @@ footer p {
         border-color: #0CFFBB;
     }
 }
+
+.carousel {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .carousel-track {
+    display: flex;
+    animation: scroll 15s linear infinite;
+  }
+
+  .carousel-track img {
+    width: 120px;
+    height: auto;
+    margin: 0 20px;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
