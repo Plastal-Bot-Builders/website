@@ -1,108 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/Resources/Logo/logo_trans.png" type="image/x-icon" />
-    <title>
-        blogs Page
-    </title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <title>Blog Page</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Roboto', sans-serif;
-            background-color: #100D3B;
-            color: #FFFFFF;
-        }
-
-        .logo {
-            height: 200px;
-            /* Adjust the value as needed */
-            width: 200px;
-            /* Adjust the value as needed */
-        }
-
-        .icon-size {
-            font-size: 32px;
-            transition: color 0.3s, transform 0.3s;
-            /* Smooth transition for hover effect */
-        }
-
-        .icon-size:hover {
-            color: #0CFFBB;
-            /* Change color on hover */
-            transform: scale(1.2);
-            /* Slightly increase size on hover */
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            border-top: 1px solid #FFFFFF;
-        }
-
-        footer a {
-            color: #FFFFFF;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-
-        footer p {
-            margin: 10px 0;
-        }
-    </style>
+    <link rel="stylesheet" href="/src/styles.css">
 </head>
+<body class="container scroll-smooth focus:scroll-auto">
+    <nav class=""></nav>
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo and Title -->
+                <div class="flex items-center space-x-2">
+                    <img src="/Resources/Logo/logo_trans.png" alt="Plastal-Bot Builders Logo" class="h-48 w-48">
+                </div>
+                <!-- Navigation Links -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-white hover:text-[#0CFFBB]">ABOUT</a>
+                    <a href="#supporters" class="text-white hover:text-[#0CFFBB]">SUPPORTERS</a>
+                    <a href="#how-it-works" class="text-white hover:text-[#0CFFBB]">HOW IT WORKS</a>
+                    <a href="#contact" class="text-white hover:text-[#0CFFBB]">CONTACT</a>
+                </div>
+                <!-- Register Button -->
+                <div>
+                    <button class="custom-button">Become a Member</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="max-w-7xl mx-auto p-8">
+        <h1
+        class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
+        <span class="text-hex "> Blog<span
+                class="text-white"> Posts </span></span>
+        </h1>
+        
+        <!-- Blog Introduction -->
+        <div class="mb-12">
+            <p class="text-lg text-white">Stay updated with the latest from our robotics workshops, STEM events, and sustainability projects. Our blog covers event highlights, articles, and key updates on how we’re making a difference through technology and education.</p>
+        </div>
 
-<footer>
-    <div class="justify-center footer text-neutral-content p-10 space-x-24">
-        <nav>
-            <h6 class="footer-title">Projects</h6>
-            <a class="link link-hover">Branding</a>
-            <a class="link link-hover">Design</a>
-            <a class="link link-hover">Marketing</a>
-        </nav>
-        <nav>
-            <h6 class="footer-title">Organization</h6>
-            <a class="link link-hover">About us</a>
-            <a class="link link-hover">Contact</a>
-            <a class="link link-hover">Jobs</a>
-        </nav>
-        <nav>
-            <h6 class="footer-title">Contacts</h6>
-            <a class="link link-hover">Terms of use</a>
-            <a class="link link-hover">Privacy policy</a>
-            <a class="link link-hover">Cookie policy</a>
+        <!-- Blog Post Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Blog Post 1: Event Highlights -->
+            <div class="p-6 rounded-lg  border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                <h2 class="text-2xl font-bold mb-4">Event Highlights: Robotics Workshop Recap</h2>
+                <div class="image">
+                    <img alt="Empowering Innovation Image" height="200"
+                        src="/Resources/Illustrations/Deconstructedrobot.svg" width="800"
+                        class="w-full h-auto object-cover" />
+                </div>
+                <p class="mb-4">Our recent robotics workshop was a huge success! Participants learned mechanical design, electronics, and coding, building their own robots from scratch. Here's a look at what they achieved.</p>
+                <a href="#" class="text-blue-500 hover:underline">Read more &rarr;</a>
+            </div>
 
+            <!-- Blog Post 2: STEM and Sustainability -->
+            <div class="p-6 rounded-lg  border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                <h2 class="text-2xl font-bold mb-4">The Role of STEM in Sustainability</h2>
+                <div class="image">
+                    <img alt="Empowering Innovation Image" height="200"
+                        src="/Resources/Illustrations/Deconstructedrobot.svg" width="800"
+                        class="w-full h-auto object-cover" />
+                </div>
+                <p class="mb-4">Learn how STEM education is fostering new solutions to environmental challenges. From waste management to renewable energy, robotics and technology are playing a critical role in sustainability efforts.</p>
+                <a href="#" class="text-blue-500 hover:underline">Read more &rarr;</a>
+            </div>
+
+            <!-- Blog Post 3: Innovation in Robotics -->
+            <div class="p-6 rounded-lg  border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                <h2 class="text-2xl font-bold mb-4">Innovations in Robotics: The Future of Automation</h2>
+                <div class="image">
+                    <img alt="Empowering Innovation Image" height="200"
+                        src="/Resources/Illustrations/Deconstructedrobot.svg" width="800"
+                        class="w-full h-auto object-cover" />
+                </div>
+                <p class="mb-4">The world of robotics is rapidly evolving. Discover the latest trends and innovations in the field, and how they are transforming industries like healthcare, manufacturing, and environmental conservation.</p>
+                <a href="#" class="text-blue-500 hover:underline">Read more &rarr;</a>
+            </div>
+
+            <!-- Blog Post 4: Upcoming Events -->
+            <div class="p-6 rounded-lg  border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                <h2 class="text-2xl font-bold mb-4">Upcoming Events: Hackathon 2024</h2>
+                <div class="image">
+                    <img alt="Empowering Innovation Image" height="200"
+                        src="/Resources/Illustrations/Deconstructedrobot.svg" width="800"
+                        class="w-full h-auto object-cover" />
+                </div>
+                <p class="mb-4">Join us for our next hackathon! Students and professionals alike are welcome to participate in this exciting event, where creativity meets technology. Find out how you can be part of the action.</p>
+                <a href="#" class="text-blue-500 hover:underline">Read more &rarr;</a>
+            </div>
+
+            <!-- Blog Post 5: STEM Education in Underserved Communities -->
+            <div class="p-6 rounded-lg  border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                <h2 class="text-2xl font-bold mb-4">Bringing STEM to Underserved Communities</h2>
+                <div class="image">
+                    <img alt="Empowering Innovation Image" height="200"
+                        src="/Resources/Illustrations/Deconstructedrobot.svg" width="800"
+                        class="w-full h-auto object-cover" />
+                </div>
+                <p class="mb-4">We’re committed to making STEM education accessible to all. Our outreach programs in underserved communities are helping young people unlock their potential through hands-on learning and innovative teaching methods.</p>
+                <a href="#" class="text-blue-500 hover:underline">Read more &rarr;</a>
+            </div>
+
+            <!-- Blog Post 6: Robotics and AI -->
+            <div class="p-6 rounded-lg  border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                <h2 class="text-2xl font-bold mb-4">How AI is Shaping the Future of Robotics</h2>
+                <div class="image">
+                    <img alt="Empowering Innovation Image" height="200"
+                        src="/Resources/Illustrations/Deconstructedrobot.svg" width="800"
+                        class="w-full h-auto object-cover" />
+                </div>
+                <p class="mb-4">Artificial intelligence is revolutionizing the field of robotics. Explore how AI is enabling robots to learn, adapt, and interact with the world in new and exciting ways.</p>
+                <a href="#" class="text-blue-500 hover:underline">Read more &rarr;</a>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex justify-center mt-12">
+            <nav class="inline-flex items-center">
+                <a href="#" class="px-3 py-1 rounded-md border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">1</a>
+                <a href="#" class="px-3 py-1 rounded-md border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">2</a>
+                <a href="#" class="px-3 py-1 rounded-md border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">3</a>
+            </nav>
+        </div>
     </div>
-    <hr class="border-t border-gray-300 my-4">
-    <div>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/company/plastal-bot-builders/?originalSubdomain=zm">
-                <i class="fab fa-linkedin icon-size"></i>
-            </a>
-            <a href="https://www.instagram.com">
-                <i class="fab fa-instagram icon-size"></i>
-            </a>
-            <a href="https://www.facebook.com/plastalbotbuiders">
-                <i class="fab fa-facebook icon-size"></i>
-            </a>
-            <a href="https://medium.com/@plastalbotbuilders">
-                <i class="fab fa-medium icon-size"></i>
-            </a>
-        </div>
-        <div>
-            <p>
-                ©️2024 Plastal-Bot Builders All rights reserved
-            </p>
-
-        </div>
-</footer>
 </body>
-
 </html>
