@@ -18,20 +18,20 @@
     }
   </style>
 </head>
-<body class="bg-gray-100">
+<body className="bg-gray-100">
 
   <!-- Image Carousel Container -->
-  <div class="carousel relative w-full max-w-lg mx-auto mt-20 h-64 overflow-hidden">
-    <img src="/Resources/Photos/femalerobotics.png" alt="Image 1" class="absolute w-full h-full object-cover active">
-    <img src="/Resources/Photos/foundation.jpg" alt="Image 2" class="absolute w-full h-full object-cover">
-    <img src="/Resources/Photos/dywen.jpg" alt="Image 3" class="absolute w-full h-full object-cover">
-    <img src="/Resources/Photos/momentofbliss.png" alt="Image 4" class="absolute w-full h-full object-cover">
+  <div className="carousel relative w-full max-w-lg mx-auto mt-20 h-64 overflow-hidden">
+    <img src="/Resources/Photos/femalerobotics.png" alt="Image 1" className="absolute w-full h-full object-cover active">
+    <img src="/Resources/Photos/foundation.jpg" alt="Image 2" className="absolute w-full h-full object-cover">
+    <img src="/Resources/Photos/dywen.jpg" alt="Image 3" className="absolute w-full h-full object-cover">
+    <img src="/Resources/Photos/momentofbliss.png" alt="Image 4" className="absolute w-full h-full object-cover">
   </div>
 
   <!-- Optional: Next/Previous Controls -->
-  <!-- <div class="carousel-control absolute top-1/2 transform -translate-y-1/2 w-full flex justify-between">
-    <button id="prev" class="bg-gray-700 text-white px-4 py-2">Prev</button>
-    <button id="next" class="bg-gray-700 text-white px-4 py-2">Next</button>
+  <!-- <div className="carousel-control absolute top-1/2 transform -translate-y-1/2 w-full flex justify-between">
+    <button id="prev" className="bg-gray-700 text-white px-4 py-2">Prev</button>
+    <button id="next" className="bg-gray-700 text-white px-4 py-2">Next</button>
   </div> -->
 
   <!-- JavaScript for Carousel Functionality -->
@@ -41,9 +41,9 @@
     const intervalTime = 4000;
 
     function changeImage() {
-      images[currentIndex].classList.remove('active');
+      images[currentIndex].classNameList.remove('active');
       currentIndex = (currentIndex + 1) % images.length;
-      images[currentIndex].classList.add('active');
+      images[currentIndex].classNameList.add('active');
     }
 
     setInterval(changeImage, intervalTime);
