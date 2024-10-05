@@ -22,7 +22,7 @@ const Projects: React.FC = () => {
                     <p className="mb-4 text-gray-600">This project enhances home security using face-recognition technology. It uses a Raspberry Pi and OpenCV for real-time detection, offering a smart solution for home safety.</p>
                     <div className="image">
                         <img alt="Empowering Innovation Image" height="200"
-                            src="/Resources/Illustrations/Deconstructedrobot.svg" width="800"
+                            src="/resources/Illustrations/Deconstructedrobot.svg" width="800"
                             className="w-full h-auto object-cover" />
                     </div>
                     <div className="mt-4">
@@ -42,7 +42,7 @@ const Projects: React.FC = () => {
                     <p className="mb-4 text-gray-600">This project merges robotics and sustainability to address urban waste management. Autonomous robots are used to efficiently sort waste, promoting recycling and environmental conservation.</p>
                     <div className="image">
                         <img alt="Empowering Innovation Image" height="200"
-                            src="/Resources/Illustrations/Deconstructedrobot.svg" width="800"
+                            src="/resources/Illustrations/Deconstructedrobot.svg" width="800"
                             className="w-full h-auto object-cover" />
                     </div>
                     <div className="mt-4">
@@ -62,7 +62,7 @@ const Projects: React.FC = () => {
                     <p className="mb-4 text-gray-600">We are constantly working on new ways to use robotics, AI, and sustainable technology to solve real-world problems. Stay tuned for updates on upcoming projects focused on education, sustainability, and more.</p>
                     <div className="image">
                         <img alt="Empowering Innovation Image" height="200"
-                            src="/Resources/Illustrations/Deconstructedrobot.svg" width="800"
+                            src="/resources/Illustrations/Deconstructedrobot.svg" width="800"
                             className="w-full h-auto object-cover" />
                     </div>
                     <div className="mt-4">
@@ -79,7 +79,7 @@ const Projects: React.FC = () => {
                     <p className="text-gray-600">"The waste management robots have transformed the way we manage waste in our community." – Lisa M.</p>
                     <div className="image">
                         <img alt="Empowering Innovation Image" height="200"
-                            src="/Resources/Illustrations/Deconstructedrobot.svg" width="800"
+                            src="/resources/Illustrations/Deconstructedrobot.svg" width="800"
                             className="w-full h-auto object-cover" />
                     </div>
                     <div className="mt-4">

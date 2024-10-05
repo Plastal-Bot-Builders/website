@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-const Membership: React.FC = () => {
+const MembershipForm: React.FC = () => {
     return (
         <section className="container scroll-smooth focus:scroll-auto">
             <Header />
@@ -469,3 +469,5 @@ const Membership: React.FC = () => {
         </section>
     );
 }
+
+export default MembershipForm;

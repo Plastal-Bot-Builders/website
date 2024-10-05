@@ -9,7 +9,7 @@ const Header: React.FC = () => {
           {/* Logo and Title */}
           <div className="flex items-center space-x-2">
             <img 
-              src="../public/resources/Logo/logo_trans.png" 
+              src="./resources/Logo/logo_trans.png" 
               alt="Plastal-Bot Builders Logo" 
               className="h-48 w-48" 
             />
@@ -17,7 +17,7 @@ const Header: React.FC = () => {
 
           {/* Navigation Links */}
           <div className="hidden md:flex space-x-8">
-            <a href="/home1" className="text-white hover:text-[#0CFFBB]">.HOME ( )</a>
+            <a href="/home" className="text-white hover:text-[#0CFFBB]">.HOME ( )</a>
             <a href="/about" className="text-white hover:text-[#0CFFBB]">.ABOUT ( )</a>
             <a href="/blogs" className="text-white hover:text-[#0CFFBB]">.BLOGS ( )</a>
             <a href="/support" className="text-white hover:text-[#0CFFBB]">.SUPPORT ( )</a>

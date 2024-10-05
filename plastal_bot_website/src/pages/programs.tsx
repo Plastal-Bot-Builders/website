@@ -47,7 +47,7 @@ const Programs: React.FC = () => {
         return () => clearInterval(countdownFunction);
     }, []);
     return (
-        <div className="container mx-auto p-8">
+        <section className="container mx-auto p-8">
             <Header />
             <div className="max-w-7xl mx-auto p-8">
                 <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
@@ -58,7 +58,7 @@ const Programs: React.FC = () => {
                             <span className="text-hex"> Robotics</span> <span className="text-white"> Workshops </span>
                         </h1>
                         <div className="image">
-                            <img alt="Empowering Innovation Image" height="200" src="/Resources/Illustrations/Cyborg-bro.svg" width="800" className="w-full h-auto object-cover" />
+                            <img alt="Empowering Innovation Image" height="200" src="/resources/Illustrations/Cyborg-bro.svg" width="800" className="w-full h-auto object-cover" />
                         </div>
                         <p className="mb-4">Learn hands-on skills in:</p>
                         <ul className="list-disc list-inside space-y-2">
@@ -82,7 +82,7 @@ const Programs: React.FC = () => {
                             <span className="text-hex"> Competitions <span className="text-white"> &</span> Hackathons</span>
                         </h1>
                         <div className="image">
-                            <img alt="Empowering Innovation Image" height="200" src="/Resources/Illustrations/Cyborg-bro.svg" width="800" className="w-full h-auto object-cover" />
+                            <img alt="Empowering Innovation Image" height="200" src="/resources/Illustrations/Cyborg-bro.svg" width="800" className="w-full h-auto object-cover" />
                         </div>
                         <p className="mb-4">Encouraging innovation through robotics competitions. Show your creativity and technical skills!</p>
                         <h3 className="text-lg font-semibold">Past Winners:</h3>
@@ -99,7 +99,7 @@ const Programs: React.FC = () => {
                             <span className="text-hex"> Outreach <span className="text-white"> Programs</span></span>
                         </h1>
                         <div className="image">
-                            <img alt="Empowering Innovation Image" height="200" src="/Resources/Illustrations/Cyborg-bro.svg" width="800" className="w-full h-auto object-cover" />
+                            <img alt="Empowering Innovation Image" height="200" src="/resources/Illustrations/Cyborg-bro.svg" width="800" className="w-full h-auto object-cover" />
                         </div>
                         <p className="mb-4">Bringing STEM education to underserved communities through school-based outreach programs.</p>
                         <h3 className="text-lg font-semibold">Our Mission:</h3>
@@ -118,11 +118,11 @@ const Programs: React.FC = () => {
                     {/* Event Banner */}
                     <div className="p-6 shadow-lg rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                         <div className="carousel relative w-full mx-auto rounded-lg h-64 overflow-hidden">
-                            <img src="/Resources/Photos/femalerobotics.png" alt="Image 1" className="absolute w-full h-full object-cover active" />
-                            <img src="/Resources/Photos/foundation.jpg" alt="Image 2" className="absolute w-full h-full object-cover" />
-                            <img src="/Resources/Photos/dywen.jpg" alt="Image 3" className="absolute w-full h-full object-cover" />
-                            <img src="/Resources/Photos/momentofbliss.png" alt="Image 4" className="absolute w-full h-full object-cover" />
-                            <img src="/Resources/Photos/IMG_4781.jpeg" alt="Featured Image" className="absolute w-full h-full object-cover" />
+                            <img src="/resources/Photos/femalerobotics.png" alt="Image 1" className="absolute w-full h-full object-cover active" />
+                            <img src="/resources/Photos/foundation.jpg" alt="Image 2" className="absolute w-full h-full object-cover" />
+                            <img src="/resources/Photos/dywen.jpg" alt="Image 3" className="absolute w-full h-full object-cover" />
+                            <img src="/resources/Photos/momentofbliss.png" alt="Image 4" className="absolute w-full h-full object-cover" />
+                            <img src="/resources/Photos/IMG_4781.jpeg" alt="Featured Image" className="absolute w-full h-full object-cover" />
                         </div>
                         <h3 className="text-3xl font-bold mb-4">
                             <span className="text-hex">MathDance:<span className="text-white"> Hands-on workshop to learn Math, Coding, and AI</span></span>
@@ -151,7 +151,7 @@ const Programs: React.FC = () => {
                             <span className="text-hex">Guest <span className="text-white"> Instructor </span></span>
                         </h3>
                         <div className="flex items-center">
-                            <img className="w-16 h-16 rounded-full mr-4" src="/Resources/founders/fred.png" alt="Speaker Image" />
+                            <img className="w-16 h-16 rounded-full mr-4" src="/resources/founders/fred.png" alt="Speaker Image" />
                             <div>
                                 <h4 className="text-lg font-semibold text-white">CJ Chung</h4>
                                 <p className="text-gray-700">Professor of Computer Science, Director of CS & AI Robotics (CAR) Lab, Lawrence Technological University.</p>
@@ -222,10 +222,10 @@ const Programs: React.FC = () => {
                             <span className="text-hex">UN <span className="text-white"> SDGs</span></span>
                         </h3>
                         <div className="flex space-x-2">
-                            <img className="w-20 h-20" src="/Resources/SDGs/SDG_4.png" alt="SDG 4" />
-                            <img className="w-20 h-20" src="/Resources/SDGs/SDG_9.png" alt="SDG 9" />
-                            <img className="w-20 h-20" src="/Resources/SDGs/SDG_13.png" alt="SDG 13" />
-                            <img className="w-20 h-20" src="/Resources/SDGs/SDG_7.png" alt="SDG 7" />
+                            <img className="w-20 h-20" src="/resources/SDGs/SDG_4.png" alt="SDG 4" />
+                            <img className="w-20 h-20" src="/resources/SDGs/SDG_9.png" alt="SDG 9" />
+                            <img className="w-20 h-20" src="/resources/SDGs/SDG_13.png" alt="SDG 13" />
+                            <img className="w-20 h-20" src="/resources/SDGs/SDG_7.png" alt="SDG 7" />
                         </div>
                     </div>
 
@@ -258,11 +258,11 @@ const Programs: React.FC = () => {
                                 <span className="text-hex"> Kitwe Edition: </span> Introduction to Robotics and Programming Fundamentals
                             </h3>
                             <p className="text-lg text-gray-400 flex items-center">
-                                <img src="/Resources/Icons/Location.svg" alt="Location icon" className="w-6 h-6 mr-2" />
+                                <img src="/resources/Icons/Location.svg" alt="Location icon" className="w-6 h-6 mr-2" />
                                 American Corner - CBU, Kitwe
                             </p>
                             <p className="font-bold text-lg mt-2 flex items-center">
-                                <img src="/Resources/Icons/Calender.svg" alt="calendar icon" className="w-6 h-6 mr-2" />
+                                <img src="/resources/Icons/Calender.svg" alt="calendar icon" className="w-6 h-6 mr-2" />
                                 18, 25 May 2024 and 1 June 2024
                             </p>
                             <p className="text-sm text-gray-500">Start Date</p>
@@ -283,7 +283,7 @@ const Programs: React.FC = () => {
                             </h3>
                             <p className="text-sm text-gray-400">Mpelembe Secondary School - Kitwe</p>
                             <p className="font-bold text-lg mt-2 flex items-center">
-                                <img src="/Resources/Icons/Calender.svg" alt="calendar icon" className="w-6 h-6 mr-2" />
+                                <img src="/resources/Icons/Calender.svg" alt="calendar icon" className="w-6 h-6 mr-2" />
                                 22 October 2024
                             </p>
                             <p className="text-sm text-gray-500">Start Date</p>
@@ -303,11 +303,11 @@ const Programs: React.FC = () => {
                                 <span className="text-hex">Outreach Program:</span> Konkola Secondary School
                             </h3>
                             <p className="text-lg text-gray-400 flex items-center">
-                                <img src="/Resources/Icons/Location.svg" alt="Location icon" className="w-6 h-6 mr-2" />
+                                <img src="/resources/Icons/Location.svg" alt="Location icon" className="w-6 h-6 mr-2" />
                                 Konkola Trust - Chililabombwe
                             </p>
                             <p className="font-bold text-lg mt-2 flex items-center">
-                                <img src="/Resources/Icons/Calender.svg" alt="calendar icon" className="w-6 h-6 mr-2" />
+                                <img src="/resources/Icons/Calender.svg" alt="calendar icon" className="w-6 h-6 mr-2" />
                                 10 June 2024
                             </p>
                             <p className="text-sm text-gray-500">Start Date</p>
@@ -327,11 +327,11 @@ const Programs: React.FC = () => {
                                 <span className="text-hex">Lusaka Edition:</span> Introduction to Robotics and Programming Fundamentals
                             </h3>
                             <p className="text-lg text-gray-400 flex items-center">
-                                <img src="/Resources/Icons/Location.svg" alt="Location icon" className="w-6 h-6 mr-2" />
+                                <img src="/resources/Icons/Location.svg" alt="Location icon" className="w-6 h-6 mr-2" />
                                 American Corner - CBU, Kitwe
                             </p>
                             <p className="font-bold text-lg mt-2 flex items-center">
-                                <img src="/Resources/Icons/Calender.svg" alt="calendar icon" className="w-6 h-6 mr-2" />
+                                <img src="/resources/Icons/Calender.svg" alt="calendar icon" className="w-6 h-6 mr-2" />
                                 09 December 2024
                             </p>
                             <p className="text-sm text-gray-500">Start Date</p>
@@ -342,7 +342,7 @@ const Programs: React.FC = () => {
                 </div>
             </div>
             <Footer />
-        </div>
+        </section>
     );
 };
 

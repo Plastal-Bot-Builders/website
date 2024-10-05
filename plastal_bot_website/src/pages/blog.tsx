@@ -27,7 +27,7 @@ const Blog: React.FC = () => {
                     className="flex flex-col justify-between p-6 rounded-lg  border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <div>
                         <div className="image mb-4">
-                            <img alt="Empowering Innovation Image" src="/Resources/blogs/blog2.png"
+                            <img alt="Empowering Innovation Image" src="/resources/blogs/blog2.png"
                                 className="w-full h-48 object-cover rounded-lg mb-4" />
                         </div>
                         <h2 className="text-2xl font-bold mb-4"> <span className="text-hex "> Bridging the Digital Divide:</span>
@@ -44,7 +44,7 @@ const Blog: React.FC = () => {
                     </div>
                     <div>
                         <div className="flex items-center space-x-4 mb-4">
-                            <img src="/Resources/blogs/1-04.png" alt="Author Image" className="w-16 h-16 rounded-full" />
+                            <img src="/resources/blogs/1-04.png" alt="Author Image" className="w-16 h-16 rounded-full" />
                             <div>
                                 <h3 className="text-sm font-bold">Plastal-Bot Builders</h3>
                                 <div className="flex space-x-4 mt-2">
@@ -65,7 +65,7 @@ const Blog: React.FC = () => {
                     className="flex flex-col justify-between p-6 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out h-full">
                     <div>
                         <div className="image mb-4">
-                            <img alt="Empowering Innovation Image" src="/Resources/blogs/smartbin.png"
+                            <img alt="Empowering Innovation Image" src="/resources/blogs/smartbin.png"
                                 className="w-full h-48 object-cover rounded-lg mb-4" />
                         </div>
                         <h2 className="text-2xl font-bold mb-4"> <span className="text-hex "> WasteWizard: </span> Revolutionizing
@@ -83,7 +83,7 @@ const Blog: React.FC = () => {
                     </div>
                     <div>
                         <div className="flex items-center space-x-4 mb-4">
-                            <img src="/Resources/blogs/1-04.png" alt="Author Image" className="w-16 h-16 rounded-full" />
+                            <img src="/resources/blogs/1-04.png" alt="Author Image" className="w-16 h-16 rounded-full" />
                             <div>
                                 <h3 className="text-sm font-bold">Plastal-Bot Builders</h3>
                                 <div className="flex space-x-4 mt-2">
@@ -105,7 +105,7 @@ const Blog: React.FC = () => {
 
                     {/* <!-- Blog Post Title and Paragraph --> */}
                     <div className="image mb-4">
-                        <img alt="Empowering Innovation Image" src="/Resources/blogs/sepoblog.jpeg"
+                        <img alt="Empowering Innovation Image" src="/resources/blogs/sepoblog.jpeg"
                             className="w-full h-48 object-cover rounded-lg mb-4" />
                     </div>
                     <div className="flex-grow">
@@ -120,7 +120,7 @@ const Blog: React.FC = () => {
                     {/* <!-- Author Info and Social Links --> */}
                     <div className="mt-4 mb-4 flex items-center space-x-4">
                         {/* <!-- Author Image --> */}
-                        <img src="/Resources/founders/sepo.jpeg" alt="Author Image" className="w-16 h-16 rounded-full" />
+                        <img src="/resources/founders/sepo.jpeg" alt="Author Image" className="w-16 h-16 rounded-full" />
                         {/* <!-- Author Details --> */}
                         <div>
                             <h3 className="text-sm font-bold">Sepo Konayuma</h3>
@@ -150,7 +150,7 @@ const Blog: React.FC = () => {
                 <div
                     className="flex flex-col justify-between h-full p-6 rounded-lg  border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <div className="image">
-                        <img alt="Empowering Innovation Image" src="/Resources/blogs/githubblog.webp"
+                        <img alt="Empowering Innovation Image" src="/resources/blogs/githubblog.webp"
                             className="w-full h-48 object-cover mb-4 rounded-lg" />
                     </div>
                     <h2 className="text-2xl font-bold mb-4"> <span className="text-hex "> Unlocking Opportunities: </span> Embracing
@@ -163,7 +163,7 @@ const Blog: React.FC = () => {
                         out. Your support means the world to me...</p>
                     <div className="flex items-center space-x-4 mb-4">
                         {/* <!-- Author Image --> */}
-                        <img src="/Resources/blogs/Fredrickmwepu3.jpeg" alt="Author Image" className="w-16 h-16 rounded-full" />
+                        <img src="/resources/blogs/Fredrickmwepu3.jpeg" alt="Author Image" className="w-16 h-16 rounded-full" />
                         {/* <!-- Author Info --> */}
                         <div>
                             <h3 className="text-sm font-bold">Fredrick Mwepu</h3>
@@ -190,7 +190,7 @@ const Blog: React.FC = () => {
                 <div
                     className="flex flex-col justify-between h-full p-6 rounded-lg  border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <div className="image">
-                        <img alt="Empowering Innovation Image" src="/Resources/blogs/stackoverflowblog.jpeg"
+                        <img alt="Empowering Innovation Image" src="/resources/blogs/stackoverflowblog.jpeg"
                             className="w-full h-48 object-cover mb-4 rounded-lg" />
                     </div>
                     <h2 className="text-2xl font-bold mb-4"> <span className="text-hex "> Life made simple: </span> Stack and OpenAI
@@ -202,7 +202,7 @@ const Blog: React.FC = () => {
                         precious time but also adds unnecessary stress to the already challenging work of developers...</p>
                     <div className="flex items-center space-x-4 mb-4">
                         {/* <!-- Author Image --> */}
-                        <img src="/Resources/blogs/Fredrickmwepu3.jpeg" alt="Author Image" className="w-16 h-16 rounded-full" />
+                        <img src="/resources/blogs/Fredrickmwepu3.jpeg" alt="Author Image" className="w-16 h-16 rounded-full" />
                         {/* <!-- Author Info --> */}
                         <div>
                             <h3 className="text-sm font-bold">Fredrick Mwepu</h3>
@@ -229,7 +229,7 @@ const Blog: React.FC = () => {
                 <div
                     className="flex flex-col justify-between h-full p-6 rounded-lg  border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <div className="image">
-                        <img alt="Empowering Innovation Image" src="/Resources/blogs/zambiarobotics.jpg"
+                        <img alt="Empowering Innovation Image" src="/resources/blogs/zambiarobotics.jpg"
                             className="w-full h-48 object-cover mb-4 rounded-lg" />
                     </div>
                     <h2 className="text-2xl font-bold mb-4"> <span className="text-hex "> Geneva: </span> My Zambia Robotics
@@ -242,7 +242,7 @@ const Blog: React.FC = () => {
                     </p>
                     <div className="flex items-center space-x-4 mb-4">
                         {/* <!-- Author Image --> */}
-                        <img src="/Resources/blogs/Fredrickmwepu3.jpeg" alt="Author Image" className="w-16 h-16 rounded-full" />
+                        <img src="/resources/blogs/Fredrickmwepu3.jpeg" alt="Author Image" className="w-16 h-16 rounded-full" />
                         {/* <!-- Author Info --> */}
                         <div>
                             <h3 className="text-sm font-bold">Fredrick Mwepu</h3>

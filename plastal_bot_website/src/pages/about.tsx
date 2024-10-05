@@ -7,7 +7,6 @@ const about: React.FC = () => {
     <section className="container scroll-smooth focus:scroll-auto text-white">
       {/* Navigation Bar  */}
       <Header />
-
       {/* Main Content */}
       <div className="max-w-7xl mx-auto p-8">
         {/* Flexbox-based bento box layout */}
@@ -49,7 +48,7 @@ const about: React.FC = () => {
 
           {/* Box 4: Team Member 1 */}
           <div className="p-6 rounded-lg col-span-1 flex items-center border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
-            <img src="/Resources/founders/sepo.jpeg" alt="Sepo Konayuma" className="w-16 h-16 rounded-full mr-4" />
+            <img src="/resources/founders/sepo.jpeg" alt="Sepo Konayuma" className="w-16 h-16 rounded-full mr-4" />
             <div>
               <h3 className="text-lg font-semibold">
                 <span className="text-hex">Sepo <span className="text-white">Konayuma</span></span>
@@ -60,7 +59,7 @@ const about: React.FC = () => {
 
           {/* Box 5: Team Member 2 */}
           <div className="p-6 rounded-lg col-span-1 flex items-center border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
-            <img src="/Resources/founders/fred.png" alt="Fred" className="w-16 h-16 rounded-full mr-4" />
+            <img src="/resources/founders/fred.png" alt="Fred" className="w-16 h-16 rounded-full mr-4" />
             <div>
               <h3 className="text-lg font-semibold">
                 <span className="text-hex">Fred <span className="text-white">M'Kuna</span></span>
@@ -71,7 +70,7 @@ const about: React.FC = () => {
 
           {/* Box 6: Team Member 3 */}
           <div className="p-6 rounded-lg col-span-1 flex items-center border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
-            <img src="/Resources/founders/Wazingwa Mugala.jpeg" alt="Wazingwa Mungala" className="w-16 h-16 rounded-full mr-4" />
+            <img src="/resources/founders/Wazingwa Mugala.jpeg" alt="Wazingwa Mungala" className="w-16 h-16 rounded-full mr-4" />
             <div>
               <h3 className="text-lg font-semibold">
                 <span className="text-hex">Wazingwa <span className="text-white">Mungala</span></span>
@@ -82,7 +81,7 @@ const about: React.FC = () => {
 
           {/* Box 7: Team Member 4 */}
           <div className="p-6 rounded-lg col-span-1 flex items-center border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
-            <img src="/Resources/founders/fredrick1.png" alt="Fredrick Mwepu" className="w-16 h-16 rounded-full mr-4" />
+            <img src="/resources/founders/fredrick1.png" alt="Fredrick Mwepu" className="w-16 h-16 rounded-full mr-4" />
             <div>
               <h3 className="text-lg font-semibold">
                 <span className="text-hex">Fredrick <span className="text-white">Mwepu</span></span>
@@ -93,7 +92,7 @@ const about: React.FC = () => {
 
           {/* Box 8: Team Member 5 */}
           <div className="p-6 rounded-lg col-span-1 flex items-center border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
-            <img src="/Resources/founders/sepo.jpeg" alt="Mapalo Kazembe" className="w-16 h-16 rounded-full mr-4" />
+            <img src="/resources/founders/sepo.jpeg" alt="Mapalo Kazembe" className="w-16 h-16 rounded-full mr-4" />
             <div>
               <h3 className="text-lg font-semibold">
                 <span className="text-hex">Mapalo <span className="text-white">Kazembe</span></span>
@@ -104,7 +103,7 @@ const about: React.FC = () => {
 
           {/* Box 9: Team Member 6 */}
           <div className="p-6 rounded-lg col-span-1 flex items-center border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
-            <img src="/Resources/founders/madam_pamela.jpg" alt="Pamala Mutale" className="w-16 h-16 rounded-full mr-4" />
+            <img src="/resources/founders/madam_pamela.jpg" alt="Pamala Mutale" className="w-16 h-16 rounded-full mr-4" />
             <div>
               <h3 className="text-lg font-semibold">
                 <span className="text-hex">Pamala <span className="text-white">Mutale</span></span>
