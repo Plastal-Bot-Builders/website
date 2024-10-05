@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-const Support: React.FC = () => {
+const support: React.FC = () => {
     return (
         <section className="container scroll-smooth focus:scroll-auto">
             {/* Navigation Bar */}
@@ -118,4 +118,4 @@ const Support: React.FC = () => {
     );
 };
 
-export default Support;
+export default support;

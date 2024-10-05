@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-const About: React.FC = () => {
+const about: React.FC = () => {
   return (
     <section className="container scroll-smooth focus:scroll-auto text-white">
       {/* Navigation Bar  */}
@@ -150,4 +150,4 @@ const About: React.FC = () => {
   );
 };
 
-export default About;
+export default about;

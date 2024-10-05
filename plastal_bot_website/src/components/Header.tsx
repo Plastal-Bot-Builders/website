@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from './Button'
 
 const Header: React.FC = () => {
   return (
@@ -8,7 +9,7 @@ const Header: React.FC = () => {
           {/* Logo and Title */}
           <div className="flex items-center space-x-2">
             <img 
-              src="/Resources/Logo/logo_trans.png" 
+              src="../public/resources/Logo/logo_trans.png" 
               alt="Plastal-Bot Builders Logo" 
               className="h-48 w-48" 
             />
@@ -26,7 +27,7 @@ const Header: React.FC = () => {
 
           {/* Register Button */}
           <div>
-            <a href="/membershipform" className="custom-button">Become a Member</a>
+            <Button label="Become a Member" href="/membershipform" />
           </div>
         </div>
         <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
