@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ImageCarousel from '../components/ImageCarousel';
 import TypingAnimation from '../components/TypingAnimation';
+import LogoCarousel from '../components/LogoCarousel';
 
 const Home: React.FC = () => {
     return (
@@ -623,8 +624,7 @@ const Home: React.FC = () => {
                                         className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer hover:border-[#0CFFBB]" />
                                 </div>
                                 <button
-                                    className="custom-button w-full sm:w-auto">Become
-                                    a Member</button>
+                                    className="custom-button w-full sm:w-auto"> Send Email</button>
                             </div>
                         </div>
                     </div>
@@ -637,74 +637,7 @@ const Home: React.FC = () => {
                 </div>
             </div>
 
-            <div className="max-w-7xl mx-auto p-6">
-                <div className="carousel mx-auto">
-                    <div
-                        className="carousel-track flex items-center justify-center space-x-4">
-                        {/* <!-- Logos --> */}
-                        <img src="/resources/Logo/AmericanCorner.png"
-                            alt="American Corner Logo" className="h-12 w-auto" />
-                        <img src="/resources/Logo/AmericanEmbassy.png"
-                            alt="American Embassy Logo" className="h-12 w-auto" />
-                        <img src="/resources/Logo/STEMFoundation.png"
-                            alt="STEM Foundation Logo" className="h-12 w-auto" />
-                        <img src="/resources/Logo/TechnicBots.png"
-                            alt="Technic Bots Logo" className="h-12 w-auto" />
-                        <img src="/resources/Logo/1-02 (2).png"
-                            alt="Plastal-Bot Builders Logo" className="h-12 w-auto" />
-                        <img src="/resources/Logo/AmericanCorner.png"
-                            alt="American Corner Logo" className="h-12 w-auto" />
-                        <img src="/resources/Logo/AmericanEmbassy.png"
-                            alt="American Embassy Logo" className="h-12 w-auto" />
-                        <img src="/resources/Logo/STEMFoundation.png"
-                            alt="STEM Foundation Logo" className="h-12 w-auto" />
-                        <img src="/resources/Logo/TechnicBots.png"
-                            alt="Technic Bots Logo" className="h-12 w-auto" />
-                        <img src="/resources/Logo/1-02 (2).png"
-                            alt="Plastal-Bot Builders Logo" className="h-12 w-auto" />
-                        <img src="/resources/Logo/AmericanCorner.png"
-                            alt="American Corner Logo" className="h-12 w-auto" />
-                        <img src="/resources/Logo/AmericanEmbassy.png"
-                            alt="American Embassy Logo" className="h-12 w-auto" />
-                        <img src="/resources/Logo/STEMFoundation.png"
-                            alt="STEM Foundation Logo" className="h-12 w-auto" />
-                        <img src="/resources/Logo/TechnicBots.png"
-                            alt="Technic Bots Logo" className="h-12 w-auto" />
-                        <img src="/resources/Logo/1-02 (2).png"
-                            alt="Plastal-Bot Builders Logo" className="h-12 w-auto" />
-                        <img src="/resources/Logo/AmericanCorner.png"
-                            alt="American Corner Logo" className="h-12 w-auto" />
-                        <img src="/resources/Logo/AmericanEmbassy.png"
-                            alt="American Embassy Logo" className="h-12 w-auto" />
-                        <img src="/resources/Logo/STEMFoundation.png"
-                            alt="STEM Foundation Logo" className="h-12 w-auto" />
-                        <img src="/resources/Logo/TechnicBots.png"
-                            alt="Technic Bots Logo" className="h-12 w-auto" />
-                        <img src="/resources/Logo/1-02 (2).png"
-                            alt="Plastal-Bot Builders Logo" className="h-12 w-auto" />
-                        <img src="/resources/Logo/AmericanCorner.png"
-                            alt="American Corner Logo" className="h-12 w-auto" />
-                        <img src="/resources/Logo/AmericanEmbassy.png"
-                            alt="American Embassy Logo" className="h-12 w-auto" />
-                        <img src="/resources/Logo/STEMFoundation.png"
-                            alt="STEM Foundation Logo" className="h-12 w-auto" />
-                        <img src="/resources/Logo/TechnicBots.png"
-                            alt="Technic Bots Logo" className="h-12 w-auto" />
-                        <img src="/resources/Logo/1-02 (2).png"
-                            alt="Plastal-Bot Builders Logo" className="h-12 w-auto" />
-                        <img src="/resources/Logo/AmericanCorner.png"
-                            alt="American Corner Logo" className="h-12 w-auto" />
-                        <img src="/resources/Logo/AmericanEmbassy.png"
-                            alt="American Embassy Logo" className="h-12 w-auto" />
-                        <img src="/resources/Logo/STEMFoundation.png"
-                            alt="STEM Foundation Logo" className="h-12 w-auto" />
-                        <img src="/resources/Logo/TechnicBots.png"
-                            alt="Technic Bots Logo" className="h-12 w-auto" />
-                        <img src="/resources/Logo/1-02 (2).png"
-                            alt="Plastal-Bot Builders Logo" className="h-12 w-auto" />
-                    </div>
-                </div>
-            </div>
+            <LogoCarousel />
             <Footer />
         </section>
     );
