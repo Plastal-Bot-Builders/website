@@ -2,8 +2,11 @@ import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ImageCarousel from '../components/ImageCarousel';
-import TypingAnimation from '../components/TypingAnimation';
 import LogoCarousel from '../components/LogoCarousel';
+import Typewriter from '../components/Typewriter';
+import Button from '../components/Button'
+import { cn } from "../lib/utils";
+
 
 const Home: React.FC = () => {
     return (
@@ -15,9 +18,8 @@ const Home: React.FC = () => {
                 className="flex flex-col md:flex-row justify-between p-4 space-y-8 md:space-y-0 md:space-x-8 max-w-7xl mx-auto">
                 <div className="w-full md:w-1/2 p-4">
                     <div className="text">
-                        <TypingAnimation />
-                        <p
-                            className="my-4 text-sm sm:text-base md:text-lg lg:text-xl text-gray-500">
+                        <Typewriter text="Empowering Innovation" speed={150} className="text-4xl text-hex mb-4 font-extrabold leading-none tracking-tight  md:text-5xl lg:text-6xl dark:text-white" />
+                        <p className="my-4 text-sm sm:text-base md:text-lg lg:text-xl text-gray-100">
                             We’re committed to making life-changing technology
                             education accessible to all, regardless of
                             background or location. By offering innovative and
@@ -36,7 +38,7 @@ const Home: React.FC = () => {
                             opportunities.
                         </p>
                         <p
-                            className="mb-4 text-sm sm:text-base md:text-lg lg:text-xl text-gray-500">
+                            className="mb-4 text-sm sm:text-base md:text-lg lg:text-xl text-gray-100">
                             That’s why we are equally dedicated to fostering
                             job-ready skills, bridging the gap between
                             education and the workforce. Through partnerships with
@@ -44,9 +46,9 @@ const Home: React.FC = () => {
                             development initiatives, we help learners turn their
                             newfound expertise into tangible career success.
                         </p>
-                        <div className="button-container space-y-2">
-                            <button className="custom-button">Become a Member</button>
-                            <button className="custom-button">Get Involved</button>
+                        <div className="button-container space-y-2 ">
+                            <Button label="Become a Member" href="/membershipform" />
+                            <button className="custom-button ml-4">Get Involved</button>
                         </div>
                     </div>
                 </div>
@@ -59,8 +61,7 @@ const Home: React.FC = () => {
                 </div>
             </div>
 
-            <div
-                className="flex flex-col md:flex-row justify-between p-4 space-y-8 md:space-y-0 md:space-x-8 max-w-7xl mx-auto">
+            <div className="flex flex-col md:flex-row justify-between p-4 space-y-8 md:space-y-0 md:space-x-8 max-w-7xl mx-auto">
                 <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
                 <div className="w-full md:w-1/2 p-4">
                     <div className="image">
@@ -74,10 +75,10 @@ const Home: React.FC = () => {
                     <div className="text">
                         <h1
                             className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-                            <span className="text-hex">About </span> Us
+                            <Typewriter text="About Us" className="text-4xl text-hex mb-4 font-extrabold leading-none tracking-tight  md:text-5xl lg:text-6xl dark:text-white"/>
                         </h1>
                         <p
-                            className="mb-4 text-lg font-normal text-gray-500 dark:text-gray-400">
+                            className="mb-4 text-lg font-normal text-gray-100 dark:text-gray-100">
                             Plastal-Bot Builders is a non-profit organization
                             dedicated to empowering the next generation of
                             young
@@ -88,14 +89,14 @@ const Home: React.FC = () => {
                             community's socioeconomic progress.
 
                         </p>
-                        <p className="my-4 text-lg text-gray-500">
+                        <p className="my-4 text-lg text-gray-100">
                             Our commitment to education, empowerment, and community
                             development drives our core programs:
                             D'Privilege, the School Outreach Program (SOP),
                             Afrohacks.
                         </p>
                         <p
-                            className="mb-4 text-lg font-normal text-gray-500 dark:text-gray-400">
+                            className="mb-4 text-lg font-normal text-gray-100 dark:text-gray-100">
                             Plastal-Bot Builders is a non-profit organization
                             dedicated to empowering the next generation of
                             young
@@ -111,15 +112,15 @@ const Home: React.FC = () => {
 
             <div
                 className="flex flex-col md:flex-row justify-between p-4 space-y-8 md:space-y-0 md:space-x-8 max-w-7xl mx-auto">
-
+                <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-70" />       
                 {/* Sub-div 1 */}
                 <div className="w-full md:w-1/2 p-4">
                     <div>
                         <h1
                             className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-                            <span className="text-hex"> Fostering </span> Innovation
+                            <Typewriter text="Fostering Innovation" className="text-4xl text-hex mb-4 font-extrabold leading-none tracking-tight  md:text-5xl lg:text-6xl dark:text-white"/>
                         </h1>
-                        <p className="mt-4 text-gray-700 text-lg">
+                        <p className="mt-4 text-gray-100 text-lg">
                             Technology empowers people to think creatively and push
                             boundaries. It opens new avenues for innovation,
                             allowing entrepreneurs and researchers to develop
@@ -138,7 +139,7 @@ const Home: React.FC = () => {
                             className="mt-4 mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
                             <span className="text-hex"> Bridging </span> Gaps
                         </h1>
-                        <p className="mt-4 text-gray-700 text-lg">
+                        <p className="mt-4 text-gray-100 text-lg">
                             One of the most significant impacts of technology is its
                             ability to connect people and resources. Through digital
                             platforms, communities are no longer constrained by
@@ -156,7 +157,7 @@ const Home: React.FC = () => {
                 <div className="w-full md:w-1/2 p-4">
                     <h1
                         className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-                        <span className="text-hex">Enhancing </span> Education
+                        <Typewriter text="Enhancing Education" className="text-4xl text-hex mb-4 font-extrabold leading-none tracking-tight  md:text-5xl lg:text-6xl dark:text-white"/>
                     </h1>
                     <div className="ml-8 p-6 rounded-lg mb-4">
                         {/* <!-- First child of first sub-div --> */}
@@ -164,7 +165,7 @@ const Home: React.FC = () => {
                             src="/resources/Illustrations/Mathematics-bro (1) 1.svg"
                             alt="Introduction to Robotics" className="mb-4" />
                     </div>
-                    <p className="mt-4 text-gray-700 text-lg">
+                    <p className="mt-4 text-gray-100 text-lg">
                         In education, technology has become a catalyst for change.
                         Digital tools such as interactive software, online courses,
                         and e-learning platforms provide personalized learning
@@ -183,8 +184,10 @@ const Home: React.FC = () => {
                     </p>
                 </div>
             </div>
+
         
             <div className="max-w-7xl mx-auto p-6">
+            <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-70" />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     {/* <!-- First Bento Box --> */}
                     <div className="grid grid-cols-1 sm:grid-cols-3 grid-rows-2 gap-4">
@@ -200,7 +203,7 @@ const Home: React.FC = () => {
                                 src="/resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg"
                                 alt="Introduction to Robotics"
                                 className="w-full h-64 object-cover rounded-lg mb-4" />
-                            <p className="text-lg text-gray-500">The applications of
+                            <p className="text-lg text-gray-100">The applications of
                                 robotics are vast and diverse, ranging from
                                 industrial automation, where robots perform
                                 repetitive tasks on assembly lines, to healthcare,
@@ -209,7 +212,7 @@ const Home: React.FC = () => {
                                 exploration, logistics, and entertainment,
                                 showcasing the potential of robotics to
                                 revolutionize how we work and live.</p>
-                            <p className="mt-4 text-lg text-gray-500">As robotics
+                            <p className="mt-4 text-lg text-gray-100">As robotics
                                 continues to evolve, it poses exciting challenges
                                 and opportunities, pushing the boundaries of
                                 innovation and shaping the future of technology.
@@ -241,7 +244,7 @@ const Home: React.FC = () => {
                                     <span className="text-hex"> Electrical </span>
                                     Engineering
                                 </h1>
-                                <p className="text-sm text-gray-600">Electrical
+                                <p className="text-sm text-gray-100">Electrical
                                     engineers focus on the circuitry, power systems,
                                     and control mechanisms that bring robots to
                                     life.</p>
@@ -260,7 +263,7 @@ const Home: React.FC = () => {
                                     <span className="text-hex"> Artificial </span>
                                     Intelligence (AI)
                                 </h1>
-                                <p className="text-sm text-gray-600">AI plays a pivotal
+                                <p className="text-sm text-gray-100">AI plays a pivotal
                                     role in robotics, enabling robots to learn,
                                     adapt, and perform tasks with greater
                                     precision.</p>
@@ -279,7 +282,7 @@ const Home: React.FC = () => {
                                 src="/resources/Robotics/jelleke-vanooteghem-6NUlOHM40w8-unsplash.jpg"
                                 alt="Robotics Applications"
                                 className="w-full h-32 object-cover rounded-lg mb-4" />
-                            <p className="text-lg text-gray-500">Robotics is used in
+                            <p className="text-lg text-gray-100">Robotics is used in
                                 various industries, from manufacturing and
                                 healthcare to space exploration. Robots automate
                                 processes and perform tasks too dangerous or precise
@@ -296,17 +299,17 @@ const Home: React.FC = () => {
                                 <span className="text-hex"> Ethics </span> in <span
                                     className="text-hex"> Robotics </span>
                             </h1>
-                            <p className="mt-4 text-gray-600 text-sm">As robots become
+                            <p className="mt-4 text-gray-100 text-sm">As robots become
                                 more integrated into society, ethical concerns about
                                 autonomy, safety, and human rights arise.
                                 Understanding these issues is essential as robotics
                                 advances.</p>
-                            <p className="mt-4 text-gray-600 text-sm">As robots become
+                            <p className="mt-4 text-gray-100 text-sm">As robots become
                                 more integrated into society, ethical concerns about
                                 autonomy, safety, and human rights arise.
                                 Understanding these issues is essential as robotics
                                 advances.</p>
-                            <p className="mt-4 text-gray-600 text-sm">Understanding
+                            <p className="mt-4 text-gray-100 text-sm">Understanding
                                 these ethical concerns is essential as robotics
                                 advances. It is imperative for researchers,
                                 developers, policymakers, and society at large to
@@ -326,7 +329,7 @@ const Home: React.FC = () => {
                                     className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
                                     <span className="text-hex">Sensors</span>
                                 </h1>
-                                <p className="text-sm text-gray-600">Sensors allow
+                                <p className="text-sm text-gray-100">Sensors allow
                                     robots to interact with their environment. These
                                     include vision, touch, and auditory sensors,
                                     helping robots understand and adapt to their
@@ -338,6 +341,7 @@ const Home: React.FC = () => {
             </div>
 
             <div className="max-w-7xl mx-auto p-6">
+            <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-70" />
                 <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4">
                     {/* <!-- Large Block --> */}
                     <div className="col-span-1 md:col-span-2 md:row-span-2 mb-4 p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
@@ -347,7 +351,7 @@ const Home: React.FC = () => {
                             className="mt-4 mb-8 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
                             <span className="text-hex">Featured </span> Article
                         </h1>
-                        <p className="text-lg text-gray-700">Robots play an increasingly
+                        <p className="text-lg text-gray-100">Robots play an increasingly
                             vital role in the building, maintenance, and
                             optimization of renewable energy systems, such as wind
                             turbines, solar panels, and other sustainable
@@ -356,7 +360,7 @@ const Home: React.FC = () => {
                             be a key enabler in making these technologies more
                             efficient and cost-effective, ultimately contributing to
                             the reduction of carbon emissions.</p>
-                        <p className="mt-2 text-gray-700 text-lg">As renewable energy
+                        <p className="mt-2 text-gray-100 text-lg">As renewable energy
                             systems continue to grow in scale and importance, the
                             role of robotics will only expand, further driving
                             innovations in sustainability and helping to meet global
@@ -440,6 +444,7 @@ const Home: React.FC = () => {
             </div>
 
             <div className="max-w-7xl mx-auto p-6">
+            <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-70" />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div
                         className="flex flex-col md:flex-row justify-between mt-8 space-y-8 md:space-y-0 md:space-x-8">
@@ -575,6 +580,7 @@ const Home: React.FC = () => {
             </div>
 
             <div className="max-w-7xl mx-auto p-4">
+            <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-70" />
                 <div
                     className="flex flex-col md:flex-row justify-between space-y-8 md:space-y-0 md:space-x-8">
                     <div className="w-full md:w-1/2 p-4">
@@ -638,6 +644,7 @@ const Home: React.FC = () => {
             </div>
 
             <LogoCarousel />
+        
             <Footer />
         </section>
     );

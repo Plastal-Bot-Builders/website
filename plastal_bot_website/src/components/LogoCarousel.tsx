@@ -32,9 +32,12 @@ const logos: Logo[] = [
 const LogoCarousel: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto p-6">
+      <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-70" />
       <div className="carousel mx-auto">
         <div className="carousel-track flex items-center justify-center space-x-4">
+        
           {logos.map((logo, index) => (
+
             <img
               key={index}
               src={logo.src}

@@ -24,27 +24,27 @@ const about: React.FC = () => {
             </p>
           </div>
 
-          {/* Box 2: Mission & Vision (Small) */}
+          {/* Box 2: Mission & Vision (Responsive) */}
           <div className="p-6 rounded-lg col-span-1 border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
-            <h3 className="text-3xl font-bold mb-4">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4">
               <span className="text-hex">Mission & <span className="text-white">Projects</span></span>
             </h3>
-            <p>
+            <p className="text-sm sm:text-base md:text-lg">
               Our mission is to empower young people by teaching them the skills they need to create
               sustainable solutions through technology, robotics, and environmental advocacy.
             </p>
           </div>
 
-          {/* Box 3: Core Team (Small) */}
-          <div className="p-6 rounded-lg col-span-1 border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
-            <h2 className="text-3xl font-bold mb-4">
+          {/* Box 3: Core Team (Responsive) */}
+          <div className="p-4 sm:p-6 rounded-lg col-span-1 sm:col-span-2 md:col-span-1 border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4">
               <span className="text-hex">Our</span> Team
             </h2>
-            <p>
-              Meet the amazing people leading our organization to success, with backgrounds in
-              technology, education, and environmental advocacy.
+            <p className="text-sm sm:text-base md:text-lg">
+              Meet the amazing people leading our organization to success, with backgrounds in technology, education, and environmental advocacy.
             </p>
           </div>
+
 
           {/* Box 4: Team Member 1 */}
           <div className="p-6 rounded-lg col-span-1 flex items-center border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">

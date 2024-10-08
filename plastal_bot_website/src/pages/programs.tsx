@@ -58,7 +58,7 @@ const Programs: React.FC = () => {
                             <span className="text-hex"> Robotics</span> <span className="text-white"> Workshops </span>
                         </h1>
                         <div className="image">
-                            <img alt="Empowering Innovation Image" height="200" src="/resources/Illustrations/Cyborg-bro.svg" width="800" className="w-full h-auto object-cover" />
+                            <img alt="Empowering Innovation Image" height="200" src="/resources/outsourced_photos/roboticsworkshop.jpg" width="800" className="w-full h-auto object-cover" />
                         </div>
                         <p className="mb-4">Learn hands-on skills in:</p>
                         <ul className="list-disc list-inside space-y-2">
@@ -82,7 +82,7 @@ const Programs: React.FC = () => {
                             <span className="text-hex"> Competitions <span className="text-white"> &</span> Hackathons</span>
                         </h1>
                         <div className="image">
-                            <img alt="Empowering Innovation Image" height="200" src="/resources/Illustrations/Cyborg-bro.svg" width="800" className="w-full h-auto object-cover" />
+                            <img alt="Empowering Innovation Image" height="200" src="/resources/outsourced_photos/gaming.jpg" width="800" className="w-full h-auto object-cover" />
                         </div>
                         <p className="mb-4">Encouraging innovation through robotics competitions. Show your creativity and technical skills!</p>
                         <h3 className="text-lg font-semibold">Past Winners:</h3>
