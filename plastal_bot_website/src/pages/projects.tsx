@@ -4,7 +4,7 @@ import Footer from '../components/Footer';
 
 const Projects: React.FC = () => {
     return (
-    <section className="container scroll-smooth focus:scroll-auto">
+    <section className="scroll-smooth focus:scroll-auto">
         {/* Navigation Bar */}
         <Header />
         {/* Main Content */}
@@ -19,7 +19,7 @@ const Projects: React.FC = () => {
                 {/* Face-Recognition Home Security System */}
                 <div className="p-6 rounded-lg  border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <h2 className="text-2xl font-bold mb-4">Face-Recognition Home Security System</h2>
-                    <p className="mb-4 text-gray-600">This project enhances home security using face-recognition technology. It uses a Raspberry Pi and OpenCV for real-time detection, offering a smart solution for home safety.</p>
+                    <p className="mb-4">This project enhances home security using face-recognition technology. It uses a Raspberry Pi and OpenCV for real-time detection, offering a smart solution for home safety.</p>
                     <div className="image">
                         <img alt="Empowering Innovation Image" height="200"
                             src="/resources/Illustrations/Deconstructedrobot.svg" width="800"
@@ -27,7 +27,7 @@ const Projects: React.FC = () => {
                     </div>
                     <div className="mt-4">
                         <h3 className="text-lg font-semibold mb-2">Project Overview:</h3>
-                        <p className="mb-4 text-gray-600">Built to recognize faces and notify homeowners of visitors or intruders. It's designed for low-cost implementation in Zambian households.</p>
+                        <p className="mb-4">Built to recognize faces and notify homeowners of visitors or intruders. It's designed for low-cost implementation in Zambian households.</p>
                     </div>
                     <div className="mt-4">
                         <h3 className="text-lg font-semibold mb-2">Media:</h3>
@@ -39,7 +39,7 @@ const Projects: React.FC = () => {
                 {/* <!-- Waste Management Robotics & Sustainability --> */}
                 <div className="p-6  border-2 rounded-lg border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <h2 className="text-2xl font-bold mb-4">Robotics for Waste Management & Sustainability</h2>
-                    <p className="mb-4 text-gray-600">This project merges robotics and sustainability to address urban waste management. Autonomous robots are used to efficiently sort waste, promoting recycling and environmental conservation.</p>
+                    <p className="mb-4 ">This project merges robotics and sustainability to address urban waste management. Autonomous robots are used to efficiently sort waste, promoting recycling and environmental conservation.</p>
                     <div className="image">
                         <img alt="Empowering Innovation Image" height="200"
                             src="/resources/Illustrations/Deconstructedrobot.svg" width="800"
@@ -47,7 +47,7 @@ const Projects: React.FC = () => {
                     </div>
                     <div className="mt-4">
                         <h3 className="text-lg font-semibold mb-2">Project Highlights:</h3>
-                        <p className="mb-4 text-gray-600">Deployed in public areas, these robots help reduce manual labor and promote efficient waste sorting in urban settings, leading to a cleaner environment.</p>
+                        <p className="mb-4">Deployed in public areas, these robots help reduce manual labor and promote efficient waste sorting in urban settings, leading to a cleaner environment.</p>
                     </div>
                     <div className="mt-4">
                         <h3 className="text-lg font-semibold mb-2">Media:</h3>
@@ -59,7 +59,7 @@ const Projects: React.FC = () => {
                 {/* <!-- Placeholder for Future Projects --> */}
                 <div className="p-6  border-2 rounded-lg border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <h2 className="text-2xl font-bold mb-4">Future Innovation Projects</h2>
-                    <p className="mb-4 text-gray-600">We are constantly working on new ways to use robotics, AI, and sustainable technology to solve real-world problems. Stay tuned for updates on upcoming projects focused on education, sustainability, and more.</p>
+                    <p className="mb-4">We are constantly working on new ways to use robotics, AI, and sustainable technology to solve real-world problems. Stay tuned for updates on upcoming projects focused on education, sustainability, and more.</p>
                     <div className="image">
                         <img alt="Empowering Innovation Image" height="200"
                             src="/resources/Illustrations/Deconstructedrobot.svg" width="800"
@@ -75,8 +75,8 @@ const Projects: React.FC = () => {
                 {/* <!-- Testimonials or More Projects --> */}
                 <div className="p-6  border-2 rounded-lg border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <h2 className="text-2xl font-bold mb-4">Project Testimonials</h2>
-                    <p className="mb-4 text-gray-600">"The face-recognition system is a breakthrough in home security, providing us peace of mind knowing our home is monitored." – Jonathan S.</p>
-                    <p className="text-gray-600">"The waste management robots have transformed the way we manage waste in our community." – Lisa M.</p>
+                    <p className="mb-4 ">"The face-recognition system is a breakthrough in home security, providing us peace of mind knowing our home is monitored." – Jonathan S.</p>
+                    <p className="">"The waste management robots have transformed the way we manage waste in our community." – Lisa M.</p>
                     <div className="image">
                         <img alt="Empowering Innovation Image" height="200"
                             src="/resources/Illustrations/Deconstructedrobot.svg" width="800"

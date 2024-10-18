@@ -47,7 +47,7 @@ const Programs: React.FC = () => {
         return () => clearInterval(countdownFunction);
     }, []);
     return (
-        <section className="container mx-auto p-8">
+        <section className="mx-auto p-8">
             <Header />
             <div className="max-w-7xl mx-auto p-8">
                 <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />

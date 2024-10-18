@@ -10,7 +10,7 @@ import { cn } from "../lib/utils";
 
 const Home: React.FC = () => {
     return (
-        <section className="container scroll-smooth focus:scroll-auto">
+        <section className="scroll-smooth focus:scroll-auto">
             {/* Navigation Bar  */}
             <Header />
             {/* Main Content */}
@@ -19,7 +19,7 @@ const Home: React.FC = () => {
                 <div className="w-full md:w-1/2 p-4">
                     <div className="text">
                         <Typewriter text="Empowering Innovation" speed={150} className="text-4xl text-hex mb-4 font-extrabold leading-none tracking-tight  md:text-5xl lg:text-6xl dark:text-white" />
-                        <p className="my-4 text-sm sm:text-base md:text-lg lg:text-xl text-gray-100">
+                        <p className="my-4 text-sm sm:text-base md:text-lg lg:text-xl ">
                             We’re committed to making life-changing technology
                             education accessible to all, regardless of
                             background or location. By offering innovative and
@@ -46,9 +46,9 @@ const Home: React.FC = () => {
                             development initiatives, we help learners turn their
                             newfound expertise into tangible career success.
                         </p>
-                        <div className="button-container space-y-2 ">
-                            <Button label="Become a Member" href="/membershipform" />
-                            <button className="custom-button ml-4">Get Involved</button>
+                        <div className="button-container space-x-6 ">
+                            <Button label="Become a Member" href="/membershipform" />                        
+                            <Button label="Get Involved" href="/programs" />                           
                         </div>
                     </div>
                 </div>
@@ -78,7 +78,7 @@ const Home: React.FC = () => {
                             <Typewriter text="About Us" className="text-4xl text-hex mb-4 font-extrabold leading-none tracking-tight  md:text-5xl lg:text-6xl dark:text-white"/>
                         </h1>
                         <p
-                            className="mb-4 text-lg font-normal text-gray-100 dark:text-gray-100">
+                            className="mb-4 text-lg font-normal dark:text-gray-100">
                             Plastal-Bot Builders is a non-profit organization
                             dedicated to empowering the next generation of
                             young

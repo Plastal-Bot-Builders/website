@@ -17,12 +17,12 @@ const Header: React.FC = () => {
 
           {/* Navigation Links */}
           <div className="hidden md:flex space-x-8">
-            <a href="/home" className="text-white hover:text-[#0CFFBB]">.home ( )</a>
-            <a href="/about" className="text-white hover:text-[#0CFFBB]">.about ( )</a>
-            <a href="/blogs" className="text-white hover:text-[#0CFFBB]">.blogs ( )</a>
-            <a href="/support" className="text-white hover:text-[#0CFFBB]">.support ( )</a>
-            <a href="/programs" className="text-white hover:text-[#0CFFBB]">.program ( )</a>
-            <a href="/projects" className="text-white hover:text-[#0CFFBB]">.project ( )</a>
+            <a href="/home" className="text-gray-400 hover:text-[#0CFFBB]">.home ( )</a>
+            <a href="/about" className="text-gray-400 hover:text-[#0CFFBB]">.about ( )</a>
+            <a href="/blogs" className="text-gray-400 hover:text-[#0CFFBB]">.blogs ( )</a>
+            <a href="/support" className="text-gray-400 hover:text-[#0CFFBB]">.support ( )</a>
+            <a href="/programs" className="text-gray-400 hover:text-[#0CFFBB]">.program ( )</a>
+            <a href="/projects" className="text-gray-400 hover:text-[#0CFFBB]">.project ( )</a>
           </div>
 
           {/* Register Button */}

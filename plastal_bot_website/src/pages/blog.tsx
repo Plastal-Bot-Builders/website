@@ -4,7 +4,7 @@ import Footer from '../components/Footer';
 
 const Blog: React.FC = () => {
     return (
-    <section className="container scroll-smooth focus:scroll-auto">
+    <section className="scroll-smooth focus:scroll-auto">
         {/* Navigation Bar */}
         <Header />
         <div className="max-w-7xl mx-auto p-8">

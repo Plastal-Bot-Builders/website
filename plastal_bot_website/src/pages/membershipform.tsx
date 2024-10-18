@@ -4,7 +4,7 @@ import Footer from '../components/Footer';
 
 const MembershipForm: React.FC = () => {
     return (
-        <section className="container scroll-smooth focus:scroll-auto">
+        <section className="scroll-smooth focus:scroll-auto">
             <Header />
             <div className="max-w-7xl mx-auto px-4">
                 <h1
@@ -85,7 +85,7 @@ const MembershipForm: React.FC = () => {
                             </div>
                         </div>
                     </div>
-                    {/* Card 2: Section 2 - Membership Type */}
+                    {/* Card 3: Section 3 - Membership Type */}
                     <div className="p-6 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                         <h2 className="text-xl font-semibold mb-4">
                             <span className="text-hex"> Section 3: </span>Membership Type
@@ -201,7 +201,7 @@ const MembershipForm: React.FC = () => {
                             </div>
                         </div>
                     </div>
-                    {/* <!-- Card 3: Section 3 - Social Media Links --> */}
+                    {/* <!-- Card 2: Section  - Social Media Links --> */}
                     <div
                         className="p-6 rounded-lg  border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                         <h2 className="text-xl font-semibold mb-4"> <span className="text-hex "> Section 2: </span>Social Media
