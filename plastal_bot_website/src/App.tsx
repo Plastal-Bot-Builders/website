@@ -10,9 +10,6 @@ import Projects from './pages/Projects';
 import MembershipForm from './pages/MembershipForm';
 import { Grid } from 'react-loader-spinner'; // Import the spinner component
 import { Scrollbars } from 'rc-scrollbars'; // Import the Scrollbars component
-import { ThemeProvider } from './context/ThemeContext';
-import ThemeToggleButton from './components/ThemeToggleButton';
-
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
@@ -31,7 +28,6 @@ const App: React.FC = () => {
   }, [location]);
 
   return (
-    <ThemeProvider> {/* Wrap the entire app with ThemeProvider */}
       <Scrollbars
         style={{ width: '100%', height: '100vh' }}
         renderThumbVertical={({ style, ...props }) =>
@@ -69,10 +65,6 @@ const App: React.FC = () => {
           </Routes>
         </div>
       </Scrollbars>
-
-      {/* Theme toggle button */}
-      <ThemeToggleButton />
-    </ThemeProvider>
   );
 };
 
