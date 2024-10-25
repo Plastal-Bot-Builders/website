@@ -1,0 +1,16 @@
+.parallax {
+     overflow: hidden;
+     white-space: nowrap;
+     display: flex;
+   }
+   
+   .scroller {
+     display: inline-block;
+     white-space: nowrap;
+   }
+   
+   .scroller span {
+     font-size: 2rem; /* Adjust font size as needed */
+     padding-right: 2rem; /* Space between repeated text */
+   }
+   

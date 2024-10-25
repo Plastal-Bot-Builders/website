@@ -11,6 +11,7 @@ import MembershipForm from './pages/MembershipForm';
 import { Grid } from 'react-loader-spinner'; // Import the spinner component
 import { Scrollbars } from 'rc-scrollbars'; // Import the Scrollbars component
 import AnimatedShapes from "./components/AnimatedShapes";
+import ParallaxText from "./components/ParallaxText"; 
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
@@ -80,6 +81,10 @@ const App: React.FC = () => {
             <Route path="/projects" element={<Projects />} />
           </Routes>
         </div>
+        <section>
+          <ParallaxText baseVelocity={-5}>Framer Motion</ParallaxText>
+          <ParallaxText baseVelocity={5}>Scroll velocity</ParallaxText>
+        </section>
       </Scrollbars>
   );
 };
