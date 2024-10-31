@@ -9,7 +9,7 @@ const Header: React.FC = () => {
           {/* Logo and Title */}
           <div className="flex items-center space-x-2">
             <img 
-              src="./resources/Logo/logo_trans.png" 
+              src="./resources/Logo/fred.svg" 
               alt="Plastal-Bot Builders Logo" 
               className="h-48 w-48" 
             />
@@ -30,7 +30,6 @@ const Header: React.FC = () => {
             <Button label="Become a Member" href="/membershipform" />
           </div>
         </div>
-        <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
       </div>
     </nav>
   );
