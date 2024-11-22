@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import './App.css';
 import Home from './pages/home';
 import About from './pages/about';
@@ -72,6 +72,7 @@ const App: React.FC = () => {
 
           {/* Render your routes */}
           <Routes>
+            <Route path="/" element={<Navigate to="/home" replace />} />
             <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/membershipform" element={<MembershipForm />} />

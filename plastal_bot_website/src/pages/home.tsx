@@ -114,12 +114,7 @@ const Home: React.FC = () => {
                                 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
                                 <Typewriter text="Enhancing Education" className="text-4xl text-hex mb-4 font-extrabold leading-none tracking-tight  md:text-5xl lg:text-6xl dark:text-white"/>
                             </h1>
-                            <div className="ml-8 p-6 rounded-lg mb-4">
-                                {/* <!-- First child of first sub-div --> */}
-                                <img
-                                    src="/resources/Illustrations/Mathematics-bro (1) 1.svg"
-                                    alt="Introduction to Robotics" className="mb-4" />
-                            </div>
+                            
                             <p className="mt-4 text-gray-100 text-lg">
                                 In education, technology has become a catalyst for change.
                                 Digital tools such as interactive software, online courses,
@@ -137,6 +132,11 @@ const Home: React.FC = () => {
                                 reduce their environmental impact and contribute to a
                                 healthier planet.
                             </p>
+                                {/* <!-- First child of first sub-div --> */}
+                                <img
+                                    src="/resources/Illustrations/Mathematics-bro (1) 1.svg"
+                                    alt="Introduction to Robotics" className="mb-4" />
+                            </div>
                         </div>
                     </div>
                 </ScrollAnimation> 
