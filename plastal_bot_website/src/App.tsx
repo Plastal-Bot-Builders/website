@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
-import Home from './pages/Home';
-import About from './pages/About';
-import Blog from './pages/Blog';
-import Support from './pages/Support';
-import Programs from './pages/Programs';
-import Projects from './pages/Projects';
-import MembershipForm from './pages/MembershipForm';
+import Home from './pages/home';
+import About from './pages/about';
+import Blog from './pages/blog';
+import Support from './pages/support';
+import Programs from './pages/programs';
+import Projects from './pages/projects';
+import MembershipForm from './pages/membershipform';
 import { Grid } from 'react-loader-spinner'; // Import the spinner component
 import { Scrollbars } from 'rc-scrollbars'; // Import the Scrollbars component
 import AnimatedShapes from "./components/AnimatedShapes";
