@@ -11,7 +11,7 @@ import MembershipForm from './pages/membershipform';
 import { Grid } from 'react-loader-spinner'; // Import the spinner component
 import { Scrollbars } from 'rc-scrollbars'; // Import the Scrollbars component
 import AnimatedShapes from "./components/AnimatedShapes";
-import ParallaxText from "./components/ParallaxText"; 
+
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
@@ -37,21 +37,6 @@ const App: React.FC = () => {
         }
       >
         <div style={{ position: 'relative', height: '100vh' }}>
-          {/* Animated shapes in the background */}
-          <div
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              zIndex: -1, // Ensure it's behind everything
-              opacity: 0.1, // Subtle background effect
-            }}
-          >
-            <AnimatedShapes />
-          </div>
-
           {/* Conditionally render the Grid spinner when loading is true */}
           {loading && (
             <div className="loader-background visible">
@@ -82,10 +67,6 @@ const App: React.FC = () => {
             <Route path="/projects" element={<Projects />} />
           </Routes>
         </div>
-        <section>
-          <ParallaxText baseVelocity={-5}>Framer Motion</ParallaxText>
-          <ParallaxText baseVelocity={5}>Scroll velocity</ParallaxText>
-        </section>
       </Scrollbars>
   );
 };
