@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import styled from 'styled-components';
 
+
 const InputField = styled.input`
   background-color: transparent;
   border: 1px solid #d1d5db; /* border-gray-300 */
@@ -187,8 +188,8 @@ const MembershipForm: React.FC = () => {
                             </div>
                         </div>
                     </div>
-                                        {/* <!-- Card 2: Section  - Social Media Links --> */}
-                                        <div
+                    {/* <!-- Card 2: Section  - Social Media Links --> */}
+                    <div
                         className="p-6 rounded-lg  border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                         <h2 className="text-xl font-semibold mb-4"> <span className="text-hex "> Section 2: </span>Social Media
                             Links ( Optional ) </h2>
@@ -230,6 +231,7 @@ const MembershipForm: React.FC = () => {
                             </div>
                         </div>
                     </div>
+
                     {/* Card 3: Section 3 - Membership Type */}
                     <div className="p-6 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                         <h2 className="text-xl font-semibold mb-4">
@@ -503,6 +505,7 @@ const MembershipForm: React.FC = () => {
                             </div>
                         </div>
                     </div>
+
                     {/* <!-- Card 6: Section 6 - Additional Information --> */}  
                     <div
                         className="p-6 rounded-lg  border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">

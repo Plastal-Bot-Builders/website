@@ -6,8 +6,27 @@ import LogoCarousel from '../components/LogoCarousel';
 import Typewriter from '../components/Typewriter';
 import Button from '../components/Button'
 import ScrollAnimation from '../components/ScrollAnimation/ScrollAnimation';
-import ScrollToTop from '../components/ScrollToTop/ScrollToTop';
+import styled from 'styled-components';
 
+const InputField = styled.input`
+  background-color: transparent;
+  border: 1px solid #d1d5db; /* border-gray-300 */
+  padding: 0.5rem 0.75rem; /* px-3 py-2 */
+  border-radius: 0.375rem; /* rounded-md */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* shadow-sm */
+  transition: border-color 0.3s ease;
+  width: 100%; /* Full width */
+  height: 3rem; /* Adjust height as needed */
+
+  &:hover {
+    border-color: #0CFFBB;
+
+  &:focus {
+    outline: none;
+    border-color: #0CFFBB;
+    box-shadow: 0 0 0 3px rgba(12, 255, 187, 0.5); /* focus:ring-blue-500 */
+  }
+`;
 
 const Home: React.FC = () => {
     return (               
@@ -54,19 +73,123 @@ const Home: React.FC = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="w-full md:w-1/2 p-4">
-                            <div className="image">
+                        <div className="w-full md:w-1/2 p-2">
+                            <div className="image mt-24">
                                 <img alt="Empowering Innovation Image" height="200"
-                                    src="/resources/Illustrations/Cyborg-bro.svg"
+                                    src="/resources/Illustrations/Data_extraction.svg"
                                     width="800" className="w-full h-auto object-cover" />
                             </div>
                         </div>
                     </div>
             </ScrollAnimation>
+
+            <ScrollAnimation> 
+                    <div className="max-w-7xl mx-auto p-6">
+                        <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4">
+                            {/* <!-- Large Block --> */}
+                            <div className="col-span-1 md:col-span-2 md:row-span-2 mb-4 p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                                {/* <!-- Image Carousel Container --> */}
+                                <ImageCarousel />
+                                <h1
+                                    className="mt-4 mb-8 text-2xl font-extrabold leading-none tracking-tight text-gray-300 md:text-3xl lg:text-3xl dark:text-white">
+                                    <span className="text-hex">Featured </span> Article
+                                </h1>
+                                <p className="text-sm text-gray-100">Robots play an increasingly
+                                    vital role in the building, maintenance, and
+                                    optimization of renewable energy systems, such as wind
+                                    turbines, solar panels, and other sustainable
+                                    technologies. As the world shifts towards cleaner energy
+                                    sources to combat climate change, robotics is proving to
+                                    be a key enabler in making these technologies more
+                                    efficient and cost-effective, ultimately contributing to
+                                    the reduction of carbon emissions.</p>
+                                <p className="mt-2 text-gray-100 text-sm">As renewable energy
+                                    systems continue to grow in scale and importance, the
+                                    role of robotics will only expand, further driving
+                                    innovations in sustainability and helping to meet global
+                                    carbon reduction goals. By improving the efficiency and
+                                    reliability of these systems, robots are paving the way
+                                    for a greener, more sustainable future.</p>
+                                <button className="mt-4 custom-button">Read
+                                    More...</button>
+                            </div>
+
+                            {/* <!-- Tall Block --> */}
+                            <div
+                                className="col-span-1 md:row-span-2 flex justify-center items-center p-4 ">
+                                <div className="text-center">
+                                    <img
+                                        src="/resources/Illustrations/Visionarytechnology.svg"
+                                        alt="Introduction to Robotics" />
+                                </div>
+                            </div>
+
+                            {/* <!-- Small Block 1 --> */}
+                            <div
+                                className="col-span-1 row-span-1 flex flex-col md:flex-row items-center p-6 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                                <div className="w-full md:w-1/2 h-full">
+                                    <img src="/resources/Photos/IMG_4781.jpeg"
+                                        alt="Reference Image"
+                                        className="w-full h-full object-cover" />
+                                </div>
+                                <div className="w-full md:w-1/2 p-6">
+                                    <h1
+                                        className="break-words truncate mb-4 text-sm font-extrabold leading-none tracking-tight text-gray-300 md:text-base lg:text-base dark:text-white">
+                                        <span className="text-hex">Research </span>
+                                        Opportunities
+                                    </h1>
+                                    <p className="text-xxs text-gray-600 break-words truncate">
+                                        Description for block 1 goes here.</p>
+                                </div>
+                            </div>
+
+                            {/* <!-- Small Block 2 --> */}
+                            <div
+                                className="col-span-1 row-span-1 flex flex-col md:flex-row items-center p-6 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                                <div className="w-full md:w-1/2 h-full">
+                                    <img src="/resources/Photos/IMG_4781.jpeg"
+                                        alt="Reference Image"
+                                        className="w-full h-full object-cover"/>
+                                </div>
+                                <div className="w-full md:w-1/2 p-6">
+                                    <h1
+                                        className="break-words truncate mb-4 text-sm font-extrabold leading-none tracking-tight text-gray-300 md:text-base lg:text-base dark:text-white break-words truncate"
+                                        >
+                                        <span className="text-hex">Mentorship </span>
+                                        Opportunities
+                                    </h1>
+                                    <p className="text-xxs text-gray-600 break-words truncate">
+                                        Description for block 2 goes here.</p>
+                                </div>
+                            </div>
+
+                            {/* <!-- Small Block 3 --> */}
+                            <div
+                                className="col-span-1 row-span-1 flex flex-col md:flex-row items-center p-6 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                                <div className="w-full md:w-1/2 h-full">
+                                    <img src="/resources/Photos/IMG_4781.jpeg"
+                                        alt="Reference Image"
+                                        className="w-full h-full object-cover"/>
+                                </div>
+                                <div className="w-full md:w-1/2 p-6">
+                                    <h1
+                                        className="mb-4 text-sm font-extrabold leading-none tracking-tight text-gray-300 md:text-base lg:text-base dark:text-white break-words truncate"
+                                        >
+                                        <span className="text-hex">Sponsorship </span>
+                                        Opportunities
+                                    </h1>
+                                    <p className="text-xxs text-gray-600 break-words truncate"
+                                        >Description
+                                        for block 3 goes here.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </ScrollAnimation> 
+
             <ScrollAnimation> 
                     <div
-                        className="flex flex-col md:flex-row justify-between p-4 space-y-8 md:space-y-0 md:space-x-8 max-w-7xl mx-auto">
-                        <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-70" />       
+                        className="flex flex-col md:flex-row justify-between p-4 space-y-8 md:space-y-0 md:space-x-8 max-w-7xl mx-auto">       
                         {/* Sub-div 1 */}
                         <div className="w-full md:w-1/2 p-4">
                             <div>
@@ -123,9 +246,9 @@ const Home: React.FC = () => {
                         </div>
                     </div>
             </ScrollAnimation> 
+
             <ScrollAnimation> 
                     <div className="max-w-7xl mx-auto p-6">
-                    <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-70" />
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             {/* <!-- First Bento Box --> */}
                             <div className="grid grid-cols-1 sm:grid-cols-3 grid-rows-2 gap-4">
@@ -133,7 +256,7 @@ const Home: React.FC = () => {
                                 <div
                                     className="col-span-1 sm:col-span-2 row-span-2 pr-4 p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                                     <h1
-                                        className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
+                                        className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-300 md:text-3xl lg:text-3xl dark:text-white">
                                         <span className="text-hex"> What </span> is <span
                                             className="text-hex"> Robotics? </span>
                                     </h1>
@@ -167,7 +290,7 @@ const Home: React.FC = () => {
                                 <div
                                     className="col-span-1 flex justify-center items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                                     <h1
-                                        className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
+                                        className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-300 md:text-3xl lg:text-3xl dark:text-white">
                                         <span className="text-hex"> Electrical </span>
                                         Engineering
                                     </h1>
@@ -178,7 +301,7 @@ const Home: React.FC = () => {
                                     className="col-span-1 flex justify-center items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                                     <div>
                                         <h1
-                                            className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
+                                            className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-300 md:text-3xl lg:text-3xl dark:text-white">
                                             <span className="text-hex"> Electrical </span>
                                             Engineering
                                         </h1>
@@ -197,7 +320,7 @@ const Home: React.FC = () => {
                                     className="col-span-1 row-span-1 flex justify-center items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out" >
                                     <div>
                                         <h1
-                                            className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
+                                            className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-300 md:text-3xl lg:text-3xl dark:text-white">
                                             <span className="text-hex"> Artificial </span>
                                             Intelligence (AI)
                                         </h1>
@@ -212,7 +335,7 @@ const Home: React.FC = () => {
                                 <div
                                     className="col-span-1 sm:col-span-2 row-span-1 p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                                     <h1
-                                        className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
+                                        className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-300 md:text-3xl lg:text-3xl dark:text-white">
                                         <span className="text-hex"> Application </span> of <span
                                             className="text-hex"> Robotics </span>
                                     </h1>
@@ -233,7 +356,7 @@ const Home: React.FC = () => {
                                 <div
                                     className="col-span-1 sm:col-span-2 row-span-1 p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                                     <h1
-                                        className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
+                                        className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-300 md:text-3xl lg:text-3xl dark:text-white">
                                         <span className="text-hex"> Ethics </span> in <span
                                             className="text-hex"> Robotics </span>
                                     </h1>
@@ -259,7 +382,7 @@ const Home: React.FC = () => {
                                     className="col-span-1 row-span-1 flex justify-center items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                                     <div>
                                         <h1
-                                            className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
+                                            className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-300 md:text-3xl lg:text-3xl dark:text-white">
                                             <span className="text-hex">Sensors</span>
                                         </h1>
                                         <p className="text-sm text-gray-100">Sensors allow
@@ -273,124 +396,20 @@ const Home: React.FC = () => {
                         </div>
                     </div>
             </ScrollAnimation> 
-            <ScrollAnimation> 
-                    <div className="max-w-7xl mx-auto p-6">
-                    <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-70" />
-                        <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4">
-                            {/* <!-- Large Block --> */}
-                            <div className="col-span-1 md:col-span-2 md:row-span-2 mb-4 p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
-                                {/* <!-- Image Carousel Container --> */}
-                                <ImageCarousel />
-                                <h1
-                                    className="mt-4 mb-8 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-3xl dark:text-white">
-                                    <span className="text-hex">Featured </span> Article
-                                </h1>
-                                <p className="text-sm text-gray-100">Robots play an increasingly
-                                    vital role in the building, maintenance, and
-                                    optimization of renewable energy systems, such as wind
-                                    turbines, solar panels, and other sustainable
-                                    technologies. As the world shifts towards cleaner energy
-                                    sources to combat climate change, robotics is proving to
-                                    be a key enabler in making these technologies more
-                                    efficient and cost-effective, ultimately contributing to
-                                    the reduction of carbon emissions.</p>
-                                <p className="mt-2 text-gray-100 text-sm">As renewable energy
-                                    systems continue to grow in scale and importance, the
-                                    role of robotics will only expand, further driving
-                                    innovations in sustainability and helping to meet global
-                                    carbon reduction goals. By improving the efficiency and
-                                    reliability of these systems, robots are paving the way
-                                    for a greener, more sustainable future.</p>
-                                <button className="mt-4 custom-button">Read
-                                    More...</button>
-                            </div>
-
-                            {/* <!-- Tall Block --> */}
-                            <div
-                                className="col-span-1 md:row-span-2 flex justify-center items-center p-4 ">
-                                <div className="text-center">
-                                    <img
-                                        src="/resources/Illustrations/Visionarytechnology.svg"
-                                        alt="Introduction to Robotics" />
-                                </div>
-                            </div>
-
-                            {/* <!-- Small Block 1 --> */}
-                            <div
-                                className="col-span-1 row-span-1 flex flex-col md:flex-row items-center p-6 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
-                                <div className="w-full md:w-1/2 h-full">
-                                    <img src="/resources/Photos/IMG_4781.jpeg"
-                                        alt="Reference Image"
-                                        className="w-full h-full object-cover" />
-                                </div>
-                                <div className="w-full md:w-1/2 p-6">
-                                    <h1
-                                        className="break-words truncate mb-4 text-sm font-extrabold leading-none tracking-tight text-gray-900 md:text-base lg:text-base dark:text-white">
-                                        <span className="text-hex">Research </span>
-                                        Opportunities
-                                    </h1>
-                                    <p className="text-xxs text-gray-600 break-words truncate">
-                                        Description for block 1 goes here.</p>
-                                </div>
-                            </div>
-
-                            {/* <!-- Small Block 2 --> */}
-                            <div
-                                className="col-span-1 row-span-1 flex flex-col md:flex-row items-center p-6 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
-                                <div className="w-full md:w-1/2 h-full">
-                                    <img src="/resources/Photos/IMG_4781.jpeg"
-                                        alt="Reference Image"
-                                        className="w-full h-full object-cover"/>
-                                </div>
-                                <div className="w-full md:w-1/2 p-6">
-                                    <h1
-                                        className="break-words truncate mb-4 text-sm font-extrabold leading-none tracking-tight text-gray-900 md:text-base lg:text-base dark:text-white break-words truncate"
-                                        >
-                                        <span className="text-hex">Mentorship </span>
-                                        Opportunities
-                                    </h1>
-                                    <p className="text-xxs text-gray-600 break-words truncate">
-                                        Description for block 2 goes here.</p>
-                                </div>
-                            </div>
-
-                            {/* <!-- Small Block 3 --> */}
-                            <div
-                                className="col-span-1 row-span-1 flex flex-col md:flex-row items-center p-6 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
-                                <div className="w-full md:w-1/2 h-full">
-                                    <img src="/resources/Photos/IMG_4781.jpeg"
-                                        alt="Reference Image"
-                                        className="w-full h-full object-cover"/>
-                                </div>
-                                <div className="w-full md:w-1/2 p-6">
-                                    <h1
-                                        className="mb-4 text-sm font-extrabold leading-none tracking-tight text-gray-900 md:text-base lg:text-base dark:text-white break-words truncate"
-                                        >
-                                        <span className="text-hex">Sponsorship </span>
-                                        Opportunities
-                                    </h1>
-                                    <p className="text-xxs text-gray-600 break-words truncate"
-                                        >Description
-                                        for block 3 goes here.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            </ScrollAnimation> 
 
             <ScrollAnimation> 
-                    <div className="max-w-7xl mx-auto p-4">
-                    <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-70" />
+                <div className="max-w-7xl mx-auto p-4">
                         <div
                             className="flex flex-col md:flex-row justify-between space-y-8 md:space-y-0 md:space-x-8">
                             <div className="w-full md:w-1/2 p-4">
                                 <div className="text">
                                     <h1
-                                        className="mb-6 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+                                        className="mb-6 text-4xl font-extrabold leading-none tracking-tight text-gray-300 md:text-5xl lg:text-6xl dark:text-white">
                                         <span className="text-hex">Subscribe To Our</span>
-                                        Newsletter
+                                          <span
+                                            className="text-gray-300"> Newsletter</span>
                                     </h1>
-                                    <p className="my-4 text-lg text-gray-500">
+                                    <p className="my-4 text-sm text-gray-100">
                                         We’re committed to making life-changing
                                         technology education accessible to all,
                                         regardless of
@@ -411,7 +430,7 @@ const Home: React.FC = () => {
                                         employment opportunities.
                                     </p>
                                     <p
-                                        className="mb-2 text-lg font-normal text-gray-500 dark:text-gray-400">
+                                        className="mb-2 text-sm font-normal text-gray-100 dark:text-gray-400">
                                         That’s why we are equally dedicated to fostering
                                         job-ready skills, bridging the gap between
                                         education and the workforce. Through
@@ -424,10 +443,12 @@ const Home: React.FC = () => {
                                     <div
                                         className="mt-8 flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
                                         <div className="w-full sm:w-auto">
-                                            <input type="text"
-                                                placeholder="Enter your Email"
-                                                id="floating_outlined"
-                                                className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer hover:border-[#0CFFBB]" />
+                                            <InputField
+                                            id="large-input"
+                                            type="text"
+                                            placeholder="Enter your Email"
+                                            required
+                                        />
                                         </div>
                                         <button
                                             className="custom-button w-full sm:w-auto"> Send Email</button>
@@ -441,9 +462,8 @@ const Home: React.FC = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                </div>
             </ScrollAnimation> 
-            <ScrollToTop />
             <ScrollAnimation>
                 <LogoCarousel />
             </ScrollAnimation>
