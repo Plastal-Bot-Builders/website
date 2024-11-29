@@ -10,9 +10,6 @@ import Projects from './pages/projects';
 import MembershipForm from './pages/membershipform';
 import { Grid } from 'react-loader-spinner'; // Import the spinner component
 import { Scrollbars } from 'rc-scrollbars'; // Import the Scrollbars component
-import ScrollToTop from './components/ScrollToTop/ScrollToTop';
-
-
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
@@ -68,7 +65,6 @@ const App: React.FC = () => {
             <Route path="/projects" element={<Projects />} />
           </Routes>
         </div>
-        <ScrollToTop />
       </Scrollbars>
   );
 };

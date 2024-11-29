@@ -4,7 +4,173 @@ import Footer from '../components/Footer';
 import ScrollAnimation from '../components/ScrollAnimation/ScrollAnimation';
 import Button from '../components/Button';
 
+
 const Programs: React.FC = () => {
+    interface Tool {
+        icon: string | null;
+        containerStyle?: {
+          display: string;
+          flexDirection: string;
+          alignItems: string;
+          gap: string;
+        };
+    }
+    const days = [
+        {
+            day: "Day 1",
+            title: "Introduction to Robotics & Electronics",
+            topics: ["Robotics fundamentals", "Basic electronics", "Circuit simulation", "TinkerCad hands-on"],
+            tools: [
+                {   
+                    icon: "/resources/Icons/tinkercad.svg", 
+                    containerStyle: {
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        gap: "8px"
+                    }
+                },
+                {    
+                    icon: "/resources/Icons/arduino.svg", 
+                    containerStyle: {
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        gap: "8px"
+                    }
+                },
+                {    
+                    icon: "/resources/Icons/RaspberryPi.svg", 
+                    containerStyle: {
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        gap: "8px"
+                    }
+                },
+                {   
+                    icon: "/resources/Icons/esp32.svg",
+                    containerStyle: {
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        gap: "8px"
+                    }
+                },
+            ]
+        },
+        {
+            day: "Day 2",
+            title: "CAD Modeling and Prototyping",
+            topics: ["CAD basics", "Robot component design", "3D modeling", "Assembly techniques"],
+            tools: [
+                {    
+                    icon: "/resources/Icons/tinkercad.svg", 
+                    containerStyle: {
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        gap: "8px"
+                    } 
+                },
+                {    
+                    icon: "/resources/Icons/Fusion360.svg",  
+                    containerStyle: {
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        gap: "8px"
+                    }
+                }
+            ]
+        },
+        {
+            day: "Day 3",
+            title: "Programming & AI Fundamentals",
+            topics: ["Python basics", "Machine Learning intro", "Arduino programming", "AI concepts"],
+            tools: [
+                {    
+                    icon: "/resources/Icons/tinkercad.svg", 
+                    containerStyle: {
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        gap: "8px"
+                    } 
+                },
+                {   
+                    icon: "/resources/Icons/tensorflow.svg",  
+                    containerStyle: {
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        gap: "8px"
+                    }
+                },
+                {    
+                    icon: "/resources/Icons/googlecolab.svg", 
+                    containerStyle: {
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        gap: "8px"
+                    }
+                }
+            ]
+        },
+        {
+            day: "Day 4",
+            title: "Advanced Robotics & Automation",
+            topics: ["Computer Vision", "ROS2 basics", "Robot navigation", "Automation"],
+            tools: [
+                {   
+                    icon: "/resources/Icons/tinkercad.svg",
+                    containerStyle: {
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        gap: "8px"
+                    }
+                },
+                {    
+                    icon: "/resources/Icons/yolo.svg",
+                    containerStyle: {
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        gap: "8px"
+                    }
+                },
+                {  
+                    icon: "/resources/Icons/Ros.svg",
+                    containerStyle: {
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        gap: "8px"
+                    }
+                },
+                {   
+                    icon: "/resources/Icons/Gazebo.svg",
+                    containerStyle: {
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        gap: "8px"
+                    }
+                }
+            ]
+        },
+        {
+            day: "Day 5",
+            title: "Project Development & Showcase",
+            topics: ["Group projects", "Project presentation", "LiveA demos", "Certificate ceremony"],
+            tools: [
+                { name: "All previous tools", icon: null }
+            ]
+        }
+    ];
+
     return (
         <section className="scroll-smooth focus:scroll-auto">
             <Header />
@@ -24,7 +190,7 @@ const Programs: React.FC = () => {
                             <Button label="Register Now" href="/membershipform" />
                         </div>
                         <div className="w-full md:w-1/2">
-                            <img src="/resources/Illustrations/robotics_bootcamp.svg" alt="Bootcamp" className="w-full"/>
+                            <img src="/resources/GIF/Robotarm.gif" alt="Bootcamp" className="w-full"/>
                         </div>
                     </div>
                 </div>
@@ -36,38 +202,7 @@ const Programs: React.FC = () => {
                     <div className="max-w-7xl mx-auto px-4">
                         <h2 className="text-3xl font-bold text-white mb-8">Daily Schedule</h2>
                         <div className="space-y-6">
-                            {[
-                                {
-                                    day: "Day 1",
-                                    title: "Introduction to Robotics & Electronics",
-                                    topics: ["Robotics fundamentals", "Basic electronics", "Circuit simulation", "TinkerCad hands-on"],
-                                    tools: ["TinkerCad", "Arduino IDE"]
-                                },
-                                {
-                                    day: "Day 2",
-                                    title: "CAD Modeling and Prototyping",
-                                    topics: ["CAD basics", "Robot component design", "3D modeling", "Assembly techniques"],
-                                    tools: ["Fusion 360", "TinkerCad"]
-                                },
-                                {
-                                    day: "Day 3",
-                                    title: "Programming & AI Fundamentals",
-                                    topics: ["Python basics", "Machine Learning intro", "Arduino programming", "AI concepts"],
-                                    tools: ["Python", "TensorFlow", "Google Colab"]
-                                },
-                                {
-                                    day: "Day 4",
-                                    title: "Advanced Robotics & Automation",
-                                    topics: ["Computer Vision", "ROS2 basics", "Robot navigation", "Automation"],
-                                    tools: ["OpenCV", "ROS2", "Gazebo"]
-                                },
-                                {
-                                    day: "Day 5",
-                                    title: "Project Development & Showcase",
-                                    topics: ["Group projects", "Project presentation", "Live demos", "Certificate ceremony"],
-                                    tools: ["All previous tools"]
-                                }
-                            ].map((day, index) => (
+                            {days.map((day, index) => (
                                 <div key={index} className="p-6 border-2 border-gray-300 hover:border-[#0CFFBB] rounded-lg transition-all">
                                     <div className="flex flex-col md:flex-row gap-6">
                                         <div className="md:w-1/4">
@@ -83,7 +218,18 @@ const Programs: React.FC = () => {
                                         </div>
                                         <div className="md:w-1/4">
                                             <p className="text-gray-400">Tools:</p>
-                                            <p className="text-hex">{day.tools.join(", ")}</p>
+                                            <div className="flex flex-wrap gap-4">
+                                                {day.tools.map((tool, i) => (
+                                                    tool.icon ? (
+                                                        <img 
+                                                            key={i} 
+                                                            src={tool.icon} 
+                                                            alt="Tool icon" 
+                                                            className="w-8 h-8 hover:scale-110 transition-transform"
+                                                        />
+                                                    ) : null  // Add null for tools without icons
+                                                ))}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
