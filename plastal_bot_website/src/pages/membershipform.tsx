@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import styled from 'styled-components';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+gsap.registerPlugin(ScrollTrigger);
 
 const InputField = styled.input`
   background-color: transparent;
@@ -108,10 +111,27 @@ const TextAreaField = styled.textarea`
 `;
 
 const MembershipForm: React.FC = () => {
+    const sectionRef = useRef<HTMLDivElement[]>([]);
+
+    useEffect(() => {
+      sectionRef.current.forEach((section) => {
+        gsap.from(section, {
+          opacity: 0,
+          y: 50,
+          duration: 1,
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 80%',
+            end: 'bottom 60%',
+            toggleActions: 'play none none reverse',
+          },
+        });
+      });
+    }, []);
     return (
         <section className="scroll-smooth focus:scroll-auto">
             <Header />
-            <div className="max-w-7xl mx-auto px-4">
+            <div ref={(el) => el && sectionRef.current.push(el)} className="max-w-7xl mx-auto px-4 ">
                 <h1
                     className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
                     <span className="text-hex "> Membership <span className="text-white"> Application Form </span></span>

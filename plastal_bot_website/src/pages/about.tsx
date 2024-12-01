@@ -1,157 +1,206 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-const about: React.FC = () => {
+const About: React.FC = () => {
+
+  const teamMembers = [
+    { imgSrc: "/resources/founders/sepo.jpeg", name: "Sepo Konayuma", role: "Co-Founder & CEO" },
+    { imgSrc: "/resources/founders/fred.png", name: "Fred M'Kuna", role: "Lead-Trainer" },
+    { imgSrc: "/resources/founders/Wazingwa Mugala.jpeg", name: "Wazingwa Mungala", role: "Creative Director" },
+    { imgSrc: "/resources/founders/fredrick1.png", name: "Fredrick Mwepu", role: "Co-Founder & CTO" },
+    { imgSrc: "/resources/founders/sepo.jpeg", name: "Mapalo Kazembe", role: "Tech Lead Instructor" },
+    { imgSrc: "/resources/founders/madam_pamela.jpg", name: "Pamala Mutale", role: "Advisor" },
+  ];
+
+  const milestonesData = [
+    {
+      title: "Introduction to Robotics and Programming Workshop",
+      date: "18th May 2024",
+      description: "We conducted the first workshop introducing students to the basics of programming and robotics. This included hands-on experiences with Python, Scratch, and robotics kits.",
+    },
+    {
+      title: "Next Workshop",
+      date: "Coming Soon",
+      description: "Stay tuned for updates...",
+    },
+  ];
+
+  useEffect(() => {
+    // Register the ScrollTrigger plugin
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Animate the "Our Story" section
+    gsap.from(".our-story", {
+      scrollTrigger: {
+        trigger: ".our-story",
+        start: "top 80%", // Start animation when 80% of the section is visible
+        end: "top 20%",
+        toggleActions: "play none none reverse",
+      },
+      opacity: 0,
+      y: 50,
+      duration: 1,
+    });
+
+    // Animate each team member
+    gsap.from(".team-member", {
+      scrollTrigger: {
+        trigger: ".team-member",
+        start: "top 90%",
+        toggleActions: "play none none reverse",
+      },
+      opacity: 0,
+      scale: 0.8,
+      stagger: 0.2,
+      duration: 0.8,
+    });
+
+    // Animate milestones
+    gsap.from(".milestone", {
+      scrollTrigger: {
+        trigger: ".milestones",
+        start: "top 90%",
+        toggleActions: "play none none reverse",
+      },
+      opacity: 0,
+      x: 100,
+      stagger: 0.3,
+      duration: 1,
+    });
+  }, []);
+   
   return (
-    <section className="scroll-smooth focus:scroll-auto text-white">
-      {/* Navigation Bar  */}
+    <section className="text-white">
+      {/* Navigation Bar */}
       <Header />
+
+      {/* Hero Section */}
+      <div className="flex flex-row max-w-7xl mx-auto p-8">
+        <div className="w-full md:w-1/2">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
+                <span className="text-hex"> About </span> Plastal-Bot Builders Org
+            </h1>
+            <p className="mb-6">
+              Empowering the next generation through robotics, technology, and sustainability
+              lies at the heart of our mission. We believe that by equipping young minds with 
+              the tools to innovate, create, and solve problems, we can inspire a future driven 
+              by ingenuity and responsibility. 
+            </p>
+
+            <p className="my-4">
+              Through our programs, we introduce students and young 
+              professionals to cutting-edge robotics and technology, fostering skills that are not 
+              only relevant but transformative in today’s world. By integrating sustainability into 
+              our initiatives, we emphasize the importance of creating solutions that address 
+              real-world challenges while preserving the environment for generations to come.
+            </p>
+        </div>
+        <div className="w-full md:w-1/2 p-2">
+            <img src="/resources/Logo/logo_trans.png" alt="Bootcamp" className="w-full h-auto object-cover"/>
+        </div>
+      </div>
       {/* Main Content */}
       <div className="max-w-7xl mx-auto p-8">
-        {/* Flexbox-based bento box layout */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          {/* Box 1: Our Story (Large) */}
-          <div className="p-6 rounded-lg col-span-2 flex flex-col justify-between border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
-            <h3 className="text-3xl font-bold">
-              <span className="text-hex">Our <span className="text-white">Story</span></span>
-            </h3>
-            <p>
-              Founded in Zambia, our organization began with a mission to provide young people with
-              skills and knowledge to tackle modern challenges. What started as a local initiative
-              has now grown to have global ambitions, addressing educational and environmental
-              challenges across Africa and beyond.
-            </p>
-          </div>
+        {/* Our Story */}
+        <div className="mb-12">
 
-          {/* Box 2: Mission & Vision (Responsive) */}
-          <div className="p-6 rounded-lg col-span-1 border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4">
-              <span className="text-hex">Mission & <span className="text-white">Projects</span></span>
-            </h3>
-            <p className="text-sm sm:text-base md:text-lg">
+          <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
+            <span className="text-hex "> Our<span className="text-white"> Story </span></span>
+          </h1>
+          <p className="my-4">
+            Founded in Zambia, our organization began with a mission to empower young 
+            people by equipping them with the skills and knowledge needed to tackle 
+            modern challenges in an ever-evolving world. What started as a grassroots 
+            initiative driven by a passion for education and innovation has transformed
+            into a dynamic movement with global ambitions.
+          </p>
+          <p className="my-4">
+            We are committed to addressing critical challenges not only in education but 
+            also in environmental sustainability, leveraging technology, creativity, 
+            and collaboration. Across Africa and beyond, we partner with communities, 
+            schools, and industry leaders to create opportunities that inspire the next 
+            generation of leaders, innovators, and problem-solvers. Our programs have evolved 
+            to include cutting-edge workshops, hands-on learning experiences, and initiatives 
+            that prioritize inclusivity and long-term impact.
+          </p>
+          <p className="my-4">
+            As we continue to grow, our vision remains rooted in the belief that equipping 
+            young people with the right tools today will shape a brighter, more sustainable 
+            future for all.
+          </p>
+        </div>
+
+        {/* Mission & Vision */}
+        <div className="mb-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div>
+            <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
+              <span className="text-hex "> Our <span className="text-white"> Mission</span></span>
+            </h1>
+          
+            <p>
               Our mission is to empower young people by teaching them the skills they need to create
               sustainable solutions through technology, robotics, and environmental advocacy.
             </p>
           </div>
-
-          {/* Box 3: Core Team (Responsive) */}
-          <div className="p-4 sm:p-6 rounded-lg col-span-1 sm:col-span-2 md:col-span-1 border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4">
-              <span className="text-hex">Our</span> Team
-            </h2>
-            <p className="text-sm sm:text-base md:text-lg">
-              Meet the amazing people leading our organization to success, with backgrounds in technology, education, and environmental advocacy.
+          <div>
+          <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
+              <span className="text-hex "> Our <span className="text-white"> Vision </span></span>
+            </h1>
+            <p>
+              To inspire a generation of problem-solvers and innovators who will use technology and
+              robotics to create a better future for their communities and the world.
             </p>
           </div>
+        </div>
 
-
-          {/* Box 4: Team Member 1 */}
-          <div className="p-6 rounded-lg col-span-1 flex items-center border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
-            <img src="/resources/founders/sepo.jpeg" alt="Sepo Konayuma" className="w-16 h-16 rounded-full mr-4" />
-            <div>
-              <h3 className="text-lg font-semibold">
-                <span className="text-hex">Sepo <span className="text-white">Konayuma</span></span>
-              </h3>
-              <p>Co-Founder & CEO</p>
-            </div>
+        {/* Our Team */}
+        <div className="mb-12">
+          <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
+            <span className="text-hex "> Our <span className="text-white"> Team </span></span>
+          </h1>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {teamMembers.map((member, index) => (
+              <div
+                key={index}
+                className="rounded-lg  border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out p-6 flex flex-col items-center text-center"
+              >
+                <img
+                  src={member.imgSrc}
+                  alt={member.name}
+                  className="w-24 h-24 rounded-full mb-4 border-4 border-[#0CFFBB]"
+                />
+                <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
+                <p className="text-[#0CFFBB]">{member.role}</p>
+              </div>
+            ))}
           </div>
+        </div>
 
-          {/* Box 5: Team Member 2 */}
-          <div className="p-6 rounded-lg col-span-1 flex items-center border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
-            <img src="/resources/founders/fred.png" alt="Fred" className="w-16 h-16 rounded-full mr-4" />
-            <div>
-              <h3 className="text-lg font-semibold">
-                <span className="text-hex">Fred <span className="text-white">M'Kuna</span></span>
-              </h3>
-              <p>Lead-Trainer</p>
-            </div>
-          </div>
-
-          {/* Box 6: Team Member 3 */}
-          <div className="p-6 rounded-lg col-span-1 flex items-center border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
-            <img src="/resources/founders/Wazingwa Mugala.jpeg" alt="Wazingwa Mungala" className="w-16 h-16 rounded-full mr-4" />
-            <div>
-              <h3 className="text-lg font-semibold">
-                <span className="text-hex">Wazingwa <span className="text-white">Mungala</span></span>
-              </h3>
-              <p>Creative Director</p>
-            </div>
-          </div>
-
-          {/* Box 7: Team Member 4 */}
-          <div className="p-6 rounded-lg col-span-1 flex items-center border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
-            <img src="/resources/founders/fredrick1.png" alt="Fredrick Mwepu" className="w-16 h-16 rounded-full mr-4" />
-            <div>
-              <h3 className="text-lg font-semibold">
-                <span className="text-hex">Fredrick <span className="text-white">Mwepu</span></span>
-              </h3>
-              <p>Co-Founder & CTO</p>
-            </div>
-          </div>
-
-          {/* Box 8: Team Member 5 */}
-          <div className="p-6 rounded-lg col-span-1 flex items-center border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
-            <img src="/resources/founders/sepo.jpeg" alt="Mapalo Kazembe" className="w-16 h-16 rounded-full mr-4" />
-            <div>
-              <h3 className="text-lg font-semibold">
-                <span className="text-hex">Mapalo <span className="text-white">Kazembe</span></span>
-              </h3>
-              <p>Tech Lead Instructor</p>
-            </div>
-          </div>
-
-          {/* Box 9: Team Member 6 */}
-          <div className="p-6 rounded-lg col-span-1 flex items-center border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
-            <img src="/resources/founders/madam_pamela.jpg" alt="Pamala Mutale" className="w-16 h-16 rounded-full mr-4" />
-            <div>
-              <h3 className="text-lg font-semibold">
-                <span className="text-hex">Pamala <span className="text-white">Mutale</span></span>
-              </h3>
-              <p>Advisor</p>
-            </div>
-          </div>
-
-          {/* Box 10: Milestones (Large) */}
-          <div className="p-6 rounded-lg col-span-2 flex flex-col justify-between border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
-            <div className="rounded-lg col-span-1 mb-4">
-              <h2 className="text-3xl font-bold mb-4">Milestones</h2>
-            </div>
-            <ol className="ml-4 relative border-s border-gray-200 dark:border-gray-700">
-              <li className="mb-10 ms-6">
-                <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-                  <svg className="w-2.5 h-2.5 text-blue-800 dark:text-blue-300" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-                  </svg>
-                </span>
-                <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">Introduction to Robotics and Programming Workshop</h3>
-                <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">18th May 2024</time>
-                  <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
-                  We conducted the first workshop which introduced young students to the basics of programming and robotics. The workshop covered fundamental concepts such as algorithms, logic, and problem-solving techniques. Students were given hands-on experience with programming languages like Python and Scratch, allowing them to create simple programs and games. Additionally, they were introduced to robotics through interactive sessions where they built and programmed basic robots using kits like LEGO Mindstorms and Arduino. The workshop aimed to spark interest in STEM fields and equip students with essential skills for the future. By the end of the workshop, students demonstrated their projects, showcasing their newfound knowledge and creativity.
-                  </p>
+        {/* Milestones */}
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold border-b-2 border-[#0CFFBB] inline-block mb-4">Milestones</h2>
+          <ol className="relative border-l border-gray-200 dark:border-gray-700">
+            {milestonesData.map((milestone, index) => (
+              <li key={index} className="mb-10 ml-6">
+                <div className="absolute w-4 h-4 bg-[#0CFFBB] rounded-full -left-2.5 border border-white"></div>
+                <h3 className="text-lg font-semibold">{milestone.title}</h3>
+                <time className="block mb-2 text-sm text-gray-400">{milestone.date}</time>
+                <p>{milestone.description}</p>
               </li>
-              <li className="mb-10 ms-6">
-                <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-                  <svg className="w-2.5 h-2.5 text-blue-800 dark:text-blue-300" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-                  </svg>
-                </span>
-                <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">Next Workshop</h3>
-                <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Coming Soon</time>
-                <p className="text-base font-normal text-gray-500 dark:text-gray-400">Stay tuned for updates...</p>
-              </li>
-              <li className="mb-10 ms-6">
-                <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-                  <svg className="w-2.5 h-2.5 text-blue-800 dark:text-blue-300" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-                  </svg>
-                </span>
-                <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">Next Workshop</h3>
-                <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Coming Soon</time>
-                <p className="text-base font-normal text-gray-500 dark:text-gray-400">Stay tuned for updates...</p>
-              </li>
-            </ol>
-          </div>
+            ))}
+          </ol>
+        </div>
+
+        {/* Call to Action */}
+        <div className="bg-[#0CFFBB] text-black text-center py-12 rounded-lg">
+          <h2 className="text-2xl font-bold">Join Us</h2>
+          <p className="mt-4">Be part of the movement. Help us shape the future of robotics and technology in Africa.</p>
+          <button className="mt-6 bg-gray-900 text-white py-2 px-6 rounded hover:bg-gray-700">
+            Learn More
+          </button>
         </div>
       </div>
 
@@ -161,4 +210,4 @@ const about: React.FC = () => {
   );
 };
 
-export default about;
+export default About;

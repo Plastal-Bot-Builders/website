@@ -8,6 +8,7 @@ import Support from './pages/support';
 import Programs from './pages/programs';
 import Projects from './pages/projects';
 import MembershipForm from './pages/membershipform';
+import ProjectDetail from './pages/ProjectDetail';
 import { Grid } from 'react-loader-spinner'; // Import the spinner component
 import { Scrollbars } from 'rc-scrollbars'; // Import the Scrollbars component
 
@@ -59,6 +60,7 @@ const App: React.FC = () => {
             <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/membershipform" element={<MembershipForm />} />
+            <Route path="/projectdetail" element={<ProjectDetail />} />
             <Route path="/blogs" element={<Blog />} />
             <Route path="/support" element={<Support />} />
             <Route path="/programs" element={<Programs />} />

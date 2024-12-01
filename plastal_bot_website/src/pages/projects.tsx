@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Button from '../components/Button'
 
 const Projects: React.FC = () => {
     return (
@@ -21,7 +22,7 @@ const Projects: React.FC = () => {
                     <h2 className="text-2xl font-bold mb-4">Face-Recognition Home Security System</h2>
                     <p className="mb-4">This project enhances home security using face-recognition technology. It uses a Raspberry Pi and OpenCV for real-time detection, offering a smart solution for home safety.</p>
                     <div className="image">
-                        <img alt="Empowering Innovation Image" height="200"
+                    <img alt="Empowering Innovation Image" height="200"
                             src="/resources/Illustrations/Deconstructedrobot.svg" width="800"
                             className="w-full h-auto object-cover" />
                     </div>
@@ -32,7 +33,7 @@ const Projects: React.FC = () => {
                     <div className="mt-4">
                         <h3 className="text-lg font-semibold mb-2">Media:</h3>
                         <a href="#" className="text-blue-500 hover:underline">Watch project video</a> | 
-                        <a href="#" className="text-blue-500 hover:underline">View photos</a>
+                        <Button label="Read More" href="/ProjectDetail" />
                     </div>
                 </div>
 
