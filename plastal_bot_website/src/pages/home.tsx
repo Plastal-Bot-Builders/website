@@ -38,31 +38,21 @@ const Home: React.FC = () => {
                     <div className="text">
                         <Typewriter text="Empowering Innovation" speed={150} className="text-4xl text-hex mb-4 font-extrabold leading-none tracking-tight  md:text-5xl lg:text-6xl dark:text-white" />
                         <p className="my-4 text-lg">
-                            We’re committed to making life-changing technology
-                            education accessible to all, regardless of
-                            background or location. By offering innovative and
-                            inclusive learning opportunities, we aim to equip
-                            individuals with the critical skills needed to thrive in
-                            today’s digital economy. From foundational courses
-                            in coding and data science to advanced programs in
-                            artificial intelligence, cybersecurity, and
-                            cloud computing, our goal is to break down barriers to
-                            education and create a pathway for
-                            everyone to explore their potential.
-                            But our mission doesn’t stop at education. We recognize
-                            that learning is only the first step;
-                            real empowerment comes when individuals can translate
-                            their knowledge into meaningful employment
-                            opportunities.
+                            Welcome to Plastal-Bot Builders! We're on a mission to transform technology education
+                            in Zambia and beyond. Through our innovative robotics programs and hands-on learning
+                            experiences, we're empowering young minds to become the tech leaders of tomorrow.
+                            Whether you're a student passionate about coding, a teacher looking to bring robotics
+                            to your classroom, or a parent seeking quality STEM education for your child,
+                            you've come to the right place.
                         </p>
-                        <p
-                            className="mb-4 text-lg">
-                            That’s why we are equally dedicated to fostering
-                            job-ready skills, bridging the gap between
-                            education and the workforce. Through partnerships with
-                            industry leaders, internships, and career
-                            development initiatives, we help learners turn their
-                            newfound expertise into tangible career success.
+                        
+                        <p className="mb-4 text-lg">
+                            Our journey began with a simple belief: every young person deserves access to
+                            quality technology education. Today, we're proud to offer comprehensive programs
+                            in robotics, programming, and digital innovation. Through our partnerships with
+                            schools, industry leaders, and tech communities, we're creating pathways for
+                            students to turn their passion for technology into real-world opportunities.
+                            Join us as we build the future of technology education in Africa.
                         </p>
                         <div className="button-container space-x-6 mt-12">
                             <Button label="Become a Member" href="/membershipform" />
@@ -134,113 +124,136 @@ const Home: React.FC = () => {
                         </div>
                     </div>
             
-                    {/* <!-- Small Block 1 --> */}
-                    <div className="col-span-1 row-span-1 flex flex-col md:flex-row items-center p-6 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
-                        <div className="w-full md:w-1/2 h-full">
-                            <img src="/resources/Photos/research_lab.jpg"
-                                alt="Students conducting research"
-                                className="w-full h-full object-cover rounded-lg" />
+                    {/* <!-- Small Block 1 - Mac Window Style --> */}
+                    <div className="col-span-1 row-span-1 rounded-lg overflow-hidden bg-gray-800 shadow-xl">
+                        {/* Window Controls */}
+                        <div className="flex items-center space-x-2 p-3 bg-gray-900">
+                            <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div className="w-3 h-3 rounded-full bg-green-500"></div>
                         </div>
-                        <div className="w-full md:w-1/2 p-6">
-                            <h1 className="break-words truncate mb-4 text-lg font-extrabold leading-none tracking-tight text-gray-300 md:text-base lg:text-base dark:text-white">
-                                <span className="text-hex">Research </span>Opportunities
-                            </h1>
-                            <p className="text-sm text-gray-100">
-                                Join our research programs in robotics, AI, and sustainable technology solutions.
-                            </p>
-                        </div>
-                    </div>
-            
-                    {/* <!-- Small Block 2 --> */}
-                    <div className="col-span-1 row-span-1 flex flex-col md:flex-row items-center p-6 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
-                        <div className="w-full md:w-1/2 h-full">
-                            <img src="/resources/Photos/mentorship.jpg"
-                                alt="Mentorship session"
-                                className="w-full h-full object-cover rounded-lg" />
-                        </div>
-                        <div className="w-full md:w-1/2 p-6">
-                            <h1 className="break-words truncate mb-4 text-lg font-extrabold leading-none tracking-tight text-gray-300 md:text-base lg:text-base dark:text-white">
-                                <span className="text-hex">Mentorship </span>Program
-                            </h1>
-                            <p className="text-sm text-gray-100">
-                                Get guidance from industry experts and experienced tech professionals.
-                            </p>
+                    
+                        {/* Content Container */}
+                        <div className="flex flex-col md:flex-row items-center">
+                            <div className="w-full md:w-1/2">
+                                <img src="/resources/illustrations/research.svg"
+                                    alt="Students conducting research"
+                                    className="w-full h-full object-cover p-2" />
+                            </div>
+                            <div className="w-full md:w-1/2 p-6">
+                                <h1 className="break-words truncate mb-4 text-lg font-extrabold leading-none tracking-tight text-gray-300 md:text-base lg:text-base dark:text-white">
+                                    <span className="text-hex">Research </span>Opportunities
+                                </h1>
+                                <p className="text-sm text-gray-100">
+                                    Join our research programs in robotics, AI, and sustainable technology solutions.
+                                </p>
+                            </div>
                         </div>
                     </div>
             
-                    {/* <!-- Small Block 3 --> */}
-                    <div className="col-span-1 row-span-1 flex flex-col md:flex-row items-center p-6 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
-                        <div className="w-full md:w-1/2 h-full">
-                            <img src="/resources/Photos/sponsor_event.jpg"
-                                alt="Sponsorship event"
-                                className="w-full h-full object-cover rounded-lg" />
+                    {/* <!-- Small Block 2 - Mac Window Style --> */}
+                    <div className="col-span-1 row-span-1 rounded-lg overflow-hidden bg-gray-800 shadow-xl">
+                        {/* Window Controls */}
+                        <div className="flex items-center space-x-2 p-3 bg-gray-900">
+                            <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div className="w-3 h-3 rounded-full bg-green-500"></div>
                         </div>
-                        <div className="w-full md:w-1/2 p-6">
-                            <h1 className="mb-4 text-lg font-extrabold leading-none tracking-tight text-gray-300 md:text-base lg:text-base dark:text-white">
-                                <span className="text-hex">Partner </span>With Us
-                            </h1>
-                            <p className="text-sm text-gray-100">
-                                Support our mission to empower young tech innovators in Zambia.
-                            </p>
+                    
+                        {/* Content Container */}
+                        <div className="flex flex-col md:flex-row items-center">
+                            <div className="w-full md:w-1/2">
+                                <img src="/resources/illustrations/mentor.svg"
+                                    alt="Mentorship session"
+                                    className="w-full h-full object-cover p-2" />
+                            </div>
+                            <div className="w-full md:w-1/2 p-6">
+                                <h1 className="break-words truncate mb-4 text-lg font-extrabold leading-none tracking-tight text-gray-300 md:text-base lg:text-base dark:text-white">
+                                    <span className="text-hex">Mentorship </span>Program
+                                </h1>
+                                <p className="text-sm text-gray-100">
+                                    Get guidance from industry experts and experienced tech professionals.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    {/* <!-- Small Block 3 - Mac Window Style --> */}
+                    <div className="col-span-1 row-span-1 rounded-lg overflow-hidden bg-gray-800 shadow-xl">
+                        {/* Window Controls */}
+                        <div className="flex items-center space-x-2 p-3 bg-gray-900">
+                            <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                    
+                        {/* Content Container */}
+                        <div className="flex flex-col md:flex-row items-center">
+                            <div className="w-full md:w-1/2">
+                                <img src="/resources/illustrations/team.svg"
+                                    alt="Sponsorship event"
+                                    className="w-full h-full object-cover p-2" />
+                            </div>
+                            <div className="w-full md:w-1/2 p-6">
+                                <h1 className="break-words truncate mb-4 text-lg font-extrabold leading-none tracking-tight text-gray-300 md:text-base lg:text-base dark:text-white">
+                                    <span className="text-hex">Partner </span>With Us
+                                </h1>
+                                <p className="text-sm text-gray-100">
+                                    Support our mission to empower young tech innovators in Zambia.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className="flex flex-col md:flex-row justify-between p-4 space-y-8 md:space-y-0 md:space-x-8 max-w-7xl mx-auto">
-                {/* Sub-div 1 */}
-                <div className="w-full md:w-1/2 p-4">
-                    <div>
-                        <h1
-                            className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-                            <Typewriter text="Fostering Innovation" className="text-4xl text-hex mb-4 font-extrabold leading-none tracking-tight  md:text-5xl lg:text-6xl dark:text-white" />
-                        </h1>
-                        <p className="mt-4 text-gray-100 text-lg">
-                            Technology empowers people to think creatively and push
-                            boundaries. It opens new avenues for innovation,
-                            allowing entrepreneurs and researchers to develop
-                            solutions that were once thought impossible. Whether
-                            it’s artificial intelligence revolutionizing healthcare
-                            or renewable energy transforming our environmental
-                            practices, technology enables us to dream big and
-                            achieve even more.
-                        </p>
-                        <div className="ml-8 p-6 rounded-lg mb-4">
-                            {/* <!-- First child of first sub-div --> */}
-                            <img src="/resources/Illustrations/Cyborg-bro.svg"
-                                alt="Introduction to Robotics" className="mb-4" />
-                        </div>
-                    </div>
-                </div>
-
-                {/* <!-- Sub-div 2 --> */}
-                <div className="w-full md:w-1/2 p-4">
-                    <h1
-                        className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-                        <Typewriter text="Enhancing Education" className="text-4xl text-hex mb-4 font-extrabold leading-none tracking-tight  md:text-5xl lg:text-6xl dark:text-white" />
+            <div className="flex flex-col md:flex-row justify-between max-w-7xl mx-auto p-8 gap-8">
+                {/* Innovation Section */}
+                <div className="w-full md:w-1/2 flex flex-col">
+                    <h1 className="mb-6 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+                        <Typewriter 
+                            text="Fostering Innovation" 
+                            className="text-hex font-extrabold leading-none tracking-tight" 
+                        />
                     </h1>
-
-                    <p className="mt-4 text-gray-100 text-lg">
-                        In education, technology has become a catalyst for change.
-                        Digital tools such as interactive software, online courses,
-                        and e-learning platforms provide personalized learning
-                        experiences, making education more accessible to all.
-                        Students can now gain knowledge and skills from world-className
-                        institutions, regardless of their location or socioeconomic
-                        background, further leveling the playing field for future
-                        generations. Empowering technology plays a critical role in
-                        addressing climate change, resource depletion, and other
-                        global environmental challenges. Through advancements in
-                        clean energy, sustainable agriculture, and waste management
-                        technologies, we are creating a more sustainable world.
-                        These innovations empower individuals and industries to
-                        reduce their environmental impact and contribute to a
-                        healthier planet.
+                    
+                    <p className="text-gray-100 text-lg mb-8">
+                        At Plastal-Bot Builders, we empower young minds through practical technology 
+                        education. Our hands-on approach combines robotics, programming, and creative 
+                        problem-solving to develop the next generation of tech innovators in Zambia. 
+                        Through our programs, students learn to build, code, and innovate while solving 
+                        real-world challenges.
                     </p>
-                    {/* <!-- First child of first sub-div --> */}
-                    <img
+            
+                    <img 
+                        src="/resources/Illustrations/Cyborg-bro.svg"
+                        alt="Robotics Innovation Illustration" 
+                        className="w-4/5 h-auto mx-auto mt-auto" 
+                    />
+                </div>
+            
+                {/* Education Section */}
+                <div className="w-full md:w-1/2 flex flex-col">
+                    <h1 className="mb-6 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+                        <Typewriter 
+                            text="Enhancing Education" 
+                            className="text-hex font-extrabold leading-none tracking-tight" 
+                        />
+                    </h1>
+            
+                    <p className="text-gray-100 text-lg mb-8">
+                        Our innovative educational approach combines digital tools with hands-on 
+                        experience. Through interactive workshops, project-based learning, and 
+                        mentorship programs, we're making technology education accessible to all. 
+                        Students gain practical skills in robotics, programming, and sustainable 
+                        technology, preparing them for future careers in tech.
+                    </p>
+            
+                    <img 
                         src="/resources/Illustrations/Mathematics-bro (1) 1.svg"
-                        alt="Introduction to Robotics" className="mb-4" />
+                        alt="Technology Education Illustration" 
+                        className="w-4/5 h-auto mx-auto mt-auto" 
+                    />
                 </div>
             </div>
 

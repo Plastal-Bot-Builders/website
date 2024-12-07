@@ -6,11 +6,9 @@ import About from './pages/about';
 import Blog from './pages/blog';
 import Support from './pages/support';
 import Programs from './pages/programs';
-import Projects from './pages/projects';
 import MembershipForm from './pages/membershipform';
-import ProjectDetail from './pages/ProjectDetail';
-import { Grid } from 'react-loader-spinner'; // Import the spinner component
-import { Scrollbars } from 'rc-scrollbars'; // Import the Scrollbars component
+import { Grid } from 'react-loader-spinner'; 
+import { Scrollbars } from 'rc-scrollbars';
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
@@ -60,11 +58,9 @@ const App: React.FC = () => {
             <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/membershipform" element={<MembershipForm />} />
-            <Route path="/projectdetail" element={<ProjectDetail />} />
             <Route path="/blogs" element={<Blog />} />
             <Route path="/support" element={<Support />} />
             <Route path="/programs" element={<Programs />} />
-            <Route path="/projects" element={<Projects />} />
           </Routes>
         </div>
       </Scrollbars>
