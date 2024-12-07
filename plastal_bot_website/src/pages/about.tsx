@@ -15,19 +15,6 @@ const About: React.FC = () => {
     { imgSrc: "/resources/founders/madam_pamela.jpg", name: "Pamala Mutale", role: "Advisor" },
   ];
 
-  const milestonesData = [
-    {
-      title: "Introduction to Robotics and Programming Workshop",
-      date: "18th May 2024",
-      description: "We conducted the first workshop introducing students to the basics of programming and robotics. This included hands-on experiences with Python, Scratch, and robotics kits.",
-    },
-    {
-      title: "Next Workshop",
-      date: "Coming Soon",
-      description: "Stay tuned for updates...",
-    },
-  ];
-
   useEffect(() => {
     // Register the ScrollTrigger plugin
     gsap.registerPlugin(ScrollTrigger);
@@ -78,10 +65,11 @@ const About: React.FC = () => {
       <Header />
 
       {/* Hero Section */}
-      <div className="flex flex-row max-w-7xl mx-auto p-8">
-        <div className="w-full md:w-1/2">
+      <div className="flex flex-col md:flex-row justify-between p-4 space-y-8 md:space-y-0 md:space-x-8 max-w-7xl mx-auto">
+        <div className="flex flex-row justify-between p-4 space-x-8 max-w-7xl mx-auto">
+          <div className="w-1/2">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-                <span className="text-hex"> About </span> Plastal-Bot Builders Org
+              <span className="text-hex"> About </span> Plastal-Bot Builders Org
             </h1>
             <p className="mb-6">
               Empowering the next generation through robotics, technology, and sustainability
@@ -89,7 +77,7 @@ const About: React.FC = () => {
               the tools to innovate, create, and solve problems, we can inspire a future driven 
               by ingenuity and responsibility. 
             </p>
-
+        
             <p className="my-4">
               Through our programs, we introduce students and young 
               professionals to cutting-edge robotics and technology, fostering skills that are not 
@@ -97,16 +85,26 @@ const About: React.FC = () => {
               our initiatives, we emphasize the importance of creating solutions that address 
               real-world challenges while preserving the environment for generations to come.
             </p>
-        </div>
-        <div className="w-full md:w-1/2 p-2">
-            <img src="/resources/Logo/logo_trans.png" alt="Bootcamp" className="w-full h-auto object-cover"/>
+          </div>
+          <div className="w-full md:w-1/2 p-2">
+            <div className="image mt-4">
+                <img alt="Empowering Innovation Image" height="200"
+                        src="/resources/Illustrations/Storyboard-bro.svg"
+                        width="800" className="w-full h-auto object-cover" />
+            </div>
+          </div>
         </div>
       </div>
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto p-8">
+      <div className="flex flex-col md:flex-row justify-between p-4 space-y-8 md:space-y-0 md:space-x-8 max-w-7xl mx-auto">
+        <div className="w-full md:w-1/2 p-2">
+          <div className="image mt-4">
+              <img alt="Empowering Innovation Image" height="200"
+                      src="/resources/Illustrations/Connecting_teams_bro.svg"
+                      width="800" className="w-full h-auto object-cover" />
+          </div>
+        </div>
         {/* Our Story */}
-        <div className="mb-12">
-
+        <div className="w-full md:w-1/2 p-4">
           <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
             <span className="text-hex "> Our<span className="text-white"> Story </span></span>
           </h1>
@@ -132,26 +130,37 @@ const About: React.FC = () => {
             future for all.
           </p>
         </div>
-
+      </div>
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto p-8">
         {/* Mission & Vision */}
         <div className="mb-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div>
             <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
               <span className="text-hex "> Our <span className="text-white"> Mission</span></span>
             </h1>
-          
-            <p>
-              Our mission is to empower young people by teaching them the skills they need to create
-              sustainable solutions through technology, robotics, and environmental advocacy.
+            <p className="my-4">
+              Our mission is to empower young people to become innovators and change-makers by equipping them with the skills and knowledge to create sustainable solutions. Through technology, robotics, and environmental advocacy, we aim to inspire the next generation to tackle real-world challenges, drive impactful change, and contribute to a more equitable and sustainable future.
+            </p>
+            
+            <img src="/resources/Photos/group.png" alt="Bootcamp" className="w-full h-auto object-cover rounded-lg"/>
+            
+            <p className="my-4">
+              By fostering creativity, critical thinking, and a sense of responsibility, we strive to nurture individuals who can harness the power of technology to address pressing global issues, from environmental conservation to social innovation. Our mission is rooted in the belief that young people hold the key to shaping a better world, and we are committed to providing them with the tools and opportunities to succeed.
             </p>
           </div>
           <div>
-          <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
+            <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
               <span className="text-hex "> Our <span className="text-white"> Vision </span></span>
             </h1>
-            <p>
-              To inspire a generation of problem-solvers and innovators who will use technology and
-              robotics to create a better future for their communities and the world.
+            <p className="my-4">
+            Our vision is to inspire and nurture a generation of bold problem-solvers and innovative thinkers who will harness the power of technology and robotics to create a brighter, more sustainable future for their communities and the world at large. We envision a future where young minds are empowered to think critically, dream big, and take decisive action to solve complex challenges with creativity and purpose.
+            </p>
+            
+            <img src="/resources/Photos/dywen.jpg" alt="Bootcamp" className="w-full h-auto object-cover rounded-lg"/>
+            
+            <p className="my-4">
+            By fostering a culture of innovation, collaboration, and inclusivity, we aim to build a world where technology serves as a force for good—bridging gaps, addressing inequalities, and advancing sustainable development. Our vision extends beyond teaching technical skills; we strive to instill a mindset of resilience, adaptability, and ethical responsibility, ensuring that the leaders of tomorrow are equipped not just to succeed but to make a meaningful difference.
             </p>
           </div>
         </div>
@@ -177,21 +186,6 @@ const About: React.FC = () => {
               </div>
             ))}
           </div>
-        </div>
-
-        {/* Milestones */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold border-b-2 border-[#0CFFBB] inline-block mb-4">Milestones</h2>
-          <ol className="relative border-l border-gray-200 dark:border-gray-700">
-            {milestonesData.map((milestone, index) => (
-              <li key={index} className="mb-10 ml-6">
-                <div className="absolute w-4 h-4 bg-[#0CFFBB] rounded-full -left-2.5 border border-white"></div>
-                <h3 className="text-lg font-semibold">{milestone.title}</h3>
-                <time className="block mb-2 text-sm text-gray-400">{milestone.date}</time>
-                <p>{milestone.description}</p>
-              </li>
-            ))}
-          </ol>
         </div>
 
         {/* Call to Action */}
