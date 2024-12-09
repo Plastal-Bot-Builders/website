@@ -1,34 +1,30 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import ScrollAnimation from '../components/ScrollAnimation/ScrollAnimation';
+import { useNavigate } from 'react-router-dom';
 
 const Blog: React.FC = () => {
+    const navigate = useNavigate();
     return (
     <section className="scroll-smooth focus:scroll-auto">
         {/* Navigation Bar */}
         <Header />
-        <div className="max-w-7xl mx-auto p-8">
-            
-                <h1
-                    className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
-                    <span className="text-hex "> Blog<span className="text-white"> Posts </span></span>
-                </h1>
-            
+        <div className="max-w-7xl mx-auto p-8">           
+            <h1
+                className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
+                <span className="text-hex "> Blog<span className="text-white"> Posts </span></span>
+            </h1>
 
-                {/* <!-- Blog Introduction --> */}
-            
-                <div className="mb-12">
-                    <p className="text-lg text-white">Stay updated with the latest from our robotics workshops, STEM events, and
-                        sustainability projects. Our blog covers event highlights, articles, and key updates on how we’re making
-                        a difference through technology and education.</p>
-                </div>
-            
-
+            {/* <!-- Blog Introduction --> */}
+        
+            <div className="mb-12">
+                <p className="text-lg text-white text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">Stay updated with the latest from our robotics workshops, STEM events, and
+                    sustainability projects. Our blog covers event highlights, articles, and key updates on how we’re making
+                    a difference through technology and education.</p>
+            </div>
             {/* <!-- Blog Post Grid --> */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                {/* <!-- Blog Post 1: Event Highlights --> */}
-                
+                {/* <!-- Blog Post 1: Event Highlights --> */}               
                 <div
                     className="flex flex-col justify-between p-6 rounded-lg  border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <div>
@@ -38,13 +34,13 @@ const Blog: React.FC = () => {
                         </div>
                         <h2 className="text-2xl font-bold mb-4"> <span className="text-hex "> Bridging the Digital Divide:</span>
                             Empowering Zambian Youth through Robotics and Programming</h2>
-                        <p className="mb-4">In Zambia, there’s a common belief that teaching robotics isn’t practical due to
+                        <p className="mb-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">In Zambia, there’s a common belief that teaching robotics isn’t practical due to
                             perceived infrastructural limitations, cultural clashes, and limited job prospects. However,
                             robotics education can be a game-changer. By offering young Zambians the chance to dive into
                             robotics, they gain skills vital for navigating today’s tech-driven world. Whether solving local
                             issues or innovating globally, they learn critical thinking, creativity, and problem-solving —
                             skills with immense value. </p>
-                        <p className="mb-4">Plus, investing in robotics education doesn’t just sound cool; it boosts the
+                        <p className="mb-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">Plus, investing in robotics education doesn’t just sound cool; it boosts the
                             economy, attracts investment, and bridges the digital gap, ensuring everyone has a shot at
                             shaping the future...</p>
                     </div>
@@ -62,7 +58,12 @@ const Blog: React.FC = () => {
                                 </div>
                             </div>
                         </div>
-                        <button className="custom-button">Read more &rarr;</button>
+                        <button 
+                            className="custom-button"
+                            onClick={() => navigate('/more-blog-details')} // This route doesn't exist
+                        >
+                            Read more &rarr;
+                        </button>
                     </div>
                 </div>
                 
@@ -78,12 +79,12 @@ const Blog: React.FC = () => {
                         </div>
                         <h2 className="text-2xl font-bold mb-4"> <span className="text-hex "> WasteWizard: </span> Revolutionizing
                             Waste Management in Zambia</h2>
-                        <p className="mb-4">As Zambia experiences rapid urbanization and population growth, waste management
+                        <p className="mb-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">As Zambia experiences rapid urbanization and population growth, waste management
                             challenges are becoming more severe. Introducing WasteWizard, an innovative autonomous smart bin
                             system that leverages cutting-edge IoT technology to tackle these issues. Equipped with sensors,
                             microcontrollers, and servo motors, WasteWizard detects waste levels and automates lid
                             operations. </p>
-                        <p className="mb-4">Using wireless communication protocols like Wi-Fi or LoRaWAN, it facilitates
+                        <p className="mb-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">Using wireless communication protocols like Wi-Fi or LoRaWAN, it facilitates
                             real-time data transfer to a cloud-based platform that optimizes waste collection routes and
                             provides actionable insights. This system is designed to improve waste collection, promote
                             recycling initiatives, and create job opportunities, making it a sustainable and efficient
@@ -103,7 +104,12 @@ const Blog: React.FC = () => {
                                 </div>
                             </div>
                         </div>
-                        <button className="custom-button">Read more &rarr;</button>
+                        <button 
+                            className="custom-button"
+                            onClick={() => navigate('/more-blog-details')} // This route doesn't exist
+                        >
+                            Read more &rarr;
+                        </button>
                     </div>
                 </div>
                 
@@ -120,7 +126,7 @@ const Blog: React.FC = () => {
                     <div className="flex-grow">
                         <h2 className="text-2xl font-bold mb-4"> <span className="text-hex "> Reflecting: </span>'Introduction to
                             Robotics and Programming'</h2>
-                        <p className="mb-4">When I started this journey three weeks ago, hosting the "Introduction to Robotics
+                        <p className="mb-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">When I started this journey three weeks ago, hosting the "Introduction to Robotics
                             and Programming" workshop, I was filled with excitement and a bit of nervousness. We aimed to
                             introduce young minds to the fascinating world of robotics and programming, igniting their
                             passion for technology and innovation.</p>
@@ -150,7 +156,12 @@ const Blog: React.FC = () => {
 
                     {/* <!-- Read More Button --> */}
                     <div className="flex items-end">
-                        <a href="#" className="custom-button mt-auto">Read more &rarr;</a>
+                        <button 
+                            className="custom-button mt-auto"
+                            onClick={() => navigate('/more-blog-details')} // This route doesn't exist
+                        >
+                            Read more &rarr;
+                        </button> 
                     </div>
                 </div>
                 
@@ -165,9 +176,9 @@ const Blog: React.FC = () => {
                     </div>
                     <h2 className="text-2xl font-bold mb-4"> <span className="text-hex "> Unlocking Opportunities: </span> Embracing
                         the GitHub Student Developer Pack</h2>
-                    <p className="mb-4">I've poured my heart and soul into an insightful article, and I'd love for you to give
+                    <p className="mb-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">I've poured my heart and soul into an insightful article, and I'd love for you to give
                         it a read!</p>
-                    <p className="mb-4"> In this piece, I delve into the opportunities that students can make use of, to expand
+                    <p className="mb-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"> In this piece, I delve into the opportunities that students can make use of, to expand
                         their horizon in the tech space. This is a topic I'm incredibly passionate about, and I believe it's
                         worth your time. So, if you have a moment to spare, I'd greatly appreciate it if you could check it
                         out. Your support means the world to me...</p>
@@ -192,7 +203,12 @@ const Blog: React.FC = () => {
                         </div>
                     </div>
                     <div>
-                        <button className="custom-button">Read more &rarr;</button>
+                    <button 
+                            className="custom-button"
+                            onClick={() => navigate('/more-blog-details')} // This route doesn't exist
+                        >
+                            Read more &rarr;
+                        </button>
                     </div>
                 </div>
                 
@@ -207,7 +223,7 @@ const Blog: React.FC = () => {
                     </div>
                     <h2 className="text-2xl font-bold mb-4"> <span className="text-hex "> Life made simple: </span> Stack and OpenAI
                         Collaboration</h2>
-                    <p className="mb-4">The reliance on Stack Overflow as the go-to platform for developers grappling with bugs
+                    <p className="mb-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">The reliance on Stack Overflow as the go-to platform for developers grappling with bugs
                         and technical hurdles often leads to more confusion than clarity. Despite its vast repository of
                         solutions, the multitude of contributors and their varied approaches can complicate matters further,
                         making it a daunting task to sift through for the most relevant information. This not only consumes
@@ -233,7 +249,12 @@ const Blog: React.FC = () => {
                         </div>
                     </div>
                     <div>
-                        <button className="custom-button">Read more &rarr;</button>
+                    <button 
+                            className="custom-button"
+                            onClick={() => navigate('/more-blog-details')} // This route doesn't exist
+                        >
+                            Read more &rarr;
+                    </button>
                     </div>
                 </div>
                 
@@ -247,7 +268,7 @@ const Blog: React.FC = () => {
                     </div>
                     <h2 className="text-2xl font-bold mb-4"> <span className="text-hex "> Geneva: </span> My Zambia Robotics
                         Experience </h2>
-                    <p className="mb-4">I was privileged to have been among a team of five that represented Zambia in a robotics
+                    <p className="mb-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">I was privileged to have been among a team of five that represented Zambia in a robotics
                         competition hosted in Switzerland, Geneva. The event is organized by FIRST Global (IFCA), a
                         non-profit organization that seeks to inspire STEM in the youth. The event is an Olympic-styled
                         robotics competition that attracts STEM enthusiasts and innovators from over 180+ countries across
@@ -274,7 +295,12 @@ const Blog: React.FC = () => {
                         </div>
                     </div>
                     <div>
-                        <button className="custom-button">Read more &rarr;</button>
+                    <button 
+                            className="custom-button"
+                            onClick={() => navigate('/more-blog-details')} // This route doesn't exist
+                        >
+                            Read more &rarr;
+                    </button>
                     </div>
                 </div>
                     

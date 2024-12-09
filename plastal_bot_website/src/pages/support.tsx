@@ -35,7 +35,7 @@ const Support: React.FC = () => {
                                 <img alt="Empowering Innovation Image" height="200" src="/resources/Illustrations/donations.svg" width="800" className="w-full h-auto object-cover" />
                             </div>
                             <h3 className="text-xl font-semibold mb-2 mt-4"><FaDonate className="inline-block mr-2" /> Donate</h3>
-                            <p className="text-gray">Support us by making a donation to help fund our initiatives and projects.</p>
+                            <p className="text-gray text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">Support us by making a donation to help fund our initiatives and projects.</p>
                             <button onClick={() => toggleModal('/resources/Illustrations/donations.svg', <p>Support us by making a donation to help fund our initiatives and projects. Your contributions make a significant impact on our ability to achieve our goals.</p>)} className="text-white hover:text-[#0CFFBB] mt-4 block">More about donations →</button>
                         </div>
                         <div className="p-6 border-2 rounded-lg border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
@@ -43,7 +43,7 @@ const Support: React.FC = () => {
                                 <img alt="Empowering Innovation Image" height="200" src="/resources/Illustrations/Sponsorship.svg" width="800" className="w-full h-auto object-cover" />
                             </div>
                             <h3 className="text-xl font-semibold mb-2 mt-4"><FaRegHandshake className="inline-block mr-2" /> Sponsorship</h3>
-                            <p className="text-gray">Become a sponsor and support specific programs or events tailored to your interests.</p>
+                            <p className="text-gray text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">Become a sponsor and support specific programs or events tailored to your interests.</p>
                             <button onClick={() => toggleModal('/resources/Illustrations/Sponsorship.svg', <p>Become a sponsor and support specific programs or events tailored to your interests. Your sponsorship helps us reach more people and make a greater impact.</p>)} className="text-white hover:text-[#0CFFBB] mt-4 block">More about sponsorships →</button>
                         </div>
                         <div className="p-6 border-2 rounded-lg border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
@@ -51,7 +51,7 @@ const Support: React.FC = () => {
                                 <img alt="Empowering Innovation Image" height="200" src="/resources/Illustrations/Fundraising.svg" width="800" className="w-full h-auto object-cover" />
                             </div>
                             <h3 className="text-xl font-semibold mb-2 mt-4"><FaCalendarAlt className="inline-block mr-2" /> Fundraising</h3>
-                            <p className="text-gray">Organize fundraising events or campaigns to help us reach more people.</p>
+                            <p className="text-gray text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">Organize fundraising events or campaigns to help us reach more people.</p>
                             <button onClick={() => toggleModal('/resources/Illustrations/Fundraising.svg', <p>Organize fundraising events or campaigns to help us reach more people. Your efforts in fundraising make a significant difference in our ability to achieve our goals.</p>)} className="text-white hover:text-[#0CFFBB] mt-4 block">More about fundraising →</button>
                         </div>
                     </div>
@@ -69,7 +69,7 @@ const Support: React.FC = () => {
                                 <img alt="Empowering Innovation Image" height="200" src="/resources/Illustrations/Mentorship.svg" width="800" className="w-full h-auto object-cover" />
                             </div>
                             <h3 className="text-xl font-semibold mb-2 mt-4"><FaChalkboardTeacher className="inline-block mr-2" /> Mentorship</h3>
-                            <p className="text-gray">Become a mentor and help guide our youth in various technical and life skills.</p>
+                            <p className="text-gray text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">Become a mentor and help guide our youth in various technical and life skills.</p>
                             <div className="mb-4 flex items-center space-x-4">
                                 <button onClick={() => toggleModal('/resources/Illustrations/Mentorship.svg', <p>Become a mentor and help guide our youth in various technical and life skills. Your mentorship can make a lasting impact on the lives of young people.</p>)} className="text-white hover:text-[#0CFFBB] mt-4 block">More about mentorship →</button>
                             </div>
@@ -79,7 +79,7 @@ const Support: React.FC = () => {
                                 <img alt="Empowering Innovation Image" height="200" src="/resources/Illustrations/Support.svg" width="800" className="w-full h-auto object-cover" />
                             </div>
                             <h3 className="text-xl font-semibold mb-2 mt-4"><FaTools className="inline-block mr-2" /> Technical Support</h3>
-                            <p className="text-gray">Offer your expertise in technical areas like software development, electronics, or robotics.</p>
+                            <p className="text-gray text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">Offer your expertise in technical areas like software development, electronics, or robotics.</p>
                             <div className="mb-4 flex items-center space-x-4">
                                 <button onClick={() => toggleModal('/resources/Illustrations/Support.svg', <p>Offer your expertise in technical areas like software development, electronics, or robotics. Your technical support can help us achieve our goals more effectively.</p>)} className="text-white hover:text-[#0CFFBB] mt-4 block">More about technical support →</button>
                             </div>
@@ -89,7 +89,7 @@ const Support: React.FC = () => {
                                 <img alt="Empowering Innovation Image" height="200" src="/resources/Illustrations/Eventplan.svg" width="800" className="w-full h-auto object-cover" />
                             </div>
                             <h3 className="text-xl font-semibold mb-2 mt-4"><FaCalendarAlt className="inline-block mr-2" /> Event Coordination</h3>
-                            <p className="text-gray">Help organize and coordinate events like workshops and competitions.</p>
+                            <p className="text-gray text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">Help organize and coordinate events like workshops and competitions.</p>
                             <div className="mb-4 flex items-center space-x-4">
                                 <button onClick={() => toggleModal('/resources/Illustrations/Eventplan.svg', <p>Help organize and coordinate events like workshops and competitions. Your event coordination skills can help us create impactful and successful events.</p>)} className="text-white hover:text-[#0CFFBB] mt-4 block">More about event coordination →</button>
                             </div>
@@ -109,7 +109,7 @@ const Support: React.FC = () => {
                                 <img alt="Empowering Innovation Image" height="200" src="/resources/Illustrations/Partnerships.svg" width="800" className="w-full h-auto object-cover" />
                             </div>
                             <h3 className="text-xl font-semibold mb-2 mt-4"><FaBuilding className="inline-block mr-2" /> Corporate Partnerships</h3>
-                            <p className="text-gray">Collaborate with us on large-scale projects or sponsor key events.</p>
+                            <p className="text-gray text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">Collaborate with us on large-scale projects or sponsor key events.</p>
                             <button onClick={() => toggleModal('/resources/Illustrations/Partnerships.svg', <p>Collaborate with us on large-scale projects or sponsor key events. Your corporate partnership can help us achieve our goals and make a significant impact.</p>)} className="text-white hover:text-[#0CFFBB] mt-4 block">More about corporate partnerships →</button>
                         </div>
                         <div className="p-6 border-2 rounded-lg border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
@@ -117,7 +117,7 @@ const Support: React.FC = () => {
                                 <img alt="Empowering Innovation Image" height="200" src="/resources/Illustrations/Education.svg" width="800" className="w-full h-auto object-cover" />
                             </div>
                             <h3 className="text-xl font-semibold mb-2 mt-4"><FaGraduationCap className="inline-block mr-2" /> Educational Institutions</h3>
-                            <p className="text-gray">Partner with us to bring educational programs to students and communities.</p>
+                            <p className="text-gray text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">Partner with us to bring educational programs to students and communities.</p>
                             <button onClick={() => toggleModal('/resources/Illustrations/Education.svg', <p>Partner with us to bring educational programs to students and communities. Your collaboration with educational institutions can help us reach more students and make a greater impact.</p>)} className="text-white hover:text-[#0CFFBB] mt-4 block">More about educational partnerships →</button>
                         </div>
                         <div className="p-6 border-2 rounded-lg border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
@@ -125,7 +125,7 @@ const Support: React.FC = () => {
                                 <img alt="Empowering Innovation Image" height="200" src="/resources/Illustrations/Nonprofit.svg" width="800" className="w-full h-auto object-cover" />
                             </div>
                             <h3 className="text-xl font-semibold mb-2 mt-4"><FaHandsHelping className="inline-block mr-2" /> Nonprofits</h3>
-                            <p className="text-gray">Work with us to address pressing local issues through joint initiatives.</p>
+                            <p className="text-gray text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">Work with us to address pressing local issues through joint initiatives.</p>
                             <button onClick={() => toggleModal('/resources/Illustrations/Nonprofit.svg', <p>Work with us to address pressing local issues through joint initiatives. Your collaboration with nonprofits can help us create meaningful and impactful projects.</p>)} className="text-white hover:text-[#0CFFBB] mt-4 block">More about nonprofit partnerships →</button>
                         </div>
                     </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ImageCarousel from '../components/ImageCarousel';
@@ -28,6 +29,7 @@ const InputField = styled.input`
 `;
 
 const Home: React.FC = () => {
+    const navigate = useNavigate();
     return (
         <section className="scroll-smooth focus:scroll-auto">
             {/* Navigation Bar  */}
@@ -37,7 +39,7 @@ const Home: React.FC = () => {
                 <div className="w-full md:w-1/2 p-4">
                     <div className="text">
                         <Typewriter text="Empowering Innovation" speed={150} className="text-4xl text-hex mb-4 font-extrabold leading-none tracking-tight  md:text-5xl lg:text-6xl dark:text-white" />
-                        <p className="my-4 text-lg">
+                        <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
                             Welcome to Plastal-Bot Builders! We're on a mission to transform technology education
                             in Zambia and beyond. Through our innovative robotics programs and hands-on learning
                             experiences, we're empowering young minds to become the tech leaders of tomorrow.
@@ -46,7 +48,7 @@ const Home: React.FC = () => {
                             you've come to the right place.
                         </p>
                         
-                        <p className="mb-4 text-lg">
+                        <p className="mb-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
                             Our journey began with a simple belief: every young person deserves access to
                             quality technology education. Today, we're proud to offer comprehensive programs
                             in robotics, programming, and digital innovation. Through our partnerships with
@@ -54,7 +56,7 @@ const Home: React.FC = () => {
                             students to turn their passion for technology into real-world opportunities.
                             Join us as we build the future of technology education in Africa.
                         </p>
-                        <div className="button-container space-x-6 mt-12">
+                        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mt-12">
                             <Button label="Become a Member" href="/membershipform" />
                             <Button label="Get Involved" href="/programs" />
                         </div>
@@ -78,13 +80,13 @@ const Home: React.FC = () => {
                 <div className="mb-12">
                     <h2 className="text-2xl font-semibold text-hex mb-4">Empowering Zambia's Next Generation of Tech Leaders</h2>
                     
-                    <p className="text-lg text-white mb-4">
+                    <p className="mb-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
                         At Plastal-Bot Builders, we're revolutionizing STEM education in Zambia through cutting-edge robotics 
                         and technology. Our innovative programs blend hands-on engineering experience with creative 
                         problem-solving, preparing young minds for the digital future.
                     </p>
                     
-                    <p className="text-lg text-white">
+                    <p className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
                         We believe in learning by doing. Through our robotics workshops, coding bootcamps, and 
                         project-based learning initiatives, we're building a community of young innovators who are 
                         ready to tackle real-world challenges. Join us in shaping Zambia's technological future.
@@ -98,19 +100,24 @@ const Home: React.FC = () => {
                         <h1 className="mt-4 mb-8 text-2xl font-extrabold leading-none tracking-tight text-gray-300 md:text-3xl lg:text-3xl dark:text-white">
                             <span className="text-hex">Latest </span> Project Showcase
                         </h1>
-                        <p className="text-lg text-gray-100">
+                        <p className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg text-gray-100">
                             Our students recently completed an innovative robotics project focused on environmental monitoring. 
                             Using Arduino-based sensors and custom-built robots, they created a system to track air quality 
                             and water pollution levels in local communities. This project demonstrates how we're combining 
                             technical education with real-world problem solving.
                         </p>
-                        <p className="mt-2 text-gray-100 text-lg">
+                        <p className="mt-2 text-gray-100 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
                             The project not only enhanced our students' programming and engineering skills but also 
                             highlighted the potential of robotics in addressing environmental challenges. Through hands-on 
                             experience with sensors, data analysis, and robot construction, our students are developing 
                             solutions that could impact their communities.
                         </p>
-                        <button className="mt-4 custom-button">View Project Details</button>
+                        <button 
+                            className="mt-4 custom-button"
+                            onClick={() => navigate('/project-details')} // This route doesn't exist
+                        >
+                            View Project Details
+                        </button>
                     </div>
             
                     {/* <!-- Tall Block --> */}
@@ -217,7 +224,7 @@ const Home: React.FC = () => {
                         />
                     </h1>
                     
-                    <p className="text-gray-100 text-lg mb-8">
+                    <p className="text-gray-100 mb-8 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
                         At Plastal-Bot Builders, we empower young minds through practical technology 
                         education. Our hands-on approach combines robotics, programming, and creative 
                         problem-solving to develop the next generation of tech innovators in Zambia. 
@@ -241,7 +248,7 @@ const Home: React.FC = () => {
                         />
                     </h1>
             
-                    <p className="text-gray-100 text-lg mb-8">
+                    <p className="text-gray-100 mb-8 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
                         Our innovative educational approach combines digital tools with hands-on 
                         experience. Through interactive workshops, project-based learning, and 
                         mentorship programs, we're making technology education accessible to all. 
@@ -266,12 +273,12 @@ const Home: React.FC = () => {
                 <div className="mb-12">
                     <h2 className="text-2xl font-semibold text-hex mb-4">Building Tomorrow's Tech Leaders Today</h2>
                     
-                    <p className="text-lg text-white mb-4">
+                    <p className="text-white mb-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
                         At Plastal-Bot Builders, we're transforming education through innovative technology and hands-on learning. 
                         Our programs combine robotics, coding, and creative problem-solving to empower young minds across Zambia.
                     </p>
                     
-                    <p className="text-lg text-white">
+                    <p className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg text-white">
                         From successful student projects to community outreach initiatives, explore how we're making technology 
                         education accessible, engaging, and impactful. Join us in our mission to create the next generation of 
                         tech innovators and change-makers in Africa.
@@ -289,18 +296,24 @@ const Home: React.FC = () => {
                             alt="Students Learning Robotics"
                             className="w-full h-64 object-cover rounded-lg mb-4"
                         />
-                        <p className="text-lg text-gray-100">
+                        <p className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg text-gray-100">
                             At Plastal-Bot Builders, we're shaping the future of technology education in Zambia. 
                             Our innovative programs combine robotics, programming, and sustainable technology to 
                             create hands-on learning experiences that inspire the next generation of tech leaders.
                         </p>
-                        <p className="mt-4 text-lg text-gray-100">
+                        <p className="mt-4 text-gray-100 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
                             Through our workshops and training programs, we've empowered hundreds of young minds 
                             with practical skills in robotics, coding, and digital innovation. Our approach focuses 
                             on real-world applications and problem-solving skills.
                         </p>
                         <div className="col-span-1 sm:col-span-2 row-span-2 pr-4 p-4 flex flex-col">
-                            <button className="mt-auto custom-button">Join Our Next Workshop</button>
+                        <button 
+                            className="mt-auto custom-button"
+                            onClick={() => navigate('/workshop-details')} // This route doesn't exist
+                        >
+                            Join Our Next Workshop
+                        </button>
+                           
                         </div>
                     </div>
                 
@@ -310,7 +323,7 @@ const Home: React.FC = () => {
                             <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-300 md:text-3xl lg:text-3xl dark:text-white flex justify-center items-center text-center">
                                 <span className="text-hex">Tech</span> Training
                             </h1>
-                            <p className="text-lg text-gray-100">
+                            <p className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg text-gray-100">
                                 Comprehensive courses in robotics, programming, and digital skills for all levels
                             </p>
                         </div>
@@ -322,7 +335,7 @@ const Home: React.FC = () => {
                             <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-300 md:text-3xl lg:text-3xl dark:text-white flex justify-center items-center text-center">
                                 <span className="text-hex">Innovation</span> Hub
                             </h1>
-                            <p className="text-lg text-gray-100">
+                            <p className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg text-gray-100">
                                 A space where ideas come to life through hands-on projects and mentorship
                             </p>
                         </div>
@@ -337,7 +350,7 @@ const Home: React.FC = () => {
                             <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-300 md:text-3xl lg:text-3xl dark:text-white flex justify-center items-center text-center">
                                 <span className="text-hex">Youth</span> Programs
                             </h1>
-                            <p className="text-lg text-gray-100">
+                            <p className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg text-gray-100">
                                 Specialized workshops and bootcamps designed for young tech enthusiasts aged 12-25
                             </p>
                         </div>
@@ -353,11 +366,16 @@ const Home: React.FC = () => {
                             alt="Student Projects"
                             className="w-full h-32 object-cover rounded-lg mb-4"
                         />
-                        <p className="text-lg text-gray-100">
+                        <p className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg text-gray-100">
                             Since our founding, we've trained over 500 students, launched 50+ successful projects, 
                             and partnered with leading tech companies to create opportunities for young innovators.
                         </p>
-                        <button className="mt-4 btn custom-button">View Success Stories</button>
+                        <button 
+                            className="mt-4 custom-button"
+                            onClick={() => navigate('/workshop-details')} // This route doesn't exist
+                        >
+                            Join Our Next Workshop
+                        </button>
                     </div>
                 
                     {/* Large Block (Bottom Left) (2x1) */}
@@ -365,11 +383,11 @@ const Home: React.FC = () => {
                         <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-300 md:text-3xl lg:text-3xl dark:text-white">
                             <span className="text-hex">Building</span> Tomorrow's <span className="text-hex">Leaders</span>
                         </h1>
-                        <p className="mt-4 text-gray-100 text-lg">
+                        <p className="mt-4 text-gray-100 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
                             Our comprehensive curriculum goes beyond technical skills. We focus on developing 
                             leadership, problem-solving, and entrepreneurial mindsets in our students.
                         </p>
-                        <p className="mt-4 text-gray-100 text-lg">
+                        <p className="mt-4 text-gray-100 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
                             Through partnerships with industry leaders and educational institutions, we create 
                             pathways for our graduates to access opportunities in the tech industry and higher education.
                         </p>
@@ -381,7 +399,7 @@ const Home: React.FC = () => {
                             <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-300 md:text-3xl lg:text-3xl dark:text-white flex justify-center items-center text-center">
                                 <span className="text-hex">Join Us</span>
                             </h1>
-                            <p className="text-lg text-gray-100">
+                            <p className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg text-gray-100">
                                 Begin your journey in tech innovation. Enroll in our upcoming programs and workshops.
                             </p>
                         </div>
@@ -400,7 +418,7 @@ const Home: React.FC = () => {
                                 <span
                                     className="text-gray-300"> Newsletter</span>
                             </h1>
-                            <p className="my-4 text-lg text-gray-100">
+                            <p className="my-4 text-gray-100 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
                                 Stay connected with the latest in tech innovation and educational opportunities at Plastal-Bot Builders. 
                                 Subscribe to our newsletter and be the first to know about:
                                 • Upcoming workshops and bootcamps

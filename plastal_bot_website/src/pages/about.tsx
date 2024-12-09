@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { useNavigate } from 'react-router-dom';
 
 const About: React.FC = () => {
 
@@ -58,39 +59,47 @@ const About: React.FC = () => {
       duration: 1,
     });
   }, []);
-   
+  
+  const navigate = useNavigate();
+
   return (
     <section className="text-white">
       {/* Navigation Bar */}
       <Header />
 
       {/* Hero Section */}
-      <div className="flex flex-col md:flex-row justify-between p-4 space-y-8 md:space-y-0 md:space-x-8 max-w-7xl mx-auto">
-        <div className="flex flex-row justify-between p-4 space-x-8 max-w-7xl mx-auto">
-          <div className="w-1/2">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-              <span className="text-hex"> About </span> Plastal-Bot Builders Org
+      <div className="container mx-auto px-4 py-8">
+        <div className="flex flex-col md:flex-row gap-8 max-w-7xl mx-auto">
+          {/* Text Content */}
+          <div className="w-full md:w-1/2">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+              <span className="text-hex">About</span> Plastal-Bot Builders Org
             </h1>
-            <p className="mb-6">
+            
+            <p className="mb-6 text-sm sm:text-base md:text-lg text-gray-300">
               Empowering the next generation through robotics, technology, and sustainability
               lies at the heart of our mission. We believe that by equipping young minds with 
               the tools to innovate, create, and solve problems, we can inspire a future driven 
               by ingenuity and responsibility. 
             </p>
-        
-            <p className="my-4">
+          
+            <p className="text-sm sm:text-base md:text-lg text-gray-300">
               Through our programs, we introduce students and young 
               professionals to cutting-edge robotics and technology, fostering skills that are not 
-              only relevant but transformative in today’s world. By integrating sustainability into 
+              only relevant but transformative in today's world. By integrating sustainability into 
               our initiatives, we emphasize the importance of creating solutions that address 
               real-world challenges while preserving the environment for generations to come.
             </p>
           </div>
-          <div className="w-full md:w-1/2 p-2">
-            <div className="image mt-4">
-                <img alt="Empowering Innovation Image" height="200"
-                        src="/resources/Illustrations/Storyboard-bro.svg"
-                        width="800" className="w-full h-auto object-cover" />
+      
+          {/* Image Container */}
+          <div className="w-full md:w-1/2">
+            <div className="mt-4 md:mt-0">
+              <img 
+                src="/resources/Illustrations/Storyboard-bro.svg"
+                alt="Empowering Innovation Image"
+                className="w-full h-auto object-cover rounded-lg"
+              />
             </div>
           </div>
         </div>
@@ -108,14 +117,14 @@ const About: React.FC = () => {
           <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
             <span className="text-hex "> Our<span className="text-white"> Story </span></span>
           </h1>
-          <p className="my-4">
+          <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
             Founded in Zambia, our organization began with a mission to empower young 
             people by equipping them with the skills and knowledge needed to tackle 
             modern challenges in an ever-evolving world. What started as a grassroots 
             initiative driven by a passion for education and innovation has transformed
             into a dynamic movement with global ambitions.
           </p>
-          <p className="my-4">
+          <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
             We are committed to addressing critical challenges not only in education but 
             also in environmental sustainability, leveraging technology, creativity, 
             and collaboration. Across Africa and beyond, we partner with communities, 
@@ -124,7 +133,7 @@ const About: React.FC = () => {
             to include cutting-edge workshops, hands-on learning experiences, and initiatives 
             that prioritize inclusivity and long-term impact.
           </p>
-          <p className="my-4">
+          <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
             As we continue to grow, our vision remains rooted in the belief that equipping 
             young people with the right tools today will shape a brighter, more sustainable 
             future for all.
@@ -139,13 +148,13 @@ const About: React.FC = () => {
             <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
               <span className="text-hex "> Our <span className="text-white"> Mission</span></span>
             </h1>
-            <p className="my-4">
+            <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
               Our mission is to empower young people to become innovators and change-makers by equipping them with the skills and knowledge to create sustainable solutions. Through technology, robotics, and environmental advocacy, we aim to inspire the next generation to tackle real-world challenges, drive impactful change, and contribute to a more equitable and sustainable future.
             </p>
             
             <img src="/resources/Photos/group.png" alt="Bootcamp" className="w-full h-auto object-cover rounded-lg"/>
             
-            <p className="my-4">
+            <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
               By fostering creativity, critical thinking, and a sense of responsibility, we strive to nurture individuals who can harness the power of technology to address pressing global issues, from environmental conservation to social innovation. Our mission is rooted in the belief that young people hold the key to shaping a better world, and we are committed to providing them with the tools and opportunities to succeed.
             </p>
           </div>
@@ -153,13 +162,13 @@ const About: React.FC = () => {
             <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
               <span className="text-hex "> Our <span className="text-white"> Vision </span></span>
             </h1>
-            <p className="my-4">
+            <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
             Our vision is to inspire and nurture a generation of bold problem-solvers and innovative thinkers who will harness the power of technology and robotics to create a brighter, more sustainable future for their communities and the world at large. We envision a future where young minds are empowered to think critically, dream big, and take decisive action to solve complex challenges with creativity and purpose.
             </p>
             
             <img src="/resources/Photos/dywen.jpg" alt="Bootcamp" className="w-full h-auto object-cover rounded-lg"/>
             
-            <p className="my-4">
+            <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
             By fostering a culture of innovation, collaboration, and inclusivity, we aim to build a world where technology serves as a force for good—bridging gaps, addressing inequalities, and advancing sustainable development. Our vision extends beyond teaching technical skills; we strive to instill a mindset of resilience, adaptability, and ethical responsibility, ensuring that the leaders of tomorrow are equipped not just to succeed but to make a meaningful difference.
             </p>
           </div>
@@ -174,7 +183,7 @@ const About: React.FC = () => {
             {teamMembers.map((member, index) => (
               <div
                 key={index}
-                className="rounded-lg  border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out p-6 flex flex-col items-center text-center"
+                className="rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out p-6 flex flex-col items-center text-center"
               >
                 <img
                   src={member.imgSrc}
@@ -191,9 +200,12 @@ const About: React.FC = () => {
         {/* Call to Action */}
         <div className="bg-[#0CFFBB] text-black text-center py-12 rounded-lg">
           <h2 className="text-2xl font-bold">Join Us</h2>
-          <p className="mt-4">Be part of the movement. Help us shape the future of robotics and technology in Africa.</p>
-          <button className="mt-6 bg-gray-900 text-white py-2 px-6 rounded hover:bg-gray-700">
-            Learn More
+          <p className="mt-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">Be part of the movement. Help us shape the future of robotics and technology in Africa.</p>
+          <button 
+              className="mt-6 bg-gray-900 text-white py-2 px-6 rounded hover:bg-gray-700"
+              onClick={() => navigate('/Learn_More')} // This route doesn't exist
+          >
+              Learn More 
           </button>
         </div>
       </div>

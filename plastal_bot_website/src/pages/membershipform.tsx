@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import styled from 'styled-components';
@@ -128,6 +128,10 @@ const MembershipForm: React.FC = () => {
         });
       });
     }, []);
+
+    const [showNotice, setShowNotice] = useState(true);   
+    const [showPrivacyNotice, setShowPrivacyNotice] = useState(true);
+  
     return (
         <section className="scroll-smooth focus:scroll-auto">
             <Header />
@@ -137,11 +141,43 @@ const MembershipForm: React.FC = () => {
                     <span className="text-hex "> Membership <span className="text-white"> Application Form </span></span>
                 </h1>
                 {/* Form Application Introduction */}
-                <div className="mb-12">
+                <div className="mb-6">
                     <p className="text-lg text-white">Our goal is to bridge the technology gap and foster self-sufficiency in
                         young people. The stronger our community, the better positioned we are to move the needle for diversity
                         in tech and entrepreneurship. Thank you for joining us.</p>
                 </div>
+                {showNotice && (
+                <div className="bg-gray-800 border border-gray-700 rounded-lg p-4 mb-6 relative flex justify-between items-center">
+                    <p className="text-gray-300">
+                    <span className="text-hex">*</span> Indicates required fields
+                    </p>
+                    <button 
+                    onClick={() => setShowNotice(false)}
+                    className="text-gray-400 hover:text-white transition-colors"
+                    aria-label="Dismiss notice"
+                    >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                )}
+                {showPrivacyNotice && (
+                  <div className="bg-gray-800 border border-gray-700 rounded-lg p-4 mb-6 relative flex justify-between items-center">
+                    <p className="text-gray-300">
+                      <span className="text-hex">🔒</span> Your Privacy Matters: Rest assured, all information provided in this application will be kept confidential and will not be shared with any third party.
+                    </p>
+                    <button 
+                      onClick={() => setShowPrivacyNotice(false)}
+                      className="text-gray-400 hover:text-white transition-colors"
+                      aria-label="Dismiss privacy notice"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </div>
+                )}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     {/* Card 1: Section 1 - Personal Information */}
                     <div className="p-6 rounded-lg  border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">

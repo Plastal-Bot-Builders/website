@@ -9,6 +9,7 @@ import Programs from './pages/programs';
 import MembershipForm from './pages/membershipform';
 import { Grid } from 'react-loader-spinner'; 
 import { Scrollbars } from 'rc-scrollbars';
+import Error404 from './pages/error';
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
@@ -61,6 +62,7 @@ const App: React.FC = () => {
             <Route path="/blogs" element={<Blog />} />
             <Route path="/support" element={<Support />} />
             <Route path="/programs" element={<Programs />} />
+            <Route path="*" element={<Error404 />} />
           </Routes>
         </div>
       </Scrollbars>
