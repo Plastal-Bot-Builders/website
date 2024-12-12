@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import CodeOfConductNotice from '../components/CodeOfConduct';
 import styled from 'styled-components';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -612,10 +613,11 @@ const MembershipForm: React.FC = () => {
                                 </label>
                         </div>
                     </div>
-                    {/* <!-- Submit Button --> */}
-                    <div className="flex justify-center mt-8 mb-6">
-                        <button className="custom-button">Submit Application</button>
-                    </div>
+                    <CodeOfConductNotice />
+                </div>
+                {/* <!-- Submit Button --> */}
+                <div className="flex flex-col items-center mt-8 mb-6">
+                    <button className="custom-button">Submit Application</button>
                 </div>
                 <Footer />
             </div>

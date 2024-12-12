@@ -7,11 +7,11 @@ const Header: React.FC = () => {
   const location = useLocation();
 
   const navLinks = [
-    { path: '/home', label: '.home()' },
-    { path: '/about', label: '.about()' },
-    { path: '/blogs', label: '.blogs()' },
-    { path: '/support', label: '.support()' },
-    { path: '/programs', label: '.program()' }
+    { path: '/home', label: '.home( )' },
+    { path: '/about', label: '.about( )' },
+    { path: '/blogs', label: '.blogs( )' },
+    { path: '/support', label: '.support( )' },
+    { path: '/programs', label: '.program( )' }
   ];
 
   const NavLink = ({ path, label }: { path: string; label: string }) => (

@@ -22,7 +22,7 @@ const App: React.FC = () => {
     // Hide loader after a delay
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1000); // Set a delay of 1 second for demo purposes
+    }, 3000); // Set a delay of 1 second for demo purposes
 
     return () => clearTimeout(timer); // Cleanup the timer
   }, [location]);

@@ -38,7 +38,9 @@ const Home: React.FC = () => {
             <div className="flex flex-col md:flex-row justify-between p-4 space-y-8 md:space-y-0 md:space-x-8 max-w-7xl mx-auto">
                 <div className="w-full md:w-1/2 p-4">
                     <div className="text">
-                        <Typewriter text="Empowering Innovation" speed={150} className="text-4xl text-hex mb-4 font-extrabold leading-none tracking-tight  md:text-5xl lg:text-6xl dark:text-white" />
+                        <h1 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
+                            <span className="text-hex">Empowering</span> <span className="text-white">Innovation</span>
+                        </h1>
                         <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
                             Welcome to Plastal-Bot Builders! We're on a mission to transform technology education
                             in Zambia and beyond. Through our innovative robotics programs and hands-on learning
@@ -217,12 +219,9 @@ const Home: React.FC = () => {
             <div className="flex flex-col md:flex-row justify-between max-w-7xl mx-auto p-8 gap-8">
                 {/* Innovation Section */}
                 <div className="w-full md:w-1/2 flex flex-col">
-                    <h1 className="mb-6 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-                        <Typewriter 
-                            text="Fostering Innovation" 
-                            className="text-hex font-extrabold leading-none tracking-tight" 
-                        />
-                    </h1>
+                    <h1 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
+                            <span className="text-hex">Fostering</span> <span className="text-white">Innovation</span>
+                        </h1>
                     
                     <p className="text-gray-100 mb-8 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
                         At Plastal-Bot Builders, we empower young minds through practical technology 
@@ -241,11 +240,8 @@ const Home: React.FC = () => {
             
                 {/* Education Section */}
                 <div className="w-full md:w-1/2 flex flex-col">
-                    <h1 className="mb-6 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-                        <Typewriter 
-                            text="Enhancing Education" 
-                            className="text-hex font-extrabold leading-none tracking-tight" 
-                        />
+                    <h1 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
+                        <span className="text-hex">Enhanicng</span> <span className="text-white">Education</span>
                     </h1>
             
                     <p className="text-gray-100 mb-8 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
