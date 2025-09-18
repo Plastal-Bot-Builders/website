@@ -1,6 +1,7 @@
 import React from 'react';
 import { Modal, Button } from 'flowbite-react';
 import { FaTimes } from 'react-icons/fa';
+import { asset } from '../utils/asset';
 
 interface ReusableModalProps {
     isOpen: boolean;
@@ -28,7 +29,7 @@ const ReusableModal: React.FC<ReusableModalProps> = ({ isOpen, onClose, title, c
                 </div>
                 <div className="text-center">
                     <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">{title}</h3>
-                    {image && <img src={image} alt="Modal Image" className="mx-auto mb-4 w-32 h-32 object-cover" />}
+                    {image && <img src={asset(image)} alt="Modal Image" className="mx-auto mb-4 w-32 h-32 object-cover" />}
                     <div className="flex flex-col items-center justify-center">
                         {content}
                     </div>

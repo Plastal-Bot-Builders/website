@@ -5,6 +5,7 @@ import CodeOfConductNotice from '../components/CodeOfConduct';
 import styled from 'styled-components';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { asset } from '../utils/asset';
 
 gsap.registerPlugin(ScrollTrigger);
 

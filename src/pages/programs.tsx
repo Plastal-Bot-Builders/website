@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Button from '../components/Button';
+import { asset } from '../utils/asset';
 
 
 const Programs: React.FC = () => {
@@ -187,7 +188,7 @@ const Programs: React.FC = () => {
                         <Button label="Register Now" href="/membershipform" />
                     </div>
                     <div className="w-full md:w-1/2">
-                        <img src="/resources/GIF/Robotarm.gif" alt="Bootcamp" className="w-full"/>
+                        <img src={asset('resources/GIF/Robotarm.gif')} alt="Bootcamp" className="w-full"/>
                     </div>
                 </div>
             </div>
@@ -227,7 +228,7 @@ const Programs: React.FC = () => {
                                                 tool.icon ? (
                                                     <img 
                                                         key={i} 
-                                                        src={tool.icon} 
+                                                        src={asset(tool.icon)} 
                                                         alt="Tool icon" 
                                                         className="w-8 h-8 hover:scale-110 transition-transform"
                                                     />

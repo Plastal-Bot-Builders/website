@@ -4,6 +4,8 @@ import Footer from '../components/Footer';
 import { FaDonate, FaHandsHelping, FaRegHandshake, FaChalkboardTeacher, FaTools, FaCalendarAlt, FaBuilding, FaGraduationCap } from 'react-icons/fa';
 import ReusableModal from '../components/ReusableModal';
 import { Button } from 'flowbite-react'; // Import the Button component
+import { asset } from '../utils/asset';
+
 
 const Support: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -32,7 +34,7 @@ const Support: React.FC = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         <div className="p-6 border-2 rounded-lg border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                             <div className="image">
-                                <img alt="Empowering Innovation Image" height="200" src="/resources/Illustrations/donations.svg" width="800" className="w-full h-auto object-cover" />
+                                <img alt="Empowering Innovation Image" height="200" src={asset('resources/Illustrations/donations.svg')} width="800" className="w-full h-auto object-cover" />
                             </div>
                             <h3 className="text-xl font-semibold mb-2 mt-4"><FaDonate className="inline-block mr-2" /> Donate</h3>
                             <p className="text-gray text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">Support us by making a donation to help fund our initiatives and projects.</p>
@@ -40,7 +42,7 @@ const Support: React.FC = () => {
                         </div>
                         <div className="p-6 border-2 rounded-lg border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                             <div className="image">
-                                <img alt="Empowering Innovation Image" height="200" src="/resources/Illustrations/Sponsorship.svg" width="800" className="w-full h-auto object-cover" />
+                                <img alt="Empowering Innovation Image" height="200" src={asset('resources/Illustrations/Sponsorship.svg')} width="800" className="w-full h-auto object-cover" />
                             </div>
                             <h3 className="text-xl font-semibold mb-2 mt-4"><FaRegHandshake className="inline-block mr-2" /> Sponsorship</h3>
                             <p className="text-gray text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">Become a sponsor and support specific programs or events tailored to your interests.</p>
@@ -48,7 +50,7 @@ const Support: React.FC = () => {
                         </div>
                         <div className="p-6 border-2 rounded-lg border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                             <div className="image">
-                                <img alt="Empowering Innovation Image" height="200" src="/resources/Illustrations/Fundraising.svg" width="800" className="w-full h-auto object-cover" />
+                                <img alt="Empowering Innovation Image" height="200" src={asset('resources/Illustrations/Fundraising.svg')} width="800" className="w-full h-auto object-cover" />
                             </div>
                             <h3 className="text-xl font-semibold mb-2 mt-4"><FaCalendarAlt className="inline-block mr-2" /> Fundraising</h3>
                             <p className="text-gray text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">Organize fundraising events or campaigns to help us reach more people.</p>
@@ -66,7 +68,7 @@ const Support: React.FC = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         <div className="p-6 border-2 rounded-lg border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                             <div className="image">
-                                <img alt="Empowering Innovation Image" height="200" src="/resources/Illustrations/Mentorship.svg" width="800" className="w-full h-auto object-cover" />
+                                <img alt="Empowering Innovation Image" height="200" src={asset('resources/Illustrations/Mentorship.svg')} width="800" className="w-full h-auto object-cover" />
                             </div>
                             <h3 className="text-xl font-semibold mb-2 mt-4"><FaChalkboardTeacher className="inline-block mr-2" /> Mentorship</h3>
                             <p className="text-gray text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">Become a mentor and help guide our youth in various technical and life skills.</p>
@@ -76,7 +78,7 @@ const Support: React.FC = () => {
                         </div>
                         <div className="p-6 border-2 rounded-lg border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                             <div className="image">
-                                <img alt="Empowering Innovation Image" height="200" src="/resources/Illustrations/Support.svg" width="800" className="w-full h-auto object-cover" />
+                                <img alt="Empowering Innovation Image" height="200" src={asset('resources/Illustrations/Support.svg')} width="800" className="w-full h-auto object-cover" />
                             </div>
                             <h3 className="text-xl font-semibold mb-2 mt-4"><FaTools className="inline-block mr-2" /> Technical Support</h3>
                             <p className="text-gray text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">Offer your expertise in technical areas like software development, electronics, or robotics.</p>
@@ -86,7 +88,7 @@ const Support: React.FC = () => {
                         </div>
                         <div className="p-6 border-2 rounded-lg border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                             <div className="image">
-                                <img alt="Empowering Innovation Image" height="200" src="/resources/Illustrations/Eventplan.svg" width="800" className="w-full h-auto object-cover" />
+                                <img alt="Empowering Innovation Image" height="200" src={asset('resources/Illustrations/Eventplan.svg')} width="800" className="w-full h-auto object-cover" />
                             </div>
                             <h3 className="text-xl font-semibold mb-2 mt-4"><FaCalendarAlt className="inline-block mr-2" /> Event Coordination</h3>
                             <p className="text-gray text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">Help organize and coordinate events like workshops and competitions.</p>
@@ -106,7 +108,7 @@ const Support: React.FC = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         <div className="p-6 border-2 rounded-lg border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                             <div className="image">
-                                <img alt="Empowering Innovation Image" height="200" src="/resources/Illustrations/Partnerships.svg" width="800" className="w-full h-auto object-cover" />
+                                <img alt="Empowering Innovation Image" height="200" src={asset('resources/Illustrations/Partnerships.svg')} width="800" className="w-full h-auto object-cover" />
                             </div>
                             <h3 className="text-xl font-semibold mb-2 mt-4"><FaBuilding className="inline-block mr-2" /> Corporate Partnerships</h3>
                             <p className="text-gray text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">Collaborate with us on large-scale projects or sponsor key events.</p>
@@ -114,7 +116,7 @@ const Support: React.FC = () => {
                         </div>
                         <div className="p-6 border-2 rounded-lg border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                             <div className="image">
-                                <img alt="Empowering Innovation Image" height="200" src="/resources/Illustrations/Education.svg" width="800" className="w-full h-auto object-cover" />
+                                <img alt="Empowering Innovation Image" height="200" src={asset('resources/Illustrations/Education.svg')} width="800" className="w-full h-auto object-cover" />
                             </div>
                             <h3 className="text-xl font-semibold mb-2 mt-4"><FaGraduationCap className="inline-block mr-2" /> Educational Institutions</h3>
                             <p className="text-gray text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">Partner with us to bring educational programs to students and communities.</p>
@@ -122,7 +124,7 @@ const Support: React.FC = () => {
                         </div>
                         <div className="p-6 border-2 rounded-lg border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                             <div className="image">
-                                <img alt="Empowering Innovation Image" height="200" src="/resources/Illustrations/Nonprofit.svg" width="800" className="w-full h-auto object-cover" />
+                                <img alt="Empowering Innovation Image" height="200" src={asset('resources/Illustrations/Nonprofit.svg')} width="800" className="w-full h-auto object-cover" />
                             </div>
                             <h3 className="text-xl font-semibold mb-2 mt-4"><FaHandsHelping className="inline-block mr-2" /> Nonprofits</h3>
                             <p className="text-gray text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">Work with us to address pressing local issues through joint initiatives.</p>

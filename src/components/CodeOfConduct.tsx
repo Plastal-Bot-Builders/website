@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { asset } from '../utils/asset';
 
 const CodeOfConduct = () => {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -44,7 +45,7 @@ const CodeOfConduct = () => {
           <div className="flex flex-col items-center">
             <h3 id="modal-title" className="text-lg font-semibold mb-4 text-center">Our Code of Conduct</h3>
             <img 
-              src="./resources/Logo/fred.svg" 
+              src={asset('resources/Logo/fred.svg')} 
               alt="Plastal-Bot Builders Logo"
               className="h-24 w-24 md:h-36 md:w-36 lg:h-36 lg:w-36 xl:h-48 xl:w24 2xl:h-32 2xl:w-32 mx-auto mb-4" 
             />
