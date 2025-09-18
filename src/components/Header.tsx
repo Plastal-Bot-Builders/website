@@ -1,59 +1,72 @@
 import React, { useState } from 'react';
 import Button from './Button';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
+import { useTheme } from '../theme/ThemeProvider';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const { resolvedTheme, toggle } = useTheme();
 
   const navLinks = [
     { path: '/home', label: '.home( )' },
     { path: '/about', label: '.about( )' },
     { path: '/blogs', label: '.blogs( )' },
     { path: '/support', label: '.support( )' },
-    { path: '/programs', label: '.program( )' }
+    { path: '/programs', label: '.program( )' },
   ];
 
+  // FIX: use Link, not <link>, and use "to"
   const NavLink = ({ path, label }: { path: string; label: string }) => (
-    <a
-      href={path}
+    <Link
+      to={path}
       className={`transition-colors duration-300 ${
-        location.pathname === path
-          ? 'text-[#0CFFBB]'
-          : 'text-gray-400 hover:text-[#0CFFBB]'
+        location.pathname.startsWith(path) ? 'text-[#0CFFBB]' : 'text-gray-400 hover:text-[#0CFFBB]'
       }`}
       onClick={() => setIsMenuOpen(false)}
     >
       {label}
-    </a>
+    </Link>
   );
 
   return (
-    <nav className="w-full z-50 bg-[#100D3B]/90 backdrop-blur-sm">
+    <nav className="w-full z-50 side-header backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center py-4">
-          {/* Logo */}
-          <img 
-            src="./resources/Logo/fred.svg" 
-            alt="Plastal-Bot Builders Logo" 
-            className="h-24 w-24 md:h-36 md:w-36 lg:h-36 lg:w-36 xl:h-48 xl:w-48 2xl:h-64 2xl:w-64" 
+          {/* Logo (served from public/resources/...) */}
+          <img
+            src="/resources/Logo/fred.svg" // CHANGED from ./resources/... to absolute path
+            alt="Plastal-Bot Builders Logo"
+            className="h-24 w-24 md:h-36 md:w-36 lg:h-36 lg:w-36 xl:h-48 xl:w-48 2xl:h-64 2xl:w-64"
           />
 
           {/* Mobile Menu Button */}
-          <button 
+          <button
             className="md:hidden p-2"
+            aria-label="Toggle navigation menu"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            <div className={`w-6 h-0.5 bg-white mb-1 transition-all ${isMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></div>
-            <div className={`w-6 h-0.5 bg-white mb-1 ${isMenuOpen ? 'opacity-0' : ''}`}></div>
-            <div className={`w-6 h-0.5 bg-white ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></div>
+            <div className={`w-6 h-0.5 bg-white mb-1 transition-all ${isMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
+            <div className={`w-6 h-0.5 bg-white mb-1 ${isMenuOpen ? 'opacity-0' : ''}`} />
+            <div className={`w-6 h-0.5 bg-white ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
           </button>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
               <NavLink key={link.path} {...link} />
             ))}
+
+            {/* Theme Toggle (desktop) */}
+            <button
+              type="button"
+              onClick={toggle}
+              className="rounded-md border border-gray-700 px-3 py-1.5 text-sm text-gray-300 hover:text-white hover:border-[#0CFFBB] transition"
+              title={`Switch to ${resolvedTheme === 'dark' ? 'light' : 'dark'} mode`}
+              aria-label="Toggle theme"
+            >
+              {resolvedTheme === 'dark' ? '🌙 Dark' : '☀️ Light'}
+            </button>
           </div>
 
           {/* Desktop Register Button */}
@@ -70,7 +83,18 @@ const Header: React.FC = () => {
                 <NavLink {...link} />
               </div>
             ))}
-            <div className="pt-4">
+
+            {/* Theme Toggle (mobile) */}
+            <button
+              type="button"
+              onClick={() => { toggle(); setIsMenuOpen(false); }}
+              className="w-full rounded-md border border-gray-700 px-3 py-2 text-left text-gray-300 hover:text-white hover:border-[#0CFFBB] transition"
+              aria-label="Toggle theme"
+            >
+              Theme: {resolvedTheme === 'dark' ? 'Dark 🌙' : 'Light ☀️'}
+            </button>
+
+            <div className="pt-2">
               <Button label="Become a Member" href="/membershipform" />
             </div>
           </div>

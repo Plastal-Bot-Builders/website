@@ -1,8 +1,16 @@
+:root { color-scheme: light dark; }
+
 body {
-  background-color: #100D3B;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #111827;
 }
 
+html.dark body {
+  background-color: #0B0A1F;
+  color: #F3F4F6;
+}
+
+* { transition: background-color .2s ease, color .2s ease; }
 
 .logo {
   height: 150px;
@@ -182,22 +190,22 @@ footer p {
 
 /* Base button styling */
 .custom-button {
-  border: 2px solid #0CFFBB;
-  color: #0CFFBB;
+  border: 2px solid var(--btn-border);
+  color: var(--btn-text);
+  background-color: var(--btn-bg);
   font-weight: bold;
   padding: 10px 20px;
   border-radius: 10px;
   font-size: 16px;
-  background-color: transparent;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  
+  transition: background-color .3s ease, color .3s ease, border-color .3s ease, transform .1s ease;
 }
 
 /* Hover effect */
 .custom-button:hover {
-  background-color: #0CFFBB;
-  color: white;
+  background-color: var(--btn-hover-bg);
+  border-color: var(--btn-hover-border);
+  transform: translateY(-1px);
 }
 
 @keyframes typing {
@@ -245,7 +253,7 @@ footer p {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #100D3B; /* Semi-transparent background */
+  background-color: var(--loader-backdrop); /* Semi-transparent background */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -258,10 +266,59 @@ footer p {
   opacity: 1;
 }
 
-How .loader-container {
+.loader-container {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+html.dark {
+  --header-bg: rgba(11, 10, 31, 0.90);
+  --header-text: #F3F4F6;
+  --header-border: #374151;
+
+  /* Button (dark) */
+  --btn-text: #0AF0AD;
+  --btn-border: #0AF0AD;
+  --btn-hover-bg: #34d399;
+  --btn-hover-border: #34d399;
+
+    /* Loader (dark) */
+  --loader-backdrop: rgba(11, 10, 31, 0.90);
+  --loader-spinner: #0AF0AD;
+}
+
+:root {
+  color-scheme: light dark; /* keep */
+  --header-bg: rgba(255, 255, 255, 0.90);
+  --header-text: #111827;
+  --header-border: #e5e7eb;
+
+  /* Button (light) */
+  --btn-text: #0b0a1f;
+  --btn-border: #D1D5DB;
+  --btn-hover-bg: #D1D5DB;
+  --btn-hover-border: #818589;
+  --btn-hover-text: #818589;
+
+  --loader-backdrop: #FFFFFF; /* Light backdrop */
+  --loader-spinner: #100D3B; /* Dark spinner */
+}
+
+.site-header {
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  border-bottom: 1px solid var(--header-border);
+}
+
+.site-header a {
+  color: inherit;
+}
+
+.site-header {
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  border-bottom: 1px solid var(--header-border);
 }
 
 

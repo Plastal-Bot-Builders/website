@@ -37,14 +37,14 @@ const App: React.FC = () => {
         <div style={{ position: 'relative', height: '100vh' }}>
           {/* Conditionally render the Grid spinner when loading is true */}
           {loading && (
-            <div className="loader-background visible">
+            <div className="loader-background visible" role="status" aria-live="polite">
               <div className="loader-container">
                 <Grid
                   visible={true}
                   height="100"
                   width="100"
-                  color="#0cffbb"
-                  ariaLabel="grid-loading"
+                  color={'var(--loader-spinner, #0CFFBB)'}
+                  ariaLabel="app-loading"
                   radius="12.5"
                   wrapperStyle={{}}
                   wrapperClass="grid-wrapper"
