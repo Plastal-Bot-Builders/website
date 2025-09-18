@@ -277,6 +277,8 @@ html.dark {
   --header-text: #F3F4F6;
   --header-border: #374151;
 
+  --title-color: #FFFFFF;
+
   /* Button (dark) */
   --btn-text: #0AF0AD;
   --btn-border: #0AF0AD;
@@ -293,6 +295,8 @@ html.dark {
   --header-bg: rgba(255, 255, 255, 0.90);
   --header-text: #111827;
   --header-border: #e5e7eb;
+
+  --title-color: #D1D5DB; 
 
   /* Button (light) */
   --btn-text: #0b0a1f;
@@ -319,6 +323,10 @@ html.dark {
   background-color: var(--header-bg);
   color: var(--header-text);
   border-bottom: 1px solid var(--header-border);
+}
+
+.title {
+  color: var(--title-color);
 }
 
 

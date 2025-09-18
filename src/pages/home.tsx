@@ -6,6 +6,7 @@ import ImageCarousel from '../components/ImageCarousel';
 import LogoCarousel from '../components/LogoCarousel';
 import Button from '../components/Button';
 import styled from 'styled-components';
+import { asset } from '../utils/asset'
 
 const InputField = styled.input`
   background-color: transparent;
@@ -37,8 +38,8 @@ const Home: React.FC = () => {
             <div className="flex flex-col md:flex-row justify-between p-4 space-y-8 md:space-y-0 md:space-x-8 max-w-7xl mx-auto">
                 <div className="w-full md:w-1/2 p-4">
                     <div className="text">
-                        <h1 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
-                            <span className="text-hex">Empowering</span> <span className="text-white">Innovation</span>
+                        <h1 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight title">
+                            <span className="text-hex">Empowering</span> <span className="text-current">Innovation</span>
                         </h1>
                         <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
                             Welcome to Plastal-Bot Builders! We're on a mission to transform technology education
@@ -66,15 +67,15 @@ const Home: React.FC = () => {
                 <div className="w-full md:w-1/2 p-2">
                     <div className="image mt-24">
                         <img alt="Empowering Innovation Image" height="200"
-                            src="/resources/Illustrations/Data_extraction.svg"
+                            src= {asset('resources/Illustrations/Data_extraction.svg')}
                             width="800" className="w-full h-auto object-cover" />
                     </div>
                 </div>
             </div>
 
             <div className="max-w-7xl mx-auto p-6">
-                <h1 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
-                    <span className="text-hex">Innovating</span> <span className="text-white">Through Technology</span>
+                <h1 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight title">
+                    <span className="text-hex">Innovating</span> <span className="text-current">Through Technology</span>
                 </h1>
                 
                 {/* <!-- Section Introduction --> */}
@@ -98,7 +99,7 @@ const Home: React.FC = () => {
                     <div className="col-span-1 md:col-span-2 md:row-span-2 mb-4">
                         {/* <!-- Image Carousel Container --> */}
                         <ImageCarousel />
-                        <h1 className="mt-4 mb-8 text-2xl font-extrabold leading-none tracking-tight text-gray-300 md:text-3xl lg:text-3xl dark:text-white">
+                        <h1 className="mt-4 mb-8 text-2xl md:text-3xl lg:text-3xl font-extrabold leading-none tracking-tight title">
                             <span className="text-hex">Latest </span> Project Showcase
                         </h1>
                         <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
@@ -125,7 +126,7 @@ const Home: React.FC = () => {
                     <div className="col-span-1 md:row-span-2 flex justify-center items-center p-4 ">
                         <div className="text-center">
                             <img
-                                src="/resources/Illustrations/Visionarytechnology.svg"
+                                src={asset('resources/Illustrations/Visionarytechnology.svg')}
                                 alt="Illustration of a visionary man"
                                 className="w-full h-auto object-cover rounded-lg" 
                             />
@@ -144,7 +145,7 @@ const Home: React.FC = () => {
                         {/* Content Container */}
                         <div className="flex flex-col md:flex-row items-center">
                             <div className="w-full md:w-1/2">
-                                <img src="/resources/illustrations/research.svg"
+                                <img src={asset('resources/illustrations/research.svg')}
                                     alt="Students conducting research"
                                     className="w-full h-full object-cover p-2" />
                             </div>
@@ -171,7 +172,7 @@ const Home: React.FC = () => {
                         {/* Content Container */}
                         <div className="flex flex-col md:flex-row items-center">
                             <div className="w-full md:w-1/2">
-                                <img src="/resources/illustrations/mentor.svg"
+                                <img src={asset('resources/illustrations/mentor.svg')}
                                     alt="Mentorship session"
                                     className="w-full h-full object-cover p-2" />
                             </div>
@@ -198,13 +199,13 @@ const Home: React.FC = () => {
                         {/* Content Container */}
                         <div className="flex flex-col md:flex-row items-center">
                             <div className="w-full md:w-1/2">
-                                <img src="/resources/illustrations/team.svg"
+                                <img src={asset('resources/illustrations/team.svg')}
                                     alt="Sponsorship event"
                                     className="w-full h-full object-cover p-2" />
                             </div>
                             <div className="w-full md:w-1/2 p-6">
                                 <h1 className="break-words truncate mb-4 text-lg font-extrabold leading-none tracking-tight text-gray-300 md:text-base lg:text-base dark:text-white">
-                                    <span className="text-hex">Partner </span>With Us
+                                    <span className="text-hex">Partner </span> With Us
                                 </h1>
                                 <p className="text-sm text-gray-100">
                                     Support our mission to empower young tech innovators in Zambia.
@@ -218,8 +219,8 @@ const Home: React.FC = () => {
             <div className="flex flex-col md:flex-row justify-between max-w-7xl mx-auto p-8 gap-8">
                 {/* Innovation Section */}
                 <div className="w-full md:w-1/2 flex flex-col">
-                    <h1 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
-                            <span className="text-hex">Fostering</span> <span className="text-white">Innovation</span>
+                    <h1 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight title">
+                            <span className="text-hex">Fostering</span> <span className="text-current">Innovation</span>
                         </h1>
                     
                     <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
@@ -231,7 +232,7 @@ const Home: React.FC = () => {
                     </p>
             
                     <img 
-                        src="/resources/Illustrations/Cyborg-bro.svg"
+                        src={asset('resources/Illustrations/Cyborg-bro.svg')}
                         alt="Robotics Innovation Illustration" 
                         className="w-4/5 h-auto mx-auto mt-auto" 
                     />
@@ -239,8 +240,8 @@ const Home: React.FC = () => {
             
                 {/* Education Section */}
                 <div className="w-full md:w-1/2 flex flex-col">
-                    <h1 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
-                        <span className="text-hex">Enhanicng</span> <span className="text-white">Education</span>
+                    <h1 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight title">
+                        <span className="text-hex">Enhanicng</span> <span className="text-current">Education</span>
                     </h1>
             
                     <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
@@ -252,7 +253,7 @@ const Home: React.FC = () => {
                     </p>
             
                     <img 
-                        src="/resources/Illustrations/Mathematics-bro (1) 1.svg"
+                        src={asset('resources/Illustrations/Mathematics-bro (1) 1.svg')}
                         alt="Technology Education Illustration" 
                         className="w-4/5 h-auto mx-auto mt-auto" 
                     />
@@ -260,8 +261,8 @@ const Home: React.FC = () => {
             </div>
 
             <div className="max-w-7xl mx-auto p-6">
-                <h1 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
-                    <span className="text-hex">Discover Our</span> <span className="text-white">Impact</span>
+                <h1 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight title">
+                    <span className="text-hex">Discover Our</span> <span className="text-current">Impact</span>
                 </h1>
                 
                 {/* <!-- Section Introduction --> */}
@@ -283,11 +284,11 @@ const Home: React.FC = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-3 grid-rows-2 gap-4">
                     {/* Large Block (2x2) */}
                     <div className="col-span-1 sm:col-span-2 row-span-2 pr-4">
-                        <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-300 md:text-3xl lg:text-3xl dark:text-white">
+                        <h1 className="mb-4 text-2xl md:text-3xl lg:text-3xl font-extrabold leading-none tracking-tight title">
                             <span className="text-hex">Empowering</span> Young <span className="text-hex">Innovators</span>
                         </h1>
                         <img
-                            src="/resources/Photos/group.png"
+                            src={asset('resources/Photos/group.png')}
                             alt="Students Learning Robotics"
                             className="w-full h-64 object-cover rounded-lg mb-4"
                         />
@@ -357,7 +358,7 @@ const Home: React.FC = () => {
                             <span className="text-hex">Our</span> Impact
                         </h1>
                         <img
-                            src="/resources/Photos/dywen.jpg"
+                            src={asset('resources/Photos/dywen.jpg')}
                             alt="Student Projects"
                             className="w-full h-32 object-cover rounded-lg mb-4"
                         />
@@ -442,7 +443,7 @@ const Home: React.FC = () => {
                     </div>
                     <div className="w-full md:w-1/2 p-4">
                         <div className="image">
-                            <img src="/resources/Illustrations/Subscriber1.svg"
+                            <img src={asset('resources/Illustrations/Subscriber1.svg')}
                                 alt="Introduction to Robotics" />
                         </div>
                     </div>

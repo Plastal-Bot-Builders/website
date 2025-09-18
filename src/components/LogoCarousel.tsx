@@ -1,4 +1,5 @@
 import React from 'react';
+import { asset } from '../utils/asset';
 
 interface Logo {
   src: string;
@@ -40,7 +41,7 @@ const LogoCarousel: React.FC = () => {
 
             <img
               key={index}
-              src={logo.src}
+              src={asset(logo.src)}
               alt={logo.alt}
               className="h-12 w-auto"
             />

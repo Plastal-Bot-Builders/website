@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { asset } from '../utils/asset';
 
 const ImageCarousel: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -25,7 +26,7 @@ const ImageCarousel: React.FC = () => {
       {images.map((image, index) => (
         <img
           key={index}
-          src={image}
+          src={asset(image)}
           alt={`Image ${index + 1}`}
           className={`absolute w-full h-full object-cover ${index === currentIndex ? 'active' : ''}`}
           style={{ display: index === currentIndex ? 'block' : 'none' }}

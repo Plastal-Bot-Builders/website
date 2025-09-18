@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Button from './Button';
 import { useLocation, Link } from 'react-router-dom';
 import { useTheme } from '../theme/ThemeProvider';
+import { asset } from '../utils/asset';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,7 +36,7 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center py-4">
           {/* Logo (served from public/resources/...) */}
           <img
-            src="/resources/Logo/fred.svg" // CHANGED from ./resources/... to absolute path
+            src={asset('resources/Logo/fred.svg')} // CHANGED from ./resources/... to absolute path
             alt="Plastal-Bot Builders Logo"
             className="h-24 w-24 md:h-36 md:w-36 lg:h-36 lg:w-36 xl:h-48 xl:w-48 2xl:h-64 2xl:w-64"
           />

@@ -4,6 +4,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { useNavigate } from 'react-router-dom';
+import { asset } from '../utils/asset';
 
 const About: React.FC = () => {
 
@@ -96,7 +97,7 @@ const About: React.FC = () => {
           <div className="w-full md:w-1/2">
             <div className="mt-4 md:mt-0">
               <img 
-                src="/resources/Illustrations/Storyboard-bro.svg"
+                src={asset('resources/Illustrations/Storyboard-bro.svg')}
                 alt="Empowering Innovation Image"
                 className="w-full h-auto object-cover rounded-lg"
               />
@@ -108,7 +109,7 @@ const About: React.FC = () => {
         <div className="w-full md:w-1/2 p-2">
           <div className="image mt-4">
               <img alt="Empowering Innovation Image" height="200"
-                      src="/resources/Illustrations/Connecting_teams_bro.svg"
+                      src={asset('resources/Illustrations/Connecting_teams_bro.svg')}
                       width="800" className="w-full h-auto object-cover" />
           </div>
         </div>
@@ -152,7 +153,11 @@ const About: React.FC = () => {
               Our mission is to empower young people to become innovators and change-makers by equipping them with the skills and knowledge to create sustainable solutions. Through technology, robotics, and environmental advocacy, we aim to inspire the next generation to tackle real-world challenges, drive impactful change, and contribute to a more equitable and sustainable future.
             </p>
             
-            <img src="/resources/Photos/group.png" alt="Bootcamp" className="w-full h-auto object-cover rounded-lg"/>
+            <img 
+              src={asset('resources/Photos/group.png')}
+              alt="Bootcamp" 
+              className="w-full h-auto object-cover rounded-lg"
+            />
             
             <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
               By fostering creativity, critical thinking, and a sense of responsibility, we strive to nurture individuals who can harness the power of technology to address pressing global issues, from environmental conservation to social innovation. Our mission is rooted in the belief that young people hold the key to shaping a better world, and we are committed to providing them with the tools and opportunities to succeed.
@@ -166,7 +171,11 @@ const About: React.FC = () => {
             Our vision is to inspire and nurture a generation of bold problem-solvers and innovative thinkers who will harness the power of technology and robotics to create a brighter, more sustainable future for their communities and the world at large. We envision a future where young minds are empowered to think critically, dream big, and take decisive action to solve complex challenges with creativity and purpose.
             </p>
             
-            <img src="/resources/Photos/dywen.jpg" alt="Bootcamp" className="w-full h-auto object-cover rounded-lg"/>
+            <img 
+            src={asset('resources/Photos/dywen.jpg')} 
+              alt="Bootcamp" 
+              className="w-full h-auto object-cover rounded-lg"
+            />
             
             <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
             By fostering a culture of innovation, collaboration, and inclusivity, we aim to build a world where technology serves as a force for good—bridging gaps, addressing inequalities, and advancing sustainable development. Our vision extends beyond teaching technical skills; we strive to instill a mindset of resilience, adaptability, and ethical responsibility, ensuring that the leaders of tomorrow are equipped not just to succeed but to make a meaningful difference.
@@ -186,7 +195,7 @@ const About: React.FC = () => {
                 className="rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out p-6 flex flex-col items-center text-center"
               >
                 <img
-                  src={member.imgSrc}
+                  src={asset(member.imgSrc)}
                   alt={member.name}
                   className="w-24 h-24 rounded-full mb-4 border-4 border-[#0CFFBB]"
                 />
