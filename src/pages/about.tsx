@@ -64,7 +64,7 @@ const About: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="text-white">
+    <section className="text-inherit">
       {/* Navigation Bar */}
       <Header />
 
@@ -73,18 +73,18 @@ const About: React.FC = () => {
         <div className="flex flex-col md:flex-row gap-8 max-w-7xl mx-auto">
           {/* Text Content */}
           <div className="w-full md:w-1/2">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              <span className="text-hex">About</span> Plastal-Bot Builders Org
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 title">
+              <span className="text-hex">About</span> <span className="text-current"> Plastal-Bot Builders Org </span>
             </h1>
             
-            <p className="mb-6 text-sm sm:text-base md:text-lg text-gray-300">
+            <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
               Empowering the next generation through robotics, technology, and sustainability
               lies at the heart of our mission. We believe that by equipping young minds with 
               the tools to innovate, create, and solve problems, we can inspire a future driven 
               by ingenuity and responsibility. 
             </p>
           
-            <p className="text-sm sm:text-base md:text-lg text-gray-300">
+            <p className="text-sm sm:text-base md:text-lg">
               Through our programs, we introduce students and young 
               professionals to cutting-edge robotics and technology, fostering skills that are not 
               only relevant but transformative in today's world. By integrating sustainability into 
@@ -115,8 +115,8 @@ const About: React.FC = () => {
         </div>
         {/* Our Story */}
         <div className="w-full md:w-1/2 p-4">
-          <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
-            <span className="text-hex "> Our<span className="text-white"> Story </span></span>
+          <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight md:text-4xl lg:text-5xl dark:text-white title">
+            <span className="text-hex "> Our </span> <span className="text-current"> Story </span>
           </h1>
           <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
             Founded in Zambia, our organization began with a mission to empower young 
@@ -185,8 +185,8 @@ const About: React.FC = () => {
 
         {/* Our Team */}
         <div className="mb-12">
-          <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
-            <span className="text-hex "> Our <span className="text-white"> Team </span></span>
+          <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight md:text-4xl lg:text-5xl title">
+            <span className="text-hex "> Our </span> <span className="text-current"> Team </span>
           </h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (

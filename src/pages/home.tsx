@@ -41,7 +41,7 @@ const Home: React.FC = () => {
                         <h1 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight title">
                             <span className="text-hex">Empowering</span> <span className="text-current">Innovation</span>
                         </h1>
-                        <p className="font-roboto my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
+                        <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
                             Welcome to Plastal-Bot Builders! We're on a mission to transform technology education
                             in Zambia and beyond. Through our innovative robotics programs and hands-on learning
                             experiences, we're empowering young minds to become the tech leaders of tomorrow.

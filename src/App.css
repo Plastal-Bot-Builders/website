@@ -47,8 +47,8 @@ html.dark {
 
 /* 4) Base styles */
 body {
-  font-family: 'Roboto', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue',
-    Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
   background-color: #ffffff;
   color: #111827;
 }
@@ -60,11 +60,6 @@ html.dark body {
 /* Limit transitions to color/background for perf */
 * { transition: background-color .2s ease, color .2s ease; }
 
-/* 5) Utilities */
-.font-roboto {
-  font-family: 'Roboto', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
-    'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-}
 .title { color: var(--title-color); }
 .text-hex { color: #0CFFBB; }
 .backdrop-blur-sm { backdrop-filter: blur(8px); }
