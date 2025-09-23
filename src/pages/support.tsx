@@ -28,8 +28,8 @@ const Support: React.FC = () => {
                 {/* Section: Support Us */}
                 
                 <section className="mb-6">
-                    <h1 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
-                        <span className="text-hex"> Support<span className="text-white"> Us</span></span>
+                    <h1 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight title">
+                        <span className="text-hex"> Support<span className="text-current"> Us</span></span>
                     </h1>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         <div className="p-6 border-2 rounded-lg border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
@@ -62,8 +62,8 @@ const Support: React.FC = () => {
                 {/* Section: Volunteer Opportunities */}
                 
                 <section className="mb-6">
-                    <h1 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
-                        <span className="text-hex"> Volunteer<span className="text-white"> Opportunities</span></span>
+                    <h1 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight title">
+                        <span className="text-hex"> Volunteer<span className="text-current"> Opportunities</span></span>
                     </h1>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         <div className="p-6 border-2 rounded-lg border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
@@ -102,8 +102,8 @@ const Support: React.FC = () => {
                 {/* Section: Partnerships */}
                
                 <section className="mb-6">
-                    <h1 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
-                        <span className="text-hex"> Collaborative <span className="text-white"> Partnership</span></span>
+                    <h1 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight title">
+                        <span className="text-hex"> Collaborative <span className="text-current"> Partnership</span></span>
                     </h1>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         <div className="p-6 border-2 rounded-lg border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">

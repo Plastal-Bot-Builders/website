@@ -30,13 +30,18 @@ const Header: React.FC = () => {
     </Link>
   );
 
+  const logoSrc = 
+    resolvedTheme == 'dark'
+    ? asset('resources/Logo/fred.svg')
+    : asset('resources/Logo/fred1.svg')
+
   return (
     <nav className="w-full z-50 side-header backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           {/* Logo (served from public/resources/...) */}
           <img
-            src={asset('resources/Logo/fred.svg')} // CHANGED from ./resources/... to absolute path
+            src={logoSrc} // CHANGED from ./resources/... to absolute path
             alt="Plastal-Bot Builders Logo"
             className="h-24 w-24 md:h-36 md:w-36 lg:h-36 lg:w-36 xl:h-48 xl:w-48 2xl:h-64 2xl:w-64"
           />
