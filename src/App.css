@@ -116,7 +116,7 @@ nav a {
 /* ...existing code... */
 .logo { height: 150px; width: 150px; }
 .container { width: 80%; margin: 0 auto; padding: 20px 0; }
-.nav-link { color: #FFFFFF; text-decoration: none; transition: color 0.3s, transform 0.3s; }
+.nav-link { color: inherit; text-decoration: none; transition: color 0.3s, transform 0.3s; }
 .nav-link:hover { color: #0CFFBB; transform: scale(1.1); }
 header { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
 header img { width: 100px; }

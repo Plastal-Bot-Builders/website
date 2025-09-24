@@ -20,7 +20,7 @@ const InputField = styled.input`
 
   &:hover {
     border-color: #0CFFBB;
-
+  }
   &:focus {
     outline: none;
     border-color: #0CFFBB;
@@ -132,86 +132,91 @@ const Home: React.FC = () => {
                             />
                         </div>
                     </div>
-            
                     {/* <!-- Small Block 1 - Mac Window Style --> */}
-                    <div className="col-span-1 row-span-1 rounded-lg overflow-hidden bg-gray-800 shadow-xl">
-                        {/* Window Controls */}
-                        <div className="flex items-center space-x-2 p-3 bg-gray-900">
-                            <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                            <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                        </div>
+                    <div className="col-span-1 row-span-1 rounded-lg overflow-hidden bg-white dark:bg-gray-800 shadow-xl border border-gray-200 dark:border-gray-700">
+                      {/* Window Controls */}
+                      <div className="flex items-center space-x-2 p-3 bg-gray-100 dark:bg-gray-900">
+                        <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                      </div>
                     
-                        {/* Content Container */}
-                        <div className="flex flex-col md:flex-row items-center">
-                            <div className="w-full md:w-1/2">
-                                <img src={asset('resources/illustrations/research.svg')}
-                                    alt="Students conducting research"
-                                    className="w-full h-full object-cover p-2" />
-                            </div>
-                            <div className="w-full md:w-1/2 p-6">
-                                <h1 className="break-words truncate mb-4 text-lg font-extrabold leading-none tracking-tight text-gray-300 md:text-base lg:text-base dark:text-white">
-                                    <span className="text-hex">Research </span>Opportunities
-                                </h1>
-                                <p className="text-sm text-gray-100">
-                                    Join our research programs in robotics, AI, and sustainable technology solutions.
-                                </p>
-                            </div>
+                      {/* Content Container */}
+                      <div className="flex flex-col md:flex-row items-center">
+                        <div className="w-full md:w-1/2">
+                          <img
+                            src={asset('resources/Illustrations/research.svg')}
+                            alt="Students conducting research"
+                            className="w-full h-full object-cover p-2"
+                          />
                         </div>
+                        <div className="w-full md:w-1/2 p-6">
+                          <h1 className="break-words truncate mb-4 text-lg font-extrabold leading-none tracking-tight text-gray-800 md:text-base lg:text-base dark:text-gray-100">
+                            <span className="text-hex">Research </span>Opportunities
+                          </h1>
+                          <p className="text-sm text-gray-700 dark:text-gray-100">
+                            Join our research programs in robotics, AI, and sustainable technology solutions.
+                          </p>
+                        </div>
+                      </div>
                     </div>
-            
+                    
                     {/* <!-- Small Block 2 - Mac Window Style --> */}
-                    <div className="col-span-1 row-span-1 rounded-lg overflow-hidden bg-gray-800 shadow-xl">
-                        {/* Window Controls */}
-                        <div className="flex items-center space-x-2 p-3 bg-gray-900">
-                            <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                            <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                        </div>
+                    <div className="col-span-1 row-span-1 rounded-lg overflow-hidden bg-white dark:bg-gray-800 shadow-xl border border-gray-200 dark:border-gray-700">
+                      {/* Window Controls */}
+                      <div className="flex items-center space-x-2 p-3 bg-gray-100 dark:bg-gray-900">
+                        <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                      </div>
                     
-                        {/* Content Container */}
-                        <div className="flex flex-col md:flex-row items-center">
-                            <div className="w-full md:w-1/2">
-                                <img src={asset('resources/illustrations/mentor.svg')}
-                                    alt="Mentorship session"
-                                    className="w-full h-full object-cover p-2" />
-                            </div>
-                            <div className="w-full md:w-1/2 p-6">
-                                <h1 className="break-words truncate mb-4 text-lg font-extrabold leading-none tracking-tight text-gray-300 md:text-base lg:text-base dark:text-white">
-                                    <span className="text-hex">Mentorship </span>Program
-                                </h1>
-                                <p className="text-sm text-gray-100">
-                                    Get guidance from industry experts and experienced tech professionals.
-                                </p>
-                            </div>
+                      {/* Content Container */}
+                      <div className="flex flex-col md:flex-row items-center">
+                        <div className="w-full md:w-1/2">
+                          <img
+                            src={asset('resources/Illustrations/mentor.svg')}  // fixed casing
+                            alt="Mentorship session"
+                            className="w-full h-full object-cover p-2"
+                          />
                         </div>
+                        <div className="w-full md:w-1/2 p-6">
+                          <h1 className="break-words truncate mb-4 text-lg font-extrabold leading-none tracking-tight text-gray-800 md:text-base lg:text-base dark:text-gray-100">
+                            <span className="text-hex">Mentorship </span>Program
+                          </h1>
+                          <p className="text-sm text-gray-700 dark:text-gray-100">
+                            Get guidance from industry experts and experienced tech professionals.
+                          </p>
+                        </div>
+                      </div>
                     </div>
-            
-                    {/* <!-- Small Block 3 - Mac Window Style --> */}
-                    <div className="col-span-1 row-span-1 rounded-lg overflow-hidden bg-gray-800 shadow-xl">
-                        {/* Window Controls */}
-                        <div className="flex items-center space-x-2 p-3 bg-gray-900">
-                            <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                            <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                        </div>
                     
-                        {/* Content Container */}
-                        <div className="flex flex-col md:flex-row items-center">
-                            <div className="w-full md:w-1/2">
-                                <img src={asset('resources/illustrations/team.svg')}
-                                    alt="Sponsorship event"
-                                    className="w-full h-full object-cover p-2" />
-                            </div>
-                            <div className="w-full md:w-1/2 p-6">
-                                <h1 className="break-words truncate mb-4 text-lg font-extrabold leading-none tracking-tight text-gray-300 md:text-base lg:text-base dark:text-white">
-                                    <span className="text-hex">Partner </span> With Us
-                                </h1>
-                                <p className="text-sm text-gray-100">
-                                    Support our mission to empower young tech innovators in Zambia.
-                                </p>
-                            </div>
+                    {/* <!-- Small Block 3 - Mac Window Style --> */}
+                    <div className="col-span-1 row-span-1 rounded-lg overflow-hidden bg-white dark:bg-gray-800 shadow-xl border border-gray-200 dark:border-gray-700">
+                      {/* Window Controls */}
+                      <div className="flex items-center space-x-2 p-3 bg-gray-100 dark:bg-gray-900">
+                        <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                      </div>
+                    
+                      {/* Content Container */}
+                      <div className="flex flex-col md:flex-row items-center">
+                        <div className="w-full md:w-1/2">
+                          <img
+                            src={asset('resources/Illustrations/team.svg')}  // fixed casing
+                            alt="Sponsorship event"
+                            className="w-full h-full object-cover p-2"
+                          />
                         </div>
+                        <div className="w-full md:w-1/2 p-6">
+                          <h1 className="break-words truncate mb-4 text-lg font-extrabold leading-none tracking-tight text-gray-800 md:text-base lg:text-base dark:text-gray-100">
+                            <span className="text-hex">Partner </span>With Us
+                          </h1>
+                          <p className="text-sm text-gray-700 dark:text-gray-100">
+                            Support our mission to empower young tech innovators in Zambia.
+                          </p>
+                        </div>
+                      </div>
                     </div>
                 </div>
             </div>
@@ -417,12 +422,16 @@ const Home: React.FC = () => {
                             <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
                                 Stay connected with the latest in tech innovation and educational opportunities at Plastal-Bot Builders. 
                                 Subscribe to our newsletter and be the first to know about:
-                                • Upcoming workshops and bootcamps
-                                • Success stories from our students
-                                • New program launches
-                                • Tech industry insights and trends
-                                • Exclusive events and networking opportunities
-                                
+                            </p>
+                                <ul className="list-disc pl-6 my-4 space-y-1">
+                                    <li> Upcoming workshops and bootcamps </li>
+                                    <li> Success stories from our students </li>
+                                    <li> New program launches </li>
+                                    <li> Tech industry insights and trends </li>
+                                    <li> Exclusive events and networking opportunities </li>
+                                </ul>
+
+                            <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">   
                                 Join our growing community of tech enthusiasts and future innovators. Don't miss out on the chance 
                                 to be part of Zambia's digital transformation journey.
                             </p>

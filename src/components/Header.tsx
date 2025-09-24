@@ -36,7 +36,7 @@ const Header: React.FC = () => {
     : asset('resources/Logo/fred1.svg')
 
   return (
-    <nav className="w-full z-50 side-header backdrop-blur-sm">
+    <nav className="w-full z-50 site-header backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           {/* Logo (served from public/resources/...) */}

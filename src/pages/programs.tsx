@@ -178,10 +178,10 @@ const Programs: React.FC = () => {
             <div className="max-w-7xl mx-auto px-4 py-12">
                 <div className="flex flex-col md:flex-row items-center gap-8">
                     <div className="w-full md:w-1/2">
-                        <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
+                        <h1 className="text-4xl md:text-6xl font-bold mb-4">
                             <span className="text-hex">Plastal-Bot</span> 5-Day Robotics & AI Bootcamp
                         </h1>
-                        <p className="text-gray-300 mb-6 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
+                        <p className="mb-6 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
                             Experience an intensive hands-on journey into robotics and AI. Master essential tools 
                             like TinkerCad, Fusion 360, ROS2, and more while building real-world projects.
                         </p>
@@ -194,14 +194,14 @@ const Programs: React.FC = () => {
             </div>
             {/* Daily Schedule */}           
             <div className="max-w-7xl mx-auto px-4">
-                <h2 className="text-3xl font-bold text-white mb-8">Daily Schedule</h2>
+                <h2 className="text-3xl font-bold mb-8">Daily Schedule</h2>
                 <div className="overflow-x-auto">
                     <table className="w-full border-collapse">
                         <thead className="sticky top-0 bg-gray-800">
                             <tr className="text-left">
-                                <th className="p-4 text-white font-bold border-b border-gray-700">Day & Title</th>
-                                <th className="p-4 text-white font-bold border-b border-gray-700">Topics</th>
-                                <th className="p-4 text-white font-bold border-b border-gray-700">Tools</th>
+                                <th className="p-4 font-bold border-b border-gray-700">Day & Title</th>
+                                <th className="p-4 font-bold border-b border-gray-700">Topics</th>
+                                <th className="p-4 font-bold border-b border-gray-700">Tools</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -212,17 +212,17 @@ const Programs: React.FC = () => {
                                 >
                                     <td className="p-4">
                                         <h3 className="text-hex text-xl font-bold">{day.day}</h3>
-                                        <p className="text-white font-medium">{day.title}</p>
+                                        <p className="font-medium">{day.title}</p>
                                     </td>
                                     <td className="p-4">
-                                        <ul className="list-disc list-inside text-gray-300 space-y-2">
+                                        <ul className="list-disc list-inside space-y-2">
                                             {day.topics.map((topic, i) => (
                                                 <li key={i}>{topic}</li>
                                             ))}
                                         </ul>
                                     </td>
                                     <td className="p-4">
-                                        <p className="text-gray-400 mb-2">Tools:</p>
+                                        <p className="mb-2">Tools:</p>
                                         <div className="flex flex-wrap gap-3">
                                             {day.tools.map((tool, i) => (
                                                 tool.icon ? (
@@ -244,7 +244,7 @@ const Programs: React.FC = () => {
             </div>           
             {/* Key Takeaways */}
             <div className="max-w-7xl mx-auto px-4 py-16">
-                <h2 className="text-3xl font-bold text-white mb-8">What You'll Learn</h2>
+                <h2 className="text-3xl font-bold mb-8">What You'll Learn</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {[
                         {
@@ -264,7 +264,7 @@ const Programs: React.FC = () => {
                             desc: "Certificate and portfolio piece to showcase your capabilities"
                         }
                     ].map((item, index) => (
-                        <div key={index} className="p-6 border-2 border-gray-300 hover:border-[#0CFFBB] rounded-lg transition-all">
+                        <div key={index} className="p-6 border-2 hover:border-[#0CFFBB] rounded-lg transition-all">
                             <h3 className="text-hex text-xl font-bold mb-4">{item.title}</h3>
                             <p className="text-gray-300">{item.desc}</p>
                         </div>
@@ -273,8 +273,8 @@ const Programs: React.FC = () => {
             </div>
             {/* CTA Section */}
             <div className="max-w-7xl mx-auto px-4 text-center mb-4">
-                <h2 className="text-3xl font-bold text-white mb-6">Ready to Start Your Journey?</h2>
-                <p className="text-gray-300 mb-8 max-w-2xl mx-auto text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
+                <h2 className="text-3xl font-bold mb-6">Ready to Start Your Journey?</h2>
+                <p className="mb-8 max-w-2xl mx-auto text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
                     Limited spots available. Secure your place in this transformative 
                     5-day bootcamp and take your first step into the world of robotics and AI.
                 </p>

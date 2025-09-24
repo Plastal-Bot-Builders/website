@@ -12,22 +12,21 @@ const Blog: React.FC = () => {
         <Header />
         <div className="max-w-7xl mx-auto p-8">           
             <h1
-                className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
-                <span className="text-hex "> Blog<span className="text-white"> Posts </span></span>
+                className="mb-4 text-3xl font-extrabold leading-none tracking-tight md:text-4xl lg:text-5xl title">
+                <span className="text-hex "> Blog<span className="text-current"> Posts </span></span>
             </h1>
 
             {/* <!-- Blog Introduction --> */}
         
             <div className="mb-12">
-                <p className="text-lg text-white text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">Stay updated with the latest from our robotics workshops, STEM events, and
+                <p className="text-lg text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">Stay updated with the latest from our robotics workshops, STEM events, and
                     sustainability projects. Our blog covers event highlights, articles, and key updates on how we’re making
                     a difference through technology and education.</p>
             </div>
             {/* <!-- Blog Post Grid --> */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {/* <!-- Blog Post 1: Event Highlights --> */}               
-                <div
-                    className="flex flex-col justify-between p-6 rounded-lg  border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                <div className="flex flex-col justify-between p-6 rounded-lg  border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <div>
                         <div className="image mb-4">
                             <img alt="Empowering Innovation Image" src={asset('resources/blogs/blog2.png')}
