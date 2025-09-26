@@ -29,8 +29,11 @@ const Blog: React.FC = () => {
                 <div className="flex flex-col justify-between p-6 rounded-lg  border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
                     <div>
                         <div className="image mb-4">
-                            <img alt="Empowering Innovation Image" src={asset('resources/blogs/blog2.png')}
-                                className="w-full h-48 object-cover rounded-lg mb-4" />
+                            <img 
+                                alt="Empowering Innovation Image" 
+                                src={asset('resources/blogs/blog2.png')}
+                                className="w-full h-48 object-cover rounded-lg mb-4" 
+                            />
                         </div>
                         <h2 className="text-2xl font-bold mb-4"> <span className="text-hex "> Bridging the Digital Divide:</span>
                             Empowering Zambian Youth through Robotics and Programming</h2>
