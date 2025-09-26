@@ -5,40 +5,41 @@
 :root {
   color-scheme: light dark;
 
-  /* Header */
-  --header-bg: rgba(255, 255, 255, 0.90);
-  --header-text: #111827;
-  --header-border: #e5e7eb;
+  --bg: #FFFBEA;           
+  --text: #111827; 
 
   /* Titles */
   --title-color: #D1D5DB; /* gray-300 in light */
+  /* Accent (light) */
+  --accent: #FFFB18;
+  --focus-ring: rgba(255, 251, 24, 0.35);
 
   /* Buttons (light) */
-  --btn-bg: #0CFFBB;
-  --btn-text: #D1D5DB;     /* gray-300 as requested */
-  --btn-border: #0CFFBB;
-  --btn-hover-bg: #0AF0AD;
-  --btn-hover-border: #7fffe0;
+  --btn-bg: #FFFB18;
+  --btn-text: #111827;
+  --btn-border: #E6D200;     /* deeper amber for default border */
+  --btn-hover-bg: #FFE91A;   /* hover: slight shift toward amber */
+  --btn-hover-border: #CBB400;/* hover border accent */
 
   /* Loader (light) */
-  --loader-backdrop: #FFFFFF;
+  --loader-backdrop: #FFFBEA;
   --loader-spinner: #100D3B;
 }
 
 /* 3) Dark theme overrides */
 html.dark {
-  --header-bg: rgba(11, 10, 31, 0.90);
-  --header-text: #F3F4F6;
-  --header-border: #374151;
-
   --title-color: #FFFFFF;
 
-  /* Buttons (dark) */
-  --btn-bg: #14b8a6;
-  --btn-text: #D1D5DB;     /* keep gray-300 for contrast */
-  --btn-border: #14b8a6;
-  --btn-hover-bg: #0ea5a0;
-  --btn-hover-border: #34d399;
+  /* Accent (dark) */
+  --accent: #0CFFBB;
+  --focus-ring: rgba(12, 255, 187, 0.35);
+
+  /* Buttons (dark) use #0CFFBB */
+  --btn-bg: #0CFFBB;
+  --btn-text: #0B0A1F;
+  --btn-border: #0CFFBB;
+  --btn-hover-bg: #09E6A9;     /* slightly deeper */
+  --btn-hover-border: #3CFCCE; /* brighter edge */
 
   /* Loader (dark) */
   --loader-backdrop: #0B0A1F;
@@ -49,8 +50,8 @@ html.dark {
 body {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
     "Courier New", monospace;
-  background-color: #ffffff;
-  color: #111827;
+  background-color: var(--bg);
+  color: var(--text);
 }
 html.dark body {
   background-color: #0B0A1F;
@@ -70,6 +71,10 @@ html.dark body {
   color: var(--header-text);
   border-bottom: 1px solid var(--header-border);
 }
+
+.themed-border { border-color: var(--header-border) !important;}
+
+
 .site-header a { color: inherit; }
 
 nav { transition: all 0.3s ease-in-out; }
@@ -97,6 +102,11 @@ nav a {
   transform: translateY(-1px);
 }
 
+.custom-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 251, 24, 0.35);
+}
+
 /* 8) Loader */
 .loader-background {
   position: fixed;
@@ -117,7 +127,7 @@ nav a {
 .logo { height: 150px; width: 150px; }
 .container { width: 80%; margin: 0 auto; padding: 20px 0; }
 .nav-link { color: inherit; text-decoration: none; transition: color 0.3s, transform 0.3s; }
-.nav-link:hover { color: #0CFFBB; transform: scale(1.1); }
+.nav-link:hover { color: #CBB400; transform: scale(1.1); }
 header { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
 header img { width: 100px; }
 .btn { padding: 10px 20px; border-radius: 5px; text-decoration: none; color: #000000; }
@@ -138,7 +148,7 @@ header img { width: 100px; }
 .content-row .image { width: 45%; }
 .button-container .btn { margin-right: 10px; }
 .icon-size { font-size: 32px; transition: color 0.3s, transform 0.3s; }
-.icon-size:hover { color: #0CFFBB; transform: scale(1.2); }
+.icon-size:hover { color: #CBB400; transform: scale(1.2); }
 footer { text-align: center; padding: 20px 0; border-top: 1px solid #FFFFFF; }
 footer a { color: #FFFFFF; margin: 0 10px; text-decoration: none; }
 footer p { margin: 10px 0; }

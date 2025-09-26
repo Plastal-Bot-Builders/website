@@ -1,21 +1,16 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY!);
+const apiKey = process.env.RESEND_API_KEY;
+const resend = new Resend(apiKey || '');
 
-// Where you receive notifications
-const ORG_EMAIL =
-  process.env.ORG_NOTIFICATION_EMAIL ||
-  'plastalbotbuilders@gmail.com';
-
-// From must be a verified domain in Resend (replace notify@yourdomain.com with yours)
-const FROM_EMAIL =
-  process.env.FROM_EMAIL ||
-  'Plastal Bot Builders <notify@yourdomain.com>';
+const ORG_EMAIL = process.env.ORG_NOTIFICATION_EMAIL || 'plastalbotbuilders@gmail.com';
+const FROM_EMAIL = process.env.FROM_EMAIL || 'Plastal Bot Builders <notify@yourdomain.com>';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  if (req.method !== 'POST')
-    return res.status(405).json({ error: 'Method not allowed' });
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
+
+  if (!apiKey) return res.status(500).json({ error: 'Missing RESEND_API_KEY' });
 
   const { email } = req.body || {};
   if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email))
@@ -23,14 +18,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   try {
     await resend.emails.send({
-      from: FROM_EMAIL,
-      to: ORG_EMAIL,
+      from: FROM_EMAIL,            // must be verified in Resend
+      to: ORG_EMAIL,               // your Gmail receives the notification
       subject: 'New Newsletter Subscriber',
       text: `New subscriber: ${email}`,
       reply_to: 'plastalbotbuilders@gmail.com'
     });
     return res.json({ ok: true });
-  } catch {
+  } catch (e) {
+    console.error('Resend error:', e);
     return res.status(500).json({ error: 'Send failed' });
   }
 }

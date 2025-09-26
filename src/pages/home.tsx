@@ -7,6 +7,7 @@ import LogoCarousel from '../components/LogoCarousel';
 import Button from '../components/Button';
 import styled from 'styled-components';
 import { asset } from '../utils/asset';
+import ThemedImage from '../theme/ThemedImage';
 
 const InputField = styled.input`
   background-color: transparent;
@@ -81,9 +82,9 @@ const Home: React.FC = () => {
 
         <div className="w-full md:w-1/2 p-2">
           <div className="image mt-24">
-            <img
+            <ThemedImage 
               alt="Empowering Innovation"
-              src={asset('resources/Illustrations/Data_extraction.svg')}
+              src="resources/Illustrations/Data_extraction.svg"
               className="w-full h-auto object-cover"
             />
           </div>
@@ -132,8 +133,8 @@ const Home: React.FC = () => {
 
             {/* Tall Illustration */}
             <div className="col-span-1 md:row-span-2 flex justify-center items-center p-4">
-              <img
-                src={asset('resources/Illustrations/Visionarytechnology.svg')}
+              <ThemedImage
+                src="resources/Illustrations/Visionarytechnology.svg"
                 alt="Visionary technology illustration"
                 className="w-full h-auto object-cover rounded-lg"
               />
@@ -164,8 +165,8 @@ const Home: React.FC = () => {
                 </div>
                 <div className="flex flex-col md:flex-row items-center">
                   <div className="w-full md:w-1/2">
-                    <img
-                      src={asset(`resources/Illustrations/${c.img}`)}
+                    <ThemedImage
+                      src={`resources/Illustrations/${c.img}`}
                       alt={c.title}
                       className="w-full h-full object-cover p-2"
                     />
@@ -194,8 +195,8 @@ const Home: React.FC = () => {
           <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
             We empower young minds through robotics, programming, and problem-solving—building future-ready creators.
           </p>
-          <img
-            src={asset('resources/Illustrations/Cyborg-bro.svg')}
+          <ThemedImage
+            src="resources/Illustrations/Cyborg-bro.svg"
             alt="Robotics innovation"
             className="w-4/5 h-auto mx-auto mt-auto"
           />
@@ -208,8 +209,8 @@ const Home: React.FC = () => {
           <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
             Interactive workshops and mentorship make technology education accessible and practical for all.
           </p>
-          <img
-            src={asset('resources/Illustrations/Mathematics-bro (1) 1.svg')} 
+          <ThemedImage
+            src="resources/Illustrations/Mathematics-bro.svg"
             // Consider renaming file to remove spaces: Mathematics-bro-1.svg
             alt="Technology education"
             className="w-4/5 h-auto mx-auto mt-auto"
@@ -304,7 +305,7 @@ const Home: React.FC = () => {
               <span className="text-hex">Our</span> Impact
             </h2>
             <img
-              src={asset('resources/Photos/dywen.jpg')}
+              src="resources/Photos/dywen.jpg"
               alt="Student project"
               className="w-full h-32 object-cover rounded-lg mb-4"
             />
@@ -398,8 +399,8 @@ const Home: React.FC = () => {
             </div>
           </div>
           <div className="w-full md:w-1/2 p-4">
-            <img
-              src={asset('resources/Illustrations/Subscriber1.svg')}
+            <ThemedImage
+              src="resources/Illustrations/Subscriber.svg"
               alt="Newsletter illustration"
               className="w-full h-auto object-contain"
             />

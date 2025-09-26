@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { useNavigate } from 'react-router-dom';
 import { asset } from '../utils/asset';
+import ThemedImage from '../theme/ThemedImage';
 
 const About: React.FC = () => {
 
@@ -96,8 +97,8 @@ const About: React.FC = () => {
           {/* Image Container */}
           <div className="w-full md:w-1/2">
             <div className="mt-4 md:mt-0">
-              <img 
-                src={asset('resources/Illustrations/Storyboard-bro.svg')}
+              <ThemedImage
+                src="resources/Illustrations/Storyboard-bro.svg"
                 alt="Empowering Innovation Image"
                 className="w-full h-auto object-cover rounded-lg"
               />
@@ -108,9 +109,11 @@ const About: React.FC = () => {
       <div className="flex flex-col md:flex-row justify-between p-4 space-y-8 md:space-y-0 md:space-x-8 max-w-7xl mx-auto">
         <div className="w-full md:w-1/2 p-2">
           <div className="image mt-4">
-              <img alt="Empowering Innovation Image" height="200"
-                      src={asset('resources/Illustrations/Connecting_teams_bro.svg')}
-                      width="800" className="w-full h-auto object-cover" />
+              <ThemedImage
+                alt="Empowering Innovation Image" 
+                src="resources/Illustrations/Connecting_teams_bro.svg"
+                className="w-full h-auto object-cover" 
+              />
           </div>
         </div>
         {/* Our Story */}
