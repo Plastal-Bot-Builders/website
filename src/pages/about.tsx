@@ -74,8 +74,8 @@ const About: React.FC = () => {
         <div className="flex flex-col md:flex-row gap-8 max-w-7xl mx-auto">
           {/* Text Content */}
           <div className="w-full md:w-1/2">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 title">
-              <span className="text-hex">About</span> <span className="text-current"> Plastal-Bot Builders Org </span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              <span className="text-hex">About</span> Plastal-Bot Builders Org 
             </h1>
             
             <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
@@ -118,8 +118,8 @@ const About: React.FC = () => {
         </div>
         {/* Our Story */}
         <div className="w-full md:w-1/2 p-4">
-          <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight md:text-4xl lg:text-5xl dark:text-white title">
-            <span className="text-hex "> Our </span> <span className="text-current"> Story </span>
+          <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight md:text-4xl lg:text-5xl">
+            <span className="text-hex "> Our </span> Story
           </h1>
           <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
             Founded in Zambia, our organization began with a mission to empower young 
@@ -149,8 +149,8 @@ const About: React.FC = () => {
         {/* Mission & Vision */}
         <div className="mb-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div>
-            <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
-              <span className="text-hex "> Our <span className="text-white"> Mission</span></span>
+            <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight md:text-4xl lg:text-5xl title">
+              <span className="text-hex "> Our </span> Mission
             </h1>
             <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
               Our mission is to empower young people to become innovators and change-makers by equipping them with the skills and knowledge to create sustainable solutions. Through technology, robotics, and environmental advocacy, we aim to inspire the next generation to tackle real-world challenges, drive impactful change, and contribute to a more equitable and sustainable future.
@@ -167,50 +167,49 @@ const About: React.FC = () => {
             </p>
           </div>
           <div>
-            <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
-              <span className="text-hex "> Our <span className="text-white"> Vision </span></span>
+            <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight md:text-4xl lg:text-5xl">
+              <span className="text-hex "> Our </span> Vision 
             </h1>
             <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
             Our vision is to inspire and nurture a generation of bold problem-solvers and innovative thinkers who will harness the power of technology and robotics to create a brighter, more sustainable future for their communities and the world at large. We envision a future where young minds are empowered to think critically, dream big, and take decisive action to solve complex challenges with creativity and purpose.
             </p>
             
             <img 
-            src={asset('resources/Photos/dywen.jpg')} 
+              src={asset('resources/Photos/dywen.jpg')} 
               alt="Bootcamp" 
               className="w-full h-auto object-cover rounded-lg"
-            />
-            
+            />            
             <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
-            By fostering a culture of innovation, collaboration, and inclusivity, we aim to build a world where technology serves as a force for good—bridging gaps, addressing inequalities, and advancing sustainable development. Our vision extends beyond teaching technical skills; we strive to instill a mindset of resilience, adaptability, and ethical responsibility, ensuring that the leaders of tomorrow are equipped not just to succeed but to make a meaningful difference.
+              By fostering a culture of innovation, collaboration, and inclusivity, we aim to build a world where technology serves as a force for good—bridging gaps, addressing inequalities, and advancing sustainable development. Our vision extends beyond teaching technical skills; we strive to instill a mindset of resilience, adaptability, and ethical responsibility, ensuring that the leaders of tomorrow are equipped not just to succeed but to make a meaningful difference.
             </p>
           </div>
         </div>
 
         {/* Our Team */}
         <div className="mb-12">
-          <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight md:text-4xl lg:text-5xl title">
-            <span className="text-hex "> Our </span> <span className="text-current"> Team </span>
+          <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight md:text-4xl lg:text-5xl">
+            <span className="text-hex "> Our </span> Team 
           </h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
               <div
                 key={index}
-                className="rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out p-6 flex flex-col items-center text-center"
+                className="rounded-lg border-2 border-gray-300 hover-border-accent transition duration-300 ease-in-out p-6 flex flex-col items-center text-center"
               >
                 <img
                   src={asset(member.imgSrc)}
                   alt={member.name}
-                  className="w-24 h-24 rounded-full mb-4 border-4 border-[#0CFFBB]"
+                  className="w-24 h-24 rounded-full mb-4 border-4 border-accent"
                 />
                 <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
-                <p className="text-[#0CFFBB]">{member.role}</p>
+                <p className="text-hex">{member.role}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* Call to Action */}
-        <div className="bg-[#0CFFBB] text-black text-center py-12 rounded-lg">
+        <div className="bg-accent on-accent text-center py-12 rounded-lg">
           <h2 className="text-2xl font-bold">Join Us</h2>
           <p className="mt-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">Be part of the movement. Help us shape the future of robotics and technology in Africa.</p>
           <button 

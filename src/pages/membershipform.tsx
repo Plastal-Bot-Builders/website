@@ -5,7 +5,6 @@ import CodeOfConductNotice from '../components/CodeOfConduct';
 import styled from 'styled-components';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { asset } from '../utils/asset';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -139,12 +138,12 @@ const MembershipForm: React.FC = () => {
             <Header />
             <div ref={(el) => el && sectionRef.current.push(el)} className="max-w-7xl mx-auto px-4 ">
                 <h1
-                    className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl dark:text-white">
-                    <span className="text-hex "> Membership <span className="text-white"> Application Form </span></span>
+                    className="mb-4 text-3xl font-extrabold leading-none tracking-tight md:text-4xl lg:text-5xl">
+                    <span className="text-hex "> Membership </span>  Application Form 
                 </h1>
                 {/* Form Application Introduction */}
                 <div className="mb-6">
-                    <p className="text-lg text-white">Our goal is to bridge the technology gap and foster self-sufficiency in
+                    <p className="text-lg">Our goal is to bridge the technology gap and foster self-sufficiency in
                         young people. The stronger our community, the better positioned we are to move the needle for diversity
                         in tech and entrepreneurship. Thank you for joining us.</p>
                 </div>

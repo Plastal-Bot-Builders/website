@@ -18,17 +18,19 @@ const Header: React.FC = () => {
   ];
 
   // FIX: use Link, not <link>, and use "to"
-  const NavLink = ({ path, label }: { path: string; label: string }) => (
-    <Link
-      to={path}
-      className={`transition-colors duration-300 ${
-        location.pathname.startsWith(path) ? 'text-[#0CFFBB]' : 'text-gray-400 hover:text-[#0CFFBB]'
-      }`}
-      onClick={() => setIsMenuOpen(false)}
-    >
-      {label}
-    </Link>
-  );
+  const NavLink = ({ path, label }: { path: string; label: string }) => {
+    const active = location.pathname.startsWith(path);
+    return (
+      <Link
+        to={path}
+        className={`nav-link ${active ? 'nav-link--active' : ''}`}
+        aria-current={active ? 'page' : undefined}
+        onClick={() => setIsMenuOpen(false)}
+      >
+        {label}
+      </Link>
+    );
+};
 
   const logoSrc = 
     resolvedTheme == 'dark'
@@ -67,7 +69,7 @@ const Header: React.FC = () => {
             <button
               type="button"
               onClick={toggle}
-              className="rounded-md border border-gray-700 px-3 py-1.5 text-sm text-gray-300 hover:text-white hover:border-[#0CFFBB] transition"
+              className="theme-toggle"
               title={`Switch to ${resolvedTheme === 'dark' ? 'light' : 'dark'} mode`}
               aria-label="Toggle theme"
             >
@@ -94,7 +96,7 @@ const Header: React.FC = () => {
             <button
               type="button"
               onClick={() => { toggle(); setIsMenuOpen(false); }}
-              className="w-full rounded-md border border-gray-700 px-3 py-2 text-left text-gray-300 hover:text-white hover:border-[#0CFFBB] transition"
+              className="w-full text-left theme-toggle"
               aria-label="Toggle theme"
             >
               Theme: {resolvedTheme === 'dark' ? 'Dark 🌙' : 'Light ☀️'}

@@ -12,8 +12,8 @@ const Blog: React.FC = () => {
         <Header />
         <div className="max-w-7xl mx-auto p-8">           
             <h1
-                className="mb-4 text-3xl font-extrabold leading-none tracking-tight md:text-4xl lg:text-5xl title">
-                <span className="text-hex "> Blog<span className="text-current"> Posts </span></span>
+                className="mb-4 text-3xl font-extrabold leading-none tracking-tight md:text-4xl lg:text-5xl ">
+                <span className="text-hex "> Blog </span> Posts 
             </h1>
 
             {/* <!-- Blog Introduction --> */}

@@ -1,8 +1,7 @@
-import React from 'react';
 import { asset } from '../utils/asset';
 
 type Props = {
-  src: string;      // base path, e.g., resources/Illustrations/Data_extraction.svg
+  src: string;      
   alt: string;
   className?: string;
 };
@@ -10,7 +9,6 @@ type Props = {
 const withLightSuffix = (p: string) => p.replace(/(\.[a-z0-9]+)$/i, '1$1');
 
 export default function ThemedImage({ src, alt, className }: Props) {
-  // Light: base1.svg | Dark: base.svg (controlled by Tailwind .dark)
   const lightSrc = asset(withLightSuffix(src));
   const darkSrc = asset(src);
   return (

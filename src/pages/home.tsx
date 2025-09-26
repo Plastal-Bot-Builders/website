@@ -60,8 +60,8 @@ const Home: React.FC = () => {
       <div className="flex flex-col md:flex-row justify-between p-4 space-y-8 md:space-y-0 md:space-x-8 max-w-7xl mx-auto">
         <div className="w-full md:w-1/2 p-4">
           <div className="text">
-            <h1 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight title">
-              <span className="text-hex">Empowering</span> <span className="text-current">Innovation</span>
+            <h1 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight">
+              <span className="text-hex">Empowering</span> Innovation
             </h1>
             <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
               Welcome to Plastal-Bot Builders! We're on a mission to transform technology education
@@ -93,8 +93,8 @@ const Home: React.FC = () => {
 
       {/* Section: Innovating Through Technology */}
       <div className="max-w-7xl mx-auto p-6">
-        <h1 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight title">
-          <span className="text-hex">Innovating</span> <span className="text-current">Through Technology</span>
+        <h1 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight">
+          <span className="text-hex">Innovating</span> Through Technology
         </h1>
 
         <div className="mb-12">
@@ -189,8 +189,8 @@ const Home: React.FC = () => {
       {/* Fostering Innovation / Enhancing Education */}
       <div className="flex flex-col md:flex-row justify-between max-w-7xl mx-auto p-8 gap-8">
         <div className="w-full md:w-1/2 flex flex-col">
-          <h1 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight title">
-            <span className="text-hex">Fostering</span> <span className="text-current">Innovation</span>
+          <h1 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight">
+            <span className="text-hex">Fostering</span> Innovation
           </h1>
           <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
             We empower young minds through robotics, programming, and problem-solving—building future-ready creators.
@@ -203,8 +203,8 @@ const Home: React.FC = () => {
         </div>
 
         <div className="w-full md:w-1/2 flex flex-col">
-          <h1 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight title">
-            <span className="text-hex">Enhancing</span> <span className="text-current">Education</span>
+          <h1 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight">
+            <span className="text-hex">Enhancing</span> Education
           </h1>
           <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
             Interactive workshops and mentorship make technology education accessible and practical for all.
@@ -220,8 +220,8 @@ const Home: React.FC = () => {
 
       {/* Discover Impact */}
       <div className="max-w-7xl mx-auto p-6">
-        <h1 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight title">
-          <span className="text-hex">Discover Our</span> <span className="text-current">Impact</span>
+        <h1 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight">
+          <span className="text-hex">Discover Our</span> Impact
         </h1>
 
         <div className="mb-12">
@@ -239,8 +239,8 @@ const Home: React.FC = () => {
         {/* Impact Bento */}
         <div className="grid grid-cols-1 sm:grid-cols-3 grid-rows-2 gap-4">
           <div className="col-span-1 sm:col-span-2 row-span-2 pr-4">
-            <h1 className="mb-4 text-2xl md:text-3xl font-extrabold leading-none tracking-tight title">
-              <span className="text-hex">Empowering</span> Young <span className="text-hex">Innovators</span>
+            <h1 className="mb-4 text-2xl md:text-3xl font-extrabold leading-none tracking-tight">
+              <span className="text-hex">Empowering</span> Young Innovators
             </h1>
             <img
               src={asset('resources/Photos/group.png')}
@@ -305,7 +305,7 @@ const Home: React.FC = () => {
               <span className="text-hex">Our</span> Impact
             </h2>
             <img
-              src="resources/Photos/dywen.jpg"
+              src={asset('resources/Photos/dywen.jpg')}
               alt="Student project"
               className="w-full h-32 object-cover rounded-lg mb-4"
             />
@@ -322,8 +322,8 @@ const Home: React.FC = () => {
           </div>
 
           <div className="mt-4 col-span-1 sm:col-span-2 row-span-1">
-            <h2 className="mb-4 text-2xl font-extrabold leading-none tracking-tight title">
-              <span className="text-hex">Building</span> Tomorrow's <span className="text-hex">Leaders</span>
+            <h2 className="mb-4 text-2xl font-extrabold leading-none tracking-tight">
+              <span className="text-hex">Building</span> Tomorrow's Leaders
             </h2>
             <p className="mt-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
               Beyond technical skills, we foster leadership and entrepreneurial thinking.
@@ -351,8 +351,8 @@ const Home: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between space-y-8 md:space-y-0 md:space-x-8">
           <div className="w-full md:w-1/2 p-4">
             <div className="text">
-              <h1 className="mb-6 text-4xl font-extrabold leading-none tracking-tight title">
-                <span className="text-hex">Subscribe To Our</span> <span className="text-current">Newsletter</span>
+              <h1 className="mb-6 text-4xl font-extrabold leading-none tracking-tight">
+                <span className="text-hex">Subscribe To Our </span> Newsletter
               </h1>
               <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
                 Stay connected—get updates on learning opportunities and innovation.
