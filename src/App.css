@@ -5,6 +5,9 @@
 :root {
   color-scheme: light dark;
 
+  --marquee-duration: 28s; /* tweak speed */
+  --marquee-gap: 2rem;     /* space between logos */
+
   --bg: #FFFBEA;           
   --text: #111827; 
 
@@ -35,6 +38,9 @@
 /* 3) Dark theme overrides */
 html.dark {
   --title-color: #FFFFFF;
+
+  --bg: #0B0A1F;
+  --text: #F3F4F6;
 
   /* Accent (dark) */
   --accent: #0CFFBB;
@@ -179,8 +185,6 @@ nav a {
   border-radius: 4px;
 }
 
-.nav-link::after { content: none !important; display: none !important; }
-.nav-link:hover::after { transform: scaleX(1); }
 
 /* Active state */
 .nav-link--active {
@@ -221,11 +225,62 @@ nav a {
   transform: scaleX(1);
 }
 
+/* Themed, responsive marquee */
+.logo-marquee {
+  position: relative;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 48px, #000 calc(100% - 48px), transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0, #000 48px, #000 calc(100% - 48px), transparent 100%);
+}
+
+.logo-marquee__track {
+  display: flex;
+  align-items: center;
+  gap: var(--marquee-gap);
+  width: max-content;                 /* shrink to content for smooth translate */
+  animation: marquee var(--marquee-duration) linear infinite;
+  will-change: transform;
+}
+
+.logo-marquee:hover .logo-marquee__track {
+  animation-play-state: paused;
+}
+
+/* Single logo item */
+.logo-marquee__item {
+  flex: 0 0 auto;
+  opacity: 0.9;
+  transition: transform .2s ease, opacity .2s ease, filter .2s ease;
+}
+.logo-marquee__item:hover {
+  transform: translateY(-2px);
+  opacity: 1;
+  filter: saturate(1.05);
+}
+
+/* Speed by viewport */
+@media (min-width: 768px) {
+  .logo-marquee { --marquee-duration: 36s; --marquee-gap: 2.5rem; }
+}
+@media (min-width: 1280px) {
+  .logo-marquee { --marquee-duration: 42s; --marquee-gap: 3rem; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .logo-marquee__track { animation: none !important; }
+}
+
+/* Keyframes */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); } /* requires duplicated content */
+}
+
 header { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
 header img { width: 100px; }
 .btn { padding: 10px 20px; border-radius: 5px; text-decoration: none; color: #000000; }
-.btn-green { background-color: #0CFFBB; border: 2px solid #ffffff; }
-.btn-blue { background-color: #00FFFF; border: 2px solid #00FFFF; }
+.btn-green { background-color: var(--accent); border: 2px solid var(--card-border-initial); }
 .content { text-align: left; margin: 40px 0; }
 .content h1 { font-size: 36px; margin-bottom: 20px; }
 .content p { font-size: 18px; line-height: 1.6; margin-bottom: 20px; }
@@ -240,14 +295,26 @@ header img { width: 100px; }
 .content-row .text { width: 50%; }
 .content-row .image { width: 45%; }
 .button-container .btn { margin-right: 10px; }
-.icon-size { font-size: 32px; transition: color 0.3s, transform 0.3s; }
-.icon-size:hover { color: #CBB400; transform: scale(1.2); }
-footer { text-align: center; padding: 20px 0; border-top: 1px solid #FFFFFF; }
-footer a { color: #FFFFFF; margin: 0 10px; text-decoration: none; }
-footer p { margin: 10px 0; }
+
+/* Footer (theme-aware) */
+.site-footer {
+  text-align: center;
+  padding: 20px 0;
+  color: var(--text);
+  border-top: 1px solid var(--header-border);
+}
+.site-footer a { color: inherit; margin: 0 10px; text-decoration: none; }
+.site-footer p { margin: 10px 0; }
+
+/* Icons (use accent on hover) */
+.icon-size { font-size: 32px; transition: color .2s ease, transform .15s ease; }
+.icon-size:hover { color: var(--accent); transform: scale(1.2); }
 
 @keyframes typing { from { width: 0; } to { width: 100%; } }
-@keyframes blink-caret { from, to { border-color: transparent; } 50% { border-color: #0CFFBB; } }
+@keyframes blink-caret { 
+  from, to { border-color: transparent; } 
+  50% { border-color: var(--accent); } 
+}
 .carousel { display: flex; overflow: hidden; width: 100%; }
 .carousel-track { display: flex; animation: scroll 15s linear infinite; }
 .carousel-track img { width: 120px; height: auto; margin: 0 20px; }
