@@ -1,23 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React, { Suspense } from 'react';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import './App.css';
 import App from './App';
-import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from './theme/ThemeProvider';
 
+const container = document.getElementById('root')!;
+const root = createRoot(container);
 
-
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+// Optional: set if deploying under a subpath (e.g., GitHub Pages)
+const basename = process.env.PUBLIC_URL || undefined;
 
 root.render(
-  <BrowserRouter>
+  <React.StrictMode>
     <ThemeProvider>
-        <App />
+      <BrowserRouter basename={basename}>
+        <Suspense fallback={<div className="loader-background visible"><div className="loader-container">Loading…</div></div>}>
+          <App />
+        </Suspense>
+      </BrowserRouter>
     </ThemeProvider>
-  </BrowserRouter>
-  
+  </React.StrictMode>
 );
-

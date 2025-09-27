@@ -103,8 +103,6 @@ const Home: React.FC = () => {
           </h2>
           <p className="mb-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
             We blend hands-on engineering with creative problem-solving in robotics, coding, and digital innovation.
-          </p>
-          <p className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
             Through workshops, bootcamps, and project-based learning, we’re preparing young innovators to tackle real-world challenges.
           </p>
         </div>
