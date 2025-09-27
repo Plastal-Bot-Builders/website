@@ -29,10 +29,10 @@ const Support: React.FC = () => {
                 
                 <section className="mb-6">
                     <h1 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight title">
-                        <span className="text-hex"> Support<span className="text-current"> Us</span></span>
+                        <span className="text-hex"> Support </span> Us 
                     </h1>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <div className="p-6 border-2 rounded-lg border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                        <div className="p-6 rounded-lg interactive-card">
                             <div className="image">
                                 <ThemedImage
                                     alt="Empowering Innovation Image" 
@@ -46,7 +46,7 @@ const Support: React.FC = () => {
                                 More about donations →
                             </button>
                         </div>
-                        <div className="p-6 border-2 rounded-lg border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                        <div className="p-6 rounded-lg interactive-card">
                             <div className="image">
                                 <ThemedImage
                                     alt="Empowering Innovation Image"  
@@ -58,7 +58,7 @@ const Support: React.FC = () => {
                             <p className="text-gray text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">Become a sponsor and support specific programs or events tailored to your interests.</p>
                             <button onClick={() => toggleModal('/resources/Illustrations/Sponsorship.svg', <p>Become a sponsor and support specific programs or events tailored to your interests. Your sponsorship helps us reach more people and make a greater impact.</p>)} className="text-white hover:text-[#0CFFBB] mt-4 block">More about sponsorships →</button>
                         </div>
-                        <div className="p-6 border-2 rounded-lg border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                        <div className="p-6 rounded-lg interactive-card">
                             <div className="image">
                                 <ThemedImage 
                                     alt="Empowering Innovation Image" 
@@ -77,10 +77,10 @@ const Support: React.FC = () => {
                 
                 <section className="mb-6">
                     <h1 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight title">
-                        <span className="text-hex"> Volunteer<span className="text-current"> Opportunities</span></span>
+                        <span className="text-hex"> Volunteer </span> Opportunities
                     </h1>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <div className="p-6 border-2 rounded-lg border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                        <div className="p-6 border-2 rounded-lg interactive-card">
                             <div className="image">
                                 <ThemedImage 
                                     alt="Empowering Innovation Image" 
@@ -94,7 +94,7 @@ const Support: React.FC = () => {
                                 <button onClick={() => toggleModal('/resources/Illustrations/Mentorship.svg', <p>Become a mentor and help guide our youth in various technical and life skills. Your mentorship can make a lasting impact on the lives of young people.</p>)} className="text-white hover:text-[#0CFFBB] mt-4 block">More about mentorship →</button>
                             </div>
                         </div>
-                        <div className="p-6 border-2 rounded-lg border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                        <div className="p-6 border-2 rounded-lg interactive-card">
                             <div className="image">
                                 <ThemedImage 
                                     alt="Empowering Innovation Image" 
@@ -108,7 +108,7 @@ const Support: React.FC = () => {
                                 <button onClick={() => toggleModal('/resources/Illustrations/Support.svg', <p>Offer your expertise in technical areas like software development, electronics, or robotics. Your technical support can help us achieve our goals more effectively.</p>)} className="text-white hover:text-[#0CFFBB] mt-4 block">More about technical support →</button>
                             </div>
                         </div>
-                        <div className="p-6 border-2 rounded-lg border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                        <div className="p-6 border-2 rounded-lg interactive-card">
                             <div className="image">
                                 <ThemedImage 
                                     alt="Empowering Innovation Image" 
@@ -129,10 +129,10 @@ const Support: React.FC = () => {
                
                 <section className="mb-6">
                     <h1 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight title">
-                        <span className="text-hex"> Collaborative <span className="text-current"> Partnership</span></span>
+                        <span className="text-hex"> Collaborative </span>  Partnership
                     </h1>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <div className="p-6 border-2 rounded-lg border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                        <div className="p-6 border-2 rounded-lg interactive-card">
                             <div className="image">
                                 <ThemedImage 
                                     alt="Empowering Innovation Image" 
@@ -144,7 +144,7 @@ const Support: React.FC = () => {
                             <p className="text-gray text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">Collaborate with us on large-scale projects or sponsor key events.</p>
                             <button onClick={() => toggleModal('/resources/Illustrations/Partnerships.svg', <p>Collaborate with us on large-scale projects or sponsor key events. Your corporate partnership can help us achieve our goals and make a significant impact.</p>)} className="text-white hover:text-[#0CFFBB] mt-4 block">More about corporate partnerships →</button>
                         </div>
-                        <div className="p-6 border-2 rounded-lg border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                        <div className="p-6 border-2 rounded-lg interactive-card">
                             <div className="image">
                                 <ThemedImage 
                                     alt="Empowering Innovation Image" 
@@ -156,7 +156,7 @@ const Support: React.FC = () => {
                             <p className="text-gray text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">Partner with us to bring educational programs to students and communities.</p>
                             <button onClick={() => toggleModal('/resources/Illustrations/Education.svg', <p>Partner with us to bring educational programs to students and communities. Your collaboration with educational institutions can help us reach more students and make a greater impact.</p>)} className="text-white hover:text-[#0CFFBB] mt-4 block">More about educational partnerships →</button>
                         </div>
-                        <div className="p-6 border-2 rounded-lg border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                        <div className="p-6 border-2 rounded-lg interactive-card">
                             <div className="image">
                                 <ThemedImage 
                                     alt="Empowering Innovation Image" 

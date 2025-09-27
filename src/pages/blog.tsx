@@ -26,7 +26,7 @@ const Blog: React.FC = () => {
             {/* <!-- Blog Post Grid --> */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {/* <!-- Blog Post 1: Event Highlights --> */}               
-                <div className="flex flex-col justify-between p-6 rounded-lg  border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                <div className="flex flex-col justify-between p-6 rounded-lg interactive-card">
                     <div>
                         <div className="image mb-4">
                             <img 
@@ -77,7 +77,7 @@ const Blog: React.FC = () => {
                 {/* <!-- Blog Post 2: STEM and Sustainability --> */}
                 
                 <div
-                    className="flex flex-col justify-between p-6 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out h-full">
+                    className="flex flex-col justify-between p-6 rounded-lg interactive-card">
                     <div>
                         <div className="image mb-4">
                             <img 
@@ -128,7 +128,7 @@ const Blog: React.FC = () => {
                 {/* <!-- Blog Post Container --> */}
                 
                 <div
-                    className="flex flex-col justify-between h-full p-6 rounded-lg  border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                    className="flex flex-col justify-between h-full p-6 rounded-lg interactive-card">
 
                     {/* <!-- Blog Post Title and Paragraph --> */}
                     <div className="image mb-4">
@@ -183,7 +183,7 @@ const Blog: React.FC = () => {
                 {/* <!-- Blog Post 4: Upcoming Events --> */}
                 
                 <div
-                    className="flex flex-col justify-between h-full p-6 rounded-lg  border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                    className="flex flex-col justify-between h-full p-6 rounded-lg interactive-card">
                     <div className="image">
                         <img alt="Empowering Innovation Image" src={asset('resources/blogs/githubblog.webp')}
                             className="w-full h-48 object-cover mb-4 rounded-lg" />
@@ -234,7 +234,7 @@ const Blog: React.FC = () => {
                 {/* <!-- Blog Post 5: STEM Education in Underserved Communities --> */}
                 
                 <div
-                    className="flex flex-col justify-between h-full p-6 rounded-lg  border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                    className="flex flex-col justify-between h-full p-6 rounded-lg interactive-card">
                     <div className="image">
                         <img alt="Empowering Innovation Image" src={asset('resources/blogs/stackoverflowblog.jpeg')}
                             className="w-full h-48 object-cover mb-4 rounded-lg" />
@@ -283,7 +283,7 @@ const Blog: React.FC = () => {
 
                 {/* <!-- Blog Post 6: Robotics and AI --> */}               
                 <div
-                    className="flex flex-col justify-between h-full p-6 rounded-lg  border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                    className="flex flex-col justify-between h-full p-6 rounded-lg interactive-card">
                     <div className="image">
                         <img alt="Empowering Innovation Image" src={asset('resources/blogs/zambiarobotics.jpg')}
                             className="w-full h-48 object-cover mb-4 rounded-lg" />

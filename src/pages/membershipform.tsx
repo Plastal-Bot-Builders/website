@@ -181,7 +181,7 @@ const MembershipForm: React.FC = () => {
                 )}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     {/* Card 1: Section 1 - Personal Information */}
-                    <div className="p-6 rounded-lg  border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                    <div className="p-6 rounded-lg interactive-card">
                         <h2 className="text-xl font-semibold mb-4"> <span className="text-hex "> Section 1: </span> Personal
                             Information</h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -247,7 +247,7 @@ const MembershipForm: React.FC = () => {
                     </div>
                     {/* <!-- Card 2: Section  - Social Media Links --> */}
                     <div
-                        className="p-6 rounded-lg  border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                        className="p-6 rounded-lg  interactive-card">
                         <h2 className="text-xl font-semibold mb-4"> <span className="text-hex "> Section 2: </span>Social Media
                             Links ( Optional ) </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -290,7 +290,7 @@ const MembershipForm: React.FC = () => {
                     </div>
 
                     {/* Card 3: Section 3 - Membership Type */}
-                    <div className="p-6 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                    <div className="p-6 rounded-lg interactive-card">
                         <h2 className="text-xl font-semibold mb-4">
                             <span className="text-hex"> Section 3: </span>Membership Type
                         </h2>
@@ -359,8 +359,7 @@ const MembershipForm: React.FC = () => {
                                     </label><br />
                                     <label>
                                         <Checkbox
-                                            type="checkbox"
-                                            
+                                            type="checkbox"                    
                                         />
                                         Programming/Coding
                                     </label><br />
@@ -404,7 +403,7 @@ const MembershipForm: React.FC = () => {
                     </div>
 
                     {/* Card 4: Section 4 - Interest & Motivation */}
-                    <div className="p-6 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                    <div className="p-6 rounded-lg interactive-card">
                         <h2 className="text-xl font-semibold mb-4">
                             <span className="text-hex"> Section 4: </span> Interest & Motivation
                         </h2>
@@ -525,7 +524,7 @@ const MembershipForm: React.FC = () => {
 
                     {/* <!-- Card 5: Section 5 - Membership Commitments --> */}
                     <div
-                        className="p-6 rounded-lg  border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                        className="p-6 rounded-lg interactive-card">
                         <h2 className="text-xl font-semibold mb-4"> <span className="text-hex "> Section 5: </span> Membership
                             Commitments</h2>
                         <div className="space-y-4">
@@ -565,7 +564,7 @@ const MembershipForm: React.FC = () => {
 
                     {/* <!-- Card 6: Section 6 - Additional Information --> */}  
                     <div
-                        className="p-6 rounded-lg  border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+                        className="p-6 rounded-lg interactive-card">
                         <h2 className="text-xl font-semibold mb-4"> <span className="text-hex "> Section 6: </span> Additional
                             Information</h2>
                         <div className="space-y-4">
@@ -589,7 +588,7 @@ const MembershipForm: React.FC = () => {
                     </div>
                     {/* <!-- Card 6: Section 6 - Declaration & Consent --> */}
                     <div
-                        className="p-6 rounded-lg  border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out lg:col-span-2">
+                        className="p-6 rounded-lg interactive-card lg:col-span-2">
                         <h2 className="text-xl font-semibold mb-4"> <span className="text-hex "> Section 7: </span> Declaration
                             & Consent</h2>
                         <div className="space-y-4">

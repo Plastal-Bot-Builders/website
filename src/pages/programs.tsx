@@ -239,7 +239,7 @@ const Programs: React.FC = () => {
                     { label: 'Participants', value: '50+ learners' },
                     { label: 'Highlights', value: 'Competition, Workshops, CBU Robotics Club' }
                     ].map((h, i) => (
-                    <div key={i} className="p-4 rounded-lg border-2 border-gray-300 hover-border-accent transition">
+                    <div key={i} className="p-4 interactive-card">
                         <p className="text-xs uppercase tracking-wide opacity-75">{h.label}</p>
                         <p className="mt-1 text-lg font-semibold">{h.value}</p>
                     </div>
@@ -266,7 +266,7 @@ const Programs: React.FC = () => {
                         desc: 'Showcase event with challenges testing speed, precision, and teamwork.'
                     }
                     ].map((a, i) => (
-                    <div key={i} className="p-6 rounded-lg border-2 border-gray-300 hover-border-accent transition">
+                    <div key={i} className="p-6 interactive-card">
                         <h3 className="text-hex text-xl font-bold mb-2">{a.title}</h3>
                         <p className="opacity-90">{a.desc}</p>
                     </div>
@@ -320,16 +320,16 @@ const Programs: React.FC = () => {
             <h2 className="text-3xl font-bold mb-8">Daily Schedule</h2>
             <div className="overflow-x-auto">
               <table className="w-full border-collapse">
-                <thead className="sticky top-0 bg-gray-800">
+                <thead className="sticky top-0 table-head">
                   <tr className="text-left">
-                    <th className="p-4 font-bold border-b border-gray-700">Day & Title</th>
-                    <th className="p-4 font-bold border-b border-gray-700">Topics</th>
-                    <th className="p-4 font-bold border-b border-gray-700">Tools</th>
+                    <th className="p-4 font-bold table-cell">Day & Title</th>
+                    <th className="p-4 font-bold table-cell">Topics</th>
+                    <th className="p-4 font-bold table-cell">Tools</th>
                   </tr>
                 </thead>
                 <tbody>
                   {days.map((day, index) => (
-                    <tr key={index} className="border-b border-gray-700 hover:bg-gray-800 transition-colors">
+                    <tr key={index} className="table-row">
                       <td className="p-4">
                         <h3 className="text-hex text-xl font-bold">{day.day}</h3>
                         <p className="font-medium">{day.title}</p>
@@ -373,7 +373,7 @@ const Programs: React.FC = () => {
                 { title: 'Technical Knowledge', desc: 'Master fundamentals of robotics, electronics, and AI integration' },
                 { title: 'Career Growth', desc: 'Certificate and portfolio piece to showcase your capabilities' }
               ].map((item, index) => (
-                <div key={index} className="p-6 border-2 hover-border-accent rounded-lg transition-all">
+                <div key={index} className="p-6 rounded-lg interactive-card">
                   <h3 className="text-hex text-xl font-bold mb-4">{item.title}</h3>
                   <p className="opacity-90">{item.desc}</p>
                 </div>

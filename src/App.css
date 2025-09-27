@@ -8,6 +8,11 @@
   --bg: #FFFBEA;           
   --text: #111827; 
 
+  --surface-bg: #FFFEF2;        /* warm near-white surface */
+  --surface-hover-bg: #FFF7D1;  /* subtle hover lift */
+  --surface-border: #EADFB4;    /* warm sand border */
+  --card-border-initial: #000000;
+
   /* Titles */
   --title-color: #111827; 
 
@@ -35,12 +40,18 @@ html.dark {
   --accent: #0CFFBB;
   --focus-ring: rgba(12, 255, 187, 0.35);
 
+  --surface-bg: #0F1221;
+  --surface-hover-bg: #141A31;
+  --surface-border: #1F243B;
+
   /* Buttons (dark) use #0CFFBB */
   --btn-bg: #0CFFBB;
   --btn-text: #0B0A1F;
   --btn-border: #0CFFBB;
   --btn-hover-bg: #09E6A9;     /* slightly deeper */
   --btn-hover-border: #3CFCCE; /* brighter edge */
+
+  --card-border-initial: #FFFFFF;
 
   /* Loader (dark) */
   --loader-backdrop: #0B0A1F;
@@ -54,6 +65,7 @@ body {
   background-color: var(--bg);
   color: var(--text);
 }
+
 html.dark body {
   background-color: #0B0A1F;
   color: #F3F4F6;
@@ -75,7 +87,6 @@ html.dark body {
 }
 
 .themed-border { border-color: var(--header-border) !important;}
-
 
 .site-header a { color: inherit; }
 
@@ -146,6 +157,7 @@ nav a {
 
 /* Accent utilities */
 .border-accent { border-color: var(--accent) !important; }
+.border-initial { border-color: var(--card-border-initial) !important; }
 .hover-border-accent:hover { border-color: var(--accent) !important; }
 .bg-accent { background-color: var(--accent) !important; }
 .on-accent { color: var(--btn-text) !important; }
@@ -173,6 +185,36 @@ nav a {
 /* Active state */
 .nav-link--active {
   color: var(--accent);
+}
+
+/* Themed surfaces for tables/cards */
+.surface { background-color: var(--surface-bg); }
+.surface-hover:hover { background-color: var(--surface-hover-bg); }
+.border-surface { border-color: var(--surface-border) !important; }
+
+
+/* Table helpers */
+.table-head { background-color: var(--surface-bg); }
+.table-row { border-bottom: 1px solid var(--surface-border); transition: background-color .2s ease; }
+.table-row:hover { background-color: var(--surface-hover-bg); }
+.table-cell { border-bottom: 1px solid var(--surface-border); }
+
+.accent-hover { color: inherit; transition: color .2s ease; }
+.accent-hover:hover { color: var(--accent) !important; }
+
+/* Existing interactive card */
+.interactive-card {
+  background-color: var(--surface-bg);
+  border: 1px solid var(--card-border-initial);
+  border-radius: 12px;
+  transition: transform .2s ease, box-shadow .25s ease, border-color .2s ease, background-color .2s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04);
+}
+.interactive-card:hover {
+  background-color: var(--surface-hover-bg);
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
 }
 
 .nav-link--active::after {

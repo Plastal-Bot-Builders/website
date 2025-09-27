@@ -264,7 +264,7 @@ const Home: React.FC = () => {
             </div>
           </div>
 
-          <div className="col-span-1 flex justify-center items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+          <div className="col-span-1 flex justify-center items-center p-4 rounded-lg interactive-card">
             <div>
               <h2 className="mb-4 text-2xl font-extrabold leading-none tracking-tight title text-center">
                 <span className="text-hex">Tech</span> Training
@@ -275,7 +275,7 @@ const Home: React.FC = () => {
             </div>
           </div>
 
-          <div className="col-span-1 flex justify-center items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+          <div className="col-span-1 flex justify-center items-center p-4 rounded-lg interactive-card">
             <div>
               <h2 className="mb-4 text-2xl font-extrabold leading-none tracking-tight title text-center">
                 <span className="text-hex">Innovation</span> Hub
@@ -289,7 +289,7 @@ const Home: React.FC = () => {
 
         {/* Second Bento */}
         <div className="grid grid-cols-1 sm:grid-cols-3 grid-rows-2 gap-4 mt-4">
-          <div className="col-span-1 row-span-1 flex justify-center items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+          <div className="col-span-1 row-span-1 flex justify-center items-center p-4 rounded-lg interactive-card">
             <div>
               <h2 className="mb-4 text-2xl font-extrabold leading-none tracking-tight title text-center">
                 <span className="text-hex">Youth</span> Programs
@@ -333,7 +333,7 @@ const Home: React.FC = () => {
             </p>
           </div>
 
-          <div className="mt-4 col-span-1 row-span-1 flex justify-center items-center p-4 rounded-lg border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">
+          <div className="mt-4 col-span-1 row-span-1 flex justify-center items-center p-4 rounded-lg interactive-card">
             <div>
               <h2 className="mb-4 text-2xl font-extrabold leading-none tracking-tight title text-center">
                 <span className="text-hex">Join Us</span>
