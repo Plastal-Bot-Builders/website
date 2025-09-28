@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Button from '../components/Button';
@@ -196,12 +196,42 @@ const Programs: React.FC = () => {
             ]
         }
     ];
+    const ImageWithFallback: React.FC<{
+      src: string;
+      alt: string;
+      className?: string;
+      loading?: 'lazy' | 'eager';
+    }> = ({ src, alt, className, loading = 'lazy' }) => {
+      const candidates = useMemo(() => {
+        const lower = src.toLowerCase();
+        if (lower.endsWith('.HEIC')) {
+          const base = src.slice(0, -5);
+          return [`${base}.webp`, `${base}.jpg`, src];
+        }
+        if (/\.(png|jpe?g)$/i.test(lower)) {
+          const base = src.replace(/\.(png|jpe?g)$/i, '');
+          return [`${base}.webp`, src];
+        }
+        return [src];
+      }, [src]);
 
+      const [idx, setIdx] = React.useState(0);
+      const current = candidates[idx];
 
+      return (
+        <img
+          src={encodeURI(asset(current))}
+          alt={alt}
+          className={className}
+          loading={loading}
+          decoding="async"
+          onError={() => setIdx(i => (i + 1 < candidates.length ? i + 1 : i))}
+        />
+      );
+    };
     return (
         <section className="scroll-smooth focus:scroll-auto">
             <Header />
-
             {/* Program tabs */}
             <div className="max-w-7xl mx-auto px-4 pt-10">
                 <div className="flex items-center gap-3">
@@ -298,12 +328,11 @@ const Programs: React.FC = () => {
                 <h2 className="text-2xl font-bold mb-4">Event Gallery</h2>
                 <div className="grid grid-cols-2 gap-3">
                     {spikeGallery.map((p, i) => (
-                    <img
+                    <ImageWithFallback
                         key={i}
-                        src={url(p)}
+                        src={p}
                         alt={`Spike Prime event ${i + 1}`}
                         className="w-full h-28 md:h-32 lg:h-36 object-cover rounded-lg img-hover-tilt"
-                        loading="lazy"
                     />
                     ))}
                 </div>
@@ -455,12 +484,11 @@ const Programs: React.FC = () => {
             <h2 className="text-2xl font-bold mb-4">Workshop Gallery</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
               {introGallery.map((p, i) => (
-                <img
+                <ImageWithFallback
                   key={i}
-                  src={url(p)}
-                  alt={`Intro Robotics Workshop ${i + 1}`}
+                  src={p}    
+                  alt={`Intro Robotics Workshop ${i + 1}`}             
                   className="w-full h-28 md:h-40 object-cover rounded-lg img-hover-tilt"
-                  loading="lazy"
                 />
               ))}
             </div>
