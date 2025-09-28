@@ -1,16 +1,65 @@
+/* Parallax/Marquee container */
 .parallax {
-     overflow: hidden;
-     white-space: nowrap;
-     display: flex;
-   }
-   
-   .scroller {
-     display: inline-block;
-     white-space: nowrap;
-   }
-   
-   .scroller span {
-     font-size: 2rem; /* Adjust font size as needed */
-     padding-right: 2rem; /* Space between repeated text */
-   }
-   
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 48px, #000 calc(100% - 48px), transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0, #000 48px, #000 calc(100% - 48px), transparent 100%);
+}
+
+/* Scrolling track (duplicate content inside for seamless loop) */
+.scroller {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--marquee-gap, 2rem);
+  white-space: nowrap;
+  width: max-content;
+  animation: parallax-scroll var(--marquee-duration, 28s) linear infinite;
+  will-change: transform;
+}
+
+/* Pause on hover */
+.parallax:hover .scroller {
+  animation-play-state: paused;
+}
+
+/* Items */
+.scroller span {
+  display: inline-block;
+  font-size: 2rem;
+  padding-right: var(--marquee-gap, 2rem);
+  white-space: nowrap;
+  opacity: 0.95;
+  transition: transform .2s ease, opacity .2s ease, filter .2s ease;
+}
+.scroller span:hover {
+  transform: translateY(-2px);
+  opacity: 1;
+  filter: saturate(1.05);
+}
+
+/* Optional: reverse direction */
+.parallax.reverse .scroller {
+  animation-direction: reverse;
+}
+
+/* Responsive speed adjustments */
+@media (min-width: 768px) {
+  .parallax { --marquee-duration: 36s; --marquee-gap: 2.5rem; }
+}
+@media (min-width: 1280px) {
+  .parallax { --marquee-duration: 42s; --marquee-gap: 3rem; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .scroller { animation: none !important; }
+}
+
+/* Keyframes (requires duplicated content to loop seamlessly) */
+@keyframes parallax-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+

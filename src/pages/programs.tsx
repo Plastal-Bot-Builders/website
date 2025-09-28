@@ -20,6 +20,18 @@ const Programs: React.FC = () => {
         'resources/SpikePrime/SCAVENGER HUNT (10 of 82).jpg',
         'resources/SpikePrime/SCAVENGER HUNT (11 of 82).jpg'
     ];
+    const introGallery = [
+        'resources/IntroRoboticsWorkshop/IMG_4428.jpg',
+        'resources/IntroRoboticsWorkshop/IMG_4433.HEIC',
+        'resources/IntroRoboticsWorkshop/IMG_4555.HEIC',
+        'resources/IntroRoboticsWorkshop/IMG_4565.HEIC',
+        'resources/IntroRoboticsWorkshop/IMG_4592.HEIC',
+        'resources/IntroRoboticsWorkshop/IMG_4622.HEIC',
+        'resources/IntroRoboticsWorkshop/IMG_4754.HEIC',
+        'resources/IntroRoboticsWorkshop/IMG_4765.HEIC',
+        'resources/IntroRoboticsWorkshop/IMG_4596.HEIC'
+    ];
+    
     interface Tool {
         icon: string | null;
         containerStyle?: {
@@ -213,8 +225,15 @@ const Programs: React.FC = () => {
                     </button>
                 </div>
             </div>
-
-            {/* Completed Program: Spike Prime Robotics Bootcamp */}
+            {/* Completed tab: quick in-page nav to multiple completed programs */}
+            {tab === 'completed' && (
+                <div className="max-w-7xl mx-auto px-4 pt-6">
+                    <div className="flex flex-wrap gap-3">
+                        <a href="#spike-prime" className="px-3 py-1 rounded-md border border-accent">Spike Prime Bootcamp</a>
+                        <a href="#intro-workshop" className="px-3 py-1 rounded-md border border-accent">Intro to Robotics Workshop</a>
+                    </div>
+                </div>
+            )}
             {tab === 'completed' && (
             <div className="max-w-7xl mx-auto px-4 py-12">
                 <div className="flex flex-col md:flex-row items-start gap-8">
@@ -291,6 +310,162 @@ const Programs: React.FC = () => {
                 </div>
             </div>
             </div>
+      )}
+      {/* New Completed Program: Introduction to Robotics and Programming Workshop */}
+      {tab === 'completed' && (
+        <div id="intro-workshop" className="max-w-7xl mx-auto px-4 py-12">
+          {/* Hero / Introduction */}
+          <div className="mb-8">
+            <h1 className="text-3xl md:text-5xl font-extrabold mb-3 title">
+              Introduction to Robotics and Programming Workshop – <span className="text-hex">Completed Program</span>
+            </h1>
+            <span className="inline-block text-sm font-medium px-3 py-1 rounded-md border border-accent mb-4">
+              Completed Program
+            </span>
+            <p className="text-sm sm:text-base md:text-lg max-w-3xl">
+              Robotics education is a powerful catalyst for opportunity in Zambia. Despite perceptions about limited infrastructure
+              and job prospects, hands-on robotics and programming help learners build critical thinking, creativity, and problem-solving
+              skills. These workshops bridge the digital divide and open pathways to innovation, entrepreneurship, and future-ready careers.
+            </p>
+            {/* Optional banner (replace with an existing file in your folder) */}
+            <div className="mt-6 rounded-xl overflow-hidden interactive-card">
+              <img
+                src={url('resources/IntroRoboticsWorkshop/IMG_4428.jpg')}
+                alt="Introduction to Robotics and Programming Workshop"
+                className="w-full h-56 md:h-72 object-cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
+          {/* Program Overview */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+            <div className="interactive-card p-6">
+              <h3 className="text-xl font-bold mb-2 text-hex">Why Robotics in Zambia?</h3>
+              <p className="opacity-90">
+                Beyond the myths that robotics is impractical, the field develops transferable skills and stimulates local innovation.
+                It supports economic growth by nurturing problem solvers who can tackle community challenges with technology.
+              </p>
+            </div>
+            <div className="interactive-card p-6">
+              <h3 className="text-xl font-bold mb-2 text-hex">Workshop Goals</h3>
+              <ul className="list-disc list-inside space-y-1 opacity-90">
+                <li>Ignite curiosity and confidence with hands-on builds</li>
+                <li>Bridge the digital divide using accessible tools</li>
+                <li>Foster teamwork, communication, and leadership</li>
+                <li>Promote STEM pathways for long-term growth</li>
+              </ul>
+            </div>
+          </div>
+          {/* Impact Areas */}
+          <h2 className="text-2xl font-bold mb-4">Impact Areas</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+            {[
+              {
+                title: 'Addressing Challenges in the Zambian Landscape',
+                points: [
+                  'Filling educational gaps with blended learning',
+                  'Tinkercad integration for safe circuit prototyping',
+                  'Hands-on activities for lasting understanding'
+                ]
+              },
+              {
+                title: 'Tackling Youth Unemployment',
+                points: [
+                  'Alignment with market skills: Python, C++, Arduino',
+                  'Foundations in microcontrollers and robotics',
+                  'Portfolio-building through practical projects'
+                ]
+              },
+              {
+                title: 'Improving Education Quality',
+                points: [
+                  'Critical thinking and problem-solving',
+                  'Collaborative teamwork and peer learning',
+                  'Creativity through design and iteration'
+                ]
+              },
+              {
+                title: 'Promoting Inclusivity and Community Development',
+                points: [
+                  'Broad age range participation (as young as 6)',
+                  'Reducing gender disparities via outreach',
+                  'Community showcases and parent engagement'
+                ]
+              }
+            ].map((block, i) => (
+              <div key={i} className="interactive-card p-6">
+                <h3 className="text-xl font-bold mb-2 text-hex">{block.title}</h3>
+                <ul className="list-disc list-inside space-y-1 opacity-90">
+                  {block.points.map((pt, j) => <li key={j}>{pt}</li>)}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          {/* Unique Insights */}
+          <h2 className="text-2xl font-bold mb-4">Unique Insights</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            {[
+              { title: 'Empowering Local Innovators', desc: 'Learners prototype solutions to local challenges, building agency and ownership.' },
+              { title: 'Sustainable Development (SDGs)', desc: 'Aligns with quality education, decent work, and industry innovation.' },
+              { title: 'Global Collaboration', desc: 'Encourages partnerships with clubs, universities, and global mentors.' }
+            ].map((item, i) => (
+              <div key={i} className="interactive-card p-6">
+                <h3 className="text-xl font-bold mb-2 text-hex">{item.title}</h3>
+                <p className="opacity-90">{item.desc}</p>
+              </div>
+            ))}
+             </div>
+
+          {/* Community & National Impact */}
+          <div className="interactive-card p-6 mb-10">
+            <h2 className="text-2xl font-bold mb-2">Community & National Impact</h2>
+            <p className="opacity-90">
+              Robotics education strengthens the local economy, attracts investment, and nurtures an innovation culture.
+              By equipping youth with modern skills, workshops like this accelerate Zambia’s progress and competitiveness.
+            </p>
+          </div>
+
+          {/* Role of Stakeholders */}
+          <h2 className="text-2xl font-bold mb-4">Role of Stakeholders</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+            {[
+              { title: 'Educators', desc: 'Integrate project-based robotics and encourage experimentation.' },
+              { title: 'Parents & Community', desc: 'Support participation and celebrate achievements.' },
+              { title: 'Policymakers', desc: 'Invest in STEM infrastructure and teacher training.' },
+              { title: 'Private Sector & Non-profits', desc: 'Provide mentorships, internships, and sponsorships.' }
+            ].map((s, i) => (
+              <div key={i} className="interactive-card p-6">
+                <h3 className="text-xl font-bold mb-2 text-hex">{s.title}</h3>
+                <p className="opacity-90">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Conclusion */}
+          <div className="interactive-card p-6 mb-10">
+            <h2 className="text-2xl font-bold mb-2">Conclusion</h2>
+            <p className="opacity-90">
+              This completed workshop prepared youth for future careers, fostered innovation, and contributed to national development.
+              Its lasting impact continues as learners apply their skills in schools, clubs, and community projects.
+            </p>
+          </div>
+          {/* Gallery */}
+          <div>
+            <h2 className="text-2xl font-bold mb-4">Workshop Gallery</h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+              {introGallery.map((p, i) => (
+                <img
+                  key={i}
+                  src={url(p)}
+                  alt={`Intro Robotics Workshop ${i + 1}`}
+                  className="w-full h-28 md:h-40 object-cover rounded-lg img-hover-tilt"
+                  loading="lazy"
+                />
+              ))}
+            </div>
+          </div>
+        </div>
       )}
 
       {/* Upcoming Program: wraps your existing section */}
