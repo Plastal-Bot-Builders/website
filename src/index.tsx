@@ -1,10 +1,11 @@
 import React, { Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
 import './App.css';
 import App from './App';
 import { ThemeProvider } from './theme/ThemeProvider';
+import Admin from './pages/admin';
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
@@ -17,7 +18,12 @@ root.render(
     <ThemeProvider>
       <BrowserRouter basename={basename}>
         <Suspense fallback={<div className="loader-background visible"><div className="loader-container">Loading…</div></div>}>
-          <App />
+          <Routes>
+            <Route path="/admin" element={<Admin />} />
+            {/* All other routes are handled by App */}
+            <Route path="/*" element={<App />} />
+          </Routes>
+
         </Suspense>
       </BrowserRouter>
     </ThemeProvider>
