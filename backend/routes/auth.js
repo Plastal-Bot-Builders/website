@@ -3,18 +3,23 @@ import jwt from 'jsonwebtoken';
 
 const router = Router();
 
-/**
- * POST /api/auth/login
- * Body: { username, password }
- * Returns: { token }
- */
+router.get('/login', (_req, res) => {
+  res.status(405).json({ error: 'Use POST /api/auth/login with JSON { username, password }' });
+});
+
 router.post('/login', (req, res) => {
   const { username, password } = req.body || {};
-  const { ADMIN_USER, ADMIN_PASS, JWT_SECRET } = process.env;
+  const ADMIN_USER = (process.env.ADMIN_USER || '').trim();
+  const ADMIN_PASS = (process.env.ADMIN_PASS || '').trim();
+  const JWT_SECRET = (process.env.JWT_SECRET || '').trim();
 
   if (!JWT_SECRET) return res.status(500).json({ error: 'Missing JWT_SECRET' });
   if (!ADMIN_USER || !ADMIN_PASS) return res.status(500).json({ error: 'Missing admin credentials' });
-  if (username !== ADMIN_USER || password !== ADMIN_PASS) {
+
+  const u = (username || '').trim();
+  const p = (password || '').trim();
+
+  if (u !== ADMIN_USER || p !== ADMIN_PASS) {
     return res.status(401).json({ error: 'Invalid credentials' });
   }
 

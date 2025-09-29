@@ -26,10 +26,21 @@ app.use(
 
 // Routes
 app.use('/api/posts', postsRouter);
+app.use('/posts', postsRouter); // optional alias
 app.use('/api/auth', authRouter);
 
-// Health check
+// Health checks
 app.get('/api/health', (_req, res) => res.json({ ok: true }));
+// NEW: alias base /api and /health for convenience
+app.get('/api', (_req, res) => {
+  res.json({
+    ok: true,
+    service: 'plastalbot-backend',
+    endpoints: ['/api/health', '/api/posts', '/api/auth/login']
+  });
+});
+app.get('/health', (_req, res) => res.json({ ok: true }));
+
 
 // DB + Start
 const PORT = process.env.PORT || 5001;
