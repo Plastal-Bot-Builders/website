@@ -29,7 +29,7 @@ router.get('/:slug', async (req, res) => {
 // POST /api/posts → create (admin)
 router.post('/', requireAuth, async (req, res) => {
   try {
-    const { title, slug, content, author } = req.body || {};
+    const { title, slug, content, author, coverImage, authorAvatar } = req.body || {};
     if (!title || !slug || !content) {
       return res.status(400).json({ error: 'title, slug, and content are required' });
     }
@@ -37,7 +37,9 @@ router.post('/', requireAuth, async (req, res) => {
       title: String(title).trim(),
       slug: String(slug).toLowerCase().trim(),
       content: String(content),
-      author: author ? String(author) : undefined
+      author: author ? String(author) : undefined,
+      coverImage: coverImage ? String(coverImage) : '',
+      authorAvatar: authorAvatar ? String(authorAvatar) : ''
     });
     res.status(201).json(doc);
   } catch (e) {
@@ -55,6 +57,9 @@ router.put('/:id', requireAuth, async (req, res) => {
     const update = { ...req.body };
     if (update.slug) update.slug = String(update.slug).toLowerCase().trim();
     if (update.title) update.title = String(update.title).trim();
+    ['coverImage', 'authorAvatar'].forEach(k => {
+      if (update[k] != null) update[k] = String(update[k]);
+    });
     const doc = await Post.findByIdAndUpdate(req.params.id, update, { new: true });
     if (!doc) return res.status(404).json({ error: 'Post not found' });
     res.json(doc);

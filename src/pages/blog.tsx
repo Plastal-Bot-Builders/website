@@ -74,8 +74,7 @@ const Blog: React.FC = () => {
                 </div>
                 
                 
-                {/* <!-- Blog Post 2: STEM and Sustainability --> */}
-                
+                {/* <!-- Blog Post 2: STEM and Sustainability --> */}                
                 <div
                     className="flex flex-col justify-between p-6 rounded-lg interactive-card">
                     <div>

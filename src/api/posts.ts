@@ -9,6 +9,8 @@ export type Post = {
   date: string;
   createdAt?: string;
   updatedAt?: string;
+  coverImage?: string;
+  authorAvatar?: string;
 };
 
 export type NewPost = {
@@ -17,6 +19,8 @@ export type NewPost = {
   content: string;
   author?: string;
   date?: string | Date;
+  coverImage?: string;
+  authorAvatar?: string;
 };
 
 export async function fetchPosts(): Promise<Post[]> {

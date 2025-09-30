@@ -5,12 +5,20 @@ import cors from 'cors';
 import morgan from 'morgan';
 import postsRouter from './routes/posts.js';
 import authRouter from './routes/auth.js';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import uploadsRouter from './routes/uploads.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 
 dotenv.config();
 
 const app = express();
 
 // Middleware
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(express.json({ limit: '1mb' }));
 app.use(morgan('dev'));
 app.use(
@@ -28,6 +36,7 @@ app.use(
 app.use('/api/posts', postsRouter);
 app.use('/posts', postsRouter); // optional alias
 app.use('/api/auth', authRouter);
+app.use('/api/uploads', uploadsRouter);
 
 // Health checks
 app.get('/api/health', (_req, res) => res.json({ ok: true }));
