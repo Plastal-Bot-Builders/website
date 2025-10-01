@@ -6,6 +6,7 @@ import { asset } from '../utils/asset';
 
 const Blog: React.FC = () => {
     const navigate = useNavigate();
+    
     return (
     <section className="scroll-smooth focus:scroll-auto">
         {/* Navigation Bar */}
@@ -74,8 +75,7 @@ const Blog: React.FC = () => {
                 </div>
                 
                 
-                {/* <!-- Blog Post 2: STEM and Sustainability --> */}
-                
+                {/* <!-- Blog Post 2: STEM and Sustainability --> */}                
                 <div
                     className="flex flex-col justify-between p-6 rounded-lg interactive-card">
                     <div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { login, saveToken, getToken, logout } from '../api/auth';
 import { fetchPosts, createPost, deletePost, type Post, type NewPost } from '../api/posts';
+import { uploadImage } from '../api/uploads';
 
 function slugify(s: string) {
      return s
@@ -16,6 +17,10 @@ export default function Admin() {
      const [loading, setLoading] = React.useState(false);
      const [error, setError] = React.useState<string | null>(null);
 
+
+     const [coverImageUrl, setCoverImageUrl] = React.useState<string>('');     // NEW
+     const [authorAvatarUrl, setAuthorAvatarUrl] = React.useState<string>(''); // NEW
+
      // login form state
      const [username, setUsername] = React.useState('admin');
      const [password, setPassword] = React.useState('changeMe123');
@@ -30,6 +35,30 @@ export default function Admin() {
           // auto-generate slug from title if user hasn't typed a custom one
           setSlug((prev) => (prev ? prev : title ? slugify(title) : ''));
      }, [title]);
+
+     async function onCoverChange(e: React.ChangeEvent<HTMLInputElement>) {    // NEW
+          const file = e.target.files?.[0];
+          if (!file) return;
+          if (!token) return setError('Please log in first');
+          try {
+               const res = await uploadImage(file, token);
+               setCoverImageUrl(res.url);
+          } catch (e: any) {
+               setError(e?.message || 'Cover upload failed');
+          }
+     }
+
+     async function onAvatarChange(e: React.ChangeEvent<HTMLInputElement>) {   // NEW
+          const file = e.target.files?.[0];
+          if (!file) return;
+          if (!token) return setError('Please log in first');
+          try {
+               const res = await uploadImage(file, token);
+               setAuthorAvatarUrl(res.url);
+          } catch (e: any) {
+               setError(e?.message || 'Avatar upload failed');
+          }
+     }
 
      async function loadPosts() {
           setError(null);
@@ -69,13 +98,17 @@ export default function Admin() {
                     title: title.trim(),
                     slug: (slug || slugify(title)).trim(),
                     content,
-                    author: author.trim() || undefined
+                    author: author.trim() || undefined,
+                    coverImage: coverImageUrl || undefined,
+                    authorAvatar: authorAvatarUrl || undefined
                };
                await createPost(payload, token);
                setTitle('');
                setSlug('');
                setAuthor('Admin');
                setContent('');
+               setCoverImageUrl('');
+               setAuthorAvatarUrl('');
                await loadPosts();
           } catch (e: any) {
                setError(e?.message || 'Failed to create post');
@@ -143,6 +176,24 @@ export default function Admin() {
                                    <label>Slug</label>
                                    <input value={slug} onChange={(e) => setSlug(e.target.value)} placeholder="auto from title" style={{ width: '100%' }} />
                               </div>
+                         </div>
+                         <div style={{ marginTop: 8 }}>
+                              <label>Cover Image</label>
+                              <input type="file" accept="image/*" onChange={onCoverChange} />
+                              {coverImageUrl && (
+                                   <div style={{ marginTop: 8 }}>
+                                        <img src={coverImageUrl} alt="Cover preview" style={{ maxWidth: 240, borderRadius: 4 }} />
+                                   </div>
+                              )}
+                         </div>
+                         <div style={{ marginTop: 8 }}>
+                              <label>Author Avatar</label>
+                              <input type="file" accept="image/*" onChange={onAvatarChange} />
+                              {authorAvatarUrl && (
+                                   <div style={{ marginTop: 8 }}>
+                                        <img src={authorAvatarUrl} alt="Avatar preview" style={{ width: 64, height: 64, borderRadius: '50%', objectFit: 'cover' }} />
+                                   </div>
+                              )}
                          </div>
                          <div style={{ marginTop: 8 }}>
                               <label>Author</label>

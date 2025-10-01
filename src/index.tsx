@@ -20,10 +20,8 @@ root.render(
         <Suspense fallback={<div className="loader-background visible"><div className="loader-container">Loading…</div></div>}>
           <Routes>
             <Route path="/admin" element={<Admin />} />
-            {/* All other routes are handled by App */}
             <Route path="/*" element={<App />} />
           </Routes>
-
         </Suspense>
       </BrowserRouter>
     </ThemeProvider>
