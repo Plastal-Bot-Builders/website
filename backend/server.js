@@ -8,6 +8,7 @@ import authRouter from './routes/auth.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import uploadsRouter from './routes/uploads.js';
+import chatRouter from './routes/chat.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -37,6 +38,7 @@ app.use('/api/posts', postsRouter);
 app.use('/posts', postsRouter); // optional alias
 app.use('/api/auth', authRouter);
 app.use('/api/uploads', uploadsRouter);
+app.use('/api/chat', chatRouter);
 
 // Health checks
 app.get('/api/health', (_req, res) => res.json({ ok: true }));

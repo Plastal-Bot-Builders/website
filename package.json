@@ -8,9 +8,8 @@
     "build": "react-scripts build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "dev": "nodemon --env-file .env server.js"
+    "server": "nodemon --env-file ./backend/.env ./backend/server.js",
+    "dev": "react-scripts start"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -55,7 +54,9 @@
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.6.0",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "ollama": "^0.4.9"
   },
   "eslintConfig": {
     "extends": [

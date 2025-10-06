@@ -10,6 +10,7 @@ import MembershipForm from './pages/membershipform';
 import { Grid } from 'react-loader-spinner'; 
 import { Scrollbars } from 'rc-scrollbars';
 import Error404 from './pages/error';
+import Chatbot from './components/Chatbot/Chatbot';
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
@@ -53,6 +54,8 @@ const App: React.FC = () => {
             </div>
           )}
 
+          
+
           {/* Render your routes */}
           <Routes>
             <Route path="/" element={<Navigate to="/home" replace />} />
@@ -65,6 +68,7 @@ const App: React.FC = () => {
             <Route path="*" element={<Error404 />} />
           </Routes>
         </div>
+        <Chatbot />
       </Scrollbars>
   );
 };
