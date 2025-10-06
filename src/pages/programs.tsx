@@ -3,342 +3,343 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Button from '../components/Button';
 import { asset } from '../utils/asset';
+import ThemedImage from '../theme/ThemedImage';
 
 
 const Programs: React.FC = () => {
-    const [tab, setTab] = useState<'completed' | 'upcoming'>('completed');
-    const url = (p: string) => encodeURI(asset(p));
-    const spikeGallery = [
-        'resources/SpikePrime/SCAVENGER HUNT (1 of 82).jpg',
-        'resources/SpikePrime/SCAVENGER HUNT (5 of 82).jpg',
-        'resources/SpikePrime/SCAVENGER HUNT (22 of 82).jpg',
-        'resources/SpikePrime/SCAVENGER HUNT (3 of 82).jpg',
-        'resources/SpikePrime/SCAVENGER HUNT (2 of 82).jpg',
-        'resources/SpikePrime/SCAVENGER HUNT (4 of 82).jpg',
-        'resources/SpikePrime/SCAVENGER HUNT (23 of 82).jpg',
-        'resources/SpikePrime/SCAVENGER HUNT (6 of 82).jpg',
-        'resources/SpikePrime/SCAVENGER HUNT (10 of 82).jpg',
-        'resources/SpikePrime/SCAVENGER HUNT (11 of 82).jpg'
-    ];
-    const introGallery = [
-        'resources/IntroRoboticsWorkshop/IMG_4428.jpg',
-        'resources/IntroRoboticsWorkshop/IMG_4433.HEIC',
-        'resources/IntroRoboticsWorkshop/IMG_4555.HEIC',
-        'resources/IntroRoboticsWorkshop/IMG_4565.HEIC',
-        'resources/IntroRoboticsWorkshop/IMG_4592.HEIC',
-        'resources/IntroRoboticsWorkshop/IMG_4622.HEIC',
-        'resources/IntroRoboticsWorkshop/IMG_4754.HEIC',
-        'resources/IntroRoboticsWorkshop/IMG_4765.HEIC',
-        'resources/IntroRoboticsWorkshop/IMG_4596.HEIC'
-    ];
-    
-    interface Tool {
-        icon: string | null;
-        containerStyle?: {
-          display: string;
-          flexDirection: string;
-          alignItems: string;
-          gap: string;
-        };
-    }
-    const days = [
-        {
-            day: "Day 1",
-            title: "Introduction to Robotics & Electronics",
-            topics: ["Robotics fundamentals", "Basic electronics", "Circuit simulation", "TinkerCad hands-on"],
-            tools: [
-                {   
-                    icon: "/resources/Icons/tinkercad.svg", 
-                    containerStyle: {
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        gap: "8px"
-                    }
-                },
-                {    
-                    icon: "/resources/Icons/arduino.svg", 
-                    containerStyle: {
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        gap: "8px"
-                    }
-                },
-                {    
-                    icon: "/resources/Icons/RaspberryPi.svg", 
-                    containerStyle: {
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        gap: "8px"
-                    }
-                },
-                {   
-                    icon: "/resources/Icons/esp32.svg",
-                    containerStyle: {
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        gap: "8px"
-                    }
-                },
-            ]
-        },
-        {
-            day: "Day 2",
-            title: "CAD Modeling and Prototyping",
-            topics: ["CAD basics", "Robot component design", "3D modeling", "Assembly techniques"],
-            tools: [
-                {    
-                    icon: "/resources/Icons/tinkercad.svg", 
-                    containerStyle: {
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        gap: "8px"
-                    } 
-                },
-                {    
-                    icon: "/resources/Icons/Fusion360.svg",  
-                    containerStyle: {
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        gap: "8px"
-                    }
-                }
-            ]
-        },
-        {
-            day: "Day 3",
-            title: "Programming & AI Fundamentals",
-            topics: ["Python basics", "Machine Learning intro", "Arduino programming", "AI concepts"],
-            tools: [
-                {    
-                    icon: "/resources/Icons/tinkercad.svg", 
-                    containerStyle: {
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        gap: "8px"
-                    } 
-                },
-                {   
-                    icon: "/resources/Icons/tensorflow.svg",  
-                    containerStyle: {
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        gap: "8px"
-                    }
-                },
-                {    
-                    icon: "/resources/Icons/googlecolab.svg", 
-                    containerStyle: {
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        gap: "8px"
-                    }
-                }
-            ]
-        },
-        {
-            day: "Day 4",
-            title: "Advanced Robotics & Automation",
-            topics: ["Computer Vision", "ROS2 basics", "Robot navigation", "Automation"],
-            tools: [
-                {   
-                    icon: "/resources/Icons/tinkercad.svg",
-                    containerStyle: {
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        gap: "8px"
-                    }
-                },
-                {    
-                    icon: "/resources/Icons/yolo.svg",
-                    containerStyle: {
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        gap: "8px"
-                    }
-                },
-                {  
-                    icon: "/resources/Icons/Ros.svg",
-                    containerStyle: {
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        gap: "8px"
-                    }
-                },
-                {   
-                    icon: "/resources/Icons/Gazebo.svg",
-                    containerStyle: {
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        gap: "8px"
-                    }
-                }
-            ]
-        },
-        {
-            day: "Day 5",
-            title: "Project Development & Showcase",
-            topics: ["Group projects", "Project presentation", "LiveA demos", "Certificate ceremony"],
-            tools: [
-                { name: "All previous tools", icon: null }
-            ]
-        }
-    ];
-    const ImageWithFallback: React.FC<{
-      src: string;
-      alt: string;
-      className?: string;
-      loading?: 'lazy' | 'eager';
-    }> = ({ src, alt, className, loading = 'lazy' }) => {
-      const candidates = useMemo(() => {
-        const lower = src.toLowerCase();
-        if (lower.endsWith('.HEIC')) {
-          const base = src.slice(0, -5);
-          return [`${base}.webp`, `${base}.jpg`, src];
-        }
-        if (/\.(png|jpe?g)$/i.test(lower)) {
-          const base = src.replace(/\.(png|jpe?g)$/i, '');
-          return [`${base}.webp`, src];
-        }
-        return [src];
-      }, [src]);
+  const [tab, setTab] = useState<'completed' | 'upcoming'>('completed');
+  const url = (p: string) => encodeURI(asset(p));
+  const spikeGallery = [
+    'resources/SpikePrime/SCAVENGER HUNT (1 of 82).jpg',
+    'resources/SpikePrime/SCAVENGER HUNT (5 of 82).jpg',
+    'resources/SpikePrime/SCAVENGER HUNT (22 of 82).jpg',
+    'resources/SpikePrime/SCAVENGER HUNT (3 of 82).jpg',
+    'resources/SpikePrime/SCAVENGER HUNT (2 of 82).jpg',
+    'resources/SpikePrime/SCAVENGER HUNT (4 of 82).jpg',
+    'resources/SpikePrime/SCAVENGER HUNT (23 of 82).jpg',
+    'resources/SpikePrime/SCAVENGER HUNT (6 of 82).jpg',
+    'resources/SpikePrime/SCAVENGER HUNT (10 of 82).jpg',
+    'resources/SpikePrime/SCAVENGER HUNT (11 of 82).jpg'
+  ];
+  const introGallery = [
+    'resources/IntroRoboticsWorkshop/IMG_4428.jpg',
+    'resources/IntroRoboticsWorkshop/IMG_4433.HEIC',
+    'resources/IntroRoboticsWorkshop/IMG_4555.HEIC',
+    'resources/IntroRoboticsWorkshop/IMG_4565.HEIC',
+    'resources/IntroRoboticsWorkshop/IMG_4592.HEIC',
+    'resources/IntroRoboticsWorkshop/IMG_4622.HEIC',
+    'resources/IntroRoboticsWorkshop/IMG_4754.HEIC',
+    'resources/IntroRoboticsWorkshop/IMG_4765.HEIC',
+    'resources/IntroRoboticsWorkshop/IMG_4596.HEIC'
+  ];
 
-      const [idx, setIdx] = React.useState(0);
-      const current = candidates[idx];
-
-      return (
-        <img
-          src={encodeURI(asset(current))}
-          alt={alt}
-          className={className}
-          loading={loading}
-          decoding="async"
-          onError={() => setIdx(i => (i + 1 < candidates.length ? i + 1 : i))}
-        />
-      );
+  interface Tool {
+    icon: string | null;
+    containerStyle?: {
+      display: string;
+      flexDirection: string;
+      alignItems: string;
+      gap: string;
     };
+  }
+  const days = [
+    {
+      day: "Day 1",
+      title: "Introduction to Robotics & Electronics",
+      topics: ["Robotics fundamentals", "Basic electronics", "Circuit simulation", "TinkerCad hands-on"],
+      tools: [
+        {
+          icon: "/resources/Icons/tinkercad.svg",
+          containerStyle: {
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "8px"
+          }
+        },
+        {
+          icon: "/resources/Icons/arduino.svg",
+          containerStyle: {
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "8px"
+          }
+        },
+        {
+          icon: "/resources/Icons/RaspberryPi.svg",
+          containerStyle: {
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "8px"
+          }
+        },
+        {
+          icon: "/resources/Icons/esp32.svg",
+          containerStyle: {
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "8px"
+          }
+        },
+      ]
+    },
+    {
+      day: "Day 2",
+      title: "CAD Modeling and Prototyping",
+      topics: ["CAD basics", "Robot component design", "3D modeling", "Assembly techniques"],
+      tools: [
+        {
+          icon: "/resources/Icons/tinkercad.svg",
+          containerStyle: {
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "8px"
+          }
+        },
+        {
+          icon: "/resources/Icons/Fusion360.svg",
+          containerStyle: {
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "8px"
+          }
+        }
+      ]
+    },
+    {
+      day: "Day 3",
+      title: "Programming & AI Fundamentals",
+      topics: ["Python basics", "Machine Learning intro", "Arduino programming", "AI concepts"],
+      tools: [
+        {
+          icon: "/resources/Icons/tinkercad.svg",
+          containerStyle: {
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "8px"
+          }
+        },
+        {
+          icon: "/resources/Icons/tensorflow.svg",
+          containerStyle: {
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "8px"
+          }
+        },
+        {
+          icon: "/resources/Icons/googlecolab.svg",
+          containerStyle: {
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "8px"
+          }
+        }
+      ]
+    },
+    {
+      day: "Day 4",
+      title: "Advanced Robotics & Automation",
+      topics: ["Computer Vision", "ROS2 basics", "Robot navigation", "Automation"],
+      tools: [
+        {
+          icon: "/resources/Icons/tinkercad.svg",
+          containerStyle: {
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "8px"
+          }
+        },
+        {
+          icon: "/resources/Icons/yolo.svg",
+          containerStyle: {
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "8px"
+          }
+        },
+        {
+          icon: "/resources/Icons/Ros.svg",
+          containerStyle: {
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "8px"
+          }
+        },
+        {
+          icon: "/resources/Icons/Gazebo.svg",
+          containerStyle: {
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "8px"
+          }
+        }
+      ]
+    },
+    {
+      day: "Day 5",
+      title: "Project Development & Showcase",
+      topics: ["Group projects", "Project presentation", "LiveA demos", "Certificate ceremony"],
+      tools: [
+        { name: "All previous tools", icon: null }
+      ]
+    }
+  ];
+  const ImageWithFallback: React.FC<{
+    src: string;
+    alt: string;
+    className?: string;
+    loading?: 'lazy' | 'eager';
+  }> = ({ src, alt, className, loading = 'lazy' }) => {
+    const candidates = useMemo(() => {
+      const lower = src.toLowerCase();
+      if (lower.endsWith('.HEIC')) {
+        const base = src.slice(0, -5);
+        return [`${base}.webp`, `${base}.jpg`, src];
+      }
+      if (/\.(png|jpe?g)$/i.test(lower)) {
+        const base = src.replace(/\.(png|jpe?g)$/i, '');
+        return [`${base}.webp`, src];
+      }
+      return [src];
+    }, [src]);
+
+    const [idx, setIdx] = React.useState(0);
+    const current = candidates[idx];
+
     return (
-        <section className="scroll-smooth focus:scroll-auto">
-            <Header />
-            {/* Program tabs */}
-            <div className="max-w-7xl mx-auto px-4 pt-10">
-                <div className="flex items-center gap-3">
-                    <button
-                        type="button"
-                        onClick={() => setTab('completed')}
-                        className={`px-4 py-2 rounded-md border transition
+      <img
+        src={encodeURI(asset(current))}
+        alt={alt}
+        className={className}
+        loading={loading}
+        decoding="async"
+        onError={() => setIdx(i => (i + 1 < candidates.length ? i + 1 : i))}
+      />
+    );
+  };
+  return (
+    <section className="scroll-smooth focus:scroll-auto">
+      <Header />
+      {/* Program tabs */}
+      <div className="max-w-7xl mx-auto px-4 pt-10">
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={() => setTab('completed')}
+            className={`px-4 py-2 rounded-md border transition
                         ${tab === 'completed' ? 'bg-accent on-accent border-accent' : 'border-accent'}`}
-                        aria-pressed={tab === 'completed'}
-                    >
-                        Completed Program
-                    </button>
-                    <button
-                        type="button"
-                        onClick={() => setTab('upcoming')}
-                        className={`px-4 py-2 rounded-md border transition
+            aria-pressed={tab === 'completed'}
+          >
+            Completed Program
+          </button>
+          <button
+            type="button"
+            onClick={() => setTab('upcoming')}
+            className={`px-4 py-2 rounded-md border transition
                         ${tab === 'upcoming' ? 'bg-accent on-accent border-accent' : 'border-accent'}`}
-                        aria-pressed={tab === 'upcoming'}
-                    >
-                        Upcoming Program
-                    </button>
-                </div>
-            </div>
-            {/* Completed tab: quick in-page nav to multiple completed programs */}
-            {tab === 'completed' && (
-                <div className="max-w-7xl mx-auto px-4 pt-6">
-                    <div className="flex flex-wrap gap-3">
-                        <a href="#spike-prime" className="px-3 py-1 rounded-md border border-accent">Spike Prime Bootcamp</a>
-                        <a href="#intro-workshop" className="px-3 py-1 rounded-md border border-accent">Intro to Robotics Workshop</a>
-                    </div>
-                </div>
-            )}
-            {tab === 'completed' && (
-            <div className="max-w-7xl mx-auto px-4 py-12">
-                <div className="flex flex-col md:flex-row items-start gap-8">
-                <div className="w-full md:w-2/3">
-                <h1 className="text-4xl md:text-5xl font-bold mb-3 title">
-                    <span className="text-hex">Spike Prime</span> Robotics Bootcamp
-                </h1>
-                <span className="inline-block text-sm font-medium px-3 py-1 rounded-md border border-accent mb-6">
-                    Completed Program
-                </span>
-                <p className="mb-4 text-sm sm:text-base md:text-lg">
-                    A 6-week, hands-on learning experience focused on LEGO Spike Prime robotics,
-                    programming, and team-based problem solving. Hosted in collaboration with the
-                    CBU Robotics Club, the bootcamp blended workshops, a scavenger hunt, CAD and
-                    3D printing, and a final team competition.
-                </p>
+            aria-pressed={tab === 'upcoming'}
+          >
+            Upcoming Program
+          </button>
+        </div>
+      </div>
+      {/* Completed tab: quick in-page nav to multiple completed programs */}
+      {tab === 'completed' && (
+        <div className="max-w-7xl mx-auto px-4 pt-6">
+          <div className="flex flex-wrap gap-3">
+            <a href="#spike-prime" className="px-3 py-1 rounded-md border border-accent">Spike Prime Bootcamp</a>
+            <a href="#intro-workshop" className="px-3 py-1 rounded-md border border-accent">Intro to Robotics Workshop</a>
+          </div>
+        </div>
+      )}
+      {tab === 'completed' && (
+        <div className="max-w-7xl mx-auto px-4 py-12">
+          <div className="flex flex-col md:flex-row items-start gap-8">
+            <div className="w-full md:w-2/3">
+              <h1 className="text-4xl md:text-5xl font-bold mb-3 title">
+                <span className="text-hex">Spike Prime</span> Robotics Bootcamp
+              </h1>
+              <span className="inline-block text-sm font-medium px-3 py-1 rounded-md border border-accent mb-6">
+                Completed Program
+              </span>
+              <p className="mb-4 text-sm sm:text-base md:text-lg">
+                A 6-week, hands-on learning experience focused on LEGO Spike Prime robotics,
+                programming, and team-based problem solving. Hosted in collaboration with the
+                CBU Robotics Club, the bootcamp blended workshops, a scavenger hunt, CAD and
+                3D printing, and a final team competition.
+              </p>
 
-                {/* Highlights */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-8">
-                    {[
-                    { label: 'Duration', value: '6 weeks' },
-                    { label: 'Participants', value: '50+ learners' },
-                    { label: 'Highlights', value: 'Competition, Workshops, CBU Robotics Club' }
-                    ].map((h, i) => (
-                    <div key={i} className="p-4 interactive-card">
-                        <p className="text-xs uppercase tracking-wide opacity-75">{h.label}</p>
-                        <p className="mt-1 text-lg font-semibold">{h.value}</p>
-                    </div>
-                    ))}
-                </div>
+              {/* Highlights */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-8">
+                {[
+                  { label: 'Duration', value: '6 weeks' },
+                  { label: 'Participants', value: '50+ learners' },
+                  { label: 'Highlights', value: 'Competition, Workshops, CBU Robotics Club' }
+                ].map((h, i) => (
+                  <div key={i} className="p-4 interactive-card">
+                    <p className="text-xs uppercase tracking-wide opacity-75">{h.label}</p>
+                    <p className="mt-1 text-lg font-semibold">{h.value}</p>
+                  </div>
+                ))}
+              </div>
 
-                {/* Activities */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {[
-                    {
-                        title: 'Workshops',
-                        desc: 'Core modules on building, programming, and sensor integration with Spike Prime.'
-                    },
-                    {
-                        title: 'Scavenger Hunt',
-                        desc: 'Teams solved engineering clues while applying robotics concepts in the field.'
-                    },
-                    {
-                        title: 'CAD & 3D Printing',
-                        desc: 'Introduced simple CAD workflows to prototype attachments and parts.'
-                    },
-                    {
-                        title: 'Final Competition',
-                        desc: 'Showcase event with challenges testing speed, precision, and teamwork.'
-                    }
-                    ].map((a, i) => (
-                    <div key={i} className="p-6 interactive-card">
-                        <h3 className="text-hex text-xl font-bold mb-2">{a.title}</h3>
-                        <p className="opacity-90">{a.desc}</p>
-                    </div>
-                    ))}
-                </div>
-                </div>
+              {/* Activities */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {[
+                  {
+                    title: 'Workshops',
+                    desc: 'Core modules on building, programming, and sensor integration with Spike Prime.'
+                  },
+                  {
+                    title: 'Scavenger Hunt',
+                    desc: 'Teams solved engineering clues while applying robotics concepts in the field.'
+                  },
+                  {
+                    title: 'CAD & 3D Printing',
+                    desc: 'Introduced simple CAD workflows to prototype attachments and parts.'
+                  },
+                  {
+                    title: 'Final Competition',
+                    desc: 'Showcase event with challenges testing speed, precision, and teamwork.'
+                  }
+                ].map((a, i) => (
+                  <div key={i} className="p-6 interactive-card">
+                    <h3 className="text-hex text-xl font-bold mb-2">{a.title}</h3>
+                    <p className="opacity-90">{a.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-                {/* Gallery */}
-                <div className="w-full md:w-1/3">
-                <h2 className="text-2xl font-bold mb-4">Event Gallery</h2>
-                <div className="grid grid-cols-2 gap-3">
-                    {spikeGallery.map((p, i) => (
-                    <ImageWithFallback
-                        key={i}
-                        src={p}
-                        alt={`Spike Prime event ${i + 1}`}
-                        className="w-full h-28 md:h-32 lg:h-36 object-cover rounded-lg img-hover-tilt"
-                    />
-                    ))}
-                </div>
-                </div>
+            {/* Gallery */}
+            <div className="w-full md:w-1/3">
+              <h2 className="text-2xl font-bold mb-4">Event Gallery</h2>
+              <div className="grid grid-cols-2 gap-3">
+                {spikeGallery.map((p, i) => (
+                  <ImageWithFallback
+                    key={i}
+                    src={p}
+                    alt={`Spike Prime event ${i + 1}`}
+                    className="w-full h-28 md:h-32 lg:h-36 object-cover rounded-lg img-hover-tilt"
+                  />
+                ))}
+              </div>
             </div>
-            </div>
+          </div>
+        </div>
       )}
       {/* New Completed Program: Introduction to Robotics and Programming Workshop */}
       {tab === 'completed' && (
@@ -444,7 +445,7 @@ const Programs: React.FC = () => {
                 <p className="opacity-90">{item.desc}</p>
               </div>
             ))}
-             </div>
+          </div>
 
           {/* Community & National Impact */}
           <div className="interactive-card p-6 mb-10">
@@ -486,8 +487,8 @@ const Programs: React.FC = () => {
               {introGallery.map((p, i) => (
                 <ImageWithFallback
                   key={i}
-                  src={p}    
-                  alt={`Intro Robotics Workshop ${i + 1}`}             
+                  src={p}
+                  alt={`Intro Robotics Workshop ${i + 1}`}
                   className="w-full h-28 md:h-40 object-cover rounded-lg img-hover-tilt"
                 />
               ))}
@@ -513,7 +514,11 @@ const Programs: React.FC = () => {
                 <Button label="Register Now" href="/membershipform" />
               </div>
               <div className="w-full md:w-1/2">
-                <img src={asset('resources/GIF/Robotarm.gif')} alt="Bootcamp" className="w-full"/>
+                <ThemedImage
+                  alt="Empowering Innovation"
+                  src="resources/Illustrations/Robotarmbro.svg"
+                  className="w-full h-auto object-cover"
+                />
               </div>
             </div>
           </div>
@@ -601,7 +606,7 @@ const Programs: React.FC = () => {
 
       <Footer />
     </section>
-    );
+  );
 
 };
 

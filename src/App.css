@@ -19,16 +19,16 @@
   /* Titles */
   --title-color: #111827; 
 
-  /* Accent (light) */
-  --accent: #FFFB18;
-  --focus-ring: rgba(255, 251, 24, 0.35);
+  /* Accent (light) - UPDATED TO AMBER */
+  --accent: #D27D2D;
+  --focus-ring: rgba(210, 125, 45, 0.35);
 
-  /* Buttons (light) */
-  --btn-bg: #FFFB18;
-  --btn-text: #111827;
-  --btn-border: #E6D200;     
-  --btn-hover-bg: #FFE91A;   
-  --btn-hover-border: #CBB400;
+  /* Buttons (light) - UPDATED TO AMBER */
+  --btn-bg: #D27D2D;
+  --btn-text: #FFFFFF;     /* White text for better contrast */
+  --btn-border: #B36823;   /* Slightly darker border */
+  --btn-hover-bg: #E8994A; /* Lighter hover state */
+  --btn-hover-border: #F5B978; /* Even lighter border on hover */
 
   /* Loader (light) */
   --loader-backdrop: #FFFBEA;
