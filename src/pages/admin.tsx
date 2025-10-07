@@ -60,17 +60,41 @@ export default function Admin() {
           }
      }
 
+     // Option 1: If fetchPosts returns {data: Post[]} (recommended)
      async function loadPosts() {
-          setError(null);
-          setLoading(true);
-          try {
-               const data = await fetchPosts();
-               setPosts(data);
-          } catch (e: any) {
-               setError(e?.message || 'Failed to load posts');
-          } finally {
-               setLoading(false);
-          }
+       setError(null);
+       setLoading(true);
+       try {
+         const response = await fetchPosts();
+         console.log('Posts response:', response);
+         
+         // Set posts based on response structure
+         if (Array.isArray(response)) {
+           // Direct array response
+           setPosts(response);
+         } else if (response && typeof response === 'object') {
+           // Object response with data property
+           const postsData = response.data;
+           if (Array.isArray(postsData)) {
+             setPosts(postsData);
+           } else {
+             console.error('Invalid posts data format:', postsData);
+             setPosts([]);
+             setError('Invalid data format received from API');
+           }
+         } else {
+           // Fallback for unexpected response
+           console.error('Unexpected response format:', response);
+           setPosts([]);
+           setError('Invalid response from API');
+         }
+       } catch (e: any) {
+         console.error('Load posts error:', e);
+         setError(e?.message || 'Failed to load posts');
+         setPosts([]);
+       } finally {
+         setLoading(false);
+       }
      }
 
      React.useEffect(() => {
