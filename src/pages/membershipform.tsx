@@ -111,6 +111,57 @@ const TextAreaField = styled.textarea`
   }
 `;
 
+// Add this near the top of your component
+const [formData, setFormData] = useState({
+  // Personal Information
+  fullName: '',
+  dateOfBirth: '',
+  gender: 'Male',
+  email: '',
+  phoneNumber: '',
+  cityCountry: '',
+  occupation: '',
+  
+  // Social Media
+  linkedin: '',
+  facebook: '',
+  instagram: '',
+  twitter: '',
+  otherSocial: '',
+  
+  // Membership Type
+  membershipType: 'Student',
+  educationalBackground: '',
+  expertise: [],
+  otherExpertise: '',
+  
+  // Interest & Motivation
+  inspiration: [],
+  otherInspiration: '',
+  motivation: '',
+  hasExperience: 'No',
+  experienceDescription: '',
+  
+  // Commitments
+  timeAvailability: '1-2 hours',
+  contribution: '',
+  eventParticipation: 'No',
+  
+  // Additional Info
+  referralSource: 'Website',
+  comments: '',
+  
+  // Consents
+  informationAccuracy: false,
+  rulesAgreement: false,
+  dataProcessing: false
+});
+
+// Loading and submission state
+const [isSubmitting, setIsSubmitting] = useState(false);
+const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+const [errorMessage, setErrorMessage] = useState('');
+
 const MembershipForm: React.FC = () => {
     const sectionRef = useRef<HTMLDivElement[]>([]);
 
@@ -129,6 +180,52 @@ const MembershipForm: React.FC = () => {
         });
       });
     }, []);
+
+    // Handle text, select, textarea inputs
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+      const { name, value } = e.target;
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }));
+    };
+    
+    // Handle checkbox inputs
+    const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const { name, value, checked } = e.target;
+      
+      // For regular checkboxes (true/false)
+      if (name === 'informationAccuracy' || name === 'rulesAgreement' || name === 'dataProcessing') {
+        setFormData(prev => ({
+          ...prev,
+          [name]: checked
+        }));
+        return;
+      }
+      
+      // For arrays of checkboxes (like expertise, inspiration)
+      if (name === 'expertise' || name === 'inspiration') {
+        setFormData(prev => {
+          const updatedArray = checked
+            ? [...prev[name], value]
+            : prev[name].filter((item: string) => item !== value);
+          
+          return {
+            ...prev,
+            [name]: updatedArray
+          };
+        });
+        return;
+      }
+      
+      // For radio-like checkboxes (membershipType, hasExperience, eventParticipation)
+      if (name === 'membershipType' || name === 'hasExperience' || name === 'eventParticipation') {
+        setFormData(prev => ({
+          ...prev,
+          [name]: value
+        }));
+      }
+    };
 
     const [showNotice, setShowNotice] = useState(true);   
     const [showPrivacyNotice, setShowPrivacyNotice] = useState(true);
