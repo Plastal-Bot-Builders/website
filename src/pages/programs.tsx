@@ -23,14 +23,14 @@ const Programs: React.FC = () => {
   ];
   const introGallery = [
     'resources/IntroRoboticsWorkshop/IMG_4428.jpg',
-    'resources/IntroRoboticsWorkshop/IMG_4433.HEIC',
-    'resources/IntroRoboticsWorkshop/IMG_4555.HEIC',
-    'resources/IntroRoboticsWorkshop/IMG_4565.HEIC',
-    'resources/IntroRoboticsWorkshop/IMG_4592.HEIC',
-    'resources/IntroRoboticsWorkshop/IMG_4622.HEIC',
-    'resources/IntroRoboticsWorkshop/IMG_4754.HEIC',
-    'resources/IntroRoboticsWorkshop/IMG_4765.HEIC',
-    'resources/IntroRoboticsWorkshop/IMG_4596.HEIC'
+    'resources/IntroRoboticsWorkshop/IMG_4433.jpg',
+    'resources/IntroRoboticsWorkshop/IMG_4555.jpg',
+    'resources/IntroRoboticsWorkshop/IMG_4565.jpg',
+    'resources/IntroRoboticsWorkshop/IMG_4592.jpg',
+    'resources/IntroRoboticsWorkshop/IMG_4622.jpg',
+    'resources/IntroRoboticsWorkshop/IMG_4754.jpg',
+    'resources/IntroRoboticsWorkshop/IMG_4765.jpg',
+    'resources/IntroRoboticsWorkshop/IMG_4596.jpg'
   ];
 
   interface Tool {

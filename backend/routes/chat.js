@@ -1,15 +1,12 @@
 import { Router } from 'express';
-import Ollama from 'ollama';
+import fetch from 'node-fetch';
 
 const router = Router();
 
-// Create Ollama client with your credentials
-const client = new Ollama({
-  host: process.env.OLLAMA_HOST || 'https://ollama.com',
-  headers: { 
-    'Authorization': `Bearer ${process.env.OLLAMA_API_KEY}`
-  }
-});
+// Ollama API configuration
+const OLLAMA_HOST = process.env.OLLAMA_HOST || 'https://ollama.com';
+const OLLAMA_API_KEY = process.env.OLLAMA_API_KEY;
+const OLLAMA_MODEL = process.env.OLLAMA_MODEL || 'gpt-oss:120b';
 
 const SYSTEM_PROMPT = `You are PlastalBot, an AI assistant for a robotics education organization in Zambia.
 Your goal is to help users learn about robotics workshops, STEM education,
@@ -23,18 +20,33 @@ router.post('/', async (req, res) => {
       return res.status(400).json({ error: 'Message is required' });
     }
     
-    const messages = [
-      { role: 'system', content: SYSTEM_PROMPT },
-      { role: 'user', content: message }
-    ];
-
-    // Get response from Ollama
-    const response = await client.chat({
-      model: process.env.OLLAMA_MODEL || 'gpt-oss:120b',
-      messages
+    // Using fetch directly for more reliable API communication
+    const response = await fetch(`${OLLAMA_HOST}/v1/chat/completions`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${OLLAMA_API_KEY}`
+      },
+      body: JSON.stringify({
+        model: OLLAMA_MODEL,
+        messages: [
+          { role: 'system', content: SYSTEM_PROMPT },
+          { role: 'user', content: message }
+        ]
+      })
     });
-
-    return res.json({ response: response.message.content });
+    
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error(`Ollama API error: ${response.status} ${errorText}`);
+      throw new Error(`API error ${response.status}: ${errorText}`);
+    }
+    
+    const data = await response.json();
+    return res.json({ 
+      response: data.choices[0].message.content 
+    });
+    
   } catch (error) {
     console.error('Chat API error:', error);
     return res.status(500).json({ 
@@ -42,6 +54,15 @@ router.post('/', async (req, res) => {
       details: process.env.NODE_ENV === 'development' ? error.message : undefined
     });
   }
+});
+
+// Health check endpoint
+router.get('/health', (req, res) => {
+  return res.json({ 
+    status: 'ok',
+    ollama_configured: !!process.env.OLLAMA_API_KEY,
+    model: process.env.OLLAMA_MODEL || 'gpt-oss:120b'
+  });
 });
 
 export default router;

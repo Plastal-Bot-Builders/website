@@ -2,6 +2,7 @@
   "name": "plastal_bot_website",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:5001",
   "homepage": "https://Plastal-Bot-Builders.github.io/website",
   "scripts": {
     "start": "react-scripts start",
