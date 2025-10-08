@@ -8,6 +8,46 @@ const router = Router();
  * POST /api/members/register
  * Register a new member
  */
+const authMiddleware = requireAuth; // Apply authentication middleware for protected routes
+router.put('/:id', authMiddleware, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { status } = req.body;
+    
+    // Validate status value
+    if (status !== 'approved' && status !== 'rejected') {
+      return res.status(400).json({
+        status: 'error',
+        message: 'Invalid status value'
+      });
+    }
+    
+    const member = await Member.findByIdAndUpdate(
+      id,
+      { status },
+      { new: true }
+    );
+    
+    if (!member) {
+      return res.status(404).json({
+        status: 'error',
+        message: 'Member not found'
+      });
+    }
+    
+    res.json({
+      status: 'success',
+      data: member
+    });
+  } catch (error) {
+    console.error('Update member status error:', error);
+    res.status(500).json({
+      status: 'error',
+      message: 'Server error updating member status'
+    });
+  }
+});
+
 router.post('/register', async (req, res) => {
   try {
     // Check for existing member with the same email

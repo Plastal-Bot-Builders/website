@@ -1,11 +1,10 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { fetchMembers, getMemberDetails, updateMemberStatus, deleteMember, Member } from '../../../api/members';
 
 export function useMembers(token: string | null) {
      const [members, setMembers] = useState<Member[]>([]);
      const [loading, setLoading] = useState(false);
      const [error, setError] = useState<string | null>(null);
-
      const loadMembers = useCallback(async () => {
           if (!token) return;
           setError(null);
@@ -28,6 +27,23 @@ export function useMembers(token: string | null) {
                setLoading(false);
           }
      }, [token]);
+
+          useEffect(() => {
+          if (!token) return;
+
+          // Initial load
+          loadMembers();
+
+          // Set up auto-refresh every 30 seconds
+          const refreshInterval = setInterval(() => {
+               if (document.visibilityState === 'visible') {
+                    loadMembers();
+               }
+          }, 30000);
+
+          // Clean up interval
+          return () => clearInterval(refreshInterval);
+     }, [token, loadMembers]);
 
      const loadMemberDetails = useCallback(async (id: string) => {
           if (!token) throw new Error('Not authenticated');
@@ -54,9 +70,31 @@ export function useMembers(token: string | null) {
           setError(null);
           try {
                await updateMemberStatus(id, status, token);
+
+               // Optimistically update local state
+               setMembers(prevMembers =>
+                    Array.isArray(prevMembers)
+                         ? prevMembers.map(m => m._id === id ? { ...m, status } : m)
+                         : []
+               );
+
+               // Reload members to ensure we have the latest data
                await loadMembers();
           } catch (e: any) {
-               setError(e?.message || 'Failed to update member status');
+               console.error('Update member status error:', e);
+
+               if (e.response?.status === 404) {
+                    setError('Member not found or API endpoint incorrect. The list will be refreshed.');
+                    // Remove the member from local state if we get a 404
+                    setMembers(prevMembers =>
+                         Array.isArray(prevMembers)
+                              ? prevMembers.filter(m => m._id !== id)
+                              : []
+                    );
+                    await loadMembers();
+               } else {
+                    setError(e?.message || `Failed to update member status: ${e}`);
+               }
           }
      }, [token, loadMembers]);
 
