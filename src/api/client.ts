@@ -1,5 +1,3 @@
-// API client utilities (React + TypeScript)
-
 type Query = Record<string, string | number | boolean | null | undefined>;
 
 const RAW_BASE =

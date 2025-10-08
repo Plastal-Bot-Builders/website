@@ -1,7 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import { asset } from '../utils/asset';
 
-const CodeOfConduct = () => {
+interface CodeOfConductProps {
+  standalone?: boolean; // Controls whether to use form element for dialog
+}
+
+const CodeOfConduct: React.FC<CodeOfConductProps> = ({ standalone = true }) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   const handleOpenModal = () => {
@@ -21,12 +25,12 @@ const CodeOfConduct = () => {
             onClick={handleOpenModal}
             className="text-blue-600 cursor-pointer underline hover:text-blue-800"
             aria-haspopup="dialog"
+            type="button" 
           >
             Code of Conduct
           </button>
         </p>
       </div>
-
 
       <dialog
         ref={dialogRef}
@@ -34,14 +38,26 @@ const CodeOfConduct = () => {
         aria-labelledby="modal-title"
       >
         <div className="p-6">
-          <form method="dialog">
+          {standalone ? (
+            <form method="dialog">
+              <button
+                className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+                aria-label="Close modal"
+              >
+                ✕
+              </button>
+            </form>
+          ) : (
             <button
+              onClick={handleCloseModal}
               className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
               aria-label="Close modal"
+              type="button"
             >
               ✕
             </button>
-          </form>
+          )}
+          
           <div className="flex flex-col items-center">
             <h3 id="modal-title" className="text-lg font-semibold mb-4 text-center">Our Code of Conduct</h3>
             <img 
