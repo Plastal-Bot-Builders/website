@@ -157,15 +157,17 @@ const [formData, setFormData] = useState({
   dataProcessing: false
 });
 
-// Loading and submission state
-const [isSubmitting, setIsSubmitting] = useState(false);
-const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-const [errorMessage, setErrorMessage] = useState('');
+
 
 const MembershipForm: React.FC = () => {
     const sectionRef = useRef<HTMLDivElement[]>([]);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+    const [errorMessage, setErrorMessage] = useState('');
+    const [formData, setFormData] = useState({
 
-    useEffect(() => {
+    });
+        useEffect(() => {
       sectionRef.current.forEach((section) => {
         gsap.from(section, {
           opacity: 0,
@@ -226,9 +228,69 @@ const MembershipForm: React.FC = () => {
         }));
       }
     };
+    // Form submission handler
+    const handleSubmit = async (e: React.FormEvent) => {
+      e.preventDefault();
+      
+      // Validate form
+      if (!formData.fullName || !formData.email || !formData.phoneNumber) {
+        setErrorMessage('Please fill in all required fields');
+        setSubmitStatus('error');
+        return;
+      }
+      
+      // Validate consents
+      if (!formData.informationAccuracy || !formData.rulesAgreement || !formData.dataProcessing) {
+        setErrorMessage('You must agree to all terms to submit the application');
+        setSubmitStatus('error');
+        return;
+      }
+      
+      try {
+        setIsSubmitting(true);
+        setSubmitStatus('idle');
+        setErrorMessage('');
+        
+        const response = await fetch('/api/members/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData)
+        });
+        
+        const data = await response.json();
+        
+        if (!response.ok) {
+          throw new Error(data.message || 'Failed to submit application');
+        }
+        
+        // Success!
+        setSubmitStatus('success');
+        // Reset form
+        setFormData({
+          // Reset to initial values
+          fullName: '',
+          dateOfBirth: '',
+          // ... etc.
+        });
+        
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+      } catch (error: any) {
+        console.error('Error submitting form:', error);
+        setErrorMessage(error.message || 'An unexpected error occurred');
+        setSubmitStatus('error');
+      } finally {
+        setIsSubmitting(false);
+      }
+    };
 
     const [showNotice, setShowNotice] = useState(true);   
     const [showPrivacyNotice, setShowPrivacyNotice] = useState(true);
+
+    
   
     return (
         <section className="scroll-smooth focus:scroll-auto">
@@ -276,7 +338,22 @@ const MembershipForm: React.FC = () => {
                     </button>
                   </div>
                 )}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                // Add this right before your form sections
+                {submitStatus === 'success' && (
+                  <div className="bg-green-900 border border-green-800 text-green-100 p-4 mb-6 rounded-lg">
+                    <h3 className="text-lg font-bold text-green-100">Application Submitted Successfully!</h3>
+                    <p>Thank you for your interest in joining Plastal-Bot Builders. We will review your application and get back to you shortly.</p>
+                  </div>
+                )}
+                
+                {submitStatus === 'error' && (
+                  <div className="bg-red-900 border border-red-800 text-red-100 p-4 mb-6 rounded-lg">
+                    <h3 className="text-lg font-bold text-red-100">Error Submitting Application</h3>
+                    <p>{errorMessage || 'Please check your information and try again.'}</p>
+                  </div>
+                )}
+
+                <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     {/* Card 1: Section 1 - Personal Information */}
                     <div className="p-6 rounded-lg interactive-card">
                         <h2 className="text-xl font-semibold mb-4"> <span className="text-hex "> Section 1: </span> Personal
@@ -287,7 +364,9 @@ const MembershipForm: React.FC = () => {
                                     <i className="fas fa-user mr-2"></i> Full Name
                                 </label>
                                 <InputField
-                                    id="large-input"
+                                    name="fullName"
+                                    value={formData.fullName}
+                                    onChange={handleInputChange}
                                     type="text"
                                     placeholder="John Mwansa"
                                     required
@@ -299,6 +378,9 @@ const MembershipForm: React.FC = () => {
                                 </label>
                                 <InputField 
                                     type="date"
+                                    name="dateOfBirth"
+                                    value={formData.dateOfBirth}
+                                    onChange={handleInputChange}
                                     required 
                                 />
                             </div>
@@ -306,7 +388,12 @@ const MembershipForm: React.FC = () => {
                                 <label className="mb-4 flex items-center">
                                     <i className="fas fa-venus-mars mr-2"></i> Gender
                                 </label>
-                                <SelectField required>
+                                <SelectField 
+                                    name="gender"
+                                    value={formData.gender}
+                                    onChange={handleInputChange}
+                                    required    
+                                >
                                     <option>Male</option>
                                     <option>Female</option>
                                     <option>Prefer not to say</option>
@@ -316,29 +403,52 @@ const MembershipForm: React.FC = () => {
                                 <label className="mb-4 flex items-center">
                                     <i className="fas fa-envelope mr-2"></i> Email Address
                                 </label>
-                                <InputField type="email"
-                                    required placeholder="example@domain.com" />
+                                <InputField 
+                                    type="email"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleInputChange}
+                                    placeholder="example@domain.com" 
+                                    required
+                                />
                             </div>
                             <div>
                                 <label className="mb-4 flex items-center">
                                     <i className="fas fa-phone mr-2"></i> Phone Number
                                 </label>
-                                <InputField type="text"
-                                    required placeholder="+260 123 456 789" />
+                                <InputField 
+                                    type="text"
+                                    name="phoneNumber"
+                                    value={formData.phoneNumber}
+                                    onChange={handleInputChange}
+                                    placeholder="+260 123 456 789" 
+                                    required 
+                                />
                             </div>
                             <div>
                                 <label className="mb-4 flex items-center">
                                     <i className="fas fa-city mr-2"></i> City & Country
                                 </label>
-                                <InputField type="text"
-                                    required placeholder="Lusaka, Zambia" />
+                                <InputField 
+                                    type="text"
+                                    name="cityCountry"
+                                    value={formData.cityCountry}
+                                    onChange={handleInputChange}
+                                    placeholder="Lusaka, Zambia" 
+                                    required 
+                                />
                             </div>
                             <div>
                                 <label className="mb-4 flex items-center">
                                     <i className="fas fa-briefcase mr-2"></i> Occupation/Profession
                                 </label>
-                                <InputField type="text"
-                                    required placeholder="Student, Engineer, etc." />
+                                <InputField 
+                                    type="text"
+                                    name="occupationProfession"
+                                    value={formData.occupationProfession}
+                                    onChange={handleInputChange}
+                                    placeholder="Student, Engineer, etc." 
+                                />
                             </div>
                         </div>
                     </div>
@@ -352,36 +462,60 @@ const MembershipForm: React.FC = () => {
                                 <label className="mb-4 flex items-center">
                                     <i className="fab fa-linkedin mr-2"></i> LinkedIn Profile
                                 </label>
-                                <InputField type="url"
+                                <InputField 
+                                    type="url"
+                                    name="linkedin"
+                                    value={formData.linkedin}
+                                    onChange={handleInputChange}
                                     placeholder="https://www.linkedin.com/in/username" />
                             </div>
                             <div>
                                 <label className="mb-4 flex items-center">
                                     <i className="fab fa-facebook mr-2"></i> Facebook Profile
                                 </label>
-                                <InputField type="url"
-                                    placeholder="https://www.facebook.com/username" />
+                                <InputField 
+                                    type="url"
+                                    name="facebook"
+                                    value={formData.facebook}
+                                    onChange={handleInputChange}
+                                    placeholder="https://www.facebook.com/username" 
+                                />
                             </div>
                             <div>
                                 <label className="mb-4 flex items-center">
                                     <i className="fab fa-instagram mr-2"></i> Instagram Profile
                                 </label>
-                                <InputField type="url"
-                                    placeholder="https://www.instagram.com/username" />
+                                <InputField 
+                                    type="url"
+                                    name="instagram"
+                                    value={formData.instagram}
+                                    onChange={handleInputChange}
+                                    placeholder="https://www.instagram.com/username" 
+                                />
                             </div>
                             <div>
                                 <label className="mb-4 flex items-center">
                                     <i className="fab fa-twitter mr-2"></i> Twitter Profile
                                 </label>
-                                <InputField type="url"
-                                    placeholder="https://www.twitter.com/username" />
+                                <InputField 
+                                    type="url"
+                                    name="twitter"
+                                    value={formData.twitter}
+                                    onChange={handleInputChange}
+                                    placeholder="https://www.twitter.com/username" 
+                                />
                             </div>
                             <div>
                                 <label className="mb-4 flex items-center">
                                     <i className="fas fa-globe mr-2"></i> Other Platform
                                 </label>
-                                <InputField type="url"
-                                    placeholder="https://example.com/username" />
+                                <InputField 
+                                    type="url"
+                                    name="otherSocials"
+                                    value={formData.otherSocial}
+                                    onChange={handleInputChange}
+                                    placeholder="https://example.com/username" 
+                                />
                             </div>
                         </div>
                     </div>
@@ -399,31 +533,42 @@ const MembershipForm: React.FC = () => {
                                     <label>
                                         <Checkbox
                                             type="checkbox"
-                                            name="membership"
-                                            
+                                            name="membershipType"
+                                            value="Student"
+                                            checked={formData.membershipType === "Student"}
+                                            onChange={handleCheckboxChange} 
                                         />
                                         Student Member
-                                    </label><br />
+                                    </label>
+                                    <br />
                                     <label>
                                         <Checkbox
                                             type="checkbox"
-                                            name="membership"
+                                            name="membershipType"
+                                            value="Professional"
+                                            checked={formData.membershipType === "Professional"}
+                                            onChange={handleCheckboxChange}
                                         />
                                         Professional Member
-                                    </label><br />
+                                    </label>
+                                    <br />
                                     <label>
                                         <Checkbox
                                             type="checkbox"
-                                            name="membership"
-                                            
+                                            name="membershipType"
+                                            value="Mentor/Volunteer"
+                                            checked={formData.membershipType === "Mentor/Volunteer"}
+                                            onChange={handleCheckboxChange}                                         
                                         />
                                         Mentor/Volunteer Member
                                     </label><br />
                                     <label>
                                         <Checkbox
                                             type="checkbox"
-                                            name="membership"
-                                            
+                                            name="membershipType"
+                                            value="Partner/Supporter"
+                                            checked={formData.membershipType === "Partner/Supporter"}
+                                            onChange={handleCheckboxChange}
                                         />
                                         Partner/Supporter Member
                                     </label>
@@ -437,6 +582,9 @@ const MembershipForm: React.FC = () => {
                                 </label>
                                 <InputField
                                     type="text"
+                                    name="educationalBackground"
+                                    value={formData.educationalBackground}
+                                    onChange={handleInputChange}
                                     placeholder="University of Zambia"
                                 />
                             </div>
@@ -449,35 +597,46 @@ const MembershipForm: React.FC = () => {
                                 <div className="space-y-2">
                                     <label>
                                         <Checkbox
-                                            type="checkbox"
-                                            
+                                            type="checkbox"                                                                                          name="expertise"
+                                            value="Engineering"  // or whatever value is appropriate
+                                            checked={formData.expertise.includes("Engineering")}  
+                                            onChange={handleCheckboxChange}                       
                                         />
                                         Engineering
                                     </label><br />
                                     <label>
                                         <Checkbox
-                                            type="checkbox"                    
+                                            type="checkbox" 
+                                            value="programmingCoding"
+                                            checked={formData.expertise.includes("programmingCoding")}   
+                                            onChange={handleCheckboxChange}                
                                         />
                                         Programming/Coding
                                     </label><br />
                                     <label>
                                         <Checkbox
-                                            type="checkbox"
-                                            
+                                            type="checkbox" 
+                                            value="environmentScience"
+                                            checked={formData.expertise.includes("environmentScience")}
+                                            onChange={handleCheckboxChange}                              
                                         />
                                         Environmental Sciences
                                     </label><br />
                                     <label>
                                         <Checkbox
                                             type="checkbox"
-                                            
+                                            value="Education"
+                                            checked={formData.expertise.includes("Education")}
+                                            onChange={handleCheckboxChange}      
                                         />
                                         Education
                                     </label><br />
                                     <label>
                                         <Checkbox
                                             type="checkbox"
-                                            
+                                            value="projectManagement"
+                                            checked={formData.expertise.includes("projectManagement")}
+                                            onChange={handleCheckboxChange}
                                         />
                                         Project Management
                                     </label><br />
@@ -486,7 +645,9 @@ const MembershipForm: React.FC = () => {
                                     <label className="flex items-center space-x-2">
                                         <Checkbox
                                             type="checkbox"
-                                            
+                                            value="others"
+                                            checked={formData.expertise.includes("others")}
+                                            onChange={handleCheckboxChange}           
                                         />
                                         <span>Other:</span>
                                         <InputField
@@ -512,70 +673,73 @@ const MembershipForm: React.FC = () => {
                                 <div className="space-y-2">
                                     <label>
                                         <Checkbox
-                                            id="bordered-checkbox-1"
                                             value="Interest in Robotics"
                                             name="inspiration"
                                             type="checkbox"
-                                            
+                                            checked={formData.inspiration.includes("Interest in Robotics")}
+                                            onChange={handleCheckboxChange}
                                         />
                                         Interest in Robotics
                                     </label><br />
-
+                            
                                     <label>
                                         <Checkbox
-                                            id="bordered-checkbox-2"
                                             value="Passion for STEM Education"
                                             name="inspiration"
                                             type="checkbox"
-                                            
+                                            checked={formData.inspiration.includes("Passion for STEM Education")}
+                                            onChange={handleCheckboxChange}
                                         />
                                         Passion for STEM Education
                                     </label><br />
-
+                            
                                     <label>
                                         <Checkbox
-                                            id="bordered-checkbox-3"
                                             value="Environmental Advocacy"
                                             name="inspiration"
                                             type="checkbox"
-                                            
+                                            checked={formData.inspiration.includes("Environmental Advocacy")}
+                                            onChange={handleCheckboxChange}
                                         />
                                         Environmental Advocacy
                                     </label><br />
-
+                            
                                     <label>
                                         <Checkbox
-                                            id="bordered-checkbox-4"
                                             value="Desire to Mentor Young People"
                                             name="inspiration"
                                             type="checkbox"
-                                            
+                                            checked={formData.inspiration.includes("Desire to Mentor Young People")}
+                                            onChange={handleCheckboxChange}
                                         />
                                         Desire to Mentor Young People
                                     </label><br />
-
+                            
                                     <label>
                                         <Checkbox
-                                            id="bordered-checkbox-5"
                                             value="Networking and Professional Growth"
                                             name="inspiration"
                                             type="checkbox"
-                                            
+                                            checked={formData.inspiration.includes("Networking and Professional Growth")}
+                                            onChange={handleCheckboxChange}
                                         />
                                         Networking and Professional Growth
                                     </label><br />
-
+                            
                                     <label className="flex items-center space-x-2">
                                         <Checkbox
-                                            id="bordered-checkbox-6"
                                             value="Other"
                                             name="inspiration"
                                             type="checkbox"
-                                            
+                                            checked={formData.inspiration.includes("Other")}
+                                            onChange={handleCheckboxChange}
                                         />
                                         <span>Other:</span>
                                         <InputField
                                             type="text"
+                                            name="otherInspiration"
+                                            value={formData.otherInspiration}
+                                            onChange={handleInputChange}
                                             placeholder="Specify"
                                         />
                                     </label>
@@ -586,7 +750,11 @@ const MembershipForm: React.FC = () => {
                             <div>
                                 <label className="block mb-2">Why do you want to become a member of Plastal-Bot Builders?</label>
                                 <TextAreaField
+                                    name="motivation"
+                                    value={formData.motivation}
+                                    onChange={handleInputChange}
                                     rows={3}
+                                    placeholder="Share your motivation for joining..."
                                 ></TextAreaField>
                             </div>
 
@@ -597,7 +765,10 @@ const MembershipForm: React.FC = () => {
                                   <label className="inline-flex items-center mr-4">
                                     <Checkbox
                                       type="checkbox"
-                                      name="experience"
+                                      name="hasExperience"
+                                      value="Yes"
+                                      checked={formData.hasExperience === "Yes"}
+                                      onChange={handleCheckboxChange}
                                       className="mr-2 w-4 h-4 custom-color rounded focus:ring-2"
                                     />
                                     Yes
@@ -605,13 +776,19 @@ const MembershipForm: React.FC = () => {
                                   <label className="inline-flex items-center">
                                     <Checkbox
                                       type="checkbox"
-                                      name="experience"
+                                      name="hasExperience"
+                                      value="No"
+                                      checked={formData.hasExperience === "No"}
+                                      onChange={handleCheckboxChange}
                                       className="mr-2 w-4 h-4 custom-color rounded focus:ring-2"
                                     />
                                     No
                                   </label>
                                 </div>
                                 <TextAreaField
+                                    name="experienceDescription"
+                                    value={formData.experienceDescription}
+                                    onChange={handleInputChange}
                                     rows={3}
                                     placeholder="If Yes, please provide a brief description"
                                 ></TextAreaField>
@@ -627,7 +804,12 @@ const MembershipForm: React.FC = () => {
                         <div className="space-y-4">
                             <div>
                                 <label className="block mb-2">Time Availability</label>
-                                <SelectField required>
+                                <SelectField 
+                                    name="timeAvailability"
+                                    value={formData.timeAvailability}
+                                    onChange={handleInputChange}
+                                    required
+                                >
                                     <option>1-2 hours</option>
                                     <option>3-5 hours</option>
                                     <option>5-10 hours</option>
@@ -635,23 +817,38 @@ const MembershipForm: React.FC = () => {
                                 </SelectField>
                             </div>
                             <div>
-                                <label className="block mb-2">In what ways do you think you can contribute to the
-                                    organization?
-                                </label>
-                                    <TextAreaField
-                                        rows={3}
-                                    ></TextAreaField>
+                                <label className="block mb-2">In what ways do you think you can contribute to the organization?</label>
+                                <TextAreaField
+                                    name="contribution"
+                                    value={formData.contribution}
+                                    onChange={handleInputChange}
+                                    rows={3}
+                                    placeholder="Describe how you can contribute..."
+                                ></TextAreaField>
                             </div>
                             <div>
-                                <label className="block mb-2">Are you willing to participate in virtual or in-person
-                                    events?</label>
+                                <label className="block mb-2">Are you willing to participate in virtual or in-person events?</label>
                                 <div className="space-y-6">
                                   <label className="inline-flex items-center mr-4">
-                                    <Checkbox type="checkbox" name="participation" className="mr-2 w-4 h-4 custom-color rounded focus:ring-2" />
+                                    <Checkbox 
+                                        type="checkbox" 
+                                        name="eventParticipation" 
+                                        value="Yes"
+                                        checked={formData.eventParticipation === "Yes"}
+                                        onChange={handleCheckboxChange}
+                                        className="mr-2 w-4 h-4 custom-color rounded focus:ring-2" 
+                                    />
                                     Yes
                                   </label>
                                   <label className="inline-flex items-center">
-                                    <Checkbox type="checkbox" name="participation" className="mr-2 w-4 h-4 custom-color rounded focus:ring-2" />
+                                    <Checkbox 
+                                        type="checkbox" 
+                                        name="eventParticipation" 
+                                        value="No"
+                                        checked={formData.eventParticipation === "No"}
+                                        onChange={handleCheckboxChange}
+                                        className="mr-2 w-4 h-4 custom-color rounded focus:ring-2" 
+                                    />
                                     No
                                   </label>
                                 </div>
@@ -667,7 +864,11 @@ const MembershipForm: React.FC = () => {
                         <div className="space-y-4">
                             <div>
                                 <label className="block mb-2">How did you hear about Plastal-Bot Builders?</label>
-                                <SelectField>
+                                <SelectField
+                                    name="referralSource"
+                                    value={formData.referralSource}
+                                    onChange={handleInputChange}
+                                >
                                     <option>Website</option>
                                     <option>Social Media</option>
                                     <option>Friend/Colleague</option>
@@ -678,8 +879,12 @@ const MembershipForm: React.FC = () => {
                             <div>
                                 <label className="block mb-2">Do you have any other comments or questions?</label>
                                 <TextAreaField
-                                    rows={3}>
-                                </TextAreaField>
+                                    name="comments"
+                                    value={formData.comments}
+                                    onChange={handleInputChange}
+                                    rows={3}
+                                    placeholder="Share any additional comments..."
+                                ></TextAreaField>
                             </div>
                         </div>
                     </div>
@@ -689,31 +894,51 @@ const MembershipForm: React.FC = () => {
                         <h2 className="text-xl font-semibold mb-4"> <span className="text-hex "> Section 7: </span> Declaration
                             & Consent</h2>
                         <div className="space-y-4">
-                            <label><input type="checkbox" className="mr-2 w-4 h-4 custom-color rounded focus:ring-2" />I hereby
-                                declare that the information provided is true
-                                and accurate to the best of my knowledge.</label><br />
-                                <label>
-                                    <input 
-                                        type="checkbox" 
-                                        className="mr-2 w-4 h-4 custom-color rounded focus:ring-2" 
-                                    /> 
-                                    I agree to abide by the rules and regulations of Plastal-Bot Builders.
-                                </label> 
-                                <br />
-                                <label>
-                                    <input 
-                                        type="checkbox" 
-                                        className="mr-2 w-4 h-4 custom-color rounded focus:ring-2" 
-                                    /> 
-                                    I consent to the processing of my personal data in accordance with the organization's data privacy policy.
-                                </label>
+                            <label>
+                                <Checkbox 
+                                    type="checkbox"
+                                    name="informationAccuracy"
+                                    checked={formData.informationAccuracy}
+                                    onChange={handleCheckboxChange}
+                                    className="mr-2 w-4 h-4 custom-color rounded focus:ring-2"
+                                />
+                                I hereby declare that the information provided is true and accurate to the best of my knowledge.
+                            </label>
+                            <br />
+                            <label>
+                                <Checkbox 
+                                    type="checkbox"
+                                    name="rulesAgreement"
+                                    checked={formData.rulesAgreement}
+                                    onChange={handleCheckboxChange} 
+                                    className="mr-2 w-4 h-4 custom-color rounded focus:ring-2" 
+                                /> 
+                                I agree to abide by the rules and regulations of Plastal-Bot Builders.
+                            </label> 
+                            <br />
+                            <label>
+                                <Checkbox 
+                                    type="checkbox"
+                                    name="dataProcessing"
+                                    checked={formData.dataProcessing}
+                                    onChange={handleCheckboxChange}
+                                    className="mr-2 w-4 h-4 custom-color rounded focus:ring-2" 
+                                /> 
+                                I consent to the processing of my personal data in accordance with the organization's data privacy policy.
+                            </label>
                         </div>
                     </div>
                     <CodeOfConductNotice />
-                </div>
+                </form>
                 {/* <!-- Submit Button --> */}
                 <div className="flex flex-col items-center mt-8 mb-6">
-                    <button className="custom-button">Submit Application</button>
+                    <button 
+                        type="submit"
+                        className="custom-button"
+                        disabled={isSubmitting}
+                    >
+                        {isSubmitting ? 'Submitting...' : 'Submit Application'}          
+                    </button>
                 </div>
                 <Footer />
             </div>
