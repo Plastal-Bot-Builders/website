@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button } from 'flowbite-react';
+import { Modal } from 'flowbite-react';
 import { FaTimes } from 'react-icons/fa';
 import { asset } from '../utils/asset';
 
@@ -12,7 +12,15 @@ interface ReusableModalProps {
     image?: string; // Optional image prop
 }
 
-const ReusableModal: React.FC<ReusableModalProps> = ({ isOpen, onClose, title, content, actions, image }) => {
+
+const ReusableModal: React.FC<ReusableModalProps> = ({ 
+    isOpen, 
+    onClose, 
+    title, 
+    content, 
+    actions, 
+    image 
+}) => {
     return (
      <Modal show={isOpen} onClose={onClose} className="flex items-center justify-center p-4 sm:p-8 md:p-16 lg:p-32 xl:p-48 2xl:p-64 backdrop-blur-sm">
             <div className="w-full max-w-4xl mx-auto overflow-y-auto max-h-screen p-4 md:p-5">
