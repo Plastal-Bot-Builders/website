@@ -15,7 +15,7 @@ const config = {
     { path: '/support', priority: '0.6', changefreq: 'monthly' },
     { path: '/programs', priority: '0.7', changefreq: 'monthly' }
   ],
-  outputPath: path.join(__dirname, '../../public/sitemap.xml')
+  outputPath: path.join(__dirname, '../public/sitemap.xml')
 };
 
 // Generate sitemap XML
@@ -52,7 +52,7 @@ Allow: /
 Sitemap: ${config.baseUrl}/sitemap.xml
 `;
 
-  const robotsPath = path.join(__dirname, '../../public/robots.txt');
+  const robotsPath = path.join(__dirname, '../public/robots.txt');
   fs.writeFileSync(robotsPath, robotsContent, 'utf8');
   console.log(`✅ Robots.txt generated successfully at: ${robotsPath}`);
 }
