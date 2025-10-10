@@ -7,7 +7,17 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useTheme } from '../theme/ThemeProvider';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
+import 'styled-components';
 
+declare module 'styled-components' {
+  export interface DefaultTheme {
+    inputBg: string;
+    borderColor: string;
+    textColor: string;
+    accentColor: string;
+    focusRing: string;
+  }
+}
 
 gsap.registerPlugin(ScrollTrigger);
 

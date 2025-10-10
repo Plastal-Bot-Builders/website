@@ -31,7 +31,7 @@ const ReusableModal: React.FC<ReusableModalProps> = ({
                         onClick={onClose}
                         style={{ color: '#0cffbb' }} // Custom color
                     >
-                        <FaTimes className="w-3 h-3" />
+                        {FaTimes ({className: "w-3 h-3"})}
                         <span className="sr-only">Close modal</span>
                     </button>
                 </div>
