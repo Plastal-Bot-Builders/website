@@ -95,6 +95,7 @@ html.dark body {
 .themed-border { border-color: var(--header-border) !important;}
 
 .site-header a { color: inherit; }
+.bg-text { background-color: var(--text); }
 
 nav { transition: all 0.3s ease-in-out; }
 nav a {
