@@ -7,10 +7,34 @@ import { BlogManager } from '../components/admin/BlogManager';
 import { MembershipManager } from '../components/admin/MembershipManager';
 import { useBlogPosts } from '../components/admin/hooks/useBlogPosts';
 import { useMembers } from '../components/admin/hooks/useMembers';
+import { EventManager } from '../components/EventRegistration/admin/EventManager';
 
 type TabType = 'blog' | 'members' | 'dashboard';
 
 export default function Admin() {
+
+  // Add a state for events
+const [activeTab, setActiveTab] = useState<TabType>('dashboard' | 'blog' | 'members' | 'events');
+
+// Add a new Tab in the TabContainer
+<Tab 
+  $active={activeTab === 'events'} 
+  onClick={() => setActiveTab('events')}
+>
+  Events
+</Tab>
+
+// Add the EventManager component
+{activeTab === 'events' && (
+  <EventManager
+    events={events}
+    token={token}
+    onEventsChange={loadEvents}
+    loading={eventsLoading}
+    setError={setError}
+  />
+)}
+
   // Auth state
   const [token, setToken] = useState<string | null>(getToken());
   

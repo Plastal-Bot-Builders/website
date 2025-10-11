@@ -12,6 +12,7 @@ import authRouter from './routes/auth.js';
 import uploadsRouter from './routes/uploads.js';
 import chatRouter from './routes/chat.js';
 import membersRouter from './routes/members.js';
+import eventsRouter from './routes/events.js';
 
 // Initialize __dirname equivalent for ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -46,6 +47,7 @@ app.use('/api/auth', authRouter);
 app.use('/api/uploads', uploadsRouter);
 app.use('/api/chat', chatRouter);
 app.use('/api/members', membersRouter);
+app.use('/api/events', eventsRouter);
 
 // Legacy routes support
 app.use('/posts', postsRouter); // optional alias
