@@ -14,6 +14,7 @@ import Error404 from './pages/error';
 import Chatbot from './components/Chatbot/Chatbot';
 import ErrorBoundary from './components/ErrorBoundary';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
+import { DefaultSEO } from './components/SEO';
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
@@ -33,6 +34,7 @@ const App: React.FC = () => {
 
   return (
     <HelmetProvider>
+      <DefaultSEO />
       <Helmet>
         <html lang="en" />
         <meta charSet="utf-8" />

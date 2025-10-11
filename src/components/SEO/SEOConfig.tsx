@@ -23,24 +23,24 @@ const SEOConfig: React.FC<SEOConfigProps> = ({
   includeOrganizationData = false,
   includeWebsiteData = false
 }) => {
-  const organizationData = {
-    name: "Your Organization Name",
-    url: "https://yourwebsite.com",
-    logo: "/resources/Logo/logo.png",
-    description: "Your organization description",
-    contactPoint: {
-      "@type": "ContactPoint",
-      telephone: "+1-XXX-XXX-XXXX",
-      contactType: "customer service"
-    }
-  };
+const organizationData = {
+  name: "Plastal-Bot Builders",
+  url: "https://plastalbotbuilders.com",
+  logo: "/resources/Logo/fred.svg",
+  description: "Empowering the next generation through robotics education and technology literacy",
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+260 975 608103",
+    contactType: "customer service"
+  }
+};
 
-  const websiteData = {
-    name: "Your Website Name",
-    url: "https://yourwebsite.com",
-    description: "Your website description",
-    publisher: "Your Organization Name"
-  };
+const websiteData = {
+  name: "Plastal-Bot Builders",
+  url: "https://plastalbotbuilders.com",
+  description: "Robotics education and community programs for all ages",
+  publisher: "Plastal-Bot Builders"
+};
 
   return (
     <>
