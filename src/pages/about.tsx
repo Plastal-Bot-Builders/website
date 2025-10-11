@@ -12,7 +12,7 @@ const About: React.FC = () => {
   const teamMembers = [
     { imgSrc: "/resources/founders/sepo.jpeg", name: "Sepo Konayuma", role: "Co-Founder & CEO" },
     { imgSrc: "/resources/founders/fred.png", name: "Fred M'Kuna", role: "Lead-Trainer" },
-    { imgSrc: "/resources/founders/Wazingwa Mugala.jpeg", name: "Wazingwa Mungala", role: "Creative Director" },
+    { imgSrc: "/resources/founders/WazingwaMugala.jpeg", name: "Wazingwa Mungala", role: "Creative Director" },
     { imgSrc: "/resources/founders/fredrick1.png", name: "Fredrick Mwepu", role: "Co-Founder & CTO" },
     { imgSrc: "/resources/founders/sepo.jpeg", name: "Mapalo Kazembe", role: "Tech Lead Instructor" },
     { imgSrc: "/resources/founders/madam_pamela.jpg", name: "Pamala Mutale", role: "Advisor" },

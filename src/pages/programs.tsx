@@ -10,16 +10,16 @@ const Programs: React.FC = () => {
   const [tab, setTab] = useState<'completed' | 'upcoming'>('completed');
   const url = (p: string) => encodeURI(asset(p));
   const spikeGallery = [
-    'resources/SpikePrime/SCAVENGER HUNT (1 of 82).jpg',
-    'resources/SpikePrime/SCAVENGER HUNT (5 of 82).jpg',
-    'resources/SpikePrime/SCAVENGER HUNT (22 of 82).jpg',
-    'resources/SpikePrime/SCAVENGER HUNT (3 of 82).jpg',
-    'resources/SpikePrime/SCAVENGER HUNT (2 of 82).jpg',
-    'resources/SpikePrime/SCAVENGER HUNT (4 of 82).jpg',
-    'resources/SpikePrime/SCAVENGER HUNT (23 of 82).jpg',
-    'resources/SpikePrime/SCAVENGER HUNT (6 of 82).jpg',
-    'resources/SpikePrime/SCAVENGER HUNT (10 of 82).jpg',
-    'resources/SpikePrime/SCAVENGER HUNT (11 of 82).jpg'
+    'resources/SpikePrime/SCAVENGERHUNT1.jpg',
+    'resources/SpikePrime/SCAVENGERHUNT2.jpg',
+    'resources/SpikePrime/SCAVENGERHUNT3.jpg',
+    'resources/SpikePrime/SCAVENGERHUNT4.jpg',
+    'resources/SpikePrime/SCAVENGERHUNT5.jpg',
+    'resources/SpikePrime/SCAVENGERHUNT6.jpg',
+    'resources/SpikePrime/SCAVENGERHUNT7.jpg',
+    'resources/SpikePrime/SCAVENGERHUNT8.jpg',
+    'resources/SpikePrime/SCAVENGERHUNT9.jpg',
+    'resources/SpikePrime/SCAVENGERHUNT10.jpg'
   ];
   const introGallery = [
     'resources/IntroRoboticsWorkshop/IMG_4428.jpg',
