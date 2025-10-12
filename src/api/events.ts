@@ -1,7 +1,7 @@
 import { getJson, postJson, putJson, delJson } from './client';
 
 // Base URL for all event endpoints
-const BASE_PATH = '/events';
+const BASE_PATH = '/api/events';
 
 /**
  * Event interface
@@ -52,7 +52,7 @@ export async function fetchEvents(): Promise<Event[]> {
  * Get an event by slug
  */
 export async function getEventBySlug(slug: string): Promise<Event> {
-  return getJson<Event>(`${BASE_PATH}/slug/${slug}`);
+  return getJson<Event>(`${BASE_PATH}/${slug}`);
 }
 
 /**
@@ -66,19 +66,19 @@ export async function registerForEvent(eventId: string, data: RegistrationData):
  * Create a new event (admin only)
  */
 export async function createEvent(event: NewEvent, token: string): Promise<Event> {
-  return postJson(BASE_PATH, event, { Authorization: `Bearer ${token}` });
+  return postJson(BASE_PATH, event, { token }); // Fixed: use { token } instead of { Authorization }
 }
 
 /**
  * Delete an event (admin only)
  */
 export async function deleteEvent(id: string, token: string): Promise<void> {
-  return delJson(`${BASE_PATH}/${id}`, { Authorization: `Bearer ${token}` });
+  return delJson(`${BASE_PATH}/${id}`, { token }); // Fixed: use { token } instead of { Authorization }
 }
 
 /**
  * Update an event (admin only)
  */
 export async function updateEvent(id: string, event: Partial<NewEvent>, token: string): Promise<Event> {
-  return putJson(`${BASE_PATH}/${id}`, event, { Authorization: `Bearer ${token}` });
+  return putJson(`${BASE_PATH}/${id}`, event, { token }); // Fixed: use { token } instead of { Authorization }
 }

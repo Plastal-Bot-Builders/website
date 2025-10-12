@@ -53,3 +53,28 @@ export function requireAuth(req, res, next) {
     });
   }
 }
+
+// Export requireAuth as auth (alias) to match imports in routes
+export const auth = requireAuth;
+
+// Add the isAdmin middleware
+export function isAdmin(req, res, next) {
+  // First ensure user is authenticated and exists on the request
+  if (!req.user) {
+    return res.status(401).json({
+      status: 'error',
+      message: 'Authentication required'
+    });
+  }
+  
+  // Then check admin role
+  if (req.user.role !== 'admin') {
+    return res.status(403).json({
+      status: 'error',
+      message: 'Admin access required'
+    });
+  }
+  
+  // User is authenticated and is an admin
+  next();
+}

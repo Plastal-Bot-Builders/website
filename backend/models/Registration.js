@@ -8,7 +8,7 @@ const registrationSchema = new mongoose.Schema({
   },
   email: {
     type: String,
-    required: [true, 'Email address is required'],
+    required: [true, 'Email is required'],
     trim: true,
     lowercase: true
   },
@@ -25,11 +25,14 @@ const registrationSchema = new mongoose.Schema({
     ref: 'Event',
     required: true
   },
-  timestamp: {
+  createdAt: {
     type: Date,
     default: Date.now
   }
 });
+
+// Create a compound index to prevent duplicate registrations
+registrationSchema.index({ email: 1, event: 1 }, { unique: true });
 
 const Registration = mongoose.model('Registration', registrationSchema);
 

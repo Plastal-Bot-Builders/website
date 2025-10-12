@@ -7,8 +7,8 @@ import {
   Button, 
   DeleteButton, 
   Table
-} from '../../admin/AdminStyles';
-import { createEvent, deleteEvent, Event } from '../../../api/events';
+} from '../../components/admin/AdminStyles';  // Fixed import path
+import { createEvent, deleteEvent, Event } from '../../api/events';
 
 interface EventManagerProps {
   events: Event[];
@@ -90,7 +90,7 @@ export function EventManager({
               <Label>Title</Label>
               <Input 
                 value={title} 
-                onChange={(e) => setTitle(e.target.value)} 
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)} 
                 required 
               />
             </FormGroup>
@@ -99,7 +99,7 @@ export function EventManager({
               <Input 
                 type="date" 
                 value={date} 
-                onChange={(e) => setDate(e.target.value)} 
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDate(e.target.value)} 
                 required 
               />
             </FormGroup>
@@ -109,7 +109,7 @@ export function EventManager({
             <Label>Description</Label>
             <textarea 
               value={description} 
-              onChange={(e) => setDescription(e.target.value)} 
+              onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setDescription(e.target.value)} 
               required
               style={{
                 width: '100%',
@@ -126,7 +126,7 @@ export function EventManager({
               <Label>Location</Label>
               <Input 
                 value={location} 
-                onChange={(e) => setLocation(e.target.value)} 
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setLocation(e.target.value)} 
                 required 
               />
             </FormGroup>
@@ -135,7 +135,7 @@ export function EventManager({
               <Input 
                 type="number"
                 value={capacity} 
-                onChange={(e) => setCapacity(e.target.value)} 
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCapacity(e.target.value)} 
               />
             </FormGroup>
           </div>
@@ -144,7 +144,7 @@ export function EventManager({
             <Label>Image URL</Label>
             <Input 
               value={imageUrl} 
-              onChange={(e) => setImageUrl(e.target.value)} 
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setImageUrl(e.target.value)} 
               placeholder="/resources/events/your-image.jpg"
             />
           </FormGroup>

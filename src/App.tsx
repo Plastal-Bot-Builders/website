@@ -15,6 +15,7 @@ import Chatbot from './components/Chatbot/Chatbot';
 import ErrorBoundary from './components/ErrorBoundary';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 import { DefaultSEO } from './components/SEO';
+import EventsPage from './pages/events';
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
@@ -87,6 +88,7 @@ const App: React.FC = () => {
             <Route path="/blogs" element={<Blog />} />
             <Route path="/support" element={<Support />} />
             <Route path="/programs" element={<Programs />} />
+            <Route path="/events" element={<EventsPage />} />
             <Route path="*" element={<Error404 />} />
           </Routes>
         </div>

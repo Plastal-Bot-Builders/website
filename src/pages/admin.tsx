@@ -7,67 +7,66 @@ import { BlogManager } from '../components/admin/BlogManager';
 import { MembershipManager } from '../components/admin/MembershipManager';
 import { useBlogPosts } from '../components/admin/hooks/useBlogPosts';
 import { useMembers } from '../components/admin/hooks/useMembers';
-import { EventManager } from '../components/EventRegistration/admin/EventManager';
+import { EventManager } from '../components/admin/EventManager';
 
-type TabType = 'blog' | 'members' | 'dashboard';
+// Update type definition to include 'events'
+type TabType = 'dashboard' | 'blog' | 'members' | 'events';
 
 export default function Admin() {
-
-  // Add a state for events
-const [activeTab, setActiveTab] = useState<TabType>('dashboard' | 'blog' | 'members' | 'events');
-
-// Add a new Tab in the TabContainer
-<Tab 
-  $active={activeTab === 'events'} 
-  onClick={() => setActiveTab('events')}
->
-  Events
-</Tab>
-
-// Add the EventManager component
-{activeTab === 'events' && (
-  <EventManager
-    events={events}
-    token={token}
-    onEventsChange={loadEvents}
-    loading={eventsLoading}
-    setError={setError}
-  />
-)}
-
   // Auth state
   const [token, setToken] = useState<string | null>(getToken());
-  
-  // UI state
+  // Correctly initialize the activeTab
   const [activeTab, setActiveTab] = useState<TabType>('dashboard');
-  
+
+  // Add events state
+  const [events, setEvents] = useState<any[]>([]);
+  const [eventsLoading, setEventsLoading] = useState(false);
+
   // Use custom hooks for data management
-  const { 
-    posts, 
-    loading: postsLoading, 
-    error: postsError, 
-    loadPosts, 
-    setError: setPostsError 
+  const {
+    posts,
+    loading: postsLoading,
+    error: postsError,
+    loadPosts,
+    setError: setPostsError
   } = useBlogPosts();
-  
-  const { 
-    members, 
-    loading: membersLoading, 
-    error: membersError, 
-    loadMembers, 
-    loadMemberDetails, 
-    handleUpdateMemberStatus, 
-    handleDeleteMember, 
-    setError: setMembersError 
+
+  const {
+    members,
+    loading: membersLoading,
+    error: membersError,
+    loadMembers,
+    loadMemberDetails,
+    handleUpdateMemberStatus,
+    handleDeleteMember,
+    setError: setMembersError
   } = useMembers(token);
 
   // Get consolidated error state
   const error = postsError || membersError;
-  
+
   // Handle setting errors
   const setError = (e: string | null) => {
     setPostsError(e);
     setMembersError(e);
+  };
+
+  // Function to load events
+  const loadEvents = async () => {
+    if (!token) return;
+    setEventsLoading(true);
+    try {
+      // Replace with your actual API call
+      const response = await fetch('/api/events', {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      const data = await response.json();
+      setEvents(data.data || []);
+    } catch (err) {
+      setError('Failed to load events');
+    } finally {
+      setEventsLoading(false);
+    }
   };
 
   // Load initial data
@@ -75,8 +74,9 @@ const [activeTab, setActiveTab] = useState<TabType>('dashboard' | 'blog' | 'memb
     if (token) {
       loadPosts();
       loadMembers();
+      loadEvents();
     }
-  }, [token, loadPosts, loadMembers]);
+  }, [token, loadPosts, loadMembers, loadEvents]);
 
   function handleLogout() {
     logout();
@@ -92,7 +92,7 @@ const [activeTab, setActiveTab] = useState<TabType>('dashboard' | 'blog' | 'memb
     <AdminContainer>
       <Header>
         <h1>Admin Dashboard</h1>
-        <button 
+        <button
           onClick={handleLogout}
           style={{
             backgroundColor: '#0CFFBB',
@@ -111,23 +111,30 @@ const [activeTab, setActiveTab] = useState<TabType>('dashboard' | 'blog' | 'memb
       {error && <ErrorMessage>{error}</ErrorMessage>}
 
       <TabContainer>
-        <Tab 
-          $active={activeTab === 'dashboard'} 
+        <Tab
+          $active={activeTab === 'dashboard'}
           onClick={() => setActiveTab('dashboard')}
         >
           Dashboard
         </Tab>
-        <Tab 
-          $active={activeTab === 'blog'} 
+        <Tab
+          $active={activeTab === 'blog'}
           onClick={() => setActiveTab('blog')}
         >
           Blog Posts
         </Tab>
-        <Tab 
-          $active={activeTab === 'members'} 
+        <Tab
+          $active={activeTab === 'members'}
           onClick={() => setActiveTab('members')}
         >
           Membership
+        </Tab>
+        {/* Add the Events tab here */}
+        <Tab
+          $active={activeTab === 'events'}
+          onClick={() => setActiveTab('events')}
+        >
+          Events
         </Tab>
       </TabContainer>
 
@@ -155,6 +162,17 @@ const [activeTab, setActiveTab] = useState<TabType>('dashboard' | 'blog' | 'memb
           onLoadMemberDetails={loadMemberDetails}
           onUpdateMemberStatus={handleUpdateMemberStatus}
           onDeleteMember={handleDeleteMember}
+        />
+      )}
+
+      {/* Add the EventManager component */}
+      {activeTab === 'events' && (
+        <EventManager
+          events={events}
+          token={token}
+          onEventsChange={loadEvents}
+          loading={eventsLoading}
+          setError={setError}
         />
       )}
     </AdminContainer>
