@@ -10,19 +10,32 @@ export const EventsList: React.FC = () => {
   const [selectedEvent, setSelectedEvent] = useState<string | null>(null);
 
   useEffect(() => {
+    let isMounted = true;
+    
     async function loadEvents() {
+      // Don't fetch if already loading
+      if (loading) return;
+      
       try {
         setLoading(true);
         const data = await fetchEvents();
-        setEvents(Array.isArray(data) ? data : []);
+        if (isMounted) {
+          setEvents(Array.isArray(data) ? data : []);
+        }
       } catch (e: any) {
-        setError(e?.message || 'Failed to load events');
+        if (isMounted) {
+          setError(e?.message || 'Failed to load events');
+        }
       } finally {
-        setLoading(false);
+        if (isMounted) {
+          setLoading(false);
+        }
       }
     }
     
     loadEvents();
+    
+    return () => { isMounted = false; };
   }, []);
   
   if (loading) return <div className="text-center py-10">Loading events...</div>;
