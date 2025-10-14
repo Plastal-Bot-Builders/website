@@ -511,7 +511,7 @@ const Programs: React.FC = () => {
                   Experience an intensive hands-on journey into robotics and AI. Master essential tools
                   like TinkerCad, Fusion 360, ROS2, and more while building real-world projects.
                 </p>
-                <Button label="Register Now" href="/membershipform" />
+                <Button label="Register Now" href="/events" />
               </div>
               <div className="w-full md:w-1/2">
                 <ThemedImage
@@ -597,7 +597,7 @@ const Programs: React.FC = () => {
               5-day bootcamp and take your first step into the world of robotics and AI.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
-              <Button label="Register Now" href="/membershipform" />
+              <Button label="Register Now" href="/events" />
               <Button label="Download Syllabus" href="#" />
             </div>
           </div>
