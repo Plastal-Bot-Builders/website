@@ -74,7 +74,7 @@ export default function Chatbot() {
       // Add bot response to chat
       const botMessage: Message = {
         id: `bot-${Date.now()}`,
-        text: responseText, // <-- FIXED: use responseText instead of data.response
+        text: responseText, 
         sender: 'bot',
         timestamp: new Date()
       };

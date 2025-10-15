@@ -1,8 +1,16 @@
 import React from 'react';
+import Squares from '../components/ui/Squares';
 
 const Footer: React.FC = () => {
   return (
     <footer className="site-footer">
+      <Squares
+        speed={0.5}
+        squareSize={40}
+        direction='diagonal' // up, down, left, right, diagonal
+        borderColor='#fff'
+        hoverFillColor='#222'
+      />
       <div className="max-w-7xl mx-auto p-6">
         <div className="flex flex-col md:flex-row justify-between items-center">
           {/* Social Links */}

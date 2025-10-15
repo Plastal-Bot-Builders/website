@@ -9,6 +9,7 @@ import styled from 'styled-components';
 import { asset } from '../utils/asset';
 import ThemedImage from '../theme/ThemedImage';
 import { SEOConfig } from '../components/SEO';
+import Squares from '../components/ui/Squares';
 
 const InputField = styled.input`
   background-color: transparent;
@@ -60,9 +61,8 @@ const Home: React.FC = () => {
         description="Welcome to Plastal-Bot Builders, where we inspire the next generation of innovators through robotics and technology education."
         image="/resources/home-featured-image.jpg"
       />
-    <section className="scroll-smooth focus:scroll-auto">
+      <section className="scroll-smooth focus:scroll-auto">
         <Header />
-
         {/* Hero */}
         <div className="flex flex-col md:flex-row justify-between p-4 space-y-8 md:space-y-0 md:space-x-8 max-w-7xl mx-auto">
           <div className="w-full md:w-1/2 p-4">
