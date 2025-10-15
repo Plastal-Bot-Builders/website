@@ -9,7 +9,6 @@ import styled from 'styled-components';
 import { asset } from '../utils/asset';
 import ThemedImage from '../theme/ThemedImage';
 import { SEOConfig } from '../components/SEO';
-import Squares from '../components/ui/Squares';
 
 const InputField = styled.input`
   background-color: transparent;

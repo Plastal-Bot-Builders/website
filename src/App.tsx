@@ -76,8 +76,7 @@ const App: React.FC = () => {
             </div>
           )}
 
-          {/* Global background squares */}
-          <div className="fixed inset-0 overflow-hidden pointer-events-none">
+          <div className="fixed inset-0 overflow-hidden" style={{ zIndex: 0 }}>
             <Squares
               speed={0.3}
               squareSize={50}
@@ -86,21 +85,23 @@ const App: React.FC = () => {
           </div>
 
           {/* Render your routes */}
-          <Routes>
-            <Route path="/" element={<Navigate to="/home" replace />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/membershipform" element={
-              <ErrorBoundary>
-                <MembershipForm />
-              </ErrorBoundary>
-            } />
-            <Route path="/blogs" element={<Blog />} />
-            <Route path="/support" element={<Support />} />
-            <Route path="/programs" element={<Programs />} />
-            <Route path="/events" element={<EventsPage />} />
-            <Route path="*" element={<Error404 />} />
-          </Routes>
+          <div className="relative" style={{ zIndex: 1 }}>
+            <Routes>
+              <Route path="/" element={<Navigate to="/home" replace />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/membershipform" element={
+                <ErrorBoundary>
+                  <MembershipForm />
+                </ErrorBoundary>
+              } />
+              <Route path="/blogs" element={<Blog />} />
+              <Route path="/support" element={<Support />} />
+              <Route path="/programs" element={<Programs />} />
+              <Route path="/events" element={<EventsPage />} />
+              <Route path="*" element={<Error404 />} />
+            </Routes>
+          </div>
         </div>
         <Chatbot />
       </Scrollbars>

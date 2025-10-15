@@ -33,12 +33,12 @@ const Header: React.FC = () => {
 };
 
   const logoSrc = 
-    resolvedTheme == 'dark'
+    resolvedTheme === 'dark'
     ? asset('resources/Logo/fred.svg')
     : asset('resources/Logo/fred1.svg')
 
   return (
-    <nav className="w-full z-50 site-header backdrop-blur-sm">
+    <nav className="w-full z-50 site-header">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           {/* Logo (served from public/resources/...) */}
