@@ -77,6 +77,11 @@ html.dark body {
   color: #F3F4F6;
 }
 
+.route-content {
+  position: relative;
+  z-index: 1;
+}
+
 /* Limit transitions to color/background for perf */
 * { transition: background-color .2s ease, color .2s ease; }
 

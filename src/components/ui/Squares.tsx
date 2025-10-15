@@ -1,5 +1,6 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useMemo } from 'react';
 import './Squares.css';
+import { useTheme } from '../../theme/ThemeProvider'; // Adjust import to your theme provider
 
 type CanvasStrokeStyle = string | CanvasGradient | CanvasPattern;
 
@@ -11,18 +12,46 @@ interface GridOffset {
 interface SquaresProps {
   direction?: 'diagonal' | 'up' | 'right' | 'down' | 'left';
   speed?: number;
-  borderColor?: CanvasStrokeStyle;
+  borderColor?: CanvasStrokeStyle; // Optional override
   squareSize?: number;
-  hoverFillColor?: CanvasStrokeStyle;
+  hoverFillColor?: CanvasStrokeStyle; // Optional override
 }
 
 const Squares: React.FC<SquaresProps> = ({
   direction = 'right',
   speed = 1,
-  borderColor = '#999',
+  borderColor: borderColorProp,
   squareSize = 40,
-  hoverFillColor = '#222'
+  hoverFillColor: hoverFillColorProp
 }) => {
+  // Get current theme from your theme context
+  const { theme, resolvedTheme } = useTheme(); // Adjust according to your theme API
+
+  // Derive colors from theme if not explicitly provided
+  const borderColor = useMemo(() => {
+    if (borderColorProp) return borderColorProp;
+    // Use theme-based colors
+    return resolvedTheme === 'dark' 
+      ? 'rgba(255, 255, 255, 0.15)' // Subtle white lines in dark mode
+      : 'rgba(0, 0, 0, 0.08)';      // Subtle black lines in light mode
+  }, [borderColorProp, resolvedTheme]);
+
+  const hoverFillColor = useMemo(() => {
+    if (hoverFillColorProp) return hoverFillColorProp;
+    // Use your accent color with different opacity based on theme
+    return resolvedTheme === 'dark'
+      ? 'rgba(12, 255, 187, 0.25)' // Your turquoise accent in dark mode
+      : 'rgba(12, 255, 187, 0.15)'; // Lighter version in light mode
+  }, [hoverFillColorProp, resolvedTheme]);
+
+  // Background gradient colors based on theme
+  const gradientColors = useMemo(() => {
+    return resolvedTheme === 'dark'
+      ? { start: 'rgba(0, 0, 0, 0)', end: '#060010' } 
+      : { start: 'rgba(255, 255, 255, 0)', end: '#f5f5f5' };
+  }, [resolvedTheme]);
+  
+  // Rest of your component remains the same...
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const requestRef = useRef<number | null>(null);
   const numSquaresX = useRef<number>(0);
@@ -71,6 +100,7 @@ const Squares: React.FC<SquaresProps> = ({
         }
       }
 
+      // Use theme-aware gradient colors
       const gradient = ctx.createRadialGradient(
         canvas.width / 2,
         canvas.height / 2,
@@ -79,13 +109,14 @@ const Squares: React.FC<SquaresProps> = ({
         canvas.height / 2,
         Math.sqrt(canvas.width ** 2 + canvas.height ** 2) / 2
       );
-      gradient.addColorStop(0, 'rgba(0, 0, 0, 0)');
-      gradient.addColorStop(1, '#060010');
+      gradient.addColorStop(0, gradientColors.start);
+      gradient.addColorStop(1, gradientColors.end);
 
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
     };
 
+    // Rest of effect implementation remains the same...
     const updateAnimation = () => {
       const effectiveSpeed = Math.max(speed, 0.1);
       switch (direction) {
@@ -147,7 +178,7 @@ const Squares: React.FC<SquaresProps> = ({
       canvas.removeEventListener('mousemove', handleMouseMove);
       canvas.removeEventListener('mouseleave', handleMouseLeave);
     };
-  }, [direction, speed, borderColor, hoverFillColor, squareSize]);
+  }, [direction, speed, borderColor, hoverFillColor, squareSize, gradientColors]); // Added theme-related dependencies
 
   return <canvas ref={canvasRef} className="squares-canvas"></canvas>;
 };

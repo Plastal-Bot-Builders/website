@@ -16,6 +16,7 @@ import ErrorBoundary from './components/ErrorBoundary';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 import { DefaultSEO } from './components/SEO';
 import EventsPage from './pages/events';
+import Squares from './components/ui/Squares';
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
@@ -53,9 +54,9 @@ const App: React.FC = () => {
         <div style={{ position: 'relative', height: '100vh' }}>
           {/* Conditionally render the Grid spinner when loading is true */}
           {loading && (
-            <div 
-              className="loader-background visible" 
-              role="status" 
+            <div
+              className="loader-background visible"
+              role="status"
               aria-live="polite"
               aria-label="Page loading"
             >
@@ -74,6 +75,15 @@ const App: React.FC = () => {
               </div>
             </div>
           )}
+
+          {/* Global background squares */}
+          <div className="fixed inset-0 overflow-hidden pointer-events-none">
+            <Squares
+              speed={0.3}
+              squareSize={50}
+              direction="diagonal"
+            />
+          </div>
 
           {/* Render your routes */}
           <Routes>
