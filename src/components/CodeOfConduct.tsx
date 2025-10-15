@@ -8,7 +8,7 @@ interface CodeOfConductProps {
 
 const CodeOfConduct: React.FC<CodeOfConductProps> = ({ standalone = true }) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
-  const { resolvedTheme, toggle } = useTheme();
+  const { resolvedTheme } = useTheme();
 
   const handleOpenModal = () => {
     dialogRef.current?.showModal();
@@ -19,7 +19,7 @@ const CodeOfConduct: React.FC<CodeOfConductProps> = ({ standalone = true }) => {
   };
 
   const logoSrc =
-    resolvedTheme == 'dark'
+    resolvedTheme === 'dark'
       ? asset('resources/Logo/fred.svg')
       : asset('resources/Logo/fred1.svg')
 
@@ -59,7 +59,7 @@ const CodeOfConduct: React.FC<CodeOfConductProps> = ({ standalone = true }) => {
               {/* Title area with stacked elements and animation */}
               <div className="flex flex-col items-center md:items-start space-y-2 relative">
                 {/* Small badge above title */}
-                <div className="px-3 py-1 rounded-full bg-accent/10 text-xs font-medium text-accent tracking-wider mb-2">
+                <div className="px-3 py-1 rounded-full bg-surface-hover-bg text-xs font-medium text-accent tracking-wider mb-2">
                   OFFICIAL DOCUMENT
                 </div>
                 

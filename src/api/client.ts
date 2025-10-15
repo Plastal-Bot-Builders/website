@@ -62,7 +62,7 @@ export async function apiFetch(
     ...authHeader(token),
     ...(headers || {})
   };
-
+  console.log(`API Request: ${url}`, { method: rest.method || 'GET' })
   const res = await fetch(url, {
     ...rest,
     headers: finalHeaders,

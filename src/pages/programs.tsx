@@ -33,15 +33,6 @@ const Programs: React.FC = () => {
     'resources/IntroRoboticsWorkshop/IMG_4596.jpg'
   ];
 
-  interface Tool {
-    icon: string | null;
-    containerStyle?: {
-      display: string;
-      flexDirection: string;
-      alignItems: string;
-      gap: string;
-    };
-  }
   const days = [
     {
       day: "Day 1",
