@@ -100,6 +100,15 @@ const App: React.FC = () => {
               <Route path="/programs" element={<Programs />} />
               <Route path="/events" element={<EventsPage />} />
               <Route path="*" element={<Error404 />} />
+              <Route path="/support/donations" element={<DonationsPage />} />
+              <Route path="/support/sponsorships" element={<SponsorshipsPage />} />
+              <Route path="/support/fundraising" element={<FundraisingPage />} />
+              <Route path="/support/mentorship" element={<MentorshipPage />} />
+              <Route path="/support/technical-support" element={<TechnicalSupportPage />} />
+              <Route path="/support/event-coordination" element={<EventCoordinationPage />} />
+              <Route path="/support/corporate-partnerships" element={<CorporatePartnershipsPage />} />
+              <Route path="/support/educational-institutions" element={<EducationalPartnershipsPage />} />
+              <Route path="/support/nonprofits" element={<NonprofitsPage />} />
             </Routes>
           </div>
         </div>
