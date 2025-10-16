@@ -11,7 +11,6 @@ const Support: React.FC = () => {
     const [modalImage, setModalImage] = useState<string | undefined>(undefined);
     const [modalContent, setModalContent] = useState<React.ReactNode>(null);
     const [modalTitle, setModalTitle] = useState<string>('More Information');
-
     const toggleModal = (image?: string, content?: React.ReactNode, title?: string) => {
         if (image) setModalImage(image);
         if (content) setModalContent(content);
@@ -22,11 +21,9 @@ const Support: React.FC = () => {
     return (
         <section className="scroll-smooth focus:scroll-auto">
             {/* Navigation Bar */}
-            <Header />
-            
+            <Header />            
             {/* Main Content */}
             <div className="max-w-7xl mx-auto p-8">
-
                 {/* Section: Support Us */}
                 <section className="mb-16">
                     <h1 className="mb-8 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight title">
@@ -61,7 +58,6 @@ const Support: React.FC = () => {
                                 More about donations →
                             </button>
                         </div>
-
                         {/* Sponsorship Card */}
                         <div className="p-6 border border-surface-border rounded-lg interactive-card flex flex-col h-full">
                             <div className="flex-grow">
@@ -90,7 +86,6 @@ const Support: React.FC = () => {
                                 More about sponsorships →
                             </button>
                         </div>
-
                         {/* Fundraising Card */}
                         <div className="p-6 border border-surface-border rounded-lg interactive-card flex flex-col h-full">
                             <div className="flex-grow">
