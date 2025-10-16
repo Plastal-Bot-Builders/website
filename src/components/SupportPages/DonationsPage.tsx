@@ -39,7 +39,7 @@ const DonationsPage: React.FC = () => {
             
             <div className="max-w-5xl mx-auto px-4 py-12">
                 <Link to="/support" className="inline-flex items-center text-accent hover:text-accent-hover mb-6">
-                    <FaArrowLeft className="mr-2" /> Back to Support
+                    {FaArrowLeft ({className:"mr-2"})} Back to Support
                 </Link>
                 
                 {/* Hero Section */}
@@ -107,7 +107,7 @@ const DonationsPage: React.FC = () => {
                         <div className="border border-surface-border rounded-lg p-6 text-center hover:border-accent transition-colors">
                             <div className="text-accent text-xl font-bold mb-2">K200</div>
                             <div className="w-20 h-20 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
-                                <FaRegLightbulb className="text-accent text-3xl" />
+                                {FaRegLightbulb ({className:"text-accent text-3xl"})}
                             </div>
                             <p>Provides one set of sensors for a student robot project</p>
                         </div>
@@ -115,7 +115,7 @@ const DonationsPage: React.FC = () => {
                         <div className="border border-surface-border rounded-lg p-6 text-center hover:border-accent transition-colors">
                             <div className="text-accent text-xl font-bold mb-2">K500</div>
                             <div className="w-20 h-20 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
-                                <FaUserGraduate className="text-accent text-3xl" />
+                                {FaUserGraduate ({className:"text-accent text-3xl"})}
                             </div>
                             <p>Covers workshop materials for one participant</p>
                         </div>
@@ -123,7 +123,7 @@ const DonationsPage: React.FC = () => {
                         <div className="border border-surface-border rounded-lg p-6 text-center hover:border-accent transition-colors">
                             <div className="text-accent text-xl font-bold mb-2">K1,000</div>
                             <div className="w-20 h-20 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
-                                <FaHandHoldingHeart className="text-accent text-3xl" />
+                                {FaHandHoldingHeart ({className:"text-accent text-3xl"})}
                             </div>
                             <p>Sponsors a complete robotics kit for a school</p>
                         </div>
@@ -183,7 +183,7 @@ const DonationsPage: React.FC = () => {
                                     <div className="flex items-center">
                                         <div className="mr-3">
                                             {isRecurring && donationAmount >= 50 && donationAmount < 200 ? (
-                                                <FaCheck className="text-accent" />
+                                                {FaCheck ({className:"text-accent"})}
                                             ) : null}
                                         </div>
                                         <div>
@@ -197,7 +197,7 @@ const DonationsPage: React.FC = () => {
                                     <div className="flex items-center">
                                         <div className="mr-3">
                                             {isRecurring && donationAmount >= 200 && donationAmount < 500 ? (
-                                                <FaCheck className="text-accent" />
+                                                {FaCheck ({className:"text-accent"})}
                                             ) : null}
                                         </div>
                                         <div>
@@ -211,7 +211,7 @@ const DonationsPage: React.FC = () => {
                                     <div className="flex items-center">
                                         <div className="mr-3">
                                             {isRecurring && donationAmount >= 500 ? (
-                                                <FaCheck className="text-accent" />
+                                                {FaCheck ({className:"text-accent"})}
                                             ) : null}
                                         </div>
                                         <div>

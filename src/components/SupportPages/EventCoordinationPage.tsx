@@ -16,19 +16,19 @@ const EventCoordinationPage: React.FC = () => {
             type: "Workshops & Bootcamps",
             description: "Short, skill-focused training sessions on robotics, coding, or AI.",
             example: "3-Day Robotics & AI Workshop",
-            icon: <FaChalkboardTeacher className="text-accent text-2xl" />
+            icon: {FaChalkboardTeacher ({className:"text-accent text-2xl"})}
         },
         {
             type: "Competitions",
             description: "Challenges that push innovation aligned with SDGs.",
             example: "Robotics for Good Youth Challenge",
-            icon: <FaTrophy className="text-accent text-2xl" />
+            icon: {FaTrophy ({className:"text-accent text-2xl" })}
         },
         {
             type: "Exhibitions & Tech Fairs",
             description: "Showcases of robotics projects, innovations, and partner initiatives.",
             example: "Plastal-Bot Innovation Expo",
-            icon: <FaRegLightbulb className="text-accent text-2xl" />
+            icon: {FaRegLightbulb ({className:"text-accent text-2xl" })}
         },
         {
             type: "Training & Certification",
