@@ -34,7 +34,7 @@ const EventCoordinationPage: React.FC = () => {
             type: "Training & Certification",
             description: "Targeted upskilling for teachers or youth.",
             example: "\"Train the Trainer\" Robotics Program",
-            icon: <FaTools className="text-accent text-2xl" />
+            icon: {FaTools ({className:"text-accent text-2xl"})}
         },
         {
             type: "Community Outreach",
@@ -46,7 +46,7 @@ const EventCoordinationPage: React.FC = () => {
             type: "Panel Talks & Lectures",
             description: "Sessions with field experts and innovators.",
             example: "AI in Africa Speaker Series",
-            icon: <FaMicrophone className="text-accent text-2xl" />
+            icon: {FaMicrophone ({className:"text-accent text-2xl"})}
         }
     ];
 
@@ -55,7 +55,7 @@ const EventCoordinationPage: React.FC = () => {
         {
             role: "Event Coordinator",
             responsibility: "Oversees event planning and execution.",
-            icon: <FaClipboardCheck className="text-accent text-2xl" />
+            icon: {FaClipboardCheck ({className:"text-accent text-2xl"})}
         },
         {
             role: "Technical Lead",
@@ -90,14 +90,14 @@ const EventCoordinationPage: React.FC = () => {
             
             <div className="max-w-5xl mx-auto px-4 py-12">
                 <Link to="/support" className="inline-flex items-center text-accent hover:text-accent-hover mb-6">
-                    <FaArrowLeft className="mr-2" /> Back to Support
+                    {FaArrowLeft ({className:"mr-2" })} Back to Support
                 </Link>
                 
                 {/* Hero Section */}
                 <div className="flex flex-col md:flex-row gap-8 items-center mb-12">
                     <div className="md:w-1/2">
                         <h1 className="text-3xl md:text-4xl font-bold mb-4">
-                            <FaCalendarAlt className="inline-block mr-3" />
+                            {FaCalendarAlt ({className:"inline-block mr-3"})}
                             Event Coordination
                         </h1>
                         <p className="text-gray-600 dark:text-gray-300 mb-4 text-lg">
@@ -215,7 +215,7 @@ const EventCoordinationPage: React.FC = () => {
                         <div className="bg-surface border border-surface-border rounded-lg p-6">
                             <div className="flex items-center mb-4">
                                 <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3">
-                                    <FaClipboardCheck className="text-accent text-2xl" />
+                                    {FaClipboardCheck ({className:"text-accent text-2xl"})}
                                 </div>
                                 <h3 className="text-xl font-bold">Planning & Pre-Event</h3>
                             </div>
@@ -247,7 +247,7 @@ const EventCoordinationPage: React.FC = () => {
                         <div className="bg-surface border border-surface-border rounded-lg p-6">
                             <div className="flex items-center mb-4">
                                 <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3">
-                                    <FaUsers className="text-accent text-2xl" />
+                                    {FaUsers ({className:"text-accent text-2xl" })}
                                 </div>
                                 <h3 className="text-xl font-bold">During Event</h3>
                             </div>
@@ -279,7 +279,7 @@ const EventCoordinationPage: React.FC = () => {
                         <div className="bg-surface border border-surface-border rounded-lg p-6">
                             <div className="flex items-center mb-4">
                                 <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3">
-                                    <FaChartLine className="text-accent text-2xl" />
+                                    {FaChartLine ({className:"text-accent text-2xl" })}
                                 </div>
                                 <h3 className="text-xl font-bold">Post-Event</h3>
                             </div>
@@ -339,37 +339,37 @@ const EventCoordinationPage: React.FC = () => {
                     
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                         <div className="bg-surface-hover-bg rounded-lg p-4 flex flex-col items-center text-center">
-                            <FaLaptop className="text-accent text-3xl mb-3" />
+                            {FaLaptop ({className:"text-accent text-3xl mb-3" })}
                             <h3 className="font-bold mb-2">Planning & Organization</h3>
                             <p className="text-sm">Google Workspace / Notion for task tracking and timelines</p>
                         </div>
                         
                         <div className="bg-surface-hover-bg rounded-lg p-4 flex flex-col items-center text-center">
-                            <FaRegLightbulb className="text-accent text-3xl mb-3" />
+                            {FaRegLightbulb ({className:"text-accent text-3xl mb-3" })}
                             <h3 className="font-bold mb-2">Design & Marketing</h3>
                             <p className="text-sm">Canva / Figma for creating event posters and social media graphics</p>
                         </div>
                         
                         <div className="bg-surface-hover-bg rounded-lg p-4 flex flex-col items-center text-center">
-                            <FaClipboardCheck className="text-accent text-3xl mb-3" />
+                            {FaClipboardCheck ({className:"text-accent text-3xl mb-3" })}
                             <h3 className="font-bold mb-2">Registration</h3>
                             <p className="text-sm">Eventbrite / Google Forms for managing participant sign-ups</p>
                         </div>
                         
                         <div className="bg-surface-hover-bg rounded-lg p-4 flex flex-col items-center text-center">
-                            <FaUsers className="text-accent text-3xl mb-3" />
+                            {FaUsers ({className:"text-accent text-3xl mb-3"})}
                             <h3 className="font-bold mb-2">Team Management</h3>
                             <p className="text-sm">Trello or Asana for task assignment among event facilitators</p>
                         </div>
                         
                         <div className="bg-surface-hover-bg rounded-lg p-4 flex flex-col items-center text-center">
-                            <FaRegLightbulb className="text-accent text-3xl mb-3" />
+                            {FaRegLightbulb ({className:"text-accent text-3xl mb-3" })}
                             <h3 className="font-bold mb-2">Communication</h3>
                             <p className="text-sm">Mailchimp for follow-ups and automated event updates</p>
                         </div>
                         
                         <div className="bg-surface-hover-bg rounded-lg p-4 flex flex-col items-center text-center">
-                            <FaChartLine className="text-accent text-3xl mb-3" />
+                            {FaChartLine ({className:"text-accent text-3xl mb-3" })}
                             <h3 className="font-bold mb-2">Analytics</h3>
                             <p className="text-sm">Custom backend for tracking participation and impact metrics</p>
                         </div>
@@ -489,7 +489,7 @@ const EventCoordinationPage: React.FC = () => {
                     
                     <div className="mt-6 text-center">
                         <a href="/events" className="inline-flex items-center text-accent hover:underline">
-                            View full events calendar <FaCalendarAlt className="ml-2" />
+                            View full events calendar {FaCalendarAlt ({className:"ml-2" })}
                         </a>
                     </div>
                 </section>

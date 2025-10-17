@@ -94,14 +94,14 @@ const NonprofitPartnershipPage: React.FC = () => {
             
             <div className="max-w-5xl mx-auto px-4 py-12">
                 <Link to="/support" className="inline-flex items-center text-accent hover:text-accent-hover mb-6">
-                    <FaArrowLeft className="mr-2" /> Back to Support
+                    {FaArrowLeft ({className:"mr-2" })} Back to Support
                 </Link>
                 
                 {/* Hero Section */}
                 <div className="flex flex-col md:flex-row gap-8 items-center mb-12">
                     <div className="md:w-1/2">
                         <h1 className="text-3xl md:text-4xl font-bold mb-4">
-                            <FaHandsHelping className="inline-block mr-3" />
+                            {FaHandsHelping ({className:"inline-block mr-3" })}
                             Nonprofit Partnerships
                         </h1>
                         <p className="text-gray-600 dark:text-gray-300 mb-4 text-lg">
@@ -216,7 +216,7 @@ const NonprofitPartnershipPage: React.FC = () => {
                             <ul className="space-y-3">
                                 <li className="flex items-start">
                                     <div className="w-8 h-8 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 mt-1 shrink-0">
-                                        <FaRobot className="text-accent" />
+                                        {FaRobot ({className:"text-accent" })}
                                     </div>
                                     <div>
                                         <strong>Technical Expertise</strong>
@@ -225,7 +225,7 @@ const NonprofitPartnershipPage: React.FC = () => {
                                 </li>
                                 <li className="flex items-start">
                                     <div className="w-8 h-8 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 mt-1 shrink-0">
-                                        <FaChalkboardTeacher className="text-accent" />
+                                        {FaChalkboardTeacher ({className:"text-accent" })}
                                     </div>
                                     <div>
                                         <strong>Training Capacity</strong>
@@ -234,7 +234,7 @@ const NonprofitPartnershipPage: React.FC = () => {
                                 </li>
                                 <li className="flex items-start">
                                     <div className="w-8 h-8 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 mt-1 shrink-0">
-                                        <FaSeedling className="text-accent" />
+                                        {FaSeedling ({className:"text-accent" })}
                                     </div>
                                     <div>
                                         <strong>Innovation Framework</strong>
@@ -249,7 +249,7 @@ const NonprofitPartnershipPage: React.FC = () => {
                             <ul className="space-y-3">
                                 <li className="flex items-start">
                                     <div className="w-8 h-8 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 mt-1 shrink-0">
-                                        <FaUsers className="text-accent" />
+                                        {FaUsers ({className:"text-accent" })}
                                     </div>
                                     <div>
                                         <strong>Extended Reach</strong>
@@ -258,7 +258,7 @@ const NonprofitPartnershipPage: React.FC = () => {
                                 </li>
                                 <li className="flex items-start">
                                     <div className="w-8 h-8 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 mt-1 shrink-0">
-                                        <FaHandshake className="text-accent" />
+                                        {FaHandshake ({className:"text-accent" })}
                                     </div>
                                     <div>
                                         <strong>Resource Sharing</strong>
@@ -267,7 +267,7 @@ const NonprofitPartnershipPage: React.FC = () => {
                                 </li>
                                 <li className="flex items-start">
                                     <div className="w-8 h-8 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 mt-1 shrink-0">
-                                        <FaLightbulb className="text-accent" />
+                                        {FaLightbulb ({className:"text-accent" })}
                                     </div>
                                     <div>
                                         <strong>Enhanced Programming</strong>

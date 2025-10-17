@@ -93,14 +93,14 @@ const FundraisingPage: React.FC = () => {
             
             <div className="max-w-5xl mx-auto px-4 py-12">
                 <Link to="/support" className="inline-flex items-center text-accent hover:text-accent-hover mb-6">
-                    <FaArrowLeft className="mr-2" /> Back to Support
+                    {FaArrowLeft ({className:"mr-2" })} Back to Support
                 </Link>
                 
                 {/* Hero Section */}
                 <div className="flex flex-col md:flex-row gap-8 items-center mb-12">
                     <div className="md:w-1/2">
                         <h1 className="text-3xl md:text-4xl font-bold mb-4">
-                            <FaHandHoldingHeart className="inline-block mr-3" />
+                            {FaHandHoldingHeart ({className:"inline-block mr-3" })}
                             Support Our Mission
                         </h1>
                         <p className="text-gray-600 dark:text-gray-300 mb-4 text-lg">

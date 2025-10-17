@@ -107,14 +107,14 @@ const MentorshipPage: React.FC = () => {
             
             <div className="max-w-5xl mx-auto px-4 py-12">
                 <Link to="/support" className="inline-flex items-center text-accent hover:text-accent-hover mb-6">
-                    <FaArrowLeft className="mr-2" /> Back to Support
+                    {FaArrowLeft ({className:"mr-2"})} Back to Support
                 </Link>
                 
                 {/* Hero Section */}
                 <div className="flex flex-col md:flex-row gap-8 items-center mb-12">
                     <div className="md:w-1/2">
                         <h1 className="text-3xl md:text-4xl font-bold mb-4">
-                            <FaRegHandshake className="inline-block mr-3" />
+                            {FaRegHandshake ({className:"inline-block mr-3" })}
                             Mentorship Program
                         </h1>
                         <p className="text-gray-600 dark:text-gray-300 mb-4 text-lg">
@@ -250,7 +250,7 @@ const MentorshipPage: React.FC = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div>
                             <h3 className="text-xl font-bold mb-4 flex items-center">
-                                <FaChalkboardTeacher className="text-accent mr-2" /> For Mentors
+                                {FaChalkboardTeacher ({className:"text-accent mr-2"})} For Mentors
                             </h3>
                             
                             <div className="space-y-4">
@@ -270,7 +270,7 @@ const MentorshipPage: React.FC = () => {
                         
                         <div>
                             <h3 className="text-xl font-bold mb-4 flex items-center">
-                                <FaGraduationCap className="text-accent mr-2" /> For Mentees
+                                {FaGraduationCap ({className:"text-accent mr-2" })} For Mentees
                             </h3>
                             
                             <div className="space-y-4">
@@ -440,7 +440,7 @@ const MentorshipPage: React.FC = () => {
                     <section id="become-mentor" className="bg-surface border border-surface-border rounded-lg overflow-hidden">
                         <div className="p-6">
                             <h2 className="text-2xl font-bold mb-4 flex items-center">
-                                <FaChalkboardTeacher className="text-accent mr-3" /> Become a Mentor
+                                {FaChalkboardTeacher ({className:"text-accent mr-3"})} Become a Mentor
                             </h2>
                             
                             <p className="mb-4">
@@ -522,7 +522,7 @@ const MentorshipPage: React.FC = () => {
                     <section id="seek-mentorship" className="bg-surface border border-surface-border rounded-lg overflow-hidden">
                         <div className="p-6">
                             <h2 className="text-2xl font-bold mb-4 flex items-center">
-                                <FaGraduationCap className="text-accent mr-3" /> Seek Mentorship
+                                {FaGraduationCap ({className:"text-accent mr-3" })} Seek Mentorship
                             </h2>
                             
                             <p className="mb-4">

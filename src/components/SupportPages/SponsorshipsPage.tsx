@@ -154,14 +154,14 @@ const SponsorshipPage: React.FC = () => {
             
             <div className="max-w-5xl mx-auto px-4 py-12">
                 <Link to="/support" className="inline-flex items-center text-accent hover:text-accent-hover mb-6">
-                    <FaArrowLeft className="mr-2" /> Back to Support
+                    {FaArrowLeft ({className:"mr-2"})} Back to Support
                 </Link>
                 
                 {/* Hero Section */}
                 <div className="flex flex-col md:flex-row gap-8 items-center mb-12">
                     <div className="md:w-1/2">
                         <h1 className="text-3xl md:text-4xl font-bold mb-4">
-                            <FaHandshake className="inline-block mr-3" />
+                            {FaHandshake ({className:"inline-block mr-3" })}
                             Sponsorship Partnerships
                         </h1>
                         <p className="text-gray-600 dark:text-gray-300 mb-4 text-lg">
@@ -363,7 +363,7 @@ const SponsorshipPage: React.FC = () => {
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <div className="bg-surface rounded-lg p-5 text-center">
                                 <div className="w-16 h-16 mx-auto mb-4 bg-accent rounded-full flex items-center justify-center">
-                                    <FaRegImage className="text-black text-2xl" />
+                                    {FaRegImage ({className:"text-black text-2xl"})}
                                 </div>
                                 <h3 className="font-bold mb-2">Brand Presence</h3>
                                 <p className="text-sm">
@@ -373,7 +373,7 @@ const SponsorshipPage: React.FC = () => {
                             
                             <div className="bg-surface rounded-lg p-5 text-center">
                                 <div className="w-16 h-16 mx-auto mb-4 bg-accent rounded-full flex items-center justify-center">
-                                    <FaMicrophone className="text-black text-2xl" />
+                                    {FaMicrophone ({className:"text-black text-2xl"})}
                                 </div>
                                 <h3 className="font-bold mb-2">Speaking Platforms</h3>
                                 <p className="text-sm">
@@ -383,7 +383,7 @@ const SponsorshipPage: React.FC = () => {
                             
                             <div className="bg-surface rounded-lg p-5 text-center">
                                 <div className="w-16 h-16 mx-auto mb-4 bg-accent rounded-full flex items-center justify-center">
-                                    <FaRegLightbulb className="text-black text-2xl" />
+                                    {FaRegLightbulb ({className:"text-black text-2xl"})}
                                 </div>
                                 <h3 className="font-bold mb-2">Content Collaboration</h3>
                                 <p className="text-sm">

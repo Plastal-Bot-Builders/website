@@ -96,14 +96,14 @@ const TechnicalSupportPage: React.FC = () => {
             
             <div className="max-w-5xl mx-auto px-4 py-12">
                 <Link to="/support" className="inline-flex items-center text-accent hover:text-accent-hover mb-6">
-                    <FaArrowLeft className="mr-2" /> Back to Support
+                    {FaArrowLeft ({className:"mr-2"})} Back to Support
                 </Link>
                 
                 {/* Hero Section */}
                 <div className="flex flex-col md:flex-row gap-8 items-center mb-12">
                     <div className="md:w-1/2">
                         <h1 className="text-3xl md:text-4xl font-bold mb-4">
-                            <FaCogs className="inline-block mr-3" />
+                            {FaCogs ({className:"inline-block mr-3" })}
                             Technical Support
                         </h1>
                         <p className="text-gray-600 dark:text-gray-300 mb-4 text-lg">
@@ -233,7 +233,7 @@ const TechnicalSupportPage: React.FC = () => {
                         <div className="md:w-1/2">
                             <div className="bg-surface rounded-lg p-5 mb-4">
                                 <h3 className="text-lg font-bold mb-3 flex items-center">
-                                    <FaUsersCog className="text-accent mr-2" /> Network Activities
+                                    {FaUsersCog ({className:"text-accent mr-2" })} Network Activities
                                 </h3>
                                 <ul className="space-y-2">
                                     <li className="flex items-start">
@@ -403,7 +403,7 @@ const TechnicalSupportPage: React.FC = () => {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <div className="bg-surface rounded-lg p-4">
                             <h3 className="font-bold text-lg mb-2 flex items-center">
-                                <FaRobot className="text-accent mr-2" /> Sensor Kit Upgrade
+                                {FaRobot ({className:"text-accent mr-2" })} Sensor Kit Upgrade
                             </h3>
                             <p className="text-sm mb-3">
                                 Enhancing our educational robots with improved sensors for environmental monitoring.
@@ -416,7 +416,7 @@ const TechnicalSupportPage: React.FC = () => {
                         
                         <div className="bg-surface rounded-lg p-4">
                             <h3 className="font-bold text-lg mb-2 flex items-center">
-                                <FaLaptopCode className="text-accent mr-2" /> Learning Platform 
+                                {FaLaptopCode ({className:"text-accent mr-2" })} Learning Platform 
                             </h3>
                             <p className="text-sm mb-3">
                                 Building a web application to track student progress and showcase projects.
@@ -429,7 +429,7 @@ const TechnicalSupportPage: React.FC = () => {
                         
                         <div className="bg-surface rounded-lg p-4">
                             <h3 className="font-bold text-lg mb-2 flex items-center">
-                                <FaBug className="text-accent mr-2" /> Debugging Workshop
+                                {FaBug ({className:"text-accent mr-2" })} Debugging Workshop
                             </h3>
                             <p className="text-sm mb-3">
                                 Creating resources to teach troubleshooting skills to educators and students.
@@ -455,7 +455,7 @@ const TechnicalSupportPage: React.FC = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                         <div className="flex items-start">
                             <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0">
-                                <FaLaptopCode className="text-accent text-xl" />
+                                {FaLaptopCode ({className:"text-accent text-xl"})}
                             </div>
                             <div>
                                 <h3 className="text-lg font-bold mb-2">Skills Application</h3>
@@ -465,7 +465,7 @@ const TechnicalSupportPage: React.FC = () => {
                         
                         <div className="flex items-start">
                             <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0">
-                                <FaUsers className="text-accent text-xl" />
+                                {FaUsers ({className:"text-accent text-xl"})}
                             </div>
                             <div>
                                 <h3 className="text-lg font-bold mb-2">Network Expansion</h3>
@@ -475,7 +475,7 @@ const TechnicalSupportPage: React.FC = () => {
                         
                         <div className="flex items-start">
                             <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0">
-                                <FaGraduationCap className="text-accent text-xl" />
+                                {FaGraduationCap ({className:"text-accent text-xl"})}
                             </div>
                             <div>
                                 <h3 className="text-lg font-bold mb-2">Knowledge Transfer</h3>
@@ -485,7 +485,7 @@ const TechnicalSupportPage: React.FC = () => {
                         
                         <div className="flex items-start">
                             <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0">
-                                <FaRobot className="text-accent text-xl" />
+                                {FaRobot ({className:"text-accent text-xl"})}
                             </div>
                             <div>
                                 <h3 className="text-lg font-bold mb-2">Innovation Opportunity</h3>
