@@ -16,25 +16,25 @@ const EducationalPartnershipsPage: React.FC = () => {
             name: "Academic Alliance",
             description: "Joint programs, research, or competitions with universities",
             example: "Robotics Innovation Challenge with CBU & UNZA",
-            icon: {FaUniversity ({className:"text-accent text-2xl"})}
+            icon: <FaUniversity className="text-accent text-2xl"/>
         },
         {
             name: "STEM School Program",
             description: "Long-term support for school robotics clubs",
             example: "School kit sponsorship + mentor visits",
-            icon: {FaSchool ({className:"text-accent text-2xl"})}
+            icon: <FaSchool className="text-accent text-2xl"/>
         },
         {
             name: "Teacher Empowerment Program",
             description: "Train educators in robotics and IoT basics",
             example: "3-day \"Train the Trainer\" bootcamp",
-            icon: {FaChalkboardTeacher ({className:"text-accent text-2xl"})}
+            icon: <FaChalkboardTeacher className="text-accent text-2xl"/>
         },
         {
             name: "Regional Learning Hubs",
             description: "Co-host workshops at partner institutions",
             example: "Mobile robotics labs rotating by province",
-            icon: {FaGlobeAfrica ({className:"text-accent text-2xl"})}
+            icon: <FaGlobeAfrica className="text-accent text-2xl"/>
         }
     ];
     
@@ -155,7 +155,7 @@ const EducationalPartnershipsPage: React.FC = () => {
                             <div className="p-6">
                                 <div className="flex items-center mb-4">
                                     <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4">
-                                        {FaSchool {(className:"text-accent text-2xl"})}
+                                        {FaSchool ({className:"text-accent text-2xl"})}
                                     </div>
                                     <h3 className="text-xl font-bold">School Collaborations</h3>
                                 </div>

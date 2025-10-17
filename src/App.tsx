@@ -18,6 +18,18 @@ import { DefaultSEO } from './components/SEO';
 import EventsPage from './pages/events';
 import Squares from './components/ui/Squares';
 
+
+// Import Support subpages
+import DonationsPage from './components/SupportPages/DonationsPage';
+import SponsorshipsPage from './components/SupportPages/SponsorshipsPage';
+import FundraisingPage from './components/SupportPages/FundraisingPage';
+import MentorshipPage from './components/SupportPages/MentorshipPage';
+import TechnicalSupportPage from './components/SupportPages/TechnicalSupportPage';
+import EventCoordinationPage from './components/SupportPages/EventCoordinationPage';
+import CorporatePartnershipsPage from './components/SupportPages/CorporatePartnershipsPage';
+import EducationalPartnershipsPage from './components/SupportPages/EducationalPartnershipsPage';
+import NonprofitPartnershipPage from './components/SupportPages/NonprofitPartnershipPage';
+
 const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const location = useLocation(); // Track the route change
@@ -99,7 +111,8 @@ const App: React.FC = () => {
               <Route path="/support" element={<Support />} />
               <Route path="/programs" element={<Programs />} />
               <Route path="/events" element={<EventsPage />} />
-              <Route path="*" element={<Error404 />} />
+              {/* Support pages */}
+              <Route path="/support" element={<Support />} />
               <Route path="/support/donations" element={<DonationsPage />} />
               <Route path="/support/sponsorships" element={<SponsorshipsPage />} />
               <Route path="/support/fundraising" element={<FundraisingPage />} />
@@ -108,7 +121,10 @@ const App: React.FC = () => {
               <Route path="/support/event-coordination" element={<EventCoordinationPage />} />
               <Route path="/support/corporate-partnerships" element={<CorporatePartnershipsPage />} />
               <Route path="/support/educational-institutions" element={<EducationalPartnershipsPage />} />
-              <Route path="/support/nonprofits" element={<NonprofitsPage />} />
+              <Route path="/support/nonprofits" element={<NonprofitPartnershipPage />} />
+
+              {/* Catch-all route for 404 */}
+              <Route path="*" element={<Error404 />} />
             </Routes>
           </div>
         </div>

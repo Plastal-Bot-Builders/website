@@ -261,7 +261,7 @@ const Home: React.FC = () => {
                 <button
                   className="mt-auto custom-button"
                   type="button"
-                  onClick={() => navigate('/workshop-details')}
+                  onClick={() => navigate('/events')}
                 >
                   Join Our Next Workshop
                 </button>

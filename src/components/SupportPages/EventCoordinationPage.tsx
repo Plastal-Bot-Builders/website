@@ -16,25 +16,25 @@ const EventCoordinationPage: React.FC = () => {
             type: "Workshops & Bootcamps",
             description: "Short, skill-focused training sessions on robotics, coding, or AI.",
             example: "3-Day Robotics & AI Workshop",
-            icon: {FaChalkboardTeacher ({className:"text-accent text-2xl"})}
+            icon: <FaChalkboardTeacher className="text-accent text-2xl"/>
         },
         {
             type: "Competitions",
             description: "Challenges that push innovation aligned with SDGs.",
             example: "Robotics for Good Youth Challenge",
-            icon: {FaTrophy ({className:"text-accent text-2xl" })}
+            icon: <FaTrophy className="text-accent text-2xl" />
         },
         {
             type: "Exhibitions & Tech Fairs",
             description: "Showcases of robotics projects, innovations, and partner initiatives.",
             example: "Plastal-Bot Innovation Expo",
-            icon: {FaRegLightbulb ({className:"text-accent text-2xl" })}
+            icon: <FaRegLightbulb className="text-accent text-2xl" />
         },
         {
             type: "Training & Certification",
             description: "Targeted upskilling for teachers or youth.",
             example: "\"Train the Trainer\" Robotics Program",
-            icon: {FaTools ({className:"text-accent text-2xl"})}
+            icon: <FaTools className="text-accent text-2xl"/>
         },
         {
             type: "Community Outreach",
@@ -46,7 +46,7 @@ const EventCoordinationPage: React.FC = () => {
             type: "Panel Talks & Lectures",
             description: "Sessions with field experts and innovators.",
             example: "AI in Africa Speaker Series",
-            icon: {FaMicrophone ({className:"text-accent text-2xl"})}
+            icon: <FaMicrophone className="text-accent text-2xl"/>
         }
     ];
 
@@ -55,7 +55,7 @@ const EventCoordinationPage: React.FC = () => {
         {
             role: "Event Coordinator",
             responsibility: "Oversees event planning and execution.",
-            icon: {FaClipboardCheck ({className:"text-accent text-2xl"})}
+            icon: <FaClipboardCheck className="text-accent text-2xl"/>
         },
         {
             role: "Technical Lead",
@@ -91,8 +91,7 @@ const EventCoordinationPage: React.FC = () => {
             <div className="max-w-5xl mx-auto px-4 py-12">
                 <Link to="/support" className="inline-flex items-center text-accent hover:text-accent-hover mb-6">
                     {FaArrowLeft ({className:"mr-2" })} Back to Support
-                </Link>
-                
+                </Link>                
                 {/* Hero Section */}
                 <div className="flex flex-col md:flex-row gap-8 items-center mb-12">
                     <div className="md:w-1/2">

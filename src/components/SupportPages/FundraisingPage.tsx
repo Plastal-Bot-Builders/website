@@ -144,7 +144,7 @@ const FundraisingPage: React.FC = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <div className="bg-surface-hover-bg rounded-lg p-5">
                             <div className="w-12 h-12 bg-surface rounded-full flex items-center justify-center mb-4">
-                                <FaRegLightbulb className="text-accent text-xl" />
+                                {FaRegLightbulb ({className:"text-accent text-xl"})}
                             </div>
                             <h3 className="text-xl font-bold mb-2">Sustainable Programs</h3>
                             <p>
@@ -155,7 +155,7 @@ const FundraisingPage: React.FC = () => {
                         
                         <div className="bg-surface-hover-bg rounded-lg p-5">
                             <div className="w-12 h-12 bg-surface rounded-full flex items-center justify-center mb-4">
-                                <FaUsers className="text-accent text-xl" />
+                                {FaUsers ({className:"text-accent text-xl"})}
                             </div>
                             <h3 className="text-xl font-bold mb-2">Donor Network</h3>
                             <p>
@@ -166,7 +166,7 @@ const FundraisingPage: React.FC = () => {
                         
                         <div className="bg-surface-hover-bg rounded-lg p-5">
                             <div className="w-12 h-12 bg-surface rounded-full flex items-center justify-center mb-4">
-                                <FaRobot className="text-accent text-xl" />
+                                {FaRobot ({className:"text-accent text-xl"})}
                             </div>
                             <h3 className="text-xl font-bold mb-2">Equipment & Materials</h3>
                             <p>
@@ -177,7 +177,7 @@ const FundraisingPage: React.FC = () => {
                         
                         <div className="bg-surface-hover-bg rounded-lg p-5">
                             <div className="w-12 h-12 bg-surface rounded-full flex items-center justify-center mb-4">
-                                <FaChartLine className="text-accent text-xl" />
+                                {FaChartLine ({className:"text-accent text-xl" })}
                             </div>
                             <h3 className="text-xl font-bold mb-2">Transparency</h3>
                             <p>
@@ -188,7 +188,7 @@ const FundraisingPage: React.FC = () => {
                         
                         <div className="bg-surface-hover-bg rounded-lg p-5">
                             <div className="w-12 h-12 bg-surface rounded-full flex items-center justify-center mb-4">
-                                <FaLaptopCode className="text-accent text-xl" />
+                                {FaLaptopCode ({className:"text-accent text-xl" })}
                             </div>
                             <h3 className="text-xl font-bold mb-2">Innovation Projects</h3>
                             <p>
