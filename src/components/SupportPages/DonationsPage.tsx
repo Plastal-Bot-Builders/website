@@ -46,7 +46,7 @@ const DonationsPage: React.FC = () => {
                 <div className="flex flex-col md:flex-row gap-8 items-center mb-10">
                     <div className="md:w-1/2">
                         <h1 className="text-3xl md:text-4xl font-bold mb-4">
-                            <FaDonate className="inline-block mr-3" />
+                            {FaDonate ({className:"inline-block mr-3" })}
                             Support Young Innovators
                         </h1>
                         <p className="text-gray-600 dark:text-gray-300 mb-4 text-lg">
@@ -183,7 +183,7 @@ const DonationsPage: React.FC = () => {
                                     <div className="flex items-center">
                                         <div className="mr-3">
                                             {isRecurring && donationAmount >= 50 && donationAmount < 200 ? (
-                                                {FaCheck ({className:"text-accent"})}
+                                                <FaCheck className="text-accent" />
                                             ) : null}
                                         </div>
                                         <div>
@@ -197,7 +197,7 @@ const DonationsPage: React.FC = () => {
                                     <div className="flex items-center">
                                         <div className="mr-3">
                                             {isRecurring && donationAmount >= 200 && donationAmount < 500 ? (
-                                                {FaCheck ({className:"text-accent"})}
+                                                <FaCheck className="text-accent"/>
                                             ) : null}
                                         </div>
                                         <div>
@@ -211,7 +211,7 @@ const DonationsPage: React.FC = () => {
                                     <div className="flex items-center">
                                         <div className="mr-3">
                                             {isRecurring && donationAmount >= 500 ? (
-                                                {FaCheck ({className:"text-accent"})}
+                                                <FaCheck className="text-accent" />
                                             ) : null}
                                         </div>
                                         <div>

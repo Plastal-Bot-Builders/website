@@ -54,26 +54,26 @@ const CorporatePartnershipsPage: React.FC = () => {
         }
     ];
 
-    const partnershipOpportunities = [
+        const partnershipOpportunities = [
         {
             title: "Annual Robotics & AI Workshop Series",
             description: "Support workshops across different regions of Zambia, reaching students with hands-on technology experience.",
-            icon: {FaCalendarAlt ({className:"text-3xl text-accent"})}
+            icon: FaCalendarAlt({ className: "text-3xl text-accent" })
         },
         {
             title: "Plastal-Bot Innovation Grant",
             description: "Fund mini-grants for exceptional student projects, helping young innovators bring their ideas to life.",
-            icon: {FaGift ({className:"text-3xl text-accent"})}
+            icon: FaGift({ className: "text-3xl text-accent" })
         },
         {
             title: "STEM Outreach Truck",
             description: "Co-brand our mobile robotics lab that brings technology education to remote communities.",
-            icon: {FaSchool ({className:"text-3xl text-accent"})}
+            icon: FaSchool({ className: "text-3xl text-accent" })
         },
         {
             title: "National Robotics Challenge",
             description: "Title sponsorship for Zambia's premier student robotics competition with nationwide participation.",
-            icon: {FaTag ({className:"text-3xl text-accent"})}
+            icon: FaTag({ className: "text-3xl text-accent" })
         }
     ];
 
