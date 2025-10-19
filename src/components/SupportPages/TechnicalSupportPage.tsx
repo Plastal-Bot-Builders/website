@@ -2,11 +2,23 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../Header';
 import Footer from '../Footer';
-import { 
-    FaArrowLeft, FaTools, FaLaptopCode, FaRobot, FaNetworkWired,
-    FaCogs, FaServer, FaMemory, FaMicrochip, FaCloud, FaUsersCog,
-    FaGraduationCap, FaChalkboardTeacher, FaBug, FaFileCode
-} from 'react-icons/fa';
+import {
+    ArrowLeftIcon,
+    WrenchIcon,
+    CodeBracketIcon,
+    RocketLaunchIcon, // For robot
+    CircleStackIcon, // For network
+    Cog6ToothIcon, // For cogs
+    ServerIcon,
+    CpuChipIcon, // For microchip
+    CloudIcon,
+    UserGroupIcon, // For users
+    AcademicCapIcon, // For graduation cap
+    UserIcon, // For teacher
+    BugAntIcon, // For bug
+    DocumentTextIcon, // For file code
+    PresentationChartBarIcon // For presentation
+} from '@heroicons/react/24/solid';
 import ThemedImage from '../../theme/ThemedImage';
 
 const TechnicalSupportPage: React.FC = () => {
@@ -15,37 +27,37 @@ const TechnicalSupportPage: React.FC = () => {
         {
             title: "Hardware Maintenance",
             description: "Assistance with robotics kits, electronics troubleshooting, and component repair.",
-            icon: <FaTools className="text-accent text-2xl" />,
+            icon: <WrenchIcon className="text-accent text-2xl" />,
             skills: "Electronics, mechanical engineering, 3D printing"
         },
         {
             title: "Software Development",
             description: "Support with programming, app development, and educational platforms.",
-            icon: <FaLaptopCode className="text-accent text-2xl" />,
+            icon: <CodeBracketIcon className="text-accent text-2xl" />,
             skills: "Python, JavaScript, Arduino, mobile app development"
         },
         {
             title: "Systems Integration",
             description: "Help connecting hardware with software for functional robotics systems.",
-            icon: <FaCogs className="text-accent text-2xl" />,
+            icon: <Cog6ToothIcon className="text-accent text-2xl" />,
             skills: "IoT, embedded systems, sensor integration"
         },
         {
             title: "Technical Mentorship",
             description: "Guidance from experienced professionals for projects and problem-solving.",
-            icon: <FaChalkboardTeacher className="text-accent text-2xl" />,
+            icon: <UserIcon className="text-accent text-2xl" />,
             skills: "Teaching experience, robotics expertise, AI/ML knowledge"
         },
         {
             title: "Resource Donations",
             description: "Contribution of components, tools, or digital services for educational use.",
-            icon: <FaMicrochip className="text-accent text-2xl" />,
+            icon: <CpuChipIcon className="text-accent text-2xl" />,
             skills: "Hardware suppliers, cloud services, development tools"
         },
         {
             title: "Documentation & Training",
             description: "Creating technical guides and training materials for educators and students.",
-            icon: <FaFileCode className="text-accent text-2xl" />,
+            icon: <DocumentTextIcon className="text-accent text-2xl" />,
             skills: "Technical writing, curriculum development, video production"
         }
     ];
@@ -71,22 +83,22 @@ const TechnicalSupportPage: React.FC = () => {
         {
             category: "Programming & Software",
             skills: ["Python", "Arduino/C++", "JavaScript", "Mobile App Development", "Machine Learning"],
-            icon: <FaLaptopCode className="text-accent text-2xl" />
+            icon: <CodeBracketIcon className="text-accent text-2xl" />
         },
         {
             category: "Hardware & Electronics",
             skills: ["Circuit Design", "Sensor Integration", "Microcontroller Programming", "3D Printing", "Robotics Assembly"],
-            icon: <FaMicrochip className="text-accent text-2xl" />
+            icon: <CpuChipIcon className="text-accent text-2xl" />
         },
         {
             category: "Systems & Networks",
             skills: ["IoT Implementation", "Cloud Services", "Database Management", "Network Setup", "Data Security"],
-            icon: <FaNetworkWired className="text-accent text-2xl" />
+            icon: <CircleStackIcon className="text-accent text-2xl" />
         },
         {
             category: "Education & Documentation",
             skills: ["Technical Writing", "Curriculum Development", "Video Tutorials", "Workshop Facilitation", "Testing Protocols"],
-            icon: <FaGraduationCap className="text-accent text-2xl" />
+            icon: <AcademicCapIcon className="text-accent text-2xl" />
         }
     ];
 
@@ -96,14 +108,14 @@ const TechnicalSupportPage: React.FC = () => {
             
             <div className="max-w-5xl mx-auto px-4 py-12">
                 <Link to="/support" className="inline-flex items-center text-accent hover:text-accent-hover mb-6">
-                    {FaArrowLeft ({className:"mr-2"})} Back to Support
+                    <ArrowLeftIcon className="mr-2"/> Back to Support
                 </Link>
                 
                 {/* Hero Section */}
                 <div className="flex flex-col md:flex-row gap-8 items-center mb-12">
                     <div className="md:w-1/2">
                         <h1 className="text-3xl md:text-4xl font-bold mb-4">
-                            {FaCogs ({className:"inline-block mr-3" })}
+                            {Cog6ToothIcon ({className:"inline-block mr-3" })}
                             Technical Support
                         </h1>
                         <p className="text-gray-600 dark:text-gray-300 mb-4 text-lg">
@@ -233,7 +245,7 @@ const TechnicalSupportPage: React.FC = () => {
                         <div className="md:w-1/2">
                             <div className="bg-surface rounded-lg p-5 mb-4">
                                 <h3 className="text-lg font-bold mb-3 flex items-center">
-                                    {FaUsersCog ({className:"text-accent mr-2" })} Network Activities
+                                    {UserGroupIcon ({className:"text-accent mr-2" })} Network Activities
                                 </h3>
                                 <ul className="space-y-2">
                                     <li className="flex items-start">
@@ -403,7 +415,7 @@ const TechnicalSupportPage: React.FC = () => {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <div className="bg-surface rounded-lg p-4">
                             <h3 className="font-bold text-lg mb-2 flex items-center">
-                                {FaRobot ({className:"text-accent mr-2" })} Sensor Kit Upgrade
+                                <RocketLaunchIcon className="text-accent mr-2"/> Sensor Kit Upgrade
                             </h3>
                             <p className="text-sm mb-3">
                                 Enhancing our educational robots with improved sensors for environmental monitoring.
@@ -416,7 +428,7 @@ const TechnicalSupportPage: React.FC = () => {
                         
                         <div className="bg-surface rounded-lg p-4">
                             <h3 className="font-bold text-lg mb-2 flex items-center">
-                                {FaLaptopCode ({className:"text-accent mr-2" })} Learning Platform 
+                                {CodeBracketIcon ({className:"text-accent mr-2" })} Learning Platform 
                             </h3>
                             <p className="text-sm mb-3">
                                 Building a web application to track student progress and showcase projects.
@@ -429,7 +441,7 @@ const TechnicalSupportPage: React.FC = () => {
                         
                         <div className="bg-surface rounded-lg p-4">
                             <h3 className="font-bold text-lg mb-2 flex items-center">
-                                {FaBug ({className:"text-accent mr-2" })} Debugging Workshop
+                                {BugAntIcon ({className:"text-accent mr-2" })} Debugging Workshop
                             </h3>
                             <p className="text-sm mb-3">
                                 Creating resources to teach troubleshooting skills to educators and students.
@@ -455,7 +467,7 @@ const TechnicalSupportPage: React.FC = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                         <div className="flex items-start">
                             <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0">
-                                {FaLaptopCode ({className:"text-accent text-xl"})}
+                                {CodeBracketIcon ({className:"text-accent text-xl"})}
                             </div>
                             <div>
                                 <h3 className="text-lg font-bold mb-2">Skills Application</h3>
@@ -465,7 +477,7 @@ const TechnicalSupportPage: React.FC = () => {
                         
                         <div className="flex items-start">
                             <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0">
-                                {FaUsers ({className:"text-accent text-xl"})}
+                                {UserGroupIcon ({className:"text-accent text-xl"})}
                             </div>
                             <div>
                                 <h3 className="text-lg font-bold mb-2">Network Expansion</h3>
@@ -475,7 +487,7 @@ const TechnicalSupportPage: React.FC = () => {
                         
                         <div className="flex items-start">
                             <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0">
-                                {FaGraduationCap ({className:"text-accent text-xl"})}
+                                {AcademicCapIcon ({className:"text-accent text-xl"})}
                             </div>
                             <div>
                                 <h3 className="text-lg font-bold mb-2">Knowledge Transfer</h3>
@@ -485,7 +497,7 @@ const TechnicalSupportPage: React.FC = () => {
                         
                         <div className="flex items-start">
                             <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0">
-                                {FaRobot ({className:"text-accent text-xl"})}
+                                {RocketLaunchIcon ({className:"text-accent text-xl"})}
                             </div>
                             <div>
                                 <h3 className="text-lg font-bold mb-2">Innovation Opportunity</h3>

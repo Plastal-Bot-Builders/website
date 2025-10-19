@@ -2,8 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../Header';
 import Footer from '../Footer';
-import { FaBuilding, FaArrowLeft, FaHandshake, FaGift, FaUsers, FaTag, FaSchool, FaFileDownload, FaCalendarAlt } from 'react-icons/fa';
 import ThemedImage from '../../theme/ThemedImage';
+import { 
+  BuildingOfficeIcon, 
+  ArrowLeftIcon,
+  HandRaisedIcon,  // Similar to handshake
+  GiftIcon, 
+  UserGroupIcon, 
+  TagIcon,
+  AcademicCapIcon,  // For school
+  DocumentArrowDownIcon, 
+  CalendarIcon 
+} from '@heroicons/react/24/solid';
 
 const CorporatePartnershipsPage: React.FC = () => {
     const partnershipTiers = [
@@ -58,22 +68,22 @@ const CorporatePartnershipsPage: React.FC = () => {
         {
             title: "Annual Robotics & AI Workshop Series",
             description: "Support workshops across different regions of Zambia, reaching students with hands-on technology experience.",
-            icon: FaCalendarAlt({ className: "text-3xl text-accent" })
+            icon: <CalendarIcon className="h-8 w-8 text-accent" />
         },
         {
             title: "Plastal-Bot Innovation Grant",
             description: "Fund mini-grants for exceptional student projects, helping young innovators bring their ideas to life.",
-            icon: FaGift({ className: "text-3xl text-accent" })
+            icon: <GiftIcon className="h-8 w-8 text-accent" />
         },
         {
             title: "STEM Outreach Truck",
             description: "Co-brand our mobile robotics lab that brings technology education to remote communities.",
-            icon: FaSchool({ className: "text-3xl text-accent" })
+            icon: <AcademicCapIcon className="h-8 w-8 text-accent" />
         },
         {
             title: "National Robotics Challenge",
             description: "Title sponsorship for Zambia's premier student robotics competition with nationwide participation.",
-            icon: FaTag({ className: "text-3xl text-accent" })
+            icon: <TagIcon className="h-8 w-8 text-accent" />
         }
     ];
 
@@ -83,15 +93,14 @@ const CorporatePartnershipsPage: React.FC = () => {
             
             <div className="max-w-5xl mx-auto px-4 py-12">
                 <Link to="/support" className="inline-flex items-center text-accent hover:text-accent-hover mb-6">
-                    {FaArrowLeft ({className:"mr-2"})} Back to Support
+                    <ArrowLeftIcon className="h-5 w-5 mr-2 inline" /> Back to Support
                 </Link>
                 
                 {/* Hero Section */}
                 <div className="flex flex-col md:flex-row gap-8 items-center mb-12">
                     <div className="md:w-1/2">
                         <h1 className="text-3xl md:text-4xl font-bold mb-4">
-                            {FaBuilding ({className:"inline-block mr-3"})}
-                            Corporate Partnerships
+                            <BuildingOfficeIcon className="h-8 w-8 inline-block mr-3" /> Corporate Partnerships
                         </h1>
                         <p className="text-gray-600 dark:text-gray-300 mb-4 text-lg">
                             Join us in shaping Zambia's next generation of innovators, engineers, and problem solvers.
@@ -173,7 +182,7 @@ const CorporatePartnershipsPage: React.FC = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <div className="border border-surface-border rounded-lg p-6 hover:border-accent transition-colors flex flex-col h-full">
                             <div className="w-16 h-16 mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
-                                {FaHandshake ({className:"text-accent text-2xl"})}
+                                <HandRaisedIcon className="h-6 w-6 text-accent" />
                             </div>
                             <h3 className="text-xl font-bold mb-3">Funding Partnerships</h3>
                             <p className="mb-4 flex-grow">
@@ -185,7 +194,7 @@ const CorporatePartnershipsPage: React.FC = () => {
                         
                         <div className="border border-surface-border rounded-lg p-6 hover:border-accent transition-colors flex flex-col h-full">
                             <div className="w-16 h-16 mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
-                                {FaGift ({className:"text-accent text-2xl"})}
+                                <GiftIcon className="text-accent text-2xl"/>
                             </div>
                             <h3 className="text-xl font-bold mb-3">In-Kind Support</h3>
                             <p className="mb-4 flex-grow">
@@ -197,7 +206,7 @@ const CorporatePartnershipsPage: React.FC = () => {
                         
                         <div className="border border-surface-border rounded-lg p-6 hover:border-accent transition-colors flex flex-col h-full">
                             <div className="w-16 h-16 mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
-                                {FaUsers ({className:"text-accent text-2xl"})}
+                                <UserGroupIcon className="text-accent text-2xl"/>
                             </div>
                             <h3 className="text-xl font-bold mb-3">Skill-Based Volunteering</h3>
                             <p className="mb-4 flex-grow">
@@ -209,7 +218,7 @@ const CorporatePartnershipsPage: React.FC = () => {
                         
                         <div className="border border-surface-border rounded-lg p-6 hover:border-accent transition-colors flex flex-col h-full">
                             <div className="w-16 h-16 mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
-                                {FaTag ({className:"text-accent text-2xl"})}
+                                <TagIcon className="text-accent text-2xl"/>
                             </div>
                             <h3 className="text-xl font-bold mb-3">Program Co-Branding</h3>
                             <p className="mb-4 flex-grow">
@@ -221,7 +230,7 @@ const CorporatePartnershipsPage: React.FC = () => {
                         
                         <div className="border border-surface-border rounded-lg p-6 hover:border-accent transition-colors flex flex-col h-full">
                             <div className="w-16 h-16 mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
-                                {FaSchool ({className:"text-accent text-2xl"})}
+                                <AcademicCapIcon className="text-accent text-2xl"/>
                             </div>
                             <h3 className="text-xl font-bold mb-3">Adopt-a-School Model</h3>
                             <p className="mb-4 flex-grow">
@@ -395,7 +404,7 @@ const CorporatePartnershipsPage: React.FC = () => {
                                 href="/resources/plastal-bot-corporate-partnership-brochure.pdf" 
                                 className="inline-flex items-center bg-accent hover:bg-accent-hover text-black py-3 px-6 rounded-lg font-bold"
                             >
-                                {FaFileDownload ({className:"mr-2"})} Download Brochure
+                                <DocumentArrowDownIcon className="mr-2"/> Download Brochure
                             </a>
                         </div>
                     </div>
