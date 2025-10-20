@@ -198,7 +198,7 @@ const FundraisingPage: React.FC = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {fundraisingChannels.map((channel, index) => (
-                            <div key={index} className="border border-surface-border rounded-lg p-6 hover:border-accent transition-colors">
+                            <div key={index} className="rounded-lg interactive-card p-4 transition-colors">
                                 <div className="flex items-center mb-4">
                                     <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4">
                                         {channel.icon}
@@ -225,7 +225,7 @@ const FundraisingPage: React.FC = () => {
                     <h2 className="text-2xl font-bold mb-6 pb-2">Current Fundraising Campaigns</h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div className="bg-surface border border-surface-border rounded-lg overflow-hidden">
+                        <div className="rounded-lg interactive-card overflow-hidden">
                             <div className="h-48 overflow-hidden">
                                 <ThemedImage
                                     src="resources/Illustrations/school-outreach.jpg"
@@ -262,7 +262,7 @@ const FundraisingPage: React.FC = () => {
                             </div>
                         </div>
 
-                        <div className="bg-surface border border-surface-border rounded-lg overflow-hidden">
+                        <div className="rounded-lg interactive-card overflow-hidden">
                             <div className="h-48 overflow-hidden">
                                 <ThemedImage
                                     src="resources/Illustrations/robotics-competition.jpg"
@@ -378,19 +378,19 @@ const FundraisingPage: React.FC = () => {
                     <h2 className="text-2xl font-bold mb-6 pb-2">Our Commitment to Accountability</h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div className="border border-surface-border rounded-lg p-5">
+                        <div className="rounded-lg interactive-card p-5">
                             <h3 className="text-lg font-bold mb-3">Annual Reports</h3>
                             <p className="mb-4">We publish yearly impact and financial summaries showing how funds were used.</p>
                             <a href="#reports" className="text-accent hover:underline">View our latest report →</a>
                         </div>
 
-                        <div className="border border-surface-border rounded-lg p-5">
+                        <div className="rounded-lg interactive-card p-5">
                             <h3 className="text-lg font-bold mb-3">Visual Documentation</h3>
                             <p className="mb-4">We create videos and photo galleries of all funded activities and their outcomes.</p>
                             <a href="/gallery" className="text-accent hover:underline">Browse our media gallery →</a>
                         </div>
 
-                        <div className="border border-surface-border rounded-lg p-5">
+                        <div className="rounded-lg interactive-card p-5">
                             <h3 className="text-lg font-bold mb-3">Sponsor Reports</h3>
                             <p className="mb-4">Corporate sponsors receive detailed summaries of what their funds achieved.</p>
                             <a href="/support/corporate-partnerships" className="text-accent hover:underline">Learn about sponsorships →</a>

@@ -88,16 +88,16 @@ const MentorshipPage: React.FC = () => {
     // Success stories
     const successStories = [
         {
-            name: "Emmanuel Mutale",
-            role: "Software Engineer at Microsoft",
+            name: "Fredrick Mwepu",
+            role: "Student Engineer and Maker",
             quote: "Mentoring young coders through Plastal-Bot has been incredibly rewarding. Seeing their growth from basic programming to building autonomous robots reminds me why I became an engineer.",
-            image: "resources/Testimonials/mentor-1.jpg"
+            image: "resources/founders/fredrick.jpg"
         },
         {
-            name: "Dr. Nkonde Chilufya",
+            name: "Mapalo Kazembe",
             role: "AI Researcher, University of Zambia",
             quote: "As an academic, connecting with young minds through the mentorship program has helped me bridge theory with practical applications, and even inspired new research directions.",
-            image: "resources/Testimonials/mentor-2.jpg"
+            image: "resources/founders/fred.png"
         }
     ];
 
@@ -144,7 +144,7 @@ const MentorshipPage: React.FC = () => {
                     
                     <div className="md:w-1/2">
                         <ThemedImage
-                            src="resources/Illustrations/mentorship-hero.jpg"
+                            src="resources/Illustrations/Mentorship.svg"
                             alt="Mentor working with students on a robotics project"
                             className="w-full rounded-lg shadow-lg"
                         />
@@ -153,7 +153,7 @@ const MentorshipPage: React.FC = () => {
                 
                 {/* Program Overview */}
                 <section className="mb-12">
-                    <h2 className="text-2xl font-bold mb-6 border-b border-surface-border pb-2">Program Overview</h2>
+                    <h2 className="text-2xl font-bold mb-6 pb-2">Program Overview</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div>
@@ -194,10 +194,10 @@ const MentorshipPage: React.FC = () => {
                 
                 {/* How It Works Section */}
                 <section className="mb-12">
-                    <h2 className="text-2xl font-bold mb-6 border-b border-surface-border pb-2">How It Works</h2>
+                    <h2 className="text-2xl font-bold mb-6 pb-2">How It Works</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div className="text-center bg-surface border border-surface-border rounded-lg p-5">
+                        <div className="text-center rounded-lg interactive-card p-5">
                             <div className="w-16 h-16 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
                                 <span className="text-accent font-bold text-xl">1</span>
                             </div>
@@ -208,7 +208,7 @@ const MentorshipPage: React.FC = () => {
                             </p>
                         </div>
                         
-                        <div className="text-center bg-surface border border-surface-border rounded-lg p-5">
+                        <div className="text-center rounded-lg interactive-card p-5">
                             <div className="w-16 h-16 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
                                 <span className="text-accent font-bold text-xl">2</span>
                             </div>
@@ -219,7 +219,7 @@ const MentorshipPage: React.FC = () => {
                             </p>
                         </div>
                         
-                        <div className="text-center bg-surface border border-surface-border rounded-lg p-5">
+                        <div className="text-center rounded-lg interactive-card p-5">
                             <div className="w-16 h-16 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
                                 <span className="text-accent font-bold text-xl">3</span>
                             </div>
@@ -233,7 +233,7 @@ const MentorshipPage: React.FC = () => {
                     
                     <div className="mt-8 text-center">
                         <ThemedImage
-                            src="resources/Illustrations/mentorship-platform.jpg"
+                            src="resources/Illustrations/Mentorship.svg"
                             alt="Mentorship matching platform interface"
                             className="max-w-2xl mx-auto rounded-lg shadow-lg"
                         />
@@ -245,7 +245,7 @@ const MentorshipPage: React.FC = () => {
                 
                 {/* Benefits Section */}
                 <section className="mb-12">
-                    <h2 className="text-2xl font-bold mb-6 border-b border-surface-border pb-2">Program Benefits</h2>
+                    <h2 className="text-2xl font-bold mb-6 pb-2">Program Benefits</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div>
@@ -292,11 +292,11 @@ const MentorshipPage: React.FC = () => {
                 
                 {/* Mentorship Opportunities Section */}
                 <section className="mb-12">
-                    <h2 className="text-2xl font-bold mb-6 border-b border-surface-border pb-2">Mentorship Opportunities</h2>
+                    <h2 className="text-2xl font-bold mb-6 pb-2">Mentorship Opportunities</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {mentorshipOpportunities.map((opportunity, index) => (
-                            <div key={index} className="border border-surface-border rounded-lg p-6 hover:border-accent transition-colors">
+                            <div key={index} className="rounded-lg interactive-card p-6">
                                 <div className="flex items-center mb-4">
                                     <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4">
                                         {opportunity.icon}
@@ -318,7 +318,7 @@ const MentorshipPage: React.FC = () => {
                 </section>
                 
                 {/* Success Stories */}
-                <section className="mb-12 bg-surface-hover-bg p-6 rounded-lg">
+                <section className="mb-12 bg-surface-hover-bg rounded-lg">
                     <h2 className="text-2xl font-bold mb-6">Mentor Success Stories</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -349,7 +349,7 @@ const MentorshipPage: React.FC = () => {
                 
                 {/* Quarterly Tech Talks */}
                 <section className="mb-12">
-                    <h2 className="text-2xl font-bold mb-6 border-b border-surface-border pb-2">Quarterly Tech Talks</h2>
+                    <h2 className="text-2xl font-bold mb-6 pb-2">Quarterly Tech Talks</h2>
                     
                     <div className="flex flex-col md:flex-row gap-8 items-center">
                         <div className="md:w-1/2">
@@ -383,7 +383,7 @@ const MentorshipPage: React.FC = () => {
                         
                         <div className="md:w-1/2">
                             <ThemedImage
-                                src="resources/Illustrations/tech-talk-event.jpg"
+                                src="resources/Illustrations/Mentorship.svg"
                                 alt="Tech Talk session in progress"
                                 className="w-full rounded-lg shadow-lg"
                             />
@@ -392,13 +392,13 @@ const MentorshipPage: React.FC = () => {
                 </section>
                 
                 {/* Corporate Involvement */}
-                <section className="mb-12 bg-surface-hover-bg p-6 rounded-lg">
+                <section className="mb-12 bg-surface-hover-bg rounded-lg">
                     <h2 className="text-2xl font-bold mb-5">Corporate Mentorship</h2>
                     
                     <div className="flex flex-col md:flex-row gap-8">
                         <div className="md:w-1/2">
                             <ThemedImage
-                                src="resources/Illustrations/corporate-mentorship.jpg"
+                                src="resources/Illustrations/Mentorship.svg"
                                 alt="Corporate mentorship session"
                                 className="w-full rounded-lg shadow-lg"
                             />
@@ -437,7 +437,7 @@ const MentorshipPage: React.FC = () => {
                 {/* Get Involved Section */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
                     {/* Become a Mentor */}
-                    <section id="become-mentor" className="bg-surface border border-surface-border rounded-lg overflow-hidden">
+                    <section id="become-mentor" className="rounded-lg interactive-card overflow-hidden">
                         <div className="p-6">
                             <h2 className="text-2xl font-bold mb-4 flex items-center">
                                 {FaChalkboardTeacher ({className:"text-accent mr-3"})} Become a Mentor
@@ -510,7 +510,7 @@ const MentorshipPage: React.FC = () => {
                                 
                                 <button 
                                     type="submit" 
-                                    className="bg-accent hover:bg-accent-hover text-black py-2 px-6 rounded-lg font-bold"
+                                    className="bg-accent hover:bg-accent-hover text-black py-2 px-6 rounded-lg font-bold block"
                                 >
                                     Apply as Mentor
                                 </button>
@@ -519,7 +519,7 @@ const MentorshipPage: React.FC = () => {
                     </section>
                     
                     {/* Seek Mentorship */}
-                    <section id="seek-mentorship" className="bg-surface border border-surface-border rounded-lg overflow-hidden">
+                    <section id="seek-mentorship" className="rounded-lg interactive-card overflow-hidden">
                         <div className="p-6">
                             <h2 className="text-2xl font-bold mb-4 flex items-center">
                                 {FaGraduationCap ({className:"text-accent mr-3" })} Seek Mentorship
@@ -593,7 +593,7 @@ const MentorshipPage: React.FC = () => {
                                 
                                 <button 
                                     type="submit" 
-                                    className="bg-accent hover:bg-accent-hover text-black py-2 px-6 rounded-lg font-bold"
+                                    className="bg-accent hover:bg-accent-hover text-black py-2 px-6 rounded-lg font-bold block"
                                 >
                                     Request Mentorship
                                 </button>

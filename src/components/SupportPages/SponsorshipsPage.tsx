@@ -167,7 +167,7 @@ const SponsorshipPage: React.FC = () => {
                         <p className="text-gray-600 dark:text-gray-300 mb-4 text-lg">
                             Align your brand with innovation and make a meaningful impact on Africa's tech future.
                         </p>
-                        <div className="bg-surface-hover-bg p-4 rounded-lg mb-6">
+                        <div className="bg-surface-hover-bg pb-4 rounded-lg mb-6">
                             <p>
                                 Sponsorship partnerships sustain our programs, expand our outreach, and create 
                                 meaningful visibility for organizations that share our vision for advancing 
@@ -199,7 +199,7 @@ const SponsorshipPage: React.FC = () => {
                 </div>
                 
                 {/* Why Sponsor Section */}
-                <div className="max-w-7xl mx-auto p-2">
+                <div className="max-w-7xl mx-auto">
                     <h2 className="text-2xl font-bold mb-6 pb-2">Why Sponsor Plastal-Bot Builders?</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -356,11 +356,10 @@ const SponsorshipPage: React.FC = () => {
                 
                 {/* Sponsor Benefits Showcase */}
                 <section className="mb-12">
-                    <div className="p-2 md:p-8">
                         <h2 className="text-2xl font-bold mb-6">Sponsor Visibility & Benefits</h2>
                         
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <div className="bg-surface rounded-lg p-5 text-center">
+                            <div className="bg-surface rounded-lg p-3 text-center">
                                 <div className="w-16 h-16 mx-auto mb-4 bg-accent rounded-full flex items-center justify-center">
                                     {FaRegImage ({className:"text-black text-2xl"})}
                                 </div>
@@ -370,7 +369,7 @@ const SponsorshipPage: React.FC = () => {
                                 </p>
                             </div>
                             
-                            <div className="bg-surface rounded-lg p-5 text-center">
+                            <div className="bg-surface rounded-lg p-3 text-center">
                                 <div className="w-16 h-16 mx-auto mb-4 bg-accent rounded-full flex items-center justify-center">
                                     {FaMicrophone ({className:"text-black text-2xl"})}
                                 </div>
@@ -419,12 +418,11 @@ const SponsorshipPage: React.FC = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </section>
                 
                 {/* Impact Reporting */}
                 <section className="mb-12">
-                    <h2 className="text-2xl font-bold mb-6 border-b border-surface-border pb-2">Impact & Accountability</h2>
+                    <h2 className="text-2xl font-bold mb-6 pb-2">Impact & Accountability</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div>
@@ -470,7 +468,7 @@ const SponsorshipPage: React.FC = () => {
                             <h3 className="text-xl font-bold mb-4">Your Support Creates Impact</h3>
                             <div className="grid grid-cols-2 gap-4">
                                 {impactMetrics.map((item, index) => (
-                                    <div key={index} className="bg-surface border border-surface-border rounded-lg p-4 text-center">
+                                    <div key={index} className="rounded-lg interactive-card p-4 text-center">
                                         <div className="flex justify-center mb-2">
                                             {item.icon}
                                         </div>
@@ -479,7 +477,7 @@ const SponsorshipPage: React.FC = () => {
                                     </div>
                                 ))}
                             </div>
-                            <div className="mt-4">
+                            <div className="mt-8">
                                 <a 
                                     href="#impact-report"
                                     className="text-accent hover:underline block text-center"
@@ -494,7 +492,7 @@ const SponsorshipPage: React.FC = () => {
                 {/* Sponsorship Success Story */}
                 <section className="mb-12">
                     <div className="bg-surface-hover-bg rounded-lg overflow-hidden">
-                        <div className="p-6 md:p-8">
+        
                             <h2 className="text-2xl font-bold mb-6">Sponsorship Success Story</h2>
                             
                             <div className="flex flex-col md:flex-row gap-8">
@@ -545,7 +543,6 @@ const SponsorshipPage: React.FC = () => {
                                     </blockquote>
                                 </div>
                             </div>
-                        </div>
                     </div>
                 </section>
                 
