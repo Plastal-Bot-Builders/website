@@ -88,7 +88,7 @@ const CorporatePartnershipsPage: React.FC = () => {
     ];
 
     return (
-        <section className="bg-surface">
+        <section className="scroll-smooth focus:scroll-auto">
             <Header />
             
             <div className="max-w-7xl mx-auto p-8">
