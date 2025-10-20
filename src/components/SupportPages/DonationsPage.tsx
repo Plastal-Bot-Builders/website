@@ -34,10 +34,11 @@ const DonationsPage: React.FC = () => {
     ];
 
     return (
-        <section className="bg-surface">
+        <section className="scroll-smooth focus:scroll-auto">
+            {/* Navigate Bar */}
             <Header />
-            
-            <div className="max-w-5xl mx-auto px-4 py-12">
+            {/* Main Content */}
+            <div className="max-w-7xl mx-auto p-8">
                 <Link to="/support" className="inline-flex items-center text-accent hover:text-accent-hover mb-6">
                     {FaArrowLeft ({className:"mr-2"})} Back to Support
                 </Link>
@@ -329,7 +330,7 @@ const DonationsPage: React.FC = () => {
                 </section>
                 
                 {/* Newsletter Signup */}
-                <section className="bg-surface-hover-bg p-6 rounded-lg">
+                <section className="bg-surface-hover-bg rounded-lg">
                     <div className="flex flex-col md:flex-row items-center gap-6">
                         <div className="md:w-2/3">
                             <h3 className="text-xl font-bold mb-2">Stay Connected</h3>

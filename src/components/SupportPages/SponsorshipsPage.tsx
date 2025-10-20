@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import Header from '../Header';
 import Footer from '../Footer';
 import { 
-    FaArrowLeft, FaHandshake, FaAward, FaRegLightbulb, 
+    FaArrowLeft, FaHandshake, FaRegLightbulb, 
     FaTrophy, FaUsers, FaChartLine, FaRegImage, FaMicrophone,
-    FaLaptop, FaRobot, FaGraduationCap, FaBuilding, FaGlobe
+    FaRobot, FaGraduationCap, FaBuilding, FaGlobe
 } from 'react-icons/fa';
 import ThemedImage from '../../theme/ThemedImage';
 
@@ -149,17 +149,17 @@ const SponsorshipPage: React.FC = () => {
     ];
 
     return (
-        <section className="bg-surface">
+        <section className="scroll-smooth focus:scroll-auto">
             <Header />
             
-            <div className="max-w-5xl mx-auto px-4 py-12">
+            <div className="max-w-7xl mx-auto p-8">
                 <Link to="/support" className="inline-flex items-center text-accent hover:text-accent-hover mb-6">
                     {FaArrowLeft ({className:"mr-2"})} Back to Support
                 </Link>
                 
                 {/* Hero Section */}
                 <div className="flex flex-col md:flex-row gap-8 items-center mb-12">
-                    <div className="md:w-1/2">
+                    <div className="w-full md:w-1/2">
                         <h1 className="text-3xl md:text-4xl font-bold mb-4">
                             {FaHandshake ({className:"inline-block mr-3" })}
                             Sponsorship Partnerships
@@ -188,9 +188,8 @@ const SponsorshipPage: React.FC = () => {
                                 View Packages
                             </a>
                         </div>
-                    </div>
-                    
-                    <div className="md:w-1/2">
+                    </div>                    
+                    <div className="w-full md:w-1/2 p-2">
                         <ThemedImage
                             src="resources/Illustrations/sponsorship-hero.jpg"
                             alt="Corporate sponsor at a robotics event with students"
@@ -200,7 +199,7 @@ const SponsorshipPage: React.FC = () => {
                 </div>
                 
                 {/* Why Sponsor Section */}
-                <section className="mb-12">
+                <div className="max-w-7xl mx-auto p-2">
                     <h2 className="text-2xl font-bold mb-6 pb-2">Why Sponsor Plastal-Bot Builders?</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -232,7 +231,7 @@ const SponsorshipPage: React.FC = () => {
                             ))}
                         </div>
                     </div>
-                </section>
+                </div>
                 
                 {/* Sponsorship Packages */}
                 <section id="sponsorship-packages" className="mb-12">
@@ -501,7 +500,7 @@ const SponsorshipPage: React.FC = () => {
                             <div className="flex flex-col md:flex-row gap-8">
                                 <div className="md:w-1/2">
                                     <ThemedImage
-                                        src="resources/Illustrations/sponsorship-story.jpg"
+                                        src="resources/Photos/resistorsepo.png"
                                         alt="Tech Challenge sponsored event"
                                         className="w-full rounded-lg shadow-lg"
                                     />
@@ -551,7 +550,7 @@ const SponsorshipPage: React.FC = () => {
                 </section>
                 
                 {/* Become a Sponsor Form */}
-                <section id="become-sponsor" className="mb-12 bg-surface border border-surface-border rounded-lg overflow-hidden">
+                <section id="become-sponsor" className="mb-12 rounded-lg interactive-card overflow-hidden">
                     <div className="p-6">
                         <h2 className="text-2xl font-bold mb-6">Become a Sponsor</h2>
                         

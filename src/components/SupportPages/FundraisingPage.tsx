@@ -53,13 +53,6 @@ const FundraisingPage: React.FC = () => {
             icon: <FaBullhorn className="text-accent text-2xl" />,
             example: "Our \"Train 500 Students\" campaign on GlobalGiving reached 120% of goal.",
             link: "#crowdfunding"
-        },
-        {
-            title: "Fundraising Events",
-            description: "Special events that generate support while showcasing student work.",
-            icon: <FaCalendarAlt className="text-accent text-2xl" />,
-            example: "Annual STEM Gala Night and charity hackathons supporting outreach.",
-            link: "/events"
         }
     ];
 
@@ -91,7 +84,7 @@ const FundraisingPage: React.FC = () => {
         <section className="bg-surface">
             <Header />
             
-            <div className="max-w-5xl mx-auto px-4 py-12">
+            <div className="max-w-7xl mx-auto p-8">
                 <Link to="/support" className="inline-flex items-center text-accent hover:text-accent-hover mb-6">
                     {FaArrowLeft ({className:"mr-2" })} Back to Support
                 </Link>
@@ -139,10 +132,10 @@ const FundraisingPage: React.FC = () => {
                 
                 {/* Fundraising Objectives */}
                 <section className="mb-12">
-                    <h2 className="text-2xl font-bold mb-6 border-b border-surface-border pb-2">Our Fundraising Objectives</h2>
+                    <h2 className="text-2xl font-bold mb-6 pb-2">Our Fundraising Objectives</h2>
                     
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div className="bg-surface-hover-bg rounded-lg p-5">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div className="bg-surface-hover-bg rounded-lg">
                             <div className="w-12 h-12 bg-surface rounded-full flex items-center justify-center mb-4">
                                 {FaRegLightbulb ({className:"text-accent text-xl"})}
                             </div>
@@ -153,7 +146,7 @@ const FundraisingPage: React.FC = () => {
                             </p>
                         </div>
                         
-                        <div className="bg-surface-hover-bg rounded-lg p-5">
+                        <div className="bg-surface-hover-bg rounded-lg">
                             <div className="w-12 h-12 bg-surface rounded-full flex items-center justify-center mb-4">
                                 {FaUsers ({className:"text-accent text-xl"})}
                             </div>
@@ -164,7 +157,7 @@ const FundraisingPage: React.FC = () => {
                             </p>
                         </div>
                         
-                        <div className="bg-surface-hover-bg rounded-lg p-5">
+                        <div className="bg-surface-hover-bg rounded-lg">
                             <div className="w-12 h-12 bg-surface rounded-full flex items-center justify-center mb-4">
                                 {FaRobot ({className:"text-accent text-xl"})}
                             </div>
@@ -174,34 +167,34 @@ const FundraisingPage: React.FC = () => {
                                 for youth events and competitions.
                             </p>
                         </div>
-                        
-                        <div className="bg-surface-hover-bg rounded-lg p-5">
-                            <div className="w-12 h-12 bg-surface rounded-full flex items-center justify-center mb-4">
-                                {FaChartLine ({className:"text-accent text-xl" })}
+
+                            <div className="bg-surface-hover-bg rounded-lg">
+                                <div className="w-12 h-12 bg-surface rounded-full flex items-center justify-center mb-4">
+                                    {FaChartLine ({className:"text-accent text-xl" })}
+                                </div>
+                                <h3 className="text-xl font-bold mb-2">Transparency</h3>
+                                <p>
+                                    Increase visibility and credibility through transparent 
+                                    reporting and impact measurement.
+                                </p>
                             </div>
-                            <h3 className="text-xl font-bold mb-2">Transparency</h3>
-                            <p>
-                                Increase visibility and credibility through transparent 
-                                reporting and impact measurement.
-                            </p>
-                        </div>
-                        
-                        <div className="bg-surface-hover-bg rounded-lg p-5">
-                            <div className="w-12 h-12 bg-surface rounded-full flex items-center justify-center mb-4">
-                                {FaLaptopCode ({className:"text-accent text-xl" })}
+                            
+                            <div className="bg-surface-hover-bg rounded-lg">
+                                <div className="w-12 h-12 bg-surface rounded-full flex items-center justify-center mb-4">
+                                    {FaLaptopCode ({className:"text-accent text-xl" })}
+                                </div>
+                                <h3 className="text-xl font-bold mb-2">Innovation Projects</h3>
+                                <p>
+                                    Create a financial foundation for future expansion and 
+                                    innovation initiatives across Africa.
+                                </p>
                             </div>
-                            <h3 className="text-xl font-bold mb-2">Innovation Projects</h3>
-                            <p>
-                                Create a financial foundation for future expansion and 
-                                innovation initiatives across Africa.
-                            </p>
-                        </div>
                     </div>
                 </section>
                 
                 {/* Fundraising Channels */}
                 <section id="fundraising-channels" className="mb-12">
-                    <h2 className="text-2xl font-bold mb-6 border-b border-surface-border pb-2">Ways to Support Our Work</h2>
+                    <h2 className="text-2xl font-bold mb-6 pb-2">Ways to Support Our Work</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {fundraisingChannels.map((channel, index) => (
@@ -229,7 +222,7 @@ const FundraisingPage: React.FC = () => {
                 
                 {/* Current Campaigns */}
                 <section className="mb-12">
-                    <h2 className="text-2xl font-bold mb-6 border-b border-surface-border pb-2">Current Fundraising Campaigns</h2>
+                    <h2 className="text-2xl font-bold mb-6 pb-2">Current Fundraising Campaigns</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div className="bg-surface border border-surface-border rounded-lg overflow-hidden">

@@ -65,7 +65,6 @@ const Home: React.FC = () => {
         {/* Hero */}
         <div className="flex flex-col md:flex-row justify-between p-4 space-y-8 md:space-y-0 md:space-x-8 max-w-7xl mx-auto">
           <div className="w-full md:w-1/2 p-4">
-            <div className="text">
               <h1 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight">
                 <span className="text-hex">Empowering</span> Innovation
               </h1>
@@ -83,7 +82,6 @@ const Home: React.FC = () => {
                 <Button label="Become a Member" href="/membershipform" />
                 <Button label="Get Involved" href="/programs" />
               </div>
-            </div>
           </div>
 
           <div className="w-full md:w-1/2 p-2">

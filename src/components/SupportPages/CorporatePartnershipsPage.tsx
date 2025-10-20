@@ -91,7 +91,7 @@ const CorporatePartnershipsPage: React.FC = () => {
         <section className="bg-surface">
             <Header />
             
-            <div className="max-w-5xl mx-auto px-4 py-12">
+            <div className="max-w-7xl mx-auto p-8">
                 <Link to="/support" className="inline-flex items-center text-accent hover:text-accent-hover mb-6">
                     <ArrowLeftIcon className="h-5 w-5 mr-2 inline" /> Back to Support
                 </Link>
