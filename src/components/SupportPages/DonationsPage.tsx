@@ -17,17 +17,17 @@ const DonationsPage: React.FC = () => {
     // Testimonials
     const testimonials = [
         {
-            name: "Mulenga, Grade 10",
+            name: "Chibesa, Grade 8",
             quote: "Building my first robot was the most exciting thing I've ever done. Now I want to study engineering!",
             image: "resources/testimonials/student1.jpg"
         },
         {
-            name: "Ms. Banda, Teacher",
+            name: "Mr. Alinani, Teacher",
             quote: "Plastal-Bot helped our school start its first robotics program. Our students are now thriving in STEM subjects.",
             image: "resources/testimonials/teacher1.jpg"
         },
         {
-            name: "Chipego, Grade 8",
+            name: "Kasali, Grade 12",
             quote: "I never thought I could code until I joined the robotics workshop. Now I'm teaching others!",
             image: "resources/testimonials/student2.jpg"
         }
@@ -52,26 +52,87 @@ const DonationsPage: React.FC = () => {
                         <p className="text-gray-600 dark:text-gray-300 mb-4 text-lg">
                             Your financial support helps us prepare young Zambians for the future of technology.
                         </p>
-                        <div className="bg-surface-hover-bg p-4 rounded-lg mb-6">
-                            <div className="flex flex-col space-y-2">
-                                <div className="flex justify-between">
-                                    <span className="font-bold">2026 Outreach Workshop Goal:</span>
-                                    <span className="font-bold">K{raisedAmount} of K{goalAmount}</span>
+                        <div className="bg-gradient-to-r from-surface-hover-bg to-surface p-6 rounded-lg interactive-card shadow-sm">
+                            <div className="flex flex-col space-y-4">
+                                {/* Header with improved visual hierarchy */}
+                                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                                    <h3 className="font-bold text-lg flex items-center">
+                                        <span className="inline-flex items-center justify-center w-8 h-8 bg-accent/20 rounded-full mr-3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-accent" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                                            </svg>
+                                        </span>
+                                        2026 Outreach Workshop Goal
+                                    </h3>
+                                    <div className="flex items-center">
+                                        <span className="text-2xl font-extrabold text-accent">K{raisedAmount}</span>
+                                        <span className="text-sm mx-2 opacity-70">of</span>
+                                        <span className="text-lg font-bold">K{goalAmount}</span>
+                                    </div>
                                 </div>
-                                <div className="w-full bg-surface-border rounded-full h-4 overflow-hidden">
+                                
+                                {/* Modern progress bar with better visual indicators */}
+                                <div className="relative">
+                                    <div className="w-full bg-surface-border/30 rounded-full h-3">
+                                        <div 
+                                            className="bg-gradient-to-r from-accent/80 to-accent h-full rounded-full transition-all duration-1000 ease-out"
+                                            style={{ width: `${progressPercentage}%` }}
+                                        >
+                                        </div>
+                                    </div>
+                                    
+                                    {/* Percentage marker */}
                                     <div 
-                                        className="bg-accent h-full rounded-full" 
-                                        style={{ width: `${progressPercentage}%` }}
-                                    ></div>
+                                        className="absolute -top-2 -mt-1 transform -translate-y-full"
+                                        style={{ left: `${progressPercentage}%`, transform: `translateX(-50%) translateY(-100%)` }}
+                                    >
+                                        <span className="bg-accent text-black text-xs font-bold px-2 py-0.5 rounded-md">
+                                            {Math.round(progressPercentage)}%
+                                        </span>
+                                    </div>
+                                    
+                                    {/* Milestone markers */}
+                                    <div className="flex justify-between mt-1 px-1">
+                                        <div className="w-1 h-1 bg-surface-border rounded-full"></div>
+                                        <div className="w-1 h-1 bg-surface-border rounded-full"></div>
+                                        <div className="w-1 h-1 bg-surface-border rounded-full"></div>
+                                        <div className="w-1 h-1 bg-surface-border rounded-full"></div>
+                                        <div className="w-1 h-1 bg-surface-border rounded-full"></div>
+                                    </div>
                                 </div>
-                                <p className="text-sm">Help us reach our goal to bring robotics to 10 more schools by July</p>
+                                
+                                {/* Enhanced call to action */}
+                                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pt-2">
+                                    <p className="text-sm opacity-80">
+                                        Help us bring robotics to 10 more schools by July
+                                    </p>
+                                    <button className="text-xs sm:text-sm bg-accent hover:bg-accent-hover text-black py-1.5 px-4 rounded-lg font-medium transition-all shadow-sm hover:shadow">
+                                        Donate Now
+                                    </button>
+                                </div>
+                                
+                                {/* Progress stats */}
+                                <div className="grid grid-cols-3 gap-2 pt-2">
+                                    <div className="text-center">
+                                        <p className="text-xs opacity-70">Schools Reached</p>
+                                        <p className="font-bold text-lg">5/10</p>
+                                    </div>
+                                    <div className="text-center">
+                                        <p className="text-xs opacity-70">Days Remaining</p>
+                                        <p className="font-bold text-lg">68</p>
+                                    </div>
+                                    <div className="text-center">
+                                        <p className="text-xs opacity-70">Supporters</p>
+                                        <p className="font-bold text-lg">42</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
                     <div className="md:w-1/2">
                         <ThemedImage
-                            src="resources/Illustrations/workshop-impact.jpg"
+                            src="resources/Photos/peace.jpeg"
                             alt="Students working on robots"
                             className="w-full rounded-lg shadow-lg"
                         />
@@ -80,11 +141,11 @@ const DonationsPage: React.FC = () => {
                 
                 {/* Real Stories Section */}
                 <section className="mb-12">
-                    <h2 className="text-2xl font-bold mb-6 border-b border-surface-border pb-2">Real Stories, Real Impact</h2>
+                    <h2 className="text-2xl font-bold mb-6 pb-2">Real Stories, Real Impact</h2>
                     
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 ">
                         {testimonials.map((testimonial, index) => (
-                            <div key={index} className="bg-surface-hover-bg rounded-lg p-4 flex flex-col">
+                            <div key={index} className="bg-surface-hover-bg rounded-lg interactive-card p-4 flex flex-col">
                                 <div className="h-48 mb-4 overflow-hidden rounded-lg">
                                     <ThemedImage
                                         src={testimonial.image}

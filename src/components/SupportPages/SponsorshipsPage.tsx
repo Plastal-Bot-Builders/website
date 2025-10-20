@@ -201,7 +201,7 @@ const SponsorshipPage: React.FC = () => {
                 
                 {/* Why Sponsor Section */}
                 <section className="mb-12">
-                    <h2 className="text-2xl font-bold mb-6 border-b border-surface-border pb-2">Why Sponsor Plastal-Bot Builders?</h2>
+                    <h2 className="text-2xl font-bold mb-6 pb-2">Why Sponsor Plastal-Bot Builders?</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div>
@@ -236,7 +236,7 @@ const SponsorshipPage: React.FC = () => {
                 
                 {/* Sponsorship Packages */}
                 <section id="sponsorship-packages" className="mb-12">
-                    <h2 className="text-2xl font-bold mb-6 border-b border-surface-border pb-2">Sponsorship Packages</h2>
+                    <h2 className="text-2xl font-bold mb-6 pb-2">Sponsorship Packages</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         {sponsorshipPackages.map((pkg, index) => (
@@ -292,11 +292,11 @@ const SponsorshipPage: React.FC = () => {
                 
                 {/* Types of Sponsorships */}
                 <section className="mb-12">
-                    <h2 className="text-2xl font-bold mb-6 border-b border-surface-border pb-2">Sponsorship Opportunities</h2>
+                    <h2 className="text-2xl font-bold mb-6 pb-2">Sponsorship Opportunities</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {sponsorshipTypes.map((type, index) => (
-                            <div key={index} className="border border-surface-border rounded-lg p-5 hover:border-accent transition-colors">
+                            <div key={index} className="rounded-lg interactive-card p-5 hover:border-accent transition-colors">
                                 <div className="flex items-center mb-4">
                                     <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3">
                                         {type.icon}
@@ -318,11 +318,11 @@ const SponsorshipPage: React.FC = () => {
                 
                 {/* Featured Sponsors */}
                 <section className="mb-12">
-                    <h2 className="text-2xl font-bold mb-6 border-b border-surface-border pb-2">Our Valued Sponsors</h2>
+                    <h2 className="text-2xl font-bold mb-6 pb-2">Our Valued Sponsors</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {featuredSponsors.map((sponsor, index) => (
-                            <div key={index} className="bg-surface border border-surface-border rounded-lg overflow-hidden">
+                            <div key={index} className="rounded-lg interactive-card overflow-hidden">
                                 <div className="h-48 overflow-hidden">
                                     <ThemedImage
                                         src={sponsor.image}
@@ -356,8 +356,8 @@ const SponsorshipPage: React.FC = () => {
                 </section>
                 
                 {/* Sponsor Benefits Showcase */}
-                <section className="mb-12 bg-surface-hover-bg rounded-lg overflow-hidden">
-                    <div className="p-6 md:p-8">
+                <section className="mb-12">
+                    <div className="p-2 md:p-8">
                         <h2 className="text-2xl font-bold mb-6">Sponsor Visibility & Benefits</h2>
                         
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -508,7 +508,7 @@ const SponsorshipPage: React.FC = () => {
                                 </div>
                                 
                                 <div className="md:w-1/2">
-                                    <h3 className="text-xl font-bold mb-3">ZamTel Rural Innovation Challenge</h3>
+                                    <h3 className="text-xl font-bold mb-3">Technicbots Innovation Program</h3>
                                     <p className="mb-4">
                                         When telecommunications provider ZamTel sponsored our Rural Innovation 
                                         Challenge in 2024, they weren't just providing funding – they were 
