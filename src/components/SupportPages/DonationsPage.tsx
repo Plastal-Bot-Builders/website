@@ -101,10 +101,10 @@ const DonationsPage: React.FC = () => {
                 
                 {/* What Donations Do Section */}
                 <section className="mb-12">
-                    <h2 className="text-2xl font-bold mb-6 border-b border-surface-border pb-2">Your Donation Makes a Difference</h2>
+                    <h2 className="text-2xl font-bold mb-6 pb-2">Your Donation Makes a Difference</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div className="border border-surface-border rounded-lg p-6 text-center hover:border-accent transition-colors">
+                        <div className="rounded-lg interactive-card p-6 text-center hover:border-accent transition-colors">
                             <div className="text-accent text-xl font-bold mb-2">K200</div>
                             <div className="w-20 h-20 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
                                 {FaRegLightbulb ({className:"text-accent text-3xl"})}
@@ -112,7 +112,7 @@ const DonationsPage: React.FC = () => {
                             <p>Provides one set of sensors for a student robot project</p>
                         </div>
                         
-                        <div className="border border-surface-border rounded-lg p-6 text-center hover:border-accent transition-colors">
+                        <div className="rounded-lg interactive-card p-6 text-center hover:border-accent transition-colors">
                             <div className="text-accent text-xl font-bold mb-2">K500</div>
                             <div className="w-20 h-20 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
                                 {FaUserGraduate ({className:"text-accent text-3xl"})}
@@ -120,7 +120,7 @@ const DonationsPage: React.FC = () => {
                             <p>Covers workshop materials for one participant</p>
                         </div>
                         
-                        <div className="border border-surface-border rounded-lg p-6 text-center hover:border-accent transition-colors">
+                        <div className="rounded-lg interactive-card p-6 text-center hover:border-accent transition-colors">
                             <div className="text-accent text-xl font-bold mb-2">K1,000</div>
                             <div className="w-20 h-20 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
                                 {FaHandHoldingHeart ({className:"text-accent text-3xl"})}
@@ -131,7 +131,7 @@ const DonationsPage: React.FC = () => {
                 </section>
                 
                 {/* Donation Form */}
-                <section className="mb-12 bg-surface-hover-bg p-6 rounded-lg">
+                <section className="mb-12 bg-surface-hover-bg rounded-lg">
                     <h2 className="text-2xl font-bold mb-6">Make Your Contribution</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -178,10 +178,10 @@ const DonationsPage: React.FC = () => {
                         <div>
                             <h3 className="text-xl font-bold mb-4">Donor Levels</h3>
                             
-                            <div className="space-y-3">
-                                <div className={`p-3 rounded-lg border ${isRecurring && donationAmount >= 50 && donationAmount < 200 ? 'border-accent bg-accent bg-opacity-10' : 'border-surface-border'}`}>
+                            <div className="space-y-4">
+                                <div className={`p-3 rounded-lg interactive-card ${isRecurring && donationAmount >= 50 && donationAmount < 200 ? 'border-accent bg-accent bg-opacity-10' : 'border-surface-border'}`}>
                                     <div className="flex items-center">
-                                        <div className="mr-3">
+                                        <div className="mr-2">
                                             {isRecurring && donationAmount >= 50 && donationAmount < 200 ? (
                                                 <FaCheck className="text-accent" />
                                             ) : null}
@@ -193,7 +193,7 @@ const DonationsPage: React.FC = () => {
                                     </div>
                                 </div>
                                 
-                                <div className={`p-3 rounded-lg border ${isRecurring && donationAmount >= 200 && donationAmount < 500 ? 'border-accent bg-accent bg-opacity-10' : 'border-surface-border'}`}>
+                                <div className={`p-3 rounded-lg interactive-card ${isRecurring && donationAmount >= 200 && donationAmount < 500 ? 'border-accent bg-accent bg-opacity-10' : 'border-surface-border'}`}>
                                     <div className="flex items-center">
                                         <div className="mr-3">
                                             {isRecurring && donationAmount >= 200 && donationAmount < 500 ? (
@@ -207,7 +207,7 @@ const DonationsPage: React.FC = () => {
                                     </div>
                                 </div>
                                 
-                                <div className={`p-3 rounded-lg border ${isRecurring && donationAmount >= 500 ? 'border-accent bg-accent bg-opacity-10' : 'border-surface-border'}`}>
+                                <div className={`p-3 rounded-lg interactive-card ${isRecurring && donationAmount >= 500 ? 'border-accent bg-accent bg-opacity-10' : 'border-surface-border'}`}>
                                     <div className="flex items-center">
                                         <div className="mr-3">
                                             {isRecurring && donationAmount >= 500 ? (
@@ -240,12 +240,12 @@ const DonationsPage: React.FC = () => {
                 
                 {/* Impact and Updates */}
                 <section className="mb-12">
-                    <h2 className="text-2xl font-bold mb-6 border-b border-surface-border pb-2">Recent Impact</h2>
+                    <h2 className="text-2xl font-bold mb-6 pb-2">Recent Impact</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="border border-surface-border rounded-lg p-6">
+                        <div className="rounded-lg interactive-card p-6">
                             <h3 className="text-lg font-bold mb-2">Recent Workshop Success</h3>
-                            <p className="mb-4">Your support helped 25 students in Ndola build and program their first autonomous robots last weekend!</p>
+                            <p className="mb-4">Your support helped 30 students in Chililabobwe build and program their first autonomous robots last weekend!</p>
                             <ThemedImage
                                 src="resources/Illustrations/recent-workshop.jpg"
                                 alt="Recent workshop in Ndola"
@@ -254,7 +254,7 @@ const DonationsPage: React.FC = () => {
                             <a href="#" className="text-accent hover:underline">See more photos →</a>
                         </div>
                         
-                        <div className="border border-surface-border rounded-lg p-6">
+                        <div className="rounded-lg interactive-card p-6">
                             <h3 className="text-lg font-bold mb-2">2025 Impact Report</h3>
                             <ul className="space-y-2 mb-4">
                                 <li className="flex items-center"><span className="text-accent mr-2">•</span> 4 schools equipped with robotics kits</li>
