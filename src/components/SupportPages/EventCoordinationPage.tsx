@@ -126,19 +126,19 @@ const EventCoordinationPage: React.FC = () => {
                     
                     <div className="md:w-1/2">
                         <ThemedImage
-                            src="resources/Illustrations/event-coordination.jpg"
+                            src="resources/Illustrations/Eventplan.svg"
                             alt="Event coordination team in action"
-                            className="w-full rounded-lg shadow-lg"
+                            className="w-full"
                         />
                     </div>
                 </div>
                 
                 {/* Objectives Section */}
                 <section className="mb-12">
-                    <h2 className="text-2xl font-bold mb-6 border-b border-surface-border pb-2">Our Event Objectives</h2>
+                    <h2 className="text-2xl font-bold mb-6 pb-2">Our Event Objectives</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div className="bg-surface-hover-bg rounded-lg p-5">
+                        <div className="bg-surface-hover-bg rounded-lg">
                             <h3 className="text-xl font-bold mb-3">Quality & Impact</h3>
                             <p>
                                 Deliver high-quality, impactful STEM and robotics events that inspire learners 
@@ -146,7 +146,7 @@ const EventCoordinationPage: React.FC = () => {
                             </p>
                         </div>
                         
-                        <div className="bg-surface-hover-bg rounded-lg p-5">
+                        <div className="bg-surface-hover-bg rounded-lg">
                             <h3 className="text-xl font-bold mb-3">Replicable System</h3>
                             <p>
                                 Create a structured framework for planning and managing events that can be 
@@ -154,7 +154,7 @@ const EventCoordinationPage: React.FC = () => {
                             </p>
                         </div>
                         
-                        <div className="bg-surface-hover-bg rounded-lg p-5">
+                        <div className="bg-surface-hover-bg rounded-lg">
                             <h3 className="text-xl font-bold mb-3">Community Building</h3>
                             <p>
                                 Strengthen community engagement through outreach activities and collaborative 
@@ -162,7 +162,7 @@ const EventCoordinationPage: React.FC = () => {
                             </p>
                         </div>
                         
-                        <div className="bg-surface-hover-bg rounded-lg p-5">
+                        <div className="bg-surface-hover-bg rounded-lg">
                             <h3 className="text-xl font-bold mb-3">Sponsor Engagement</h3>
                             <p>
                                 Attract corporate and educational sponsors through well-organized events 
@@ -170,7 +170,7 @@ const EventCoordinationPage: React.FC = () => {
                             </p>
                         </div>
                         
-                        <div className="bg-surface-hover-bg rounded-lg p-5">
+                        <div className="bg-surface-hover-bg rounded-lg">
                             <h3 className="text-xl font-bold mb-3">Brand Identity</h3>
                             <p>
                                 Build a recognizable brand identity for Plastal-Bot events known for 
@@ -182,11 +182,11 @@ const EventCoordinationPage: React.FC = () => {
                 
                 {/* Event Types Section */}
                 <section className="mb-12">
-                    <h2 className="text-2xl font-bold mb-6 border-b border-surface-border pb-2">Types of Events We Coordinate</h2>
+                    <h2 className="text-2xl font-bold mb-6 pb-2">Types of Events We Coordinate</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {eventTypes.map((event, index) => (
-                            <div key={index} className="border border-surface-border rounded-lg p-6 hover:border-accent transition-colors">
+                            <div key={index} className="rounded-lg interactive-card p-6">
                                 <div className="flex items-center mb-4">
                                     <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4">
                                         {event.icon}
@@ -208,10 +208,10 @@ const EventCoordinationPage: React.FC = () => {
                 
                 {/* Event Coordination Structure */}
                 <section className="mb-12">
-                    <h2 className="text-2xl font-bold mb-6 border-b border-surface-border pb-2">Event Coordination Structure</h2>
+                    <h2 className="text-2xl font-bold mb-6 pb-2">Event Coordination Structure</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div className="bg-surface border border-surface-border rounded-lg p-6">
+                        <div className="rounded-lg interactive-card p-6">
                             <div className="flex items-center mb-4">
                                 <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3">
                                     {FaClipboardCheck ({className:"text-accent text-2xl"})}
@@ -243,7 +243,7 @@ const EventCoordinationPage: React.FC = () => {
                             </ul>
                         </div>
                         
-                        <div className="bg-surface border border-surface-border rounded-lg p-6">
+                        <div className="rounded-lg interactive-card p-6">
                             <div className="flex items-center mb-4">
                                 <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3">
                                     {FaUsers ({className:"text-accent text-2xl" })}
@@ -275,7 +275,7 @@ const EventCoordinationPage: React.FC = () => {
                             </ul>
                         </div>
                         
-                        <div className="bg-surface border border-surface-border rounded-lg p-6">
+                        <div className="rounded-lg interactive-card p-6">
                             <div className="flex items-center mb-4">
                                 <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3">
                                     {FaChartLine ({className:"text-accent text-2xl" })}
@@ -308,75 +308,9 @@ const EventCoordinationPage: React.FC = () => {
                         </div>
                     </div>
                 </section>
-                
-                {/* Core Coordination Roles */}
-                <section className="mb-12">
-                    <h2 className="text-2xl font-bold mb-6 border-b border-surface-border pb-2">Core Coordination Roles</h2>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {coordinationRoles.map((role, index) => (
-                            <div key={index} className="border border-surface-border rounded-lg p-4 flex items-start">
-                                <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0">
-                                    {role.icon}
-                                </div>
-                                <div>
-                                    <h3 className="text-lg font-bold mb-1">{role.role}</h3>
-                                    <p>{role.responsibility}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                    
-                    <p className="mt-6 text-center text-gray-500 dark:text-gray-400">
-                        Roles can be filled by Plastal-Bot members, student volunteers, or partner institution representatives.
-                    </p>
-                </section>
-                
-                {/* Tools and Systems */}
-                <section className="mb-12">
-                    <h2 className="text-2xl font-bold mb-6 border-b border-surface-border pb-2">Tools and Systems We Use</h2>
-                    
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                        <div className="bg-surface-hover-bg rounded-lg p-4 flex flex-col items-center text-center">
-                            {FaLaptop ({className:"text-accent text-3xl mb-3" })}
-                            <h3 className="font-bold mb-2">Planning & Organization</h3>
-                            <p className="text-sm">Google Workspace / Notion for task tracking and timelines</p>
-                        </div>
-                        
-                        <div className="bg-surface-hover-bg rounded-lg p-4 flex flex-col items-center text-center">
-                            {FaRegLightbulb ({className:"text-accent text-3xl mb-3" })}
-                            <h3 className="font-bold mb-2">Design & Marketing</h3>
-                            <p className="text-sm">Canva / Figma for creating event posters and social media graphics</p>
-                        </div>
-                        
-                        <div className="bg-surface-hover-bg rounded-lg p-4 flex flex-col items-center text-center">
-                            {FaClipboardCheck ({className:"text-accent text-3xl mb-3" })}
-                            <h3 className="font-bold mb-2">Registration</h3>
-                            <p className="text-sm">Eventbrite / Google Forms for managing participant sign-ups</p>
-                        </div>
-                        
-                        <div className="bg-surface-hover-bg rounded-lg p-4 flex flex-col items-center text-center">
-                            {FaUsers ({className:"text-accent text-3xl mb-3"})}
-                            <h3 className="font-bold mb-2">Team Management</h3>
-                            <p className="text-sm">Trello or Asana for task assignment among event facilitators</p>
-                        </div>
-                        
-                        <div className="bg-surface-hover-bg rounded-lg p-4 flex flex-col items-center text-center">
-                            {FaRegLightbulb ({className:"text-accent text-3xl mb-3" })}
-                            <h3 className="font-bold mb-2">Communication</h3>
-                            <p className="text-sm">Mailchimp for follow-ups and automated event updates</p>
-                        </div>
-                        
-                        <div className="bg-surface-hover-bg rounded-lg p-4 flex flex-col items-center text-center">
-                            {FaChartLine ({className:"text-accent text-3xl mb-3" })}
-                            <h3 className="font-bold mb-2">Analytics</h3>
-                            <p className="text-sm">Custom backend for tracking participation and impact metrics</p>
-                        </div>
-                    </div>
-                </section>
-                
+
                 {/* Impact Measurement */}
-                <section className="mb-12 bg-surface-hover-bg p-6 rounded-lg">
+                <section className="mb-12 bg-surface-hover-bg rounded-lg">
                     <h2 className="text-2xl font-bold mb-5">Measuring Our Success</h2>
                     
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -416,12 +350,80 @@ const EventCoordinationPage: React.FC = () => {
                     </p>
                 </section>
                 
-                {/* Upcoming Events Section */}
-                <section id="upcoming" className="mb-12">
-                    <h2 className="text-2xl font-bold mb-6 border-b border-surface-border pb-2">Upcoming Events</h2>
+                {/* Core Coordination Roles */}
+                <section className="mb-12">
+                    <h2 className="text-2xl font-bold mb-6 pb-2">Core Coordination Roles</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="border border-surface-border rounded-lg p-5">
+                        {coordinationRoles.map((role, index) => (
+                            <div key={index} className="rounded-lg interactive-card p-4 flex items-start">
+                                <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0">
+                                    {role.icon}
+                                </div>
+                                <div>
+                                    <h3 className="text-lg font-bold mb-1">{role.role}</h3>
+                                    <p>{role.responsibility}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                    
+                    <p className="mt-6 text-center text-gray-500 dark:text-gray-400">
+                        Roles can be filled by Plastal-Bot members, student volunteers, or partner institution representatives.
+                    </p>
+                </section>
+
+                
+                
+                {/* Tools and Systems */}
+                <section className="mb-12">
+                    <h2 className="text-2xl font-bold mb-6 pb-2">Tools and Systems We Use</h2>
+                    
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                        <div className="bg-surface-hover-bg rounded-lg p-4 flex flex-col items-center text-center">
+                            {FaLaptop ({className:"text-accent text-3xl mb-3" })}
+                            <h3 className="font-bold mb-2">Planning & Organization</h3>
+                            <p className="text-sm">Google Workspace / Notion for task tracking and timelines</p>
+                        </div>
+                        
+                        <div className="bg-surface-hover-bg rounded-lg p-4 flex flex-col items-center text-center">
+                            {FaRegLightbulb ({className:"text-accent text-3xl mb-3" })}
+                            <h3 className="font-bold mb-2">Design & Marketing</h3>
+                            <p className="text-sm">Canva / Figma for creating event posters and social media graphics</p>
+                        </div>
+                        
+                        <div className="bg-surface-hover-bg rounded-lg p-4 flex flex-col items-center text-center">
+                            {FaClipboardCheck ({className:"text-accent text-3xl mb-3" })}
+                            <h3 className="font-bold mb-2">Registration</h3>
+                            <p className="text-sm">Eventbrite / Google Forms for managing participant sign-ups</p>
+                        </div>
+                        
+                        <div className="bg-surface-hover-bg rounded-lg p-4 flex flex-col items-center text-center">
+                            {FaUsers ({className:"text-accent text-3xl mb-3"})}
+                            <h3 className="font-bold mb-2">Team Management</h3>
+                            <p className="text-sm">Trello or Asana for task assignment among event facilitators</p>
+                        </div>
+                        
+                        <div className="bg-surface-hover-bg rounded-lg p-4 flex flex-col items-center text-center">
+                            {FaRegLightbulb ({className:"text-accent text-3xl mb-3" })}
+                            <h3 className="font-bold mb-2">Communication</h3>
+                            <p className="text-sm">Mailchimp for follow-ups and automated event updates</p>
+                        </div>
+                        
+                        <div className="bg-surface-hover-bg rounded-lg p-4 flex flex-col items-center text-center">
+                            {FaChartLine ({className:"text-accent text-3xl mb-3" })}
+                            <h3 className="font-bold mb-2">Analytics</h3>
+                            <p className="text-sm">Custom backend for tracking participation and impact metrics</p>
+                        </div>
+                    </div>
+                </section>
+            
+                {/* Upcoming Events Section */}
+                <section id="upcoming" className="mb-12">
+                    <h2 className="text-2xl font-bold mb-6 pb-2">Upcoming Events</h2>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="interactive-card rounded-lg p-5">
                             <div className="flex justify-between items-start mb-4">
                                 <h3 className="text-lg font-bold">Robotics for Good Youth Challenge</h3>
                                 <span className="bg-accent text-black text-sm py-1 px-2 rounded">Competition</span>
@@ -437,7 +439,7 @@ const EventCoordinationPage: React.FC = () => {
                             </div>
                         </div>
                         
-                        <div className="border border-surface-border rounded-lg p-5">
+                        <div className="rounded-lg interactive-card p-5">
                             <div className="flex justify-between items-start mb-4">
                                 <h3 className="text-lg font-bold">3-Day Robotics & AI Workshop</h3>
                                 <span className="bg-accent text-black text-sm py-1 px-2 rounded">Workshop</span>
@@ -453,7 +455,7 @@ const EventCoordinationPage: React.FC = () => {
                             </div>
                         </div>
                         
-                        <div className="border border-surface-border rounded-lg p-5">
+                        <div className="rounded-lg interactive-card p-5">
                             <div className="flex justify-between items-start mb-4">
                                 <h3 className="text-lg font-bold">Train the Trainer: Robotics Education</h3>
                                 <span className="bg-accent text-black text-sm py-1 px-2 rounded">Training</span>
@@ -469,7 +471,7 @@ const EventCoordinationPage: React.FC = () => {
                             </div>
                         </div>
                         
-                        <div className="border border-surface-border rounded-lg p-5">
+                        <div className="rounded-lg interactive-card p-5">
                             <div className="flex justify-between items-start mb-4">
                                 <h3 className="text-lg font-bold">Plastal-Bot Innovation Expo</h3>
                                 <span className="bg-accent text-black text-sm py-1 px-2 rounded">Exhibition</span>
@@ -493,39 +495,8 @@ const EventCoordinationPage: React.FC = () => {
                     </div>
                 </section>
                 
-                {/* Long-Term Vision */}
-                <section className="mb-12 bg-surface-hover-bg p-6 rounded-lg">
-                    <h2 className="text-2xl font-bold mb-5 text-center">Our Long-Term Vision</h2>
-                    
-                    <p className="text-center mb-6">
-                        Plastal-Bot is building a dedicated Events Division responsible for scaling our impact 
-                        across Zambia and eventually the region.
-                    </p>
-                    
-                    <div className="max-w-3xl mx-auto">
-                        <ul className="space-y-3">
-                            <li className="flex items-start">
-                                <span className="text-accent mr-2 mt-1">•</span>
-                                <span>Establish an annual calendar of robotics events across multiple provinces</span>
-                            </li>
-                            <li className="flex items-start">
-                                <span className="text-accent mr-2 mt-1">•</span>
-                                <span>Create a certified team of event coordinators specializing in STEM engagement</span>
-                            </li>
-                            <li className="flex items-start">
-                                <span className="text-accent mr-2 mt-1">•</span>
-                                <span>Scale workshops into regional robotics festivals with international participation</span>
-                            </li>
-                            <li className="flex items-start">
-                                <span className="text-accent mr-2 mt-1">•</span>
-                                <span>Launch a National Youth Robotics Conference bringing together schools, partners, and policymakers</span>
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-                
                 {/* Volunteer Form Section */}
-                <section id="volunteer" className="bg-surface border border-surface-border rounded-lg overflow-hidden">
+                <section id="volunteer" className="rounded-lg interactive-card overflow-hidden">
                     <div className="p-6">
                         <h2 className="text-2xl font-bold mb-6">Volunteer as an Event Coordinator</h2>
                         

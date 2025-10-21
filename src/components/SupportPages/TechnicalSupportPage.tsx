@@ -9,15 +9,12 @@ import {
     RocketLaunchIcon, // For robot
     CircleStackIcon, // For network
     Cog6ToothIcon, // For cogs
-    ServerIcon,
     CpuChipIcon, // For microchip
-    CloudIcon,
     UserGroupIcon, // For users
     AcademicCapIcon, // For graduation cap
     UserIcon, // For teacher
     BugAntIcon, // For bug
     DocumentTextIcon, // For file code
-    PresentationChartBarIcon // For presentation
 } from '@heroicons/react/24/solid';
 import ThemedImage from '../../theme/ThemedImage';
 

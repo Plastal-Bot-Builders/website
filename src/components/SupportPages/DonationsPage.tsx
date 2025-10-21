@@ -166,7 +166,7 @@ const DonationsPage: React.FC = () => {
                     <h2 className="text-2xl font-bold mb-6 pb-2">Your Donation Makes a Difference</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div className="rounded-lg interactive-card p-6 text-center hover:border-accent transition-colors">
+                        <div className="p-6 text-center hover:border-accent transition-colors">
                             <div className="text-accent text-xl font-bold mb-2">K200</div>
                             <div className="w-20 h-20 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
                                 {FaRegLightbulb ({className:"text-accent text-3xl"})}
