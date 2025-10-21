@@ -39,8 +39,8 @@ const Header: React.FC = () => {
 
   return (
     <nav className="w-full z-50 site-header">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-between items-center py-4">
+      <div className="max-w-7xl mx-auto px-2">
+        <div className="flex justify-between items-center py-2">
           {/* Logo (served from public/resources/...) */}
           <img
             src={logoSrc} // CHANGED from ./resources/... to absolute path

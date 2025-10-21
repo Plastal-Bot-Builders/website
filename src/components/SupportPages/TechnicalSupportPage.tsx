@@ -105,14 +105,14 @@ const TechnicalSupportPage: React.FC = () => {
             
             <div className="max-w-7xl mx-auto p-8">
                 <Link to="/support" className="inline-flex items-center text-accent hover:text-accent-hover mb-6">
-                    <ArrowLeftIcon className="mr-2"/> Back to Support
+                    <ArrowLeftIcon className="mr-2 h-5 w-5"/> Back to Support
                 </Link>
                 
                 {/* Hero Section */}
                 <div className="flex flex-col md:flex-row gap-8 items-center mb-12">
                     <div className="md:w-1/2">
                         <h1 className="text-3xl md:text-4xl font-bold mb-4">
-                            {Cog6ToothIcon ({className:"inline-block mr-3" })}
+                            <Cog6ToothIcon className="h-8 w-8 inline-block mr-3" />
                             Technical Support
                         </h1>
                         <p className="text-gray-600 dark:text-gray-300 mb-4 text-lg">
@@ -142,19 +142,19 @@ const TechnicalSupportPage: React.FC = () => {
                     
                     <div className="md:w-1/2">
                         <ThemedImage
-                            src="resources/Illustrations/technical-support.jpg"
+                            src="resources/Illustrations/Support.svg"
                             alt="Technical support for robotics projects"
-                            className="w-full rounded-lg shadow-lg"
+                            className="w-full h-auto object-cove"
                         />
                     </div>
                 </div>
                 
                 {/* Why Technical Support Matters Section */}
                 <section className="mb-12">
-                    <h2 className="text-2xl font-bold mb-6 border-b border-surface-border pb-2">Why Technical Support Matters</h2>
+                    <h2 className="text-2xl font-bold mb-6 pb-2">Why Technical Support Matters</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div>
+                        <div className="bg-surface-hover-bg rounded-lg">
                             <h3 className="text-xl font-bold mb-3">Empowering Innovation</h3>
                             <p className="mb-4">
                                 Reliable technical infrastructure and expertise are the foundation of successful 
@@ -167,7 +167,7 @@ const TechnicalSupportPage: React.FC = () => {
                             </p>
                         </div>
                         
-                        <div className="bg-surface-hover-bg rounded-lg p-5">
+                        <div className="bg-surface-hover-bg rounded-lg">
                             <h3 className="text-xl font-bold mb-3">Technical Challenges We Face</h3>
                             <ul className="space-y-2">
                                 <li className="flex items-start">
@@ -193,13 +193,13 @@ const TechnicalSupportPage: React.FC = () => {
                 
                 {/* Types of Technical Support */}
                 <section className="mb-12">
-                    <h2 className="text-2xl font-bold mb-6 border-b border-surface-border pb-2">Ways to Provide Technical Support</h2>
+                    <h2 className="text-2xl font-bold mb-6 pb-2">Ways to Provide Technical Support</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {supportTypes.map((type, index) => (
-                            <div key={index} className="border border-surface-border rounded-lg p-5 hover:border-accent transition-colors">
+                            <div key={index} className="interactive-card rounded-lg p-5 hover:border-accent transition-colors">
                                 <div className="flex items-center mb-4">
-                                    <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3">
+                                    <div className="w-8 h-8 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3">
                                         {type.icon}
                                     </div>
                                     <h3 className="text-lg font-bold">{type.title}</h3>
@@ -218,9 +218,8 @@ const TechnicalSupportPage: React.FC = () => {
                 </section>
                 
                 {/* Technical Support Network */}
-                <section id="support-network" className="mb-12 bg-surface-hover-bg p-6 rounded-lg">
-                    <h2 className="text-2xl font-bold mb-5">Our Technical Support Network</h2>
-                    
+                <section id="support-network" className="mb-12 bg-surface-hover-bg rounded-lg">
+                    <h2 className="text-2xl font-bold mb-5">Our Technical Support Network</h2>        
                     <div className="flex flex-col md:flex-row gap-8">
                         <div className="md:w-1/2">
                             <h3 className="text-xl font-bold mb-3">A Community of Technical Experts</h3>
@@ -240,9 +239,9 @@ const TechnicalSupportPage: React.FC = () => {
                         </div>
                         
                         <div className="md:w-1/2">
-                            <div className="bg-surface rounded-lg p-5 mb-4">
+                            <div className="bg-surface rounded-lg mb-4">
                                 <h3 className="text-lg font-bold mb-3 flex items-center">
-                                    {UserGroupIcon ({className:"text-accent mr-2" })} Network Activities
+                                    <UserGroupIcon className="text-accent mr-2 h-8 w-8" /> Network Activities
                                 </h3>
                                 <ul className="space-y-2">
                                     <li className="flex items-start">
@@ -269,7 +268,7 @@ const TechnicalSupportPage: React.FC = () => {
                             </div>
                             <a 
                                 href="#join-network" 
-                                className="bg-accent hover:bg-accent-hover text-black py-2 px-4 rounded-lg inline-block"
+                                className="bg-accent hover:bg-accent-hover text-black py-2 px-4 ml-6 rounded-lg inline-block"
                             >
                                 Join Our Support Network
                             </a>
@@ -279,16 +278,16 @@ const TechnicalSupportPage: React.FC = () => {
                 
                 {/* Technical Partners */}
                 <section id="current-partners" className="mb-12">
-                    <h2 className="text-2xl font-bold mb-6 border-b border-surface-border pb-2">Featured Technical Partners</h2>
+                    <h2 className="text-2xl font-bold mb-6 pb-2">Featured Technical Partners</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {technicalPartners.map((partner, index) => (
-                            <div key={index} className="bg-surface border border-surface-border rounded-lg overflow-hidden">
-                                <div className="h-48 overflow-hidden">
+                            <div key={index} className="interactive-card rounded-lg overflow-hidden">
+                                <div className="h-48 p-6 overflow-hidden">
                                     <ThemedImage
                                         src={partner.image}
                                         alt={partner.name}
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-full object-cover rounded-lg"
                                     />
                                 </div>
                                 <div className="p-5">
@@ -319,15 +318,14 @@ const TechnicalSupportPage: React.FC = () => {
                 {/* Impact Story */}
                 <section className="mb-12">
                     <div className="bg-surface-hover-bg rounded-lg overflow-hidden">
-                        <div className="p-6 md:p-8">
                             <h2 className="text-2xl font-bold mb-6">Technical Support Success Story</h2>
                             
                             <div className="flex flex-col md:flex-row gap-8">
                                 <div className="md:w-1/2">
                                     <ThemedImage
-                                        src="resources/Illustrations/tech-impact-story.jpg"
-                                        alt="Students working with upgraded robotics kits"
-                                        className="w-full rounded-lg shadow-lg"
+                                        src="resources/Illustrations/Support.svg"
+                                        alt="Students working with upgraded robotics kits"                       
+                                        className="w-full h-auto object-cove"
                                     />
                                 </div>
                                 
@@ -368,13 +366,12 @@ const TechnicalSupportPage: React.FC = () => {
                                     </blockquote>
                                 </div>
                             </div>
-                        </div>
                     </div>
                 </section>
                 
                 {/* Skills Needed */}
                 <section className="mb-12">
-                    <h2 className="text-2xl font-bold mb-6 border-b border-surface-border pb-2">Technical Skills in Demand</h2>
+                    <h2 className="text-2xl font-bold mb-6 pb-2">Technical Skills in Demand</h2>
                     
                     <p className="mb-6">
                         We welcome technical support in many areas, but these are our highest current priorities:
@@ -382,9 +379,9 @@ const TechnicalSupportPage: React.FC = () => {
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {neededSkills.map((category, index) => (
-                            <div key={index} className="border border-surface-border rounded-lg p-5">
+                            <div key={index} className="interactive-card rounded-lg p-5">
                                 <div className="flex items-center mb-4">
-                                    <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3">
+                                    <div className="w-8 h-8 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3">
                                         {category.icon}
                                     </div>
                                     <h3 className="text-lg font-bold">{category.category}</h3>
@@ -406,13 +403,13 @@ const TechnicalSupportPage: React.FC = () => {
                 </section>
                 
                 {/* Current Projects Needing Support */}
-                <section className="mb-12 bg-surface-hover-bg p-6 rounded-lg">
+                <section className="mb-12 bg-surface-hover-bg rounded-lg">
                     <h2 className="text-2xl font-bold mb-5">Current Technical Projects</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div className="bg-surface rounded-lg p-4">
+                        <div className="bg-surface rounded-lg">
                             <h3 className="font-bold text-lg mb-2 flex items-center">
-                                <RocketLaunchIcon className="text-accent mr-2"/> Sensor Kit Upgrade
+                                <RocketLaunchIcon className="text-accent mr-2 w-8 h-8"/> Sensor Kit Upgrade
                             </h3>
                             <p className="text-sm mb-3">
                                 Enhancing our educational robots with improved sensors for environmental monitoring.
@@ -423,9 +420,9 @@ const TechnicalSupportPage: React.FC = () => {
                             </div>
                         </div>
                         
-                        <div className="bg-surface rounded-lg p-4">
+                        <div className="bg-surface rounded-lg">
                             <h3 className="font-bold text-lg mb-2 flex items-center">
-                                {CodeBracketIcon ({className:"text-accent mr-2" })} Learning Platform 
+                                <CodeBracketIcon className="text-accent mr-2 w-8 h-8"/> Learning Platform 
                             </h3>
                             <p className="text-sm mb-3">
                                 Building a web application to track student progress and showcase projects.
@@ -436,9 +433,9 @@ const TechnicalSupportPage: React.FC = () => {
                             </div>
                         </div>
                         
-                        <div className="bg-surface rounded-lg p-4">
+                        <div className="bg-surface rounded-lg">
                             <h3 className="font-bold text-lg mb-2 flex items-center">
-                                {BugAntIcon ({className:"text-accent mr-2" })} Debugging Workshop
+                                <BugAntIcon className="text-accent mr-2 w-8 h-8" /> Debugging Workshop
                             </h3>
                             <p className="text-sm mb-3">
                                 Creating resources to teach troubleshooting skills to educators and students.
@@ -459,12 +456,12 @@ const TechnicalSupportPage: React.FC = () => {
                 
                 {/* Partner Benefits */}
                 <section className="mb-12">
-                    <h2 className="text-2xl font-bold mb-6 border-b border-surface-border pb-2">Benefits for Technical Partners</h2>
+                    <h2 className="text-2xl font-bold mb-6 pb-2">Benefits for Technical Partners</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                         <div className="flex items-start">
                             <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0">
-                                {CodeBracketIcon ({className:"text-accent text-xl"})}
+                                <CodeBracketIcon className="text-accent text-xl"/>
                             </div>
                             <div>
                                 <h3 className="text-lg font-bold mb-2">Skills Application</h3>
@@ -474,7 +471,7 @@ const TechnicalSupportPage: React.FC = () => {
                         
                         <div className="flex items-start">
                             <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0">
-                                {UserGroupIcon ({className:"text-accent text-xl"})}
+                                <UserGroupIcon className="text-accent text-xl"/>
                             </div>
                             <div>
                                 <h3 className="text-lg font-bold mb-2">Network Expansion</h3>
@@ -484,7 +481,7 @@ const TechnicalSupportPage: React.FC = () => {
                         
                         <div className="flex items-start">
                             <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0">
-                                {AcademicCapIcon ({className:"text-accent text-xl"})}
+                                <AcademicCapIcon className="text-accent text-xl"/>
                             </div>
                             <div>
                                 <h3 className="text-lg font-bold mb-2">Knowledge Transfer</h3>
@@ -494,7 +491,7 @@ const TechnicalSupportPage: React.FC = () => {
                         
                         <div className="flex items-start">
                             <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0">
-                                {RocketLaunchIcon ({className:"text-accent text-xl"})}
+                                <RocketLaunchIcon className="text-accent text-xl"/>
                             </div>
                             <div>
                                 <h3 className="text-lg font-bold mb-2">Innovation Opportunity</h3>
@@ -514,7 +511,7 @@ const TechnicalSupportPage: React.FC = () => {
                 </section>
                 
                 {/* Become a Partner Form */}
-                <section id="become-partner" className="mb-12 bg-surface border border-surface-border rounded-lg overflow-hidden">
+                <section id="become-partner" className="mb-12 interactive-card rounded-lg overflow-hidden">
                     <div className="p-6">
                         <h2 className="text-2xl font-bold mb-6">Offer Technical Support</h2>
                         

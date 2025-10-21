@@ -4,7 +4,7 @@ import Header from '../Header';
 import Footer from '../Footer';
 import {
     FaArrowLeft, FaHandsHelping, FaUsers, FaLightbulb,
-    FaGraduationCap, FaLeaf, FaGlobe, FaHandshake,
+    FaGraduationCap, FaLeaf, FaHandshake,
     FaRobot, FaChalkboardTeacher, FaSeedling, FaExchangeAlt
 } from 'react-icons/fa';
 import ThemedImage from '../../theme/ThemedImage';
@@ -49,13 +49,13 @@ const NonprofitPartnershipPage: React.FC = () => {
         {
             name: "Zambia STEM Foundation",
             description: "Collaborative workshop series reaching 12 schools across three provinces, introducing over 500 students to robotics basics.",
-            image: "resources/Partners/partner-stem-foundation.jpg",
+            image: "resources/Photos/sepoteaching.jpeg",
             focus: "Education Access"
         },
         {
             name: "TechAfrica Innovation Hub",
             description: "Joint mentorship program connecting young innovators with tech professionals and providing access to shared makerspace resources.",
-            image: "resources/Partners/partner-tech-africa.jpg",
+            image: "resources/Photos/unnclerextalk.jpg",
             focus: "Youth Innovation"
         }
     ];
@@ -287,11 +287,11 @@ const NonprofitPartnershipPage: React.FC = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {featuredPartnerships.map((partnership, index) => (
                             <div key={index} className="interactive-card rounded-lg overflow-hidden">
-                                <div className="h-48 overflow-hidden">
+                                <div className="h-48 p-4 overflow-hidden">
                                     <ThemedImage
                                         src={partnership.image}
                                         alt={partnership.name}
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-full object-cover rounded-lg"
                                     />
                                 </div>
                                 <div className="p-5">
@@ -303,7 +303,7 @@ const NonprofitPartnershipPage: React.FC = () => {
 
                                     <a
                                         href="#case-study"
-                                        className="text-accent hover:underline"
+                                        className="text-accent hover:underline mt-8"
                                     >
                                         View full case study →
                                     </a>
