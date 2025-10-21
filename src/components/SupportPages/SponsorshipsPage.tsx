@@ -113,13 +113,13 @@ const SponsorshipPage: React.FC = () => {
         {
             name: "TechCorp Zambia",
             contribution: "Platinum sponsor providing annual funding and equipment for our Innovation Hub.",
-            image: "resources/Sponsors/sponsor-techcorp.jpg",
+            image: "resources/Photos/fredmpelembe.jpeg",
             level: "Platinum Sponsor"
         },
         {
             name: "Global Education Initiative",
             contribution: "Gold sponsor supporting our rural outreach program reaching 15 schools annually.",
-            image: "resources/Sponsors/sponsor-gei.jpg",
+            image: "resources/Photos/group.png",
             level: "Gold Sponsor"
         }
     ];
@@ -191,9 +191,9 @@ const SponsorshipPage: React.FC = () => {
                     </div>                    
                     <div className="w-full md:w-1/2 p-2">
                         <ThemedImage
-                            src="resources/Illustrations/sponsorship-hero.jpg"
-                            alt="Corporate sponsor at a robotics event with students"
-                            className="w-full rounded-lg shadow-lg"
+                            alt="Sponsorship Illustration"
+                            src="resources/Illustrations/Sponsorship.svg"
+                            className="w-full h-auto object-cover"
                         />
                     </div>
                 </div>
@@ -322,11 +322,11 @@ const SponsorshipPage: React.FC = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {featuredSponsors.map((sponsor, index) => (
                             <div key={index} className="rounded-lg interactive-card overflow-hidden">
-                                <div className="h-48 overflow-hidden">
+                                <div className="h-48 p-4 overflow-hidden">
                                     <ThemedImage
                                         src={sponsor.image}
                                         alt={sponsor.name}
-                                        className="w-full h-full object-cover"
+                                        className="w-full rounded-lg h-full object-cover"
                                     />
                                 </div>
                                 <div className="p-5">
@@ -395,11 +395,11 @@ const SponsorshipPage: React.FC = () => {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div className="bg-surface rounded-lg overflow-hidden">
                                     <ThemedImage
-                                        src="resources/Illustrations/sponsor-branding.jpg"
+                                        src="resources/Outsourced_photos/girlchild.jpg"
                                         alt="Sponsor branding at event"
                                         className="w-full h-48 object-cover"
                                     />
-                                    <div className="p-4">
+                                    <div className="mt-4">
                                         <h4 className="font-bold mb-1">Event Branding</h4>
                                         <p className="text-sm">Prominent logo placement during our nationwide robotics competition</p>
                                     </div>
@@ -407,11 +407,11 @@ const SponsorshipPage: React.FC = () => {
                                 
                                 <div className="bg-surface rounded-lg overflow-hidden">
                                     <ThemedImage
-                                        src="resources/Illustrations/sponsor-speaking.jpg"
+                                        src="resources/Outsourced_photos/kidswithvrglasses.jpg"
                                         alt="Sponsor speaking at event"
                                         className="w-full h-48 object-cover"
                                     />
-                                    <div className="p-4">
+                                    <div className="mt-4">
                                         <h4 className="font-bold mb-1">Keynote Opportunity</h4>
                                         <p className="text-sm">Platinum sponsors presenting at our annual technology showcase</p>
                                     </div>
