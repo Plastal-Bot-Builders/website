@@ -81,19 +81,19 @@ const EducationalPartnershipsPage: React.FC = () => {
                     
                     <div className="md:w-1/2">
                         <ThemedImage
-                            src="resources/Illustrations/educational-partnership.jpg"
+                            src="resources/Illustrations/Education.svg"
+                            className="w-full h-auto object-cover"
                             alt="Students engaged in a robotics learning session"
-                            className="w-full rounded-lg shadow-lg"
                         />
                     </div>
                 </div>
                 
                 {/* Objectives Section */}
                 <section className="mb-12">
-                    <h2 className="text-2xl font-bold mb-6 border-b border-surface-border pb-2">Partnership Objectives</h2>
+                    <h2 className="text-2xl font-bold mb-6 pb-2">Partnership Objectives</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div className="bg-surface-hover-bg rounded-lg p-5">
+                        <div className="bg-surface-hover-bg rounded-lg">
                             <h3 className="text-xl font-bold mb-3 flex items-center">
                                 <span className="text-accent mr-2">1</span> Integrate Technology
                             </h3>
@@ -103,7 +103,7 @@ const EducationalPartnershipsPage: React.FC = () => {
                             </p>
                         </div>
                         
-                        <div className="bg-surface-hover-bg rounded-lg p-5">
+                        <div className="bg-surface-hover-bg rounded-lg">
                             <h3 className="text-xl font-bold mb-3 flex items-center">
                                 <span className="text-accent mr-2">2</span> Build Teacher Capacity
                             </h3>
@@ -113,7 +113,7 @@ const EducationalPartnershipsPage: React.FC = () => {
                             </p>
                         </div>
                         
-                        <div className="bg-surface-hover-bg rounded-lg p-5">
+                        <div className="bg-surface-hover-bg rounded-lg">
                             <h3 className="text-xl font-bold mb-3 flex items-center">
                                 <span className="text-accent mr-2">3</span> Project-Based Learning
                             </h3>
@@ -123,7 +123,7 @@ const EducationalPartnershipsPage: React.FC = () => {
                             </p>
                         </div>
                         
-                        <div className="bg-surface-hover-bg rounded-lg p-5">
+                        <div className="bg-surface-hover-bg rounded-lg">
                             <h3 className="text-xl font-bold mb-3 flex items-center">
                                 <span className="text-accent mr-2">4</span> Research & Innovation
                             </h3>
@@ -133,7 +133,7 @@ const EducationalPartnershipsPage: React.FC = () => {
                             </p>
                         </div>
                         
-                        <div className="bg-surface-hover-bg rounded-lg p-5">
+                        <div className="bg-surface-hover-bg rounded-lg">
                             <h3 className="text-xl font-bold mb-3 flex items-center">
                                 <span className="text-accent mr-2">5</span> Youth Development
                             </h3>
@@ -147,11 +147,11 @@ const EducationalPartnershipsPage: React.FC = () => {
                 
                 {/* Partnership Types Section */}
                 <section className="mb-12">
-                    <h2 className="text-2xl font-bold mb-6 border-b border-surface-border pb-2">Key Partnership Types</h2>
+                    <h2 className="text-2xl font-bold mb-6 pb-2">Key Partnership Types</h2>
                     
                     <div className="space-y-8">
                         {/* School Collaborations */}
-                        <div className="bg-surface border border-surface-border rounded-lg overflow-hidden">
+                        <div className="interactive-card rounded-lg overflow-hidden">
                             <div className="p-6">
                                 <div className="flex items-center mb-4">
                                     <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4">
@@ -201,7 +201,7 @@ const EducationalPartnershipsPage: React.FC = () => {
                         </div>
                         
                         {/* University & College Partnerships */}
-                        <div className="bg-surface border border-surface-border rounded-lg overflow-hidden">
+                        <div className="interactive-card rounded-lg overflow-hidden">
                             <div className="p-6">
                                 <div className="flex items-center mb-4">
                                     <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4">
@@ -254,7 +254,7 @@ const EducationalPartnershipsPage: React.FC = () => {
                         </div>
                         
                         {/* Other partnership types with similar structure */}
-                        <div className="bg-surface border border-surface-border rounded-lg overflow-hidden">
+                        <div className="interactive-card rounded-lg overflow-hidden">
                             <div className="p-6">
                                 <div className="flex items-center mb-4">
                                     <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4">
@@ -286,7 +286,7 @@ const EducationalPartnershipsPage: React.FC = () => {
                         </div>
                         
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div className="bg-surface border border-surface-border rounded-lg overflow-hidden">
+                            <div className="interactive-card rounded-lg overflow-hidden">
                                 <div className="p-6">
                                     <div className="flex items-center mb-4">
                                         <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4">
@@ -317,7 +317,7 @@ const EducationalPartnershipsPage: React.FC = () => {
                                 </div>
                             </div>
                             
-                            <div className="bg-surface border border-surface-border rounded-lg overflow-hidden">
+                            <div className="interactive-card rounded-lg overflow-hidden">
                                 <div className="p-6">
                                     <div className="flex items-center mb-4">
                                         <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4">
@@ -353,10 +353,10 @@ const EducationalPartnershipsPage: React.FC = () => {
                 
                 {/* Value Proposition Section */}
                 <section className="mb-12">
-                    <h2 className="text-2xl font-bold mb-6 border-b border-surface-border pb-2">The Value of Partnership</h2>
+                    <h2 className="text-2xl font-bold mb-6 pb-2">The Value of Partnership</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="bg-surface-hover-bg rounded-lg p-6">
+                        <div className="bg-surface-hover-bg rounded-lg">
                             <h3 className="text-xl font-bold mb-4 flex items-center">
                                 {FaUniversity ({className:"text-accent mr-3" })} For Schools & Universities
                             </h3>
@@ -385,7 +385,7 @@ const EducationalPartnershipsPage: React.FC = () => {
                             </ul>
                         </div>
                         
-                        <div className="bg-surface-hover-bg rounded-lg p-6">
+                        <div className="bg-surface-hover-bg rounded-lg">
                             <h3 className="text-xl font-bold mb-4 flex items-center">
                                 {FaRocket ({className:"text-accent mr-3"})} For Plastal-Bot Builders
                             </h3>
@@ -418,11 +418,11 @@ const EducationalPartnershipsPage: React.FC = () => {
                 
                 {/* Partnership Models Section */}
                 <section id="models" className="mb-12">
-                    <h2 className="text-2xl font-bold mb-6 border-b border-surface-border pb-2">Partnership Models</h2>
+                    <h2 className="text-2xl font-bold mb-6 pb-2">Partnership Models</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {partnershipModels.map((model, index) => (
-                            <div key={index} className="border border-surface-border rounded-lg p-6 hover:border-accent transition-colors">
+                            <div key={index} className="interactive-card rounded-lg p-6 hover:border-accent transition-colors">
                                 <div className="flex items-center mb-4">
                                     <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4">
                                         {model.icon}
@@ -444,11 +444,11 @@ const EducationalPartnershipsPage: React.FC = () => {
                 
                 {/* Recognition Section */}
                 <section className="mb-12">
-                    <h2 className="text-2xl font-bold mb-6 border-b border-surface-border pb-2">Recognition & Incentives</h2>
+                    <h2 className="text-2xl font-bold mb-6 pb-2">Recognition & Incentives</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div className="text-center p-5">
-                            <div className="w-16 h-16 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
+                        <div className="text-center">
+                            <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center border-2 border-accent">
                                 {FaUsers ({className:"text-accent text-2xl"})}
                             </div>
                             <h3 className="text-lg font-bold mb-2">Visibility</h3>
@@ -456,7 +456,7 @@ const EducationalPartnershipsPage: React.FC = () => {
                         </div>
                         
                         <div className="text-center p-5">
-                            <div className="w-16 h-16 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
+                            <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center border-2 border-accent">
                                 {FaAward ({className:"text-accent text-2xl"})}
                             </div>
                             <h3 className="text-lg font-bold mb-2">Annual Awards</h3>
@@ -464,7 +464,7 @@ const EducationalPartnershipsPage: React.FC = () => {
                         </div>
                         
                         <div className="text-center p-5">
-                            <div className="w-16 h-16 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
+                            <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center border-2 border-accent">
                                 {FaHandshake ({className:"text-accent text-2xl"})}
                             </div>
                             <h3 className="text-lg font-bold mb-2">Certificates</h3>
@@ -475,7 +475,7 @@ const EducationalPartnershipsPage: React.FC = () => {
                 
                 {/* Potential Partners Section */}
                 <section className="mb-12">
-                    <h2 className="text-2xl font-bold mb-6 border-b border-surface-border pb-2">Potential Partners</h2>
+                    <h2 className="text-2xl font-bold mb-6 pb-2">Potential Partners</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-12">
                         <div>
@@ -553,7 +553,7 @@ const EducationalPartnershipsPage: React.FC = () => {
                 </section>
                 
                 {/* Vision Section */}
-                <section className="mb-12 bg-surface-hover-bg p-6 rounded-lg">
+                <section className="mb-12 bg-surface-hover-bg rounded-lg">
                     <h2 className="text-2xl font-bold mb-4">Our Long-Term Vision</h2>
                     
                     <p className="mb-6">
@@ -593,7 +593,7 @@ const EducationalPartnershipsPage: React.FC = () => {
                 </section>
                 
                 {/* Contact Section */}
-                <section id="contact" className="bg-surface border border-surface-border rounded-lg overflow-hidden">
+                <section id="contact" className="interactive-card rounded-lg overflow-hidden">
                     <div className="p-6">
                         <h2 className="text-2xl font-bold mb-6">Start a Partnership Conversation</h2>
                         
@@ -606,7 +606,7 @@ const EducationalPartnershipsPage: React.FC = () => {
                                 
                                 <div className="mb-6">
                                     <h3 className="font-bold mb-1">Partnership Contact:</h3>
-                                    <p>Natasha Mumba</p>
+                                    <p>Lupupa Mulenga</p>
                                     <p>Educational Partnerships Coordinator</p>
                                     <a href="mailto:education@plastalbotbuilders.org" className="text-accent hover:underline">
                                         education@plastalbotbuilders.org
