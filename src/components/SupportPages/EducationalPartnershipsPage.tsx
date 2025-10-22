@@ -455,7 +455,7 @@ const EducationalPartnershipsPage: React.FC = () => {
                             <p>Featured on Plastal-Bot's website, newsletters, and social media channels</p>
                         </div>
                         
-                        <div className="text-center p-5">
+                        <div className="text-center">
                             <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center border-2 border-accent">
                                 {FaAward ({className:"text-accent text-2xl"})}
                             </div>
@@ -463,7 +463,7 @@ const EducationalPartnershipsPage: React.FC = () => {
                             <p>"Educational Partner of the Year" awards presented at our annual celebration event</p>
                         </div>
                         
-                        <div className="text-center p-5">
+                        <div className="text-center">
                             <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center border-2 border-accent">
                                 {FaHandshake ({className:"text-accent text-2xl"})}
                             </div>

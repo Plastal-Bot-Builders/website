@@ -10,7 +10,6 @@ import {
 import ThemedImage from '../../theme/ThemedImage';
 import { asset } from '../../utils/asset';
 import CountUp from '../../components/ui/CountUp';
-import TargetCursor from '../../components/ui/TargetCursor'
 
 const FundraisingPage: React.FC = () => {
     // Fundraising channels data
