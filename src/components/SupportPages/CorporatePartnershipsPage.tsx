@@ -183,7 +183,7 @@ const CorporatePartnershipsPage: React.FC = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <div className="interactive-card rounded-lg p-6 hover:border-accent transition-colors flex flex-col h-full">
                             <div className="w-16 h-16 mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
-                                <HandRaisedIcon className="h-6 w-6 text-accent" />
+                                <HandRaisedIcon className="h-8 w-8 text-accent" />
                             </div>
                             <h3 className="text-xl font-bold mb-3">Funding Partnerships</h3>
                             <p className="mb-4 flex-grow">
@@ -195,7 +195,7 @@ const CorporatePartnershipsPage: React.FC = () => {
                         
                         <div className="interactive-card rounded-lg p-6 hover:border-accent transition-colors flex flex-col h-full">
                             <div className="w-16 h-16 mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
-                                <GiftIcon className="text-accent text-2xl"/>
+                                <GiftIcon className="h-8 w-8 text-accent text-2xl"/>
                             </div>
                             <h3 className="text-xl font-bold mb-3">In-Kind Support</h3>
                             <p className="mb-4 flex-grow">
@@ -207,7 +207,7 @@ const CorporatePartnershipsPage: React.FC = () => {
                         
                         <div className="interactive-card rounded-lg p-6 hover:border-accent transition-colors flex flex-col h-full">
                             <div className="w-16 h-16 mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
-                                <UserGroupIcon className="text-accent text-2xl"/>
+                                <UserGroupIcon className="h-8 w-8 text-accent text-2xl"/>
                             </div>
                             <h3 className="text-xl font-bold mb-3">Skill-Based Volunteering</h3>
                             <p className="mb-4 flex-grow">
@@ -219,7 +219,7 @@ const CorporatePartnershipsPage: React.FC = () => {
                         
                         <div className="interactive-card rounded-lg p-6 hover:border-accent transition-colors flex flex-col h-full">
                             <div className="w-16 h-16 mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
-                                <TagIcon className="text-accent text-2xl"/>
+                                <TagIcon className="h-8 w-8 text-accent text-2xl"/>
                             </div>
                             <h3 className="text-xl font-bold mb-3">Program Co-Branding</h3>
                             <p className="mb-4 flex-grow">
@@ -231,7 +231,7 @@ const CorporatePartnershipsPage: React.FC = () => {
                         
                         <div className="interactive-card rounded-lg p-6 hover:border-accent transition-colors flex flex-col h-full">
                             <div className="w-16 h-16 mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
-                                <AcademicCapIcon className="text-accent text-2xl"/>
+                                <AcademicCapIcon className="h-8 w-8 text-accent text-2xl"/>
                             </div>
                             <h3 className="text-xl font-bold mb-3">Adopt-a-School Model</h3>
                             <p className="mb-4 flex-grow">
@@ -405,7 +405,7 @@ const CorporatePartnershipsPage: React.FC = () => {
                                 href="/resources/plastal-bot-corporate-partnership-brochure.pdf" 
                                 className="inline-flex items-center bg-accent hover:bg-accent-hover text-black py-3 px-6 rounded-lg font-bold"
                             >
-                                <DocumentArrowDownIcon className="mr-2"/> Download Brochure
+                                <DocumentArrowDownIcon className="mr-2 h-8 w-8"/> Download Brochure
                             </a>
                         </div>
                     </div>
