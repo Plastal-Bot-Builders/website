@@ -8,6 +8,7 @@ import {
     FaHandsHelping, FaChartLine, FaLaptop, FaCamera, FaLink, FaCogs
 } from 'react-icons/fa';
 import ThemedImage from '../../theme/ThemedImage';
+import CountUp from '../../components/ui/CountUp';
 
 const EventCoordinationPage: React.FC = () => {
     // Event types data
@@ -310,37 +311,83 @@ const EventCoordinationPage: React.FC = () => {
                 </section>
 
                 {/* Impact Measurement */}
-                <section className="mb-12 bg-surface-hover-bg rounded-lg">
+                <section className="mb-12 bg-surface-hover-bg rounded-lg p-6">
                     <h2 className="text-2xl font-bold mb-5">Measuring Our Success</h2>
                     
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         <div className="bg-surface rounded-lg p-4 text-center">
-                            <div className="text-4xl font-bold text-accent mb-2">1,200+</div>
+                            <div className="text-4xl font-bold text-accent mb-2">
+                                <CountUp
+                                    from={0}
+                                    to={1200}
+                                    separator=","
+                                    duration={2.5}
+                                    className="text-4xl font-bold text-accent"
+                                    suffix="+"
+                                />
+                            </div>
                             <p>Students trained in 2025</p>
                         </div>
                         
                         <div className="bg-surface rounded-lg p-4 text-center">
-                            <div className="text-4xl font-bold text-accent mb-2">15</div>
+                            <div className="text-4xl font-bold text-accent mb-2">
+                                <CountUp
+                                    from={0}
+                                    to={15}
+                                    duration={1.5}
+                                    className="text-4xl font-bold text-accent"
+                                />
+                            </div>
                             <p>Schools engaged through workshops</p>
                         </div>
                         
                         <div className="bg-surface rounded-lg p-4 text-center">
-                            <div className="text-4xl font-bold text-accent mb-2">38</div>
+                            <div className="text-4xl font-bold text-accent mb-2">
+                                <CountUp
+                                    from={0}
+                                    to={38}
+                                    duration={1.8}
+                                    className="text-4xl font-bold text-accent"
+                                />
+                            </div>
                             <p>Robotics projects completed</p>
                         </div>
                         
                         <div className="bg-surface rounded-lg p-4 text-center">
-                            <div className="text-4xl font-bold text-accent mb-2">92%</div>
+                            <div className="text-4xl font-bold text-accent mb-2">
+                                <CountUp
+                                    from={0}
+                                    to={92}
+                                    duration={2.2}
+                                    className="text-4xl font-bold text-accent"
+                                    suffix="%"
+                                />
+                            </div>
                             <p>Participant satisfaction rating</p>
                         </div>
                         
                         <div className="bg-surface rounded-lg p-4 text-center">
-                            <div className="text-4xl font-bold text-accent mb-2">28</div>
+                            <div className="text-4xl font-bold text-accent mb-2">
+                                <CountUp
+                                    from={0}
+                                    to={28}
+                                    duration={1.7}
+                                    className="text-4xl font-bold text-accent"
+                                />
+                            </div>
                             <p>Events coordinated last year</p>
                         </div>
                         
                         <div className="bg-surface rounded-lg p-4 text-center">
-                            <div className="text-4xl font-bold text-accent mb-2">85%</div>
+                            <div className="text-4xl font-bold text-accent mb-2">
+                                <CountUp
+                                    from={0}
+                                    to={85}
+                                    duration={2}
+                                    className="text-4xl font-bold text-accent"
+                                    suffix="%"
+                                />
+                            </div>
                             <p>Students reporting increased STEM interest</p>
                         </div>
                     </div>

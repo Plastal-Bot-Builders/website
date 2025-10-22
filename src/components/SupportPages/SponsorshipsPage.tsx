@@ -8,6 +8,7 @@ import {
     FaRobot, FaGraduationCap, FaBuilding, FaGlobe
 } from 'react-icons/fa';
 import ThemedImage from '../../theme/ThemedImage';
+import { asset } from '../../utils/asset';
 
 const SponsorshipPage: React.FC = () => {
     // Sponsorship benefits data
@@ -241,15 +242,15 @@ const SponsorshipPage: React.FC = () => {
                         {sponsorshipPackages.map((pkg, index) => (
                             <div 
                                 key={index} 
-                                className={`border ${pkg.highlight ? 'border-accent' : 'border-surface-border'} rounded-lg overflow-hidden`}
+                                className={`border ${pkg.highlight ? 'border-accent' : 'border-surface-border'} rounded-lg interactive-card overflow-hidden flex flex-col h-full`}
                             >
                                 <div className={`p-4 text-center ${pkg.highlight ? 'bg-accent text-black' : 'bg-surface-hover-bg'}`}>
                                     <h3 className="text-xl font-bold">{pkg.tier}</h3>
                                     <p className="font-medium">{pkg.contribution}</p>
                                 </div>
                                 
-                                <div className="p-5">
-                                    <ul className="space-y-2">
+                                <div className="p-5 flex flex-col flex-grow">
+                                    <ul className="space-y-2 mb-auto">
                                         {pkg.benefits.map((benefit, benefitIndex) => (
                                             <li key={benefitIndex} className="flex items-start">
                                                 <span className="text-accent mr-2">•</span>
@@ -258,7 +259,7 @@ const SponsorshipPage: React.FC = () => {
                                         ))}
                                     </ul>
                                     
-                                    <div className="mt-6">
+                                    <div className="pt-6 mt-auto">
                                         <a 
                                             href="#become-sponsor" 
                                             className={`block text-center py-2 px-4 rounded-lg ${
@@ -323,8 +324,8 @@ const SponsorshipPage: React.FC = () => {
                         {featuredSponsors.map((sponsor, index) => (
                             <div key={index} className="rounded-lg interactive-card overflow-hidden">
                                 <div className="h-48 p-4 overflow-hidden">
-                                    <ThemedImage
-                                        src={sponsor.image}
+                                    <img
+                                        src={asset(sponsor.image)}
                                         alt={sponsor.name}
                                         className="w-full rounded-lg h-full object-cover"
                                     />
@@ -394,8 +395,8 @@ const SponsorshipPage: React.FC = () => {
                             <h3 className="text-xl font-bold mb-4">Sponsor Showcase</h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div className="bg-surface rounded-lg overflow-hidden">
-                                    <ThemedImage
-                                        src="resources/Outsourced_photos/girlchild.jpg"
+                                    <img
+                                        src={asset('resources/Outsourced_photos/girlchild.jpg')}
                                         alt="Sponsor branding at event"
                                         className="w-full h-48 object-cover"
                                     />
@@ -406,8 +407,8 @@ const SponsorshipPage: React.FC = () => {
                                 </div>
                                 
                                 <div className="bg-surface rounded-lg overflow-hidden">
-                                    <ThemedImage
-                                        src="resources/Outsourced_photos/kidswithvrglasses.jpg"
+                                    <img
+                                        src={asset('resources/Outsourced_photos/kidswithvrglasses.jpg')}
                                         alt="Sponsor speaking at event"
                                         className="w-full h-48 object-cover"
                                     />
@@ -496,11 +497,11 @@ const SponsorshipPage: React.FC = () => {
                             <h2 className="text-2xl font-bold mb-6">Sponsorship Success Story</h2>
                             
                             <div className="flex flex-col md:flex-row gap-8">
-                                <div className="md:w-1/2">
-                                    <ThemedImage
-                                        src="resources/Photos/resistorsepo.png"
+                                <div className="md:w-1/2 flex items-center justify-center">
+                                    <img
+                                        src={asset('resources/Photos/IMG_5087.jpg')}
                                         alt="Tech Challenge sponsored event"
-                                        className="w-full rounded-lg shadow-lg"
+                                        className="w-full h-auto rounded-lg shadow-lg object-cover"
                                     />
                                 </div>
                                 

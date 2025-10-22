@@ -4,10 +4,13 @@ import Header from '../Header';
 import Footer from '../Footer';
 import {
     FaArrowLeft, FaHandHoldingHeart, FaBuilding, FaGraduationCap,
-    FaUsers, FaTshirt, FaBullhorn, FaCalendarAlt, FaChartLine,
+    FaUsers, FaTshirt, FaBullhorn, FaChartLine,
     FaRegLightbulb, FaRobot, FaLaptopCode, FaSchool
 } from 'react-icons/fa';
 import ThemedImage from '../../theme/ThemedImage';
+import { asset } from '../../utils/asset';
+import CountUp from '../../components/ui/CountUp';
+import TargetCursor from '../../components/ui/TargetCursor'
 
 const FundraisingPage: React.FC = () => {
     // Fundraising channels data
@@ -123,9 +126,9 @@ const FundraisingPage: React.FC = () => {
 
                     <div className="md:w-1/2">
                         <ThemedImage
-                            src="resources/Illustrations/fundraising-hero.jpg"
-                            alt="Students working on robotics projects"
-                            className="w-full rounded-lg shadow-lg"
+                            alt="Fundraising Illustration"
+                            src="resources/Illustrations/Fundraising.svg"
+                            className="w-full h-auto object-cover"
                         />
                     </div>
                 </div>
@@ -136,7 +139,7 @@ const FundraisingPage: React.FC = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         <div className="bg-surface-hover-bg rounded-lg">
-                            <div className="w-12 h-12 bg-surface rounded-full flex items-center justify-center mb-4">
+                            <div className="w-12 h-12 bg-surface rounded-full flex items-center justify-center mb-4 border-2 border-accent">
                                 {FaRegLightbulb({ className: "text-accent text-xl" })}
                             </div>
                             <h3 className="text-xl font-bold mb-2">Sustainable Programs</h3>
@@ -147,7 +150,7 @@ const FundraisingPage: React.FC = () => {
                         </div>
 
                         <div className="bg-surface-hover-bg rounded-lg">
-                            <div className="w-12 h-12 bg-surface rounded-full flex items-center justify-center mb-4">
+                            <div className="w-12 h-12 bg-surface rounded-full flex items-center justify-center mb-4 border-2 border-accent">
                                 {FaUsers({ className: "text-accent text-xl" })}
                             </div>
                             <h3 className="text-xl font-bold mb-2">Donor Network</h3>
@@ -158,7 +161,7 @@ const FundraisingPage: React.FC = () => {
                         </div>
 
                         <div className="bg-surface-hover-bg rounded-lg">
-                            <div className="w-12 h-12 bg-surface rounded-full flex items-center justify-center mb-4">
+                            <div className="w-12 h-12 bg-surface rounded-full flex items-center justify-center mb-4 border-2 border-accent">
                                 {FaRobot({ className: "text-accent text-xl" })}
                             </div>
                             <h3 className="text-xl font-bold mb-2">Equipment & Materials</h3>
@@ -169,7 +172,7 @@ const FundraisingPage: React.FC = () => {
                         </div>
 
                         <div className="bg-surface-hover-bg rounded-lg">
-                            <div className="w-12 h-12 bg-surface rounded-full flex items-center justify-center mb-4">
+                            <div className="w-12 h-12 bg-surface rounded-full flex items-center justify-center mb-4 border-2 border-accent">
                                 {FaChartLine({ className: "text-accent text-xl" })}
                             </div>
                             <h3 className="text-xl font-bold mb-2">Transparency</h3>
@@ -180,7 +183,7 @@ const FundraisingPage: React.FC = () => {
                         </div>
 
                         <div className="bg-surface-hover-bg rounded-lg">
-                            <div className="w-12 h-12 bg-surface rounded-full flex items-center justify-center mb-4">
+                            <div className="w-12 h-12 bg-surface rounded-full flex items-center justify-center mb-4 border-2 border-accent">
                                 {FaLaptopCode({ className: "text-accent text-xl" })}
                             </div>
                             <h3 className="text-xl font-bold mb-2">Innovation Projects</h3>
@@ -227,8 +230,8 @@ const FundraisingPage: React.FC = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div className="rounded-lg interactive-card overflow-hidden">
                             <div className="h-48 overflow-hidden">
-                                <ThemedImage
-                                    src="resources/Illustrations/school-outreach.jpg"
+                                <img
+                                    src={asset('resources/Photos/IMG_5087.jpg')}
                                     alt="School outreach program"
                                     className="w-full h-full object-cover"
                                 />
@@ -264,8 +267,8 @@ const FundraisingPage: React.FC = () => {
 
                         <div className="rounded-lg interactive-card overflow-hidden">
                             <div className="h-48 overflow-hidden">
-                                <ThemedImage
-                                    src="resources/Illustrations/robotics-competition.jpg"
+                                <img
+                                    src={asset('resources/Photos/IMG_5043.jpg')}
                                     alt="Robotics competition"
                                     className="w-full h-full object-cover"
                                 />
@@ -361,7 +364,40 @@ const FundraisingPage: React.FC = () => {
                                 <div className="flex justify-center mb-4">
                                     {item.icon}
                                 </div>
-                                <div className="text-3xl font-bold text-accent mb-2">{item.metric}</div>
+                                <div className="text-3xl font-bold text-accent mb-2">
+                                    {/* Replace static metrics with CountUp */}
+                                    {item.metric === "5,000+" ? (
+                                        <CountUp
+                                            from={0}
+                                            to={5000}
+                                            separator=","
+                                            suffix="+"
+                                            duration={2.5}
+                                        />
+                                    ) : item.metric === "50+" ? (
+                                        <CountUp
+                                            from={0}
+                                            to={50}
+                                            suffix="+"
+                                            duration={1.5}
+                                        />
+                                    ) : item.metric === "100%" ? (
+                                        <CountUp
+                                            from={0}
+                                            to={100}
+                                            suffix="%"
+                                            duration={2}
+                                        />
+                                    ) : item.metric === "25" ? (
+                                        <CountUp
+                                            from={0}
+                                            to={25}
+                                            duration={1.5}
+                                        />
+                                    ) : (
+                                        item.metric
+                                    )}
+                                </div>
                                 <p className="text-sm">{item.description}</p>
                             </div>
                         ))}

@@ -39,6 +39,16 @@ const logos: Logo[] = [
     darkSrc: '/resources/Logo/launcHER.png', 
     alt: 'Luncher Engineers Hub' 
   },
+  {
+    lightSrc: '/resources/Logo/EO_Robotics_Logo.png',
+    darkSrc: 'resources/Logo/EO_Robotics_Logo.png',
+    alt: 'EO Robotics Lab'
+  },
+  {
+    lightSrc: '/resources/Logo/makerspace_icon.jpg',
+    darkSrc: '/resources/Logo/makerspace_icon.jpg',
+    alt: 'Makerspace Zambia'
+  },
 ];
 
 const LogoCarousel: React.FC = () => {

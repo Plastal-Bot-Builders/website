@@ -8,6 +8,7 @@ import {
     FaRobot, FaChalkboardTeacher, FaSeedling, FaExchangeAlt
 } from 'react-icons/fa';
 import ThemedImage from '../../theme/ThemedImage';
+import { asset } from '../../utils/asset';
 
 const NonprofitPartnershipPage: React.FC = () => {
     // Partnership types data
@@ -66,24 +67,28 @@ const NonprofitPartnershipPage: React.FC = () => {
             number: 4,
             title: "Quality Education",
             description: "Ensuring inclusive and equitable quality education for all",
+            image: "resources/SDGs/SDG_4.png",
             icon: <FaGraduationCap className="text-accent text-2xl" />
         },
         {
             number: 9,
             title: "Industry, Innovation & Infrastructure",
             description: "Building resilient infrastructure and fostering innovation",
+            image: "resources/SDGs/SDG_7.png",
             icon: <FaRobot className="text-accent text-2xl" />
         },
         {
             number: 11,
             title: "Sustainable Communities",
             description: "Making cities inclusive, safe, resilient and sustainable",
+            image: "resources/SDGs/SDG_9.png",
             icon: <FaUsers className="text-accent text-2xl" />
         },
         {
             number: 17,
             title: "Partnerships for the Goals",
             description: "Strengthening global partnerships for sustainable development",
+            image: "resources/SDGs/SDG_13.png",
             icon: <FaHandshake className="text-accent text-2xl" />
         }
     ];
@@ -216,8 +221,8 @@ const NonprofitPartnershipPage: React.FC = () => {
                             <h3 className="text-xl font-bold mb-3">What Plastal-Bot Brings</h3>
                             <ul className="space-y-3">
                                 <li className="flex items-start">
-                                    <div className="w-8 h-8 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 mt-1 shrink-0">
-                                        {FaRobot({ className: "text-accent" })}
+                                    <div className="bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 mt-1 shrink-0">
+                                        {FaRobot({ className: "w-8 h-8 text-accent" })}
                                     </div>
                                     <div>
                                         <strong>Technical Expertise</strong>
@@ -225,8 +230,8 @@ const NonprofitPartnershipPage: React.FC = () => {
                                     </div>
                                 </li>
                                 <li className="flex items-start">
-                                    <div className="w-8 h-8 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 mt-1 shrink-0">
-                                        {FaChalkboardTeacher({ className: "text-accent" })}
+                                    <div className="bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 mt-1 shrink-0">
+                                        {FaChalkboardTeacher({ className: "w-8 h-8 text-accent" })}
                                     </div>
                                     <div>
                                         <strong>Training Capacity</strong>
@@ -234,8 +239,8 @@ const NonprofitPartnershipPage: React.FC = () => {
                                     </div>
                                 </li>
                                 <li className="flex items-start">
-                                    <div className="w-8 h-8 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 mt-1 shrink-0">
-                                        {FaSeedling({ className: "text-accent" })}
+                                    <div className="bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 mt-1 shrink-0">
+                                        {FaSeedling({ className: "w-8 h-8 text-accent" })}
                                     </div>
                                     <div>
                                         <strong>Innovation Framework</strong>
@@ -249,8 +254,8 @@ const NonprofitPartnershipPage: React.FC = () => {
                             <h3 className="text-xl font-bold mb-3">How Partners Benefit</h3>
                             <ul className="space-y-3">
                                 <li className="flex items-start">
-                                    <div className="w-8 h-8 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 mt-1 shrink-0">
-                                        {FaUsers({ className: "text-accent" })}
+                                    <div className="bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 mt-1 shrink-0">
+                                        {FaUsers({ className: "w-8 h-8 text-accent" })}
                                     </div>
                                     <div>
                                         <strong>Extended Reach</strong>
@@ -258,8 +263,8 @@ const NonprofitPartnershipPage: React.FC = () => {
                                     </div>
                                 </li>
                                 <li className="flex items-start">
-                                    <div className="w-8 h-8 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 mt-1 shrink-0">
-                                        {FaHandshake({ className: "text-accent" })}
+                                    <div className="bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 mt-1 shrink-0">
+                                        {FaHandshake({ className: "w-8 h-8 text-accent" })}
                                     </div>
                                     <div>
                                         <strong>Resource Sharing</strong>
@@ -267,8 +272,8 @@ const NonprofitPartnershipPage: React.FC = () => {
                                     </div>
                                 </li>
                                 <li className="flex items-start">
-                                    <div className="w-8 h-8 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 mt-1 shrink-0">
-                                        {FaLightbulb({ className: "text-accent" })}
+                                    <div className="bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 mt-1 shrink-0">
+                                        {FaLightbulb({ className: "w-8 h-8 text-accent" })}
                                     </div>
                                     <div>
                                         <strong>Enhanced Programming</strong>
@@ -287,11 +292,11 @@ const NonprofitPartnershipPage: React.FC = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {featuredPartnerships.map((partnership, index) => (
                             <div key={index} className="interactive-card rounded-lg overflow-hidden">
-                                <div className="h-48 p-4 overflow-hidden">
-                                    <ThemedImage
-                                        src={partnership.image}
+                                <div className="h-48 overflow-hidden">
+                                    <img
+                                        src={asset(partnership.image)}
                                         alt={partnership.name}
-                                        className="w-full h-full object-cover rounded-lg"
+                                        className="w-full h-full object-cover"
                                     />
                                 </div>
                                 <div className="p-5">
@@ -331,8 +336,12 @@ const NonprofitPartnershipPage: React.FC = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
                         {sdgs.map((sdg, index) => (
                             <div key={index} className="bg-surface-hover-bg rounded-lg p-4 text-center">
-                                <div className="w-12 h-12 bg-accent text-black rounded-full flex items-center justify-center mx-auto mb-3">
-                                    <span className="font-bold">{sdg.number}</span>
+                                <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                                    <img 
+                                        src={asset(sdg.image)}
+                                        alt={sdg.title}
+                                        className="w-auto h-auto"
+                                    />
                                 </div>
                                 <h3 className="font-bold mb-2">{sdg.title}</h3>
                                 <p className="text-sm">{sdg.description}</p>
@@ -399,7 +408,7 @@ const NonprofitPartnershipPage: React.FC = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                         <div className="text-center interactive-card rounded-lg p-5">
-                            <div className="w-16 h-16 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
+                            <div className="w-12 h-12 bg-accent text-black rounded-full flex items-center justify-center mx-auto mb-3">
                                 <span className="text-accent font-bold text-xl">1</span>
                             </div>
                             <h3 className="text-lg font-bold mb-3">Connect</h3>
@@ -409,7 +418,7 @@ const NonprofitPartnershipPage: React.FC = () => {
                         </div>
 
                         <div className="text-center interactive-card rounded-lg p-5">
-                            <div className="w-16 h-16 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
+                            <div className="w-12 h-12 bg-accent text-black rounded-full flex items-center justify-center mx-auto mb-3">
                                 <span className="text-accent font-bold text-xl">2</span>
                             </div>
                             <h3 className="text-lg font-bold mb-3">Design</h3>
@@ -419,7 +428,7 @@ const NonprofitPartnershipPage: React.FC = () => {
                         </div>
 
                         <div className="text-center interactive-card rounded-lg p-5">
-                            <div className="w-16 h-16 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
+                            <div className="w-12 h-12 bg-accent text-black rounded-full flex items-center justify-center mx-auto mb-3">
                                 <span className="text-accent font-bold text-xl">3</span>
                             </div>
                             <h3 className="text-lg font-bold mb-3">Implement</h3>
@@ -429,7 +438,7 @@ const NonprofitPartnershipPage: React.FC = () => {
                         </div>
 
                         <div className="text-center interactive-card rounded-lg p-5">
-                            <div className="w-16 h-16 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
+                            <div className="w-12 h-12 bg-accent text-black rounded-full flex items-center justify-center mx-auto mb-3">
                                 <span className="text-accent font-bold text-xl">4</span>
                             </div>
                             <h3 className="text-lg font-bold mb-3">Evaluate & Grow</h3>
