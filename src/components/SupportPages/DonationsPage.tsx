@@ -4,6 +4,8 @@ import Header from '../Header';
 import Footer from '../Footer';
 import { FaDonate, FaArrowLeft, FaRegLightbulb, FaUserGraduate, FaHandHoldingHeart, FaEnvelope, FaCheck } from 'react-icons/fa';
 import ThemedImage from '../../theme/ThemedImage';
+import { asset } from '../../utils/asset';
+import CountUp from '../../components/ui/CountUp';
 
 const DonationsPage: React.FC = () => {
     const [donationAmount, setDonationAmount] = useState<number>(200);
@@ -19,17 +21,17 @@ const DonationsPage: React.FC = () => {
         {
             name: "Chibesa, Grade 8",
             quote: "Building my first robot was the most exciting thing I've ever done. Now I want to study engineering!",
-            image: "resources/testimonials/student1.jpg"
+            image: "resources/founders/fredrick.jpg"
         },
         {
             name: "Mr. Alinani, Teacher",
             quote: "Plastal-Bot helped our school start its first robotics program. Our students are now thriving in STEM subjects.",
-            image: "resources/testimonials/teacher1.jpg"
+            image: "resources/founders/sepo.jpeg"
         },
         {
             name: "Kasali, Grade 12",
             quote: "I never thought I could code until I joined the robotics workshop. Now I'm teaching others!",
-            image: "resources/testimonials/student2.jpg"
+            image: "resources/founders/fred.png"
         }
     ];
 
@@ -72,35 +74,6 @@ const DonationsPage: React.FC = () => {
                                     </div>
                                 </div>
                                 
-                                {/* Modern progress bar with better visual indicators */}
-                                <div className="relative">
-                                    <div className="w-full bg-surface-border/30 rounded-full h-3">
-                                        <div 
-                                            className="bg-gradient-to-r from-accent/80 to-accent h-full rounded-full transition-all duration-1000 ease-out"
-                                            style={{ width: `${progressPercentage}%` }}
-                                        >
-                                        </div>
-                                    </div>
-                                    
-                                    {/* Percentage marker */}
-                                    <div 
-                                        className="absolute -top-2 -mt-1 transform -translate-y-full"
-                                        style={{ left: `${progressPercentage}%`, transform: `translateX(-50%) translateY(-100%)` }}
-                                    >
-                                        <span className="bg-accent text-black text-xs font-bold px-2 py-0.5 rounded-md">
-                                            {Math.round(progressPercentage)}%
-                                        </span>
-                                    </div>
-                                    
-                                    {/* Milestone markers */}
-                                    <div className="flex justify-between mt-1 px-1">
-                                        <div className="w-1 h-1 bg-surface-border rounded-full"></div>
-                                        <div className="w-1 h-1 bg-surface-border rounded-full"></div>
-                                        <div className="w-1 h-1 bg-surface-border rounded-full"></div>
-                                        <div className="w-1 h-1 bg-surface-border rounded-full"></div>
-                                        <div className="w-1 h-1 bg-surface-border rounded-full"></div>
-                                    </div>
-                                </div>
                                 
                                 {/* Enhanced call to action */}
                                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pt-2">
@@ -132,11 +105,11 @@ const DonationsPage: React.FC = () => {
                     </div>
                     
                     <div className="md:w-1/2">
-                        <ThemedImage
-                            src="resources/Photos/peace.jpeg"
-                            alt="Students working on robots"
-                            className="w-full rounded-lg shadow-lg"
-                        />
+                                    <ThemedImage
+                                        alt="Sponsorship Illustration"
+                                        src="resources/Illustrations/Sponsorship.svg"
+                                        className="w-full h-auto object-cover"
+                                    />
                     </div>
                 </div>
                 
@@ -148,8 +121,8 @@ const DonationsPage: React.FC = () => {
                         {testimonials.map((testimonial, index) => (
                             <div key={index} className="bg-surface-hover-bg rounded-lg interactive-card p-4 flex flex-col">
                                 <div className="h-48 mb-4 overflow-hidden rounded-lg">
-                                    <ThemedImage
-                                        src={testimonial.image}
+                                    <img
+                                        src={asset(testimonial.image)}
                                         alt={testimonial.name}
                                         className="w-full h-full object-cover"
                                     />
@@ -166,7 +139,7 @@ const DonationsPage: React.FC = () => {
                     <h2 className="text-2xl font-bold mb-6 pb-2">Your Donation Makes a Difference</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div className="p-6 text-center hover:border-accent transition-colors">
+                        <div className="rounded-lg interactive-card p-6 text-center hover:border-accent transition-colors">
                             <div className="text-accent text-xl font-bold mb-2">K200</div>
                             <div className="w-20 h-20 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
                                 {FaRegLightbulb ({className:"text-accent text-3xl"})}
