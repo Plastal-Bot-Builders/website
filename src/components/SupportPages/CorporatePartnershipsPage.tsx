@@ -6,11 +6,11 @@ import ThemedImage from '../../theme/ThemedImage';
 import { 
   BuildingOfficeIcon, 
   ArrowLeftIcon,
-  HandRaisedIcon,  // Similar to handshake
+  HandRaisedIcon, 
   GiftIcon, 
   UserGroupIcon, 
   TagIcon,
-  AcademicCapIcon,  // For school
+  AcademicCapIcon,  
   DocumentArrowDownIcon, 
   CalendarIcon 
 } from '@heroicons/react/24/solid';
