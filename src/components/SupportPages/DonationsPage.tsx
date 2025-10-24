@@ -281,8 +281,8 @@ const DonationsPage: React.FC = () => {
                         <div className="rounded-lg interactive-card p-6">
                             <h3 className="text-lg font-bold mb-2">Recent Workshop Success</h3>
                             <p className="mb-4">Your support helped 30 students in Chililabobwe build and program their first autonomous robots last weekend!</p>
-                            <ThemedImage
-                                src="resources/Illustrations/recent-workshop.jpg"
+                            <img
+                                src={asset('resources/Photos/IMG_5087.jpg')}
                                 alt="Recent workshop in Ndola"
                                 className="w-full h-40 object-cover rounded-lg mb-3"
                             />
