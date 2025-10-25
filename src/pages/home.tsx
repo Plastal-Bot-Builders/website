@@ -69,22 +69,24 @@ const Home: React.FC = () => {
               <h1 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight">
                 <span className="text-hex">Empowering</span> Innovation
               </h1>
-              <DecryptedText
-                text={
-                  "Welcome to Plastal-Bot Builders! We're on a mission to transform technology education in Zambia and beyond. Through our innovative robotics programs and hands-on learning experiences, we're empowering young minds to become the tech leaders of tomorrow."
-                }
-                className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"
-                animateOn="view"
-                revealDirection="start"
-              />
-              <DecryptedText
-                text={
-                  "Our journey began with a simple belief: every young person deserves access to quality technology education. Today, we offer programs in robotics, programming, and digital innovation—building real pathways into the tech ecosystem."
-                }
-                className="mb-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"
-                animateOn="view"
-                revealDirection="start"
-              />
+              <div className="space-y-12">
+                <DecryptedText
+                  text={
+                    "Welcome to Plastal-Bot Builders! We're on a mission to transform technology education in Zambia and beyond. Through our innovative robotics programs and hands-on learning experiences, we're empowering young minds to become the tech leaders of tomorrow."
+                  }
+                  className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"
+                  animateOn="view"
+                  revealDirection="start"
+                />
+                <DecryptedText
+                  text={
+                    "Our journey began with a simple belief: every young person deserves access to quality technology education. Today, we offer programs in robotics, programming, and digital innovation—building real pathways into the tech ecosystem."
+                  }
+                  className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"
+                  animateOn="view"
+                  revealDirection="start"
+                />
+              </div>
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mt-12">
                 <Button label="Become a Member" href="/membershipform" />
                 <Button label="Get Involved" href="/programs" />

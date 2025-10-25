@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, ReactNode } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { motion, HTMLMotionProps } from 'motion/react';
 
 const styles = {
@@ -36,7 +36,7 @@ interface DecryptedTextProps extends HTMLMotionProps<'span'> {
 export default function DecryptedText({
      text,
      speed = 100,
-     maxIterations = 30,
+     maxIterations = 20,
      sequential = false,
      revealDirection = 'start',
      useOriginalCharsOnly = false,
@@ -148,12 +148,15 @@ export default function DecryptedText({
                                    clearInterval(interval);
                                    setIsScrambling(false);
                                    setDisplayText(text);
+                                   // mark animated so non-repeat behavior respects it
+                                   setHasAnimated(true);
                               }
                               return prevRevealed;
                          }
                     });
                }, speed);
           } else {
+               // when not hovering / not in view
                setDisplayText(text);
                setRevealedIndices(new Set());
                setIsScrambling(false);
@@ -167,41 +170,58 @@ export default function DecryptedText({
      useEffect(() => {
           if (animateOn !== 'view' && animateOn !== 'both') return;
 
-          const observerCallback = (entries: IntersectionObserverEntry[]) => {
-               entries.forEach(entry => {
-                    if (entry.isIntersecting && !hasAnimated) {
-                         setIsHovering(true);
-                         setHasAnimated(true);
-                    }
-               });
-          };
-
           const observerOptions = {
                root: null,
                rootMargin: '0px',
-               threshold: 0.1
+               threshold: 0.15
           };
 
-          const observer = new IntersectionObserver(observerCallback, observerOptions);
+          const observer = new IntersectionObserver((entries) => {
+               entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                         if (!hasAnimated || repeatOnView) {
+                              setIsHovering(true);
+                              if (!repeatOnView) {
+                                   setHasAnimated(true);
+                                   observer.disconnect();
+                              }
+                         }
+                    } else {
+                         // if repeat behavior is desired, stop scrambling when leaving viewport
+                         if (repeatOnView) {
+                              setIsHovering(false);
+                         }
+                    }
+               });
+          }, observerOptions);
+
           const currentRef = containerRef.current;
-          if (currentRef) {
-               observer.observe(currentRef);
-          }
+          if (currentRef) observer.observe(currentRef);
 
           return () => {
-               if (currentRef) {
-                    observer.unobserve(currentRef);
-               }
+               if (currentRef) observer.unobserve(currentRef);
+               observer.disconnect();
           };
-     }, [animateOn, hasAnimated]);
+     }, [animateOn, hasAnimated, repeatOnView]);
 
      const hoverProps =
           animateOn === 'hover' || animateOn === 'both'
                ? {
                     onMouseEnter: () => setIsHovering(true),
-                    onMouseLeave: () => setIsHovering(false)
+                    onMouseLeave: () => {
+                         setIsHovering(false);
+                         // ensure we don't block future "view" triggers if repeatOnView is enabled
+                         if (!repeatOnView) setHasAnimated(true);
+                    }
                }
                : {};
+
+     useEffect(() => {
+          // If text prop changes, reset so new text can animate on next trigger (unless non-repeat desired)
+          setDisplayText(text);
+          setRevealedIndices(new Set());
+          if (!repeatOnView) setHasAnimated(false);
+     }, [text, repeatOnView]);
 
      return (
           <motion.span className={parentClassName} ref={containerRef} style={styles.wrapper} {...hoverProps} {...props}>
