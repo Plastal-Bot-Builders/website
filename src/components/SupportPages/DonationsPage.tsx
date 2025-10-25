@@ -6,6 +6,7 @@ import { FaDonate, FaArrowLeft, FaRegLightbulb, FaUserGraduate, FaHandHoldingHea
 import ThemedImage from '../../theme/ThemedImage';
 import { asset } from '../../utils/asset';
 import CountUp from '../../components/ui/CountUp';
+import DecryptedText from '../../components/ui/DecryptedText';
 
 const DonationsPage: React.FC = () => {
     const [donationAmount, setDonationAmount] = useState<number>(200);
@@ -140,7 +141,16 @@ const DonationsPage: React.FC = () => {
                     
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <div className="rounded-lg interactive-card p-6 text-center hover:border-accent transition-colors">
-                            <div className="text-accent text-xl font-bold mb-2">K200</div>
+                            <div className="text-accent text-xl font-bold mb-2">
+                                <CountUp
+                                    from={0}
+                                    to={200}
+                                    separator=","
+                                    prefix="K"
+                                    duration={2.5}
+                                    className="inline"
+                                />
+                            </div>
                             <div className="w-20 h-20 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
                                 {FaRegLightbulb ({className:"text-accent text-3xl"})}
                             </div>
@@ -148,7 +158,16 @@ const DonationsPage: React.FC = () => {
                         </div>
                         
                         <div className="rounded-lg interactive-card p-6 text-center hover:border-accent transition-colors">
-                            <div className="text-accent text-xl font-bold mb-2">K500</div>
+                            <div className="text-accent text-xl font-bold mb-2">
+                                <CountUp
+                                    from={0}
+                                    to={500}
+                                    separator=","
+                                    prefix="K"
+                                    duration={2.5}
+                                    className="inline"
+                                />
+                            </div>
                             <div className="w-20 h-20 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
                                 {FaUserGraduate ({className:"text-accent text-3xl"})}
                             </div>
@@ -156,7 +175,16 @@ const DonationsPage: React.FC = () => {
                         </div>
                         
                         <div className="rounded-lg interactive-card p-6 text-center hover:border-accent transition-colors">
-                            <div className="text-accent text-xl font-bold mb-2">K1,000</div>
+                            <div className="text-accent text-xl font-bold mb-2">
+                                 <CountUp
+                                    from={0}
+                                    to={1000}
+                                    separator=","
+                                    prefix="K"
+                                    duration={2.5}
+                                    className="inline"
+                                />
+                            </div>
                             <div className="w-20 h-20 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
                                 {FaHandHoldingHeart ({className:"text-accent text-3xl"})}
                             </div>
