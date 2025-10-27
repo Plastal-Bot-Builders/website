@@ -2,11 +2,35 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../Header';
 import Footer from '../Footer';
-import { FaDonate, FaArrowLeft, FaRegLightbulb, FaUserGraduate, FaHandHoldingHeart, FaEnvelope, FaCheck } from 'react-icons/fa';
+import { FaDonate, FaArrowLeft, FaRegLightbulb, FaUserGraduate, FaHandHoldingHeart, FaEnvelope, FaCheck, FaCcVisa, FaCcMastercard, FaPaypal } from 'react-icons/fa';
 import ThemedImage from '../../theme/ThemedImage';
 import { asset } from '../../utils/asset';
 import CountUp from '../../components/ui/CountUp';
-import DecryptedText from '../../components/ui/DecryptedText';
+import { SiStripe } from 'react-icons/si';
+
+const AirtelIcon = ({ className = '' }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" width="20" height="20" aria-hidden focusable="false">
+    <title>Airtel Money</title>
+    <circle cx="12" cy="12" r="10" fill="#e60000" />
+    <text x="12" y="15" textAnchor="middle" fontSize="10" fontWeight="700" fill="#fff">A</text>
+  </svg>
+);
+
+const MTNIcon = ({ className = '' }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" width="20" height="20" aria-hidden focusable="false">
+    <title>MTN Mobile Money</title>
+    <rect x="2" y="4" width="20" height="16" rx="4" fill="#ffd02e" />
+    <text x="12" y="15" textAnchor="middle" fontSize="8" fontWeight="700" fill="#000">MTN</text>
+  </svg>
+);
+
+const ZamtelIcon = ({ className = '' }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" width="20" height="20" aria-hidden focusable="false">
+    <title>Zamtel Money</title>
+    <circle cx="12" cy="12" r="10" fill="#00a99d" />
+    <text x="12" y="15" textAnchor="middle" fontSize="9" fontWeight="700" fill="#fff">Z</text>
+  </svg>
+);
 
 const DonationsPage: React.FC = () => {
     const [donationAmount, setDonationAmount] = useState<number>(200);
@@ -293,10 +317,20 @@ const DonationsPage: React.FC = () => {
                         </button>
                         
                         <div className="mt-4 flex items-center text-sm">
-                            <div className="border border-surface-border p-1 rounded mr-2">
-                                <img src="/resources/payment-methods.png" alt="Payment methods" className="h-6" />
+                            <div className="border border-surface-border p-2 rounded mr-3 flex items-center space-x-2 bg-white">
+                                {/* International payment icons */}
+                                <FaCcVisa className="h-6 w-6 text-gray-700" aria-hidden />
+                                <FaCcMastercard className="h-6 w-6 text-gray-700" aria-hidden />
+                                <FaPaypal className="h-6 w-6 text-gray-700" aria-hidden />
+                                <SiStripe className="h-6 w-6 text-gray-700" aria-hidden />
+                                {/* Separator */}
+                                <span className="h-6 w-px bg-surface-border mx-2" aria-hidden />
+                                {/* Local mobile money icons  */}
+                                <AirtelIcon className="h-5 w-5" />
+                                <MTNIcon className="h-5 w-5" />
+                                <ZamtelIcon className="h-5 w-5" />
                             </div>
-                            <span>Secure payments via Mobile Money, Credit Card, and PayPal</span>
+                            <span>Secure payments: Cards, PayPal, Stripe, and Mobile Money</span>
                         </div>
                     </div>
                 </section>
