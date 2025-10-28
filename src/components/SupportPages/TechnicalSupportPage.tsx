@@ -6,17 +6,18 @@ import {
     ArrowLeftIcon,
     WrenchIcon,
     CodeBracketIcon,
-    RocketLaunchIcon, // For robot
-    CircleStackIcon, // For network
-    Cog6ToothIcon, // For cogs
-    CpuChipIcon, // For microchip
-    UserGroupIcon, // For users
-    AcademicCapIcon, // For graduation cap
-    UserIcon, // For teacher
-    BugAntIcon, // For bug
-    DocumentTextIcon, // For file code
+    RocketLaunchIcon, 
+    CircleStackIcon, 
+    Cog6ToothIcon, 
+    CpuChipIcon, 
+    UserGroupIcon,
+    AcademicCapIcon, 
+    UserIcon, 
+    BugAntIcon, 
+    DocumentTextIcon, 
 } from '@heroicons/react/24/solid';
 import ThemedImage from '../../theme/ThemedImage';
+import { asset } from '../../utils/asset';
 
 const TechnicalSupportPage: React.FC = () => {
     // Technical support types data
@@ -64,13 +65,13 @@ const TechnicalSupportPage: React.FC = () => {
         {
             name: "ZamTech Solutions",
             contribution: "Provides monthly hardware maintenance workshops and donates electronic components for educational kits.",
-            image: "resources/Partners/partner-zamtech.jpg",
+            image: "resources/Photos/IMG_5087.jpg",
             expertise: "Hardware & Electronics"
         },
         {
             name: "University of Zambia Engineering Department",
             contribution: "Offers student mentors and lab space for advanced robotics projects and prototype testing.",
-            image: "resources/Partners/partner-unza.jpg",
+            image: "resources/Photos/unnclerextalk.jpg",
             expertise: "Academic & Research"
         }
     ];
@@ -283,9 +284,9 @@ const TechnicalSupportPage: React.FC = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {technicalPartners.map((partner, index) => (
                             <div key={index} className="interactive-card rounded-lg overflow-hidden">
-                                <div className="h-48 p-6 overflow-hidden">
-                                    <ThemedImage
-                                        src={partner.image}
+                                <div className="h-48 overflow-hidden">
+                                    <img
+                                        src={asset(partner.image)}
                                         alt={partner.name}
                                         className="w-full h-full object-cover rounded-lg"
                                     />
@@ -460,7 +461,7 @@ const TechnicalSupportPage: React.FC = () => {
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                         <div className="flex items-start">
-                            <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0">
+                            <div className="w-8 h-8 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0">
                                 <CodeBracketIcon className="text-accent text-xl"/>
                             </div>
                             <div>
@@ -470,7 +471,7 @@ const TechnicalSupportPage: React.FC = () => {
                         </div>
                         
                         <div className="flex items-start">
-                            <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0">
+                            <div className="w-8 h-8 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0">
                                 <UserGroupIcon className="text-accent text-xl"/>
                             </div>
                             <div>
@@ -480,7 +481,7 @@ const TechnicalSupportPage: React.FC = () => {
                         </div>
                         
                         <div className="flex items-start">
-                            <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0">
+                            <div className="w-8 h-8 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0">
                                 <AcademicCapIcon className="text-accent text-xl"/>
                             </div>
                             <div>
@@ -490,7 +491,7 @@ const TechnicalSupportPage: React.FC = () => {
                         </div>
                         
                         <div className="flex items-start">
-                            <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0">
+                            <div className="w-8 h-8 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0">
                                 <RocketLaunchIcon className="text-accent text-xl"/>
                             </div>
                             <div>
