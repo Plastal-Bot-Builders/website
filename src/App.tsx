@@ -17,6 +17,7 @@ import { HelmetProvider, Helmet } from 'react-helmet-async';
 import { DefaultSEO } from './components/SEO';
 import EventsPage from './pages/events';
 import Squares from './components/ui/Squares';
+import GypulShowcase from './components/Gypul/gypul';
 
 
 // Import Support subpages
@@ -32,18 +33,15 @@ import NonprofitPartnershipPage from './components/SupportPages/NonprofitPartner
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
-  const location = useLocation(); // Track the route change
+  const location = useLocation(); 
 
   useEffect(() => {
-    // Show loader immediately when location changes
     setLoading(true);
-
-    // Hide loader after a delay
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 3000); // Set a delay of 1 second for demo purposes
+    }, 3000); 
 
-    return () => clearTimeout(timer); // Cleanup the timer
+    return () => clearTimeout(timer); 
   }, [location]);
 
   return (
@@ -111,6 +109,8 @@ const App: React.FC = () => {
               <Route path="/support" element={<Support />} />
               <Route path="/programs" element={<Programs />} />
               <Route path="/events" element={<EventsPage />} />
+              <Route path="/projects" element={<EventsPage />} />
+              
               {/* Support pages */}
               <Route path="/support" element={<Support />} />
               <Route path="/support/donations" element={<DonationsPage />} />
@@ -122,7 +122,7 @@ const App: React.FC = () => {
               <Route path="/support/corporate-partnerships" element={<CorporatePartnershipsPage />} />
               <Route path="/support/educational-institutions" element={<EducationalPartnershipsPage />} />
               <Route path="/support/nonprofits" element={<NonprofitPartnershipPage />} />
-
+              <Route path="/components/gypul" element={<GypulShowcase />} />
               {/* Catch-all route for 404 */}
               <Route path="*" element={<Error404 />} />
             </Routes>

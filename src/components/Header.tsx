@@ -15,6 +15,7 @@ const Header: React.FC = () => {
     { path: '/blogs', label: '.blogs( )' },
     { path: '/support', label: '.support( )' },
     { path: '/programs', label: '.program( )' },
+    { path: '/projects', label: '.projects( )' },
   ];
 
   // FIX: use Link, not <link>, and use "to"
