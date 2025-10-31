@@ -26,7 +26,7 @@ function LoaderSpinner() {
 
 function RobotModel({ scrollProgress }: RobotModelProps) {
   // GLB loader - adjust to your model
-  const gltf = useGLTF('/rources/3D_Models/robotcar.glb') as any;
+  const gltf = useGLTF('/resources/3D_Models/robotcar.glb') as any;
   const ref = useRef<Group | null>(null);
   const { camera } = useThree();
 

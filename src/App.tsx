@@ -22,6 +22,8 @@ import { HelmetProvider, Helmet } from 'react-helmet-async';
 import { DefaultSEO } from './components/SEO';
 import EventsPage from './pages/events';
 import Squares from './components/ui/Squares';
+
+// Import Project Subpages
 import GypulShowcase from './components/Projects/GypulShowcase';
 
 
@@ -128,6 +130,8 @@ const App: React.FC = () => {
               <Route path="/support/corporate-partnerships" element={<CorporatePartnershipsPage />} />
               <Route path="/support/educational-institutions" element={<EducationalPartnershipsPage />} />
               <Route path="/support/nonprofits" element={<NonprofitPartnershipPage />} />
+              
+              {/* Project Pages */}
               <Route path="/projects/gypul" element={<GypulShowcase />} />
               {/* Catch-all route for 404 */}
               <Route path="*" element={<Error404 />} />

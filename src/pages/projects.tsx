@@ -4,6 +4,8 @@ import { asset } from '../utils/asset';
 import ThemedImage from '../theme/ThemedImage';
 import Button from '../components/Button';
 import { useNavigate } from 'react-router-dom';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 
 
@@ -24,7 +26,7 @@ const SAMPLE_PROJECTS: Project[] = [
     short: 'Low-cost education robot with IMU stabilization and ESP32 control.',
     description:
       'Gypul is a self-balancing robot platform built for classrooms and makerspaces. It uses an IMU for stabilization, ESP32 for control, and 3D-printed parts for easy assembly. Students learn PID, sensor fusion and embedded programming.',
-    image: '/rources/projects/IMG_8952.JPG',
+    image: '/resources/projects/IMG_8952.JPG',
     tags: ['robotics', 'education', 'open-source'],
     featured: true
   },
@@ -34,7 +36,7 @@ const SAMPLE_PROJECTS: Project[] = [
     short: 'Arduino-based rover for air and water quality measurements.',
     description:
       'A student-built rover that logs environmental data using Arduino sensors and uploads results to a central dashboard for analysis and visualization.',
-    image: asset('resources/Photos/group.png'),
+    image: '/resources/Photos/group.png',
     tags: ['sensors', 'sustainability']
   },
   {
@@ -58,11 +60,13 @@ export default function ProjectsPage(): JSX.Element {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-black to-black text-white">
+    <section className="scroll-smooth focus:scroll-auto">
+      {/* Navigation Bar */}
+      <Header />
       <div className="max-w-7xl mx-auto px-6 py-16">
         <header className="mb-12">
           <h1 className="text-4xl sm:text-5xl font-extrabold mb-3">Projects</h1>
-          <p className="text-gray-300 max-w-2xl">
+          <p className="max-w-2xl">
             Explore hands-on projects from Plastal-Bot Builders — student showcases, open-source designs and classroom-ready builds.
           </p>
         </header>
@@ -72,7 +76,7 @@ export default function ProjectsPage(): JSX.Element {
             {SAMPLE_PROJECTS.map((p, i) => (
               <motion.article
                 key={p.id}
-                className="bg-white/5 rounded-lg overflow-hidden border border-white/5 shadow-md"
+                className="interactive-card rounded-lg overflow-hidden shadow-md"
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true }}
@@ -86,36 +90,30 @@ export default function ProjectsPage(): JSX.Element {
                       className="w-full h-full object-cover"
                     />
                   ) : (
-                    <div className="flex items-center justify-center h-full text-gray-500">No image</div>
+                    <div className="flex items-center justify-center h-full ">No image</div>
                   )}
                   {p.featured && (
-                    <span className="absolute left-3 top-3 bg-accent text-black text-xs px-2 py-1 rounded">Featured</span>
+                    <span className="absolute left-3 top-3 bg-accent =text-xs px-2 py-1 rounded">Featured</span>
                   )}
                 </div>
 
                 <div className="p-4">
                   <h3 className="text-lg font-semibold mb-2">{p.title}</h3>
-                  <p className="text-sm text-gray-300 mb-4">{p.short}</p>
+                  <p className="text-sm mb-4">{p.short}</p>
 
                   <div className="flex items-center justify-between">
                     <div className="flex flex-wrap gap-2">
                       {p.tags?.slice(0, 3).map(tag => (
-                        <span key={tag} className="text-xs border border-white/10 px-2 py-1 rounded text-gray-300">
+                        <span key={tag} className="text-xs border border-white/10 px-2 py-1 rounded">
                           {tag}
                         </span>
                       ))}
                     </div>
 
                     <div className="flex items-center space-x-2">
-                         <button
-                              onClick={() => navigate('/projects/gypul')}
-                              className="text-current hover:text-accent mt-auto pt-4 block"
-                         >
-                          View
-                        </button>
                       <a
                         href={`/projects/${p.id}`}
-                        className="text-sm text-gray-300 underline hidden sm:inline"
+                        className="text-sm underline hidden sm:inline"
                         aria-label={`Open ${p.title} detail page`}
                       >
                         Details
@@ -188,6 +186,7 @@ export default function ProjectsPage(): JSX.Element {
           </motion.div>
         )}
       </div>
-    </div>
+      <Footer />
+    </section>
   );
 }
