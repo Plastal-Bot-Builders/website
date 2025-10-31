@@ -137,7 +137,7 @@ const Home: React.FC = () => {
               <button
                 className="mt-4 custom-button"
                 type="button"
-                onClick={() => navigate('/project-details')}
+                onClick={() => navigate('/projects')}
               >
                 View Project Details
               </button>

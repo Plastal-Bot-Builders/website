@@ -2,12 +2,17 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import './App.css';
+
+
 import Home from './pages/home';
 import About from './pages/about';
 import Blog from './pages/blog';
 import Support from './pages/support';
 import Programs from './pages/programs';
 import MembershipForm from './pages/membershipform';
+import ProjectsPage from './pages/projects';
+
+
 import { Grid } from 'react-loader-spinner';
 import { Scrollbars } from 'rc-scrollbars';
 import Error404 from './pages/error';
@@ -17,7 +22,7 @@ import { HelmetProvider, Helmet } from 'react-helmet-async';
 import { DefaultSEO } from './components/SEO';
 import EventsPage from './pages/events';
 import Squares from './components/ui/Squares';
-import GypulShowcase from './components/Gypul/gypul';
+import GypulShowcase from './components/Projects/GypulShowcase';
 
 
 // Import Support subpages
@@ -30,6 +35,7 @@ import EventCoordinationPage from './components/SupportPages/EventCoordinationPa
 import CorporatePartnershipsPage from './components/SupportPages/CorporatePartnershipsPage';
 import EducationalPartnershipsPage from './components/SupportPages/EducationalPartnershipsPage';
 import NonprofitPartnershipPage from './components/SupportPages/NonprofitPartnershipPage';
+
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
@@ -109,7 +115,7 @@ const App: React.FC = () => {
               <Route path="/support" element={<Support />} />
               <Route path="/programs" element={<Programs />} />
               <Route path="/events" element={<EventsPage />} />
-              <Route path="/projects" element={<EventsPage />} />
+              <Route path="/projects" element={<ProjectsPage />} />
               
               {/* Support pages */}
               <Route path="/support" element={<Support />} />
@@ -122,7 +128,7 @@ const App: React.FC = () => {
               <Route path="/support/corporate-partnerships" element={<CorporatePartnershipsPage />} />
               <Route path="/support/educational-institutions" element={<EducationalPartnershipsPage />} />
               <Route path="/support/nonprofits" element={<NonprofitPartnershipPage />} />
-              <Route path="/components/gypul" element={<GypulShowcase />} />
+              <Route path="/projects/gypul" element={<GypulShowcase />} />
               {/* Catch-all route for 404 */}
               <Route path="*" element={<Error404 />} />
             </Routes>
