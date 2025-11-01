@@ -1,204 +1,453 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { OrbitControls, useGLTF, Html, useProgress, Preload } from '@react-three/drei';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { Group } from 'three';
+import React, { useEffect, useRef, useState, useMemo } from 'react';
+import * as THREE from 'three';
 
-type RobotModelProps = {
-  scrollProgress: import('framer-motion').MotionValue<number>;
-};
+export default function GypulShowcase() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [currentSection, setCurrentSection] = useState(0);
+  const sceneRef = useRef<THREE.Scene | null>(null);
+  const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
+  const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
+  const robotRef = useRef<THREE.Group | null>(null);
+  const bodyRef = useRef<THREE.Mesh<THREE.BoxGeometry, THREE.MeshStandardMaterial> | null>(null);
+  const wheelsRef = useRef<THREE.Mesh<THREE.CylinderGeometry, THREE.MeshStandardMaterial>[]>([]);
+  const headRef = useRef<THREE.Mesh<THREE.SphereGeometry, THREE.MeshStandardMaterial> | null>(null);
 
-function LoaderSpinner() {
-  const { progress } = useProgress();
-  return (
-    <Html center>
-      <div className="flex flex-col items-center justify-center">
-        <svg className="w-12 h-12 animate-spin text-accent" viewBox="0 0 24 24" fill="none" role="img" aria-label="Loading">
-          <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" strokeOpacity="0.2" />
-          <path d="M22 12a10 10 0 0 1-10 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        </svg>
-        <p className="text-sm mt-3 text-gray-300">Loading model {Math.round(progress)}%</p>
-      </div>
-    </Html>
-  );
-}
-
-function RobotModel({ scrollProgress }: RobotModelProps) {
-  // GLB loader - adjust to your model
-  const gltf = useGLTF('/resources/3D_Models/robotcar.glb') as any;
-  const ref = useRef<Group | null>(null);
-  const { camera } = useThree();
-
-  // transform scroll [0..1] to rotation/position ranges
-  const rotRange = useTransform(scrollProgress, [0, 1], [0, Math.PI * 1.4]);
-  const yRange = useTransform(scrollProgress, [0, 1], [0.05, -0.06]);
-  const zRange = useTransform(scrollProgress, [0, 1], [3.2, 2.4]); // camera zoom-like effect
-
-  // Local get function for MotionValue
-  useFrame(() => {
-    if (!ref.current) return;
-    const rot = (rotRange as any).get(); // number
-    const y = (yRange as any).get();
-    const z = (zRange as any).get();
-
-    // smooth rotation/pos lerp
-    ref.current.rotation.y += (rot - ref.current.rotation.y) * 0.08;
-    ref.current.rotation.x += (Math.sin(performance.now() / 2000) * 0.02 - ref.current.rotation.x) * 0.02;
-    ref.current.position.y += (y - (ref.current.position.y ?? 0)) * 0.06;
-
-    // subtly move camera for parallax
-    camera.position.lerp({ x: 0, y: 0.2 + y * 0.6, z }, 0.06);
-    camera.lookAt(0, 0, 0);
-  });
-
-  return (
-    <group ref={ref} dispose={null}>
-      <primitive object={gltf.scene} scale={0.95} />
-    </group>
-  );
-}
-
-export default function GypulShowcase(): JSX.Element {
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const { scrollYProgress } = useScroll({ target: containerRef });
-  const [mounted, setMounted] = useState(false);
-
-  // fade variants for sections
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.7 } }
-  };
+  // Define sections with camera positions and highlighted parts
+  const sections = useMemo(() => [
+    {
+      id: 'overview',
+      title: 'Meet Gypul',
+      description: 'A self-balancing robot built for education. This platform combines affordable 3D printed parts with powerful electronics to create an accessible learning tool for students across Africa.',
+      cameraTarget: { x: 0, y: 0.5, z: 3.5 },
+      robotRotation: { y: 0 },
+      highlight: null
+    },
+    {
+      id: 'body',
+      title: '3D Printed Chassis',
+      description: 'The main body houses all electronics and is designed in Fusion 360. Optimized for easy assembly and durability, it can be printed on budget printers like the Bambu A1 Mini using PLA or PETG filament.',
+      cameraTarget: { x: 0.5, y: 0.5, z: 2.8 },
+      robotRotation: { y: Math.PI * 0.25 },
+      highlight: 'body'
+    },
+    {
+      id: 'wheels',
+      title: 'Dual Motor System',
+      description: 'Two independently controlled DC motors provide precise movement and balance. The wheel design ensures optimal traction and allows for the dynamic balancing required for self-stabilization.',
+      cameraTarget: { x: -0.3, y: 0.2, z: 2.5 },
+      robotRotation: { y: Math.PI * 0.5 },
+      highlight: 'wheels'
+    },
+    {
+      id: 'sensor',
+      title: 'IMU Sensor & ESP32',
+      description: 'The top module contains an MPU6050 IMU sensor for real-time orientation tracking and an ESP32 microcontroller. Together they process sensor data and execute PID control algorithms to maintain balance.',
+      cameraTarget: { x: 0, y: 0.8, z: 2.5 },
+      robotRotation: { y: Math.PI * 0.75 },
+      highlight: 'head'
+    },
+    {
+      id: 'impact',
+      title: 'Impact & Accessibility',
+      description: 'Built with affordability in mind, Gypul uses open-source software and readily available components. The entire build costs under $50, making robotics education accessible to schools and makers across Africa.',
+      cameraTarget: { x: 0, y: 0.5, z: 3.5 },
+      robotRotation: { y: Math.PI * 1.2 },
+      highlight: null
+    }
+  ], []);
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
+    if (!canvasRef.current) return;
+
+    // Scene setup
+    const scene = new THREE.Scene();
+    sceneRef.current = scene;
+    scene.background = new THREE.Color(0x020617);
+
+    // Camera
+    const camera = new THREE.PerspectiveCamera(
+      35,
+      (window.innerWidth * 0.5) / window.innerHeight,
+      0.1,
+      1000
+    );
+    camera.position.set(0, 0.5, 3.5);
+    cameraRef.current = camera;
+
+    // Renderer
+    const canvas = canvasRef.current;
+    const renderer = new THREE.WebGLRenderer({ 
+      canvas: canvas,
+      antialias: true,
+      alpha: false 
+    });
+    
+    // Set initial size
+    const canvasWidth = canvas.parentElement?.clientWidth || window.innerWidth * 0.5;
+    const canvasHeight = canvas.parentElement?.clientHeight || window.innerHeight;
+    renderer.setSize(canvasWidth, canvasHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    rendererRef.current = renderer;
+
+    // Lights
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    scene.add(ambientLight);
+
+    const directionalLight1 = new THREE.DirectionalLight(0xffffff, 0.8);
+    directionalLight1.position.set(5, 5, 5);
+    scene.add(directionalLight1);
+
+    const directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.3);
+    directionalLight2.position.set(-5, -2, -5);
+    scene.add(directionalLight2);
+
+    const rimLight = new THREE.DirectionalLight(0x06b6d4, 0.4);
+    rimLight.position.set(0, 2, -3);
+    scene.add(rimLight);
+
+    // Create robot
+    const robotGroup = new THREE.Group();
+    robotRef.current = robotGroup;
+
+    // Robot body
+    const bodyGeometry = new THREE.BoxGeometry(0.5, 0.3, 0.4);
+    const bodyMaterial = new THREE.MeshStandardMaterial({ 
+      color: 0x3b82f6,
+      metalness: 0.7,
+      roughness: 0.3,
+      emissive: 0x000000,
+      emissiveIntensity: 0
+    });
+    const body = new THREE.Mesh(bodyGeometry, bodyMaterial);
+    body.position.y = 0.5;
+    bodyRef.current = body;
+    robotGroup.add(body);
+
+    // PCB details on body
+    const pcbGeometry = new THREE.BoxGeometry(0.35, 0.02, 0.3);
+    const pcbMaterial = new THREE.MeshStandardMaterial({ 
+      color: 0x10b981,
+      metalness: 0.3,
+      roughness: 0.7
+    });
+    const pcb = new THREE.Mesh(pcbGeometry, pcbMaterial);
+    pcb.position.set(0, 0.66, 0);
+    robotGroup.add(pcb);
+
+    // Robot wheels
+    const wheelGeometry = new THREE.CylinderGeometry(0.2, 0.2, 0.1, 32);
+    const wheelMaterial = new THREE.MeshStandardMaterial({ 
+      color: 0x1e293b,
+      metalness: 0.5,
+      roughness: 0.5,
+      emissive: 0x000000,
+      emissiveIntensity: 0
+    });
+    
+    const wheelLeft = new THREE.Mesh(wheelGeometry, wheelMaterial.clone());
+    wheelLeft.rotation.z = Math.PI / 2;
+    wheelLeft.position.set(-0.3, 0.2, 0);
+    robotGroup.add(wheelLeft);
+    wheelsRef.current.push(wheelLeft);
+
+    const wheelRight = new THREE.Mesh(wheelGeometry, wheelMaterial.clone());
+    wheelRight.rotation.z = Math.PI / 2;
+    wheelRight.position.set(0.3, 0.2, 0);
+    robotGroup.add(wheelRight);
+    wheelsRef.current.push(wheelRight);
+
+    // Wheel treads
+    const treadGeometry = new THREE.TorusGeometry(0.2, 0.02, 8, 32);
+    const treadMaterial = new THREE.MeshStandardMaterial({ color: 0x64748b });
+    const treadLeft = new THREE.Mesh(treadGeometry, treadMaterial);
+    treadLeft.rotation.y = Math.PI / 2;
+    treadLeft.position.set(-0.3, 0.2, 0);
+    robotGroup.add(treadLeft);
+
+    const treadRight = new THREE.Mesh(treadGeometry, treadMaterial);
+    treadRight.rotation.y = Math.PI / 2;
+    treadRight.position.set(0.3, 0.2, 0);
+    robotGroup.add(treadRight);
+
+    // Head/sensor module
+    const headGeometry = new THREE.SphereGeometry(0.15, 32, 32);
+    const headMaterial = new THREE.MeshStandardMaterial({ 
+      color: 0x06b6d4,
+      emissive: 0x06b6d4,
+      emissiveIntensity: 0.3,
+      metalness: 0.8,
+      roughness: 0.2
+    });
+    const head = new THREE.Mesh(headGeometry, headMaterial);
+    head.position.y = 0.8;
+    headRef.current = head;
+    robotGroup.add(head);
+
+    // Sensor "eyes"
+    const eyeGeometry = new THREE.CircleGeometry(0.04, 32);
+    const eyeMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+    const eyeLeft = new THREE.Mesh(eyeGeometry, eyeMaterial);
+    eyeLeft.position.set(-0.05, 0.82, 0.14);
+    robotGroup.add(eyeLeft);
+
+    const eyeRight = new THREE.Mesh(eyeGeometry, eyeMaterial);
+    eyeRight.position.set(0.05, 0.82, 0.14);
+    robotGroup.add(eyeRight);
+
+    // Support structure
+    const supportGeometry = new THREE.CylinderGeometry(0.03, 0.03, 0.15, 16);
+    const supportMaterial = new THREE.MeshStandardMaterial({ 
+      color: 0x475569,
+      metalness: 0.9,
+      roughness: 0.1
+    });
+    const supportLeft = new THREE.Mesh(supportGeometry, supportMaterial);
+    supportLeft.position.set(-0.15, 0.725, 0);
+    robotGroup.add(supportLeft);
+
+    const supportRight = new THREE.Mesh(supportGeometry, supportMaterial);
+    supportRight.position.set(0.15, 0.725, 0);
+    robotGroup.add(supportRight);
+
+    scene.add(robotGroup);
+
+    // Mouse controls
+    let isDragging = false;
+    let previousMousePosition = { x: 0, y: 0 };
+
+    const onMouseDown = (e: MouseEvent) => {
+      if (e.clientX > window.innerWidth * 0.5) return;
+      isDragging = true;
+      previousMousePosition = { x: e.clientX, y: e.clientY };
+    };
+
+    const onMouseMove = (e: MouseEvent) => {
+      if (!isDragging) return;
+      
+      const deltaX = e.clientX - previousMousePosition.x;
+      
+      robotGroup.rotation.y += deltaX * 0.01;
+      
+      previousMousePosition = { x: e.clientX, y: e.clientY };
+    };
+
+    const onMouseUp = () => {
+      isDragging = false;
+    };
+
+    const onWheel = (e: WheelEvent) => {
+      if (e.clientX > window.innerWidth * 0.5) return;
+      camera.position.z += e.deltaY * 0.001;
+      camera.position.z = Math.max(2, Math.min(5, camera.position.z));
+    };
+
+    window.addEventListener('mousedown', onMouseDown);
+    window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('mouseup', onMouseUp);
+    window.addEventListener('wheel', onWheel);
+
+    // Animation loop
+    const animate = () => {
+      requestAnimationFrame(animate);
+
+      const section = sections[currentSection];
+
+      // Smooth camera transition
+      camera.position.lerp(
+        new THREE.Vector3(
+          section.cameraTarget.x,
+          section.cameraTarget.y,
+          section.cameraTarget.z
+        ),
+        0.05
+      );
+      camera.lookAt(0, 0.5, 0);
+
+      // Smooth rotation transition
+      if (!isDragging) {
+        const targetRotY = section.robotRotation.y;
+        robotGroup.rotation.y += (targetRotY - robotGroup.rotation.y) * 0.05;
+      }
+
+      // Highlight active parts
+      const highlightIntensity = 0.3 + Math.sin(Date.now() / 500) * 0.1;
+      
+      if (section.highlight === 'body' && bodyRef.current) {
+        bodyRef.current.material.emissive.setHex(0x3b82f6);
+        bodyRef.current.material.emissiveIntensity = highlightIntensity;
+      } else if (bodyRef.current) {
+        bodyRef.current.material.emissiveIntensity = 0;
+      }
+
+      if (section.highlight === 'wheels') {
+        wheelsRef.current.forEach(wheel => {
+          wheel.material.emissive.setHex(0x1e293b);
+          wheel.material.emissiveIntensity = highlightIntensity;
+          wheel.rotation.x += 0.02;
+        });
+      } else {
+        wheelsRef.current.forEach(wheel => {
+          wheel.material.emissiveIntensity = 0;
+        });
+      }
+
+      if (section.highlight === 'head' && headRef.current) {
+        headRef.current.material.emissiveIntensity = 0.5 + Math.sin(Date.now() / 300) * 0.2;
+      } else if (headRef.current && section.highlight !== 'head') {
+        headRef.current.material.emissiveIntensity = 0.3;
+      }
+
+      // Subtle idle animation
+      robotGroup.position.y = Math.sin(Date.now() / 1500) * 0.02;
+
+      renderer.render(scene, camera);
+    };
+
+    animate();
+
+    // Handle resize
+    const handleResize = () => {
+      const canvasWidth = canvas.parentElement?.clientWidth || window.innerWidth * 0.5;
+      const canvasHeight = canvas.parentElement?.clientHeight || window.innerHeight;
+      camera.aspect = canvasWidth / canvasHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(canvasWidth, canvasHeight);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('mousedown', onMouseDown);
+      window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('mouseup', onMouseUp);
+      window.removeEventListener('wheel', onWheel);
+      window.removeEventListener('resize', handleResize);
+      renderer.dispose();
+    };
+  }, [currentSection, sections]);
 
   return (
-    <div ref={containerRef} className="relative min-h-screen text-white">
+    <div className="relative bg-gradient-to-b from-slate-950 via-blue-950 to-black text-white">
       {/* Sticky navbar */}
-      <nav className="sticky top-0 z-40 bg-gradient-to-b from-transparent to-black/40 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+      <nav className="sticky top-0 z-50 bg-gradient-to-b from-black/80 to-black/40 backdrop-blur-sm border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-4">
-            <Link to="/" className="font-semibold text-sm opacity-80">Plastal-Bot</Link>
-            <div className="h-6 w-px bg-white/10" />
-            <a href="#overview" className="text-sm hover:text-accent transition-colors">Overview</a>
-            <a href="#design" className="text-sm hover:text-accent transition-colors">Design</a>
-            <a href="#electronics" className="text-sm hover:text-accent transition-colors">Electronics</a>
-            <a href="#impact" className="text-sm hover:text-accent transition-colors">Impact</a>
+            <span className="font-bold text-lg text-cyan-400">Plastal-Bot</span>
+            <div className="h-6 w-px bg-white/20" />
+            <span className="text-sm opacity-80">Gypul Project</span>
           </div>
-
-          <div className="text-sm opacity-80 hidden sm:flex">Gypul — The Self-Balancing Robot</div>
+          <div className="text-sm opacity-60">Self-Balancing Robot Platform</div>
         </div>
       </nav>
 
-      {/* Fullscreen Canvas / background */}
-      <div className="fixed inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#020617] via-[#071033] to-[#000000] opacity-95" />
-        <Canvas camera={{ position: [0, 0.6, 3.2], fov: 35 }}>
-          {/* ambient / rim lights */}
-          <ambientLight intensity={0.4} />
-          <directionalLight intensity={0.6} position={[5, 5, 5]} />
-          <directionalLight intensity={0.2} position={[-5, -2, -5]} />
-          {/* OrbitControls allow user interaction */}
-          <OrbitControls enablePan enableZoom enableRotate makeDefault rotateSpeed={0.6} />
-          {/* Show loader while model loads */}
-          <React.Suspense fallback={<LoaderSpinner />}>
-            <RobotModel scrollProgress={scrollYProgress} />
-            <Preload all />
-          </React.Suspense>
-        </Canvas>
-      </div>
-
-      {/* Page content sections */}
-      <main className="relative z-10">
-        <div className="max-w-7xl mx-auto px-6 py-20">
-          {/* Intro / Overview */}
-          <section id="overview" className="min-h-screen flex items-center">
-            <motion.div
-              className="max-w-2xl"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              variants={sectionVariants}
-            >
-              <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight mb-4">
-                Meet Gypul
-              </h1>
-              <p className="text-gray-300 mb-6 text-lg">
-                Meet Gypul: a self-balancing robot built for education. Interact with the 3D model — rotate or zoom — or scroll to reveal features.
-              </p>
-              <a href="#design" className="inline-block bg-accent px-5 py-3 rounded-lg text-black font-bold">Explore Design</a>
-            </motion.div>
-          </section>
-
-          {/* Design & Engineering */}
-          <section id="design" className="min-h-screen flex items-center">
-            <motion.div
-              className="max-w-2xl"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              variants={sectionVariants}
-            >
-              <h2 className="text-3xl font-bold mb-3">Design & Engineering</h2>
-              <p className="text-gray-300 mb-4 text-lg">
-                Designed in Fusion 360, 3D printed on a Bambu A1 Mini, and powered by an ESP32 microcontroller. The chassis is optimized for durability and easy assembly.
-              </p>
-              <div className="space-x-3">
-                <a className="text-sm border border-white/10 px-3 py-2 rounded hover:border-accent">Fusion 360</a>
-                <a className="text-sm border border-white/10 px-3 py-2 rounded hover:border-accent">Bambu A1 Mini</a>
-                <a className="text-sm border border-white/10 px-3 py-2 rounded hover:border-accent">ESP32</a>
-              </div>
-            </motion.div>
-          </section>
-
-          {/* Electronics & Control */}
-          <section id="electronics" className="min-h-screen flex items-center">
-            <motion.div
-              className="max-w-2xl"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              variants={sectionVariants}
-            >
-              <h2 className="text-3xl font-bold mb-3">Electronics & Control</h2>
-              <p className="text-gray-300 mb-4 text-lg">
-                Features IMU-based stabilization, a custom PCB, and dual motor control. Students can experiment with PID tuning and sensor fusion algorithms.
-              </p>
-              <a className="text-sm border border-white/10 px-3 py-2 rounded hover:border-accent">IMU / Sensor</a>
-              <a className="text-sm border border-white/10 px-3 py-2 rounded hover:border-accent">Motor Control</a>
-            </motion.div>
-          </section>
-
-          {/* Impact & Accessibility */}
-          <section id="impact" className="min-h-screen flex items-center">
-            <motion.div
-              className="max-w-2xl"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              variants={sectionVariants}
-            >
-              <h2 className="text-3xl font-bold mb-3">Impact & Accessibility</h2>
-              <p className="text-gray-300 mb-4 text-lg">
-                Built for students across Africa — affordable, open-source, and inspiring. Gypul aims to lower the barrier to hands-on robotics education.
-              </p>
-              <a className="text-sm border border-white/10 px-3 py-2 rounded hover:border-accent">Open Source</a>
-            </motion.div>
-          </section>
-
-          {/* Project Description after showcase */}
-          <section className="py-16">
-            <div className="max-w-3xl mx-auto bg-white/5 p-6 rounded-lg">
-              <h3 className="text-2xl font-bold mb-3">Project Description</h3>
-              <p className="text-gray-300">
-                Gypul is a low-cost self-balancing robot platform designed to make robotics education accessible in Zambia and across Africa. Built with 3D printed parts, an ESP32 brain, and open-source software, it aims to inspire young innovators through affordable learning tools.
-              </p>
-            </div>
-          </section>
+      {/* Split layout container */}
+      <div className="flex" style={{ height: 'calc(100vh - 73px)' }}>
+        {/* Left side - 3D Model */}
+        <div className="w-1/2 relative bg-slate-950">
+          <canvas
+            ref={canvasRef}
+            className="w-full h-full block"
+            style={{ display: 'block' }}
+          />
+          <div className="absolute bottom-8 left-8 bg-black/60 backdrop-blur-sm px-4 py-2 rounded-lg border border-cyan-500/30">
+            <p className="text-xs text-cyan-400">💡 Drag to rotate • Scroll to zoom</p>
+          </div>
         </div>
-      </main>
+
+        {/* Right side - Content sections */}
+        <div className="w-1/2 overflow-y-auto bg-gradient-to-b from-slate-900/50 to-black/50">
+          <div className="max-w-2xl mx-auto px-8 py-12">
+            
+            {sections.map((section, index) => (
+              <section
+                key={section.id}
+                id={section.id}
+                className="min-h-screen flex flex-col justify-center py-20"
+              >
+                <div 
+                  className={`transition-all duration-700 ${
+                    currentSection === index 
+                      ? 'opacity-100 translate-y-0' 
+                      : 'opacity-40 translate-y-4'
+                  }`}
+                >
+                  {/* Section number */}
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 rounded-full bg-cyan-500/20 border-2 border-cyan-500 flex items-center justify-center font-bold text-cyan-400 mr-4">
+                      {index + 1}
+                    </div>
+                    <div className="flex-1 h-px bg-gradient-to-r from-cyan-500/50 to-transparent" />
+                  </div>
+
+                  <h2 className="text-4xl font-extrabold mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                    {section.title}
+                  </h2>
+                  
+                  <p className="text-lg text-gray-300 leading-relaxed mb-8">
+                    {section.description}
+                  </p>
+
+                  {/* Navigation buttons */}
+                  <div className="flex gap-4 mt-8">
+                    {index > 0 && (
+                      <button
+                        onClick={() => setCurrentSection(index - 1)}
+                        className="px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/20 hover:border-cyan-500/50 rounded-lg transition-all duration-300 flex items-center gap-2"
+                      >
+                        <span>←</span> Previous
+                      </button>
+                    )}
+                    {index < sections.length - 1 && (
+                      <button
+                        onClick={() => setCurrentSection(index + 1)}
+                        className="px-6 py-3 bg-cyan-500 hover:bg-cyan-400 text-black font-bold rounded-lg transition-all duration-300 flex items-center gap-2"
+                      >
+                        Next <span>→</span>
+                      </button>
+                    )}
+                  </div>
+
+                  {/* Progress indicator */}
+                  <div className="mt-12 flex gap-2">
+                    {sections.map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setCurrentSection(i)}
+                        className={`h-2 rounded-full transition-all duration-300 ${
+                          i === currentSection 
+                            ? 'w-12 bg-cyan-500' 
+                            : 'w-2 bg-white/20 hover:bg-white/40'
+                        }`}
+                        aria-label={`Go to section ${i + 1}`}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                {/* Final section CTA */}
+                {index === sections.length - 1 && (
+                  <div className="mt-16 p-8 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/30 rounded-xl backdrop-blur-sm">
+                    <h3 className="text-2xl font-bold mb-4">Ready to Build Your Own?</h3>
+                    <p className="text-gray-300 mb-6">
+                      Access the complete build guide, 3D files, and source code on our GitHub repository. Join our community of makers and educators building affordable robotics solutions.
+                    </p>
+                    <div className="flex gap-4">
+                      <button className="px-6 py-3 bg-cyan-500 hover:bg-cyan-400 text-black font-bold rounded-lg transition-colors">
+                        View Documentation
+                      </button>
+                      <button className="px-6 py-3 bg-white/5 hover:bg-white/10 border border-white/20 hover:border-cyan-500/50 rounded-lg transition-all">
+                        GitHub Repository
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </section>
+            ))}
+
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
