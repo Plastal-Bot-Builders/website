@@ -133,8 +133,16 @@ const App: React.FC = () => {
               <Route path="/support/nonprofits" element={<NonprofitPartnershipPage />} />
               
               {/* Project Pages */}
-              <Route path="/projects/gypul" element={<GypulShowcase />} />
-              <Route path="/projects/enviro-monitor" element={<EnviroMonitorShowcase />} />
+              <Route path="/projects/gypul" element={
+                <ErrorBoundary>
+                  <GypulShowcase />
+                </ErrorBoundary>
+                } />
+              <Route path="/projects/enviro-monitor" element={
+                <ErrorBoundary>
+                  <EnviroMonitorShowcase />
+                </ErrorBoundary>
+              } />
               {/* Catch-all route for 404 */}
               <Route path="*" element={<Error404 />} />
             </Routes>

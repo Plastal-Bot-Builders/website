@@ -7,8 +7,6 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-
-
 type Project = {
   id: string;
   title: string;
@@ -112,7 +110,7 @@ export default function ProjectsPage(): JSX.Element {
 
                     <div className="flex items-center space-x-2">
                       <a
-                        href={`/projects/${p.id}`}
+                        href={`/website/projects/${p.id}`}
                         className="text-sm underline hidden sm:inline"
                         aria-label={`Open ${p.title} detail page`}
                       >
