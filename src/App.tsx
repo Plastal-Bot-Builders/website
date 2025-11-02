@@ -25,6 +25,7 @@ import Squares from './components/ui/Squares';
 
 // Import Project Subpages
 import GypulShowcase from './components/Projects/GypulShowcase';
+import EnviroMonitorShowcase from './components/Projects/EnviroMonitorShowcase';
 
 
 // Import Support subpages
@@ -133,6 +134,7 @@ const App: React.FC = () => {
               
               {/* Project Pages */}
               <Route path="/projects/gypul" element={<GypulShowcase />} />
+              <Route path="/projects/enviro-monitor" element={<EnviroMonitorShowcase />} />
               {/* Catch-all route for 404 */}
               <Route path="*" element={<Error404 />} />
             </Routes>

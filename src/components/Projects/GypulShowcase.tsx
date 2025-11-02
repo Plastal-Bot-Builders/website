@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState, useMemo } from 'react';
 import * as THREE from 'three';
+import Header from '../Header';
+import Footer from '../Footer';
 
 export default function GypulShowcase() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -328,21 +330,11 @@ export default function GypulShowcase() {
   }, [currentSection, sections]);
 
   return (
+    <>
+    <Header />
     <div className="relative bg-gradient-to-b from-slate-950 via-blue-950 to-black text-white">
-      {/* Sticky navbar */}
-      <nav className="sticky top-0 z-50 bg-gradient-to-b from-black/80 to-black/40 backdrop-blur-sm border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <span className="font-bold text-lg text-cyan-400">Plastal-Bot</span>
-            <div className="h-6 w-px bg-white/20" />
-            <span className="text-sm opacity-80">Gypul Project</span>
-          </div>
-          <div className="text-sm opacity-60">Self-Balancing Robot Platform</div>
-        </div>
-      </nav>
-
       {/* Split layout container */}
-      <div className="flex" style={{ height: 'calc(100vh - 73px)' }}>
+      <div className="flex min-h-screen pt-20">
         {/* Left side - 3D Model */}
         <div className="w-1/2 relative bg-slate-950">
           <canvas
@@ -449,5 +441,7 @@ export default function GypulShowcase() {
         </div>
       </div>
     </div>
+    <Footer />
+    </>
   );
 }
