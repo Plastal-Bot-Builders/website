@@ -36,21 +36,46 @@ function RobotModel({ scrollProgress }: RobotModelProps) {
   const zRange = useTransform(scrollProgress, [0, 1], [3.2, 2.4]); // camera zoom-like effect
 
   // Local get function for MotionValue
-  useFrame(() => {
-    if (!ref.current) return;
-    const rot = (rotRange as any).get(); // number
-    const y = (yRange as any).get();
-    const z = (zRange as any).get();
-
-    // smooth rotation/pos lerp
-    ref.current.rotation.y += (rot - ref.current.rotation.y) * 0.08;
-    ref.current.rotation.x += (Math.sin(performance.now() / 2000) * 0.02 - ref.current.rotation.x) * 0.02;
-    ref.current.position.y += (y - (ref.current.position.y ?? 0)) * 0.06;
-
-    // subtly move camera for parallax
-    camera.position.lerp({ x: 0, y: 0.2 + y * 0.6, z }, 0.06);
-    camera.lookAt(0, 0, 0);
-  });
+  function RobotModel({ scrollProgress }: RobotModelProps) {
+    const ref = useRef<Group | null>(null);
+    const { camera } = useThree();
+    
+    // Load the GLB model - hooks must be called unconditionally
+    const gltf = useGLTF(`${process.env.PUBLIC_URL}/resources/3D_Models/robotcar.glb`) as any;
+  
+    // transform scroll [0..1] to rotation/position ranges
+    const rotRange = useTransform(scrollProgress, [0, 1], [0, Math.PI * 1.4]);
+    const yRange = useTransform(scrollProgress, [0, 1], [0.05, -0.06]);
+    const zRange = useTransform(scrollProgress, [0, 1], [3.2, 2.4]);
+  
+    useFrame(() => {
+      if (!ref.current) return;
+      const rot = (rotRange as any).get();
+      const y = (yRange as any).get();
+      const z = (zRange as any).get();
+  
+      ref.current.rotation.y += (rot - ref.current.rotation.y) * 0.08;
+      ref.current.rotation.x += (Math.sin(performance.now() / 2000) * 0.02 - ref.current.rotation.x) * 0.02;
+      ref.current.position.y += (y - (ref.current.position.y ?? 0)) * 0.06;
+  
+      camera.position.lerp({ x: 0, y: 0.2 + y * 0.6, z }, 0.06);
+      camera.lookAt(0, 0, 0);
+    });
+  
+    return (
+      <group ref={ref} dispose={null}>
+        {gltf?.scene ? (
+          <primitive object={gltf.scene} scale={0.95} />
+        ) : (
+          // Fallback mesh if model doesn't load
+          <mesh>
+            <boxGeometry args={[1, 1, 1]} />
+            <meshStandardMaterial color="#0CFFBB" metalness={0.5} roughness={0.5} />
+          </mesh>
+        )}
+      </group>
+    );
+  }
 
   // Temporary placeholder until GLB loads - you'll see a cyan box
   return (
