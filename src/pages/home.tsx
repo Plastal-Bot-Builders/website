@@ -128,12 +128,24 @@ const Home: React.FC = () => {
               <h1 className="mt-4 mb-8 text-2xl md:text-3xl font-extrabold leading-none tracking-tight title">
                 <span className="text-hex">Latest </span> Project Showcase
               </h1>
-              <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
-                Students built an environmental monitoring robotics system using Arduino-based sensors to track air and water quality.
-              </p>
-              <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
-                The project strengthened engineering, coding, and analytical skills while exploring sustainability-focused solutions.
-              </p>
+              <DecryptedText
+                  text={
+                    "Students built an environmental monitoring robotics system using Arduino-based sensors to track air and water quality."
+                  }
+                  parentClassName="block mb-6"
+                  className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"
+                  animateOn="view"
+                  revealDirection="start"
+              />
+              <DecryptedText
+                  text={
+                    "The project strengthened engineering, coding, and analytical skills while exploring sustainability-focused solutions."
+                  }
+                  parentClassName="block mb-6"
+                  className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"
+                  animateOn="view"
+                  revealDirection="start"
+              />              
               <button
                 className="mt-4 custom-button"
                 type="button"
@@ -204,9 +216,15 @@ const Home: React.FC = () => {
             <h1 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight">
               <span className="text-hex">Fostering</span> Innovation
             </h1>
-            <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
-              We empower young minds through robotics, programming, and problem-solving—building future-ready creators.
-            </p>
+            <DecryptedText
+              text={
+                "We empower young minds through robotics, programming, and problem-solving—building future-ready creators."
+              }
+              parentClassName="block mb-6"
+              className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"
+              animateOn="view"
+              revealDirection="start"
+            />
             <ThemedImage
               src="resources/Illustrations/Cyborg-bro.svg"
               alt="Robotics innovation"
@@ -218,9 +236,15 @@ const Home: React.FC = () => {
             <h1 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight">
               <span className="text-hex">Enhancing</span> Education
             </h1>
-            <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
-              Interactive workshops and mentorship make technology education accessible and practical for all.
-            </p>
+            <DecryptedText
+              text={
+                "Interactive workshops and mentorship make technology education accessible and practical for all."
+              }
+              parentClassName="block mb-6"
+              className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"
+              animateOn="view"
+              revealDirection="start"
+            />
             <ThemedImage
               src="resources/Illustrations/Mathematics-bro.svg"
               // Consider renaming file to remove spaces: Mathematics-bro-1.svg

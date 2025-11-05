@@ -112,9 +112,9 @@ export default function GypulShowcase(): JSX.Element {
 
         {/* Page content sections */}
         <main className="relative z-10">
-          <div className="max-w-7xl mx-auto px-6 py-20">
+          <div className="max-w-7xl mx-auto px-6 py-12">
             {/* Intro / Overview */}
-            <section id="overview" className="min-h-screen flex items-center">
+            <section id="overview" className="min-h-[70vh] flex items-center py-12">
               <motion.div
                 className="max-w-2xl"
                 initial="hidden"
@@ -127,13 +127,21 @@ export default function GypulShowcase(): JSX.Element {
                 </h1>
                 <p className="text-gray-300 mb-6 text-lg">
                   Meet Gypul: a self-balancing robot built for education. Interact with the 3D model — rotate or zoom — or scroll to reveal features.
+                  a self-balancing robot built for education. Interact with the 3D model — rotate or zoom — or scroll to reveal features.
+                  a self-balancing robot built for education. Interact with the 3D model — rotate or zoom — or scroll to reveal features.
+                  a self-balancing robot built for education. Interact with the 3D model — rotate or zoom — or scroll to reveal features.
+                  a self-balancing robot built for education. Interact with the 3D model — rotate or zoom — or scroll to reveal features.
+                  a self-balancing robot built for education. Interact with the 3D model — rotate or zoom — or scroll to reveal features.
+                  a self-balancing robot built for education. Interact with the 3D model — rotate or zoom — or scroll to reveal features.
+                  a self-balancing robot built for education. Interact with the 3D model — rotate or zoom — or scroll to reveal features.
+                  a self-balancing robot built for education. Interact with the 3D model — rotate or zoom — or scroll to reveal features.
                 </p>
                 <a href="#design" className="custom-button inline-block">Explore Design</a>
               </motion.div>
             </section>
 
             {/* Design & Engineering */}
-            <section id="design" className="min-h-screen flex items-center">
+            <section id="design" className="min-h-[70vh] flex items-center py-12">
               <motion.div
                 className="max-w-2xl"
                 initial="hidden"
@@ -143,6 +151,10 @@ export default function GypulShowcase(): JSX.Element {
               >
                 <h2 className="text-3xl font-bold mb-3">Design & Engineering</h2>
                 <p className="text-gray-300 mb-4 text-lg">
+                  Designed in Fusion 360, 3D printed on a Bambu A1 Mini, and powered by an ESP32 microcontroller. The chassis is optimized for durability and easy assembly.
+                  Designed in Fusion 360, 3D printed on a Bambu A1 Mini, and powered by an ESP32 microcontroller. The chassis is optimized for durability and easy assembly.
+                  Designed in Fusion 360, 3D printed on a Bambu A1 Mini, and powered by an ESP32 microcontroller. The chassis is optimized for durability and easy assembly.
+                  Designed in Fusion 360, 3D printed on a Bambu A1 Mini, and powered by an ESP32 microcontroller. The chassis is optimized for durability and easy assembly.
                   Designed in Fusion 360, 3D printed on a Bambu A1 Mini, and powered by an ESP32 microcontroller. The chassis is optimized for durability and easy assembly.
                 </p>
                 <div className="space-x-3">
@@ -154,7 +166,7 @@ export default function GypulShowcase(): JSX.Element {
             </section>
 
             {/* Electronics & Control */}
-            <section id="electronics" className="min-h-screen flex items-center">
+            <section id="electronics" className="min-h-[70vh] flex items-center py-12">
               <motion.div
                 className="max-w-2xl"
                 initial="hidden"
@@ -172,7 +184,7 @@ export default function GypulShowcase(): JSX.Element {
             </section>
 
             {/* Impact & Accessibility */}
-            <section id="impact" className="min-h-screen flex items-center">
+            <section id="impact" className="min-h-[70vh] flex items-center py-12">
               <motion.div
                 className="max-w-2xl"
                 initial="hidden"
@@ -189,7 +201,7 @@ export default function GypulShowcase(): JSX.Element {
             </section>
 
             {/* Project Description after showcase */}
-            <section className="py-16">
+            <section className="py-12">
               <div className="max-w-3xl mx-auto interactive-card p-6 rounded-lg">
                 <h3 className="text-2xl font-bold mb-3">Project Description</h3>
                 <p className="text-gray-300">
