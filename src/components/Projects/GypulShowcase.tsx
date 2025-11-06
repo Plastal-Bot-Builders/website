@@ -106,10 +106,9 @@ export default function GypulShowcase(): JSX.Element {
             Back to Projects
           </button>
         </div>
-
+        
         {/* Fullscreen Canvas / background */}
         <div className="fixed inset-0 -z-10">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#020617] via-[#071033] to-[#000000] opacity-95" />
           <Canvas camera={{ position: [0, 0.6, 3.2], fov: 35 }}>
             <ambientLight intensity={0.4} />
             <directionalLight intensity={0.6} position={[5, 5, 5]} />
@@ -126,7 +125,7 @@ export default function GypulShowcase(): JSX.Element {
         <main className="relative z-10">
           <div className="max-w-7xl mx-auto px-6 py-12">
             {/* Intro / Overview */}
-            <section id="overview" className="min-h-[70vh] flex items-center py-12">
+            <section id="overview" className="min-h-[70vh] flex items-center">
               <motion.div
                 className="max-w-2xl"
                 initial="hidden"
@@ -145,7 +144,7 @@ export default function GypulShowcase(): JSX.Element {
             </section>
             
             {/* Design & Engineering */}
-            <section id="design" className="min-h-[70vh] flex items-center py-12">
+            <section id="design" className="min-h-[70vh] flex items-center">
               <motion.div
                 className="max-w-2xl"
                 initial="hidden"
