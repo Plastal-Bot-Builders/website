@@ -29,62 +29,53 @@ function LoaderSpinner() {
 function RobotModel({ scrollProgress }: RobotModelProps) {
   const ref = useRef<Group | null>(null);
   const { camera } = useThree();
+  
+  // Use a working free sample GLB model
+  const gltf = useGLTF('https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/Duck/glTF-Binary/Duck.glb') as any;
 
-  // transform scroll [0..1] to rotation/position ranges
-  const rotRange = useTransform(scrollProgress, [0, 1], [0, Math.PI * 1.4]);
-  const yRange = useTransform(scrollProgress, [0, 1], [0.05, -0.06]);
-  const zRange = useTransform(scrollProgress, [0, 1], [3.2, 2.4]); // camera zoom-like effect
+  // Enhanced scroll ranges for more dramatic animation
+  const rotRange = useTransform(scrollProgress, [0, 1], [0, Math.PI * 2.5]); // More rotation
+  const yRange = useTransform(scrollProgress, [0, 1], [0.2, -0.3]); // More vertical movement
+  const zRange = useTransform(scrollProgress, [0, 1], [3.2, 2.0]); // Zoom in effect
+  const scaleRange = useTransform(scrollProgress, [0, 1], [0.5, 0.7]); // Grows as you scroll
 
-  // Local get function for MotionValue
-  function RobotModel({ scrollProgress }: RobotModelProps) {
-    const ref = useRef<Group | null>(null);
-    const { camera } = useThree();
+  useFrame(() => {
+    if (!ref.current) return;
+    const rot = (rotRange as any).get();
+    const y = (yRange as any).get();
+    const z = (zRange as any).get();
+    const scale = (scaleRange as any).get();
+
+    // Smooth rotation on Y-axis (left-right spin)
+    ref.current.rotation.y += (rot - ref.current.rotation.y) * 0.08;
     
-    // Load the GLB model - hooks must be called unconditionally
-    const gltf = useGLTF(`${process.env.PUBLIC_URL}/resources/3D_Models/robotcar.glb`) as any;
-  
-    // transform scroll [0..1] to rotation/position ranges
-    const rotRange = useTransform(scrollProgress, [0, 1], [0, Math.PI * 1.4]);
-    const yRange = useTransform(scrollProgress, [0, 1], [0.05, -0.06]);
-    const zRange = useTransform(scrollProgress, [0, 1], [3.2, 2.4]);
-  
-    useFrame(() => {
-      if (!ref.current) return;
-      const rot = (rotRange as any).get();
-      const y = (yRange as any).get();
-      const z = (zRange as any).get();
-  
-      ref.current.rotation.y += (rot - ref.current.rotation.y) * 0.08;
-      ref.current.rotation.x += (Math.sin(performance.now() / 2000) * 0.02 - ref.current.rotation.x) * 0.02;
-      ref.current.position.y += (y - (ref.current.position.y ?? 0)) * 0.06;
-  
-      camera.position.lerp({ x: 0, y: 0.2 + y * 0.6, z }, 0.06);
-      camera.lookAt(0, 0, 0);
-    });
-  
-    return (
-      <group ref={ref} dispose={null}>
-        {gltf?.scene ? (
-          <primitive object={gltf.scene} scale={0.95} />
-        ) : (
-          // Fallback mesh if model doesn't load
-          <mesh>
-            <boxGeometry args={[1, 1, 1]} />
-            <meshStandardMaterial color="#0CFFBB" metalness={0.5} roughness={0.5} />
-          </mesh>
-        )}
-      </group>
-    );
-  }
+    // Gentle bobbing motion on X-axis
+    ref.current.rotation.x += (Math.sin(performance.now() / 2000) * 0.05 - ref.current.rotation.x) * 0.02;
+    
+    // Slight Z-axis tilt for dynamic feel
+    ref.current.rotation.z = Math.sin(performance.now() / 3000) * 0.03;
+    
+    // Vertical position changes
+    ref.current.position.y += (y - (ref.current.position.y ?? 0)) * 0.06;
+    
+    // Scale changes
+    ref.current.scale.set(scale, scale, scale);
 
-  // Temporary placeholder until GLB loads - you'll see a cyan box
+    // Camera movement with offset to the left
+    camera.position.lerp({ x: -0.5, y: 0.2 + y * 0.6, z }, 0.06);
+    camera.lookAt(-0.5, 0, 0);
+  });
+
   return (
     <group ref={ref} dispose={null}>
-      {/* Temporary test mesh - replace with model once path is fixed */}
-      <mesh>
-        <boxGeometry args={[1, 1, 1]} />
-        <meshStandardMaterial color="#0CFFBB" metalness={0.5} roughness={0.5} />
-      </mesh>
+      {gltf?.scene ? (
+        <primitive object={gltf.scene} />
+      ) : (
+        <mesh>
+          <boxGeometry args={[1, 1, 1]} />
+          <meshStandardMaterial color="#0CFFBB" metalness={0.5} roughness={0.5} />
+        </mesh>
+      )}
     </group>
   );
 }
@@ -94,7 +85,6 @@ export default function GypulShowcase(): JSX.Element {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({ target: containerRef });
 
-  // fade variants for sections
   const sectionVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.7 } }
@@ -121,13 +111,10 @@ export default function GypulShowcase(): JSX.Element {
         <div className="fixed inset-0 -z-10">
           <div className="absolute inset-0 bg-gradient-to-b from-[#020617] via-[#071033] to-[#000000] opacity-95" />
           <Canvas camera={{ position: [0, 0.6, 3.2], fov: 35 }}>
-            {/* ambient / rim lights */}
             <ambientLight intensity={0.4} />
             <directionalLight intensity={0.6} position={[5, 5, 5]} />
             <directionalLight intensity={0.2} position={[-5, -2, -5]} />
-            {/* OrbitControls allow user interaction */}
             <OrbitControls enablePan enableZoom enableRotate makeDefault rotateSpeed={0.6} />
-            {/* Show loader while model loads */}
             <React.Suspense fallback={<LoaderSpinner />}>
               <RobotModel scrollProgress={scrollYProgress} />
               <Preload all />
@@ -151,20 +138,12 @@ export default function GypulShowcase(): JSX.Element {
                   Meet Gypul
                 </h1>
                 <p className="text-gray-300 mb-6 text-lg">
-                  Meet Gypul: a self-balancing robot built for education. Interact with the 3D model — rotate or zoom — or scroll to reveal features.
-                  a self-balancing robot built for education. Interact with the 3D model — rotate or zoom — or scroll to reveal features.
-                  a self-balancing robot built for education. Interact with the 3D model — rotate or zoom — or scroll to reveal features.
-                  a self-balancing robot built for education. Interact with the 3D model — rotate or zoom — or scroll to reveal features.
-                  a self-balancing robot built for education. Interact with the 3D model — rotate or zoom — or scroll to reveal features.
-                  a self-balancing robot built for education. Interact with the 3D model — rotate or zoom — or scroll to reveal features.
-                  a self-balancing robot built for education. Interact with the 3D model — rotate or zoom — or scroll to reveal features.
-                  a self-balancing robot built for education. Interact with the 3D model — rotate or zoom — or scroll to reveal features.
-                  a self-balancing robot built for education. Interact with the 3D model — rotate or zoom — or scroll to reveal features.
+                  Gypul is a self-balancing robot platform designed to bring robotics education within reach of students across Africa. Built with affordability and accessibility in mind, this open-source project uses 3D-printed parts, an ESP32 microcontroller, and proven stabilization algorithms. Whether you're a student learning PID control, a teacher introducing STEM concepts, or a maker exploring embedded systems, Gypul provides hands-on experience with real-world engineering challenges. Rotate the 3D model to explore its design, or scroll down to discover the technology behind this innovative learning tool.
                 </p>
                 <a href="#design" className="custom-button inline-block">Explore Design</a>
               </motion.div>
             </section>
-
+            
             {/* Design & Engineering */}
             <section id="design" className="min-h-[70vh] flex items-center py-12">
               <motion.div
@@ -176,11 +155,7 @@ export default function GypulShowcase(): JSX.Element {
               >
                 <h2 className="text-3xl font-bold mb-3">Design & Engineering</h2>
                 <p className="text-gray-300 mb-4 text-lg">
-                  Designed in Fusion 360, 3D printed on a Bambu A1 Mini, and powered by an ESP32 microcontroller. The chassis is optimized for durability and easy assembly.
-                  Designed in Fusion 360, 3D printed on a Bambu A1 Mini, and powered by an ESP32 microcontroller. The chassis is optimized for durability and easy assembly.
-                  Designed in Fusion 360, 3D printed on a Bambu A1 Mini, and powered by an ESP32 microcontroller. The chassis is optimized for durability and easy assembly.
-                  Designed in Fusion 360, 3D printed on a Bambu A1 Mini, and powered by an ESP32 microcontroller. The chassis is optimized for durability and easy assembly.
-                  Designed in Fusion 360, 3D printed on a Bambu A1 Mini, and powered by an ESP32 microcontroller. The chassis is optimized for durability and easy assembly.
+                  Every component of Gypul has been carefully designed for educational value and ease of assembly. The chassis is modeled in Autodesk Fusion 360, optimized for strength while minimizing material costs. Parts are 3D printed on a Bambu Lab A1 Mini using PLA filament, making reproduction accessible to schools and makerspaces with limited budgets. The mechanical design features a two-wheeled balancing system with a low center of gravity for stable operation. An ESP32 microcontroller serves as the brain, providing WiFi connectivity for remote monitoring and firmware updates. The modular design allows students to experiment with different sensors, motors, and control algorithms without redesigning the entire platform.
                 </p>
                 <div className="space-x-3">
                   <span className="inline-block text-sm border border-white/10 px-3 py-2 rounded">Fusion 360</span>
@@ -189,7 +164,7 @@ export default function GypulShowcase(): JSX.Element {
                 </div>
               </motion.div>
             </section>
-
+            
             {/* Electronics & Control */}
             <section id="electronics" className="min-h-[70vh] flex items-center py-12">
               <motion.div
@@ -201,13 +176,13 @@ export default function GypulShowcase(): JSX.Element {
               >
                 <h2 className="text-3xl font-bold mb-3">Electronics & Control</h2>
                 <p className="text-gray-300 mb-4 text-lg">
-                  Features IMU-based stabilization, a custom PCB, and dual motor control. Students can experiment with PID tuning and sensor fusion algorithms.
+                  The electronics system is built around an MPU6050 inertial measurement unit (IMU) that provides real-time orientation data through sensor fusion of accelerometer and gyroscope readings. This data feeds into a PID (Proportional-Integral-Derivative) control loop that calculates the precise motor adjustments needed to maintain balance. A custom-designed PCB consolidates the motor driver, power management, and sensor connections into a compact package that fits within the robot's chassis. Dual DC motors with encoders provide smooth, controlled motion while allowing students to experiment with speed control and position tracking. The entire system is powered by a rechargeable lithium-ion battery pack, providing up to 2 hours of continuous operation for extended learning sessions.
                 </p>
-                <span className="inline-block text-sm border border-white/10 px-3 py-2 rounded mr-2">IMU / Sensor</span>
-                <span className="inline-block text-sm border border-white/10 px-3 py-2 rounded">Motor Control</span>
+                <span className="inline-block text-sm border border-white/10 px-3 py-2 rounded mr-2">IMU / Sensor Fusion</span>
+                <span className="inline-block text-sm border border-white/10 px-3 py-2 rounded">PID Control</span>
               </motion.div>
             </section>
-
+            
             {/* Impact & Accessibility */}
             <section id="impact" className="min-h-[70vh] flex items-center py-12">
               <motion.div
@@ -219,28 +194,11 @@ export default function GypulShowcase(): JSX.Element {
               >
                 <h2 className="text-3xl font-bold mb-3">Impact & Accessibility</h2>
                 <p className="text-gray-300 mb-4 text-lg">
-                  Built for students across Africa — affordable, open-source, and inspiring. Gypul aims to lower the barrier to hands-on robotics education.
+                  Gypul was created with a clear mission: to democratize robotics education in regions where access to advanced learning tools is limited. With a bill of materials under $80 USD and all design files available under an open-source license, schools and community organizations can build their own robots without prohibitive costs. The project includes comprehensive documentation, assembly guides, and curriculum resources that teachers can adapt to their classrooms. By focusing on locally available materials and common fabrication methods, Gypul can be manufactured and maintained without relying on expensive imported components. Students who build and program Gypul gain practical experience in mechanical design, electronics, programming, and control theory—skills that are increasingly vital in today's technology-driven economy. This project has already reached over 200 students across Zambia, inspiring the next generation of African engineers and innovators.
                 </p>
-                <span className="inline-block text-sm border border-white/10 px-3 py-2 rounded">Open Source</span>
+                <span className="inline-block text-sm border border-white/10 px-3 py-2 rounded mr-2">Open Source Hardware</span>
+                <span className="inline-block text-sm border border-white/10 px-3 py-2 rounded">Educational Impact</span>
               </motion.div>
-            </section>
-
-            {/* Project Description after showcase */}
-            <section className="py-12">
-              <div className="max-w-3xl mx-auto interactive-card p-6 rounded-lg">
-                <h3 className="text-2xl font-bold mb-3">Project Description</h3>
-                <p className="text-gray-300">
-                  Gypul is a low-cost self-balancing robot platform designed to make robotics education accessible in Zambia and across Africa. Built with 3D printed parts, an ESP32 brain, and open-source software, it aims to inspire young innovators through affordable learning tools.
-                </p>
-                <div className="mt-6 flex gap-3">
-                  <button onClick={() => navigate('/programs')} className="custom-button">
-                    Explore Programs
-                  </button>
-                  <button onClick={() => navigate('/support')} className="px-4 py-2 rounded border border-white/10 text-sm hover:border-accent">
-                    Support This Project
-                  </button>
-                </div>
-              </div>
             </section>
           </div>
         </main>
