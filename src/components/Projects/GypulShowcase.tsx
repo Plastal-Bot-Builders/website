@@ -34,8 +34,8 @@ function RobotModel({ scrollProgress }: RobotModelProps) {
   const gltf = useGLTF('https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/Duck/glTF-Binary/Duck.glb') as any;
 
   // Enhanced scroll ranges for more dramatic animation
-  const rotRange = useTransform(scrollProgress, [0, 1], [0, Math.PI * 2.5]); // More rotation
-  const yRange = useTransform(scrollProgress, [0, 1], [0.2, -0.3]); // More vertical movement
+  const rotRange = useTransform(scrollProgress, [0, 1], [0, Math.PI * 4]); // More rotation
+  const yRange = useTransform(scrollProgress, [0, 1], [-0.2, -0.9]); // Moved down (was 0.2, -0.3)
   const zRange = useTransform(scrollProgress, [0, 1], [3.2, 2.0]); // Zoom in effect
   const scaleRange = useTransform(scrollProgress, [0, 1], [0.5, 0.7]); // Grows as you scroll
 
@@ -46,23 +46,23 @@ function RobotModel({ scrollProgress }: RobotModelProps) {
     const z = (zRange as any).get();
     const scale = (scaleRange as any).get();
 
-    // Smooth rotation on Y-axis (left-right spin)
-    ref.current.rotation.y += (rot - ref.current.rotation.y) * 0.08;
+    // Smooth rotation on Y-axis (left-right spin) - INCREASED SPEED
+    ref.current.rotation.y += (rot - ref.current.rotation.y) * 0.15;
     
-    // Gentle bobbing motion on X-axis
-    ref.current.rotation.x += (Math.sin(performance.now() / 2000) * 0.05 - ref.current.rotation.x) * 0.02;
+    // Gentle bobbing motion on X-axis - INCREASED SPEED
+    ref.current.rotation.x += (Math.sin(performance.now() / 1000) * 0.08 - ref.current.rotation.x) * 0.05;
     
-    // Slight Z-axis tilt for dynamic feel
-    ref.current.rotation.z = Math.sin(performance.now() / 3000) * 0.03;
+    // Slight Z-axis tilt for dynamic feel - INCREASED SPEED
+    ref.current.rotation.z = Math.sin(performance.now() / 1500) * 0.05;
     
-    // Vertical position changes
-    ref.current.position.y += (y - (ref.current.position.y ?? 0)) * 0.06;
+    // Vertical position changes - INCREASED SPEED
+    ref.current.position.y += (y - (ref.current.position.y ?? 0)) * 0.12;
     
     // Scale changes
     ref.current.scale.set(scale, scale, scale);
 
-    // Camera movement with offset to the left
-    camera.position.lerp({ x: -0.5, y: 0.2 + y * 0.6, z }, 0.06);
+    // Camera movement with offset to the left - INCREASED SPEED
+    camera.position.lerp({ x: -0.5, y: 0.2 + y * 0.6, z }, 0.12);
     camera.lookAt(-0.5, 0, 0);
   });
 
