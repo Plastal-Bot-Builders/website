@@ -136,7 +136,7 @@ export default function GypulShowcase(): JSX.Element {
                 <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight mb-4">
                   Meet Gypul
                 </h1>
-                <p className="text-gray-300 mb-6 text-lg">
+                <p className="mb-6 text-lg">
                   Gypul is a self-balancing robot platform designed to bring robotics education within reach of students across Africa. Built with affordability and accessibility in mind, this open-source project uses 3D-printed parts, an ESP32 microcontroller, and proven stabilization algorithms. Whether you're a student learning PID control, a teacher introducing STEM concepts, or a maker exploring embedded systems, Gypul provides hands-on experience with real-world engineering challenges. Rotate the 3D model to explore its design, or scroll down to discover the technology behind this innovative learning tool.
                 </p>
                 <a href="#design" className="custom-button inline-block">Explore Design</a>
@@ -153,7 +153,7 @@ export default function GypulShowcase(): JSX.Element {
                 variants={sectionVariants}
               >
                 <h2 className="text-3xl font-bold mb-3">Design & Engineering</h2>
-                <p className="text-gray-300 mb-4 text-lg">
+                <p className="mb-4 text-lg">
                   Every component of Gypul has been carefully designed for educational value and ease of assembly. The chassis is modeled in Autodesk Fusion 360, optimized for strength while minimizing material costs. Parts are 3D printed on a Bambu Lab A1 Mini using PLA filament, making reproduction accessible to schools and makerspaces with limited budgets. The mechanical design features a two-wheeled balancing system with a low center of gravity for stable operation. An ESP32 microcontroller serves as the brain, providing WiFi connectivity for remote monitoring and firmware updates. The modular design allows students to experiment with different sensors, motors, and control algorithms without redesigning the entire platform.
                 </p>
                 <div className="space-x-3">
@@ -174,7 +174,7 @@ export default function GypulShowcase(): JSX.Element {
                 variants={sectionVariants}
               >
                 <h2 className="text-3xl font-bold mb-3">Electronics & Control</h2>
-                <p className="text-gray-300 mb-4 text-lg">
+                <p className="mb-4 text-lg">
                   The electronics system is built around an MPU6050 inertial measurement unit (IMU) that provides real-time orientation data through sensor fusion of accelerometer and gyroscope readings. This data feeds into a PID (Proportional-Integral-Derivative) control loop that calculates the precise motor adjustments needed to maintain balance. A custom-designed PCB consolidates the motor driver, power management, and sensor connections into a compact package that fits within the robot's chassis. Dual DC motors with encoders provide smooth, controlled motion while allowing students to experiment with speed control and position tracking. The entire system is powered by a rechargeable lithium-ion battery pack, providing up to 2 hours of continuous operation for extended learning sessions.
                 </p>
                 <span className="inline-block text-sm border border-white/10 px-3 py-2 rounded mr-2">IMU / Sensor Fusion</span>
@@ -192,7 +192,7 @@ export default function GypulShowcase(): JSX.Element {
                 variants={sectionVariants}
               >
                 <h2 className="text-3xl font-bold mb-3">Impact & Accessibility</h2>
-                <p className="text-gray-300 mb-4 text-lg">
+                <p className="mb-4 text-lg">
                   Gypul was created with a clear mission: to democratize robotics education in regions where access to advanced learning tools is limited. With a bill of materials under $80 USD and all design files available under an open-source license, schools and community organizations can build their own robots without prohibitive costs. The project includes comprehensive documentation, assembly guides, and curriculum resources that teachers can adapt to their classrooms. By focusing on locally available materials and common fabrication methods, Gypul can be manufactured and maintained without relying on expensive imported components. Students who build and program Gypul gain practical experience in mechanical design, electronics, programming, and control theory—skills that are increasingly vital in today's technology-driven economy. This project has already reached over 200 students across Zambia, inspiring the next generation of African engineers and innovators.
                 </p>
                 <span className="inline-block text-sm border border-white/10 px-3 py-2 rounded mr-2">Open Source Hardware</span>
