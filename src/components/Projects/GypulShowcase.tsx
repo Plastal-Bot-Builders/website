@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect, useMemo } from 'react';
+import React, { useRef, useLayoutEffect, useState, useEffect } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Group } from 'three';
 import { useGLTF, Html, useProgress, Environment, ContactShadows, OrbitControls } from '@react-three/drei';
@@ -14,6 +14,7 @@ const isMeshObject = (object: THREE.Object3D): object is THREE.Mesh => {
 
 type RobotModelProps = {
   scrollProgress: MotionValue<number>;
+  scrollDirection: number;
 };
 
 function LoaderSpinner() {
@@ -36,19 +37,20 @@ const GLTFModel: React.FC<{ url: string }> = ({ url }) => {
   return <primitive object={gltf.scene.clone()} />;
 };
 
-function RobotModel({ scrollProgress }: RobotModelProps) {
+function RobotModel({ scrollProgress, scrollDirection }: RobotModelProps) {
   const outerRef = useRef<Group | null>(null);
   const innerRef = useRef<Group | null>(null);
   const { camera } = useThree();
   
   const url = 'https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/Duck/glTF-Binary/Duck.glb';
   
-  // Velocity for smooth inertia
-  const vel = useRef({ x: 0, y: 0 });
+  // Track target rotation based on scroll
+  const targetRotation = useRef(0);
+  const lastScrollProgress = useRef(0);
+  
   const pivotW = useRef(new THREE.Vector3());
 
   // Enhanced scroll-based transforms
-  const rotRange = useTransform(scrollProgress, [0, 1], [0, Math.PI * 4]);
   const yRange = useTransform(scrollProgress, [0, 1], [-0.2, -0.9]);
   const zRange = useTransform(scrollProgress, [0, 1], [3.2, 2.0]);
   const scaleRange = useTransform(scrollProgress, [0, 1], [0.5, 0.7]);
@@ -98,14 +100,24 @@ function RobotModel({ scrollProgress }: RobotModelProps) {
   useFrame((_, dt) => {
     if (!outerRef.current) return;
 
-    const rot = rotRange.get();
+    const currentScrollProgress = scrollProgress.get();
     const y = yRange.get();
     const z = zRange.get();
     const scale = scaleRange.get();
 
-    // Smooth scroll-based rotation with inertia
-    const targetRotY = rot;
-    outerRef.current.rotation.y += (targetRotY - outerRef.current.rotation.y) * 0.15;
+    // Calculate scroll delta to determine rotation direction
+    const scrollDelta = currentScrollProgress - lastScrollProgress.current;
+    
+    // Update target rotation based on scroll direction
+    // Multiply by a factor to control rotation speed (adjust as needed)
+    targetRotation.current += scrollDelta * Math.PI * 3;
+    
+    // Update last scroll position
+    lastScrollProgress.current = currentScrollProgress;
+
+    // Smooth rotation towards target with damping
+    const rotationDiff = targetRotation.current - outerRef.current.rotation.y;
+    outerRef.current.rotation.y += rotationDiff * 0.1;
     
     // Gentle bobbing motion
     outerRef.current.rotation.x += (Math.sin(performance.now() / 1000) * 0.08 - outerRef.current.rotation.x) * 0.05;
@@ -122,12 +134,6 @@ function RobotModel({ scrollProgress }: RobotModelProps) {
     // Camera movement with offset
     camera.position.lerp(new THREE.Vector3(-0.5, 0.2 + y * 0.6, z), 0.12);
     camera.lookAt(-0.5, 0, 0);
-
-    // Apply velocity with inertia
-    outerRef.current.rotation.y += vel.current.x;
-    outerRef.current.rotation.x += vel.current.y;
-    vel.current.x *= 0.925;
-    vel.current.y *= 0.925;
   });
 
   return (
@@ -143,6 +149,21 @@ export default function GypulShowcase(): JSX.Element {
   const navigate = useNavigate();
   const containerRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({ target: containerRef });
+  const [scrollDirection, setScrollDirection] = useState(0);
+  const lastScrollY = useRef(0);
+
+  // Track scroll direction
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const direction = currentScrollY > lastScrollY.current ? 1 : -1;
+      setScrollDirection(direction);
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const sectionVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -152,12 +173,12 @@ export default function GypulShowcase(): JSX.Element {
   return (
     <section className="scroll-smooth focus:scroll-auto">
       <Header />
-      <div ref={containerRef} className="relative min-h-screen text-white pt-20">
+      <div ref={containerRef} className="relative min-h-screen pt-20">
         {/* Back button */}
         <div className="max-w-7xl mx-auto px-6 pt-4">
           <button
             onClick={() => navigate('/projects')}
-            className="flex items-center text-sm text-gray-300 hover:text-accent transition-colors mb-6"
+            className="flex items-center text-sm hover:text-accent transition-colors mb-6"
           >
             <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -187,7 +208,7 @@ export default function GypulShowcase(): JSX.Element {
             <ContactShadows position={[0, -0.5, 0]} opacity={0.35} scale={10} blur={2} />
             
             <React.Suspense fallback={<LoaderSpinner />}>
-              <RobotModel scrollProgress={scrollYProgress} />
+              <RobotModel scrollProgress={scrollYProgress} scrollDirection={scrollDirection} />
             </React.Suspense>
             
             <OrbitControls 
@@ -204,9 +225,9 @@ export default function GypulShowcase(): JSX.Element {
 
         {/* Page content sections */}
         <main className="relative z-10">
-          <div className="max-w-7xl mx-auto px-6 py-12">
+          <div className="max-w-7xl mx-auto px-6">
             {/* Intro / Overview */}
-            <section id="overview" className="min-h-[70vh] flex items-center">
+            <section id="overview" className="min-h-[40vh] flex items-center">
               <motion.div
                 className="max-w-2xl"
                 initial="hidden"
@@ -225,7 +246,7 @@ export default function GypulShowcase(): JSX.Element {
             </section>
             
             {/* Design & Engineering */}
-            <section id="design" className="min-h-[70vh] flex items-center">
+            <section id="design" className="min-h-[50vh] flex items-center">
               <motion.div
                 className="max-w-2xl"
                 initial="hidden"
@@ -246,7 +267,7 @@ export default function GypulShowcase(): JSX.Element {
             </section>
             
             {/* Electronics & Control */}
-            <section id="electronics" className="min-h-[70vh] flex items-center py-12">
+            <section id="electronics" className="min-h-[50vh] flex items-center py-12">
               <motion.div
                 className="max-w-2xl"
                 initial="hidden"
@@ -264,7 +285,7 @@ export default function GypulShowcase(): JSX.Element {
             </section>
             
             {/* Impact & Accessibility */}
-            <section id="impact" className="min-h-[70vh] flex items-center py-12">
+            <section id="impact" className="min-h-[50vh] flex items-center py-12">
               <motion.div
                 className="max-w-2xl"
                 initial="hidden"
