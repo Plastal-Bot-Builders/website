@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import * as THREE from 'three';
 import Header from '../Header';
 import Footer from '../Footer';
+import { asset } from '../../utils/asset';
 
 const isMeshObject = (object: THREE.Object3D): object is THREE.Mesh => {
   return 'isMesh' in object && object.isMesh === true;
@@ -26,7 +27,7 @@ function LoaderSpinner() {
           <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" strokeOpacity="0.2" />
           <path d="M22 12a10 10 0 0 1-10 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
         </svg>
-        <p className="text-sm mt-3 text-gray-300">Loading model {Math.round(progress)}%</p>
+        <p className="text-sm mt-3">Loading model {Math.round(progress)}%</p>
       </div>
     </Html>
   );
@@ -258,10 +259,34 @@ export default function GypulShowcase(): JSX.Element {
                 <p className="mb-4 text-lg">
                   Every component of Gypul has been carefully designed for educational value and ease of assembly. The chassis is modeled in Autodesk Fusion 360, optimized for strength while minimizing material costs. Parts are 3D printed on a Bambu Lab A1 Mini using PLA filament, making reproduction accessible to schools and makerspaces with limited budgets. The mechanical design features a two-wheeled balancing system with a low center of gravity for stable operation. An ESP32 microcontroller serves as the brain, providing WiFi connectivity for remote monitoring and firmware updates. The modular design allows students to experiment with different sensors, motors, and control algorithms without redesigning the entire platform.
                 </p>
-                <div className="space-x-3">
-                  <span className="inline-block text-sm border border-white/10 px-3 py-2 rounded">Fusion 360</span>
-                  <span className="inline-block text-sm border border-white/10 px-3 py-2 rounded">Bambu A1 Mini</span>
-                  <span className="inline-block text-sm border border-white/10 px-3 py-2 rounded">ESP32</span>
+                <div className="flex items-center gap-4 flex-wrap">
+                  {/* Fusion 360 */}
+                  <div className="group flex items-center gap-2 border rounded-lg px-4 py-2 hover:border-accent transition-all duration-300" title="Autodesk Fusion 360">
+                    <img 
+                      className="h-6 w-6 opacity-70 group-hover:opacity-100 transition-opacity"
+                      alt="Fusion 360"
+                      src={asset('resources/icons/Fusion360.svg')}  // lowercase 'icons'
+                    />
+                    <span className="text-sm font-medium"> Fusion 360</span>
+                  </div>
+                  {/* ESP 32 */}
+                  <div className="group flex items-center gap-2 border rounded-lg px-4 py-2 hover:border-accent transition-all duration-300" title="Autodesk Fusion 360">
+                    <img 
+                      className="h-6 w-6 opacity-70 group-hover:opacity-100 transition-opacity"
+                      alt="Fusion 360"
+                      src={asset('resources/icons/esp32.svg')}  // lowercase 'icons'
+                    />
+                    <span className="text-sm font-medium"> ESP 32 </span>
+                  </div>
+                  {/* ESP 32 */}
+                  <div className="group flex items-center gap-2 border rounded-lg px-4 py-2 hover:border-accent transition-all duration-300" title="Autodesk Fusion 360">
+                    <img 
+                      className="h-6 w-6 opacity-70 group-hover:opacity-100 transition-opacity"
+                      alt="Fusion 360"
+                      src={asset('resources/icons/Bambu.png')}  // lowercase 'icons'
+                    />
+                    <span className="text-sm font-medium"> Bambu A1 Mini </span>
+                  </div>
                 </div>
               </motion.div>
             </section>
