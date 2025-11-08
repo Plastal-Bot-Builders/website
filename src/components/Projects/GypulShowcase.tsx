@@ -1,14 +1,19 @@
-import React, { useRef } from 'react';
+import React, { useRef, useLayoutEffect, useMemo } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Group } from 'three';
-import { OrbitControls, useGLTF, Html, useProgress, Preload } from '@react-three/drei';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { useGLTF, Html, useProgress, Environment, ContactShadows, OrbitControls } from '@react-three/drei';
+import { motion, useScroll, useTransform, MotionValue } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import * as THREE from 'three';
 import Header from '../Header';
 import Footer from '../Footer';
 
+const isMeshObject = (object: THREE.Object3D): object is THREE.Mesh => {
+  return 'isMesh' in object && object.isMesh === true;
+};
+
 type RobotModelProps = {
-  scrollProgress: import('framer-motion').MotionValue<number>;
+  scrollProgress: MotionValue<number>;
 };
 
 function LoaderSpinner() {
@@ -26,56 +31,110 @@ function LoaderSpinner() {
   );
 }
 
+const GLTFModel: React.FC<{ url: string }> = ({ url }) => {
+  const gltf = useGLTF(url);
+  return <primitive object={gltf.scene.clone()} />;
+};
+
 function RobotModel({ scrollProgress }: RobotModelProps) {
-  const ref = useRef<Group | null>(null);
+  const outerRef = useRef<Group | null>(null);
+  const innerRef = useRef<Group | null>(null);
   const { camera } = useThree();
   
-  // Use a working free sample GLB model
-  const gltf = useGLTF('https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/Duck/glTF-Binary/Duck.glb') as any;
+  const url = 'https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/Duck/glTF-Binary/Duck.glb';
+  
+  // Velocity for smooth inertia
+  const vel = useRef({ x: 0, y: 0 });
+  const pivotW = useRef(new THREE.Vector3());
 
-  // Enhanced scroll ranges for more dramatic animation
-  const rotRange = useTransform(scrollProgress, [0, 1], [0, Math.PI * 4]); // More rotation
-  const yRange = useTransform(scrollProgress, [0, 1], [-0.2, -0.9]); // Moved down (was 0.2, -0.3)
-  const zRange = useTransform(scrollProgress, [0, 1], [3.2, 2.0]); // Zoom in effect
-  const scaleRange = useTransform(scrollProgress, [0, 1], [0.5, 0.7]); // Grows as you scroll
+  // Enhanced scroll-based transforms
+  const rotRange = useTransform(scrollProgress, [0, 1], [0, Math.PI * 4]);
+  const yRange = useTransform(scrollProgress, [0, 1], [-0.2, -0.9]);
+  const zRange = useTransform(scrollProgress, [0, 1], [3.2, 2.0]);
+  const scaleRange = useTransform(scrollProgress, [0, 1], [0.5, 0.7]);
 
-  useFrame(() => {
-    if (!ref.current) return;
-    const rot = (rotRange as any).get();
-    const y = (yRange as any).get();
-    const z = (zRange as any).get();
-    const scale = (scaleRange as any).get();
+  // Auto-frame and setup model on load
+  useLayoutEffect(() => {
+    if (!innerRef.current) return;
+    const g = innerRef.current;
+    
+    const checkLoaded = setInterval(() => {
+      if (g.children.length === 0) return;
+      
+      clearInterval(checkLoaded);
+      g.updateWorldMatrix(true, true);
 
-    // Smooth rotation on Y-axis (left-right spin) - INCREASED SPEED
-    ref.current.rotation.y += (rot - ref.current.rotation.y) * 0.15;
-    
-    // Gentle bobbing motion on X-axis - INCREASED SPEED
-    ref.current.rotation.x += (Math.sin(performance.now() / 1000) * 0.08 - ref.current.rotation.x) * 0.05;
-    
-    // Slight Z-axis tilt for dynamic feel - INCREASED SPEED
-    ref.current.rotation.z = Math.sin(performance.now() / 1500) * 0.05;
-    
-    // Vertical position changes - INCREASED SPEED
-    ref.current.position.y += (y - (ref.current.position.y ?? 0)) * 0.12;
-    
-    // Scale changes
-    ref.current.scale.set(scale, scale, scale);
+      // Calculate bounding sphere for auto-framing
+      const sphere = new THREE.Box3().setFromObject(g).getBoundingSphere(new THREE.Sphere());
+      const s = 1 / (sphere.radius * 2);
+      g.position.set(-sphere.center.x, -sphere.center.y, -sphere.center.z);
+      g.scale.setScalar(s);
 
-    // Camera movement with offset to the left - INCREASED SPEED
-    camera.position.lerp({ x: -0.5, y: 0.2 + y * 0.6, z }, 0.12);
+      // Enable shadows
+      g.traverse((o: THREE.Object3D) => {
+        if (isMeshObject(o)) {
+          o.castShadow = true;
+          o.receiveShadow = true;
+        }
+      });
+
+      g.getWorldPosition(pivotW.current);
+      
+      // Auto-frame camera
+      if ((camera as THREE.PerspectiveCamera).isPerspectiveCamera) {
+        const persp = camera as THREE.PerspectiveCamera;
+        const fitR = sphere.radius * s;
+        const d = (fitR * 1.2) / Math.sin((persp.fov * Math.PI) / 180 / 2);
+        persp.position.set(pivotW.current.x, pivotW.current.y, pivotW.current.z + d);
+        persp.near = d / 10;
+        persp.far = d * 10;
+        persp.updateProjectionMatrix();
+      }
+    }, 100);
+
+    return () => clearInterval(checkLoaded);
+  }, [camera]);
+
+  useFrame((_, dt) => {
+    if (!outerRef.current) return;
+
+    const rot = rotRange.get();
+    const y = yRange.get();
+    const z = zRange.get();
+    const scale = scaleRange.get();
+
+    // Smooth scroll-based rotation with inertia
+    const targetRotY = rot;
+    outerRef.current.rotation.y += (targetRotY - outerRef.current.rotation.y) * 0.15;
+    
+    // Gentle bobbing motion
+    outerRef.current.rotation.x += (Math.sin(performance.now() / 1000) * 0.08 - outerRef.current.rotation.x) * 0.05;
+    
+    // Subtle Z-axis tilt
+    outerRef.current.rotation.z = Math.sin(performance.now() / 1500) * 0.05;
+    
+    // Vertical position
+    outerRef.current.position.y += (y - outerRef.current.position.y) * 0.12;
+    
+    // Scale
+    outerRef.current.scale.set(scale, scale, scale);
+
+    // Camera movement with offset
+    camera.position.lerp(new THREE.Vector3(-0.5, 0.2 + y * 0.6, z), 0.12);
     camera.lookAt(-0.5, 0, 0);
+
+    // Apply velocity with inertia
+    outerRef.current.rotation.y += vel.current.x;
+    outerRef.current.rotation.x += vel.current.y;
+    vel.current.x *= 0.925;
+    vel.current.y *= 0.925;
   });
 
   return (
-    <group ref={ref} dispose={null}>
-      {gltf?.scene ? (
-        <primitive object={gltf.scene} />
-      ) : (
-        <mesh>
-          <boxGeometry args={[1, 1, 1]} />
-          <meshStandardMaterial color="#0CFFBB" metalness={0.5} roughness={0.5} />
-        </mesh>
-      )}
+    <group ref={outerRef} dispose={null}>
+      <group ref={innerRef}>
+        <GLTFModel url={url} />
+      </group>
     </group>
   );
 }
@@ -107,17 +166,39 @@ export default function GypulShowcase(): JSX.Element {
           </button>
         </div>
         
-        {/* Fullscreen Canvas / background */}
+        {/* Fullscreen Canvas background */}
         <div className="fixed inset-0 -z-10">
-          <Canvas camera={{ position: [0, 0.6, 3.2], fov: 35 }}>
+          <Canvas 
+            shadows
+            camera={{ position: [0, 0.6, 3.2], fov: 35 }}
+            gl={{ 
+              preserveDrawingBuffer: true,
+              antialias: true,
+              toneMapping: THREE.ACESFilmicToneMapping,
+              outputColorSpace: THREE.SRGBColorSpace
+            }}
+          >
+            <Environment preset="studio" background={false} />
+            
             <ambientLight intensity={0.4} />
-            <directionalLight intensity={0.6} position={[5, 5, 5]} />
+            <directionalLight intensity={0.6} position={[5, 5, 5]} castShadow />
             <directionalLight intensity={0.2} position={[-5, -2, -5]} />
-            <OrbitControls enablePan enableZoom enableRotate makeDefault rotateSpeed={0.6} />
+            
+            <ContactShadows position={[0, -0.5, 0]} opacity={0.35} scale={10} blur={2} />
+            
             <React.Suspense fallback={<LoaderSpinner />}>
               <RobotModel scrollProgress={scrollYProgress} />
-              <Preload all />
             </React.Suspense>
+            
+            <OrbitControls 
+              enablePan={false} 
+              enableZoom={true} 
+              enableRotate={true}
+              makeDefault 
+              rotateSpeed={0.6}
+              minDistance={2}
+              maxDistance={10}
+            />
           </Canvas>
         </div>
 

@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { asset } from '../../utils/asset';
 import Header from '../Header';
 import Footer from '../Footer';
+import ModelViewer from '../../components/ui/ModelViewer';
+
 import { 
   BeakerIcon, 
   ChartBarIcon, 
@@ -162,6 +164,11 @@ export default function EnviroMonitorShowcase() {
               </motion.div>
             ))}
           </div>
+          <ModelViewer
+            url="https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/main/2.0/ToyCar/glTF-Binary/ToyCar.glb"
+            width={400}
+            height={400}
+          />
         </div>
       </section>
 
