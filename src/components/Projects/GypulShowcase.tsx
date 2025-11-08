@@ -246,7 +246,7 @@ export default function GypulShowcase(): JSX.Element {
             </section>
             
             {/* Design & Engineering */}
-            <section id="design" className="min-h-[50vh] flex items-center">
+            <section id="design" className="min-h-[60vh] flex items-center">
               <motion.div
                 className="max-w-2xl"
                 initial="hidden"
@@ -267,7 +267,7 @@ export default function GypulShowcase(): JSX.Element {
             </section>
             
             {/* Electronics & Control */}
-            <section id="electronics" className="min-h-[50vh] flex items-center py-12">
+            <section id="electronics" className="min-h-[60vh] flex items-center py-12">
               <motion.div
                 className="max-w-2xl"
                 initial="hidden"
@@ -285,7 +285,7 @@ export default function GypulShowcase(): JSX.Element {
             </section>
             
             {/* Impact & Accessibility */}
-            <section id="impact" className="min-h-[50vh] flex items-center py-12">
+            <section id="impact" className="min-h-[60vh] flex items-center py-12">
               <motion.div
                 className="max-w-2xl"
                 initial="hidden"
