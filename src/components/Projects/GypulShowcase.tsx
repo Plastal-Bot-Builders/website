@@ -1,7 +1,8 @@
 import React, { useRef, useLayoutEffect, useState, useEffect } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { Canvas, useFrame, useThree, useLoader } from '@react-three/fiber';
 import { Group } from 'three';
 import { useGLTF, Html, useProgress, Environment, ContactShadows, OrbitControls } from '@react-three/drei';
+import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
 import { motion, useScroll, useTransform, MotionValue } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import * as THREE from 'three';
@@ -33,9 +34,9 @@ function LoaderSpinner() {
   );
 }
 
-const GLTFModel: React.FC<{ url: string }> = ({ url }) => {
-  const gltf = useGLTF(url);
-  return <primitive object={gltf.scene.clone()} />;
+const OBJModel: React.FC<{ url: string }> = ({ url }) => {
+  const obj= useLoader(OBJLoader, url);
+  return <primitive object={obj.clone()} />;
 };
 
 function RobotModel({ scrollProgress, scrollDirection }: RobotModelProps) {
@@ -43,7 +44,7 @@ function RobotModel({ scrollProgress, scrollDirection }: RobotModelProps) {
   const innerRef = useRef<Group | null>(null);
   const { camera } = useThree();
   
-  const url = 'https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/Duck/glTF-Binary/Duck.glb';
+  const src = asset('resources/3D_Models/Gypul.obj');
   
   // Track target rotation based on scroll
   const targetRotation = useRef(0);
@@ -72,6 +73,12 @@ function RobotModel({ scrollProgress, scrollDirection }: RobotModelProps) {
       const s = 1 / (sphere.radius * 2);
       g.position.set(-sphere.center.x, -sphere.center.y, -sphere.center.z);
       g.scale.setScalar(s);
+
+      g.rotation.set(
+      THREE.MathUtils.degToRad(0),   // X rotation (pitch)
+      THREE.MathUtils.degToRad(-90), // Y rotation (yaw) - rotate 90° left
+      THREE.MathUtils.degToRad(0)    // Z rotation (roll)
+      );
 
       // Enable shadows
       g.traverse((o: THREE.Object3D) => {
@@ -138,9 +145,13 @@ function RobotModel({ scrollProgress, scrollDirection }: RobotModelProps) {
   });
 
   return (
-    <group ref={outerRef} dispose={null}>
+    <group 
+      ref={outerRef} 
+      dispose={null}
+      rotation={[0, Math.PI / 3, 0]}
+    >
       <group ref={innerRef}>
-        <GLTFModel url={url} />
+        <OBJModel url={src} />
       </group>
     </group>
   );
