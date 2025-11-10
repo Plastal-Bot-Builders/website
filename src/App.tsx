@@ -63,11 +63,21 @@ const App: React.FC = () => {
         <meta name="description" content="Plastal-Bot Builders - Robotics education and community programs" />
         <link rel="canonical" href="https://plastalbotbuilders.com" />
       </Helmet>
-
       <Scrollbars
         style={{ width: '100%', height: '100vh' }}
         renderThumbVertical={({ style, ...props }) =>
-          <div {...props} style={{ ...style, backgroundColor: '#0CFFBB', borderRadius: '4px' }} />
+          <div
+            {...props}
+            style={{ ...style, backgroundColor: 'var(--scrollbar-thumb)', borderRadius: '4px' }}
+            className="custom-scrollbar-thumb"
+          />
+        }
+        renderThumbHorizontal={({ style, ...props }) =>
+          <div
+            {...props}
+            style={{ ...style, backgroundColor: 'var(--scrollbar-thumb)', borderRadius: '4px' }}
+            className="custom-scrollbar-thumb"
+          />
         }
       >
         <div style={{ position: 'relative', height: '100vh' }}>
