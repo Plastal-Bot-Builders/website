@@ -68,7 +68,8 @@ const App: React.FC = () => {
         <link rel="canonical" href="https://plastalbotbuilders.com" />
       </Helmet>
       <Scrollbars
-        style={{ width: '100%', height: '100vh' }}
+        style={{ width: '100%', minHeight: '100vh' }}
+        autoHide={false}
         renderThumbVertical={({ style, ...props }) =>
           <div
             {...props}
@@ -84,7 +85,7 @@ const App: React.FC = () => {
           />
         }
       >
-        <div style={{ position: 'relative', height: '100vh' }}>
+        <div style={{ position: 'relative', minHeight: '100vh' }}>
           {/* Conditionally render the Grid spinner when loading is true */}
           {loading && (
             <div
@@ -169,6 +170,7 @@ const App: React.FC = () => {
                   <DavidProfile />
                 </ErrorBoundary>
               } />
+
               {/* Catch-all route for 404 */}
               <Route path="*" element={<Error404 />} />
             </Routes>

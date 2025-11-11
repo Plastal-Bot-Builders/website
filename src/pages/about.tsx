@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import { useNavigate } from 'react-router-dom';
 import { asset } from '../utils/asset';
 import ThemedImage from '../theme/ThemedImage';
+import DecryptedText from '../components/ui/DecryptedText';
 
 const About: React.FC = () => {
 
@@ -99,21 +100,24 @@ const About: React.FC = () => {
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               <span className="text-hex">About</span> Plastal-Bot Builders Org
             </h1>
-
-            <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
-              Empowering the next generation through robotics, technology, and sustainability
-              lies at the heart of our mission. We believe that by equipping young minds with
-              the tools to innovate, create, and solve problems, we can inspire a future driven
-              by ingenuity and responsibility.
-            </p>
-
-            <p className="text-sm sm:text-base md:text-lg">
-              Through our programs, we introduce students and young
-              professionals to cutting-edge robotics and technology, fostering skills that are not
-              only relevant but transformative in today's world. By integrating sustainability into
-              our initiatives, we emphasize the importance of creating solutions that address
-              real-world challenges while preserving the environment for generations to come.
-            </p>
+            <DecryptedText 
+              text={ 
+              "Empowering the next generation through robotics, technology, and sustainability lies at the heart of our mission. We believe that by equipping young minds with the tools to innovate, create, and solve problems, we can inspire a future driven by ingenuity and responsibility."
+              }
+              parentClassName="block mb-6"
+              className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"
+              animateOn="view"
+              revealDirection="start"
+            />
+            <DecryptedText 
+              text={
+              "Through hands-on learning experiences, mentorship, and community engagement, we strive to cultivate a passion for STEM fields while fostering a deep appreciation for environmental stewardship. Our programs are designed to empower youth to become proactive problem-solvers who can leverage technology to address real-world challenges, ultimately contributing to a more sustainable and equitable future for all."
+              }
+              parentClassName="block mb-6"
+              className="text-sm sm:text-base md:text-lg"
+              animateOn="view"
+              revealDirection="start"
+            />
           </div>
 
           {/* Image Container */}
@@ -143,27 +147,34 @@ const About: React.FC = () => {
           <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight md:text-4xl lg:text-5xl">
             <span className="text-hex "> Our </span> Story
           </h1>
-          <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
-            Founded in Zambia, our organization began with a mission to empower young
-            people by equipping them with the skills and knowledge needed to tackle
-            modern challenges in an ever-evolving world. What started as a grassroots
-            initiative driven by a passion for education and innovation has transformed
-            into a dynamic movement with global ambitions.
-          </p>
-          <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
-            We are committed to addressing critical challenges not only in education but
-            also in environmental sustainability, leveraging technology, creativity,
-            and collaboration. Across Africa and beyond, we partner with communities,
-            schools, and industry leaders to create opportunities that inspire the next
-            generation of leaders, innovators, and problem-solvers. Our programs have evolved
-            to include cutting-edge workshops, hands-on learning experiences, and initiatives
-            that prioritize inclusivity and long-term impact.
-          </p>
-          <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
-            As we continue to grow, our vision remains rooted in the belief that equipping
-            young people with the right tools today will shape a brighter, more sustainable
-            future for all.
-          </p>
+          <DecryptedText 
+          text={
+            "Founded in Zambia, our organization began with a mission to empower young people by equipping them with the skills and knowledge needed to tackle modern challenges in an ever-evolving world. What started as a grassroots initiative driven by a passion for education and innovation has transformed into a dynamic movement with global ambitions."
+          }
+          className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"
+          parentClassName="block mb-6"
+          animateOn="view"
+          revealDirection="start"
+          />
+          <DecryptedText 
+          text={
+            "We are committed to addressing critical challenges not only in education but also in environmental sustainability, leveraging technology, creativity, and collaboration. Across Africa and beyond, we partner with communities, schools, and industry leaders to create opportunities that inspire the next generation of leaders, innovators, and problem-solvers. Our programs have evolved"
+          }
+          className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"
+          parentClassName="block mb-6"
+          animateOn="view"
+          revealDirection="start"
+          />
+
+          <DecryptedText 
+            className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"
+            text={
+              "As we continue to grow, our vision remains rooted in the belief that equipping young people with the right tools today will shape a brighter, more sustainable future for all."
+            }
+            parentClassName="block mb-6"
+            animateOn="view"
+            revealDirection="start"
+          />
         </div>
       </div>
       {/* Main Content */}
@@ -174,9 +185,15 @@ const About: React.FC = () => {
             <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight md:text-4xl lg:text-5xl title">
               <span className="text-hex "> Our </span> Mission
             </h1>
-            <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
-              Our mission is to empower young people to become innovators and change-makers by equipping them with the skills and knowledge to create sustainable solutions. Through technology, robotics, and environmental advocacy, we aim to inspire the next generation to tackle real-world challenges, drive impactful change, and contribute to a more equitable and sustainable future.
-            </p>
+            <DecryptedText 
+              className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"
+              text={
+                "Our mission is to empower young people to become innovators and change-makers by equipping them with the skills and knowledge to create sustainable solutions. Through technology, robotics, and environmental advocacy, we aim to inspire the next generation to tackle real-world challenges, drive impactful change, and contribute to a more equitable and sustainable future."
+              }
+              parentClassName="block mb-6"
+              animateOn="view"
+              revealDirection="start"
+            />
 
             <img
               src={asset('resources/Photos/group.png')}
@@ -184,26 +201,41 @@ const About: React.FC = () => {
               className="w-full h-auto object-cover rounded-lg"
             />
 
-            <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
-              By fostering creativity, critical thinking, and a sense of responsibility, we strive to nurture individuals who can harness the power of technology to address pressing global issues, from environmental conservation to social innovation. Our mission is rooted in the belief that young people hold the key to shaping a better world, and we are committed to providing them with the tools and opportunities to succeed.
-            </p>
+            <DecryptedText className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"
+              text={
+                "By fostering creativity, critical thinking, and a sense of responsibility, we strive to nurture individuals who can harness the power of technology to address pressing global issues, from environmental conservation to social innovation. Our mission is rooted in the belief that young people hold the key to shaping a better world, and we are committed to providing them with the tools and opportunities to succeed."
+              }
+              parentClassName="block mb-6"
+              animateOn="view"
+              revealDirection="start"
+            />
           </div>
           <div>
             <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight md:text-4xl lg:text-5xl">
               <span className="text-hex "> Our </span> Vision
             </h1>
-            <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
-              Our vision is to inspire and nurture a generation of bold problem-solvers and innovative thinkers who will harness the power of technology and robotics to create a brighter, more sustainable future for their communities and the world at large. We envision a future where young minds are empowered to think critically, dream big, and take decisive action to solve complex challenges with creativity and purpose.
-            </p>
+            <DecryptedText className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"
+              text={
+                "Our vision is to inspire and nurture a generation of bold problem-solvers and innovative thinkers who will harness the power of technology and robotics to create a brighter, more sustainable future for their communities and the world at large. We envision a future where young minds are empowered to think critically, dream big, and take decisive action to solve complex challenges with creativity and purpose."
+              }
+              parentClassName="block mb-6"
+              animateOn="view"
+              revealDirection="start"
+            />
 
             <img
               src={asset('resources/Photos/dywen.jpg')}
               alt="Bootcamp"
               className="w-full h-auto object-cover rounded-lg"
             />
-            <p className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
-              By fostering a culture of innovation, collaboration, and inclusivity, we aim to build a world where technology serves as a force for good—bridging gaps, addressing inequalities, and advancing sustainable development. Our vision extends beyond teaching technical skills; we strive to instill a mindset of resilience, adaptability, and ethical responsibility, ensuring that the leaders of tomorrow are equipped not just to succeed but to make a meaningful difference.
-            </p>
+            <DecryptedText className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"
+              text={
+                "By fostering a culture of innovation, collaboration, and inclusivity, we aim to build a world where technology serves as a force for good—bridging gaps, addressing inequalities, and advancing sustainable development. Our vision extends beyond teaching technical skills; we strive to instill a mindset of resilience, adaptability, and ethical responsibility, ensuring that the leaders of tomorrow are equipped not just to succeed but to make a meaningful difference."
+              }
+              parentClassName="block mb-6"
+              animateOn="view"
+              revealDirection="start"
+            />
           </div>
         </div>
 

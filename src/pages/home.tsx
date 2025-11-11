@@ -66,32 +66,32 @@ const Home: React.FC = () => {
         {/* Hero */}
         <div className="flex flex-col md:flex-row justify-between p-4 space-y-8 md:space-y-0 md:space-x-8 max-w-7xl mx-auto">
           <div className="w-full md:w-1/2 p-4">
-              <h1 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight">
-                <span className="text-hex">Empowering</span> Innovation
-              </h1>
+            <h1 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight">
+              <span className="text-hex">Empowering</span> Innovation
+            </h1>
 
-                <DecryptedText
-                  text={
-                    "Welcome to Plastal-Bot Builders! We're on a mission to transform technology education in Zambia and beyond. Through our innovative robotics programs and hands-on learning experiences, we're empowering young minds to become the tech leaders of tomorrow."
-                  }
-                  parentClassName="block mb-6"
-                  className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"
-                  animateOn="view"
-                  revealDirection="start"
-                />
-                <DecryptedText
-                  text={
-                    "Our journey began with a simple belief: every young person deserves access to quality technology education. Today, we offer programs in robotics, programming, and digital innovation—building real pathways into the tech ecosystem."
-                  }
-                  parentClassName="block"
-                  className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"
-                  animateOn="view"
-                  revealDirection="start"
-                />
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mt-12">
-                <Button label="Become a Member" href="/membershipform" />
-                <Button label="Get Involved" href="/programs" />
-              </div>
+            <DecryptedText
+              text={
+                "Welcome to Plastal-Bot Builders! We're on a mission to transform technology education in Zambia and beyond. Through our innovative robotics programs and hands-on learning experiences, we're empowering young minds to become the tech leaders of tomorrow."
+              }
+              parentClassName="block mb-6"
+              className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"
+              animateOn="view"
+              revealDirection="start"
+            />
+            <DecryptedText
+              text={
+                "Our journey began with a simple belief: every young person deserves access to quality technology education. Today, we offer programs in robotics, programming, and digital innovation—building real pathways into the tech ecosystem."
+              }
+              parentClassName="block"
+              className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"
+              animateOn="view"
+              revealDirection="start"
+            />
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mt-12">
+              <Button label="Become a Member" href="/membershipform" />
+              <Button label="Get Involved" href="/programs" />
+            </div>
           </div>
 
           <div className="w-full md:w-1/2 p-2">
@@ -129,23 +129,23 @@ const Home: React.FC = () => {
                 <span className="text-hex">Latest </span> Project Showcase
               </h1>
               <DecryptedText
-                  text={
-                    "Students built an environmental monitoring robotics system using Arduino-based sensors to track air and water quality."
-                  }
-                  parentClassName="block mb-6"
-                  className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"
-                  animateOn="view"
-                  revealDirection="start"
+                text={
+                  "Students built an environmental monitoring robotics system using Arduino-based sensors to track air and water quality."
+                }
+                parentClassName="block mb-6"
+                className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"
+                animateOn="view"
+                revealDirection="start"
               />
               <DecryptedText
-                  text={
-                    "The project strengthened engineering, coding, and analytical skills while exploring sustainability-focused solutions."
-                  }
-                  parentClassName="block mb-6"
-                  className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"
-                  animateOn="view"
-                  revealDirection="start"
-              />              
+                text={
+                  "The project strengthened engineering, coding, and analytical skills while exploring sustainability-focused solutions."
+                }
+                parentClassName="block mb-6"
+                className="my-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"
+                animateOn="view"
+                revealDirection="start"
+              />
               <button
                 className="mt-4 custom-button"
                 type="button"
@@ -381,12 +381,12 @@ const Home: React.FC = () => {
             </div>
           </div>
         </div>
+
         {/* TechniBots Section */}
         <div className="max-w-7xl mx-auto p-6">
           <h1 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight">
             <span className="text-hex">Our Partners</span> in Innovation
           </h1>
-
 
           <div className="mb-12">
             <h2 className="text-2xl font-semibold text-hex mb-4">
@@ -402,7 +402,6 @@ const Home: React.FC = () => {
               revealDirection="start"
             />
           </div>
-
 
           {/* Technicbots Bento Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-3 grid-rows-3 gap-4">
@@ -443,7 +442,6 @@ const Home: React.FC = () => {
               </button>
             </div>
 
-
             {/* Tall Card - David Profile */}
             <div className="col-span-1 row-span-2 interactive-card p-6 flex flex-col">
               <h2 className="mb-4 text-xl md:text-2xl font-extrabold leading-none tracking-tight title">
@@ -472,7 +470,6 @@ const Home: React.FC = () => {
               </button>
             </div>
 
-
             {/* Wide Card - Impact Stats */}
             <div className="col-span-1 sm:col-span-2 row-span-1 interactive-card p-6">
               <h2 className="mb-4 text-xl md:text-2xl font-extrabold leading-none tracking-tight title">
@@ -498,18 +495,16 @@ const Home: React.FC = () => {
               </div>
             </div>
 
-
             {/* Small Card - Collaboration Highlight */}
             <div className="col-span-1 row-span-1 interactive-card p-6 flex flex-col justify-center">
               <h3 className="mb-2 text-lg font-extrabold title text-center">
                 <span className="text-hex">Global</span> Reach
               </h3>
               <p className="text-sm text-center text-current">
-                From Geneva to Zambia—building bridges through robotics and shared innovation. Hello World
+                From Geneva to Zambia—building bridges through robotics and shared innovation. Hello World 
               </p>
-            </div>
+            </div> 
           </div>
-
 
           {/* Key Initiatives Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
@@ -528,6 +523,7 @@ const Home: React.FC = () => {
                 revealDirection="start"
               />
             </div>
+
             <div className="interactive-card p-6">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center text-white text-xl font-bold flex-shrink-0">
@@ -543,7 +539,6 @@ const Home: React.FC = () => {
                 revealDirection="start"
               />
             </div>
-
 
             <div className="interactive-card p-6">
               <div className="flex items-center gap-4 mb-4">
@@ -561,6 +556,7 @@ const Home: React.FC = () => {
               />
             </div>
           </div>
+
           {/* Quote/Testimonial Section */}
           <div className="mt-8 interactive-card p-8" style={{ background: 'linear-gradient(135deg, var(--surface-bg) 0%, var(--surface-hover-bg) 100%)' }}>
             <div className="flex flex-col md:flex-row items-center gap-6">
