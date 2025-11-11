@@ -24,10 +24,10 @@ const DavidProfile: React.FC = () => {
       "Guided teams through Fusion 360 and student license procurement"
     ],
     projects_mentioned: [
-      { emoji: "🗑️", name: "WasteWizard", desc: "Autonomous IoT smart bin" },
-      { emoji: "⚖️", name: "Self-balancing Robot", desc: "Advanced control systems" },
-      { emoji: "🚗", name: "Smart EV Dashboard", desc: "Electric vehicle interface" },
-      { emoji: "🎨", name: "Fusion 360 CAD", desc: "Design & training programs" }
+      "WasteWizard (autonomous IoT smart bin)",
+      "Self-balancing robot",
+      "Smart EV dashboard",
+      "Fusion 360 CAD training"
     ],
     qualities: [
       "Patient",
