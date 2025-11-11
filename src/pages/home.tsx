@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -34,6 +34,18 @@ const Home: React.FC = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'ok' | 'error'>('idle');
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if(hash) {
+      setTimeout(() => {
+        const element = document.getElementById(hash.substring(1));
+        if(element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
+  }, []);
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -411,7 +423,7 @@ const Home: React.FC = () => {
                 <span className="text-hex">Technicbots</span> - FTC Team 8565
               </h2>
               <img
-                src={asset('resources/technicbots/teamphoto4.html')}
+                src={asset('resources/technicbots/teamphoto.png')}
                 alt="Technicbots team at competition"
                 className="w-full h-64 object-cover rounded-lg mb-4"
               />
@@ -443,12 +455,12 @@ const Home: React.FC = () => {
             </div>
 
             {/* Tall Card - David Profile */}
-            <div className="col-span-1 row-span-2 interactive-card p-6 flex flex-col">
+            <div id="david" className="col-span-1 row-span-2 interactive-card p-6 flex flex-col">
               <h2 className="mb-4 text-xl md:text-2xl font-extrabold leading-none tracking-tight title">
                 <span className="text-hex">Meet</span> David
               </h2>
               <img
-                src={asset('resources/technicbots/david-profile.jpg')}
+                src={asset('resources/technicbots/DavidHue.jpg')}
                 alt="David - International Mentor"
                 className="w-full h-48 object-cover rounded-lg mb-4"
               />
@@ -562,7 +574,7 @@ const Home: React.FC = () => {
             <div className="flex flex-col md:flex-row items-center gap-6">
               <div className="w-full md:w-1/3">
                 <img
-                  src={asset('resources/technicbots/collaboration-moment.jpg')}
+                  src={asset('resources/technicbots/withman.jpg')}
                   alt="Partnership in action"
                   className="w-full h-auto rounded-lg shadow-lg"
                 />
