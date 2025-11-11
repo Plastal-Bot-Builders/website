@@ -381,6 +381,213 @@ const Home: React.FC = () => {
             </div>
           </div>
         </div>
+        {/* TechniBots Section */}
+        <div className="max-w-7xl mx-auto p-6">
+          <h1 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight">
+            <span className="text-hex">Our Partners</span> in Innovation
+          </h1>
+
+
+          <div className="mb-12">
+            <h2 className="text-2xl font-semibold text-hex mb-4">
+              Global Collaboration Driving Local Impact
+            </h2>
+            <DecryptedText
+              text={
+                "We collaborate with world-class robotics teams and mentors to bring international expertise to Zambian students. Through these partnerships, we unlock opportunities in STEM education, technical mentorship, and cross-cultural innovation."
+              }
+              parentClassName="block mb-6"
+              className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"
+              animateOn="view"
+              revealDirection="start"
+            />
+          </div>
+
+
+          {/* Technicbots Bento Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 grid-rows-3 gap-4">
+            {/* Large Feature Card - Technicbots Team */}
+            <div className="col-span-1 sm:col-span-2 row-span-2 interactive-card p-6">
+              <h2 className="mb-4 text-2xl md:text-3xl font-extrabold leading-none tracking-tight title">
+                <span className="text-hex">Technicbots</span> - FTC Team 8565
+              </h2>
+              <img
+                src={asset('resources/technicbots/teamphoto4.html')}
+                alt="Technicbots team at competition"
+                className="w-full h-64 object-cover rounded-lg mb-4"
+              />
+              <DecryptedText
+                text={
+                  "Based in Plano, Texas, Technicbots is a FIRST Hall of Fame team with 16+ years of excellence in robotics competition and community outreach. Their 2022 FIRST World Championship Inspire Award and 2023 FIRST Global Challenge Gold Medal demonstrate their commitment to innovation and collaboration."
+                }
+                parentClassName="block mb-4"
+                className="text-sm sm:text-base md:text-lg"
+                animateOn="view"
+                revealDirection="start"
+              />
+              <DecryptedText
+                text={
+                  "Through partnerships with Plastal-Bot Builders, Technicbots shares resources, mentorship expertise, and technical guidance—helping Zambian students access world-class robotics education and international competition opportunities."
+                }
+                parentClassName="block mb-6"
+                className="text-sm sm:text-base md:text-lg"
+                animateOn="view"
+                revealDirection="start"
+              />
+              <button
+                className="custom-button"
+                type="button"
+                onClick={() => navigate('/team/technicbots')}
+              >
+                Learn More About Technicbots
+              </button>
+            </div>
+
+
+            {/* Tall Card - David Profile */}
+            <div className="col-span-1 row-span-2 interactive-card p-6 flex flex-col">
+              <h2 className="mb-4 text-xl md:text-2xl font-extrabold leading-none tracking-tight title">
+                <span className="text-hex">Meet</span> David
+              </h2>
+              <img
+                src={asset('resources/technicbots/david-profile.jpg')}
+                alt="David - International Mentor"
+                className="w-full h-48 object-cover rounded-lg mb-4"
+              />
+              <DecryptedText
+                text={
+                  "International collaborator and mentor who first met the Plastal-Bot Builders team at the 2022 FIRST Global Competition in Geneva. David has been instrumental in our growth—supporting fundraising, guiding student projects, and making advanced tools like Fusion 360 accessible."
+                }
+                parentClassName="block mb-4"
+                className="text-sm sm:text-base"
+                animateOn="view"
+                revealDirection="start"
+              />
+              <button
+                className="mt-auto custom-button"
+                type="button"
+                onClick={() => navigate('/team/david')}
+              >
+                Read David's Story
+              </button>
+            </div>
+
+
+            {/* Wide Card - Impact Stats */}
+            <div className="col-span-1 sm:col-span-2 row-span-1 interactive-card p-6">
+              <h2 className="mb-4 text-xl md:text-2xl font-extrabold leading-none tracking-tight title">
+                <span className="text-hex">Partnership</span> Impact
+              </h2>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <div className="text-center">
+                  <p className="text-3xl font-bold text-accent">$2,000</p>
+                  <p className="text-sm text-current">Fundraising Support</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-3xl font-bold text-accent">2,000+</p>
+                  <p className="text-sm text-current">Outreach Hours</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-3xl font-bold text-accent">8,000+</p>
+                  <p className="text-sm text-current">Students Impacted</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-3xl font-bold text-accent">16+</p>
+                  <p className="text-sm text-current">Years of Excellence</p>
+                </div>
+              </div>
+            </div>
+
+
+            {/* Small Card - Collaboration Highlight */}
+            <div className="col-span-1 row-span-1 interactive-card p-6 flex flex-col justify-center">
+              <h3 className="mb-2 text-lg font-extrabold title text-center">
+                <span className="text-hex">Global</span> Reach
+              </h3>
+              <p className="text-sm text-center text-current">
+                From Geneva to Zambia—building bridges through robotics and shared innovation. Hello World
+              </p>
+            </div>
+          </div>
+
+
+          {/* Key Initiatives Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
+            <div className="interactive-card p-6">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center text-white text-xl font-bold flex-shrink-0">
+                  🤝
+                </div>
+                <h3 className="text-lg font-bold title">Equipment Support</h3>
+              </div>
+              <DecryptedText
+                text="LEGO Spike Prime kits, Arduino sets, and 3D printers funded through collaborative fundraising."
+                parentClassName="block"
+                className="text-sm"
+                animateOn="view"
+                revealDirection="start"
+              />
+            </div>
+            <div className="interactive-card p-6">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center text-white text-xl font-bold flex-shrink-0">
+                  🎓
+                </div>
+                <h3 className="text-lg font-bold title">Mentorship Programs</h3>
+              </div>
+              <DecryptedText
+                text="Direct guidance on projects like WasteWizard, self-balancing robots, and smart EV dashboards."
+                parentClassName="block"
+                className="text-sm"
+                animateOn="view"
+                revealDirection="start"
+              />
+            </div>
+
+
+            <div className="interactive-card p-6">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center text-white text-xl font-bold flex-shrink-0">
+                  🌍
+                </div>
+                <h3 className="text-lg font-bold title">International Exchange</h3>
+              </div>
+              <DecryptedText
+                text="Cross-border collaboration exposing Zambian students to global robotics standards and competition pathways."
+                parentClassName="block"
+                className="text-sm"
+                animateOn="view"
+                revealDirection="start"
+              />
+            </div>
+          </div>
+          {/* Quote/Testimonial Section */}
+          <div className="mt-8 interactive-card p-8" style={{ background: 'linear-gradient(135deg, var(--surface-bg) 0%, var(--surface-hover-bg) 100%)' }}>
+            <div className="flex flex-col md:flex-row items-center gap-6">
+              <div className="w-full md:w-1/3">
+                <img
+                  src={asset('resources/technicbots/collaboration-moment.jpg')}
+                  alt="Partnership in action"
+                  className="w-full h-auto rounded-lg shadow-lg"
+                />
+              </div>
+              <div className="w-full md:w-2/3">
+                <blockquote className="text-xl italic text-current mb-4">
+                  <DecryptedText
+                    text="The partnership with Technicbots has opened doors we didn't know existed. From fundraising to technical mentorship, their support has accelerated our mission to make robotics education accessible across Zambia."
+                    parentClassName="block"
+                    className="text-lg md:text-xl"
+                    animateOn="view"
+                    revealDirection="start"
+                  />
+                </blockquote>
+                <p className="text-accent font-semibold">
+                  — Plastal-Bot Builders Team
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* Newsletter */}
         <div className="max-w-7xl mx-auto p-4">

@@ -39,6 +39,10 @@ import CorporatePartnershipsPage from './components/SupportPages/CorporatePartne
 import EducationalPartnershipsPage from './components/SupportPages/EducationalPartnershipsPage';
 import NonprofitPartnershipPage from './components/SupportPages/NonprofitPartnershipPage';
 
+// Import Team/Partner pages
+import Technicbots from './components/Technibots/technicbots';
+import DavidProfile from './components/Technibots/David';
+
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
@@ -151,6 +155,18 @@ const App: React.FC = () => {
               <Route path="/projects/enviro-monitor" element={
                 <ErrorBoundary>
                   <EnviroMonitorShowcase />
+                </ErrorBoundary>
+              } />
+
+              {/* Team/Partner Pages */}
+              <Route path="/team/technicbots" element={
+                <ErrorBoundary>
+                  <Technicbots />
+                </ErrorBoundary>
+              } />
+              <Route path="/team/david" element={
+                <ErrorBoundary>
+                  <DavidProfile />
                 </ErrorBoundary>
               } />
               {/* Catch-all route for 404 */}
