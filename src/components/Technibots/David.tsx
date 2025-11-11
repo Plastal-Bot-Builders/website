@@ -15,31 +15,30 @@ interface ProfileData {
 }
 
 const DavidProfile: React.FC = () => {
-    const navigate = useNavigate();
-    const profile_json: ProfileData = {
-        name: "David",
-        role_with_org: "International collaborator and mentor to Plastal-Bot Builders since 2022",
-        key_contributions: [
-            "Helped solve critical robot docking mechanism at FIRST Global 2022",
-            "Supported $2,000 fundraising campaign for LEGO Spike Prime kits, Arduino kits, and 3D printer",
-            "Mentored students on projects including WasteWizard, self-balancing robot, and smart EV dashboard",
-            "Guided teams through Fusion 360 and student license procurement"
-        ],
-        projects_mentioned: [
-            { emoji: "🗑️", name: "WasteWizard", desc: "Autonomous IoT smart bin" },
-            { emoji: "⚖️", name: "Self-balancing Robot", desc: "Advanced control systems" },
-            { emoji: "🚗", name: "Smart EV Dashboard", desc: "Electric vehicle interface" },
-            { emoji: "🎨", name: "Fusion 360 CAD", desc: "Design & training programs" }
-        ],
-        qualities: [
-            "Patient",
-            "Good listener",
-            "Effective communicator",
-            "Problem-solver",
-            "Collaborative mentor"
-        ],
-        contact_note: "Contact via Plastal-Bot Builders"
-    };
+  const profile_json: ProfileData = {
+    name: "David",
+    role_with_org: "International collaborator and mentor to Plastal-Bot Builders since 2022",
+    key_contributions: [
+      "Helped solve critical robot docking mechanism at FIRST Global 2022",
+      "Supported $2,000 fundraising campaign for LEGO Spike Prime kits, Arduino kits, and 3D printer",
+      "Mentored students on projects including WasteWizard, self-balancing robot, and smart EV dashboard",
+      "Guided teams through Fusion 360 and student license procurement"
+    ],
+    projects_mentioned: [
+      { emoji: "🗑️", name: "WasteWizard", desc: "Autonomous IoT smart bin" },
+      { emoji: "⚖️", name: "Self-balancing Robot", desc: "Advanced control systems" },
+      { emoji: "🚗", name: "Smart EV Dashboard", desc: "Electric vehicle interface" },
+      { emoji: "🎨", name: "Fusion 360 CAD", desc: "Design & training programs" }
+    ],
+    qualities: [
+      "Patient",
+      "Good listener",
+      "Effective communicator",
+      "Problem-solver",
+      "Collaborative mentor"
+    ],
+    contact_note: "Contact via Plastal-Bot Builders"
+  };
 
     const journeyMilestones = [
         {
