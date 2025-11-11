@@ -33,6 +33,7 @@ const Technicbots: React.FC = () => {
     }
   ];
 
+
   const achievements = [
     "2022 FIRST World Championship Inspire Award",
     "FIRST Hall of Fame Inductees",
@@ -43,6 +44,7 @@ const Technicbots: React.FC = () => {
     "16+ years of continuous innovation and excellence"
   ];
 
+
   const keyInitiatives = [
     "FLYSET Workshop",
     "Monthly Mentoring Forums",
@@ -50,6 +52,7 @@ const Technicbots: React.FC = () => {
     "Youth Mentor Development Programs",
     "Cross-Team Knowledge Sharing Sessions"
   ];
+
 
   return (
     <>
@@ -64,7 +67,7 @@ const Technicbots: React.FC = () => {
 
         {/* Hero Section */}
         <section className="relative py-20 px-4" style={{ backgroundColor: 'var(--surface-bg)' }}>
-          <div className="max-w-5xl mx-auto text-center">
+          <div className="max-w-7xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl font-bold mb-4 title">
               <DecryptedText text="Technicbots" />
             </h1>
@@ -77,6 +80,7 @@ const Technicbots: React.FC = () => {
           </div>
         </section>
 
+
         {/* Main Content Sections */}
         <div className="max-w-5xl mx-auto px-4 py-12 space-y-12">
           {sections.map((section, idx) => (
@@ -85,10 +89,11 @@ const Technicbots: React.FC = () => {
                 <DecryptedText text={section.title} />
               </h2>
               <p className="text-lg leading-relaxed text-current">
-                <DecryptedText text={section.content} />
+                <DecryptedText text="Technicbots, officially known as FIRST Tech Challenge Team 8565, is a pioneering youth robotics team based in Plano, Texas, dedicated to advancing STEM education and fostering innovation among students. Since its founding in 2009, the team has become a powerhouse of creativity, collaboration, and technical excellence—serving as both a competitive robotics team and a community-driven platform for inspiring future engineers, programmers, and innovators." />
               </p>
             </section>
           ))}
+
 
           {/* Achievements Grid */}
           <section className="interactive-card p-8">
@@ -97,7 +102,7 @@ const Technicbots: React.FC = () => {
             </h2>
             <div className="grid md:grid-cols-2 gap-4">
               {achievements.map((achievement, idx) => (
-                <div 
+                <div
                   key={idx}
                   className="flex items-start gap-3 p-4 rounded-lg surface-hover"
                   style={{ backgroundColor: 'var(--surface-bg)', border: '1px solid var(--surface-border)' }}
@@ -110,6 +115,7 @@ const Technicbots: React.FC = () => {
               ))}
             </div>
           </section>
+
 
           {/* Key Initiatives */}
           <section className="interactive-card p-8">
@@ -130,6 +136,7 @@ const Technicbots: React.FC = () => {
               ))}
             </div>
           </section>
+
 
           {/* Leadership Highlight */}
           <section className="interactive-card p-8" style={{ background: 'linear-gradient(135deg, var(--surface-bg) 0%, var(--surface-hover-bg) 100%)' }}>
@@ -155,6 +162,7 @@ const Technicbots: React.FC = () => {
               </div>
             </div>
           </section>
+
 
           {/* Call to Action */}
           <section className="text-center py-12">
@@ -190,4 +198,5 @@ const Technicbots: React.FC = () => {
 };
 
 export default Technicbots;
+
 

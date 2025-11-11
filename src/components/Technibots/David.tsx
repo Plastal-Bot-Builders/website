@@ -13,17 +13,14 @@ interface ProfileData {
   contact_note: string;
 }
 
-
 const generateProfileData = (): {
   long_bio: string;
   profile_json: ProfileData;
-  html_card: string;
 } => {
   const long_bio = `David's story with Plastal-Bot Builders began in an unexpected place: the 2022 FIRST Global Robotics Competition in Geneva, Switzerland. When a young robotics team from Zambia faced a stubborn mechanism problem—getting their robot to dock reliably on an elevated platform—David and his teammates stepped in to help. Their collaboration didn't just solve a technical challenge; it sparked a friendship that would reshape opportunities for STEM education back in Zambia.
     After reconnecting on social media later that year, David became a cornerstone of Plastal-Bot Builders' growth. This youth-led initiative focuses on bringing hands-on robotics and innovation to schools and communities across Zambia, running workshops, bootcamps, and outreach programs in partnership with organizations like American Corner CBU and KCM Trust School in Chililabombwe. David's support proved instrumental when, in early 2024, Plastal-Bot Builders set out to raise funds for essential equipment. With help from fundraising partners including Technicbots, they secured about $2,000 to purchase LEGO Spike Prime kits, Arduino starter packs, and a 3D printer—tools that opened doors for dozens of aspiring young engineers.
     David's contributions extend far beyond fundraising. He guided students through ambitious projects like WasteWizard, an autonomous IoT smart bin; a self-balancing robot; and a smart EV dashboard. He also helped teams navigate Fusion 360, securing student licenses and walking them through CAD fundamentals. His patience and problem-solving skills made complex concepts accessible, while his communication style fostered collaboration and confidence among learners.
     What stands out most about David is his ability to listen. He doesn't just offer solutions—he mentors, encouraging students to think critically and iterate on their designs. For Plastal-Bot Builders and the young innovators they serve, David represents the power of cross-border collaboration and the impact one person can have when they choose to invest in others. (And yes, he's proven that Swiss robotics magic works just as well over a video call.)`;
-
 
   const profile_json: ProfileData = {
     name: "David",
@@ -50,42 +47,12 @@ const generateProfileData = (): {
     contact_note: "Contact via Plastal-Bot Builders"
   };
 
-
-  const html_card = `
-    <div style="max-width: 600px; margin: 2rem auto; padding: 1.5rem; border: 2px solid #D27D2D; border-radius: 12px; background: linear-gradient(135deg, #FFFEF2 0%, #FFF7D1 100%); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-      <h2 style="margin: 0 0 0.5rem 0; color: #111827; font-size: 1.75rem;">David</h2>
-      <p style="margin: 0 0 1rem 0; color: #6B7280; font-style: italic;">International collaborator & mentor since 2022</p>
-     
-      <p style="line-height: 1.6; color: #374151; margin-bottom: 1rem;">
-        David met the Plastal-Bot Builders team at the 2022 FIRST Global Competition in Geneva, where he helped solve a tricky robot docking problem. Since reconnecting, he's been instrumental in the organization's growth—supporting fundraising efforts, mentoring students on IoT and robotics projects, and making Fusion 360 feel less intimidating.
-      </p>
-     
-      <h3 style="margin: 1.5rem 0 0.75rem 0; color: #D27D2D; font-size: 1.25rem; border-bottom: 2px solid #D27D2D; padding-bottom: 0.25rem;">Key Projects</h3>
-      <ul style="margin: 0; padding-left: 1.5rem; color: #374151; line-height: 1.8;">
-        <li>WasteWizard (autonomous IoT smart bin)</li>
-        <li>Self-balancing robot</li>
-        <li>Smart EV dashboard</li>
-        <li>Fusion 360 CAD training & student licenses</li>
-      </ul>
-     
-      <p style="margin-top: 1.5rem; padding: 1rem; background: #FFF; border-left: 4px solid #D27D2D; color: #6B7280; font-style: italic; border-radius: 4px;">
-        "Proof that Swiss robotics magic works just as well over a video call." 🤖
-      </p>
-     
-      <p style="margin-top: 1rem; font-size: 0.875rem; color: #9CA3AF; text-align: center;">
-        Contact via Plastal-Bot Builders
-      </p>
-    </div>
-  `;
-
-
-  return { long_bio, profile_json, html_card };
+  return { long_bio, profile_json };
 };
 
-
 const DavidProfile: React.FC = () => {
-  const { long_bio, profile_json, html_card } = generateProfileData();
-
+  const { long_bio, profile_json } = generateProfileData();
+  const paragraphs = long_bio.split('\n').filter(p => p.trim());
 
   return (
     <>
@@ -97,127 +64,189 @@ const DavidProfile: React.FC = () => {
       <div className="scroll-smooth focus:scroll-auto">
         <Header />
        
-        {/* Long Bio Section */}
-        <section className="max-w-4xl mx-auto mb-12 px-4 pt-8">
-          <h1 className="text-4xl font-bold mb-6 title">
-            <DecryptedText text="David" />
-          </h1>
-          <div className="interactive-card p-6">
-            <div className="prose prose-lg" style={{ color: 'var(--text)' }}>
-              {long_bio.split('\n\n').map((paragraph, idx) => (
-                <p key={idx} className="mb-4 leading-relaxed">
-                  <DecryptedText text={paragraph} />
-                </p>
-              ))}
+        {/* Hero Section */}
+        <section className="relative py-20 px-4" style={{ backgroundColor: 'var(--surface-bg)' }}>
+          <div className="max-w-7xl mx-auto text-center">
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 title">
+              <DecryptedText text="David" />
+            </h1>
+            <p className="text-xl md:text-2xl mb-2 text-accent font-semibold">
+              <DecryptedText text="International Collaborator & Mentor" />
+            </p>
+            <p className="text-lg text-current opacity-90">
+              <DecryptedText text="Technicbots | FIRST Global 2022 | Plastal-Bot Builders" />
+            </p>
+          </div>
+        </section>
+
+        {/* Bento Grid Layout */}
+        <div className="max-w-7xl mx-auto px-4 py-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-auto">
+            
+            {/* Origin Story - Large Card */}
+            <div className="md:col-span-2 lg:col-span-2 interactive-card p-8">
+              <h2 className="text-3xl font-bold mb-4 text-accent">
+                <DecryptedText text="Origin Story" />
+              </h2>
+              <p className="text-lg leading-relaxed text-current mb-4">
+                <DecryptedText text={paragraphs[0]} />
+              </p>
             </div>
-          </div>
-        </section>
-        {/* Profile JSON Display */}
-        <section className="max-w-4xl mx-auto mb-12 px-4">
-          <h2 className="text-2xl font-bold mb-4 title">
-            <DecryptedText text="Profile Summary" />
-          </h2>
-          <div className="interactive-card p-6">
-            <dl className="space-y-4">
-              <div>
-                <dt className="font-semibold text-accent mb-1">
-                  <DecryptedText text="Role" />
-                </dt>
-                <dd className="text-current">
-                  <DecryptedText text={profile_json.role_with_org} />
-                </dd>
+
+            {/* Role Card */}
+            <div className="interactive-card p-8 flex flex-col justify-center" style={{ background: 'linear-gradient(135deg, var(--accent) 0%, var(--accent-dark, #1a5490) 100%)' }}>
+              <div className="text-white text-center">
+                <div className="text-5xl font-bold mb-4">🤝</div>
+                <h3 className="text-xl font-bold mb-2">
+                  <DecryptedText text="Mentor Since 2022" />
+                </h3>
+                <p className="opacity-90">
+                  <DecryptedText text="Cross-border collaboration from Geneva to Zambia" />
+                </p>
               </div>
-             
-              <div>
-                <dt className="font-semibold text-accent mb-1">
-                  <DecryptedText text="Key Contributions" />
-                </dt>
-                <dd>
-                  <ul className="list-disc list-inside space-y-1 text-current">
-                    {profile_json.key_contributions.map((item, idx) => (
-                      <li key={idx}>
-                        <DecryptedText text={item} />
-                      </li>
+            </div>
+
+            {/* Impact & Growth */}
+            <div className="md:col-span-2 interactive-card p-8">
+              <h2 className="text-2xl font-bold mb-4 text-accent">
+                <DecryptedText text="Impact & Growth" />
+              </h2>
+              <p className="text-current leading-relaxed mb-4">
+                <DecryptedText text={paragraphs[1]} />
+              </p>
+            </div>
+
+            {/* Qualities */}
+            <div className="interactive-card p-8">
+              <h2 className="text-2xl font-bold mb-4 text-accent">
+                <DecryptedText text="Key Qualities" />
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                {profile_json.qualities.map((quality, idx) => (
+                  <span
+                    key={idx}
+                    className="px-4 py-2 rounded-lg text-sm font-medium border hover:border-accent transition-colors"
+                    style={{
+                      backgroundColor: 'var(--surface-bg)',
+                      border: '1px solid var(--surface-border)'
+                    }}
+                  >
+                    <DecryptedText text={quality} />
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Key Projects */}
+            <div className="lg:col-span-3 interactive-card p-8">
+              <h2 className="text-3xl font-bold mb-6 text-accent border-b-2 border-accent pb-2">
+                <DecryptedText text="Key Projects & Contributions" />
+              </h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                {/* Projects Column */}
+                <div>
+                  <h3 className="text-xl font-semibold mb-4 text-current">
+                    <DecryptedText text="Projects Mentored" />
+                  </h3>
+                  <div className="space-y-3">
+                    {profile_json.projects_mentioned.map((project, idx) => (
+                      <div
+                        key={idx}
+                        className="p-4 rounded-lg surface-hover border-l-4 border-accent"
+                        style={{ backgroundColor: 'var(--surface-bg)' }}
+                      >
+                        <DecryptedText text={project} />
+                      </div>
                     ))}
-                  </ul>
-                </dd>
-              </div>
-             
-              <div>
-                <dt className="font-semibold text-accent mb-1">
-                  <DecryptedText text="Projects" />
-                </dt>
-                <dd>
-                  <ul className="list-disc list-inside space-y-1 text-current">
-                    {profile_json.projects_mentioned.map((item, idx) => (
-                      <li key={idx}>
-                        <DecryptedText text={item} />
-                      </li>
+                  </div>
+                </div>
+
+                {/* Contributions Column */}
+                <div>
+                  <h3 className="text-xl font-semibold mb-4 text-current">
+                    <DecryptedText text="Major Contributions" />
+                  </h3>
+                  <div className="space-y-3">
+                    {profile_json.key_contributions.map((contribution, idx) => (
+                      <div
+                        key={idx}
+                        className="flex items-start gap-3 p-4 rounded-lg surface-hover"
+                        style={{ backgroundColor: 'var(--surface-bg)', border: '1px solid var(--surface-border)' }}
+                      >
+                        <span className="text-accent text-xl flex-shrink-0">✓</span>
+                        <span className="text-current">
+                          <DecryptedText text={contribution} />
+                        </span>
+                      </div>
                     ))}
-                  </ul>
-                </dd>
+                  </div>
+                </div>
               </div>
-             
-              <div>
-                <dt className="font-semibold text-accent mb-1">
-                  <DecryptedText text="Qualities" />
-                </dt>
-                <dd className="flex flex-wrap gap-2">
-                  {profile_json.qualities.map((quality, idx) => (
-                    <span
-                      key={idx}
-                      className="px-3 py-1 rounded-full text-sm"
-                      style={{
-                        backgroundColor: 'var(--surface-bg)',
-                        border: '1px solid var(--surface-border)'
-                      }}
-                    >
-                      <DecryptedText text={quality} />
-                    </span>
-                  ))}
-                </dd>
+            </div>
+
+            {/* Mentorship Philosophy */}
+            <div className="md:col-span-2 interactive-card p-8">
+              <h2 className="text-2xl font-bold mb-4 text-accent">
+                <DecryptedText text="Mentorship Philosophy" />
+              </h2>
+              <p className="text-current leading-relaxed mb-4">
+                <DecryptedText text={paragraphs[2]} />
+              </p>
+            </div>
+
+            {/* Quote Card */}
+            <div className="interactive-card p-8 flex items-center justify-center" style={{ background: 'linear-gradient(135deg, var(--surface-bg) 0%, var(--surface-hover-bg) 100%)' }}>
+              <blockquote className="text-center">
+                <p className="text-lg italic text-current mb-4">
+                  <DecryptedText text={'"Swiss robotics magic works just as well over a video call." 🤖'} />
+                </p>
+                <footer className="text-sm text-accent font-semibold">
+                  <DecryptedText text="— Plastal-Bot Builders Team" />
+                </footer>
+              </blockquote>
+            </div>
+
+            {/* Impact Summary */}
+            <div className="lg:col-span-3 interactive-card p-8">
+              <h2 className="text-2xl font-bold mb-4 text-accent">
+                <DecryptedText text="The Power of Collaboration" />
+              </h2>
+              <p className="text-lg leading-relaxed text-current mb-6">
+                <DecryptedText text={paragraphs[3]} />
+              </p>
+            </div>
+
+            {/* Call to Action */}
+            <div className="lg:col-span-3 interactive-card p-12 text-center" style={{ background: 'linear-gradient(135deg, var(--accent) 0%, var(--accent-dark, #1a5490) 100%)' }}>
+              <h2 className="text-4xl font-bold mb-4 text-white">
+                <DecryptedText text="Building Bridges Through Robotics" />
+              </h2>
+              <p className="text-lg text-white opacity-90 mb-8 max-w-2xl mx-auto">
+                <DecryptedText text="From Geneva to Zambia, David's journey shows how one act of collaboration can create lasting impact across continents." />
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <a
+                  href="/technicbots"
+                  className="bg-white text-accent px-8 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all"
+                >
+                  Learn About Technicbots
+                </a>
+                <a
+                  href="/#contact"
+                  className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-accent transition-all"
+                >
+                  Get in Touch
+                </a>
               </div>
-             
-              <div>
-                <dt className="font-semibold text-accent mb-1">
-                  <DecryptedText text="Contact" />
-                </dt>
-                <dd className="text-current">
-                  <DecryptedText text={profile_json.contact_note} />
-                </dd>
-              </div>
-            </dl>
+            </div>
+
           </div>
-        </section>
-
-
-        {/* HTML Card Preview */}
-        <section className="max-w-4xl mx-auto mb-12 px-4">
-          <h2 className="text-2xl font-bold mb-4 title">
-            <DecryptedText text="Profile Card" />
-          </h2>
-          <div dangerouslySetInnerHTML={{ __html: html_card }} />
-        </section>
-
-
-        {/* JSON Export */}
-        <section className="max-w-4xl mx-auto mb-12 px-4 pb-8">
-          <h2 className="text-2xl font-bold mb-4 title">
-            <DecryptedText text="JSON Export" />
-          </h2>
-          <div className="interactive-card p-6">
-            <pre className="text-sm overflow-x-auto p-4 rounded" style={{ backgroundColor: 'var(--surface-bg)' }}>
-              {JSON.stringify(profile_json, null, 2)}
-            </pre>
-          </div>
-        </section>
-
+        </div>
 
         <Footer />
       </div>
     </>
   );
 };
-
 
 export default DavidProfile;
