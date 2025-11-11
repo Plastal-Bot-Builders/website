@@ -15,6 +15,7 @@ interface ProfileData {
 }
 
 const DavidProfile: React.FC = () => {
+  const navigate = useNavigate();
   const profile_json: ProfileData = {
     name: "David",
     role_with_org: "International collaborator and mentor to Plastal-Bot Builders since 2022",

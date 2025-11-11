@@ -395,7 +395,7 @@ const Home: React.FC = () => {
         </div>
 
         {/* TechniBots Section */}
-        <div className="max-w-7xl mx-auto p-6">
+        <div id="partners" className="max-w-7xl mx-auto p-6">
           <h1 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight">
             <span className="text-hex">Our Partners</span> in Innovation
           </h1>
