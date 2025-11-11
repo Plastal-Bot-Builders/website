@@ -4,6 +4,7 @@ import Footer from '../../components/Footer';
 import DecryptedText from '../../components/ui/DecryptedText';
 import { SEOConfig } from '../../components/SEO';
 
+
 const Technicbots: React.FC = () => {
   const sections = [
     {
@@ -32,7 +33,6 @@ const Technicbots: React.FC = () => {
     }
   ];
 
-
   const achievements = [
     "2022 FIRST World Championship Inspire Award",
     "FIRST Hall of Fame Inductees",
@@ -43,7 +43,6 @@ const Technicbots: React.FC = () => {
     "16+ years of continuous innovation and excellence"
   ];
 
-
   const keyInitiatives = [
     "FLYSET Workshop",
     "Monthly Mentoring Forums",
@@ -52,7 +51,6 @@ const Technicbots: React.FC = () => {
     "Cross-Team Knowledge Sharing Sessions"
   ];
 
-
   return (
     <>
       <SEOConfig
@@ -60,10 +58,9 @@ const Technicbots: React.FC = () => {
         description="Meet Technicbots (FTC 8565), a FIRST Hall of Fame team from Plano, Texas. FIRST World Championship Inspire Award winners, FIRST Global Challenge gold medalists, and dedicated STEM mentors impacting 8,000+ students annually."
         image="/resources/technicbots/teamphoto4.jpg"
       />
-     
+      
       <div className="scroll-smooth focus:scroll-auto">
         <Header />
-
 
         {/* Hero Section */}
         <section className="relative py-20 px-4" style={{ backgroundColor: 'var(--surface-bg)' }}>
@@ -80,7 +77,6 @@ const Technicbots: React.FC = () => {
           </div>
         </section>
 
-
         {/* Main Content Sections */}
         <div className="max-w-5xl mx-auto px-4 py-12 space-y-12">
           {sections.map((section, idx) => (
@@ -94,7 +90,6 @@ const Technicbots: React.FC = () => {
             </section>
           ))}
 
-
           {/* Achievements Grid */}
           <section className="interactive-card p-8">
             <h2 className="text-3xl font-bold mb-6 text-accent border-b-2 border-accent pb-2">
@@ -102,7 +97,7 @@ const Technicbots: React.FC = () => {
             </h2>
             <div className="grid md:grid-cols-2 gap-4">
               {achievements.map((achievement, idx) => (
-                <div
+                <div 
                   key={idx}
                   className="flex items-start gap-3 p-4 rounded-lg surface-hover"
                   style={{ backgroundColor: 'var(--surface-bg)', border: '1px solid var(--surface-border)' }}
@@ -115,7 +110,6 @@ const Technicbots: React.FC = () => {
               ))}
             </div>
           </section>
-
 
           {/* Key Initiatives */}
           <section className="interactive-card p-8">
@@ -136,7 +130,6 @@ const Technicbots: React.FC = () => {
               ))}
             </div>
           </section>
-
 
           {/* Leadership Highlight */}
           <section className="interactive-card p-8" style={{ background: 'linear-gradient(135deg, var(--surface-bg) 0%, var(--surface-hover-bg) 100%)' }}>
@@ -162,7 +155,6 @@ const Technicbots: React.FC = () => {
               </div>
             </div>
           </section>
-
 
           {/* Call to Action */}
           <section className="text-center py-12">
@@ -191,14 +183,11 @@ const Technicbots: React.FC = () => {
           </section>
         </div>
 
-
         <Footer />
       </div>
     </>
   );
 };
 
-
 export default Technicbots;
-
 
