@@ -10,6 +10,8 @@ import { asset } from '../utils/asset';
 import ThemedImage from '../theme/ThemedImage';
 import { SEOConfig } from '../components/SEO';
 import DecryptedText from '../components/ui/DecryptedText';
+import CountUp from '../components/ui/CountUp';
+import { SiStripe } from 'react-icons/si';
 
 const InputField = styled.input`
   background-color: transparent;
@@ -462,14 +464,14 @@ const Home: React.FC = () => {
               <img
                 src={asset('resources/technicbots/DavidHue.jpg')}
                 alt="David - International Mentor"
-                className="w-full h-48 object-cover rounded-lg mb-4"
+                className="w-full h-64 object-cover rounded-lg mb-4"
               />
               <DecryptedText
                 text={
                   "International collaborator and mentor who first met the Plastal-Bot Builders team at the 2022 FIRST Global Competition in Geneva. David has been instrumental in our growth—supporting fundraising, guiding student projects, and making advanced tools like Fusion 360 accessible."
                 }
                 parentClassName="block mb-4"
-                className="text-sm sm:text-base"
+                className="text-sm sm:text-base md:text-lg"
                 animateOn="view"
                 revealDirection="start"
               />
@@ -489,19 +491,55 @@ const Home: React.FC = () => {
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 <div className="text-center">
-                  <p className="text-3xl font-bold text-accent">$2,000</p>
+                  <p className="text-3xl font-bold text-accent">
+                    <CountUp
+                      from={0}
+                      to={2000}
+                      separator=","
+                      prefix="$"
+                      duration={2.5}
+                      className="inline"
+                    />
+                  </p>
                   <p className="text-sm text-current">Fundraising Support</p>
                 </div>
                 <div className="text-center">
-                  <p className="text-3xl font-bold text-accent">2,000+</p>
+                  <p className="text-3xl font-bold text-accent">
+                    <CountUp
+                      from={0}
+                      to={2000}
+                      separator=","
+                      suffix="+"
+                      duration={2.5}
+                      className="inline"
+                    />
+                  </p>
                   <p className="text-sm text-current">Outreach Hours</p>
                 </div>
                 <div className="text-center">
-                  <p className="text-3xl font-bold text-accent">8,000+</p>
+                  <p className="text-3xl font-bold text-accent">
+                    <CountUp
+                      from={0}
+                      to={8000}
+                      separator=","
+                      suffix="+"
+                      duration={2.5}
+                      className="inline"
+                    />
+                  </p>
                   <p className="text-sm text-current">Students Impacted</p>
                 </div>
                 <div className="text-center">
-                  <p className="text-3xl font-bold text-accent">16+</p>
+                  <p className="text-3xl font-bold text-accent">
+                    <CountUp
+                        from={0}
+                        to={16}
+                        separator=","
+                        suffix="+"
+                        duration={2.5}
+                        className="inline"
+                    />
+                  </p>
                   <p className="text-sm text-current">Years of Excellence</p>
                 </div>
               </div>
@@ -512,7 +550,7 @@ const Home: React.FC = () => {
               <h3 className="mb-2 text-lg font-extrabold title text-center">
                 <span className="text-hex">Global</span> Reach
               </h3>
-              <p className="text-sm text-center text-current">
+              <p className="text-sm sm:text-base md:text-lg text-center text-current">
                 From Geneva to Zambia—building bridges through robotics and shared innovation. Hello World 
               </p>
             </div> 
@@ -530,7 +568,7 @@ const Home: React.FC = () => {
               <DecryptedText
                 text="LEGO Spike Prime kits, Arduino sets, and 3D printers funded through collaborative fundraising."
                 parentClassName="block"
-                className="text-sm"
+                className="text-sm sm:text-base md:text-lg"
                 animateOn="view"
                 revealDirection="start"
               />
@@ -546,7 +584,7 @@ const Home: React.FC = () => {
               <DecryptedText
                 text="Direct guidance on projects like WasteWizard, self-balancing robots, and smart EV dashboards."
                 parentClassName="block"
-                className="text-sm"
+                className="text-sm sm:text-base md:text-lg"
                 animateOn="view"
                 revealDirection="start"
               />
@@ -562,7 +600,7 @@ const Home: React.FC = () => {
               <DecryptedText
                 text="Cross-border collaboration exposing Zambian students to global robotics standards and competition pathways."
                 parentClassName="block"
-                className="text-sm"
+                className="text-sm sm:text-base md:text-lg"
                 animateOn="view"
                 revealDirection="start"
               />
