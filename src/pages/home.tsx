@@ -5,32 +5,13 @@ import Footer from '../components/Footer';
 import ImageCarousel from '../components/ImageCarousel';
 import LogoCarousel from '../components/LogoCarousel';
 import Button from '../components/Button';
-import styled from 'styled-components';
 import { asset } from '../utils/asset';
 import ThemedImage from '../theme/ThemedImage';
 import { SEOConfig } from '../components/SEO';
 import DecryptedText from '../components/ui/DecryptedText';
 import CountUp from '../components/ui/CountUp';
-import { SiStripe } from 'react-icons/si';
+import { FaHandshake, FaGraduationCap, FaGlobe } from 'react-icons/fa';
 
-const InputField = styled.input`
-  background-color: transparent;
-  border: 1px solid #d1d5db;
-  padding: 0.5rem 0.75rem;
-  border-radius: 0.375rem;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  transition: border-color 0.3s ease;
-  width: 100%;
-  height: 3rem;
-  &:hover {
-    border-color: #0CFFBB;
-  }
-  &:focus {
-    outline: none;
-    border-color: #0CFFBB;
-    box-shadow: 0 0 0 3px rgba(12, 255, 187, 0.5);
-  }
-`;
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -434,7 +415,7 @@ const Home: React.FC = () => {
                   "Based in Plano, Texas, Technicbots is a FIRST Hall of Fame team with 16+ years of excellence in robotics competition and community outreach. Their 2022 FIRST World Championship Inspire Award and 2023 FIRST Global Challenge Gold Medal demonstrate their commitment to innovation and collaboration."
                 }
                 parentClassName="block mb-4"
-                className="text-sm sm:text-base md:text-lg"
+                className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"
                 animateOn="view"
                 revealDirection="start"
               />
@@ -443,7 +424,7 @@ const Home: React.FC = () => {
                   "Through partnerships with Plastal-Bot Builders, Technicbots shares resources, mentorship expertise, and technical guidance—helping Zambian students access world-class robotics education and international competition opportunities."
                 }
                 parentClassName="block mb-6"
-                className="text-sm sm:text-base md:text-lg"
+                className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"
                 animateOn="view"
                 revealDirection="start"
               />
@@ -471,7 +452,7 @@ const Home: React.FC = () => {
                   "International collaborator and mentor who first met the Plastal-Bot Builders team at the 2022 FIRST Global Competition in Geneva. David has been instrumental in our growth—supporting fundraising, guiding student projects, and making advanced tools like Fusion 360 accessible."
                 }
                 parentClassName="block mb-4"
-                className="text-sm sm:text-base md:text-lg"
+                className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"
                 animateOn="view"
                 revealDirection="start"
               />
@@ -550,7 +531,7 @@ const Home: React.FC = () => {
               <h3 className="mb-2 text-lg font-extrabold title text-center">
                 <span className="text-hex">Global</span> Reach
               </h3>
-              <p className="text-sm sm:text-base md:text-lg text-center text-current">
+              <p className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg text-center text-current">
                 From Geneva to Zambia—building bridges through robotics and shared innovation. Hello World 
               </p>
             </div> 
@@ -561,14 +542,14 @@ const Home: React.FC = () => {
             <div className="interactive-card p-6">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center text-white text-xl font-bold flex-shrink-0">
-                  🤝
+                  <FaHandshake />
                 </div>
                 <h3 className="text-lg font-bold title">Equipment Support</h3>
               </div>
               <DecryptedText
                 text="LEGO Spike Prime kits, Arduino sets, and 3D printers funded through collaborative fundraising."
                 parentClassName="block"
-                className="text-sm sm:text-base md:text-lg"
+                className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"
                 animateOn="view"
                 revealDirection="start"
               />
@@ -577,14 +558,14 @@ const Home: React.FC = () => {
             <div className="interactive-card p-6">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center text-white text-xl font-bold flex-shrink-0">
-                  🎓
+                  <FaGraduationCap />
                 </div>
                 <h3 className="text-lg font-bold title">Mentorship Programs</h3>
               </div>
               <DecryptedText
                 text="Direct guidance on projects like WasteWizard, self-balancing robots, and smart EV dashboards."
                 parentClassName="block"
-                className="text-sm sm:text-base md:text-lg"
+                className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"
                 animateOn="view"
                 revealDirection="start"
               />
@@ -593,14 +574,14 @@ const Home: React.FC = () => {
             <div className="interactive-card p-6">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center text-white text-xl font-bold flex-shrink-0">
-                  🌍
+                  <FaGlobe />
                 </div>
                 <h3 className="text-lg font-bold title">International Exchange</h3>
               </div>
               <DecryptedText
                 text="Cross-border collaboration exposing Zambian students to global robotics standards and competition pathways."
                 parentClassName="block"
-                className="text-sm sm:text-base md:text-lg"
+                className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"
                 animateOn="view"
                 revealDirection="start"
               />
@@ -622,7 +603,7 @@ const Home: React.FC = () => {
                   <DecryptedText
                     text="The partnership with Technicbots has opened doors we didn't know existed. From fundraising to technical mentorship, their support has accelerated our mission to make robotics education accessible across Zambia."
                     parentClassName="block"
-                    className="text-lg md:text-xl"
+                    className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"
                     animateOn="view"
                     revealDirection="start"
                   />
@@ -661,7 +642,7 @@ const Home: React.FC = () => {
                   className="mt-8 flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 w-full"
                 >
                   <div className="w-full sm:w-auto flex-1">
-                    <InputField
+                    <input
                       id="newsletter-email"
                       type="email"
                       placeholder="Enter your email"
@@ -669,6 +650,7 @@ const Home: React.FC = () => {
                       onChange={e => setEmail(e.target.value)}
                       required
                       aria-label="Email address"
+                      className="newsletter-input"
                     />
                   </div>
                   <button

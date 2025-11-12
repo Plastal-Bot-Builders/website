@@ -4,6 +4,10 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import DecryptedText from '../../components/ui/DecryptedText';
 import { SEOConfig } from '../../components/SEO';
+import { FaGraduationCap, FaHandshake, FaUserGraduate, FaGlobe } from 'react-icons/fa';
+import { HiChatAlt2 } from 'react-icons/hi';
+import CountUp from '../../components/ui/CountUp';
+import { asset } from '../../utils/asset';
 
 const Technicbots: React.FC = () => {
     const navigate = useNavigate();
@@ -11,45 +15,44 @@ const Technicbots: React.FC = () => {
         "2022 FIRST World Championship Inspire Award",
         "FIRST Hall of Fame Inductees",
         "2023 FIRST Global Challenge Gold Medal (Team USA)",
-        "International collaboration with Team Zimbabwe",
         "Over 2,000 hours of annual community outreach",
         "Impact on 8,000+ people through STEM programs",
         "16+ years of continuous innovation and excellence"
     ];
 
     const keyInitiatives = [
-        { emoji: "🎓", title: "FLYSET Workshop", desc: "Hands-on learning experiences" },
-        { emoji: "💬", title: "Monthly Mentoring Forums", desc: "Knowledge sharing sessions" },
-        { emoji: "🤝", title: "FLL to FTC Pipeline", desc: "Supporting all FIRST levels" },
-        { emoji: "👥", title: "Youth Mentor Programs", desc: "Developing future leaders" },
-        { emoji: "🌐", title: "Cross-Team Collaboration", desc: "Building global connections" }
+        { icon: FaGraduationCap, title: "FLYSET Workshop", desc: "Hands-on learning experiences" },
+        { icon: HiChatAlt2, title: "Monthly Mentoring Forums", desc: "Knowledge sharing sessions" },
+        { icon: FaHandshake, title: "FLL to FTC Pipeline", desc: "Supporting all FIRST levels" },
+        { icon: FaUserGraduate, title: "Youth Mentor Programs", desc: "Developing future leaders" },
+        { icon: FaGlobe, title: "Cross-Team Collaboration", desc: "Building global connections" }
     ];
 
     const stats = [
-        { value: "2022", label: "FIRST Championship" },
-        { value: "8,000+", label: "Students Impacted" },
-        { value: "2,000+", label: "Outreach Hours" },
-        { value: "16+", label: "Years Active" }
+        { value: 2022, label: "FIRST Championship", suffix: "" },
+        { value: 8000, label: "Students Impacted", suffix: "+" },
+        { value: 2000, label: "Outreach Hours", suffix: "+" },
+        { value: 16, label: "Years Active", suffix: "+" }
     ];
 
     const teamPhotos = [
         {
-            src: "/resources/technicbots/teamphoto2.jpg",
+            src: "/resources/technicbots/teamphoto.png",
             alt: "Technicbots Team Photo",
             caption: "Team 8565 - Building the Future"
         },
         {
-            src: "/resources/technicbots/teamphoto1.jpg",
+            src: "/resources/technicbots/fixingrobot.jpg",
             alt: "Robot Demonstration",
             caption: "Competition Demo Day"
         },
         {
-            src: "/resources/technicbots/teamphoto2.jpg",
+            src: "/resources/technicbots/awards.jpg",
             alt: "Robot Design",
             caption: "Award-Winning Robot Design"
         },
         {
-            src: "/resources/technicbots/teamphoto2.jpg",
+            src: "/resources/technicbots/robot.jpg",
             alt: "Team Working on Robot",
             caption: "Engineering in Action"
         }
@@ -57,17 +60,17 @@ const Technicbots: React.FC = () => {
 
     const workshopPhotos = [
         {
-            src: "/resources/IntroRoboticsWorkshop/teamphoto2.jpg",
+            src: "/resources/technicbots/withpolice.jpg",
             alt: "FLYSET Workshop",
             caption: "FLYSET Workshop - Hands-on Learning"
         },
         {
-            src: "/resources/IntroRoboticsWorkshop/teamphoto2.jpg",
+            src: "/resources/technicbots/tedtalk.jpg",
             alt: "Student Mentoring",
             caption: "Mentoring Future Engineers"
         },
         {
-            src: "/resources/IntroRoboticsWorkshop/teamphoto2.jpg",
+            src: "/resources/technicbots/withman.jpg",
             alt: "Robotics Training",
             caption: "Building Skills Together"
         }
@@ -75,17 +78,17 @@ const Technicbots: React.FC = () => {
 
     const competitionPhotos = [
         {
-            src: "/resources/Robotics/teamphoto2.jpg",
+            src: "/resources/technicbots/competitions.jpg",
             alt: "FIRST Global Competition",
             caption: "FIRST Global Challenge - Geneva 2023"
         },
         {
-            src: "/resources/Robotics/teamphoto2.jpg",
+            src: "/resources/technicbots/competition1.jpg",
             alt: "Team USA",
             caption: "Representing Team USA"
         },
         {
-            src: "/resources/Robotics/teamphoto2.jpg",
+            src: "/resources/technicbots/kidsplaying.jpg",
             alt: "Gold Medal Victory",
             caption: "Gold Medal Victory with Team Zimbabwe"
         }
@@ -155,18 +158,27 @@ const Technicbots: React.FC = () => {
 
                         {/* Stats Card */}
                         <div className="interactive-card p-6">
-                            <h3 className="text-xl font-bold mb-4 title text-center">
-                                <DecryptedText text="Impact at a Glance" />
-                            </h3>
-                            <div className="space-y-4">
-                                {stats.map((stat, idx) => (
-                                    <div key={idx} className="text-center p-3 rounded-lg" style={{ backgroundColor: 'var(--surface-bg)' }}>
-                                        <p className="text-3xl font-bold text-accent">{stat.value}</p>
-                                        <p className="text-sm text-current">{stat.label}</p>
-                                    </div>
-                                ))}
-                            </div>
+                        <h3 className="text-xl font-bold mb-4 title text-center">
+                            <DecryptedText text="Impact at a Glance" />
+                        </h3>
+                        <div className="space-y-4">
+                            {stats.map((stat, idx) => (
+                                <div key={idx} className="text-center p-3 rounded-lg" style={{ backgroundColor: 'var(--surface-bg)' }}>
+                                    <p className="text-3xl font-bold text-accent">
+                                        <CountUp
+                                            from={0}
+                                            to={stat.value}
+                                            separator={stat.value >= 1000 ? "," : ""}
+                                            suffix={stat.suffix}
+                                            duration={2.5}
+                                            className="inline"
+                                        />
+                                    </p>
+                                    <p className="text-sm text-current">{stat.label}</p>
+                                </div>
+                            ))}
                         </div>
+                    </div>
                     </div>
 
                     {/* Team Photos Gallery - Bento Grid */}
@@ -179,7 +191,7 @@ const Technicbots: React.FC = () => {
                                 <div key={idx} className="interactive-card overflow-hidden group">
                                     <div className="relative aspect-square overflow-hidden">
                                         <img
-                                            src={photo.src}
+                                            src={asset(photo.src)}
                                             alt={photo.alt}
                                             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                                             onError={(e) => {
@@ -248,7 +260,7 @@ const Technicbots: React.FC = () => {
                                 <div key={idx} className="interactive-card overflow-hidden group">
                                     <div className="relative aspect-video overflow-hidden">
                                         <img
-                                            src={photo.src}
+                                            src={asset(photo.src)}
                                             alt={photo.alt}
                                             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                                             onError={(e) => {
@@ -270,20 +282,27 @@ const Technicbots: React.FC = () => {
 
                     {/* Bento Grid Section 3: Initiatives Grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-4">
-                        {keyInitiatives.map((initiative, idx) => (
-                            <div
-                                key={idx}
-                                className="interactive-card p-6 text-center surface-hover"
-                            >
-                                <div className="text-4xl mb-3">{initiative.emoji}</div>
-                                <h3 className="text-base font-bold title mb-2">
-                                    <DecryptedText text={initiative.title} />
-                                </h3>
-                                <p className="text-sm text-current opacity-80">
-                                    <DecryptedText text={initiative.desc} />
-                                </p>
-                            </div>
-                        ))}
+                        {keyInitiatives.map((initiative, idx) => {
+                            const IconComponent = initiative.icon;
+                            return (
+                                <div
+                                    key={idx}
+                                    className="interactive-card p-6 text-center surface-hover"
+                                >
+                                    <div className="flex items-center justify-center mb-3">
+                                        <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center text-white">
+                                            <IconComponent className="text-2xl" />
+                                        </div>
+                                    </div>
+                                    <h3 className="text-base font-bold title mb-2">
+                                        <DecryptedText text={initiative.title} />
+                                    </h3>
+                                    <p className="text-sm text-current opacity-80">
+                                        <DecryptedText text={initiative.desc} />
+                                    </p>
+                                </div>
+                            );
+                        })}
                     </div>
 
                     {/* Workshop Photos Gallery */}
@@ -296,7 +315,7 @@ const Technicbots: React.FC = () => {
                                 <div key={idx} className="interactive-card overflow-hidden group">
                                     <div className="relative h-64 overflow-hidden">
                                         <img
-                                            src={photo.src}
+                                            src={asset(photo.src)}
                                             alt={photo.alt}
                                             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                                             onError={(e) => {
