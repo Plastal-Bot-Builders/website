@@ -8,6 +8,7 @@ import { MembershipManager } from '../components/admin/MembershipManager';
 import { useBlogPosts } from '../components/admin/hooks/useBlogPosts';
 import { useMembers } from '../components/admin/hooks/useMembers';
 import { EventManager } from '../components/admin/EventManager';
+import { SEOConfig } from '../components/SEO';
 
 // Update type definition to include 'events'
 type TabType = 'dashboard' | 'blog' | 'members' | 'events';
@@ -89,92 +90,99 @@ export default function Admin() {
   }
 
   return (
-    <AdminContainer>
-      <Header>
-        <h1>Admin Dashboard</h1>
-        <button
-          onClick={handleLogout}
-          style={{
-            backgroundColor: '#0CFFBB',
-            color: '#000',
-            border: 'none',
-            padding: '10px 15px',
-            borderRadius: '4px',
-            cursor: 'pointer',
-            fontWeight: 'bold'
-          }}
-        >
-          Log out
-        </button>
-      </Header>
+    <>
+      <SEOConfig
+        title="About | Plastal-Bot Builders"
+        description="Learn more about Plastal-Bot Builders, our mission, and the team behind our innovative programs."
+        image="/resources/Photos/fredmpelembe.jpeg"
+      />
+      <AdminContainer>
+        <Header>
+          <h1>Admin Dashboard</h1>
+          <button
+            onClick={handleLogout}
+            style={{
+              backgroundColor: '#0CFFBB',
+              color: '#000',
+              border: 'none',
+              padding: '10px 15px',
+              borderRadius: '4px',
+              cursor: 'pointer',
+              fontWeight: 'bold'
+            }}
+          >
+            Log out
+          </button>
+        </Header>
 
-      {error && <ErrorMessage>{error}</ErrorMessage>}
+        {error && <ErrorMessage>{error}</ErrorMessage>}
 
-      <TabContainer>
-        <Tab
-          $active={activeTab === 'dashboard'}
-          onClick={() => setActiveTab('dashboard')}
-        >
-          Dashboard
-        </Tab>
-        <Tab
-          $active={activeTab === 'blog'}
-          onClick={() => setActiveTab('blog')}
-        >
-          Blog Posts
-        </Tab>
-        <Tab
-          $active={activeTab === 'members'}
-          onClick={() => setActiveTab('members')}
-        >
-          Membership
-        </Tab>
-        {/* Add the Events tab here */}
-        <Tab
-          $active={activeTab === 'events'}
-          onClick={() => setActiveTab('events')}
-        >
-          Events
-        </Tab>
-      </TabContainer>
+        <TabContainer>
+          <Tab
+            $active={activeTab === 'dashboard'}
+            onClick={() => setActiveTab('dashboard')}
+          >
+            Dashboard
+          </Tab>
+          <Tab
+            $active={activeTab === 'blog'}
+            onClick={() => setActiveTab('blog')}
+          >
+            Blog Posts
+          </Tab>
+          <Tab
+            $active={activeTab === 'members'}
+            onClick={() => setActiveTab('members')}
+          >
+            Membership
+          </Tab>
+          {/* Add the Events tab here */}
+          <Tab
+            $active={activeTab === 'events'}
+            onClick={() => setActiveTab('events')}
+          >
+            Events
+          </Tab>
+        </TabContainer>
 
-      {activeTab === 'dashboard' && (
-        <DashboardPanel posts={posts} members={members} />
-      )}
+        {activeTab === 'dashboard' && (
+          <DashboardPanel posts={posts} members={members} />
+        )}
 
-      {activeTab === 'blog' && (
-        <BlogManager
-          posts={posts}
-          token={token}
-          onPostsChange={loadPosts}
-          loading={postsLoading}
-          setError={setError}
-        />
-      )}
+        {activeTab === 'blog' && (
+          <BlogManager
+            posts={posts}
+            token={token}
+            onPostsChange={loadPosts}
+            loading={postsLoading}
+            setError={setError}
+          />
+        )}
 
-      {activeTab === 'members' && (
-        <MembershipManager
-          members={members}
-          token={token}
-          loading={membersLoading}
-          setError={setError}
-          onLoadMembers={loadMembers}
-          onLoadMemberDetails={loadMemberDetails}
-          onUpdateMemberStatus={handleUpdateMemberStatus}
-          onDeleteMember={handleDeleteMember}
-        />
-      )}
+        {activeTab === 'members' && (
+          <MembershipManager
+            members={members}
+            token={token}
+            loading={membersLoading}
+            setError={setError}
+            onLoadMembers={loadMembers}
+            onLoadMemberDetails={loadMemberDetails}
+            onUpdateMemberStatus={handleUpdateMemberStatus}
+            onDeleteMember={handleDeleteMember}
+          />
+        )}
 
-      {/* Add the EventManager component */}
-      {activeTab === 'events' && (
-        <EventManager
-          events={events}
-          token={token}
-          onEventsChange={loadEvents}
-          loading={eventsLoading}
-          setError={setError}
-        />
-      )}
-    </AdminContainer>
+        {/* Add the EventManager component */}
+        {activeTab === 'events' && (
+          <EventManager
+            events={events}
+            token={token}
+            onEventsChange={loadEvents}
+            loading={eventsLoading}
+            setError={setError}
+          />
+        )}
+      </AdminContainer>
+    </>
   );
 }
