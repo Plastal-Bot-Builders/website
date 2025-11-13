@@ -13,7 +13,6 @@ import CountUp from '../components/ui/CountUp';
 import { FaHandshake, FaGraduationCap, FaGlobe } from 'react-icons/fa';
 
 
-
 const Home: React.FC = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
@@ -379,7 +378,7 @@ const Home: React.FC = () => {
         </div>
 
         {/* TechniBots Section */}
-        <div id="partners" className="max-w-7xl mx-auto p-6">
+        <div id="partners" className="max-w-7xl mx-auto p-4">
           <h1 className="mb-4 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight">
             <span className="text-hex">Our Partners</span> in Innovation
           </h1>

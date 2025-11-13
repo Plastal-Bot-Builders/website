@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 
 export default (
   <Routes>
+    {/* Main Pages */}
     <Route path="/" />
     <Route path="/home" />
     <Route path="/about" />
@@ -10,6 +11,9 @@ export default (
     <Route path="/blogs" />
     <Route path="/programs" />
     <Route path="/events" />
+    <Route path="/projects" />
+    
+    {/* Support Pages */}
     <Route path="/support" />
     <Route path="/support/donations" />
     <Route path="/support/sponsorships" />
@@ -20,5 +24,18 @@ export default (
     <Route path="/support/corporate-partnerships" />
     <Route path="/support/educational-institutions" />
     <Route path="/support/nonprofits" />
+    
+    {/* Project Showcase Pages */}
+    <Route path="/projects/gypul" />
+    <Route path="/projects/enviro-monitor" />
+    
+    {/* Team/Partner Pages */}
+    <Route path="/team/technicbots" />
+    <Route path="/team/david" />
+    
+    {/* Hash/Section Navigation (for SEO) */}
+    <Route path="/home#partners" />
+    <Route path="/home#david" />
+    <Route path="/home#team" />
   </Routes>
 );
