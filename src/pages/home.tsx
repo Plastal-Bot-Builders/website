@@ -524,6 +524,16 @@ const Home: React.FC = () => {
                   <p className="text-sm text-current">Years of Excellence</p>
                 </div>
               </div>
+              {/* Summary Paragraph */}
+              <div className="mt-6 pt-4 border-t border-surface">
+                <DecryptedText
+                  text="Through 16+ years of dedicated service, our partners have contributed over $2,000 in fundraising support, invested 2,000+ outreach hours, and positively impacted more than 8,000 students. This collaboration continues to strengthen STEM education and create lasting opportunities for young innovators across Zambia and beyond."
+                  parentClassName="block"
+                  className="text-sm sm:text-base md:text-lg text-center leading-relaxed"
+                  animateOn="view"
+                  revealDirection="start"
+                />
+              </div>              
             </div>
 
             {/* Small Card - Collaboration Highlight */}
