@@ -426,3 +426,23 @@ header img { width: 100px; }
   .mobile-menu-enter { opacity: 0; transform: translateY(-10px); }
   .mobile-menu-enter-active { opacity: 1; transform: translateY(0); transition: all 0.3s ease-out; }
 }
+
+/* Advanced floating animation with rotation */
+@keyframes float-rotate {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-8px) rotate(1deg);
+    }
+    50% {
+        transform: translateY(-15px) rotate(0deg);
+    }
+    75% {
+        transform: translateY(-8px) rotate(-1deg);
+    }
+}
+
+.animate-float {
+    animation: float-rotate 4s ease-in-out infinite;
+}

@@ -112,7 +112,12 @@ const DavidProfile: React.FC = () => {
 
                         {/* Hero Content - Centered */}
                         <div className="max-w-5xl mx-auto text-center">
-                            <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-accent mx-auto mb-6">
+                            <div 
+                                className="w-24 h-24 rounded-full overflow-hidden border-4 border-accent mx-auto mb-6"
+                                style={{
+                                    animation: 'float-rotate 3s ease-in-out infinite'
+                                }}
+                            >
                                 <img 
                                     src={asset('resources/technicbots/DavidHue.jpg')}
                                     alt="David"
@@ -150,7 +155,7 @@ const DavidProfile: React.FC = () => {
                             </div>
                         </div>
 
-                        {/* Quick Facts Card with CountUp */}
+                        {/* Quick Facts Card */}
                         <div className="interactive-card p-6" style={{ background: 'linear-gradient(135deg, var(--surface-bg) 0%, var(--surface-hover-bg) 100%)' }}>
                             <h3 className="text-xl font-bold mb-4 title text-center">
                                 <DecryptedText text="Impact Metrics" />
@@ -183,6 +188,7 @@ const DavidProfile: React.FC = () => {
                                     </div>
                                 ))}
                             </div>
+                            
                         </div>
                     </div>
 
