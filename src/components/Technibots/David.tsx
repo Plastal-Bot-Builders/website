@@ -7,6 +7,7 @@ import { SEOConfig } from '../../components/SEO';
 import CountUp from '../../components/ui/CountUp';
 import { FaRobot, FaTools, FaCar, FaPencilRuler, FaHandshake, FaGraduationCap, FaLightbulb, FaUsers } from 'react-icons/fa';
 import { HiCheckCircle } from 'react-icons/hi';
+import { asset } from '../../utils/asset';
 
 interface Project {
     icon: React.ComponentType<{ className?: string }>;
@@ -87,7 +88,7 @@ const DavidProfile: React.FC = () => {
                 <Header />
 
                 {/* Hero Section */}
-                <section className="relative py-20 px-4" style={{ backgroundColor: 'var(--surface-bg)' }}>
+                <section className="relative py-20 px-4">
                     <div className="max-w-7xl mx-auto">
                         {/* Back Button - Top Left */}
                         <button
@@ -111,8 +112,12 @@ const DavidProfile: React.FC = () => {
 
                         {/* Hero Content - Centered */}
                         <div className="max-w-5xl mx-auto text-center">
-                            <div className="w-24 h-24 rounded-full bg-accent flex items-center justify-center text-white text-4xl font-bold mx-auto mb-6">
-                                D
+                            <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-accent mx-auto mb-6">
+                                <img 
+                                    src={asset('resources/technicbots/DavidHue.jpg')}
+                                    alt="David"
+                                    className="w-full h-full object-cover"
+                                />
                             </div>
                             <h1 className="text-5xl md:text-6xl font-bold mb-4 title">
                                 <DecryptedText text="David" />
@@ -152,24 +157,28 @@ const DavidProfile: React.FC = () => {
                             </h3>
                             <div className="space-y-3">
                                 {impactStats.map((stat, idx) => (
-                                    <div key={idx} className="p-3 rounded-lg text-center" style={{ backgroundColor: 'var(--surface-bg)' }}>
-                                        <p className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg font-bold text-accent">
-                                            {stat.isYear ? (
-                                                stat.value
-                                            ) : (
-                                                <>
-                                                    {stat.prefix}
-                                                    <CountUp
-                                                        from={0}
-                                                        to={stat.value}
-                                                        separator={stat.value >= 1000 ? "," : ""}
-                                                        suffix={stat.suffix}
-                                                        duration={2.5}
-                                                        className="inline"
-                                                    />
-                                                </>
-                                            )}
-                                        </p>
+                                    <div key={idx} className="p-3 rounded-lg text-center" 
+                                        style={{
+                                            backgroundColor: 'var(--surface-bg)',
+                                            border: '1px solid var(--surface-border)'
+                                        }}>
+                                            <p className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg font-bold text-accent">
+                                                {stat.isYear ? (
+                                                    stat.value
+                                                ) : (
+                                                    <>
+                                                        {stat.prefix}
+                                                        <CountUp
+                                                            from={0}
+                                                            to={stat.value}
+                                                            separator={stat.value >= 1000 ? "," : ""}
+                                                            suffix={stat.suffix}
+                                                            duration={2.5}
+                                                            className="inline"
+                                                        />
+                                                    </>
+                                                )}
+                                            </p>
                                         <p className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg text-current opacity-80">{stat.label}</p>
                                     </div>
                                 ))}
@@ -257,7 +266,7 @@ const DavidProfile: React.FC = () => {
                                 <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center text-white">
                                     <FaLightbulb className="text-xl" />
                                 </div>
-                                <h2 className="text-sm sm:text-base md:text-lg lg:text-lg xl:text-lgfont-bold text-accent">
+                                <h2 className="text-2xl font-bold text-accent">
                                     <DecryptedText text="What Makes David Stand Out" />
                                 </h2>
                             </div>
@@ -265,10 +274,10 @@ const DavidProfile: React.FC = () => {
                                 {profile_json.qualities.map((quality, idx) => (
                                     <span
                                         key={idx}
-                                        className="px-4 py-2 rounded-full text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg font-semibold"
+                                        className="px-4 py-2 border border-white/10 rounded text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg font-semibold"
                                         style={{
-                                            backgroundColor: 'var(--accent)',
-                                            color: 'white'
+                                            backgroundColor: 'var(--surface-bg)',
+                                            border: '1px solid var(--surface-border)'
                                         }}
                                     >
                                         <DecryptedText text={quality} />
