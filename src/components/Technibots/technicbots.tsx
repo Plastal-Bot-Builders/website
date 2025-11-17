@@ -133,6 +133,18 @@ const Technicbots: React.FC = () => {
                             <h1 className="text-5xl md:text-6xl font-bold mb-4 title">
                                 <DecryptedText text="Technicbots" />
                             </h1>
+                            <div
+                                className="w-24 h-24 rounded-full overflow-hidden border-4 border-accent mx-auto mb-6"
+                                style={{
+                                    animation: 'float-rotate 3s ease-in-out infinite'
+                                }}
+                            >
+                                <img
+                                    src={asset('resources/technicbots/technicbotslogo.jpg')}
+                                    alt="Technicbots Logo"
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
                             <p className="text-xl md:text-2xl mb-2 text-accent font-semibold">
                                 <DecryptedText text="FIRST Tech Challenge Team 8565" />
                             </p>
