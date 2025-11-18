@@ -69,78 +69,87 @@ export default function ProjectsPage(): JSX.Element {
       <section className="scroll-smooth focus:scroll-auto">
         {/* Navigation Bar */}
         <Header />
+        
         <div className="max-w-7xl mx-auto px-6 py-16">
-          <header className="mb-12">
-            <h1 className="text-4xl sm:text-5xl font-extrabold mb-3">Projects</h1>
-            <p className="max-w-2xl">
-              Explore hands-on projects from Plastal-Bot Builders — student showcases, open-source designs and classroom-ready builds.
-            </p>
-          </header>
+          {/* Wrap header in FadeContent */}
+          <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
+            <header className="mb-12">
+              <h1 className="text-4xl sm:text-5xl font-extrabold mb-3">Projects</h1>
+              <p className="max-w-2xl">
+                Explore hands-on projects from Plastal-Bot Builders — student showcases, open-source designs and classroom-ready builds.
+              </p>
+            </header>
+          </FadeContent>
 
-          <section className="mb-12">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {SAMPLE_PROJECTS.map((p, i) => (
-                <motion.article
-                  key={p.id}
-                  className="interactive-card rounded-lg overflow-hidden shadow-md"
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true }}
-                  variants={cardVariants}
-                >
-                  <div className="relative h-44 bg-gray-800">
-                    {p.image ? (
-                      <img
-                        src={asset(p.image)}
-                        alt={p.title}
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <div className="flex items-center justify-center h-full ">No image</div>
-                    )}
-                    {p.featured && (
-                      <span className="absolute left-3 top-3 bg-accent =text-xs px-2 py-1 rounded">Featured</span>
-                    )}
-                  </div>
+          {/* Wrap project grid in FadeContent */}
+          <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
+            <section className="mb-12">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {SAMPLE_PROJECTS.map((p, i) => (
+                  <motion.article
+                    key={p.id}
+                    className="interactive-card rounded-lg overflow-hidden shadow-md"
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                    variants={cardVariants}
+                  >
+                    <div className="relative h-44 bg-gray-800">
+                      {p.image ? (
+                        <img
+                          src={asset(p.image)}
+                          alt={p.title}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className="flex items-center justify-center h-full">No image</div>
+                      )}
+                      {p.featured && (
+                        <span className="absolute left-3 top-3 bg-accent text-xs px-2 py-1 rounded">Featured</span>
+                      )}
+                    </div>
 
-                  <div className="p-4">
-                    <h3 className="text-lg font-semibold mb-2">{p.title}</h3>
-                    <p className="text-sm mb-4">{p.short}</p>
+                    <div className="p-4">
+                      <h3 className="text-lg font-semibold mb-2">{p.title}</h3>
+                      <p className="text-sm mb-4">{p.short}</p>
 
-                    <div className="flex items-center justify-between">
-                      <div className="flex flex-wrap gap-2">
-                        {p.tags?.slice(0, 3).map(tag => (
-                          <span key={tag} className="text-xs border border-white/10 px-2 py-1 rounded">
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
+                      <div className="flex items-center justify-between">
+                        <div className="flex flex-wrap gap-2">
+                          {p.tags?.slice(0, 3).map(tag => (
+                            <span key={tag} className="text-xs border border-white/10 px-2 py-1 rounded">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
 
-                      <div className="flex items-center space-x-2">
-                        <a
-                          href={`/website/projects/${p.id}`}
-                          className="text-sm underline hidden sm:inline"
-                          aria-label={`Open ${p.title} detail page`}
-                        >
-                          Details
-                        </a>
+                        <div className="flex items-center space-x-2">
+                          <a
+                            href={`/website/projects/${p.id}`}
+                            className="text-sm underline hidden sm:inline"
+                            aria-label={`Open ${p.title} detail page`}
+                          >
+                            Details
+                          </a>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </motion.article>
-              ))}
-            </div>
-          </section>
+                  </motion.article>
+                ))}
+              </div>
+            </section>
+          </FadeContent>
 
-          {/* Quick filter / actions */}
-          <section className="mb-12">
-            <h4 className="text-xl font-semibold mb-3">More</h4>
-            <p className="text-sm text-gray-400 mb-4">Want to submit a project or request a workshop? Get in touch.</p>
-            <div className="flex gap-3">
-              <a href="/programs" className="px-4 py-2 rounded bg-white/5 border border-white/5 text-sm">View Programs</a>
-              <a href="/support" className="px-4 py-2 rounded bg-white/5 border border-white/5 text-sm">Support & Submit</a>
-            </div>
-          </section>
+          {/* Wrap "More" section in FadeContent */}
+          <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
+            <section className="mb-12">
+              <h4 className="text-xl font-semibold mb-3">More</h4>
+              <p className="text-sm text-gray-400 mb-4">Want to submit a project or request a workshop? Get in touch.</p>
+              <div className="flex gap-3">
+                <a href="/programs" className="px-4 py-2 rounded bg-white/5 border border-white/5 text-sm">View Programs</a>
+                <a href="/support" className="px-4 py-2 rounded bg-white/5 border border-white/5 text-sm">Support & Submit</a>
+              </div>
+            </section>
+          </FadeContent>
 
           {/* Modal / drawer for quick preview */}
           {selected && (
@@ -192,6 +201,7 @@ export default function ProjectsPage(): JSX.Element {
             </motion.div>
           )}
         </div>
+        
         <Footer />
       </section>
     </>

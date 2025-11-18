@@ -33,259 +33,259 @@ const Support: React.FC = () => {
                 {/* Navigation Bar */}
                 <Header />
                 {/* Main Content */}
-                <div className="max-w-7xl mx-auto p-8">
-                    {/* Section: Support Us */}
-                    <section className="mb-16">
-                        <h1 className="mb-8 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight title">
-                            <span className="text-hex">Support</span> Us
-                        </h1>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {/* Donate Card */}
-                            <div className="p-6 border border-surface-border rounded-lg interactive-card flex flex-col h-full">
-                                <div className="flex-grow">
-                                    <div className="image mb-4">
-                                        <ThemedImage
-                                            alt="Donations Illustration"
-                                            src="resources/Illustrations/donations.svg"
-                                            className="w-full h-auto object-cover"
-                                        />
+                <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
+                    <div className="max-w-7xl mx-auto p-8">
+                        {/* Section: Support Us */}
+                        <section className="mb-16">
+                            <h1 className="mb-8 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight title">
+                                <span className="text-hex">Support</span> Us
+                            </h1>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {/* Donate Card */}
+                                <div className="p-6 border border-surface-border rounded-lg interactive-card flex flex-col h-full">
+                                    <div className="flex-grow">
+                                        <div className="image mb-4">
+                                            <ThemedImage
+                                                alt="Donations Illustration"
+                                                src="resources/Illustrations/donations.svg"
+                                                className="w-full h-auto object-cover"
+                                            />
+                                        </div>
+                                        <h3 className="text-xl font-semibold mb-2">
+                                            {FaDonate({ className: "inline-block mr-2" })} Donate
+                                        </h3>
+                                        <p className="text-gray-500 dark:text-gray-300 text-sm sm:text-base">
+                                            Support us by making a donation to help fund our initiatives and projects.
+                                        </p>
                                     </div>
-                                    <h3 className="text-xl font-semibold mb-2">
-                                        {FaDonate({ className: "inline-block mr-2" })} Donate
-                                    </h3>
-                                    <p className="text-gray-500 dark:text-gray-300 text-sm sm:text-base">
-                                        Support us by making a donation to help fund our initiatives and projects.
-                                    </p>
+                                    <button
+                                        onClick={() => navigate('/support/donations')}
+                                        className="text-current hover:text-accent mt-auto pt-4 block"
+                                    >
+                                        More about donations →
+                                    </button>
                                 </div>
-                                <button
-                                    onClick={() => navigate('/support/donations')}
-                                    className="text-current hover:text-accent mt-auto pt-4 block"
-                                >
-                                    More about donations →
-                                </button>
-                            </div>
-                            {/* Sponsorship Card */}
-                            <div className="p-6 border border-surface-border rounded-lg interactive-card flex flex-col h-full">
-                                <div className="flex-grow">
-                                    <div className="image mb-4">
-                                        <ThemedImage
-                                            alt="Sponsorship Illustration"
-                                            src="resources/Illustrations/Sponsorship.svg"
-                                            className="w-full h-auto object-cover"
-                                        />
+                                {/* Sponsorship Card */}
+                                <div className="p-6 border border-surface-border rounded-lg interactive-card flex flex-col h-full">
+                                    <div className="flex-grow">
+                                        <div className="image mb-4">
+                                            <ThemedImage
+                                                alt="Sponsorship Illustration"
+                                                src="resources/Illustrations/Sponsorship.svg"
+                                                className="w-full h-auto object-cover"
+                                            />
+                                        </div>
+                                        <h3 className="text-xl font-semibold mb-2">
+                                            {FaRegHandshake({ className: "inline-block mr-2" })} Sponsorship
+                                        </h3>
+                                        <p className="text-gray-500 dark:text-gray-300 text-sm sm:text-base">
+                                            Become a sponsor and support specific programs or events tailored to your interests.
+                                        </p>
                                     </div>
-                                    <h3 className="text-xl font-semibold mb-2">
-                                        {FaRegHandshake({ className: "inline-block mr-2" })} Sponsorship
-                                    </h3>
-                                    <p className="text-gray-500 dark:text-gray-300 text-sm sm:text-base">
-                                        Become a sponsor and support specific programs or events tailored to your interests.
-                                    </p>
+                                    <button
+                                        onClick={() => navigate('/support/sponsorships')}
+                                        className="text-current hover:text-accent mt-auto pt-4 block"
+                                    >
+                                        More about sponsorships →
+                                    </button>
                                 </div>
-                                <button
-                                    onClick={() => navigate('/support/sponsorships')}
-                                    className="text-current hover:text-accent mt-auto pt-4 block"
-                                >
-                                    More about sponsorships →
-                                </button>
-                            </div>
-                            {/* Fundraising Card */}
-                            <div className="p-6 border border-surface-border rounded-lg interactive-card flex flex-col h-full">
-                                <div className="flex-grow">
-                                    <div className="image mb-4">
-                                        <ThemedImage
-                                            alt="Fundraising Illustration"
-                                            src="resources/Illustrations/Fundraising.svg"
-                                            className="w-full h-auto object-cover"
-                                        />
+                                {/* Fundraising Card */}
+                                <div className="p-6 border border-surface-border rounded-lg interactive-card flex flex-col h-full">
+                                    <div className="flex-grow">
+                                        <div className="image mb-4">
+                                            <ThemedImage
+                                                alt="Fundraising Illustration"
+                                                src="resources/Illustrations/Fundraising.svg"
+                                                className="w-full h-auto object-cover"
+                                            />
+                                        </div>
+                                        <h3 className="text-xl font-semibold mb-2">
+                                            {FaCalendarAlt({ className: "inline-block mr-2" })} Fundraising
+                                        </h3>
+                                        <p className="text-gray-500 dark:text-gray-300 text-sm sm:text-base">
+                                            Organize fundraising events or campaigns to help us reach more people.
+                                        </p>
                                     </div>
-                                    <h3 className="text-xl font-semibold mb-2">
-                                        {FaCalendarAlt({ className: "inline-block mr-2" })} Fundraising
-                                    </h3>
-                                    <p className="text-gray-500 dark:text-gray-300 text-sm sm:text-base">
-                                        Organize fundraising events or campaigns to help us reach more people.
-                                    </p>
+
+                                    <button
+                                        onClick={() => navigate('/support/fundraising')}
+                                        className="text-current hover:text-accent mt-auto pt-4 block"
+                                    >
+                                        More about fundraising →
+                                    </button>
+                                </div>
+                            </div>
+                        </section>
+
+                        {/* Section: Volunteer Opportunities */}
+                        <section className="mb-16">
+                            <h1 className="mb-8 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight title">
+                                <span className="text-hex">Volunteer</span> Opportunities
+                            </h1>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {/* Mentorship Card */}
+                                <div className="p-6 border border-surface-border rounded-lg interactive-card flex flex-col h-full">
+                                    <div className="flex-grow">
+                                        <div className="image mb-4">
+                                            <ThemedImage
+                                                alt="Mentorship Illustration"
+                                                src="resources/Illustrations/Mentorship.svg"
+                                                className="w-full h-auto object-cover"
+                                            />
+                                        </div>
+                                        <h3 className="text-xl font-semibold mb-2">
+                                            {FaChalkboardTeacher({ className: "inline-block mr-2" })} Mentorship
+                                        </h3>
+                                        <p className="text-gray-500 dark:text-gray-300 text-sm sm:text-base">
+                                            Become a mentor and help guide our youth in various technical and life skills.
+                                        </p>
+                                    </div>
+
+                                    <button
+                                        onClick={() => navigate('/support/mentorship')}
+                                        className="text-current hover:text-accent mt-auto pt-4 block"
+                                    >
+                                        More about mentorship →
+                                    </button>
                                 </div>
 
-                                <button
-                                    onClick={() => navigate('/support/fundraising')}
-                                    className="text-current hover:text-accent mt-auto pt-4 block"
-                                >
-                                    More about fundraising →
-                                </button>
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* Section: Volunteer Opportunities */}
-                    <section className="mb-16">
-                        <h1 className="mb-8 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight title">
-                            <span className="text-hex">Volunteer</span> Opportunities
-                        </h1>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {/* Mentorship Card */}
-                            <div className="p-6 border border-surface-border rounded-lg interactive-card flex flex-col h-full">
-                                <div className="flex-grow">
-                                    <div className="image mb-4">
-                                        <ThemedImage
-                                            alt="Mentorship Illustration"
-                                            src="resources/Illustrations/Mentorship.svg"
-                                            className="w-full h-auto object-cover"
-                                        />
+                                {/* Technical Support Card */}
+                                <div className="p-6 border border-surface-border rounded-lg interactive-card flex flex-col h-full">
+                                    <div className="flex-grow">
+                                        <div className="image mb-4">
+                                            <ThemedImage
+                                                alt="Technical Support Illustration"
+                                                src="resources/Illustrations/Support.svg"
+                                                className="w-full h-auto object-cover"
+                                            />
+                                        </div>
+                                        <h3 className="text-xl font-semibold mb-2">
+                                            {FaTools({ className: "inline-block mr-2" })} Technical Support
+                                        </h3>
+                                        <p className="text-gray-500 dark:text-gray-300 text-sm sm:text-base">
+                                            Offer your expertise in technical areas like software development, electronics, or robotics.
+                                        </p>
                                     </div>
-                                    <h3 className="text-xl font-semibold mb-2">
-                                        {FaChalkboardTeacher({ className: "inline-block mr-2" })} Mentorship
-                                    </h3>
-                                    <p className="text-gray-500 dark:text-gray-300 text-sm sm:text-base">
-                                        Become a mentor and help guide our youth in various technical and life skills.
-                                    </p>
+                                    <button
+                                        onClick={() => navigate('/support/technical-support')}
+                                        className="text-current hover:text-accent mt-auto pt-4 block"
+                                    >
+                                        More about technical support →
+                                    </button>
                                 </div>
 
-                                <button
-                                    onClick={() => navigate('/support/mentorship')}
-                                    className="text-current hover:text-accent mt-auto pt-4 block"
-                                >
-                                    More about mentorship →
-                                </button>
-                            </div>
-
-                            {/* Technical Support Card */}
-                            <div className="p-6 border border-surface-border rounded-lg interactive-card flex flex-col h-full">
-                                <div className="flex-grow">
-                                    <div className="image mb-4">
-                                        <ThemedImage
-                                            alt="Technical Support Illustration"
-                                            src="resources/Illustrations/Support.svg"
-                                            className="w-full h-auto object-cover"
-                                        />
+                                {/* Event Coordination Card */}
+                                <div className="p-6 border border-surface-border rounded-lg interactive-card flex flex-col h-full">
+                                    <div className="flex-grow">
+                                        <div className="image mb-4">
+                                            <ThemedImage
+                                                alt="Event Planning Illustration"
+                                                src="resources/Illustrations/Eventplan.svg"
+                                                className="w-full h-auto object-cover"
+                                            />
+                                        </div>
+                                        <h3 className="text-xl font-semibold mb-2">
+                                            {FaCalendarAlt({ className: "inline-block mr-2" })} Event Coordination
+                                        </h3>
+                                        <p className="text-gray-500 dark:text-gray-300 text-sm sm:text-base">
+                                            Help organize and coordinate events like workshops and competitions.
+                                        </p>
                                     </div>
-                                    <h3 className="text-xl font-semibold mb-2">
-                                        {FaTools({ className: "inline-block mr-2" })} Technical Support
-                                    </h3>
-                                    <p className="text-gray-500 dark:text-gray-300 text-sm sm:text-base">
-                                        Offer your expertise in technical areas like software development, electronics, or robotics.
-                                    </p>
+                                    <button
+                                        onClick={() => navigate('/support/event-coordination')}
+                                        className="text-current hover:text-accent mt-auto pt-4 block"
+                                    >
+                                        More about event coordination →
+                                    </button>
                                 </div>
-                                <button
-                                    onClick={() => navigate('/support/technical-support')}
-                                    className="text-current hover:text-accent mt-auto pt-4 block"
-                                >
-                                    More about technical support →
-                                </button>
                             </div>
+                        </section>
 
-                            {/* Event Coordination Card */}
-                            <div className="p-6 border border-surface-border rounded-lg interactive-card flex flex-col h-full">
-                                <div className="flex-grow">
-                                    <div className="image mb-4">
-                                        <ThemedImage
-                                            alt="Event Planning Illustration"
-                                            src="resources/Illustrations/Eventplan.svg"
-                                            className="w-full h-auto object-cover"
-                                        />
+                        {/* Section: Partnerships */}
+                        <section className="mb-16">
+                            <h1 className="mb-8 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight title">
+                                <span className="text-hex">Collaborative</span> Partnership
+                            </h1>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {/* Corporate Partnerships Card */}
+                                <div className="p-6 border border-surface-border rounded-lg interactive-card flex flex-col h-full">
+                                    <div className="flex-grow">
+                                        <div className="image mb-4">
+                                            <ThemedImage
+                                                alt="Corporate Partnerships Illustration"
+                                                src="resources/Illustrations/Partnerships.svg"
+                                                className="w-full h-auto object-cover"
+                                            />
+                                        </div>
+                                        <h3 className="text-xl font-semibold mb-2">
+                                            {FaBuilding({ className: "inline-block mr-2" })} Corporate Partnerships
+                                        </h3>
+                                        <p className="text-gray-500 dark:text-gray-300 text-sm sm:text-base">
+                                            Collaborate with us on large-scale projects or sponsor key events.
+                                        </p>
                                     </div>
-                                    <h3 className="text-xl font-semibold mb-2">
-                                        {FaCalendarAlt({ className: "inline-block mr-2" })} Event Coordination
-                                    </h3>
-                                    <p className="text-gray-500 dark:text-gray-300 text-sm sm:text-base">
-                                        Help organize and coordinate events like workshops and competitions.
-                                    </p>
+                                    <button
+                                        onClick={() => navigate('/support/corporate-partnerships')}
+                                        className="text-current hover:text-accent mt-auto pt-4 block"
+                                    >
+                                        More about corporate partnerships →
+                                    </button>
                                 </div>
-                                <button
-                                    onClick={() => navigate('/support/event-coordination')}
-                                    className="text-current hover:text-accent mt-auto pt-4 block"
-                                >
-                                    More about event coordination →
-                                </button>
-                            </div>
-                        </div>
-                    </section>
 
-                    {/* Section: Partnerships */}
-                    <section className="mb-16">
-                        <h1 className="mb-8 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-none tracking-tight title">
-                            <span className="text-hex">Collaborative</span> Partnership
-                        </h1>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {/* Corporate Partnerships Card */}
-                            <div className="p-6 border border-surface-border rounded-lg interactive-card flex flex-col h-full">
-                                <div className="flex-grow">
-                                    <div className="image mb-4">
-                                        <ThemedImage
-                                            alt="Corporate Partnerships Illustration"
-                                            src="resources/Illustrations/Partnerships.svg"
-                                            className="w-full h-auto object-cover"
-                                        />
+                                {/* Educational Institutions Card */}
+                                <div className="p-6 border border-surface-border rounded-lg interactive-card flex flex-col h-full">
+                                    <div className="flex-grow">
+                                        <div className="image mb-4">
+                                            <ThemedImage
+                                                alt="Educational Institutions Illustration"
+                                                src="resources/Illustrations/Education.svg"
+                                                className="w-full h-auto object-cover"
+                                            />
+                                        </div>
+                                        <h3 className="text-xl font-semibold mb-2">
+                                            {FaGraduationCap({ className: "inline-block mr-2" })} Educational Institutions
+                                        </h3>
+                                        <p className="text-gray-500 dark:text-gray-300 text-sm sm:text-base">
+                                            Partner with us to bring educational programs to students and communities.
+                                        </p>
                                     </div>
-                                    <h3 className="text-xl font-semibold mb-2">
-                                        {FaBuilding({ className: "inline-block mr-2" })} Corporate Partnerships
-                                    </h3>
-                                    <p className="text-gray-500 dark:text-gray-300 text-sm sm:text-base">
-                                        Collaborate with us on large-scale projects or sponsor key events.
-                                    </p>
+                                    <button
+                                        onClick={() => navigate('/support/educational-institutions')}
+                                        className="text-current hover:text-accent mt-auto pt-4 block"
+                                    >
+                                        More about educational partnerships →
+                                    </button>
                                 </div>
-                                <button
-                                    onClick={() => navigate('/support/corporate-partnerships')}
-                                    className="text-current hover:text-accent mt-auto pt-4 block"
-                                >
-                                    More about corporate partnerships →
-                                </button>
-                            </div>
 
-                            {/* Educational Institutions Card */}
-                            <div className="p-6 border border-surface-border rounded-lg interactive-card flex flex-col h-full">
-                                <div className="flex-grow">
-                                    <div className="image mb-4">
-                                        <ThemedImage
-                                            alt="Educational Institutions Illustration"
-                                            src="resources/Illustrations/Education.svg"
-                                            className="w-full h-auto object-cover"
-                                        />
+                                {/* Nonprofits Card */}
+                                <div className="p-6 border border-surface-border rounded-lg interactive-card flex flex-col h-full">
+                                    <div className="flex-grow">
+                                        <div className="image mb-4">
+                                            <ThemedImage
+                                                alt="Nonprofits Illustration"
+                                                src="resources/Illustrations/Nonprofit.svg"
+                                                className="w-full h-auto object-cover"
+                                            />
+                                        </div>
+                                        <h3 className="text-xl font-semibold mb-2">
+                                            {FaHandsHelping({ className: "inline-block mr-2" })} Nonprofits
+                                        </h3>
+                                        <p className="text-gray-500 dark:text-gray-300 text-sm sm:text-base">
+                                            Work with us to address pressing local issues through joint initiatives.
+                                        </p>
                                     </div>
-                                    <h3 className="text-xl font-semibold mb-2">
-                                        {FaGraduationCap({ className: "inline-block mr-2" })} Educational Institutions
-                                    </h3>
-                                    <p className="text-gray-500 dark:text-gray-300 text-sm sm:text-base">
-                                        Partner with us to bring educational programs to students and communities.
-                                    </p>
+                                    <button
+                                        onClick={() => navigate('/support/nonprofits')}
+                                        className="text-current hover:text-accent mt-auto pt-4 block"
+                                    >
+                                        More about nonprofit partnerships →
+                                    </button>
                                 </div>
-                                <button
-                                    onClick={() => navigate('/support/educational-institutions')}
-                                    className="text-current hover:text-accent mt-auto pt-4 block"
-                                >
-                                    More about educational partnerships →
-                                </button>
                             </div>
-
-                            {/* Nonprofits Card */}
-                            <div className="p-6 border border-surface-border rounded-lg interactive-card flex flex-col h-full">
-                                <div className="flex-grow">
-                                    <div className="image mb-4">
-                                        <ThemedImage
-                                            alt="Nonprofits Illustration"
-                                            src="resources/Illustrations/Nonprofit.svg"
-                                            className="w-full h-auto object-cover"
-                                        />
-                                    </div>
-                                    <h3 className="text-xl font-semibold mb-2">
-                                        {FaHandsHelping({ className: "inline-block mr-2" })} Nonprofits
-                                    </h3>
-                                    <p className="text-gray-500 dark:text-gray-300 text-sm sm:text-base">
-                                        Work with us to address pressing local issues through joint initiatives.
-                                    </p>
-                                </div>
-                                <button
-                                    onClick={() => navigate('/support/nonprofits')}
-                                    className="text-current hover:text-accent mt-auto pt-4 block"
-                                >
-                                    More about nonprofit partnerships →
-                                </button>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-
+                        </section>
+                    </div>
+                </FadeContent>      
                 <Footer />
-
                 {/* Reusable Modal */}
                 <ReusableModal
                     isOpen={isModalOpen}

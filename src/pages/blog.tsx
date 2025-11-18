@@ -52,9 +52,7 @@ const Blog: React.FC = () => {
                                     robotics, they gain skills vital for navigating today’s tech-driven world. Whether solving local
                                     issues or innovating globally, they learn critical thinking, creativity, and problem-solving —
                                     skills with immense value. </p>
-                                <p className="mb-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">Plus, investing in robotics education doesn’t just sound cool; it boosts the
-                                    economy, attracts investment, and bridges the digital gap, ensuring everyone has a shot at
-                                    shaping the future...</p>
+
                             </div>
                             <div>
                                 <div className="flex items-center space-x-4 mb-4">
@@ -100,11 +98,6 @@ const Blog: React.FC = () => {
                                     system that leverages cutting-edge IoT technology to tackle these issues. Equipped with sensors,
                                     microcontrollers, and servo motors, WasteWizard detects waste levels and automates lid
                                     operations. </p>
-                                <p className="mb-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">Using wireless communication protocols like Wi-Fi or LoRaWAN, it facilitates
-                                    real-time data transfer to a cloud-based platform that optimizes waste collection routes and
-                                    provides actionable insights. This system is designed to improve waste collection, promote
-                                    recycling initiatives, and create job opportunities, making it a sustainable and efficient
-                                    solution tailored to Zambia's needs.</p>
                             </div>
                             <div>
                                 <div className="flex items-center space-x-4 mb-4">
