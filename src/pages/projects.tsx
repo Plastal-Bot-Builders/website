@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { SEOConfig } from '../components/SEO';
+import FadeContent from '../components/ui/FadeContent';
 
 type Project = {
   id: string;

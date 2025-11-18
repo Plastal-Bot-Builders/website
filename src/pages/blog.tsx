@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import { useNavigate } from 'react-router-dom';
 import { asset } from '../utils/asset';
 import { SEOConfig } from '../components/SEO';
+import FadeContent from '../components/ui/FadeContent';
 
 const Blog: React.FC = () => {
     const navigate = useNavigate();

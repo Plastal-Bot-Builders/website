@@ -7,6 +7,7 @@ import ReusableModal from '../components/ReusableModal';
 import { Button } from 'flowbite-react';
 import ThemedImage from '../theme/ThemedImage';
 import { SEOConfig } from '../components/SEO';
+import FadeContent from '../components/ui/FadeContent';
 
 const Support: React.FC = () => {
     const navigate = useNavigate();
