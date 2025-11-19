@@ -149,8 +149,7 @@ const DonationsPage: React.FC = () => {
                     {/* Real Stories Section */}
                     <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
                         <section className="mb-12">
-                            <h2 className="text-2xl font-bold mb-6 pb-2">Real Stories, Real Impact</h2>
-                            
+                            <h2 className="text-2xl font-bold mb-6 pb-2">Real Stories, Real Impact</h2>                           
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 ">
                                 {testimonials.map((testimonial, index) => (
                                     <div key={index} className="bg-surface-hover-bg rounded-lg interactive-card p-4 flex flex-col">
@@ -403,8 +402,7 @@ const DonationsPage: React.FC = () => {
                             </div>
                         </section>
                     </FadeContent>
-                </div>
-                
+                </div>   
                 <Footer />
             </section>
         </>
