@@ -11,6 +11,7 @@ import ThemedImage from '../../theme/ThemedImage';
 import { asset } from '../../utils/asset';
 import CountUp from '../../components/ui/CountUp';
 import { SEOConfig } from '../../components/SEO';
+import FadeContent from '../../components/ui/FadeContent';
 
 const FundraisingPage: React.FC = () => {
     // Fundraising channels data

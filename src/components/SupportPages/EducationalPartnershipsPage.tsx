@@ -9,6 +9,7 @@ import {
 } from 'react-icons/fa';
 import ThemedImage from '../../theme/ThemedImage';
 import { SEOConfig } from '../../components/SEO';
+import FadeContent from '../../components/ui/FadeContent';
 
 const EducationalPartnershipsPage: React.FC = () => {
     // Partnership models data

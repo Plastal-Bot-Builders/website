@@ -8,6 +8,7 @@ import {
 } from 'react-icons/fa';
 import ThemedImage from '../../theme/ThemedImage';
 import { SEOConfig } from '../../components/SEO';
+import FadeContent from '../../components/ui/FadeContent';
 
 const MentorshipPage: React.FC = () => {
     // Mentorship benefits data

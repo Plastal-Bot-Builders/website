@@ -10,6 +10,7 @@ import {
 import ThemedImage from '../../theme/ThemedImage';
 import { asset } from '../../utils/asset';
 import { SEOConfig } from '../../components/SEO';
+import FadeContent from '../../components/ui/FadeContent';
 
 const NonprofitPartnershipPage: React.FC = () => {
     // Partnership types data

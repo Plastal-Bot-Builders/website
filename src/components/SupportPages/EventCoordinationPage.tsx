@@ -10,6 +10,7 @@ import {
 import ThemedImage from '../../theme/ThemedImage';
 import CountUp from '../../components/ui/CountUp';
 import { SEOConfig } from '../../components/SEO';
+import FadeContent from '../../components/ui/FadeContent';
 
 const EventCoordinationPage: React.FC = () => {
     // Event types data
