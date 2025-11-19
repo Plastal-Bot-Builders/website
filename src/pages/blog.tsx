@@ -5,9 +5,79 @@ import { useNavigate } from 'react-router-dom';
 import { asset } from '../utils/asset';
 import { SEOConfig } from '../components/SEO';
 import FadeContent from '../components/ui/FadeContent';
+import DecryptedText from '../components/ui/DecryptedText';
 
 const Blog: React.FC = () => {
     const navigate = useNavigate();
+
+    const blogPosts = [
+        {
+            id: 1,
+            image: 'resources/blogs/blog2.png',
+            title: 'Bridging the Digital Divide:',
+            subtitle: 'Empowering Zambian Youth through Robotics and Programming',
+            excerpt: "In Zambia, there's a common belief that teaching robotics isn't practical due to perceived infrastructural limitations, cultural clashes, and limited job prospects. However, robotics education can be a game-changer. By offering young Zambians the chance to dive into robotics, they gain skills vital for navigating today's tech-driven world.",
+            author: {
+                name: 'Plastal-Bot Builders',
+                image: 'resources/blogs/1-04.png'
+            }
+        },
+        {
+            id: 2,
+            image: 'resources/blogs/smartbin.png',
+            title: 'WasteWizard:',
+            subtitle: 'Revolutionizing Waste Management in Zambia',
+            excerpt: "As Zambia experiences rapid urbanization and population growth, waste management challenges are becoming more severe. Introducing WasteWizard, an innovative autonomous smart bin system that leverages cutting-edge IoT technology to tackle these issues.",
+            author: {
+                name: 'Plastal-Bot Builders',
+                image: 'resources/blogs/1-04.png'
+            }
+        },
+        {
+            id: 3,
+            image: 'resources/blogs/sepoblog.jpeg',
+            title: 'Reflecting:',
+            subtitle: "'Introduction to Robotics and Programming'",
+            excerpt: "When I started this journey three weeks ago, hosting the 'Introduction to Robotics and Programming' workshop, I was filled with excitement and a bit of nervousness. We aimed to introduce young minds to the fascinating world of robotics and programming.",
+            author: {
+                name: 'Sepo Konayuma',
+                image: 'resources/founders/sepo.jpeg'
+            }
+        },
+        {
+            id: 4,
+            image: 'resources/blogs/githubblog.webp',
+            title: 'Unlocking Opportunities:',
+            subtitle: 'Embracing the GitHub Student Developer Pack',
+            excerpt: "I've poured my heart and soul into an insightful article, and I'd love for you to give it a read! In this piece, I delve into the opportunities that students can make use of, to expand their horizon in the tech space.",
+            author: {
+                name: 'Fredrick Mwepu',
+                image: 'resources/blogs/Fredrickmwepu3.jpeg'
+            }
+        },
+        {
+            id: 5,
+            image: 'resources/blogs/stackoverflowblog.jpeg',
+            title: 'Life made simple:',
+            subtitle: 'Stack and OpenAI Collaboration',
+            excerpt: "The reliance on Stack Overflow as the go-to platform for developers grappling with bugs and technical hurdles often leads to more confusion than clarity. Despite its vast repository of solutions, the multitude of contributors can complicate matters further.",
+            author: {
+                name: 'Fredrick Mwepu',
+                image: 'resources/blogs/Fredrickmwepu3.jpeg'
+            }
+        },
+        {
+            id: 6,
+            image: 'resources/blogs/zambiarobotics.jpg',
+            title: 'Geneva:',
+            subtitle: 'My Zambia Robotics Experience',
+            excerpt: "I was privileged to have been among a team of five that represented Zambia in a robotics competition hosted in Switzerland, Geneva. The event is organized by FIRST Global (IFCA), a non-profit organization that seeks to inspire STEM in the youth.",
+            author: {
+                name: 'Fredrick Mwepu',
+                image: 'resources/blogs/Fredrickmwepu3.jpeg'
+            }
+        }
+    ];
     
     return (
         <>
@@ -16,337 +86,153 @@ const Blog: React.FC = () => {
                 description="Stay updated with the latest from our robotics workshops, STEM events, and sustainability projects."
                 image="/resources/Photos/fredmpelembe.jpeg"
             />
-            <section className="scroll-smooth focus:scroll-auto">
-                {/* Navigation Bar */}
+            <div className="scroll-smooth focus:scroll-auto">
                 <Header />
-                <div className="max-w-7xl mx-auto p-8">   
-                    <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0} delay={0.3}>       
-                        <h1
-                            className="mb-4 text-3xl font-extrabold leading-none tracking-tight md:text-4xl lg:text-5xl ">
-                            <span className="text-hex "> Blog </span> Posts 
-                        </h1>
-                        {/* <!-- Blog Introduction --> */}
-                        <div className="mb-12">
-                            <p className="text-lg text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">Stay updated with the latest from our robotics workshops, STEM events, and
-                                sustainability projects. Our blog covers event highlights, articles, and key updates on how we’re making
-                                a difference through technology and education.</p>
+                
+                {/* Hero Section */}
+                <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
+                    <section className="w-full px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+                        <div className="max-w-7xl mx-auto">
+                            <h1 className="mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
+                                <span className="text-hex">Blog</span> Posts 
+                            </h1>
+                            
+                            <DecryptedText
+                                text="Stay updated with the latest from our robotics workshops, STEM events, and sustainability projects. Our blog covers event highlights, articles, and key updates on how we're making a difference through technology and education."
+                                parentClassName="block mb-8"
+                                className="text-sm sm:text-base md:text-lg leading-relaxed"
+                                animateOn="view"
+                                revealDirection="start"
+                            />
                         </div>
-                    </FadeContent> 
-                    {/* <!-- Blog Post Grid --> */}
-                    <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0} delay={0.3}>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {/* <!-- Blog Post 1: Event Highlights --> */}               
-                            <div className="flex flex-col justify-between p-6 rounded-lg interactive-card">
-                                <div>
-                                    <div className="image mb-4">
-                                        <img 
-                                            alt="Empowering Innovation Image" 
-                                            src={asset('resources/blogs/blog2.png')}
-                                            className="w-full h-48 object-cover rounded-lg mb-4" 
-                                        />
-                                    </div>
-                                    <h2 className="text-2xl font-bold mb-4"> <span className="text-hex "> Bridging the Digital Divide:</span>
-                                        Empowering Zambian Youth through Robotics and Programming</h2>
-                                    <p className="mb-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">In Zambia, there’s a common belief that teaching robotics isn’t practical due to
-                                        perceived infrastructural limitations, cultural clashes, and limited job prospects. However,
-                                        robotics education can be a game-changer. By offering young Zambians the chance to dive into
-                                        robotics, they gain skills vital for navigating today’s tech-driven world. Whether solving local
-                                        issues or innovating globally, they learn critical thinking, creativity, and problem-solving —
-                                        skills with immense value. </p>
+                    </section>
+                </FadeContent>
 
-                                </div>
-                                <div>
-                                    <div className="flex items-center space-x-4 mb-4">
-                                        <img 
-                                            src={asset('resources/blogs/1-04.png')} 
-                                            alt="Author Image" 
-                                            className="w-16 h-16 rounded-full" />
-                                        <div>
-                                            <h3 className="text-sm font-bold">Plastal-Bot Builders</h3>
-                                            <div className="flex space-x-4 mt-2">
-                                                <a href="#" className="text-gray-500 text-2xl"><i className="fab fa-facebook-f"></i></a>
-                                                <a href="#" className="text-gray-500 text-2xl"><i className="fab fa-instagram"></i></a>
-                                                <a href="#" className="text-gray-500 text-2xl"><i className="fab fa-twitter"></i></a>
-                                                <a href="#" className="text-gray-500 text-2xl"><i className="fab fa-linkedin-in"></i></a>
-                                                <a href="#" className="text-gray-500 text-2xl"><i className="fab fa-medium"></i></a>
+                {/* Blog Posts Grid */}
+                <FadeContent blur={true} duration={1200} easing="ease-out" initialOpacity={0} delay={200}>
+                    <section className="w-full px-4 sm:px-6 lg:px-8 py-6 lg:py-12">
+                        <div className="max-w-7xl mx-auto">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                                {blogPosts.map((post, index) => (
+                                    <article
+                                        key={post.id}
+                                        className="interactive-card p-6 flex flex-col justify-between transform hover:scale-105 transition-all duration-300"
+                                        style={{ transitionDelay: `${index * 50}ms` }}
+                                    >
+                                        {/* Image */}
+                                        <div className="mb-4">
+                                            <img 
+                                                alt={post.subtitle}
+                                                src={asset(post.image)}
+                                                className="w-full h-48 sm:h-56 object-cover rounded-lg" 
+                                            />
+                                        </div>
+
+                                        {/* Content */}
+                                        <div className="flex-grow">
+                                            <h2 className="text-xl sm:text-2xl font-bold mb-3">
+                                                <span className="text-hex">{post.title}</span> {post.subtitle}
+                                            </h2>
+                                            <p className="mb-4 text-sm sm:text-base leading-relaxed line-clamp-4">
+                                                {post.excerpt}
+                                            </p>
+                                        </div>
+
+                                        {/* Author Info */}
+                                        <div className="mt-4">
+                                            <div className="flex items-center gap-3 mb-4 pb-4 border-b border-surface">
+                                                <img 
+                                                    src={asset(post.author.image)} 
+                                                    alt={post.author.name}
+                                                    className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover" 
+                                                />
+                                                <div className="flex-grow">
+                                                    <h3 className="text-sm sm:text-base font-bold">{post.author.name}</h3>
+                                                    <div className="flex gap-3 mt-1">
+                                                        <a 
+                                                            href="#" 
+                                                            className="text-current hover:text-accent transition-colors text-lg"
+                                                            aria-label="Facebook"
+                                                        >
+                                                            <i className="fab fa-facebook-f"></i>
+                                                        </a>
+                                                        <a 
+                                                            href="#" 
+                                                            className="text-current hover:text-accent transition-colors text-lg"
+                                                            aria-label="Instagram"
+                                                        >
+                                                            <i className="fab fa-instagram"></i>
+                                                        </a>
+                                                        <a 
+                                                            href="#" 
+                                                            className="text-current hover:text-accent transition-colors text-lg"
+                                                            aria-label="Twitter"
+                                                        >
+                                                            <i className="fab fa-twitter"></i>
+                                                        </a>
+                                                        <a 
+                                                            href="#" 
+                                                            className="text-current hover:text-accent transition-colors text-lg"
+                                                            aria-label="LinkedIn"
+                                                        >
+                                                            <i className="fab fa-linkedin-in"></i>
+                                                        </a>
+                                                        <a 
+                                                            href="#" 
+                                                            className="text-current hover:text-accent transition-colors text-lg"
+                                                            aria-label="Medium"
+                                                        >
+                                                            <i className="fab fa-medium"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <button 
-                                        className="custom-button"
-                                        onClick={() => navigate('/more-blog-details')} // This route doesn't exist
-                                    >
-                                        Read more &rarr;
-                                    </button>
-                                </div>
-                            </div>
-                            
-                            
-                            {/* <!-- Blog Post 2: STEM and Sustainability --> */}                
-                            <div
-                                className="flex flex-col justify-between p-6 rounded-lg interactive-card">
-                                <div>
-                                    <div className="image mb-4">
-                                        <img 
-                                            alt="Empowering Innovation Image" 
-                                            src={asset('resources/blogs/smartbin.png')}
-                                            className="w-full h-48 object-cover rounded-lg mb-4" />
-                                    </div>
-                                    <h2 className="text-2xl font-bold mb-4"> <span className="text-hex "> WasteWizard: </span> Revolutionizing
-                                        Waste Management in Zambia</h2>
-                                    <p className="mb-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">As Zambia experiences rapid urbanization and population growth, waste management
-                                        challenges are becoming more severe. Introducing WasteWizard, an innovative autonomous smart bin
-                                        system that leverages cutting-edge IoT technology to tackle these issues. Equipped with sensors,
-                                        microcontrollers, and servo motors, WasteWizard detects waste levels and automates lid
-                                        operations. </p>
-                                </div>
-                                <div>
-                                    <div className="flex items-center space-x-4 mb-4">
-                                        <img 
-                                            src={asset('resources/blogs/1-04.png')} 
-                                            alt="Author Image" 
-                                            className="w-16 h-16 rounded-full" 
-                                        />
-                                        <div>
-                                            <h3 className="text-sm font-bold">Plastal-Bot Builders</h3>
-                                            <div className="flex space-x-4 mt-2">
-                                                <a href="#" className="text-gray-500 text-2xl"><i className="fab fa-facebook-f"></i></a>
-                                                <a href="#" className="text-gray-500 text-2xl"><i className="fab fa-instagram"></i></a>
-                                                <a href="#" className="text-gray-500 text-2xl"><i className="fab fa-twitter"></i></a>
-                                                <a href="#" className="text-gray-500 text-2xl"><i className="fab fa-linkedin-in"></i></a>
-                                                <a href="#" className="text-gray-500 text-2xl"><i className="fab fa-medium"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button 
-                                        className="custom-button"
-                                        onClick={() => navigate('/more-blog-details')} // This route doesn't exist
-                                    >
-                                        Read more &rarr;
-                                    </button>
-                                </div>
-                            </div>
-                            
-                            {/* <!-- Blog Post Container --> */}
-                            
-                            <div
-                                className="flex flex-col justify-between h-full p-6 rounded-lg interactive-card">
 
-                                {/* <!-- Blog Post Title and Paragraph --> */}
-                                <div className="image mb-4">
-                                    <img 
-                                        alt="Empowering Innovation Image" 
-                                        src={asset('resources/blogs/sepoblog.jpeg')}
-                                        className="w-full h-48 object-cover rounded-lg mb-4" />
-                                </div>
-                                <div className="flex-grow">
-                                    <h2 className="text-2xl font-bold mb-4"> <span className="text-hex "> Reflecting: </span>'Introduction to
-                                        Robotics and Programming'</h2>
-                                    <p className="mb-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">When I started this journey three weeks ago, hosting the "Introduction to Robotics
-                                        and Programming" workshop, I was filled with excitement and a bit of nervousness. We aimed to
-                                        introduce young minds to the fascinating world of robotics and programming, igniting their
-                                        passion for technology and innovation.</p>
-                                </div>
-
-                                {/* <!-- Author Info and Social Links --> */}
-                                <div className="mt-4 mb-4 flex items-center space-x-4">
-                                    {/* <!-- Author Image --> */}
-                                    <img src={asset('resources/founders/sepo.jpeg')} alt="Author Image" className="w-16 h-16 rounded-full" />
-                                    {/* <!-- Author Details --> */}
-                                    <div>
-                                        <h3 className="text-sm font-bold">Sepo Konayuma</h3>
-                                        <div className="flex space-x-4 mt-2">
-                                            <a href="https://www.facebook.com/author" className="text-gray-500 text-2xl"><i
-                                                    className="fab fa-facebook-f"></i></a>
-                                            <a href="https://www.instagram.com/author" className="text-gray-500 text-2xl"><i
-                                                    className="fab fa-instagram"></i></a>
-                                            <a href="https://www.twitter.com/author" className="text-gray-500 text-2xl"><i
-                                                    className="fab fa-twitter"></i></a>
-                                            <a href="https://www.linkedin.com/in/author" className="text-gray-500 text-2xl"><i
-                                                    className="fab fa-linkedin-in"></i></a>
-                                            <a href="https://www.medium.com/@author" className="text-gray-500 text-2xl"><i
-                                                    className="fab fa-medium"></i></a>
+                                            {/* Read More Button */}
+                                            <button 
+                                                className="custom-button w-full"
+                                                onClick={() => navigate(`/blog/${post.id}`)}
+                                            >
+                                                Read more →
+                                            </button>
                                         </div>
-                                    </div>
-                                </div>
-
-                                {/* <!-- Read More Button --> */}
-                                <div className="flex items-end">
-                                    <button 
-                                        className="custom-button mt-auto"
-                                        onClick={() => navigate('/more-blog-details')} // This route doesn't exist
-                                    >
-                                        Read more &rarr;
-                                    </button> 
-                                </div>
+                                    </article>
+                                ))}
                             </div>
-                            
-
-                            {/* <!-- Blog Post 4: Upcoming Events --> */}
-                            
-                            <div
-                                className="flex flex-col justify-between h-full p-6 rounded-lg interactive-card">
-                                <div className="image">
-                                    <img alt="Empowering Innovation Image" src={asset('resources/blogs/githubblog.webp')}
-                                        className="w-full h-48 object-cover mb-4 rounded-lg" />
-                                </div>
-                                <h2 className="text-2xl font-bold mb-4"> <span className="text-hex "> Unlocking Opportunities: </span> Embracing
-                                    the GitHub Student Developer Pack</h2>
-                                <p className="mb-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">I've poured my heart and soul into an insightful article, and I'd love for you to give
-                                    it a read!</p>
-                                <p className="mb-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg"> In this piece, I delve into the opportunities that students can make use of, to expand
-                                    their horizon in the tech space. This is a topic I'm incredibly passionate about, and I believe it's
-                                    worth your time. So, if you have a moment to spare, I'd greatly appreciate it if you could check it
-                                    out. Your support means the world to me...</p>
-                                <div className="flex items-center space-x-4 mb-4">
-                                    {/* <!-- Author Image --> */}
-                                    <img 
-                                        src={asset('resources/blogs/Fredrickmwepu3.jpeg')} 
-                                        alt="Author Image" 
-                                        className="w-16 h-16 rounded-full" 
-                                    />
-                                    {/* <!-- Author Info --> */}
-                                    <div>
-                                        <h3 className="text-sm font-bold">Fredrick Mwepu</h3>
-                                        <div className="flex space-x-4 mt-2">
-                                            <a href="https://www.facebook.com/author" className="text-gray-500 text-2xl"><i
-                                                    className="fab fa-facebook-f"></i></a>
-                                            <a href="https://www.instagram.com/author" className="text-gray-500 text-2xl"><i
-                                                    className="fab fa-instagram"></i></a>
-                                            <a href="https://www.twitter.com/author" className="text-gray-500 text-2xl"><i
-                                                    className="fab fa-twitter"></i></a>
-                                            <a href="https://www.linkedin.com/in/author" className="text-gray-500 text-2xl"><i
-                                                    className="fab fa-linkedin-in"></i></a>
-                                            <a href="https://www.medium.com/@author" className="text-gray-500 text-2xl"><i
-                                                    className="fab fa-medium"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                <button 
-                                        className="custom-button"
-                                        onClick={() => navigate('/more-blog-details')} // This route doesn't exist
-                                    >
-                                        Read more &rarr;
-                                    </button>
-                                </div>
-                            </div>
-                            
-
-                            {/* <!-- Blog Post 5: STEM Education in Underserved Communities --> */}
-                            
-                            <div
-                                className="flex flex-col justify-between h-full p-6 rounded-lg interactive-card">
-                                <div className="image">
-                                    <img alt="Empowering Innovation Image" src={asset('resources/blogs/stackoverflowblog.jpeg')}
-                                        className="w-full h-48 object-cover mb-4 rounded-lg" />
-                                </div>
-                                <h2 className="text-2xl font-bold mb-4"> <span className="text-hex "> Life made simple: </span> Stack and OpenAI
-                                    Collaboration</h2>
-                                <p className="mb-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">The reliance on Stack Overflow as the go-to platform for developers grappling with bugs
-                                    and technical hurdles often leads to more confusion than clarity. Despite its vast repository of
-                                    solutions, the multitude of contributors and their varied approaches can complicate matters further,
-                                    making it a daunting task to sift through for the most relevant information. This not only consumes
-                                    precious time but also adds unnecessary stress to the already challenging work of developers...</p>
-                                <div className="flex items-center space-x-4 mb-4">
-                                    {/* <!-- Author Image --> */}
-                                    <img 
-                                        src={asset('resources/blogs/Fredrickmwepu3.jpeg')} 
-                                        alt="Author Image" 
-                                        className="w-16 h-16 rounded-full" 
-                                    />
-                                    {/* <!-- Author Info --> */}
-                                    <div>
-                                        <h3 className="text-sm font-bold">Fredrick Mwepu</h3>
-                                        <div className="flex space-x-4 mt-2">
-                                            <a href="https://www.facebook.com/author" className="text-gray-500 text-2xl"><i
-                                                    className="fab fa-facebook-f"></i></a>
-                                            <a href="https://www.instagram.com/author" className="text-gray-500 text-2xl"><i
-                                                    className="fab fa-instagram"></i></a>
-                                            <a href="https://www.twitter.com/author" className="text-gray-500 text-2xl"><i
-                                                    className="fab fa-twitter"></i></a>
-                                            <a href="https://www.linkedin.com/in/author" className="text-gray-500 text-2xl"><i
-                                                    className="fab fa-linkedin-in"></i></a>
-                                            <a href="https://www.medium.com/@author" className="text-gray-500 text-2xl"><i
-                                                    className="fab fa-medium"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                <button 
-                                        className="custom-button"
-                                        onClick={() => navigate('/more-blog-details')} // This route doesn't exist
-                                    >
-                                        Read more &rarr;
-                                </button>
-                                </div>
-                            </div>
-                            
-
-                            {/* <!-- Blog Post 6: Robotics and AI --> */}               
-                            <div
-                                className="flex flex-col justify-between h-full p-6 rounded-lg interactive-card">
-                                <div className="image">
-                                    <img alt="Empowering Innovation Image" src={asset('resources/blogs/zambiarobotics.jpg')}
-                                        className="w-full h-48 object-cover mb-4 rounded-lg" />
-                                </div>
-                                <h2 className="text-2xl font-bold mb-4"> <span className="text-hex "> Geneva: </span> My Zambia Robotics
-                                    Experience </h2>
-                                <p className="mb-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">I was privileged to have been among a team of five that represented Zambia in a robotics
-                                    competition hosted in Switzerland, Geneva. The event is organized by FIRST Global (IFCA), a
-                                    non-profit organization that seeks to inspire STEM in the youth. The event is an Olympic-styled
-                                    robotics competition that attracts STEM enthusiasts and innovators from over 180+ countries across
-                                    the globe annually, with all roads leading to Geneva from the 13th to the 16th of October 2022...
-                                </p>
-                                <div className="flex items-center space-x-4 mb-4">
-                                    {/* <!-- Author Image --> */}
-                                    <img src={asset('resources/blogs/Fredrickmwepu3.jpeg')} alt="Author Image" className="w-16 h-16 rounded-full" />
-                                    {/* <!-- Author Info --> */}
-                                    <div>
-                                        <h3 className="text-sm font-bold">Fredrick Mwepu</h3>
-                                        <div className="flex space-x-4 mt-2">
-                                            <a href="https://www.facebook.com/author" className="text-gray-500 text-2xl"><i
-                                                    className="fab fa-facebook-f"></i></a>
-                                            <a href="https://www.instagram.com/author" className="text-gray-500 text-2xl"><i
-                                                    className="fab fa-instagram"></i></a>
-                                            <a href="https://www.twitter.com/author" className="text-gray-500 text-2xl"><i
-                                                    className="fab fa-twitter"></i></a>
-                                            <a href="https://www.linkedin.com/in/author" className="text-gray-500 text-2xl"><i
-                                                    className="fab fa-linkedin-in"></i></a>
-                                            <a href="https://www.medium.com/@author" className="text-gray-500 text-2xl"><i
-                                                    className="fab fa-medium"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                <button 
-                                        className="custom-button"
-                                        onClick={() => navigate('/more-blog-details')} // This route doesn't exist
-                                    >
-                                        Read more &rarr;
-                                </button>
-                                </div>
-                            </div>
-                                
                         </div>
-                    </FadeContent>
+                    </section>
+                </FadeContent>
 
-                    {/* <!-- Pagination --> */}
-                    <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0} delay={0.3}>
-                        <div className="flex justify-center mt-12">
-                            <nav className="inline-flex items-center">
-                                <a href="#"
-                                    className="px-3 py-1 rounded-md border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">1</a>
-                                <a href="#"
-                                    className="px-3 py-1 rounded-md border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">2</a>
-                                <a href="#"
-                                    className="px-3 py-1 rounded-md border-2 border-gray-300 hover:border-[#0CFFBB] transition duration-300 ease-in-out">3</a>
+                {/* Pagination */}
+                <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0} delay={400}>
+                    <section className="w-full px-4 sm:px-6 lg:px-8 py-6 lg:py-12">
+                        <div className="max-w-7xl mx-auto">
+                            <nav className="flex justify-center items-center gap-2" aria-label="Pagination">
+                                <button
+                                    className="px-4 py-2 rounded-md border-2 border-surface hover:border-accent transition-all duration-300 ease-in-out text-sm sm:text-base"
+                                    aria-label="Page 1"
+                                >
+                                    1
+                                </button>
+                                <button
+                                    className="px-4 py-2 rounded-md border-2 border-surface hover:border-accent transition-all duration-300 ease-in-out text-sm sm:text-base"
+                                    aria-label="Page 2"
+                                >
+                                    2
+                                </button>
+                                <button
+                                    className="px-4 py-2 rounded-md border-2 border-surface hover:border-accent transition-all duration-300 ease-in-out text-sm sm:text-base"
+                                    aria-label="Page 3"
+                                >
+                                    3
+                                </button>
                             </nav>
                         </div>
-                    </FadeContent>
-                </div>
+                    </section>
+                </FadeContent>
+
                 <Footer />
-            </section>
+            </div>
         </>
     );
 };
