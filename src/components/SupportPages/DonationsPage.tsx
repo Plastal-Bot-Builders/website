@@ -6,33 +6,8 @@ import { FaDonate, FaArrowLeft, FaRegLightbulb, FaUserGraduate, FaHandHoldingHea
 import ThemedImage from '../../theme/ThemedImage';
 import { asset } from '../../utils/asset';
 import CountUp from '../../components/ui/CountUp';
-import { SiStripe } from 'react-icons/si';
 import { SEOConfig } from '../../components/SEO';
 import FadeContent from '../../components/ui/FadeContent';
-
-const AirtelIcon = ({ className = '' }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" width="20" height="20" aria-hidden focusable="false">
-    <title>Airtel Money</title>
-    <circle cx="12" cy="12" r="10" fill="#e60000" />
-    <text x="12" y="15" textAnchor="middle" fontSize="10" fontWeight="700" fill="#fff">A</text>
-  </svg>
-);
-
-const MTNIcon = ({ className = '' }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" width="20" height="20" aria-hidden focusable="false">
-    <title>MTN Mobile Money</title>
-    <rect x="2" y="4" width="20" height="16" rx="4" fill="#ffd02e" />
-    <text x="12" y="15" textAnchor="middle" fontSize="8" fontWeight="700" fill="#000">MTN</text>
-  </svg>
-);
-
-const ZamtelIcon = ({ className = '' }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" width="20" height="20" aria-hidden focusable="false">
-    <title>Zamtel Money</title>
-    <circle cx="12" cy="12" r="10" fill="#00a99d" />
-    <text x="12" y="15" textAnchor="middle" fontSize="9" fontWeight="700" fill="#fff">Z</text>
-  </svg>
-);
 
 const DonationsPage: React.FC = () => {
     const [donationAmount, setDonationAmount] = useState<number>(200);
@@ -75,7 +50,7 @@ const DonationsPage: React.FC = () => {
                 {/* Main Content */}
                 <div className="max-w-7xl mx-auto p-8">
                     <Link to="/support" className="inline-flex items-center text-accent hover:text-accent-hover mb-6">
-                        {FaArrowLeft ({className:"mr-2"})} Back to Support
+                        <FaArrowLeft className="mr-2" /> Back to Support
                     </Link>
                     
                     {/* Hero Section */}
@@ -83,7 +58,7 @@ const DonationsPage: React.FC = () => {
                         <div className="flex flex-col md:flex-row gap-8 items-center mb-10">
                             <div className="md:w-1/2">
                                 <h1 className="text-3xl md:text-4xl font-bold mb-4">
-                                    {FaDonate ({className:"inline-block mr-3" })}
+                                    <FaDonate className="inline-block mr-3" />
                                     Support Young Innovators
                                 </h1>
                                 <p className="text-gray-600 dark:text-gray-300 mb-4 text-lg">
@@ -138,11 +113,11 @@ const DonationsPage: React.FC = () => {
                                 </div>
                             </div>
                             <div className="md:w-1/2">
-                                            <ThemedImage
-                                                alt="Sponsorship Illustration"
-                                                src="resources/Illustrations/Sponsorship.svg"
-                                                className="w-full h-auto object-cover"
-                                            />
+                                <ThemedImage
+                                    alt="Sponsorship Illustration"
+                                    src="resources/Illustrations/Sponsorship.svg"
+                                    className="w-full h-auto object-cover"
+                                />
                             </div>
                         </div>
                     </FadeContent>
@@ -185,7 +160,7 @@ const DonationsPage: React.FC = () => {
                                         />
                                     </div>
                                     <div className="w-20 h-20 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
-                                        {FaRegLightbulb ({className:"text-accent text-3xl"})}
+                                        <FaRegLightbulb className="text-accent text-3xl" />
                                     </div>
                                     <p>Provides one set of sensors for a student robot project</p>
                                 </div>
@@ -202,7 +177,7 @@ const DonationsPage: React.FC = () => {
                                         />
                                     </div>
                                     <div className="w-20 h-20 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
-                                        {FaUserGraduate ({className:"text-accent text-3xl"})}
+                                        <FaUserGraduate className="text-accent text-3xl" />
                                     </div>
                                     <p>Covers workshop materials for one participant</p>
                                 </div>
@@ -219,7 +194,7 @@ const DonationsPage: React.FC = () => {
                                         />
                                     </div>
                                     <div className="w-20 h-20 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
-                                        {FaHandHoldingHeart ({className:"text-accent text-3xl"})}
+                                        <FaHandHoldingHeart className="text-accent text-3xl" />
                                     </div>
                                     <p>Sponsors a complete robotics kit for a school</p>
                                 </div>
@@ -327,20 +302,38 @@ const DonationsPage: React.FC = () => {
                                 </button>
                                 
                                 <div className="mt-4 flex items-center text-sm">
-                                    <div className="border border-surface-border p-2 rounded mr-3 flex items-center space-x-2 bg-white">
+                                    <div className="border border-surface-border p-2 rounded mr-3 flex items-center space-x-2 bg-white dark:bg-gray-800">
                                         {/* International payment icons */}
-                                        <FaCcVisa className="h-6 w-6 text-gray-700" aria-hidden />
-                                        <FaCcMastercard className="h-6 w-6 text-gray-700" aria-hidden />
-                                        <FaPaypal className="h-6 w-6 text-gray-700" aria-hidden />
-                                        <SiStripe className="h-6 w-6 text-gray-700" aria-hidden />
+                                        <FaCcVisa className="h-6 w-6 text-gray-700 dark:text-gray-300" aria-hidden="true" />
+                                        <FaCcMastercard className="h-6 w-6 text-gray-700 dark:text-gray-300" aria-hidden="true" />
+                                        <FaPaypal className="h-6 w-6 text-gray-700 dark:text-gray-300" aria-hidden="true" />
+                                        
                                         {/* Separator */}
-                                        <span className="h-6 w-px bg-surface-border mx-2" aria-hidden />
-                                        {/* Local mobile money icons  */}
-                                        <AirtelIcon className="h-5 w-5" />
-                                        <MTNIcon className="h-5 w-5" />
-                                        <ZamtelIcon className="h-5 w-5" />
+                                        <span className="h-6 w-px bg-surface-border mx-2" aria-hidden="true" />
+                                        
+                                        {/* Local mobile money icons - Replace with your downloaded images */}
+                                        <img 
+                                            src={asset('resources/Logo/logo.png')} 
+                                            alt="Zamtel Money" 
+                                            className="h-6 w-6 object-contain"
+                                        />
+                                        <img 
+                                            src={asset('resources/Logo/New-mtn-logo.jpg')} 
+                                            alt="MTN Mobile Money" 
+                                            className="h-6 w-6 object-contain"
+                                        />
+                                        <img 
+                                            src={asset('resources/Logo/Airtel_logo-01.png')} 
+                                            alt="Airtel Money" 
+                                            className="h-6 w-6 object-contain"
+                                        />
+                                        <img 
+                                            src={asset('resources/Logo/images.png')} 
+                                            alt="Stripe" 
+                                            className="h-6 w-6 object-contain"
+                                        />
                                     </div>
-                                    <span>Secure payments: Cards, PayPal, Stripe, and Mobile Money</span>
+                                    <span className="text-current">Secure payments: Cards, PayPal, Stripe, and Mobile Money</span>
                                 </div>
                             </div>
                         </section>
