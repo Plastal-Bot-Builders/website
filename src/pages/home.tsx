@@ -310,15 +310,6 @@ const Home: React.FC = () => {
                       Robotics, programming, and digital skills for all levels.
                     </p>
                   </div>
-
-                  <div className="interactive-card p-6 flex flex-col justify-center items-center text-center h-full">
-                    <h4 className="mb-3 text-xl sm:text-2xl font-extrabold title">
-                      <span className="text-hex">Innovation</span> Hub
-                    </h4>
-                    <p className="text-sm sm:text-base leading-relaxed">
-                      A space where ideas come alive through mentorship and builds.
-                    </p>
-                  </div>
                 </div>
               </div>
 
