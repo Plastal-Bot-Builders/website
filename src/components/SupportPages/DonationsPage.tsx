@@ -128,11 +128,12 @@ const DonationsPage: React.FC = () => {
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 ">
                                 {testimonials.map((testimonial, index) => (
                                     <div key={index} className="bg-surface-hover-bg rounded-lg interactive-card p-4 flex flex-col">
-                                        <div className="h-48 mb-4 overflow-hidden rounded-lg">
+                                        <div className="h-40 sm:h-48 mb-4 overflow-hidden rounded-lg">
                                             <img
                                                 src={asset(testimonial.image)}
                                                 alt={testimonial.name}
                                                 className="w-full h-full object-cover"
+                                                loading="lazy"
                                             />
                                         </div>
                                         <p className="italic mb-2">"{testimonial.quote}"</p>
@@ -159,8 +160,8 @@ const DonationsPage: React.FC = () => {
                                             className="inline"
                                         />
                                     </div>
-                                    <div className="w-20 h-20 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
-                                        <FaRegLightbulb className="text-accent text-3xl" />
+                                    <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
+                                        <FaRegLightbulb className="text-accent text-2xl sm:text-3xl" />
                                     </div>
                                     <p>Provides one set of sensors for a student robot project</p>
                                 </div>
@@ -176,8 +177,8 @@ const DonationsPage: React.FC = () => {
                                             className="inline"
                                         />
                                     </div>
-                                    <div className="w-20 h-20 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
-                                        <FaUserGraduate className="text-accent text-3xl" />
+                                    <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
+                                        <FaUserGraduate className="text-accent text-2xl sm:text-3xl" />
                                     </div>
                                     <p>Covers workshop materials for one participant</p>
                                 </div>
@@ -193,8 +194,8 @@ const DonationsPage: React.FC = () => {
                                             className="inline"
                                         />
                                     </div>
-                                    <div className="w-20 h-20 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
-                                        <FaHandHoldingHeart className="text-accent text-3xl" />
+                                    <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
+                                        <FaHandHoldingHeart className="text-accent text-2xl sm:text-3xl" />
                                     </div>
                                     <p>Sponsors a complete robotics kit for a school</p>
                                 </div>
@@ -301,36 +302,40 @@ const DonationsPage: React.FC = () => {
                                     {isRecurring ? 'Start Monthly Support' : 'Donate Now'} - K{donationAmount}
                                 </button>
                                 
-                                <div className="mt-4 flex items-center text-sm">
-                                    <div className="border border-surface-border p-2 rounded mr-3 flex items-center space-x-2 bg-white dark:bg-gray-800">
+                                <div className="mt-4 flex flex-col sm:flex-row sm:items-center gap-3 text-sm">
+                                    <div className="border border-surface-border p-2 rounded flex items-center flex-wrap gap-2 bg-white dark:bg-gray-800">
                                         {/* International payment icons */}
-                                        <FaCcVisa className="h-6 w-6 text-gray-700 dark:text-gray-300" aria-hidden="true" />
-                                        <FaCcMastercard className="h-6 w-6 text-gray-700 dark:text-gray-300" aria-hidden="true" />
-                                        <FaPaypal className="h-6 w-6 text-gray-700 dark:text-gray-300" aria-hidden="true" />
+                                        <FaCcVisa className="h-5 w-5 sm:h-6 sm:w-6 text-gray-700 dark:text-gray-300" aria-hidden="true" />
+                                        <FaCcMastercard className="h-5 w-5 sm:h-6 sm:w-6 text-gray-700 dark:text-gray-300" aria-hidden="true" />
+                                        <FaPaypal className="h-5 w-5 sm:h-6 sm:w-6 text-gray-700 dark:text-gray-300" aria-hidden="true" />
                                         
                                         {/* Separator */}
-                                        <span className="h-6 w-px bg-surface-border mx-2" aria-hidden="true" />
+                                        <span className="h-5 sm:h-6 w-px bg-surface-border mx-1" aria-hidden="true" />
                                         
-                                        {/* Local mobile money icons - Replace with your downloaded images */}
+                                        {/* Local mobile money icons */}
                                         <img 
                                             src={asset('resources/Logo/logo.png')} 
                                             alt="Zamtel Money" 
-                                            className="h-6 w-6 object-contain"
+                                            className="h-4 w-4 sm:h-5 sm:w-5 object-contain"
+                                            loading="lazy"
                                         />
                                         <img 
                                             src={asset('resources/Logo/New-mtn-logo.jpg')} 
                                             alt="MTN Mobile Money" 
-                                            className="h-6 w-6 object-contain"
+                                            className="h-4 w-4 sm:h-5 sm:w-5 object-contain"
+                                            loading="lazy"
                                         />
                                         <img 
                                             src={asset('resources/Logo/Airtel_logo-01.png')} 
                                             alt="Airtel Money" 
-                                            className="h-6 w-6 object-contain"
+                                            className="h-4 w-4 sm:h-5 sm:w-5 object-contain"
+                                            loading="lazy"
                                         />
                                         <img 
                                             src={asset('resources/Logo/images.png')} 
                                             alt="Stripe" 
-                                            className="h-6 w-6 object-contain"
+                                            className="h-4 w-4 sm:h-5 sm:w-5 object-contain"
+                                            loading="lazy"
                                         />
                                     </div>
                                     <span className="text-current">Secure payments: Cards, PayPal, Stripe, and Mobile Money</span>
@@ -350,7 +355,8 @@ const DonationsPage: React.FC = () => {
                                     <img
                                         src={asset('resources/Photos/IMG_5087.jpg')}
                                         alt="Recent workshop in Ndola"
-                                        className="w-full h-40 object-cover rounded-lg mb-3"
+                                        className="w-full h-32 sm:h-40 object-cover rounded-lg mb-3"
+                                        loading="lazy"
                                     />
                                     <a href="#" className="text-accent hover:underline">See more photos →</a>
                                 </div>
