@@ -201,6 +201,7 @@ const MentorshipPage: React.FC = () => {
                             </div>
                         </section>
                     </FadeContent>
+
                     {/* How It Works Section */}
                     <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
                         <section className="mb-12">
@@ -208,7 +209,7 @@ const MentorshipPage: React.FC = () => {
 
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                                 <div className="text-center rounded-lg interactive-card p-5">
-                                    <div className="w-16 h-16 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
+                                    <div className="w-16 h-16 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center border-2 border-accent">
                                         <span className="text-accent font-bold text-xl">1</span>
                                     </div>
                                     <h3 className="text-lg font-bold mb-3">Match</h3>
@@ -219,7 +220,7 @@ const MentorshipPage: React.FC = () => {
                                 </div>
 
                                 <div className="text-center rounded-lg interactive-card p-5">
-                                    <div className="w-16 h-16 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
+                                    <div className="w-16 h-16 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center border-2 border-accent">
                                         <span className="text-accent font-bold text-xl">2</span>
                                     </div>
                                     <h3 className="text-lg font-bold mb-3">Connect</h3>
@@ -230,7 +231,7 @@ const MentorshipPage: React.FC = () => {
                                 </div>
 
                                 <div className="text-center rounded-lg interactive-card p-5">
-                                    <div className="w-16 h-16 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
+                                    <div className="w-16 h-16 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center border-2 border-accent">
                                         <span className="text-accent font-bold text-xl">3</span>
                                     </div>
                                     <h3 className="text-lg font-bold mb-3">Grow</h3>
@@ -267,7 +268,7 @@ const MentorshipPage: React.FC = () => {
                                     <div className="space-y-4">
                                         {mentorBenefits.map((benefit, index) => (
                                             <div key={index} className="flex items-start">
-                                                <div className="mr-3 mt-1">
+                                                <div className="mr-3 mt-1 border-2 border-accent rounded-full w-10 h-10 flex items-center justify-center">
                                                     {benefit.icon}
                                                 </div>
                                                 <div>
@@ -287,7 +288,7 @@ const MentorshipPage: React.FC = () => {
                                     <div className="space-y-4">
                                         {menteeBenefits.map((benefit, index) => (
                                             <div key={index} className="flex items-start">
-                                                <div className="mr-3 mt-1">
+                                                <div className="mr-3 mt-1 border-2 border-accent rounded-full w-10 h-10 flex items-center justify-center">
                                                     {benefit.icon}
                                                 </div>
                                                 <div>
@@ -310,7 +311,7 @@ const MentorshipPage: React.FC = () => {
                                 {mentorshipOpportunities.map((opportunity, index) => (
                                     <div key={index} className="rounded-lg interactive-card p-6">
                                         <div className="flex items-center mb-4">
-                                            <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4">
+                                            <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 border-2 border-accent">
                                                 {opportunity.icon}
                                             </div>
                                             <h3 className="text-xl font-bold">{opportunity.title}</h3>

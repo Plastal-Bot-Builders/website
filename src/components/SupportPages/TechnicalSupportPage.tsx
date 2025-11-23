@@ -210,7 +210,7 @@ const TechnicalSupportPage: React.FC = () => {
                                 {supportTypes.map((type, index) => (
                                     <div key={index} className="interactive-card rounded-lg p-5 hover:border-accent transition-colors">
                                         <div className="flex items-center mb-4">
-                                            <div className="w-8 h-8 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3">
+                                            <div className="w-10 h-10 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 border-2 border-accent p-2">
                                                 {type.icon}
                                             </div>
                                             <h3 className="text-lg font-bold">{type.title}</h3>
@@ -396,7 +396,7 @@ const TechnicalSupportPage: React.FC = () => {
                                 {neededSkills.map((category, index) => (
                                     <div key={index} className="interactive-card rounded-lg p-5">
                                         <div className="flex items-center mb-4">
-                                            <div className="w-8 h-8 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3">
+                                            <div className="w-10 h-10 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 border-2 border-accent p-2">
                                                 {category.icon}
                                             </div>
                                             <h3 className="text-lg font-bold">{category.category}</h3>
@@ -425,7 +425,7 @@ const TechnicalSupportPage: React.FC = () => {
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                                 <div className="bg-surface rounded-lg">
                                     <h3 className="font-bold text-lg mb-2 flex items-center">
-                                        <RocketLaunchIcon className="text-accent mr-2 w-8 h-8" /> Sensor Kit Upgrade
+                                        <RocketLaunchIcon className="w-10 h-10 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 border-2 border-accent p-2" /> Sensor Kit Upgrade
                                     </h3>
                                     <p className="text-sm mb-3">
                                         Enhancing our educational robots with improved sensors for environmental monitoring.
@@ -438,7 +438,7 @@ const TechnicalSupportPage: React.FC = () => {
 
                                 <div className="bg-surface rounded-lg">
                                     <h3 className="font-bold text-lg mb-2 flex items-center">
-                                        <CodeBracketIcon className="text-accent mr-2 w-8 h-8" /> Learning Platform
+                                        <CodeBracketIcon className="w-10 h-10 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 border-2 border-accent p-2" /> Learning Platform
                                     </h3>
                                     <p className="text-sm mb-3">
                                         Building a web application to track student progress and showcase projects.
@@ -451,7 +451,7 @@ const TechnicalSupportPage: React.FC = () => {
 
                                 <div className="bg-surface rounded-lg">
                                     <h3 className="font-bold text-lg mb-2 flex items-center">
-                                        <BugAntIcon className="text-accent mr-2 w-8 h-8" /> Debugging Workshop
+                                        <BugAntIcon className="w-10 h-10 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 border-2 border-accent p-2" /> Debugging Workshop
                                     </h3>
                                     <p className="text-sm mb-3">
                                         Creating resources to teach troubleshooting skills to educators and students.
@@ -477,9 +477,9 @@ const TechnicalSupportPage: React.FC = () => {
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                                 <div className="flex items-start">
-                                    <div className="w-8 h-8 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0">
-                                        <CodeBracketIcon className="text-accent text-xl" />
-                                    </div>
+                                    <div className="w-10 h-10 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0 border-2 border-accent p-2">
+                                            <CodeBracketIcon className="w-10 h-10 text-accent" />
+                                        </div>
                                     <div>
                                         <h3 className="text-lg font-bold mb-2">Skills Application</h3>
                                         <p>Apply technical expertise to meaningful educational projects with real community impact.</p>
@@ -487,7 +487,7 @@ const TechnicalSupportPage: React.FC = () => {
                                 </div>
 
                                 <div className="flex items-start">
-                                    <div className="w-8 h-8 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0">
+                                    <div className="w-10 h-10 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0 border-2 border-accent p-2">
                                         <UserGroupIcon className="text-accent text-xl" />
                                     </div>
                                     <div>
@@ -497,7 +497,7 @@ const TechnicalSupportPage: React.FC = () => {
                                 </div>
 
                                 <div className="flex items-start">
-                                    <div className="w-8 h-8 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0">
+                                    <div className="w-10 h-10 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0 border-2 border-accent p-2">
                                         <AcademicCapIcon className="text-accent text-xl" />
                                     </div>
                                     <div>
@@ -505,9 +505,9 @@ const TechnicalSupportPage: React.FC = () => {
                                         <p>Share expertise while learning about educational technology applications and challenges.</p>
                                     </div>
                                 </div>
-
+                                
                                 <div className="flex items-start">
-                                    <div className="w-8 h-8 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0">
+                                    <div className="w-10 h-10 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0 border-2 border-accent p-2">
                                         <RocketLaunchIcon className="text-accent text-xl" />
                                     </div>
                                     <div>
