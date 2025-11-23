@@ -23,17 +23,17 @@ const DonationsPage: React.FC = () => {
         {
             name: "Chibesa, Grade 8",
             quote: "Building my first robot was the most exciting thing I've ever done. Now I want to study engineering!",
-            image: "resources/founders/fredrick.jpg"
+            image: "resources/Testimonial/chibesa.png"
         },
         {
             name: "Mr. Alinani, Teacher",
             quote: "Plastal-Bot helped our school start its first robotics program. Our students are now thriving in STEM subjects.",
-            image: "resources/founders/sepo.jpeg"
+            image: "resources/Testimonial/sepo.jpeg"
         },
         {
             name: "Kasali, Grade 12",
             quote: "I never thought I could code until I joined the robotics workshop. Now I'm teaching others!",
-            image: "resources/founders/fred.png"
+            image: "resources/Testimonial/kasali.png"
         }
     ];
 
