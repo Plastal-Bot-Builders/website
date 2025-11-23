@@ -234,7 +234,7 @@ const SponsorshipPage: React.FC = () => {
                                     {sponsorshipBenefits.map((benefit, index) => (
                                         <div key={index} className="bg-surface-hover-bg rounded-lg p-4 interactive-card">
                                             <div className="flex items-center mb-3">
-                                                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-surface rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                                                <div className="w-12 h-12 sm:w-10 sm:h-10 bg-surface rounded-full flex items-center justify-center mr-3 flex-shrink-0 border-2 border-accent">
                                                     {benefit.icon}
                                                 </div>
                                                 <h4 className="font-bold text-sm sm:text-base">{benefit.title}</h4>
@@ -317,7 +317,7 @@ const SponsorshipPage: React.FC = () => {
                                 {sponsorshipTypes.map((type, index) => (
                                     <div key={index} className="rounded-lg interactive-card p-4 sm:p-5 hover:border-accent transition-colors">
                                         <div className="flex items-center mb-4">
-                                            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                                            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 flex-shrink-0 border-2 border-accent">
                                                 {type.icon}
                                             </div>
                                             <h3 className="text-base sm:text-lg font-bold">{type.title}</h3>
@@ -391,8 +391,8 @@ const SponsorshipPage: React.FC = () => {
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                                 <div className="bg-surface rounded-lg p-4 sm:p-5 text-center interactive-card">
-                                    <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 bg-accent rounded-full flex items-center justify-center">
-                                        <FaRegImage className="text-black text-xl sm:text-2xl" />
+                                    <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 rounded-full flex items-center justify-center border-2 border-accent">
+                                        <FaRegImage className="text-accent text-xl sm:text-2xl" />
                                     </div>
                                     <h3 className="font-bold mb-2 text-base sm:text-lg">Brand Presence</h3>
                                     <p className="text-xs sm:text-sm leading-relaxed">
@@ -401,8 +401,8 @@ const SponsorshipPage: React.FC = () => {
                                 </div>
 
                                 <div className="bg-surface rounded-lg p-4 sm:p-5 text-center interactive-card">
-                                    <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 bg-accent rounded-full flex items-center justify-center">
-                                        <FaMicrophone className="text-black text-xl sm:text-2xl" />
+                                    <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 rounded-full flex items-center justify-center border-2 border-accent">
+                                        <FaMicrophone className="text-accent text-xl sm:text-2xl" />
                                     </div>
                                     <h3 className="font-bold mb-2 text-base sm:text-lg">Speaking Platforms</h3>
                                     <p className="text-xs sm:text-sm leading-relaxed">
@@ -411,8 +411,8 @@ const SponsorshipPage: React.FC = () => {
                                 </div>
 
                                 <div className="bg-surface rounded-lg p-4 sm:p-5 text-center interactive-card">
-                                    <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 bg-accent rounded-full flex items-center justify-center">
-                                        <FaRegLightbulb className="text-black text-xl sm:text-2xl" />
+                                    <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 rounded-full flex items-center justify-center border-2 border-accent">
+                                        <FaRegLightbulb className="text-accent text-xl sm:text-2xl" />
                                     </div>
                                     <h3 className="font-bold mb-2 text-base sm:text-lg">Content Collaboration</h3>
                                     <p className="text-xs sm:text-sm leading-relaxed">
@@ -510,7 +510,7 @@ const SponsorshipPage: React.FC = () => {
                                     <div className="grid grid-cols-2 gap-4">
                                         {impactMetrics.map((item, index) => (
                                             <div key={index} className="rounded-lg interactive-card p-4 text-center">
-                                                <div className="flex justify-center mb-2">
+                                                <div className="flex justify-center mb-2 border-2 border-accent w-12 h-12 sm:w-16 sm:h-16 rounded-full items-center mx-auto">
                                                     {item.icon}
                                                 </div>
                                                 <div className="text-xl sm:text-2xl font-bold text-accent mb-1">{item.metric}</div>
