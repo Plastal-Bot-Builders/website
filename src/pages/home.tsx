@@ -13,6 +13,20 @@ import CountUp from '../components/ui/CountUp';
 import { FaHandshake, FaGraduationCap, FaGlobe } from 'react-icons/fa';
 import FadeContent from '../components/ui/FadeContent';
 
+// PORT=5001
+
+// # Replace <db_password> with your actual MongoDB Atlas password
+// # Replace 'plastalbot' with your database name
+// MONGODB_URI=mongodb+srv://fredrickmwepu22:MyPass%40123%23@cluster0.fkcez.mongodb.net/plastalbot?retryWrites=true&w=majority&appName=Cluster0
+
+// JWT_SECRET=replace_me_with_a_long_random_string
+// CORS_ORIGIN=http://localhost:3000
+// ADMIN_USER=admin
+// ADMIN_PASS=changeMe123
+// OLLAMA_API_KEY=72cea25cc02443019a76b5f1b8333cc4.R_ps7tv-z8bJ1UJIlEXWIlxr
+// OLLAMA_HOST=https://ollama.com
+// OLLAMA_MODEL=gpt-oss:120b
+
 const Home: React.FC = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
