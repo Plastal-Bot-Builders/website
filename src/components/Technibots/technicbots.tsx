@@ -109,7 +109,7 @@ const Technicbots: React.FC = () => {
 
                 {/* Hero Section */}
                 <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
-                    <section className="relative py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--surface-bg)' }}>
+                    <section className="relative py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
                         <div className="max-w-7xl mx-auto">
                             {/* Back Button */}
                             <button
@@ -224,7 +224,7 @@ const Technicbots: React.FC = () => {
                                                     e.currentTarget.src = '/resources/Logo/logo.png';
                                                 }}
                                             />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent">
                                                 <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
                                                     <p className="text-white font-semibold text-xs sm:text-sm">
                                                         <DecryptedText text={photo.caption} />
@@ -383,7 +383,7 @@ const Technicbots: React.FC = () => {
                                                     e.currentTarget.src = '/resources/Logo/logo.png';
                                                 }}
                                             />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent">
                                                 <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
                                                     <p className="text-white font-semibold text-xs sm:text-sm">
                                                         <DecryptedText text={photo.caption} />
@@ -474,10 +474,10 @@ const Technicbots: React.FC = () => {
                     <section className="w-full px-4 sm:px-6 lg:px-8 py-6 lg:py-12">
                         <div className="max-w-7xl mx-auto">
                             <div className="interactive-card p-6 sm:p-8 lg:p-12" style={{ background: 'linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%)' }}>
-                                <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-white text-center">
+                                <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-accent text-center">
                                     <DecryptedText text="A Legacy of Excellence" />
                                 </h2>
-                                <p className="text-sm sm:text-base md:text-lg leading-relaxed text-white text-center max-w-4xl mx-auto">
+                                <p className="text-accent text-sm sm:text-accent md:text-lg leading-relaxed text-center max-w-4xl mx-auto">
                                     <DecryptedText 
                                         text="With over 16 years of activity, countless innovations, and a growing legacy of community leadership, Technicbots stands as a testament to what young people can achieve when guided by passion, purpose, and teamwork. Whether competing on the world stage or hosting a local workshop, Team 8565 remains committed to building robots that inspire—and a future that empowers."
                                         animateOn="view"

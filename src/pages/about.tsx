@@ -200,11 +200,20 @@ const About: React.FC = () => {
                     revealDirection="start"
                   />
 
-                  <img
-                    src={asset('resources/Photos/group.png')}
-                    alt="Team collaboration"
-                    className="w-full h-48 sm:h-64 lg:h-80 object-cover rounded-lg"
-                  />
+                  <div className="relative">
+                    <img
+                      src={asset('resources/Photos/group.png')}
+                      alt="Team collaboration"
+                      className="w-full h-48 sm:h-64 lg:h-80 object-cover rounded-lg"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent rounded-lg">
+                      <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+                        <p className="text-white font-semibold text-xs sm:text-sm">
+                          <DecryptedText text="Our team collaborating on innovative robotics solutions" />
+                        </p>
+                      </div>
+                    </div>
+                  </div>
 
                   <DecryptedText 
                     className="text-sm sm:text-base md:text-lg leading-relaxed"
@@ -228,11 +237,20 @@ const About: React.FC = () => {
                     revealDirection="start"
                   />
 
-                  <img
-                    src={asset('resources/Photos/dywen.jpg')}
-                    alt="Student project"
-                    className="w-full h-48 sm:h-64 lg:h-80 object-cover rounded-lg"
-                  />
+                  <div className="relative">
+                    <img
+                      src={asset('resources/Photos/dywen.jpg')}
+                      alt="Student project"
+                      className="w-full h-48 sm:h-64 lg:h-80 object-cover rounded-lg"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent rounded-lg">
+                      <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+                        <p className="text-white font-semibold text-xs sm:text-sm">
+                          <DecryptedText text="Student presenting innovative robotics project at showcase event" />
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                   
                   <DecryptedText 
                     className="text-sm sm:text-base md:text-lg leading-relaxed"

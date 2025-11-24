@@ -281,11 +281,20 @@ const Home: React.FC = () => {
                   <h3 className="mb-4 text-2xl sm:text-3xl font-extrabold leading-tight">
                     <span className="text-hex">Empowering</span> Young Innovators
                   </h3>
-                  <img
-                    src={asset('resources/Photos/group.png')}
-                    alt="Students learning robotics"
-                    className="w-full h-48 sm:h-64 object-cover rounded-lg mb-4"
-                  />
+                  <div className="relative mb-4">
+                    <img
+                      src={asset('resources/Photos/group.png')}
+                      alt="Students learning robotics"
+                      className="w-full h-48 sm:h-64 object-cover rounded-lg"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent rounded-lg">
+                      <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+                        <p className="text-white font-semibold text-xs sm:text-sm">
+                          <DecryptedText text="Students collaborating during a hands-on robotics workshop" />
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                   <p className="text-sm sm:text-base md:text-lg leading-relaxed mb-4">
                     We've created hands-on pathways in robotics, programming, and sustainability-focused tech learning.
                   </p>
@@ -328,11 +337,20 @@ const Home: React.FC = () => {
                   <h4 className="mb-4 text-xl sm:text-2xl font-extrabold title">
                     <span className="text-hex">Our</span> Impact
                   </h4>
-                  <img
-                    src={asset('resources/Photos/dywen.jpg')}
-                    alt="Student project"
-                    className="w-full h-32 sm:h-40 object-cover rounded-lg mb-4"
-                  />
+                  <div className="relative mb-4">
+                    <img
+                      src={asset('resources/Photos/dywen.jpg')}
+                      alt="Student project"
+                      className="w-full h-32 sm:h-40 object-cover rounded-lg"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent rounded-lg">
+                      <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+                        <p className="text-white font-semibold text-xs sm:text-sm">
+                          <DecryptedText text="Student showcasing innovative robotics project" />
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                   <p className="text-sm sm:text-base md:text-lg leading-relaxed mb-4">
                     500+ students trained, 50+ projects launched, and growing partnerships across tech.
                   </p>
@@ -401,11 +419,20 @@ const Home: React.FC = () => {
                   <h3 className="mb-4 text-2xl sm:text-3xl font-extrabold leading-tight title">
                     <span className="text-hex">Technicbots</span> - FTC Team 8565
                   </h3>
-                  <img
-                    src={asset('resources/technicbots/teamphoto.png')}
-                    alt="Technicbots team at competition"
-                    className="w-full h-48 sm:h-64 object-cover rounded-lg mb-4"
-                  />
+                  <div className="relative mb-4">
+                    <img
+                      src={asset('resources/technicbots/teamphoto.png')}
+                      alt="Technicbots team at competition"
+                      className="w-full h-48 sm:h-64 object-cover rounded-lg"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent rounded-lg">
+                      <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+                        <p className="text-white font-semibold text-xs sm:text-sm">
+                          <DecryptedText text="Technicbots FTC Team 8565 at international robotics competition" />
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                   <DecryptedText
                     text="Based in Plano, Texas, Technicbots is a FIRST Hall of Fame team with 16+ years of excellence in robotics competition and community outreach. Their 2022 FIRST World Championship Inspire Award and 2023 FIRST Global Challenge Gold Medal demonstrate their commitment to innovation and collaboration."
                     parentClassName="block mb-4"
@@ -434,11 +461,20 @@ const Home: React.FC = () => {
                   <h3 className="mb-4 text-xl sm:text-2xl font-extrabold leading-tight title">
                     <span className="text-hex">Meet</span> David
                   </h3>
-                  <img
-                    src={asset('resources/technicbots/DavidHue.jpg')}
-                    alt="David - International Mentor"
-                    className="w-full h-48 sm:h-64 object-cover rounded-lg mb-4"
-                  />
+                  <div className="relative mb-4">
+                    <img
+                      src={asset('resources/technicbots/DavidHue.jpg')}
+                      alt="David - International Mentor"
+                      className="w-full h-48 sm:h-64 object-cover rounded-lg"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent rounded-lg">
+                      <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+                        <p className="text-white font-semibold text-xs sm:text-sm">
+                          <DecryptedText text="David - International mentor and robotics education advocate" />
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                   <DecryptedText
                     text="International collaborator and mentor who first met the Plastal-Bot Builders team at the 2022 FIRST Global Competition in Geneva. David has been instrumental in our growth—supporting fundraising, guiding student projects, and making advanced tools like Fusion 360 accessible."
                     parentClassName="block mb-6"
@@ -594,12 +630,19 @@ const Home: React.FC = () => {
               {/* Quote/Testimonial Section */}
               <div className="mt-6 interactive-card p-6 sm:p-8" style={{ background: 'linear-gradient(135deg, var(--surface-bg) 0%, var(--surface-hover-bg) 100%)' }}>
                 <div className="flex flex-col md:flex-row items-center gap-6">
-                  <div className="w-full md:w-1/3">
+                  <div className="w-full md:w-1/3 relative">
                     <img
                       src={asset('resources/technicbots/withman.jpg')}
                       alt="Partnership in action"
                       className="w-full h-auto rounded-lg shadow-lg"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent rounded-lg">
+                      <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+                        <p className="text-white font-semibold text-xs sm:text-sm">
+                          <DecryptedText text="Collaboration between Plastal-Bot Builders and international partners" />
+                        </p>
+                      </div>
+                    </div>
                   </div>
                   <div className="w-full md:w-2/3">
                     <blockquote className="mb-4">
