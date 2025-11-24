@@ -160,7 +160,7 @@ const DonationsPage: React.FC = () => {
                                             className="inline"
                                         />
                                     </div>
-                                    <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
+                                    <div className="w-10 h-10 sm:w-20 sm:h-20 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center border-2 border-accent">
                                         <FaRegLightbulb className="text-accent text-2xl sm:text-3xl" />
                                     </div>
                                     <p>Provides one set of sensors for a student robot project</p>
@@ -177,7 +177,7 @@ const DonationsPage: React.FC = () => {
                                             className="inline"
                                         />
                                     </div>
-                                    <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
+                                    <div className="w-10 h-10 sm:w-20 sm:h-20 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center border-2 border-accent">
                                         <FaUserGraduate className="text-accent text-2xl sm:text-3xl" />
                                     </div>
                                     <p>Covers workshop materials for one participant</p>
@@ -194,7 +194,7 @@ const DonationsPage: React.FC = () => {
                                             className="inline"
                                         />
                                     </div>
-                                    <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center">
+                                    <div className="w-10    h-10 sm:w-20 sm:h-20 mx-auto mb-4 bg-surface-hover-bg rounded-full flex items-center justify-center border-2 border-accent">
                                         <FaHandHoldingHeart className="text-accent text-2xl sm:text-3xl" />
                                     </div>
                                     <p>Sponsors a complete robotics kit for a school</p>
