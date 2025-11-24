@@ -28,7 +28,7 @@ const DonationsPage: React.FC = () => {
         {
             name: "Mr. Alinani, Teacher",
             quote: "Plastal-Bot helped our school start its first robotics program. Our students are now thriving in STEM subjects.",
-            image: "resources/Testimonial/sepo.jpeg"
+            image: "resources/Testimonial/Alinani.jpeg"
         },
         {
             name: "Kasali, Grade 12",
