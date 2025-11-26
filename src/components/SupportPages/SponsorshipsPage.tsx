@@ -17,22 +17,22 @@ const SponsorshipPage: React.FC = () => {
     const sponsorshipBenefits = [
         {
             title: "Brand Visibility",
-            description: "Showcase your brand to diverse audiences across Zambia's innovation ecosystem.",
+            description: "Position your brand at the forefront of Zambia's emerging innovation ecosystem from day one.",
             icon: <FaRegImage className="text-accent text-xl sm:text-2xl" />
         },
         {
             title: "Social Impact",
-            description: "Contribute directly to youth development and technological advancement in Africa.",
+            description: "Be a founding partner in shaping Africa's next generation of tech leaders and innovators.",
             icon: <FaUsers className="text-accent text-xl sm:text-2xl" />
         },
         {
             title: "Community Engagement",
-            description: "Connect with the next generation of innovators, engineers, and technology leaders.",
+            description: "Connect early with tomorrow's engineers, inventors, and technology pioneers.",
             icon: <FaHandshake className="text-accent text-xl sm:text-2xl" />
         },
         {
             title: "Corporate Responsibility",
-            description: "Demonstrate your commitment to education, innovation, and sustainable development.",
+            description: "Demonstrate forward-thinking commitment to education, innovation, and sustainable development.",
             icon: <FaBuilding className="text-accent text-xl sm:text-2xl" />
         }
     ];
@@ -43,14 +43,14 @@ const SponsorshipPage: React.FC = () => {
             tier: "Platinum",
             contribution: "K50,000+ / $2,500+",
             benefits: [
-                "Premier logo placement on all event materials and website",
-                "Speaking opportunity at major events",
-                "Co-branded marketing campaigns",
-                "VIP access to all Plastal-Bot events",
-                "Dedicated social media features",
-                "Annual impact report presentation",
-                "Employee engagement opportunities",
-                "Named scholarship for promising students"
+                "Premier founding partner logo placement across all future platforms",
+                "Speaking opportunities at our inaugural major events",
+                "Co-branded marketing campaigns as we launch",
+                "VIP access to all Plastal-Bot events as they develop",
+                "Dedicated social media features throughout our growth",
+                "Annual impact reports showing your investment's outcomes",
+                "Employee engagement opportunities in pilot programs",
+                "Naming rights for inaugural scholarships"
             ],
             highlight: true
         },
@@ -58,13 +58,13 @@ const SponsorshipPage: React.FC = () => {
             tier: "Gold",
             contribution: "K25,000+ / $1,250+",
             benefits: [
-                "Prominent logo placement on selected events and website",
-                "Sponsor recognition in event speeches",
-                "Regular social media mentions",
-                "Access to Plastal-Bot showcases",
-                "Quarterly impact updates",
-                "Employee volunteer opportunities",
-                "Workshop naming rights"
+                "Prominent founding partner logo on our growing platforms",
+                "Recognition in event speeches and presentations",
+                "Regular social media mentions as we build momentum",
+                "Priority access to program showcases",
+                "Quarterly progress and impact updates",
+                "Employee volunteer opportunities in emerging programs",
+                "Workshop naming rights as we expand"
             ],
             highlight: false
         },
@@ -72,11 +72,11 @@ const SponsorshipPage: React.FC = () => {
             tier: "Silver",
             contribution: "K10,000+ / $500+",
             benefits: [
-                "Logo on event materials and website",
-                "Social media acknowledgment",
-                "Invitation to annual showcase events",
-                "Sponsor certificate",
-                "Impact highlight report",
+                "Supporting partner logo on materials and digital platforms",
+                "Social media acknowledgment and appreciation",
+                "Invitations to annual showcase events",
+                "Official sponsor certificate",
+                "Impact highlight reports",
                 "Employee engagement opportunity"
             ],
             highlight: false
@@ -87,66 +87,66 @@ const SponsorshipPage: React.FC = () => {
     const sponsorshipTypes = [
         {
             title: "Financial Sponsorship",
-            description: "Direct funding support for programs, workshops, and organizational sustainability.",
+            description: "Provide seed funding to launch sustainable programs, workshops, and organizational infrastructure.",
             icon: <FaChartLine className="text-accent text-xl sm:text-2xl" />,
-            example: "Annual program funding or specific event sponsorship"
+            example: "Help fund our first full-scale annual program or sponsor a specific regional workshop series"
         },
         {
             title: "Equipment Sponsorship",
-            description: "Donation of technology, tools, and materials for robotics education.",
+            description: "Donate foundational technology and tools to establish our robotics education capabilities.",
             icon: <FaRobot className="text-accent text-xl sm:text-2xl" />,
-            example: "Laptops, 3D printers, electronic components, robotics kits"
+            example: "Laptops, 3D printers, electronic components, robotics kits to equip our first learning labs"
         },
         {
             title: "Challenge Sponsorship",
-            description: "Fund competitions that inspire innovation and problem-solving skills.",
+            description: "Fund inaugural competitions that will establish Plastal-Bot as a leader in innovation challenges.",
             icon: <FaTrophy className="text-accent text-xl sm:text-2xl" />,
-            example: "Robotics contests, hackathons, or innovation challenges"
+            example: "Launch our first annual robotics contest, hackathon, or innovation challenge"
         },
         {
             title: "Venue & Logistics",
-            description: "Provide spaces, transportation, or infrastructure for events and workshops.",
+            description: "Provide essential spaces and infrastructure as we establish our program footprint.",
             icon: <FaBuilding className="text-accent text-xl sm:text-2xl" />,
-            example: "Event spaces, internet access, transportation for participants"
+            example: "Event spaces, reliable internet access, transportation for pilot program participants"
         }
     ];
 
-    // Featured sponsors
+    // Featured sponsors (aspirational examples)
     const featuredSponsors = [
         {
-            name: "TechCorp Zambia",
-            contribution: "Platinum sponsor providing annual funding and equipment for our Innovation Hub.",
+            name: "Your Organization Here",
+            contribution: "Become a Platinum founding partner and help us establish our Innovation Hub, reaching students across Zambia from the very beginning.",
             image: "resources/Photos/fredmpelembe.jpeg",
-            level: "Platinum Sponsor"
+            level: "Platinum Opportunity"
         },
         {
-            name: "Global Education Initiative",
-            contribution: "Gold sponsor supporting our rural outreach program reaching 15 schools annually.",
+            name: "Your Company Here",
+            contribution: "Join as a Gold founding partner supporting our rural outreach vision to connect with 15+ schools in our inaugural year.",
             image: "resources/Photos/group.png",
-            level: "Gold Sponsor"
+            level: "Gold Opportunity"
         }
     ];
 
-    // Impact metrics
+    // Impact metrics (projected goals)
     const impactMetrics = [
         {
             metric: "1,200+",
-            description: "Students reached through sponsored programs in 2024",
+            description: "Students we aim to reach in our first full year with sponsor support",
             icon: <FaUsers className="text-accent text-2xl sm:text-3xl" />
         },
         {
             metric: "25",
-            description: "Schools equipped with robotics kits through sponsorships",
+            description: "Schools we plan to equip with robotics kits through partnerships",
             icon: <FaGraduationCap className="text-accent text-2xl sm:text-3xl" />
         },
         {
             metric: "8",
-            description: "Sponsored competitions driving innovation solutions",
+            description: "Competitions we envision launching with sponsor backing",
             icon: <FaTrophy className="text-accent text-2xl sm:text-3xl" />
         },
         {
             metric: "6",
-            description: "Regions across Zambia reached with your support",
+            description: "Regions across Zambia we plan to expand into with your help",
             icon: <FaGlobe className="text-accent text-2xl sm:text-3xl" />
         }
     ];
@@ -155,7 +155,7 @@ const SponsorshipPage: React.FC = () => {
         <>
             <SEOConfig
                 title="Sponsorship | Plastal-Bot Builders"
-                description="Join Plastal-Bot Builders' Sponsorship Program to share your expertise or seek guidance in robotics and STEM innovation."
+                description="Join Plastal-Bot Builders as a founding sponsor and help shape the future of STEM education in Zambia."
                 image="/resources/Photos/fredmpelembe.jpeg"
             />
             <section className="scroll-smooth focus:scroll-auto">
@@ -171,16 +171,16 @@ const SponsorshipPage: React.FC = () => {
                             <div className="w-full md:w-1/2 space-y-4 sm:space-y-6">
                                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
                                     <FaHandshake className="inline-block mr-2 sm:mr-3 text-2xl sm:text-3xl md:text-4xl" />
-                                    Sponsorship Partnerships
+                                    Founding Sponsorship Opportunities
                                 </h1>
                                 <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
-                                    Align your brand with innovation and make a meaningful impact on Africa's tech future.
+                                    Be among the first to invest in Africa's tech future. Your early support will establish the foundation for transformative STEM education across Zambia.
                                 </p>
                                 <div className="bg-surface-hover-bg p-4 sm:p-6 rounded-lg">
                                     <p className="text-sm sm:text-base leading-relaxed">
-                                        Sponsorship partnerships sustain our programs, expand our outreach, and create
-                                        meaningful visibility for organizations that share our vision for advancing
-                                        STEM education in Zambia.
+                                        <strong>Join us from the beginning.</strong> As we build sustainable programs and expand our reach, 
+                                        founding sponsors will gain unparalleled visibility and the satisfaction of knowing they made 
+                                        innovation education possible for thousands of young Zambians.
                                     </p>
                                 </div>
                                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
@@ -188,13 +188,13 @@ const SponsorshipPage: React.FC = () => {
                                         href="#become-sponsor"
                                         className="bg-accent hover:bg-accent-hover text-black py-3 px-4 sm:px-6 rounded-lg font-bold text-center text-sm sm:text-base transition-colors"
                                     >
-                                        Become a Sponsor
+                                        Become a Founding Sponsor
                                     </a>
                                     <a
                                         href="#sponsorship-packages"
                                         className="border border-accent text-accent hover:bg-accent hover:text-black py-3 px-4 sm:px-6 rounded-lg font-bold text-center text-sm sm:text-base transition-colors"
                                     >
-                                        View Packages
+                                        View Investment Packages
                                     </a>
                                 </div>
                             </div>
@@ -212,21 +212,21 @@ const SponsorshipPage: React.FC = () => {
                     <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0} delay={100}>
                         <section className="mb-8 lg:mb-12">
                             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 pb-2">
-                                Why Sponsor Plastal-Bot Builders?
+                                Why Become a Founding Sponsor?
                             </h2>
 
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
                                 <div className="space-y-4">
-                                    <h3 className="text-xl sm:text-2xl font-bold">Strategic Alignment</h3>
+                                    <h3 className="text-xl sm:text-2xl font-bold">Strategic Growth Partnership</h3>
                                     <p className="text-sm sm:text-base leading-relaxed">
-                                        By partnering with Plastal-Bot Builders, your organization aligns with
-                                        educational innovation, youth empowerment, and technological advancement
-                                        in one of Africa's emerging innovation ecosystems.
+                                        By partnering with Plastal-Bot Builders at this foundational stage, your organization 
+                                        positions itself alongside educational innovation, youth empowerment, and technological 
+                                        advancement as we build one of Zambia's most impactful STEM initiatives.
                                     </p>
                                     <p className="text-sm sm:text-base leading-relaxed">
-                                        Our sponsors don't just provide resources – they become integral parts of a
-                                        movement that's building the next generation of engineers, inventors, and
-                                        problem-solvers in Zambia and beyond.
+                                        <strong>Founding sponsors aren't just providing resources – you're co-creating</strong> a movement 
+                                        that will cultivate the next generation of engineers, inventors, and problem-solvers. 
+                                        Your early investment will be recognized throughout our growth journey.
                                     </p>
                                 </div>
 
@@ -251,7 +251,7 @@ const SponsorshipPage: React.FC = () => {
                     <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0} delay={200}>
                         <section id="sponsorship-packages" className="mb-8 lg:mb-12">
                             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 pb-2">
-                                Sponsorship Packages
+                                Founding Sponsor Investment Tiers
                             </h2>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -283,7 +283,7 @@ const SponsorshipPage: React.FC = () => {
                                                         : 'border border-accent text-accent hover:bg-accent hover:text-black'
                                                         }`}
                                                 >
-                                                    Choose {pkg.tier}
+                                                    Invest as {pkg.tier} Partner
                                                 </a>
                                             </div>
                                         </div>
@@ -293,8 +293,8 @@ const SponsorshipPage: React.FC = () => {
 
                             <div className="mt-6 p-4 sm:p-6 bg-surface-hover-bg rounded-lg text-center">
                                 <p className="text-sm sm:text-base mb-3">
-                                    Need a custom sponsorship solution? Contact our partnerships team to create a
-                                    package tailored to your organization's goals and budget.
+                                    <strong>Want to create a custom founding partnership?</strong> Let's design an investment 
+                                    package tailored to your organization's vision and our shared growth objectives.
                                 </p>
                                 <a
                                     href="mailto:partnerships@plastalbotbuilders.org"
@@ -310,7 +310,7 @@ const SponsorshipPage: React.FC = () => {
                     <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0} delay={300}>
                         <section className="mb-8 lg:mb-12">
                             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 pb-2">
-                                Sponsorship Opportunities
+                                Investment Opportunities to Launch Our Vision
                             </h2>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -327,7 +327,7 @@ const SponsorshipPage: React.FC = () => {
 
                                         <div className="bg-surface-hover-bg rounded-lg p-3">
                                             <p className="text-xs sm:text-sm leading-relaxed">
-                                                <strong>Example:</strong> {type.example}
+                                                <strong>Example Impact:</strong> {type.example}
                                             </p>
                                         </div>
                                     </div>
@@ -340,19 +340,26 @@ const SponsorshipPage: React.FC = () => {
                     <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0} delay={100}>
                         <section className="mb-8 lg:mb-12">
                             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 pb-2">
-                                Our Valued Sponsors
+                                Become a Founding Partner
                             </h2>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
                                 {featuredSponsors.map((sponsor, index) => (
                                     <div key={index} className="rounded-lg interactive-card overflow-hidden">
-                                        <div className="h-40 sm:h-48 overflow-hidden">
+                                        <div className="h-40 sm:h-48 overflow-hidden relative">
                                             <img
                                                 src={asset(sponsor.image)}
                                                 alt={sponsor.name}
                                                 className="w-full h-full object-cover"
                                                 loading="lazy"
                                             />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent">
+                                                <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+                                                    <p className="text-white font-semibold text-xs sm:text-sm">
+                                                        Your brand could be featured here as a founding partner
+                                                    </p>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div className="p-4 sm:p-5">
                                             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 mb-3">
@@ -364,10 +371,10 @@ const SponsorshipPage: React.FC = () => {
                                             <p className="mb-4 text-sm sm:text-base leading-relaxed">{sponsor.contribution}</p>
 
                                             <a
-                                                href="#sponsor-profile"
+                                                href="#become-sponsor"
                                                 className="text-accent hover:underline text-sm sm:text-base"
                                             >
-                                                View sponsor profile →
+                                                Claim this opportunity →
                                             </a>
                                         </div>
                                     </div>
@@ -375,9 +382,9 @@ const SponsorshipPage: React.FC = () => {
                             </div>
 
                             <div className="mt-6 text-center">
-                                <a href="#all-sponsors" className="text-accent hover:underline text-sm sm:text-base">
-                                    View all of our sponsors →
-                                </a>
+                                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">
+                                    <em>These partnerships are awaiting visionary organizations ready to invest in Zambia's future</em>
+                                </p>
                             </div>
                         </section>
                     </FadeContent>
@@ -386,7 +393,7 @@ const SponsorshipPage: React.FC = () => {
                     <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0} delay={200}>
                         <section className="mb-8 lg:mb-12">
                             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
-                                Sponsor Visibility & Benefits
+                                Founding Sponsor Visibility & Recognition
                             </h2>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -394,9 +401,9 @@ const SponsorshipPage: React.FC = () => {
                                     <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 rounded-full flex items-center justify-center border-2 border-accent">
                                         <FaRegImage className="text-accent text-xl sm:text-2xl" />
                                     </div>
-                                    <h3 className="font-bold mb-2 text-base sm:text-lg">Brand Presence</h3>
+                                    <h3 className="font-bold mb-2 text-base sm:text-lg">Pioneering Brand Presence</h3>
                                     <p className="text-xs sm:text-sm leading-relaxed">
-                                        Logo placement on event materials, website, t-shirts, and promotional content.
+                                        Logo featured across all future event materials, digital platforms, promotional content, and merchandise as we launch.
                                     </p>
                                 </div>
 
@@ -404,9 +411,9 @@ const SponsorshipPage: React.FC = () => {
                                     <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 rounded-full flex items-center justify-center border-2 border-accent">
                                         <FaMicrophone className="text-accent text-xl sm:text-2xl" />
                                     </div>
-                                    <h3 className="font-bold mb-2 text-base sm:text-lg">Speaking Platforms</h3>
+                                    <h3 className="font-bold mb-2 text-base sm:text-lg">Keynote Opportunities</h3>
                                     <p className="text-xs sm:text-sm leading-relaxed">
-                                        Opportunities to address audiences at events and showcase your organization's vision.
+                                        Platform to address audiences at our inaugural events and share your organization's vision for Zambia's tech future.
                                     </p>
                                 </div>
 
@@ -414,42 +421,60 @@ const SponsorshipPage: React.FC = () => {
                                     <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 rounded-full flex items-center justify-center border-2 border-accent">
                                         <FaRegLightbulb className="text-accent text-xl sm:text-2xl" />
                                     </div>
-                                    <h3 className="font-bold mb-2 text-base sm:text-lg">Content Collaboration</h3>
+                                    <h3 className="font-bold mb-2 text-base sm:text-lg">Story Co-Creation</h3>
                                     <p className="text-xs sm:text-sm leading-relaxed">
-                                        Co-created stories, social media features, and impact reporting highlighting your support.
+                                        Collaborative storytelling, social media campaigns, and impact documentation celebrating your foundational support.
                                     </p>
                                 </div>
                             </div>
 
                             <div className="mt-8">
-                                <h3 className="text-xl sm:text-2xl font-bold mb-4">Sponsor Showcase</h3>
+                                <h3 className="text-xl sm:text-2xl font-bold mb-4">Envisioned Sponsor Showcase</h3>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div className="bg-surface rounded-lg overflow-hidden interactive-card">
-                                        <img
-                                            src={asset('resources/Outsourced_photos/girlchild.jpg')}
-                                            alt="Sponsor branding at event"
-                                            className="w-full h-40 sm:h-48 object-cover"
-                                            loading="lazy"
-                                        />
+                                        <div className="relative">
+                                            <img
+                                                src={asset('resources/Outsourced_photos/girlchild.jpg')}
+                                                alt="Future event branding"
+                                                className="w-full h-40 sm:h-48 object-cover"
+                                                loading="lazy"
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent">
+                                                <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+                                                    <p className="text-white font-semibold text-xs sm:text-sm">
+                                                        Founding sponsors will have prominent branding at our first major competition
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div className="p-4">
-                                            <h4 className="font-bold mb-2 text-sm sm:text-base">Event Branding</h4>
+                                            <h4 className="font-bold mb-2 text-sm sm:text-base">Launch Event Branding</h4>
                                             <p className="text-xs sm:text-sm leading-relaxed">
-                                                Prominent logo placement during our nationwide robotics competition
+                                                Your logo featured prominently at our inaugural nationwide robotics competition
                                             </p>
                                         </div>
                                     </div>
 
                                     <div className="bg-surface rounded-lg overflow-hidden interactive-card">
-                                        <img
-                                            src={asset('resources/Outsourced_photos/kidswithvrglasses.jpg')}
-                                            alt="Sponsor speaking at event"
-                                            className="w-full h-40 sm:h-48 object-cover"
-                                            loading="lazy"
-                                        />
+                                        <div className="relative">
+                                            <img
+                                                src={asset('resources/Outsourced_photos/kidswithvrglasses.jpg')}
+                                                alt="Future speaking opportunity"
+                                                className="w-full h-40 sm:h-48 object-cover"
+                                                loading="lazy"
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent">
+                                                <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+                                                    <p className="text-white font-semibold text-xs sm:text-sm">
+                                                        Platinum partners will deliver keynotes at our annual showcase
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div className="p-4">
-                                            <h4 className="font-bold mb-2 text-sm sm:text-base">Keynote Opportunity</h4>
+                                            <h4 className="font-bold mb-2 text-sm sm:text-base">Keynote Platform</h4>
                                             <p className="text-xs sm:text-sm leading-relaxed">
-                                                Platinum sponsors presenting at our annual technology showcase
+                                                Founding Platinum sponsors presenting at our inaugural technology showcase event
                                             </p>
                                         </div>
                                     </div>
@@ -462,51 +487,51 @@ const SponsorshipPage: React.FC = () => {
                     <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0} delay={300}>
                         <section className="mb-8 lg:mb-12">
                             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 pb-2">
-                                Impact & Accountability
+                                Transparent Growth & Impact Tracking
                             </h2>
 
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
                                 <div className="space-y-4">
-                                    <h3 className="text-xl sm:text-2xl font-bold">Transparent Impact Reporting</h3>
+                                    <h3 className="text-xl sm:text-2xl font-bold">Building Accountability from Day One</h3>
                                     <p className="text-sm sm:text-base leading-relaxed">
-                                        We believe in showing our sponsors exactly how their contributions make a difference.
-                                        Every sponsorship includes comprehensive reporting that demonstrates the tangible
-                                        outcomes of your support.
+                                        <strong>We're committed to showing you exactly how your investment builds our organization.</strong> Every 
+                                        founding sponsorship will include comprehensive progress reporting that demonstrates the tangible 
+                                        outcomes of your early support as we grow.
                                     </p>
                                     <p className="text-sm sm:text-base leading-relaxed">
-                                        Our impact reporting includes quantitative metrics, qualitative stories,
-                                        and visual documentation of programs, allowing sponsors to clearly communicate
-                                        their social impact to stakeholders.
+                                        Our impact reporting framework is designed to give sponsors clear visibility into how we're 
+                                        developing programs, reaching students, and achieving our mission milestones—allowing you to 
+                                        communicate your social investment to stakeholders with confidence.
                                     </p>
                                     <div className="bg-surface-hover-bg p-4 rounded-lg">
-                                        <h4 className="font-bold mb-3 text-sm sm:text-base">Report Components:</h4>
+                                        <h4 className="font-bold mb-3 text-sm sm:text-base">Our Reporting Will Include:</h4>
                                         <ul className="space-y-2">
                                             <li className="flex items-start">
                                                 <span className="text-accent mr-2 flex-shrink-0">•</span>
-                                                <span className="text-xs sm:text-sm">Detailed participation demographics</span>
+                                                <span className="text-xs sm:text-sm">Quarterly progress updates on program development</span>
                                             </li>
                                             <li className="flex items-start">
                                                 <span className="text-accent mr-2 flex-shrink-0">•</span>
-                                                <span className="text-xs sm:text-sm">Skills development assessment</span>
+                                                <span className="text-xs sm:text-sm">Detailed participation demographics as we launch</span>
                                             </li>
                                             <li className="flex items-start">
                                                 <span className="text-accent mr-2 flex-shrink-0">•</span>
-                                                <span className="text-xs sm:text-sm">Project outcomes and innovations</span>
+                                                <span className="text-xs sm:text-sm">Skills development assessment frameworks</span>
                                             </li>
                                             <li className="flex items-start">
                                                 <span className="text-accent mr-2 flex-shrink-0">•</span>
-                                                <span className="text-xs sm:text-sm">Community and educational impact</span>
+                                                <span className="text-xs sm:text-sm">Early project outcomes and student innovations</span>
                                             </li>
                                             <li className="flex items-start">
                                                 <span className="text-accent mr-2 flex-shrink-0">•</span>
-                                                <span className="text-xs sm:text-sm">Photo and video documentation</span>
+                                                <span className="text-xs sm:text-sm">Photo and video documentation of all initiatives</span>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
 
                                 <div className="space-y-4">
-                                    <h3 className="text-xl sm:text-2xl font-bold">Your Support Creates Impact</h3>
+                                    <h3 className="text-xl sm:text-2xl font-bold">Your Investment Will Help Us Achieve</h3>
                                     <div className="grid grid-cols-2 gap-4">
                                         {impactMetrics.map((item, index) => (
                                             <div key={index} className="rounded-lg interactive-card p-4 text-center">
@@ -518,13 +543,12 @@ const SponsorshipPage: React.FC = () => {
                                             </div>
                                         ))}
                                     </div>
-                                    <div className="mt-6 text-center">
-                                        <a
-                                            href="#impact-report"
-                                            className="text-accent hover:underline text-sm sm:text-base inline-block"
-                                        >
-                                            Download our latest impact report →
-                                        </a>
+                                    <div className="mt-6 bg-surface-hover-bg p-4 rounded-lg text-center">
+                                        <p className="text-sm font-semibold mb-2">These Are Our Ambitious First-Year Goals</p>
+                                        <p className="text-xs sm:text-sm leading-relaxed">
+                                            With founding sponsor support, we'll track and report progress toward these objectives quarterly, 
+                                            demonstrating the direct impact of your investment.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -536,55 +560,61 @@ const SponsorshipPage: React.FC = () => {
                         <section className="mb-8 lg:mb-12">
                             <div className="bg-surface-hover-bg rounded-lg overflow-hidden p-4 sm:p-6 lg:p-8">
                                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
-                                    Sponsorship Success Story
+                                    Envisioned Sponsorship Success Story
                                 </h2>
 
                                 <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
-                                    <div className="lg:w-1/2">
+                                    <div className="lg:w-1/2 relative">
                                         <img
                                             src={asset('resources/Photos/IMG_5087.jpg')}
-                                            alt="Tech Challenge sponsored event"
+                                            alt="Future sponsored event"
                                             className="w-full h-48 sm:h-64 lg:h-auto rounded-lg shadow-lg object-cover"
                                             loading="lazy"
                                         />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent rounded-lg">
+                                            <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+                                                <p className="text-white font-semibold text-xs sm:text-sm">
+                                                    Imagine your organization launching our first Rural Innovation Challenge
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div className="lg:w-1/2 space-y-4">
-                                        <h3 className="text-xl sm:text-2xl font-bold">Technicbots Innovation Program</h3>
+                                        <h3 className="text-xl sm:text-2xl font-bold">The Future We're Building Together</h3>
                                         <p className="text-sm sm:text-base leading-relaxed">
-                                            When telecommunications provider ZamTel sponsored our Rural Innovation
-                                            Challenge in 2024, they weren't just providing funding – they were
-                                            catalyzing a movement that reached five previously underserved provinces.
+                                            <strong>Picture this:</strong> A leading Zambian organization becomes our inaugural Platinum sponsor, 
+                                            helping us launch our first Rural Innovation Challenge. Their support doesn't just provide funding—it 
+                                            catalyzes a movement that reaches five underserved provinces in our very first year.
                                         </p>
 
                                         <div className="bg-surface rounded-lg p-4">
-                                            <h4 className="font-bold mb-3 text-sm sm:text-base">Outcomes:</h4>
+                                            <h4 className="font-bold mb-3 text-sm sm:text-base">Projected First-Year Outcomes:</h4>
                                             <ul className="space-y-2">
                                                 <li className="flex items-start">
                                                     <span className="text-accent mr-2 flex-shrink-0">•</span>
-                                                    <span className="text-xs sm:text-sm">350 students participated across 15 rural schools</span>
+                                                    <span className="text-xs sm:text-sm">350+ students participating across 15 rural schools</span>
                                                 </li>
                                                 <li className="flex items-start">
                                                     <span className="text-accent mr-2 flex-shrink-0">•</span>
-                                                    <span className="text-xs sm:text-sm">12 agriculture-focused robotics solutions developed</span>
+                                                    <span className="text-xs sm:text-sm">12+ agriculture-focused robotics solutions in development</span>
                                                 </li>
                                                 <li className="flex items-start">
                                                     <span className="text-accent mr-2 flex-shrink-0">•</span>
-                                                    <span className="text-xs sm:text-sm">National media coverage across 3 TV networks</span>
+                                                    <span className="text-xs sm:text-sm">Anticipated national media coverage across multiple platforms</span>
                                                 </li>
                                                 <li className="flex items-start">
                                                     <span className="text-accent mr-2 flex-shrink-0">•</span>
-                                                    <span className="text-xs sm:text-sm">Winning team presented at National Innovation Summit</span>
+                                                    <span className="text-xs sm:text-sm">Winning teams presenting at National Innovation Summit</span>
                                                 </li>
                                             </ul>
                                         </div>
 
                                         <blockquote className="italic border-l-4 border-accent pl-4 text-sm sm:text-base leading-relaxed">
-                                            "Our sponsorship of Plastal-Bot's Rural Innovation Challenge aligned
-                                            perfectly with our mission to connect all of Zambia. The visibility
-                                            was tremendous, but the real value was seeing young innovators from
-                                            rural areas develop technology solutions for their communities."
-                                            <p className="mt-2 font-bold not-italic">— Sarah Mwanza, CSR Director, ZamTel</p>
+                                            "Imagine being the organization that makes this vision a reality. As a founding sponsor, 
+                                            your brand won't just be associated with innovation—you'll be recognized as the catalyst 
+                                            that made transformative STEM education accessible across rural Zambia."
+                                            <p className="mt-2 font-bold not-italic">— The Opportunity Awaiting Your Organization</p>
                                         </blockquote>
                                     </div>
                                 </div>
@@ -595,29 +625,29 @@ const SponsorshipPage: React.FC = () => {
                     {/* CTA Section */}
                     <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0} delay={300}>
                         <section className="text-center">
-                            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Partner with Purpose</h2>
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Invest in Tomorrow's Innovators Today</h2>
                             <p className="mb-6 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
-                                Your sponsorship creates opportunities for young innovators while showcasing
-                                your commitment to technology education and Zambia's future.
+                                Your founding sponsorship will establish the foundation for transformative STEM education 
+                                while positioning your organization at the forefront of Zambia's innovation future.
                             </p>
                             <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
                                 <a
                                     href="#become-sponsor"
                                     className="bg-accent hover:bg-accent-hover text-black py-3 px-4 sm:px-6 rounded-lg font-bold text-sm sm:text-base transition-colors"
                                 >
-                                    Become a Sponsor
+                                    Become a Founding Sponsor
                                 </a>
                                 <a
                                     href="#sponsorship-packages"
                                     className="border border-accent text-accent hover:bg-accent hover:text-black py-3 px-4 sm:px-6 rounded-lg font-bold text-sm sm:text-base transition-colors"
                                 >
-                                    View Sponsorship Options
+                                    Explore Investment Tiers
                                 </a>
                                 <a
                                     href="/contact"
-                                    className="border border-surface-border hover:border-accent py-3 px-4 sm:px-6 rounded-lg font-bold text-sm sm:text-base transition-colors"
+                                    className="border border-surface-border hover:border-accent py-3 px:px-4 sm:px-6 rounded-lg font-bold text-sm sm:text-base transition-colors"
                                 >
-                                    Contact Our Team
+                                    Schedule a Conversation
                                 </a>
                             </div>
                         </section>

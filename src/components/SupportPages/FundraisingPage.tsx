@@ -213,7 +213,7 @@ const FundraisingPage: React.FC = () => {
                                 {fundraisingChannels.map((channel, index) => (
                                     <div key={index} className="rounded-lg interactive-card p-4 transition-colors">
                                         <div className="flex items-center mb-4">
-                                            <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4">
+                                            <div className="w-12 h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 border-2 border-accent">
                                                 {channel.icon}
                                             </div>
                                             <h3 className="text-xl font-bold">{channel.title}</h3>
@@ -374,7 +374,7 @@ const FundraisingPage: React.FC = () => {
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
                                 {impactMetrics.map((item, index) => (
                                     <div key={index} className="text-center p-4">
-                                        <div className="flex justify-center mb-4">
+                                        <div className="flex justify-center mb-4 border-2 border-accent w-16 h-16 rounded-full items-center mx-auto bg-surface-hover-bg">
                                             {item.icon}
                                         </div>
                                         <div className="text-3xl font-bold text-accent mb-2">
