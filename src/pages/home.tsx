@@ -94,7 +94,7 @@ const Home: React.FC = () => {
                 <div className="w-full md:w-1/2 flex items-center justify-center">
                   <ThemedImage
                     alt="Empowering Innovation"
-                    src="resources/Illustrations/Data_extraction.svg"
+                    src="resources/Illustrations/EmpoweringInnovation.svg"
                     className="w-full max-w-lg h-auto object-contain"
                   />
                 </div>
