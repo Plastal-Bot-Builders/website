@@ -13,6 +13,7 @@ import CountUp from '../components/ui/CountUp';
 import { FaHandshake, FaGraduationCap, FaGlobe } from 'react-icons/fa';
 import FadeContent from '../components/ui/FadeContent';
 
+
 const Home: React.FC = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
