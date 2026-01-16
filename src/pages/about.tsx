@@ -383,12 +383,12 @@ const About: React.FC = () => {
           <section className="w-full px-4 sm:px-6 lg:px-8 py-6 lg:py-12">
             <div className="max-w-7xl mx-auto">
               <div className="interactive-card p-8 sm:p-12 text-center" style={{ background: 'linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%)' }}>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">Join Us</h2>
-                <p className="text-sm sm:text-base md:text-lg text-white mb-6">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Join Us</h2>
+                <p className="text-sm sm:text-base md:text-lg text-gray-900 dark:text-white mb-6">
                   Be part of the movement. Help us shape the future of robotics and technology in Africa.
                 </p>
                 <button
-                  className="bg-gray-900 text-white py-3 px-6 rounded-lg hover:bg-gray-700 transition-colors text-sm sm:text-base"
+                  className="bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 py-3 px-6 rounded-lg hover:bg-gray-700 dark:hover:bg-gray-300 transition-colors text-sm sm:text-base"
                   onClick={() => navigate('/programs')}
                 >
                   Learn More
