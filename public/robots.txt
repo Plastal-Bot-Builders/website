@@ -1,4 +1,10 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /backend/
+Disallow: /api/
+Disallow: /login/
+Disallow: /dashboard/
 
-Sitemap: https://yourwebsite.com/sitemap.xml
+Sitemap:  https://plastal-bot_builders.com/sitemap.xml

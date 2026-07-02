@@ -1,9 +1,9 @@
 import React, { useRef, useLayoutEffect, useState, useEffect } from 'react';
-import { Canvas, useFrame, useThree, useLoader } from '@react-three/fiber';
+import { Canvas, useFrame, useLoader, useThree } from '@react-three/fiber';
 import { Group } from 'three';
-import { useGLTF, Html, useProgress, Environment, ContactShadows, OrbitControls } from '@react-three/drei';
+import { Html, useProgress, Environment, ContactShadows } from '@react-three/drei';
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
-import { motion, useScroll, useTransform, MotionValue } from 'framer-motion';
+import { motion, useMotionValue, useTransform, Variants } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import * as THREE from 'three';
 import Header from '../Header';
@@ -14,10 +14,51 @@ const isMeshObject = (object: THREE.Object3D): object is THREE.Mesh => {
   return 'isMesh' in object && object.isMesh === true;
 };
 
-type RobotModelProps = {
-  scrollProgress: MotionValue<number>;
-  scrollDirection: number;
-};
+/** Tracks a max-width media query so the 3D scene can re-frame for phones. */
+function useIsMobile(breakpoint = 768): boolean {
+  const [isMobile, setIsMobile] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia(`(max-width: ${breakpoint - 1}px)`).matches
+  );
+
+  useEffect(() => {
+    const mq = window.matchMedia(`(max-width: ${breakpoint - 1}px)`);
+    const onChange = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, [breakpoint]);
+
+  return isMobile;
+}
+
+/** Reads the theme accent so Three.js materials can match light/dark mode. */
+function useAccentColor(): string {
+  const [color, setColor] = useState('#0CFFBB');
+
+  useEffect(() => {
+    const read = () => {
+      const value = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
+      if (value) setColor(value);
+    };
+    read();
+    const observer = new MutationObserver(read);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    return () => observer.disconnect();
+  }, []);
+
+  return color;
+}
+
+/**
+ * Scroll progress of the showcase container, measured from its rect so it
+ * works no matter which ancestor element actually scrolls.
+ */
+function getScrollProgress(el: HTMLElement | null): number {
+  if (!el) return 0;
+  const rect = el.getBoundingClientRect();
+  const total = rect.height - window.innerHeight;
+  if (total <= 0) return 0;
+  return THREE.MathUtils.clamp(-rect.top / total, 0, 1);
+}
 
 function LoaderSpinner() {
   const { progress } = useProgress();
@@ -35,306 +76,458 @@ function LoaderSpinner() {
 }
 
 const OBJModel: React.FC<{ url: string }> = ({ url }) => {
-  const obj= useLoader(OBJLoader, url);
+  const obj = useLoader(OBJLoader, url);
   return <primitive object={obj.clone()} />;
 };
 
-function RobotModel({ scrollProgress, scrollDirection }: RobotModelProps) {
-  const outerRef = useRef<Group | null>(null);
+const GROUND_Y = -0.6;
+
+/**
+ * Gypul.obj is a Fusion 360 Z-up export with measured bounds
+ * min(-10, -8.7, -7.8) / max(9, 3, 15.2) — its height runs along Z.
+ * Rotating -90° about X stands it upright (Z becomes Y-up); the baked
+ * offsets center it and put the wheel bottoms exactly on y = 0.
+ * If the model ever renders upside down after a re-export, flip the X
+ * rotation to +90° and swap the 7.8 for 15.2 in the Y offset.
+ */
+const OBJ_SCALE = 1.15 / 22.9;
+const OBJ_OFFSET: [number, number, number] = [0.5 * OBJ_SCALE, 7.8 * OBJ_SCALE, -2.85 * OBJ_SCALE];
+
+/**
+ * Scroll-linked camera choreography. Each key frames one story beat:
+ * hero wide shot → wheel close-up → tracking shot as the robot crosses →
+ * electronics close-up → pull back to the centered full assembly.
+ */
+const CAM_KEYS = [
+  { t: 0.0, cam: [0.0, 0.45, 3.6], look: [0.3, 0.15, 0], x: 1.0 },
+  { t: 0.22, cam: [1.5, -0.28, 2.2], look: [0.6, -0.38, 0], x: 1.0 },
+  { t: 0.48, cam: [1.8, 0.2, 2.9], look: [0.35, 0.0, 0], x: 0.7 },
+  { t: 0.72, cam: [0.75, 0.05, 2.0], look: [0.55, 0.08, 0], x: 0.85 },
+  { t: 1.0, cam: [0.0, 0.65, 4.5], look: [0.05, 0.05, 0], x: 0.5 },
+] as const;
+
+const _camNext = new THREE.Vector3();
+const _lookNext = new THREE.Vector3();
+
+/** Samples the keyframe track at progress p; returns the robot's x target. */
+function sampleCamera(p: number, cam: THREE.Vector3, look: THREE.Vector3): number {
+  let i = 0;
+  while (i < CAM_KEYS.length - 2 && p > CAM_KEYS[i + 1].t) i++;
+  const a = CAM_KEYS[i];
+  const b = CAM_KEYS[i + 1];
+  const k = THREE.MathUtils.smootherstep((p - a.t) / (b.t - a.t), 0, 1);
+  cam.fromArray(a.cam).lerp(_camNext.fromArray(b.cam), k);
+  look.fromArray(a.look).lerp(_lookNext.fromArray(b.look), k);
+  return THREE.MathUtils.lerp(a.x, b.x, k);
+}
+
+type SceneProps = {
+  containerRef: React.RefObject<HTMLDivElement>;
+  manualSpin: React.MutableRefObject<number>;
+  isMobile: boolean;
+  accent: string;
+};
+
+function Scene({ containerRef, manualSpin, isMobile, accent }: SceneProps) {
+  const robotRef = useRef<Group | null>(null);
+  const stageRef = useRef<Group | null>(null);
   const innerRef = useRef<Group | null>(null);
   const { camera } = useThree();
-  
+
+  const camTarget = useRef(new THREE.Vector3(0, 0.45, 3.6));
+  const lookSample = useRef(new THREE.Vector3(0.3, 0.15, 0));
+  const lookTarget = useRef(new THREE.Vector3(0.3, 0.15, 0));
+
   const src = asset('resources/3D_Models/Gypul.obj');
-  
-  // Track target rotation based on scroll
-  const targetRotation = useRef(0);
-  const lastScrollProgress = useRef(0);
-  
-  const pivotW = useRef(new THREE.Vector3());
 
-  // Enhanced scroll-based transforms
-  const yRange = useTransform(scrollProgress, [0, 1], [-0.2, -0.9]);
-  const zRange = useTransform(scrollProgress, [0, 1], [3.2, 2.0]);
-  const scaleRange = useTransform(scrollProgress, [0, 1], [0.5, 0.7]);
-
-  // Auto-frame and setup model on load
   useLayoutEffect(() => {
-    if (!innerRef.current) return;
-    const g = innerRef.current;
-    
-    const checkLoaded = setInterval(() => {
-      if (g.children.length === 0) return;
-      
-      clearInterval(checkLoaded);
-      g.updateWorldMatrix(true, true);
-
-      // Calculate bounding sphere for auto-framing
-      const sphere = new THREE.Box3().setFromObject(g).getBoundingSphere(new THREE.Sphere());
-      const s = 1 / (sphere.radius * 2);
-      g.position.set(-sphere.center.x, -sphere.center.y, -sphere.center.z);
-      g.scale.setScalar(s);
-
-      g.rotation.set(
-      THREE.MathUtils.degToRad(0),   // X rotation (pitch)
-      THREE.MathUtils.degToRad(-90), // Y rotation (yaw) - rotate 90° left
-      THREE.MathUtils.degToRad(0)    // Z rotation (roll)
-      );
-
-      // Enable shadows
-      g.traverse((o: THREE.Object3D) => {
-        if (isMeshObject(o)) {
-          o.castShadow = true;
-          o.receiveShadow = true;
-        }
-      });
-
-      g.getWorldPosition(pivotW.current);
-      
-      // Auto-frame camera
-      if ((camera as THREE.PerspectiveCamera).isPerspectiveCamera) {
-        const persp = camera as THREE.PerspectiveCamera;
-        const fitR = sphere.radius * s;
-        const d = (fitR * 1.2) / Math.sin((persp.fov * Math.PI) / 180 / 2);
-        persp.position.set(pivotW.current.x, pivotW.current.y, pivotW.current.z + d);
-        persp.near = d / 10;
-        persp.far = d * 10;
-        persp.updateProjectionMatrix();
+    innerRef.current?.traverse((o: THREE.Object3D) => {
+      if (isMeshObject(o)) {
+        o.castShadow = true;
+        o.receiveShadow = true;
       }
-    }, 100);
+    });
+  }, []);
 
-    return () => clearInterval(checkLoaded);
-  }, [camera]);
+  useFrame((state, dt) => {
+    const robot = robotRef.current;
+    if (!robot) return;
 
-  useFrame((_, dt) => {
-    if (!outerRef.current) return;
+    const p = getScrollProgress(containerRef.current);
+    const t = state.clock.elapsedTime;
+    const damp = THREE.MathUtils.damp;
 
-    const currentScrollProgress = scrollProgress.get();
-    const y = yRange.get();
-    const z = zRange.get();
-    const scale = scaleRange.get();
+    const modelX = sampleCamera(p, camTarget.current, lookSample.current);
+    if (isMobile) {
+      // Center the robot and aim below it so it frames into the upper
+      // part of the screen, above the text cards
+      camTarget.current.x *= 0.4;
+      camTarget.current.z += 0.35;
+      lookSample.current.x = 0;
+      lookSample.current.y = lookSample.current.y * 0.4 - 0.42;
+    }
 
-    // Calculate scroll delta to determine rotation direction
-    const scrollDelta = currentScrollProgress - lastScrollProgress.current;
-    
-    // Update target rotation based on scroll direction
-    // Multiply by a factor to control rotation speed (adjust as needed)
-    targetRotation.current += scrollDelta * Math.PI * 3;
-    
-    // Update last scroll position
-    lastScrollProgress.current = currentScrollProgress;
+    // Idle life: the balancing act intensifies around the electronics
+    // beat (p ≈ 0.7), the camera slowly orbits in the hero and always
+    // keeps a slight breathing motion
+    const balanceBoost = 1 + 2.4 * Math.exp(-((p - 0.7) ** 2) / 0.006);
+    const heroOrbit = Math.max(0, 1 - p * 6);
+    camTarget.current.x += Math.sin(t * 0.22) * 0.28 * heroOrbit;
+    camTarget.current.y += Math.sin(t * 0.55) * 0.03;
 
-    // Smooth rotation towards target with damping
-    const rotationDiff = targetRotation.current - outerRef.current.rotation.y;
-    outerRef.current.rotation.y += rotationDiff * 0.1;
-    
-    // Gentle bobbing motion
-    outerRef.current.rotation.x += (Math.sin(performance.now() / 1000) * 0.08 - outerRef.current.rotation.x) * 0.05;
-    
-    // Subtle Z-axis tilt
-    outerRef.current.rotation.z = Math.sin(performance.now() / 1500) * 0.05;
-    
-    // Vertical position
-    outerRef.current.position.y += (y - outerRef.current.position.y) * 0.12;
-    
-    // Scale
-    outerRef.current.scale.set(scale, scale, scale);
+    // Robot: one full turn across the page + drag spin, self-balancing
+    // sway pivoting on the wheels, micro corrections along x
+    const yaw = 0.45 + p * Math.PI * 2 + manualSpin.current;
+    robot.rotation.y = damp(robot.rotation.y, yaw, 5, dt);
+    robot.rotation.x = Math.sin(t * 1.9) * 0.018 * balanceBoost;
+    robot.rotation.z = Math.sin(t * 1.35) * 0.024 * balanceBoost;
 
-    // Camera movement with offset
-    camera.position.lerp(new THREE.Vector3(-0.5, 0.2 + y * 0.6, z), 0.12);
-    camera.lookAt(-0.5, 0, 0);
+    const jitter = Math.sin(t * 2.7) * 0.008 * balanceBoost;
+    const targetX = (isMobile ? 0 : modelX) + jitter;
+    robot.position.x = damp(robot.position.x, targetX, 3.5, dt);
+    robot.scale.setScalar(damp(robot.scale.x, isMobile ? 0.8 : 1, 3, dt));
+
+    if (stageRef.current) stageRef.current.position.x = robot.position.x;
+
+    camera.position.x = damp(camera.position.x, camTarget.current.x, 3, dt);
+    camera.position.y = damp(camera.position.y, camTarget.current.y, 3, dt);
+    camera.position.z = damp(camera.position.z, camTarget.current.z, 3, dt);
+    lookTarget.current.x = damp(lookTarget.current.x, lookSample.current.x, 3.5, dt);
+    lookTarget.current.y = damp(lookTarget.current.y, lookSample.current.y, 3.5, dt);
+    lookTarget.current.z = damp(lookTarget.current.z, lookSample.current.z, 3.5, dt);
+    camera.lookAt(lookTarget.current);
   });
 
   return (
-    <group 
-      ref={outerRef} 
-      dispose={null}
-      rotation={[0, Math.PI / 3, 0]}
-    >
-      <group ref={innerRef}>
-        <OBJModel url={src} />
+    <>
+      <group ref={robotRef} position={[1.0, GROUND_Y, 0]} rotation={[0, 0.45, 0]} dispose={null}>
+        <group position={OBJ_OFFSET} rotation={[-Math.PI / 2, 0, 0]} scale={OBJ_SCALE}>
+          <group ref={innerRef}>
+            <OBJModel url={src} />
+          </group>
+        </group>
       </group>
-    </group>
+
+      {/* Product stage: soft disc, accent rings and contact shadows keep
+          the robot physically grounded; it tracks the robot's x position */}
+      <group ref={stageRef} position={[1.0, GROUND_Y, 0]}>
+        <mesh rotation-x={-Math.PI / 2} position-y={0.002}>
+          <circleGeometry args={[1.7, 64]} />
+          <meshBasicMaterial color={accent} transparent opacity={0.035} depthWrite={false} />
+        </mesh>
+        <mesh rotation-x={-Math.PI / 2} position-y={0.004}>
+          <ringGeometry args={[0.95, 0.965, 96]} />
+          <meshBasicMaterial color={accent} transparent opacity={0.28} depthWrite={false} />
+        </mesh>
+        <mesh rotation-x={-Math.PI / 2} position-y={0.004}>
+          <ringGeometry args={[1.45, 1.457, 96]} />
+          <meshBasicMaterial color={accent} transparent opacity={0.12} depthWrite={false} />
+        </mesh>
+        <ContactShadows position={[0, 0.001, 0]} opacity={0.55} scale={5} blur={2.2} far={1.4} resolution={512} />
+      </group>
+    </>
   );
 }
+
+const PHASES = [
+  { at: 0, label: 'Scroll to begin exploration' },
+  { at: 0.08, label: 'Exploring the design' },
+  { at: 0.35, label: 'Analyzing the stabilization system' },
+  { at: 0.6, label: 'Viewing the electronics' },
+  { at: 0.82, label: 'Explore the full assembly' },
+];
+
+const techStack = [
+  { name: 'Fusion 360', icon: 'resources/icons/Fusion360.svg' },
+  { name: 'ESP32', icon: 'resources/icons/esp32.svg' },
+  { name: 'Bambu A1 Mini', icon: 'resources/icons/Bambu.png' },
+];
+
+const stats = [
+  { value: '<$80', label: 'Bill of materials' },
+  { value: '200+', label: 'Students reached' },
+  { value: '2 hrs', label: 'Battery runtime' },
+];
+
+const containerVariants: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.12 } },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+};
+
+const cardWidth = 'pointer-events-auto w-full md:max-w-md lg:max-w-lg xl:max-w-xl glass-card rounded-2xl p-6 sm:p-8';
 
 export default function GypulShowcase(): JSX.Element {
   const navigate = useNavigate();
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const { scrollYProgress } = useScroll({ target: containerRef });
-  const [scrollDirection, setScrollDirection] = useState(0);
-  const lastScrollY = useRef(0);
+  const isMobile = useIsMobile();
+  const accent = useAccentColor();
 
-  // Track scroll direction
+  // Extra rotation from dragging on the canvas (desktop only)
+  const manualSpin = useRef(0);
+  const dragState = useRef({ dragging: false, lastX: 0 });
+
+  const barProgress = useMotionValue(0);
+  const hintOpacity = useTransform(barProgress, [0, 0.06], [1, 0]);
+  const [phase, setPhase] = useState(0);
+
+  // Capture-phase listener sees scrolls of any container, and the rect
+  // math matches what the 3D scene samples every frame
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const direction = currentScrollY > lastScrollY.current ? 1 : -1;
-      setScrollDirection(direction);
-      lastScrollY.current = currentScrollY;
+    const update = () => {
+      const p = getScrollProgress(containerRef.current);
+      barProgress.set(p);
+      let idx = 0;
+      for (let i = 0; i < PHASES.length; i++) {
+        if (p >= PHASES[i].at) idx = i;
+      }
+      setPhase(idx);
     };
+    update();
+    window.addEventListener('scroll', update, { capture: true, passive: true });
+    window.addEventListener('resize', update);
+    return () => {
+      window.removeEventListener('scroll', update, true);
+      window.removeEventListener('resize', update);
+    };
+  }, [barProgress]);
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.7 } }
+  const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    dragState.current = { dragging: true, lastX: e.clientX };
+    e.currentTarget.setPointerCapture?.(e.pointerId);
+  };
+  const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!dragState.current.dragging) return;
+    manualSpin.current += (e.clientX - dragState.current.lastX) * 0.008;
+    dragState.current.lastX = e.clientX;
+  };
+  const onPointerUp = () => {
+    dragState.current.dragging = false;
   };
 
   return (
     <section className="scroll-smooth focus:scroll-auto">
       <Header />
+
+      {/* Scroll progress bar */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-1 bg-accent origin-left z-50"
+        style={{ scaleX: barProgress }}
+      />
+
       <div ref={containerRef} className="relative min-h-screen pt-20">
-        {/* Back button */}
-        <div className="max-w-7xl mx-auto px-6 pt-4">
-          <button
-            onClick={() => navigate('/projects')}
-            className="flex items-center text-sm hover:text-accent transition-colors mb-6"
-          >
-            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Back to Projects
-          </button>
-        </div>
-        
-        {/* Fullscreen Canvas background */}
-        <div className="fixed inset-0 -z-10">
-          <Canvas 
+        {/* Fullscreen Canvas background. Pointer events are off on mobile so
+            touch-drag scrolls the page; on desktop dragging spins the robot */}
+        <div
+          className="fixed inset-0 -z-10 pointer-events-none md:pointer-events-auto md:cursor-grab md:active:cursor-grabbing"
+          onPointerDown={onPointerDown}
+          onPointerMove={onPointerMove}
+          onPointerUp={onPointerUp}
+          onPointerCancel={onPointerUp}
+        >
+          <Canvas
             shadows
-            camera={{ position: [0, 0.6, 3.2], fov: 35 }}
-            gl={{ 
-              preserveDrawingBuffer: true,
+            dpr={[1, 2]}
+            camera={{ position: [0, 0.45, 3.6], fov: 35 }}
+            gl={{
               antialias: true,
               toneMapping: THREE.ACESFilmicToneMapping,
-              outputColorSpace: THREE.SRGBColorSpace
+              outputColorSpace: THREE.SRGBColorSpace,
             }}
           >
             <Environment preset="studio" background={false} />
-            
-            <ambientLight intensity={0.4} />
-            <directionalLight intensity={0.6} position={[5, 5, 5]} castShadow />
-            <directionalLight intensity={0.2} position={[-5, -2, -5]} />
-            
-            <ContactShadows position={[0, -0.5, 0]} opacity={0.35} scale={10} blur={2} />
-            
+
+            <ambientLight intensity={0.35} />
+            <directionalLight intensity={0.7} position={[4, 6, 4]} castShadow />
+            <directionalLight intensity={0.25} position={[-5, 2, -3]} />
+            {/* Rim light separates the robot from the background */}
+            <directionalLight intensity={1.0} position={[-3, 4, -4]} />
+
             <React.Suspense fallback={<LoaderSpinner />}>
-              <RobotModel scrollProgress={scrollYProgress} scrollDirection={scrollDirection} />
+              <Scene containerRef={containerRef} manualSpin={manualSpin} isMobile={isMobile} accent={accent} />
             </React.Suspense>
-            
-            <OrbitControls 
-              enablePan={false} 
-              enableZoom={true} 
-              enableRotate={true}
-              makeDefault 
-              rotateSpeed={0.6}
-              minDistance={2}
-              maxDistance={10}
-            />
           </Canvas>
         </div>
 
-        {/* Page content sections */}
-        <main className="relative z-10">
-          <div className="max-w-7xl mx-auto px-6">
-            {/* Intro / Overview */}
-            <section id="overview" className="min-h-[40vh] flex items-center">
+        {/* Experience-state indicator: label follows the current story beat */}
+        <div className="fixed bottom-5 inset-x-0 z-20 flex justify-center pointer-events-none px-4">
+          <div className="glass-card rounded-full px-4 py-2 text-xs sm:text-sm flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse shrink-0" />
+            <motion.span
+              key={PHASES[phase].label}
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35 }}
+            >
+              {PHASES[phase].label}
+            </motion.span>
+            <span className="hidden md:inline opacity-60">· drag to rotate</span>
+          </div>
+        </div>
+
+        {/* Page content. The wrapper ignores pointer events so drags over
+            empty space reach the canvas; cards re-enable them */}
+        <main className="relative z-10 pointer-events-none">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            {/* Back button */}
+            <button
+              onClick={() => navigate('/projects')}
+              className="pointer-events-auto flex items-center text-sm hover:text-accent transition-colors mt-4 mb-6"
+            >
+              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              Back to Projects
+            </button>
+
+            {/* Hero / Overview */}
+            <section id="overview" className="min-h-[calc(100vh-9rem)] flex items-center relative">
               <motion.div
-                className="max-w-2xl"
+                className={`${cardWidth} mt-[38vh] md:mt-0`}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
-                variants={sectionVariants}
+                variants={containerVariants}
               >
-                <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight mb-4">
-                  Meet Gypul
-                </h1>
-                <p className="mb-6 text-lg">
-                  Gypul is a self-balancing robot platform designed to bring robotics education within reach of students across Africa. Built with affordability and accessibility in mind, this open-source project uses 3D-printed parts, an ESP32 microcontroller, and proven stabilization algorithms. Whether you're a student learning PID control, a teacher introducing STEM concepts, or a maker exploring embedded systems, Gypul provides hands-on experience with real-world engineering challenges. Rotate the 3D model to explore its design, or scroll down to discover the technology behind this innovative learning tool.
-                </p>
-                <a href="#design" className="custom-button inline-block">Explore Design</a>
+                <motion.span
+                  variants={itemVariants}
+                  className="inline-block text-xs sm:text-sm font-mono tracking-widest uppercase text-hex border border-accent rounded-full px-3 py-1 mb-4"
+                >
+                  Open Source Robotics
+                </motion.span>
+                <motion.h1
+                  variants={itemVariants}
+                  className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-4"
+                >
+                  Meet <span className="text-hex">Gypul</span>
+                </motion.h1>
+                <motion.p variants={itemVariants} className="mb-6 text-base sm:text-lg">
+                  Gypul is a self-balancing robot platform designed to bring robotics education within reach of students across Africa. Built with affordability and accessibility in mind, this open-source project uses 3D-printed parts, an ESP32 microcontroller, and proven stabilization algorithms. Rotate the 3D model to explore its design, or scroll down to discover the technology behind this innovative learning tool.
+                </motion.p>
+                <motion.div variants={itemVariants} className="grid grid-cols-3 gap-3 sm:gap-4 mb-8">
+                  {stats.map((stat) => (
+                    <div key={stat.label} className="glass-card rounded-xl px-3 py-3 sm:px-4 sm:py-4 text-center">
+                      <div className="text-xl sm:text-2xl font-bold text-hex">{stat.value}</div>
+                      <div className="text-xs sm:text-sm opacity-70 mt-1">{stat.label}</div>
+                    </div>
+                  ))}
+                </motion.div>
+                <motion.div variants={itemVariants}>
+                  <a href="#design" className="custom-button inline-block">Explore Design</a>
+                </motion.div>
+              </motion.div>
+
+              {/* Scroll cue */}
+              <motion.div
+                style={{ opacity: hintOpacity }}
+                className="absolute bottom-14 left-1/2 -translate-x-1/2 flex flex-col items-center text-xs opacity-70"
+              >
+                <span className="mb-1">Scroll to explore</span>
+                <motion.svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  animate={{ y: [0, 6, 0] }}
+                  transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </motion.svg>
               </motion.div>
             </section>
-            
-            {/* Design & Engineering */}
-            <section id="design" className="min-h-[60vh] flex items-center">
+
+            {/* Design & Engineering — wheel assembly close-up */}
+            <section id="design" className="min-h-[80vh] flex items-center py-12 sm:py-16">
               <motion.div
-                className="max-w-2xl"
+                className={cardWidth}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
-                variants={sectionVariants}
+                variants={containerVariants}
               >
-                <h2 className="text-3xl font-bold mb-3">Design & Engineering</h2>
-                <p className="mb-4 text-lg">
+                <motion.span variants={itemVariants} className="block text-sm font-mono text-hex mb-2">
+                  01 — Hardware
+                </motion.span>
+                <motion.h2 variants={itemVariants} className="text-2xl sm:text-3xl font-bold mb-3">
+                  Design &amp; Engineering
+                </motion.h2>
+                <motion.p variants={itemVariants} className="mb-6 text-base sm:text-lg">
                   Every component of Gypul has been carefully designed for educational value and ease of assembly. The chassis is modeled in Autodesk Fusion 360, optimized for strength while minimizing material costs. Parts are 3D printed on a Bambu Lab A1 Mini using PLA filament, making reproduction accessible to schools and makerspaces with limited budgets. The mechanical design features a two-wheeled balancing system with a low center of gravity for stable operation. An ESP32 microcontroller serves as the brain, providing WiFi connectivity for remote monitoring and firmware updates. The modular design allows students to experiment with different sensors, motors, and control algorithms without redesigning the entire platform.
-                </p>
-                <div className="flex items-center gap-4 flex-wrap">
-                  {/* Fusion 360 */}
-                  <div className="group flex items-center gap-2 border rounded-lg px-4 py-2 hover:border-accent transition-all duration-300" title="Autodesk Fusion 360">
-                    <img 
-                      className="h-6 w-6 opacity-70 group-hover:opacity-100 transition-opacity"
-                      alt="Fusion 360"
-                      src={asset('resources/icons/Fusion360.svg')}  // lowercase 'icons'
-                    />
-                    <span className="text-sm font-medium"> Fusion 360</span>
-                  </div>
-                  {/* ESP 32 */}
-                  <div className="group flex items-center gap-2 border rounded-lg px-4 py-2 hover:border-accent transition-all duration-300" title="Autodesk Fusion 360">
-                    <img 
-                      className="h-6 w-6 opacity-70 group-hover:opacity-100 transition-opacity"
-                      alt="Fusion 360"
-                      src={asset('resources/icons/esp32.svg')}  // lowercase 'icons'
-                    />
-                    <span className="text-sm font-medium"> ESP 32 </span>
-                  </div>
-                  {/* ESP 32 */}
-                  <div className="group flex items-center gap-2 border rounded-lg px-4 py-2 hover:border-accent transition-all duration-300" title="Autodesk Fusion 360">
-                    <img 
-                      className="h-6 w-6 opacity-70 group-hover:opacity-100 transition-opacity"
-                      alt="Fusion 360"
-                      src={asset('resources/icons/Bambu.png')}  // lowercase 'icons'
-                    />
-                    <span className="text-sm font-medium"> Bambu A1 Mini </span>
-                  </div>
-                </div>
+                </motion.p>
+                <motion.div variants={itemVariants} className="flex items-center gap-3 sm:gap-4 flex-wrap">
+                  {techStack.map((tech) => (
+                    <div
+                      key={tech.name}
+                      className="group flex items-center gap-2 border rounded-lg px-3 py-2 sm:px-4 hover:border-accent transition-all duration-300"
+                      style={{ borderColor: 'var(--surface-border)' }}
+                      title={tech.name}
+                    >
+                      <img
+                        className="h-6 w-6 opacity-70 group-hover:opacity-100 transition-opacity"
+                        alt={tech.name}
+                        src={asset(tech.icon)}
+                      />
+                      <span className="text-sm font-medium">{tech.name}</span>
+                    </div>
+                  ))}
+                </motion.div>
               </motion.div>
             </section>
-            
-            {/* Electronics & Control */}
-            <section id="electronics" className="min-h-[60vh] flex items-center py-12">
+
+            {/* Electronics & Control — stabilization system & tracking shot */}
+            <section id="electronics" className="min-h-[80vh] flex items-center py-12 sm:py-16">
               <motion.div
-                className="max-w-2xl"
+                className={cardWidth}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
-                variants={sectionVariants}
+                variants={containerVariants}
               >
-                <h2 className="text-3xl font-bold mb-3">Electronics & Control</h2>
-                <p className="mb-4 text-lg">
+                <motion.span variants={itemVariants} className="block text-sm font-mono text-hex mb-2">
+                  02 — Electronics
+                </motion.span>
+                <motion.h2 variants={itemVariants} className="text-2xl sm:text-3xl font-bold mb-3">
+                  Electronics &amp; Control
+                </motion.h2>
+                <motion.p variants={itemVariants} className="mb-6 text-base sm:text-lg">
                   The electronics system is built around an MPU6050 inertial measurement unit (IMU) that provides real-time orientation data through sensor fusion of accelerometer and gyroscope readings. This data feeds into a PID (Proportional-Integral-Derivative) control loop that calculates the precise motor adjustments needed to maintain balance. A custom-designed PCB consolidates the motor driver, power management, and sensor connections into a compact package that fits within the robot's chassis. Dual DC motors with encoders provide smooth, controlled motion while allowing students to experiment with speed control and position tracking. The entire system is powered by a rechargeable lithium-ion battery pack, providing up to 2 hours of continuous operation for extended learning sessions.
-                </p>
-                <span className="inline-block text-sm border border-white/10 px-3 py-2 rounded mr-2">IMU / Sensor Fusion</span>
-                <span className="inline-block text-sm border border-white/10 px-3 py-2 rounded">PID Control</span>
+                </motion.p>
+                <motion.div variants={itemVariants} className="flex gap-2 flex-wrap">
+                  <span className="inline-block text-sm border px-3 py-2 rounded" style={{ borderColor: 'var(--surface-border)' }}>IMU / Sensor Fusion</span>
+                  <span className="inline-block text-sm border px-3 py-2 rounded" style={{ borderColor: 'var(--surface-border)' }}>PID Control</span>
+                </motion.div>
               </motion.div>
             </section>
-            
-            {/* Impact & Accessibility */}
-            <section id="impact" className="min-h-[60vh] flex items-center py-12">
+
+            {/* Impact & Accessibility — pull back & final CTA */}
+            <section id="impact" className="min-h-[80vh] flex items-center py-12 sm:py-16">
               <motion.div
-                className="max-w-2xl"
+                className={cardWidth}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
-                variants={sectionVariants}
+                variants={containerVariants}
               >
-                <h2 className="text-3xl font-bold mb-3">Impact & Accessibility</h2>
-                <p className="mb-4 text-lg">
+                <motion.span variants={itemVariants} className="block text-sm font-mono text-hex mb-2">
+                  03 — Mission
+                </motion.span>
+                <motion.h2 variants={itemVariants} className="text-2xl sm:text-3xl font-bold mb-3">
+                  Impact &amp; Accessibility
+                </motion.h2>
+                <motion.p variants={itemVariants} className="mb-6 text-base sm:text-lg">
                   Gypul was created with a clear mission: to democratize robotics education in regions where access to advanced learning tools is limited. With a bill of materials under $80 USD and all design files available under an open-source license, schools and community organizations can build their own robots without prohibitive costs. The project includes comprehensive documentation, assembly guides, and curriculum resources that teachers can adapt to their classrooms. By focusing on locally available materials and common fabrication methods, Gypul can be manufactured and maintained without relying on expensive imported components. Students who build and program Gypul gain practical experience in mechanical design, electronics, programming, and control theory—skills that are increasingly vital in today's technology-driven economy. This project has already reached over 200 students across Zambia, inspiring the next generation of African engineers and innovators.
-                </p>
-                <span className="inline-block text-sm border border-white/10 px-3 py-2 rounded mr-2">Open Source Hardware</span>
-                <span className="inline-block text-sm border border-white/10 px-3 py-2 rounded">Educational Impact</span>
+                </motion.p>
+                <motion.div variants={itemVariants} className="flex items-center gap-3 flex-wrap">
+                  <button onClick={() => navigate('/projects')} className="custom-button inline-block">
+                    View All Projects
+                  </button>
+                  <span className="inline-block text-sm border px-3 py-2 rounded" style={{ borderColor: 'var(--surface-border)' }}>Open Source Hardware</span>
+                  <span className="inline-block text-sm border px-3 py-2 rounded" style={{ borderColor: 'var(--surface-border)' }}>Educational Impact</span>
+                </motion.div>
               </motion.div>
             </section>
           </div>

@@ -446,3 +446,12 @@ header img { width: 100px; }
 .animate-float {
     animation: float-rotate 4s ease-in-out infinite;
 }
+
+/* Frosted, theme-aware panel used by 3D showcase pages so text stays
+   readable when it overlaps the WebGL canvas */
+.glass-card {
+    background: color-mix(in srgb, var(--bg) 80%, transparent);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--surface-border);
+}

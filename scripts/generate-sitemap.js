@@ -5,7 +5,7 @@ const path = require('path');
 
 // Configuration for sitemap generation
 const config = {
-  baseUrl: 'https://yourwebsite.com', // Replace with your actual domain
+  baseUrl: 'https://plastal-bot_builders.com', 
   routes: [
     { path: '/', priority: '1.0', changefreq: 'daily' },
     { path: '/home', priority: '1.0', changefreq: 'daily' },
@@ -23,7 +23,7 @@ function generateSitemap() {
   const currentDate = new Date().toISOString().split('T')[0];
   
   let sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="https://plastal-bot_builders.com">
 `;
 
   config.routes.forEach(route => {
