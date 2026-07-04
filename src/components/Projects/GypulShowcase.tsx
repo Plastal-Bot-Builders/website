@@ -5,6 +5,8 @@ import { Html, useProgress, Environment, ContactShadows, useGLTF, useAnimations 
 import { motion, useMotionValue, useTransform, Variants } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import * as THREE from 'three';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Header from '../Header';
 import Footer from '../Footer';
 import { asset } from '../../utils/asset';
@@ -85,6 +87,31 @@ const MODEL_URLS = {
 };
 
 const TARGET_HEIGHT = 1.15;
+/**
+ * Where the robot stands. It stays here for the whole page (mobile centers
+ * it) — the camera does the storytelling, the robot only turns in place
+ * and takes one small step forward during the stabilization beat.
+ */
+const REST_X = 0.85;
+const FOV = 35;
+/** Dolly distance at which the fitted robot fills ~60% of the viewport height. */
+const HERO_DIST = TARGET_HEIGHT / (0.6 * 2 * Math.tan(THREE.MathUtils.degToRad(FOV / 2)));
+
+/**
+ * Scroll thresholds where each story beat takes over. The camera keys land
+ * at scroll 0 / .25 / .5 / .75 / 1; the behaviour mode and label switch a
+ * little before each arrival, while the camera transition is under way.
+ */
+const BEAT_AT = [0, 0.14, 0.4, 0.62, 0.86];
+
+function beatFor(p: number): number {
+  let i = 0;
+  for (let k = 1; k < BEAT_AT.length; k++) {
+    if (p >= BEAT_AT[k]) i = k;
+  }
+  return i;
+}
+
 const CLIP_FPS = 30;
 /** Frames 910+ are a drivetrain test sequence, not meant for product display. */
 const CLIP_END_FRAME = 900;
@@ -92,35 +119,30 @@ const CLIP_END_FRAME = 900;
 /**
  * The baked timeline is a sequence of behaviour modes (per the export
  * README): BOOT 1-120 · IDLE 121-300 · SCAN 301-450 · MOVEMENT 451-650 ·
- * SHOWCASE 651-900. Each scroll beat pins playback inside one mode and
+ * SHOWCASE 651-900. Each story beat pins playback inside one mode and
  * ping-pongs so the loop never pops; crossing into another beat
  * fast-forwards (or rewinds) the timeline through the modes in between.
  */
 type Segment = { entry: number; loop: [number, number] };
 const SEGMENTS: Segment[] = [
   { entry: 0, loop: [4.0, 10.0] }, // hero: boot plays once, then idle
-  { entry: 10.0, loop: [10.0, 15.0] }, // design: scan mode
-  { entry: 15.0, loop: [15.0, 21.6] }, // stabilization + electronics: movement
-  { entry: 21.6, loop: [21.6, 29.9] }, // full assembly: showcase turntable
+  { entry: 4.0, loop: [4.0, 10.0] }, // wheel design: idle balancing
+  { entry: 15.0, loop: [15.0, 21.6] }, // stabilization: movement mode
+  { entry: 10.0, loop: [10.0, 15.0] }, // electronics: scan mode
+  { entry: 21.6, loop: [21.6, 29.9] }, // finale: showcase turntable
 ];
 const SEEK_SPEED = 6;
-
-function segmentFor(p: number): number {
-  if (p < 0.08) return 0;
-  if (p < 0.35) return 1;
-  if (p < 0.82) return 2;
-  return 3;
-}
 
 /**
  * LED state colors from the export README — the Blender driver rig doesn't
  * survive glTF, so the state system is recreated on the MAT_LED_* materials.
  */
-const LED_SEGMENT_COLORS = [
-  new THREE.Color(0.05, 0.85, 1.0), // idle cyan
-  new THREE.Color(1.0, 0.32, 0.02), // scan orange
-  new THREE.Color(0.05, 0.85, 1.0), // movement cyan
-  new THREE.Color(0.04, 1.0, 0.22), // success green
+const LED_BEAT_COLORS = [
+  new THREE.Color(0.05, 0.85, 1.0), // hero: idle cyan
+  new THREE.Color(0.05, 0.85, 1.0), // wheels: idle cyan
+  new THREE.Color(0.05, 0.85, 1.0), // stabilization: cyan
+  new THREE.Color(1.0, 0.32, 0.02), // electronics: scan orange
+  new THREE.Color(0.04, 1.0, 0.22), // finale: success green
 ];
 
 type RobotModelProps = {
@@ -163,6 +185,17 @@ function RobotModel({ url, progress }: RobotModelProps) {
   }, [scene]);
 
   useLayoutEffect(() => {
+    // The export double-applies the motor offset to the wheel groups (the
+    // Blender scene itself has it — LOD2 bakes the same layout), leaving
+    // each wheel floating ~8cm off its axle. Re-seat them by cancelling
+    // the parent motor's offset; assignment (not +=) keeps it idempotent
+    // across remounts of drei's cached scene
+    (['Left', 'Right'] as const).forEach((side) => {
+      const wheel = scene.getObjectByName(`${side}_Wheel`);
+      const motor = scene.getObjectByName(`${side}_Motor`);
+      if (wheel && motor) wheel.position.x = -motor.position.x;
+    });
+
     const found: THREE.MeshStandardMaterial[] = [];
     scene.traverse((o: THREE.Object3D) => {
       if (!isMeshObject(o)) return;
@@ -189,7 +222,7 @@ function RobotModel({ url, progress }: RobotModelProps) {
   }, [actions]);
 
   useFrame((state, dt) => {
-    const seg = SEGMENTS[segmentFor(progress.current)];
+    const seg = SEGMENTS[beatFor(progress.current)];
     const [loopStart, loopEnd] = seg.loop;
     const pb = playback.current;
 
@@ -218,7 +251,7 @@ function RobotModel({ url, progress }: RobotModelProps) {
     });
     mixer.update(0);
 
-    const ledColor = LED_SEGMENT_COLORS[segmentFor(progress.current)];
+    const ledColor = LED_BEAT_COLORS[beatFor(progress.current)];
     const pulse = 1.4 + Math.sin(state.clock.elapsedTime * 2.4) * 0.45;
     for (const led of leds.current) {
       led.emissive.lerp(ledColor, Math.min(1, dt * 4));
@@ -234,49 +267,44 @@ function RobotModel({ url, progress }: RobotModelProps) {
 }
 
 /**
- * Scroll-linked camera choreography. Each key frames one story beat:
- * hero wide shot → wheel close-up → tracking shot as the robot crosses →
- * electronics close-up → pull back to the centered full assembly.
+ * Cinematic shot list — one key per story beat, landed at scroll
+ * 0 / .25 / .5 / .75 / 1 by a GSAP ScrollTrigger-scrubbed timeline with
+ * power2.inOut easing between keys. The camera dollies, orbits and zooms;
+ * the robot only turns in place (±30° max) and takes one small step
+ * forward for the stabilization beat, so nothing ever leaves the frame.
  */
-const CAM_KEYS = [
-  { t: 0.0, cam: [0.0, 0.45, 3.6], look: [0.3, 0.15, 0], x: 1.0 },
-  { t: 0.22, cam: [1.5, -0.28, 2.2], look: [0.6, -0.38, 0], x: 1.0 },
-  { t: 0.48, cam: [1.8, 0.2, 2.9], look: [0.35, 0.0, 0], x: 0.7 },
-  { t: 0.72, cam: [0.75, 0.05, 2.0], look: [0.55, 0.08, 0], x: 0.85 },
-  { t: 1.0, cam: [0.0, 0.65, 4.5], look: [0.05, 0.05, 0], x: 0.5 },
-] as const;
+const SHOT_KEYS = [
+  // 1 — hero: upright 3/4 pose in the right half, ~60% of viewport height.
+  // The look target sits left of the robot: that is what pushes it out of
+  // the text column and into the right side of the frame
+  { camX: 0.3, camY: 0.25, camZ: HERO_DIST, lookX: 0.25, lookY: -0.02, lookZ: 0, yaw: 0.4, posZ: 0 },
+  // 2 — slow push-in on the wheel assembly, robot turns 20°
+  { camX: 0.4, camY: -0.24, camZ: 1.9, lookX: 0.45, lookY: -0.32, lookZ: 0, yaw: 0.75, posZ: 0 },
+  // 3 — stabilization: robot steps forward, camera tracks at mid distance
+  { camX: 0.2, camY: 0.12, camZ: 2.75, lookX: 0.4, lookY: -0.1, lookZ: 0.25, yaw: 0.7, posZ: 0.25 },
+  // 4 — electronics: orbit to the opposite shoulder, robot turns the other way
+  { camX: -0.35, camY: 0.2, camZ: 2.6, lookX: 0.4, lookY: 0.0, lookZ: 0, yaw: -0.1, posZ: 0 },
+  // 5 — finale: low, slightly wider hero framing
+  { camX: 0.25, camY: -0.1, camZ: HERO_DIST * 1.05, lookX: 0.3, lookY: 0.05, lookZ: 0, yaw: 0.45, posZ: 0 },
+];
 
-const _camNext = new THREE.Vector3();
-const _lookNext = new THREE.Vector3();
-
-/** Samples the keyframe track at progress p; returns the robot's x target. */
-function sampleCamera(p: number, cam: THREE.Vector3, look: THREE.Vector3): number {
-  let i = 0;
-  while (i < CAM_KEYS.length - 2 && p > CAM_KEYS[i + 1].t) i++;
-  const a = CAM_KEYS[i];
-  const b = CAM_KEYS[i + 1];
-  const k = THREE.MathUtils.smootherstep((p - a.t) / (b.t - a.t), 0, 1);
-  cam.fromArray(a.cam).lerp(_camNext.fromArray(b.cam), k);
-  look.fromArray(a.look).lerp(_lookNext.fromArray(b.look), k);
-  return THREE.MathUtils.lerp(a.x, b.x, k);
-}
+type Shot = (typeof SHOT_KEYS)[number];
 
 type SceneProps = {
   containerRef: React.RefObject<HTMLDivElement>;
+  shot: Shot;
   manualSpin: React.MutableRefObject<number>;
   isMobile: boolean;
   accent: string;
 };
 
-function Scene({ containerRef, manualSpin, isMobile, accent }: SceneProps) {
+function Scene({ containerRef, shot, manualSpin, isMobile, accent }: SceneProps) {
   const robotRef = useRef<Group | null>(null);
   const stageRef = useRef<Group | null>(null);
   const progressRef = useRef(0);
   const { camera } = useThree();
 
-  const camTarget = useRef(new THREE.Vector3(0, 0.45, 3.6));
-  const lookSample = useRef(new THREE.Vector3(0.3, 0.15, 0));
-  const lookTarget = useRef(new THREE.Vector3(0.3, 0.15, 0));
+  const lookTarget = useRef(new THREE.Vector3(SHOT_KEYS[0].lookX, SHOT_KEYS[0].lookY, SHOT_KEYS[0].lookZ));
 
   const src = asset(isMobile ? MODEL_URLS.mobile : MODEL_URLS.desktop);
 
@@ -289,51 +317,59 @@ function Scene({ containerRef, manualSpin, isMobile, accent }: SceneProps) {
     const t = state.clock.elapsedTime;
     const damp = THREE.MathUtils.damp;
 
-    const modelX = sampleCamera(p, camTarget.current, lookSample.current);
+    // The scrubbed timeline supplies the shot; mobile reframes it so the
+    // robot sits centered above the text cards
+    let cx = shot.camX;
+    let cy = shot.camY;
+    let cz = shot.camZ;
+    let lx = shot.lookX;
+    let ly = shot.lookY;
     if (isMobile) {
-      // Center the robot and aim below it so it frames into the upper
-      // part of the screen, above the text cards
-      camTarget.current.x *= 0.4;
-      camTarget.current.z += 0.35;
-      lookSample.current.x = 0;
-      lookSample.current.y = lookSample.current.y * 0.4 - 0.42;
+      cx *= 0.3;
+      cz += 0.45;
+      lx = 0;
+      ly = ly * 0.4 - 0.42;
     }
 
-    // Idle life: the camera slowly orbits in the hero and always keeps a
-    // slight breathing motion (the robot's own balancing sway is baked
-    // into the GLB's BodyAction track)
-    const heroOrbit = Math.max(0, 1 - p * 6);
-    camTarget.current.x += Math.sin(t * 0.22) * 0.28 * heroOrbit;
-    camTarget.current.y += Math.sin(t * 0.55) * 0.03;
+    // Camera-side life: a slow parallax orbit in the hero and around the
+    // electronics beat, constant breathing. The camera carries the feeling
+    // of motion — the robot's own balancing is baked into BodyAction
+    const orbit = Math.max(0, 1 - p * 5) + 0.5 * Math.exp(-((p - 0.75) ** 2) / 0.01);
+    cx += Math.sin(t * 0.22) * 0.1 * orbit;
+    cz += (Math.cos(t * 0.22) - 1) * 0.06 * orbit;
+    cy += Math.sin(t * 0.55) * 0.02;
 
-    // Robot: one full turn across the page + drag spin
-    const yaw = 0.45 + p * Math.PI * 2 + manualSpin.current;
-    robot.rotation.y = damp(robot.rotation.y, yaw, 5, dt);
+    camera.position.x = damp(camera.position.x, cx, 2.8, dt);
+    camera.position.y = damp(camera.position.y, cy, 2.8, dt);
+    camera.position.z = damp(camera.position.z, cz, 2.8, dt);
+    lookTarget.current.x = damp(lookTarget.current.x, lx, 3.2, dt);
+    lookTarget.current.y = damp(lookTarget.current.y, ly, 3.2, dt);
+    lookTarget.current.z = damp(lookTarget.current.z, shot.lookZ, 3.2, dt);
+    camera.lookAt(lookTarget.current);
 
-    const targetX = isMobile ? 0 : modelX;
-    robot.position.x = damp(robot.position.x, targetX, 3.5, dt);
+    // Robot: keyframed turn-in-place (≤ ±30°) + drag spin + a gyroscopic
+    // micro-correction so it never reads as a static prop
+    const yaw = shot.yaw + manualSpin.current + Math.sin(t * 0.7) * 0.012;
+    robot.rotation.y = damp(robot.rotation.y, yaw, 4, dt);
+    robot.position.x = damp(robot.position.x, isMobile ? 0 : REST_X, 3.5, dt);
+    robot.position.z = damp(robot.position.z, shot.posZ, 3, dt);
     robot.scale.setScalar(damp(robot.scale.x, isMobile ? 0.8 : 1, 3, dt));
 
-    if (stageRef.current) stageRef.current.position.x = robot.position.x;
-
-    camera.position.x = damp(camera.position.x, camTarget.current.x, 3, dt);
-    camera.position.y = damp(camera.position.y, camTarget.current.y, 3, dt);
-    camera.position.z = damp(camera.position.z, camTarget.current.z, 3, dt);
-    lookTarget.current.x = damp(lookTarget.current.x, lookSample.current.x, 3.5, dt);
-    lookTarget.current.y = damp(lookTarget.current.y, lookSample.current.y, 3.5, dt);
-    lookTarget.current.z = damp(lookTarget.current.z, lookSample.current.z, 3.5, dt);
-    camera.lookAt(lookTarget.current);
+    if (stageRef.current) {
+      stageRef.current.position.x = robot.position.x;
+      stageRef.current.position.z = robot.position.z;
+    }
   });
 
   return (
     <>
-      <group ref={robotRef} position={[1.0, GROUND_Y, 0]} rotation={[0, 0.45, 0]} dispose={null}>
+      <group ref={robotRef} position={[REST_X, GROUND_Y, 0]} rotation={[0, SHOT_KEYS[0].yaw, 0]} dispose={null}>
         <RobotModel url={src} progress={progressRef} />
       </group>
 
       {/* Product stage: soft disc, accent rings and contact shadows keep
           the robot physically grounded; it tracks the robot's x position */}
-      <group ref={stageRef} position={[1.0, GROUND_Y, 0]}>
+      <group ref={stageRef} position={[REST_X, GROUND_Y, 0]}>
         <mesh rotation-x={-Math.PI / 2} position-y={0.002}>
           <circleGeometry args={[1.7, 64]} />
           <meshBasicMaterial color={accent} transparent opacity={0.035} depthWrite={false} />
@@ -353,11 +389,11 @@ function Scene({ containerRef, manualSpin, isMobile, accent }: SceneProps) {
 }
 
 const PHASES = [
-  { at: 0, label: 'Scroll to begin exploration' },
-  { at: 0.08, label: 'Exploring the design' },
-  { at: 0.35, label: 'Analyzing the stabilization system' },
-  { at: 0.6, label: 'Viewing the electronics' },
-  { at: 0.82, label: 'Explore the full assembly' },
+  { at: BEAT_AT[0], label: 'Scroll to begin exploration' },
+  { at: BEAT_AT[1], label: 'Exploring the wheel design' },
+  { at: BEAT_AT[2], label: 'Demonstrating self-balancing' },
+  { at: BEAT_AT[3], label: 'Viewing the electronics' },
+  { at: BEAT_AT[4], label: 'Explore the full assembly' },
 ];
 
 const techStack = [
@@ -393,6 +429,43 @@ export default function GypulShowcase(): JSX.Element {
   // Extra rotation from dragging on the canvas (desktop only)
   const manualSpin = useRef(0);
   const dragState = useRef({ dragging: false, lastX: 0 });
+
+  // The current shot, mutated by the scrubbed GSAP timeline and read by the
+  // 3D scene every frame (damping there smooths over the scrub)
+  const shotRef = useRef<Shot>({ ...SHOT_KEYS[0] });
+
+  useLayoutEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    // The app scrolls inside a nested custom-scrollbars viewport, not the
+    // window — point ScrollTrigger at whichever ancestor actually scrolls
+    let scroller: HTMLElement | undefined;
+    for (let el = container.parentElement; el; el = el.parentElement) {
+      if (el.scrollHeight > el.clientHeight + 1 && /(auto|scroll)/.test(getComputedStyle(el).overflowY)) {
+        scroller = el;
+        break;
+      }
+    }
+
+    const tl = gsap.timeline({
+      defaults: { ease: 'power2.inOut', duration: 1 },
+      scrollTrigger: {
+        trigger: container,
+        ...(scroller ? { scroller } : {}),
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: 1,
+      },
+    });
+    SHOT_KEYS.slice(1).forEach((key, i) => tl.to(shotRef.current, { ...key }, i));
+
+    return () => {
+      tl.scrollTrigger?.kill();
+      tl.kill();
+    };
+  }, []);
 
   const barProgress = useMotionValue(0);
   const hintOpacity = useTransform(barProgress, [0, 0.06], [1, 0]);
@@ -455,7 +528,7 @@ export default function GypulShowcase(): JSX.Element {
           <Canvas
             shadows
             dpr={[1, 2]}
-            camera={{ position: [0, 0.45, 3.6], fov: 35 }}
+            camera={{ position: [SHOT_KEYS[0].camX, SHOT_KEYS[0].camY, SHOT_KEYS[0].camZ], fov: FOV }}
             gl={{
               antialias: true,
               toneMapping: THREE.ACESFilmicToneMapping,
@@ -471,7 +544,7 @@ export default function GypulShowcase(): JSX.Element {
             <directionalLight intensity={1.0} position={[-3, 4, -4]} />
 
             <React.Suspense fallback={<LoaderSpinner />}>
-              <Scene containerRef={containerRef} manualSpin={manualSpin} isMobile={isMobile} accent={accent} />
+              <Scene containerRef={containerRef} shot={shotRef.current} manualSpin={manualSpin} isMobile={isMobile} accent={accent} />
             </React.Suspense>
           </Canvas>
         </div>
