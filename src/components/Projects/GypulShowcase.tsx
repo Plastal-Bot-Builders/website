@@ -1,8 +1,7 @@
-import React, { useRef, useLayoutEffect, useState, useEffect } from 'react';
-import { Canvas, useFrame, useLoader, useThree } from '@react-three/fiber';
+import React, { useRef, useLayoutEffect, useMemo, useState, useEffect } from 'react';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Group } from 'three';
-import { Html, useProgress, Environment, ContactShadows } from '@react-three/drei';
-import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
+import { Html, useProgress, Environment, ContactShadows, useGLTF, useAnimations } from '@react-three/drei';
 import { motion, useMotionValue, useTransform, Variants } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import * as THREE from 'three';
@@ -75,23 +74,164 @@ function LoaderSpinner() {
   );
 }
 
-const OBJModel: React.FC<{ url: string }> = ({ url }) => {
-  const obj = useLoader(OBJLoader, url);
-  return <primitive object={obj.clone()} />;
-};
-
 const GROUND_Y = -0.6;
 
+// Decoder is self-hosted (public/draco/) — all three GLB exports require
+// KHR_draco_mesh_compression
+const DRACO_PATH = asset('draco/');
+const MODEL_URLS = {
+  desktop: 'resources/3D_Models/web/robot_showcase.glb', // LOD0, full detail
+  mobile: 'resources/3D_Models/web/robot_showcase_lod1.glb', // ~50% decimated, same rig
+};
+
+const TARGET_HEIGHT = 1.15;
+const CLIP_FPS = 30;
+/** Frames 910+ are a drivetrain test sequence, not meant for product display. */
+const CLIP_END_FRAME = 900;
+
 /**
- * Gypul.obj is a Fusion 360 Z-up export with measured bounds
- * min(-10, -8.7, -7.8) / max(9, 3, 15.2) — its height runs along Z.
- * Rotating -90° about X stands it upright (Z becomes Y-up); the baked
- * offsets center it and put the wheel bottoms exactly on y = 0.
- * If the model ever renders upside down after a re-export, flip the X
- * rotation to +90° and swap the 7.8 for 15.2 in the Y offset.
+ * The baked timeline is a sequence of behaviour modes (per the export
+ * README): BOOT 1-120 · IDLE 121-300 · SCAN 301-450 · MOVEMENT 451-650 ·
+ * SHOWCASE 651-900. Each scroll beat pins playback inside one mode and
+ * ping-pongs so the loop never pops; crossing into another beat
+ * fast-forwards (or rewinds) the timeline through the modes in between.
  */
-const OBJ_SCALE = 1.15 / 22.9;
-const OBJ_OFFSET: [number, number, number] = [0.5 * OBJ_SCALE, 7.8 * OBJ_SCALE, -2.85 * OBJ_SCALE];
+type Segment = { entry: number; loop: [number, number] };
+const SEGMENTS: Segment[] = [
+  { entry: 0, loop: [4.0, 10.0] }, // hero: boot plays once, then idle
+  { entry: 10.0, loop: [10.0, 15.0] }, // design: scan mode
+  { entry: 15.0, loop: [15.0, 21.6] }, // stabilization + electronics: movement
+  { entry: 21.6, loop: [21.6, 29.9] }, // full assembly: showcase turntable
+];
+const SEEK_SPEED = 6;
+
+function segmentFor(p: number): number {
+  if (p < 0.08) return 0;
+  if (p < 0.35) return 1;
+  if (p < 0.82) return 2;
+  return 3;
+}
+
+/**
+ * LED state colors from the export README — the Blender driver rig doesn't
+ * survive glTF, so the state system is recreated on the MAT_LED_* materials.
+ */
+const LED_SEGMENT_COLORS = [
+  new THREE.Color(0.05, 0.85, 1.0), // idle cyan
+  new THREE.Color(1.0, 0.32, 0.02), // scan orange
+  new THREE.Color(0.05, 0.85, 1.0), // movement cyan
+  new THREE.Color(0.04, 1.0, 0.22), // success green
+];
+
+type RobotModelProps = {
+  url: string;
+  progress: React.MutableRefObject<number>;
+};
+
+function RobotModel({ url, progress }: RobotModelProps) {
+  const { scene, animations } = useGLTF(url, DRACO_PATH);
+  const group = useRef<Group>(null);
+  const leds = useRef<THREE.MeshStandardMaterial[]>([]);
+  const playback = useRef({ time: 0, dir: 1 });
+
+  const clips = useMemo(
+    () =>
+      animations.map((clip) => {
+        const sub = THREE.AnimationUtils.subclip(clip, clip.name, 1, CLIP_END_FRAME, CLIP_FPS);
+        // The baked travel moves Robot_Root across the floor, which would
+        // fight the scroll-linked x choreography below — drop the position
+        // track so the robot drives in place and the page moves it instead
+        sub.tracks = sub.tracks.filter((track) => track.name !== 'Robot_Root.position');
+        return sub;
+      }),
+    [animations]
+  );
+
+  const { actions, mixer } = useAnimations(clips, group);
+
+  // Fit the export at its native size: TARGET_HEIGHT tall, centered on the
+  // stage, wheels resting exactly on y = 0
+  const fit = useMemo(() => {
+    const box = new THREE.Box3().setFromObject(scene);
+    const size = box.getSize(new THREE.Vector3());
+    const center = box.getCenter(new THREE.Vector3());
+    const scale = TARGET_HEIGHT / size.y;
+    return {
+      scale,
+      position: [-center.x * scale, -box.min.y * scale, -center.z * scale] as [number, number, number],
+    };
+  }, [scene]);
+
+  useLayoutEffect(() => {
+    const found: THREE.MeshStandardMaterial[] = [];
+    scene.traverse((o: THREE.Object3D) => {
+      if (!isMeshObject(o)) return;
+      o.castShadow = true;
+      o.receiveShadow = true;
+      const materials = Array.isArray(o.material) ? o.material : [o.material];
+      for (const m of materials) {
+        if (m instanceof THREE.MeshStandardMaterial && m.name.startsWith('MAT_LED') && !found.includes(m)) {
+          found.push(m);
+        }
+      }
+    });
+    leds.current = found;
+  }, [scene]);
+
+  // All tracks play together (root motion, body pitch, wheel spin, pulleys);
+  // they stay paused and get scrubbed from useFrame
+  useEffect(() => {
+    Object.values(actions).forEach((action) => {
+      if (!action) return;
+      action.play();
+      action.paused = true;
+    });
+  }, [actions]);
+
+  useFrame((state, dt) => {
+    const seg = SEGMENTS[segmentFor(progress.current)];
+    const [loopStart, loopEnd] = seg.loop;
+    const pb = playback.current;
+
+    if (pb.time < seg.entry - 1e-3 || pb.time > loopEnd + 1e-3) {
+      // Outside this beat's range: seek through the timeline at speed
+      const target = pb.time < seg.entry ? seg.entry : loopEnd;
+      const step = SEEK_SPEED * dt;
+      pb.time = pb.time < target ? Math.min(pb.time + step, target) : Math.max(pb.time - step, target);
+      pb.dir = pb.time >= loopEnd ? -1 : 1;
+    } else if (pb.time < loopStart) {
+      // Entry run-up (the boot sequence) plays through once at 1x
+      pb.time += dt;
+    } else {
+      pb.time += dt * pb.dir;
+      if (pb.time >= loopEnd) {
+        pb.time = loopEnd;
+        pb.dir = -1;
+      } else if (pb.time <= loopStart) {
+        pb.time = loopStart;
+        pb.dir = 1;
+      }
+    }
+
+    Object.values(actions).forEach((action) => {
+      if (action) action.time = Math.min(pb.time, action.getClip().duration);
+    });
+    mixer.update(0);
+
+    const ledColor = LED_SEGMENT_COLORS[segmentFor(progress.current)];
+    const pulse = 1.4 + Math.sin(state.clock.elapsedTime * 2.4) * 0.45;
+    for (const led of leds.current) {
+      led.emissive.lerp(ledColor, Math.min(1, dt * 4));
+      led.emissiveIntensity = pulse;
+    }
+  });
+
+  return (
+    <group ref={group} scale={fit.scale} position={fit.position}>
+      <primitive object={scene} />
+    </group>
+  );
+}
 
 /**
  * Scroll-linked camera choreography. Each key frames one story beat:
@@ -131,29 +271,21 @@ type SceneProps = {
 function Scene({ containerRef, manualSpin, isMobile, accent }: SceneProps) {
   const robotRef = useRef<Group | null>(null);
   const stageRef = useRef<Group | null>(null);
-  const innerRef = useRef<Group | null>(null);
+  const progressRef = useRef(0);
   const { camera } = useThree();
 
   const camTarget = useRef(new THREE.Vector3(0, 0.45, 3.6));
   const lookSample = useRef(new THREE.Vector3(0.3, 0.15, 0));
   const lookTarget = useRef(new THREE.Vector3(0.3, 0.15, 0));
 
-  const src = asset('resources/3D_Models/Gypul.obj');
-
-  useLayoutEffect(() => {
-    innerRef.current?.traverse((o: THREE.Object3D) => {
-      if (isMeshObject(o)) {
-        o.castShadow = true;
-        o.receiveShadow = true;
-      }
-    });
-  }, []);
+  const src = asset(isMobile ? MODEL_URLS.mobile : MODEL_URLS.desktop);
 
   useFrame((state, dt) => {
     const robot = robotRef.current;
     if (!robot) return;
 
     const p = getScrollProgress(containerRef.current);
+    progressRef.current = p;
     const t = state.clock.elapsedTime;
     const damp = THREE.MathUtils.damp;
 
@@ -167,23 +299,18 @@ function Scene({ containerRef, manualSpin, isMobile, accent }: SceneProps) {
       lookSample.current.y = lookSample.current.y * 0.4 - 0.42;
     }
 
-    // Idle life: the balancing act intensifies around the electronics
-    // beat (p ≈ 0.7), the camera slowly orbits in the hero and always
-    // keeps a slight breathing motion
-    const balanceBoost = 1 + 2.4 * Math.exp(-((p - 0.7) ** 2) / 0.006);
+    // Idle life: the camera slowly orbits in the hero and always keeps a
+    // slight breathing motion (the robot's own balancing sway is baked
+    // into the GLB's BodyAction track)
     const heroOrbit = Math.max(0, 1 - p * 6);
     camTarget.current.x += Math.sin(t * 0.22) * 0.28 * heroOrbit;
     camTarget.current.y += Math.sin(t * 0.55) * 0.03;
 
-    // Robot: one full turn across the page + drag spin, self-balancing
-    // sway pivoting on the wheels, micro corrections along x
+    // Robot: one full turn across the page + drag spin
     const yaw = 0.45 + p * Math.PI * 2 + manualSpin.current;
     robot.rotation.y = damp(robot.rotation.y, yaw, 5, dt);
-    robot.rotation.x = Math.sin(t * 1.9) * 0.018 * balanceBoost;
-    robot.rotation.z = Math.sin(t * 1.35) * 0.024 * balanceBoost;
 
-    const jitter = Math.sin(t * 2.7) * 0.008 * balanceBoost;
-    const targetX = (isMobile ? 0 : modelX) + jitter;
+    const targetX = isMobile ? 0 : modelX;
     robot.position.x = damp(robot.position.x, targetX, 3.5, dt);
     robot.scale.setScalar(damp(robot.scale.x, isMobile ? 0.8 : 1, 3, dt));
 
@@ -201,11 +328,7 @@ function Scene({ containerRef, manualSpin, isMobile, accent }: SceneProps) {
   return (
     <>
       <group ref={robotRef} position={[1.0, GROUND_Y, 0]} rotation={[0, 0.45, 0]} dispose={null}>
-        <group position={OBJ_OFFSET} rotation={[-Math.PI / 2, 0, 0]} scale={OBJ_SCALE}>
-          <group ref={innerRef}>
-            <OBJModel url={src} />
-          </group>
-        </group>
+        <RobotModel url={src} progress={progressRef} />
       </group>
 
       {/* Product stage: soft disc, accent rings and contact shadows keep
