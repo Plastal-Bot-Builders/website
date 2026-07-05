@@ -69,7 +69,7 @@ export async function validateToken(token: string | null): Promise<boolean> {
   if (!token) return false;
   
   try {
-    const res = await apiFetch('/api/auth/verify', {
+    const res = await apiFetch('/auth/verify', {
       method: 'GET',
       token
     });
@@ -87,7 +87,7 @@ export async function validateToken(token: string | null): Promise<boolean> {
  */
 export async function refreshToken(token: string): Promise<LoginResponse> {
   try {
-    const res = await apiFetch('/api/auth/refresh', {
+    const res = await apiFetch('/auth/refresh', {
       method: 'POST',
       token
     });

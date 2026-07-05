@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { apiFetch } from '../api/client';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import CodeOfConductNotice from '../components/CodeOfConduct';
@@ -303,12 +304,9 @@ const MembershipForm: React.FC = () => {
                     dataProcessing: formData.dataProcessing
                 }
             };
-            const response = await fetch('/api/members/register', {
+            const response = await apiFetch('/members/register', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData) // This should use transformedData
+                json: formData // This should use transformedData
             });
 
             const data = await response.json();

@@ -107,10 +107,14 @@ const memberSchema = new mongoose.Schema({
   },
   
   // Application Status
-  status: { 
-    type: String, 
+  status: {
+    type: String,
     enum: ['pending', 'approved', 'rejected'],
-    default: 'pending' 
+    default: 'pending'
+  },
+  rejectionReason: {
+    type: String,
+    trim: true
   },
   
   // Timestamps
@@ -130,8 +134,7 @@ memberSchema.pre('save', function(next) {
   next();
 });
 
-// Add index for efficient querying
-memberSchema.index({ email: 1 });
+// Add index for efficient querying (email index comes from `unique: true` on the field)
 memberSchema.index({ status: 1 });
 memberSchema.index({ 'membershipType.type': 1 });
 

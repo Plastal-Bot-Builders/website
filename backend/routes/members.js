@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import Member from '../models/Member.js';
 import { requireAuth } from '../middleware/auth.js';
+import { sendMail, memberApprovedEmail, memberRejectedEmail } from '../utils/mailer.js';
 
 const router = Router();
 
@@ -12,8 +13,8 @@ const authMiddleware = requireAuth; // Apply authentication middleware for prote
 router.put('/:id', authMiddleware, async (req, res) => {
   try {
     const { id } = req.params;
-    const { status } = req.body;
-    
+    const { status, reason } = req.body;
+
     // Validate status value
     if (status !== 'approved' && status !== 'rejected') {
       return res.status(400).json({
@@ -21,20 +22,31 @@ router.put('/:id', authMiddleware, async (req, res) => {
         message: 'Invalid status value'
       });
     }
-    
+
+    const update = { status };
+    if (status === 'rejected') {
+      update.rejectionReason = reason || 'No reason provided';
+    }
+
     const member = await Member.findByIdAndUpdate(
       id,
-      { status },
+      update,
       { new: true }
     );
-    
+
     if (!member) {
       return res.status(404).json({
         status: 'error',
         message: 'Member not found'
       });
     }
-    
+
+    // Notify the applicant; don't block or fail the request on email problems
+    const email = status === 'approved'
+      ? memberApprovedEmail(member)
+      : memberRejectedEmail(member, update.rejectionReason);
+    sendMail(email);
+
     res.json({
       status: 'success',
       data: member
@@ -170,7 +182,7 @@ router.post('/register', async (req, res) => {
  * GET /api/members
  * Get all members (admin only)
  */
-router.get('/', async (req, res) => {
+router.get('/', requireAuth, async (req, res) => {
   try {
     // Optional filtering by status
     const { status, type, search } = req.query;
@@ -225,10 +237,36 @@ router.get('/', async (req, res) => {
 });
 
 /**
+ * GET /api/members/stats
+ * Member counts by status (admin only)
+ */
+router.get('/stats', requireAuth, async (_req, res) => {
+  try {
+    const [total, pending, approved, rejected] = await Promise.all([
+      Member.countDocuments(),
+      Member.countDocuments({ status: 'pending' }),
+      Member.countDocuments({ status: 'approved' }),
+      Member.countDocuments({ status: 'rejected' })
+    ]);
+
+    res.json({
+      status: 'success',
+      data: { total, pending, approved, rejected }
+    });
+  } catch (error) {
+    console.error('Error fetching member stats:', error);
+    res.status(500).json({
+      status: 'error',
+      message: 'Failed to fetch member stats'
+    });
+  }
+});
+
+/**
  * GET /api/members/:id
  * Get member by ID
  */
-router.get('/:id', async (req, res) => {
+router.get('/:id', requireAuth, async (req, res) => {
   try {
     const member = await Member.findById(req.params.id);
     
@@ -257,7 +295,7 @@ router.get('/:id', async (req, res) => {
  * PATCH /api/members/:id/approve
  * Approve a member's application
  */
-router.patch('/:id/approve', async (req, res) => {
+router.patch('/:id/approve', requireAuth, async (req, res) => {
   try {
     const member = await Member.findByIdAndUpdate(
       req.params.id,
@@ -294,7 +332,7 @@ router.patch('/:id/approve', async (req, res) => {
  * PATCH /api/members/:id/reject
  * Reject a member's application
  */
-router.patch('/:id/reject', async (req, res) => {
+router.patch('/:id/reject', requireAuth, async (req, res) => {
   try {
     const member = await Member.findByIdAndUpdate(
       req.params.id,
@@ -326,6 +364,36 @@ router.patch('/:id/reject', async (req, res) => {
     res.status(500).json({
       status: 'error',
       message: 'Failed to reject member',
+      details: process.env.NODE_ENV === 'development' ? error.message : undefined
+    });
+  }
+});
+
+/**
+ * DELETE /api/members/:id
+ * Delete a member (admin only)
+ */
+router.delete('/:id', requireAuth, async (req, res) => {
+  try {
+    const member = await Member.findByIdAndDelete(req.params.id);
+
+    if (!member) {
+      return res.status(404).json({
+        status: 'error',
+        message: 'Member not found'
+      });
+    }
+
+    res.json({
+      status: 'success',
+      message: 'Member deleted successfully',
+      data: { memberId: member._id }
+    });
+  } catch (error) {
+    console.error('Error deleting member:', error);
+    res.status(500).json({
+      status: 'error',
+      message: 'Failed to delete member',
       details: process.env.NODE_ENV === 'development' ? error.message : undefined
     });
   }

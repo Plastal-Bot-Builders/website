@@ -13,6 +13,7 @@ import uploadsRouter from './routes/uploads.js';
 import chatRouter from './routes/chat.js';
 import membersRouter from './routes/members.js';
 import eventsRouter from './routes/events.js';
+import subscribeRouter from './routes/subscribe.js';
 
 // Initialize __dirname equivalent for ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -24,6 +25,10 @@ dotenv.config();
 // Initialize Express app
 const app = express();
 
+// Behind Render/Heroku-style proxies, trust X-Forwarded-For so
+// express-rate-limit sees each visitor's real IP
+app.set('trust proxy', 1);
+
 // ========== MIDDLEWARE ==========
 // Static files
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
@@ -34,10 +39,15 @@ app.use(express.json({ limit: '1mb' }));
 // Logging
 app.use(morgan('dev'));
 
-// CORS
+// CORS — CORS_ORIGIN accepts a comma-separated list of allowed origins
+const allowedOrigins = (process.env.CORS_ORIGIN || 'http://localhost:3000')
+  .split(',')
+  .map(origin => origin.trim())
+  .filter(Boolean);
+
 app.use(cors({
-  origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  origin: allowedOrigins,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization', 'Accept']
 }));
 
@@ -48,6 +58,7 @@ app.use('/api/uploads', uploadsRouter);
 app.use('/api/chat', chatRouter);
 app.use('/api/members', membersRouter);
 app.use('/api/events', eventsRouter);
+app.use('/api/subscribe', subscribeRouter);
 
 // Legacy routes support
 app.use('/posts', postsRouter); // optional alias

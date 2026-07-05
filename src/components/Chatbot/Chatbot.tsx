@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { apiFetch } from '../../api/client';
 import './Chatbot.css';
 
 type Message = {
@@ -52,14 +53,9 @@ export default function Chatbot() {
     setIsTyping(true);
 
     try {
-      const response = await fetch('http://localhost:5001/api/chat', {
+      const response = await apiFetch('/chat', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          // Add CORS headers
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({ message: input })
+        json: { message: input }
       });
       if(!response.ok) throw new Error('Failed to get response');
 

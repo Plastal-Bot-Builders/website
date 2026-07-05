@@ -1,0 +1,31 @@
+# Render Blueprint — deploys the Express/MongoDB backend.
+# The React frontend stays on GitHub Pages (npm run deploy).
+#
+# First-time setup on https://dashboard.render.com:
+#   New + → Blueprint → connect the GitHub repo → Render reads this file.
+#   You will be prompted for the env vars marked `sync: false` (secrets).
+services:
+  - type: web
+    name: plastalbot-backend
+    runtime: node
+    rootDir: backend
+    plan: free
+    buildCommand: npm ci
+    startCommand: node server.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      # Comma-separated list of allowed frontend origins
+      - key: CORS_ORIGIN
+        value: https://plastal-bot-builders.github.io
+      # Set these in the Render dashboard (never commit secrets):
+      - key: MONGODB_URI
+        sync: false
+      - key: ADMIN_USER
+        sync: false
+      - key: ADMIN_PASS
+        sync: false
+      # Render generates a strong random value on first deploy
+      - key: JWT_SECRET
+        generateValue: true

@@ -136,15 +136,45 @@ export interface MemberResponse<T> {
 }
 
 /**
- * Fetch all members
- * 
- * @param token - Authentication token
- * @returns Promise resolving to an array of members
+ * Pagination metadata returned by list endpoints
  */
-export async function fetchMembers(token: string): Promise<Member[]> {
+export interface Pagination {
+  total: number;
+  totalPages: number;
+  currentPage: number;
+  limit: number;
+}
+
+/**
+ * Query options for the members list (all filtering happens server-side)
+ */
+export interface MemberListQuery {
+  search?: string;
+  status?: MemberStatus;
+  page?: number;
+  limit?: number;
+}
+
+/**
+ * Fetch a page of members with optional search/status filters
+ *
+ * @param token - Authentication token
+ * @param query - Search, status filter, and pagination options
+ * @returns Promise resolving to the members page and pagination metadata
+ */
+export async function fetchMembers(
+  token: string,
+  query: MemberListQuery = {}
+): Promise<{ members: Member[]; pagination: Pagination | null }> {
   try {
-    const response = await getJson<MemberResponse<Member[]>>(BASE_PATH, { token });
-    return response.data || [];
+    const response = await getJson<MemberResponse<Member[]> & { pagination?: Pagination }>(
+      BASE_PATH,
+      { token, query: { ...query } }
+    );
+    return {
+      members: response.data || [],
+      pagination: response.pagination || null
+    };
   } catch (error) {
     console.error('Error fetching members:', error);
     throw error;
@@ -160,14 +190,15 @@ export async function fetchMembers(token: string): Promise<Member[]> {
  * @returns Promise resolving to the updated member
  */
 export async function updateMemberStatus(
-  id: string, 
-  status: 'approved' | 'rejected', 
-  token: string
+  id: string,
+  status: 'approved' | 'rejected',
+  token: string,
+  reason?: string
 ): Promise<Member> {
   try {
     const response = await putJson<MemberResponse<Member>>(
-      `${BASE_PATH}/${id}`, 
-      { status }, 
+      `${BASE_PATH}/${id}`,
+      { status, ...(reason ? { reason } : {}) },
       { token }
     );
     
@@ -194,7 +225,7 @@ export async function deleteMember(id: string, token: string): Promise<void> {
     await delJson<MemberResponse<void>>(`${BASE_PATH}/${id}`, { token });
   } catch (error: any) {
     // Special handling for 404s - member might have been deleted already
-    if (error.response?.status === 404) {
+    if (error.status === 404) {
       console.warn(`Member ${id} not found - might have been deleted already`);
       return; // Return successfully since the member doesn't exist anyway
     }

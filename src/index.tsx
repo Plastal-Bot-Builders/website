@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import './index.css';
 import './App.css';
 import App from './App';
@@ -15,6 +16,7 @@ const basename = process.env.PUBLIC_URL || undefined;
 
 root.render(
   <React.StrictMode>
+    <HelmetProvider>
     <ThemeProvider>
       <BrowserRouter basename={basename}>
         <Suspense fallback={<div className="loader-background visible"><div className="loader-container">Loading…</div></div>}>
@@ -25,5 +27,6 @@ root.render(
         </Suspense>
       </BrowserRouter>
     </ThemeProvider>
+    </HelmetProvider>
   </React.StrictMode>
 );

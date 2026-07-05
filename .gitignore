@@ -27,6 +27,8 @@ yarn-error.log*
 .env
 .env.* 
 !.env.example
+# .env.production only holds the public API URL — safe and needed for builds
+!.env.production
 
 # Vercel
 .vercel

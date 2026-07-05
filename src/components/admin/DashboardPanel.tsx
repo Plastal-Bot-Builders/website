@@ -1,22 +1,15 @@
 import React from 'react';
-import { Panel, Table, Badge, StatsCard } from './AdminStyles'; 
-import { Member } from '../../api/members';
+import { Panel, Table, Badge, StatsCard } from './AdminStyles';
+import { Member, MemberStats } from '../../api/members';
 import { Post } from '../../api/posts';
 
 interface DashboardPanelProps {
      posts: Post[];
      members: Member[];
+     stats: MemberStats | null;
 }
 
-export function DashboardPanel({ posts, members }: DashboardPanelProps) {
-     // Safety function for member filtering
-     function filterMembers(status: 'pending' | 'approved' | 'rejected') {
-          if (!Array.isArray(members)) {
-               return [];
-          }
-          return members.filter(m => m.status === status);
-     }
-
+export function DashboardPanel({ posts, members, stats }: DashboardPanelProps) {
      return (
           <Panel>
                <h2 style={{ marginBottom: '20px' }}>Dashboard Overview</h2>
@@ -29,12 +22,17 @@ export function DashboardPanel({ posts, members }: DashboardPanelProps) {
 
                     <StatsCard>
                          <h3>Members</h3>
-                         <p>{Array.isArray(members) ? members.length : 0}</p>
+                         <p>{stats?.total ?? (Array.isArray(members) ? members.length : 0)}</p>
                     </StatsCard>
 
                     <StatsCard>
                          <h3>Pending Applications</h3>
-                         <p>{Array.isArray(members) ? filterMembers('pending').length : 0}</p>
+                         <p>{stats?.pending ?? 0}</p>
+                    </StatsCard>
+
+                    <StatsCard>
+                         <h3>Approved Members</h3>
+                         <p>{stats?.approved ?? 0}</p>
                     </StatsCard>
                </div>
 

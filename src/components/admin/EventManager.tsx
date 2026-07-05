@@ -9,6 +9,16 @@ import {
   Table
 } from '../../components/admin/AdminStyles';  // Fixed import path
 import { createEvent, deleteEvent, Event } from '../../api/events';
+import { getJson } from '../../api/client';
+
+interface EventRegistration {
+  _id: string;
+  fullName: string;
+  email: string;
+  phone?: string;
+  institution?: string;
+  createdAt: string;
+}
 
 interface EventManagerProps {
   events: Event[];
@@ -63,6 +73,34 @@ export function EventManager({
       onEventsChange();
     } catch (e: any) {
       setError(e?.message || 'Failed to create event');
+    }
+  }
+
+  // Registrations viewer state
+  const [openEventId, setOpenEventId] = useState<string | null>(null);
+  const [registrations, setRegistrations] = useState<EventRegistration[]>([]);
+  const [registrationsLoading, setRegistrationsLoading] = useState(false);
+
+  async function handleViewRegistrations(event: Event) {
+    if (openEventId === event._id) {
+      setOpenEventId(null); // toggle closed
+      return;
+    }
+    if (!token) return setError('Not authenticated');
+    setError(null);
+    setOpenEventId(event._id);
+    setRegistrationsLoading(true);
+    try {
+      const response = await getJson<{ data?: EventRegistration[] }>(
+        `/events/${event._id}/registrations`,
+        { token }
+      );
+      setRegistrations(Array.isArray(response.data) ? response.data : []);
+    } catch (e: any) {
+      setError(e?.message || 'Failed to load registrations');
+      setOpenEventId(null);
+    } finally {
+      setRegistrationsLoading(false);
     }
   }
 
@@ -178,9 +216,14 @@ export function EventManager({
                   <td>{event.location}</td>
                   <td>{(event.registrations || []).length}</td>
                   <td>
-                    <DeleteButton onClick={() => handleDeleteEvent(event._id)}>
-                      Delete
-                    </DeleteButton>
+                    <div style={{ display: 'flex', gap: '5px' }}>
+                      <Button onClick={() => handleViewRegistrations(event)}>
+                        {openEventId === event._id ? 'Hide' : 'Registrations'}
+                      </Button>
+                      <DeleteButton onClick={() => handleDeleteEvent(event._id)}>
+                        Delete
+                      </DeleteButton>
+                    </div>
                   </td>
                 </tr>
               ))}
@@ -188,6 +231,42 @@ export function EventManager({
           </Table>
         )}
       </Panel>
+
+      {openEventId && (
+        <Panel style={{ marginTop: '20px' }}>
+          <h2 style={{ marginBottom: '20px' }}>
+            Registrations for “{events.find(e => e._id === openEventId)?.title}”
+            {registrationsLoading && <small> Loading…</small>}
+          </h2>
+          {!registrationsLoading && registrations.length === 0 && (
+            <p>No one has registered for this event yet.</p>
+          )}
+          {registrations.length > 0 && (
+            <Table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Institution</th>
+                  <th>Registered on</th>
+                </tr>
+              </thead>
+              <tbody>
+                {registrations.map((r) => (
+                  <tr key={r._id}>
+                    <td>{r.fullName}</td>
+                    <td>{r.email}</td>
+                    <td>{r.phone || '—'}</td>
+                    <td>{r.institution || '—'}</td>
+                    <td>{new Date(r.createdAt).toLocaleDateString()}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          )}
+        </Panel>
+      )}
     </>
   );
 }

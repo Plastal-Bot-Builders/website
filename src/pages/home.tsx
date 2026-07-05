@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { apiFetch } from '../api/client';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ImageCarousel from '../components/ImageCarousel';
@@ -36,10 +37,9 @@ const Home: React.FC = () => {
     if (!email || status === 'loading') return;
     setStatus('loading');
     try {
-      const resp = await fetch('/api/subscribe', {
+      const resp = await apiFetch('/subscribe', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email })
+        json: { email }
       });
       if (resp.ok) {
         setStatus('ok');
