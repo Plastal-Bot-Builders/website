@@ -449,7 +449,7 @@ const JourneyToGeneva: React.FC = () => {
           id="global-community"
           number="05"
           timeframe="Mentorship & donations"
-          title={<>🤝 <span className="text-hex">International partners</span> in the global robotics community</>}
+          title={<><span className="text-hex">International partners</span> in the global robotics community</>}
           lede="Innovation grows stronger through collaboration. Plastal-Bot Builders is grateful to the mentors, teams and organisations around the world whose generosity helped make our journey to Switzerland possible."
         >
           {/* Featured: Mr Chandra Polisetty */}
