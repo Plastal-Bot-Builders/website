@@ -1,0 +1,569 @@
+import React from 'react';
+import SmartImage from '../ui/SmartImage';
+import { Link } from 'react-router-dom';
+import Header from '../Header';
+import Footer from '../Footer';
+import {
+    ArrowLeftIcon,
+    WrenchIcon,
+    CodeBracketIcon,
+    RocketLaunchIcon,
+    CircleStackIcon,
+    Cog6ToothIcon,
+    CpuChipIcon,
+    UserGroupIcon,
+    AcademicCapIcon,
+    UserIcon,
+    BugAntIcon,
+    DocumentTextIcon,
+} from '@heroicons/react/24/solid';
+import ThemedImage from '../../theme/ThemedImage';
+import { SEOConfig } from '../../components/SEO';
+import FadeContent from '../../components/ui/FadeContent';
+
+const TechnicalSupportPage: React.FC = () => {
+    // Technical support types data
+    const supportTypes = [
+        {
+            title: "Hardware Maintenance",
+            description: "Assistance with robotics kits, electronics troubleshooting, and component repair.",
+            icon: <WrenchIcon className="text-accent text-2xl" />,
+            skills: "Electronics, mechanical engineering, 3D printing"
+        },
+        {
+            title: "Software Development",
+            description: "Support with programming, app development, and educational platforms.",
+            icon: <CodeBracketIcon className="text-accent text-2xl" />,
+            skills: "Python, JavaScript, Arduino, mobile app development"
+        },
+        {
+            title: "Systems Integration",
+            description: "Help connecting hardware with software for functional robotics systems.",
+            icon: <Cog6ToothIcon className="text-accent text-2xl" />,
+            skills: "IoT, embedded systems, sensor integration"
+        },
+        {
+            title: "Technical Mentorship",
+            description: "Guidance from experienced professionals for projects and problem-solving.",
+            icon: <UserIcon className="text-accent text-2xl" />,
+            skills: "Teaching experience, robotics expertise, AI/ML knowledge"
+        },
+        {
+            title: "Resource Donations",
+            description: "Contribution of components, tools, or digital services for educational use.",
+            icon: <CpuChipIcon className="text-accent text-2xl" />,
+            skills: "Hardware suppliers, cloud services, development tools"
+        },
+        {
+            title: "Documentation & Training",
+            description: "Creating technical guides and training materials for educators and students.",
+            icon: <DocumentTextIcon className="text-accent text-2xl" />,
+            skills: "Technical writing, curriculum development, video production"
+        }
+    ];
+
+    // Current technical partners
+    const technicalPartners = [
+        {
+            name: "ZamTech Solutions",
+            contribution: "Provides monthly hardware maintenance workshops and donates electronic components for educational kits.",
+            image: "resources/Photos/IMG_5087.jpg",
+            expertise: "Hardware & Electronics"
+        },
+        {
+            name: "University of Zambia Engineering Department",
+            contribution: "Offers student mentors and lab space for advanced robotics projects and prototype testing.",
+            image: "resources/Photos/unnclerextalk.jpg",
+            expertise: "Academic & Research"
+        }
+    ];
+
+    // Most needed technical skills
+    const neededSkills = [
+        {
+            category: "Programming & Software",
+            skills: ["Python", "Arduino/C++", "JavaScript", "Mobile App Development", "Machine Learning"],
+            icon: <CodeBracketIcon className="text-accent text-2xl" />
+        },
+        {
+            category: "Hardware & Electronics",
+            skills: ["Circuit Design", "Sensor Integration", "Microcontroller Programming", "3D Printing", "Robotics Assembly"],
+            icon: <CpuChipIcon className="text-accent text-2xl" />
+        },
+        {
+            category: "Systems & Networks",
+            skills: ["IoT Implementation", "Cloud Services", "Database Management", "Network Setup", "Data Security"],
+            icon: <CircleStackIcon className="text-accent text-2xl" />
+        },
+        {
+            category: "Education & Documentation",
+            skills: ["Technical Writing", "Curriculum Development", "Video Tutorials", "Workshop Facilitation", "Testing Protocols"],
+            icon: <AcademicCapIcon className="text-accent text-2xl" />
+        }
+    ];
+
+    return (
+        <>
+            <SEOConfig
+                title="Technical Support | Plastal-Bot Builders"
+                description="Join Plastal-Bot Builders' Technical Support Program to share your expertise or seek guidance in robotics and STEM innovation."
+                image="/resources/Photos/fredmpelembe.jpeg"
+            />
+            <section className="scroll-smooth focus:scroll-auto">
+                <Header />
+                <div className="max-w-7xl mx-auto p-8">
+                    <Link to="/support" className="inline-flex items-center text-accent hover:text-accent-hover mb-6">
+                        <ArrowLeftIcon className="mr-2 h-5 w-5" /> Back to Support
+                    </Link>
+
+                    {/* Hero Section */}
+                    <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
+                        <div className="flex flex-col md:flex-row gap-8 items-center mb-12">
+                            <div className="md:w-1/2">
+                                <h1 className="text-3xl md:text-4xl font-bold mb-4">
+                                    <Cog6ToothIcon className="h-8 w-8 inline-block mr-3" />
+                                    Technical Support
+                                </h1>
+                                <p className="text-gray-600 dark:text-gray-300 mb-4 text-lg">
+                                    Help power our robotics programs with your technical expertise and resources.
+                                </p>
+                                <div className="bg-surface-hover-bg p-4 rounded-lg mb-6">
+                                    <p>
+                                        Technical support partnerships strengthen our capacity to deliver high-quality
+                                        robotics programs, maintain our systems, and expand our innovation ecosystem.
+                                    </p>
+                                </div>
+                                <div className="mt-6">
+                                    <a
+                                        href="#become-partner"
+                                        className="bg-accent hover:bg-accent-hover text-black py-3 px-6 rounded-lg font-bold mr-4"
+                                    >
+                                        Become a Tech Partner
+                                    </a>
+                                    <a
+                                        href="#support-network"
+                                        className="border border-accent text-accent hover:bg-accent hover:text-black py-3 px-6 rounded-lg font-bold"
+                                    >
+                                        Join Support Network
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div className="md:w-1/2">
+                                <ThemedImage
+                                    src="resources/Illustrations/Support.svg"
+                                    alt="Technical support for robotics projects"
+                                    className="w-full h-auto object-cove"
+                                />
+                            </div>
+                        </div>
+                    </FadeContent>
+                    {/* Why Technical Support Matters Section */}
+                    <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
+                        <section className="mb-12">
+                            <h2 className="text-2xl font-bold mb-6 pb-2">Why Technical Support Matters</h2>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div className="bg-surface-hover-bg rounded-lg">
+                                    <h3 className="text-xl font-bold mb-3">Empowering Innovation</h3>
+                                    <p className="mb-4">
+                                        Reliable technical infrastructure and expertise are the foundation of successful
+                                        robotics education. With proper support, we can focus on what matters most:
+                                        inspiring and teaching young innovators.
+                                    </p>
+                                    <p>
+                                        Your technical expertise ensures our systems work consistently, can scale to more
+                                        communities, and remain up-to-date with technological advancements.
+                                    </p>
+                                </div>
+
+                                <div className="bg-surface-hover-bg rounded-lg">
+                                    <h3 className="text-xl font-bold mb-3">Technical Challenges We Face</h3>
+                                    <ul className="space-y-2">
+                                        <li className="flex items-start">
+                                            <span className="text-accent mr-2">•</span>
+                                            <span><strong>Hardware Durability</strong> - Maintaining functional robotics kits through repeated use</span>
+                                        </li>
+                                        <li className="flex items-start">
+                                            <span className="text-accent mr-2">•</span>
+                                            <span><strong>Software Reliability</strong> - Ensuring code works consistently across different environments</span>
+                                        </li>
+                                        <li className="flex items-start">
+                                            <span className="text-accent mr-2">•</span>
+                                            <span><strong>Scale & Adaptation</strong> - Customizing solutions for different age groups and contexts</span>
+                                        </li>
+                                        <li className="flex items-start">
+                                            <span className="text-accent mr-2">•</span>
+                                            <span><strong>Technical Training</strong> - Keeping educators and facilitators technically proficient</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                    </FadeContent>
+                    {/* Types of Technical Support */}
+                    <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
+                        <section className="mb-12">
+                            <h2 className="text-2xl font-bold mb-6 pb-2">Ways to Provide Technical Support</h2>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {supportTypes.map((type, index) => (
+                                    <div key={index} className="interactive-card rounded-lg p-5 hover:border-accent transition-colors">
+                                        <div className="flex items-center mb-4">
+                                            <div className="w-10 h-10 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 border-2 border-accent p-2">
+                                                {type.icon}
+                                            </div>
+                                            <h3 className="text-lg font-bold">{type.title}</h3>
+                                        </div>
+
+                                        <p className="mb-3">{type.description}</p>
+
+                                        <div className="bg-surface-hover-bg rounded-lg p-3">
+                                            <p className="text-sm">
+                                                <strong>Relevant skills:</strong> {type.skills}
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                    </FadeContent>
+                    {/* Technical Support Network */}
+                    <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
+                        <section id="support-network" className="mb-12 bg-surface-hover-bg rounded-lg">
+                            <h2 className="text-2xl font-bold mb-5">Our Technical Support Network</h2>
+                            <div className="flex flex-col md:flex-row gap-8">
+                                <div className="md:w-1/2">
+                                    <h3 className="text-xl font-bold mb-3">A Community of Technical Experts</h3>
+                                    <p className="mb-4">
+                                        Our Technical Support Network is composed of volunteers and professionals who
+                                        contribute their expertise to maintain and improve our educational tools and
+                                        robotics platforms.
+                                    </p>
+                                    <p className="mb-4">
+                                        Members provide remote assistance, create documentation, develop open-source
+                                        updates, and help troubleshoot technical issues as they arise.
+                                    </p>
+                                    <p>
+                                        Whether you have a few hours monthly or want to engage in deeper technical
+                                        collaboration, your skills can make a tremendous difference.
+                                    </p>
+                                </div>
+
+                                <div className="md:w-1/2">
+                                    <div className="bg-surface rounded-lg mb-4">
+                                        <h3 className="text-lg font-bold mb-3 flex items-center">
+                                            <UserGroupIcon className="text-accent mr-2 h-8 w-8" /> Network Activities
+                                        </h3>
+                                        <ul className="space-y-2">
+                                            <li className="flex items-start">
+                                                <span className="text-accent mr-2">•</span>
+                                                <span>Monthly virtual meetups to discuss technical challenges</span>
+                                            </li>
+                                            <li className="flex items-start">
+                                                <span className="text-accent mr-2">•</span>
+                                                <span>Collaborative troubleshooting via our online forum</span>
+                                            </li>
+                                            <li className="flex items-start">
+                                                <span className="text-accent mr-2">•</span>
+                                                <span>Code contribution to our open-source repositories</span>
+                                            </li>
+                                            <li className="flex items-start">
+                                                <span className="text-accent mr-2">•</span>
+                                                <span>Quarterly in-person maintenance workshops</span>
+                                            </li>
+                                            <li className="flex items-start">
+                                                <span className="text-accent mr-2">•</span>
+                                                <span>Technical documentation improvement initiatives</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <a
+                                        href="#join-network"
+                                        className="bg-accent hover:bg-accent-hover text-black py-2 px-4 ml-6 rounded-lg inline-block"
+                                    >
+                                        Join Our Support Network
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+                    </FadeContent>
+                    {/* Technical Partners */}
+                    <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
+                        <section id="current-partners" className="mb-12">
+                            <h2 className="text-2xl font-bold mb-6 pb-2">Featured Technical Partners</h2>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                {technicalPartners.map((partner, index) => (
+                                    <div key={index} className="interactive-card rounded-lg overflow-hidden">
+                                        <div className="h-48 overflow-hidden">
+                                            <SmartImage
+                                                src={partner.image}
+                                                alt={partner.name}
+                                                className="w-full h-full object-cover rounded-lg"
+                                            />
+                                        </div>
+                                        <div className="p-5">
+                                            <div className="flex justify-between items-center mb-3">
+                                                <h3 className="text-xl font-bold">{partner.name}</h3>
+                                                <span className="bg-accent text-black text-sm py-1 px-2 rounded">{partner.expertise}</span>
+                                            </div>
+                                            <p className="mb-4">{partner.contribution}</p>
+
+                                            <a
+                                                href="#partner-details"
+                                                className="text-accent hover:underline"
+                                            >
+                                                Read partnership details →
+                                            </a>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+
+                            <div className="mt-6 text-center">
+                                <a href="#all-partners" className="text-accent hover:underline">
+                                    View all technical partners →
+                                </a>
+                            </div>
+                        </section>
+                    </FadeContent>
+                    {/* Impact Story */}
+                    <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
+                        <section className="mb-12">
+                            <div className="bg-surface-hover-bg rounded-lg overflow-hidden">
+                                <h2 className="text-2xl font-bold mb-6">Technical Support Success Story</h2>
+
+                                <div className="flex flex-col md:flex-row gap-8">
+                                    <div className="md:w-1/2">
+                                        <ThemedImage
+                                            src="resources/Illustrations/Support.svg"
+                                            alt="Students working with upgraded robotics kits"
+                                            className="w-full h-auto object-cove"
+                                        />
+                                    </div>
+
+                                    <div className="md:w-1/2">
+                                        <h3 className="text-xl font-bold mb-3">Kit Durability Breakthrough</h3>
+                                        <p className="mb-4">
+                                            When our robotics kits began showing wear after repeated workshops,
+                                            a team of volunteer engineers redesigned critical components using
+                                            more durable materials and improved connections.
+                                        </p>
+
+                                        <div className="bg-surface rounded-lg p-4 mb-4">
+                                            <h4 className="font-bold mb-2">Results:</h4>
+                                            <ul className="space-y-1">
+                                                <li className="flex items-start">
+                                                    <span className="text-accent mr-2">•</span>
+                                                    <span>Kit lifespan increased by over 300%</span>
+                                                </li>
+                                                <li className="flex items-start">
+                                                    <span className="text-accent mr-2">•</span>
+                                                    <span>Reduced maintenance time by 70%</span>
+                                                </li>
+                                                <li className="flex items-start">
+                                                    <span className="text-accent mr-2">•</span>
+                                                    <span>Created detailed assembly guides for students</span>
+                                                </li>
+                                                <li className="flex items-start">
+                                                    <span className="text-accent mr-2">•</span>
+                                                    <span>Design shared with other educational programs</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <blockquote className="italic border-l-4 border-accent pl-4">
+                                            "The redesigned kits have been a game-changer. We can now run multiple
+                                            workshops without worrying about component failure."
+                                            <p className="mt-2 font-bold">— Maria Tembo, Workshop Coordinator</p>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </FadeContent>
+                    {/* Skills Needed */}
+                    <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
+                        <section className="mb-12">
+                            <h2 className="text-2xl font-bold mb-6 pb-2">Technical Skills in Demand</h2>
+
+                            <p className="mb-6">
+                                We welcome technical support in many areas, but these are our highest current priorities:
+                            </p>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                {neededSkills.map((category, index) => (
+                                    <div key={index} className="interactive-card rounded-lg p-5">
+                                        <div className="flex items-center mb-4">
+                                            <div className="w-10 h-10 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 border-2 border-accent p-2">
+                                                {category.icon}
+                                            </div>
+                                            <h3 className="text-lg font-bold">{category.category}</h3>
+                                        </div>
+
+                                        <div className="flex flex-wrap gap-2">
+                                            {category.skills.map((skill, skillIndex) => (
+                                                <span
+                                                    key={skillIndex}
+                                                    className="bg-surface-hover-bg px-3 py-1 rounded-full text-sm"
+                                                >
+                                                    {skill}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                    </FadeContent>
+                    {/* Current Projects Needing Support */}
+                    <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
+                        <section className="mb-12 bg-surface-hover-bg rounded-lg">
+                            <h2 className="text-2xl font-bold mb-5">Current Technical Projects</h2>
+
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <div className="bg-surface rounded-lg">
+                                    <h3 className="font-bold text-lg mb-2 flex items-center">
+                                        <RocketLaunchIcon className="w-10 h-10 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 border-2 border-accent p-2" /> Sensor Kit Upgrade
+                                    </h3>
+                                    <p className="text-sm mb-3">
+                                        Enhancing our educational robots with improved sensors for environmental monitoring.
+                                    </p>
+                                    <div className="text-xs text-gray-500 dark:text-gray-400">
+                                        <span className="block">Skills needed: Electronics, Arduino programming</span>
+                                        <span>Timeline: November 2025 - January 2026</span>
+                                    </div>
+                                </div>
+
+                                <div className="bg-surface rounded-lg">
+                                    <h3 className="font-bold text-lg mb-2 flex items-center">
+                                        <CodeBracketIcon className="w-10 h-10 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 border-2 border-accent p-2" /> Learning Platform
+                                    </h3>
+                                    <p className="text-sm mb-3">
+                                        Building a web application to track student progress and showcase projects.
+                                    </p>
+                                    <div className="text-xs text-gray-500 dark:text-gray-400">
+                                        <span className="block">Skills needed: Web development, database design</span>
+                                        <span>Timeline: Ongoing</span>
+                                    </div>
+                                </div>
+
+                                <div className="bg-surface rounded-lg">
+                                    <h3 className="font-bold text-lg mb-2 flex items-center">
+                                        <BugAntIcon className="w-10 h-10 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 border-2 border-accent p-2" /> Debugging Workshop
+                                    </h3>
+                                    <p className="text-sm mb-3">
+                                        Creating resources to teach troubleshooting skills to educators and students.
+                                    </p>
+                                    <div className="text-xs text-gray-500 dark:text-gray-400">
+                                        <span className="block">Skills needed: Technical writing, electronics diagnostics</span>
+                                        <span>Timeline: December 2025</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="mt-5 text-center">
+                                <a href="/projects" className="text-accent hover:underline">
+                                    View all technical projects needing support →
+                                </a>
+                            </div>
+                        </section>
+                    </FadeContent>
+                    {/* Partner Benefits */}
+                    <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
+                        <section className="mb-12">
+                            <h2 className="text-2xl font-bold mb-6 pb-2">Benefits for Technical Partners</h2>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                                <div className="flex items-start">
+                                    <div className="w-10 h-10 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0 border-2 border-accent p-2">
+                                            <CodeBracketIcon className="w-10 h-10 text-accent" />
+                                        </div>
+                                    <div>
+                                        <h3 className="text-lg font-bold mb-2">Skills Application</h3>
+                                        <p>Apply technical expertise to meaningful educational projects with real community impact.</p>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-start">
+                                    <div className="w-10 h-10 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0 border-2 border-accent p-2">
+                                        <UserGroupIcon className="text-accent text-xl" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-lg font-bold mb-2">Network Expansion</h3>
+                                        <p>Connect with other technical professionals across various industries and specializations.</p>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-start">
+                                    <div className="w-10 h-10 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0 border-2 border-accent p-2">
+                                        <AcademicCapIcon className="text-accent text-xl" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-lg font-bold mb-2">Knowledge Transfer</h3>
+                                        <p>Share expertise while learning about educational technology applications and challenges.</p>
+                                    </div>
+                                </div>
+                                
+                                <div className="flex items-start">
+                                    <div className="w-10 h-10 bg-surface-hover-bg rounded-full flex items-center justify-center mr-4 shrink-0 border-2 border-accent p-2">
+                                        <RocketLaunchIcon className="text-accent text-xl" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-lg font-bold mb-2">Innovation Opportunity</h3>
+                                        <p>Collaborate on cutting-edge educational technology and robotics applications.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="mt-8 p-5 bg-surface-hover-bg rounded-lg text-center">
+                                <h3 className="font-bold mb-2">For Corporate Technical Partners</h3>
+                                <p>
+                                    Companies providing significant technical support can be recognized through our
+                                    Partner Spotlight program, including visibility at events, in educational materials,
+                                    and through our digital channels.
+                                </p>
+                            </div>
+                        </section>
+                    </FadeContent>
+
+                    {/* CTA Section */}
+                    <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
+                        <section className="text-center">
+                            <h2 className="text-2xl font-bold mb-4">Keep Our Technology Running Smoothly</h2>
+                            <p className="mb-6 max-w-2xl mx-auto">
+                                Your technical expertise ensures that our educational tools are reliable,
+                                sustainable, and ready to inspire the next generation of innovators.
+                            </p>
+                            <div className="flex flex-wrap justify-center gap-4">
+                                <a
+                                    href="#become-partner"
+                                    className="bg-accent hover:bg-accent-hover text-black py-3 px-6 rounded-lg font-bold"
+                                >
+                                    Offer Technical Support
+                                </a>
+                                <a
+                                    href="#support-network"
+                                    className="border border-accent text-accent hover:bg-accent hover:text-black py-3 px-6 rounded-lg font-bold"
+                                >
+                                    Join Support Network
+                                </a>
+                                <a
+                                    href="/contact"
+                                    className="border border-surface-border hover:border-accent py-3 px-6 rounded-lg font-bold"
+                                >
+                                    Contact Technical Team
+                                </a>
+                            </div>
+                        </section>
+                    </FadeContent>
+                </div>
+
+                <Footer />
+            </section>
+            +        </>
+    );
+};
+
+export default TechnicalSupportPage;
