@@ -33,12 +33,12 @@
     })();
   </script>
 
-  <!-- Fonts and Styles -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plaster&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://use.typekit.net/kfx0vct.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <!-- Fonts: the UI uses system/monospace stacks only, so no webfonts are
+       fetched. Previously this loaded four render-blocking third-party
+       stylesheets (Google 'Plaster', Adobe Typekit 'input-mono'/'sofia-pro',
+       Font Awesome 5 and a Roboto @import) — none of those families were
+       referenced by any CSS rule, and Font Awesome's icons are now rendered
+       by react-icons, which is already bundled. -->
 
   <title>Plastal-bot Builders Org</title>
 </head>

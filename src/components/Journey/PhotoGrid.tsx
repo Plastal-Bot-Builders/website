@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import SmartImage from '../ui/SmartImage';
 
 export type Photo = {
@@ -29,6 +29,8 @@ const PhotoGrid: React.FC<PhotoGridProps> = ({
   itemClassName = '',
 }) => {
   const [open, setOpen] = useState<number | null>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const lastFocused = useRef<HTMLElement | null>(null);
 
   const close = useCallback(() => setOpen(null), []);
   const step = useCallback(
@@ -47,6 +49,43 @@ const PhotoGrid: React.FC<PhotoGridProps> = ({
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, [open, close, step]);
+
+  /**
+   * Focus management for the lightbox. It declares role="dialog" and
+   * aria-modal, so focus has to move into it, stay inside while it is open,
+   * and return to the thumbnail that opened it (WCAG 2.4.3 Focus Order).
+   */
+  useEffect(() => {
+    if (open === null) return;
+    lastFocused.current = document.activeElement as HTMLElement;
+    const dialog = dialogRef.current;
+    const focusables = () =>
+      Array.from(
+        dialog?.querySelectorAll<HTMLElement>('button, [href], [tabindex]:not([tabindex="-1"])') ?? []
+      ).filter(el => el.offsetParent !== null);
+
+    focusables()[0]?.focus();
+
+    const onTab = (e: KeyboardEvent) => {
+      if (e.key !== 'Tab') return;
+      const items = focusables();
+      if (!items.length) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener('keydown', onTab);
+    return () => {
+      document.removeEventListener('keydown', onTab);
+      lastFocused.current?.focus();
+    };
+  }, [open]);
 
   return (
     <>
@@ -69,6 +108,7 @@ const PhotoGrid: React.FC<PhotoGridProps> = ({
       {open !== null && (
         <div
           className="lightbox"
+          ref={dialogRef}
           role="dialog"
           aria-modal="true"
           aria-label={photos[open].alt}

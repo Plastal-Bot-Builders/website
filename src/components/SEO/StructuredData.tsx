@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
 interface StructuredDataProps {
-  type: 'Organization' | 'WebPage' | 'Article' | 'Event' | 'Person' | 'Website' | 'BlogPosting';
+  type: 'Organization' | 'WebPage' | 'Article' | 'Event' | 'Person' | 'WebSite' | 'BlogPosting';
   data: Record<string, any>;
 }
 
@@ -73,7 +73,7 @@ export const WebsiteStructuredData: React.FC<{
   publisher?: string;
 }> = ({ name, url, description, publisher }) => (
   <StructuredData
-    type="Website"
+    type="WebSite"
     data={{
       name,
       url,

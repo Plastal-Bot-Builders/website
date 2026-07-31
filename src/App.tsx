@@ -12,6 +12,7 @@ import ErrorBoundary from './components/ErrorBoundary';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 import { DefaultSEO } from './components/SEO';
 import Squares from './components/ui/Squares';
+import { SITE_URL } from './config/site';
 
 // Route-level code splitting: each page loads only when visited.
 const About = lazy(() => import('./pages/about'));
@@ -85,7 +86,7 @@ const App: React.FC = () => {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content="Plastal-Bot Builders - Robotics education and community programs" />
-        <link rel="canonical" href="https://plastalbotbuilders.com" />
+        <link rel="canonical" href={SITE_URL} />
       </Helmet>
       <a href="#main-content" className="skip-link">Skip to main content</a>
       <Scrollbars
@@ -120,7 +121,7 @@ const App: React.FC = () => {
           </div>
 
           {/* Render your routes */}
-          <div id="main-content" className="relative" style={{ zIndex: 1 }}>
+          <main id="main-content" className="relative" style={{ zIndex: 1 }}>
             <Suspense fallback={<RouteLoader />}>
               <Routes>
                 <Route path="/" element={<Navigate to="/home" replace />} />
@@ -178,7 +179,7 @@ const App: React.FC = () => {
                 <Route path="*" element={<Error404 />} />
               </Routes>
             </Suspense>
-          </div>
+          </main>
         </div>
         <Chatbot />
       </Scrollbars>

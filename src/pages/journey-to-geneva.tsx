@@ -521,7 +521,7 @@ const JourneyToGeneva: React.FC = () => {
               description="A FIRST Tech Challenge team from Sammamish, Washington, known for their community programmes — from free FTC and FLL coaching clinics to expert Tech Talks on robotics, sensors and control. Their encouragement and outreach spirit helped carry our team toward Geneva."
               monogram="SB"
               monogramBg="#111318"
-              monogramFg="#E03A3E"
+              monogramFg="#EF4B4B"
               links={[
                 { kind: 'website', label: 'sounderbots.com', href: 'https://www.sounderbots.com' },
                 { kind: 'instagram', label: '@ftc23270', href: 'https://www.instagram.com/ftc23270' },

@@ -1,9 +1,11 @@
 name: Deploy to GitHub Pages
 
 on:
-  push:
-    branches: [main]
-  workflow_dispatch: # allows manual runs from the Actions tab
+  # Auto-deploy disabled: the site is hosted on Cloudflare Pages. This build
+  # produces a root-relative bundle ("homepage": "/"), which GitHub Pages would
+  # serve incorrectly from the /website subpath. Kept for reference / emergency
+  # fallback only — run it manually from the Actions tab if ever needed.
+  workflow_dispatch:
 
 permissions:
   contents: read

@@ -1,7 +1,8 @@
 import React, { useRef, useLayoutEffect, useMemo, useState, useEffect } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Group } from 'three';
-import { Html, useProgress, Environment, ContactShadows, useGLTF, useAnimations } from '@react-three/drei';
+import { Html, useProgress, ContactShadows, useGLTF, useAnimations } from '@react-three/drei';
+import StudioEnvironment from '../ui/StudioEnvironment';
 import { motion, useMotionValue, useTransform, Variants } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import * as THREE from 'three';
@@ -535,7 +536,7 @@ export default function GypulShowcase(): JSX.Element {
               outputColorSpace: THREE.SRGBColorSpace,
             }}
           >
-            <Environment preset="studio" background={false} />
+            <StudioEnvironment />
 
             <ambientLight intensity={0.35} />
             <directionalLight intensity={0.7} position={[4, 6, 4]} castShadow />
@@ -567,7 +568,7 @@ export default function GypulShowcase(): JSX.Element {
 
         {/* Page content. The wrapper ignores pointer events so drags over
             empty space reach the canvas; cards re-enable them */}
-        <main className="relative z-10 pointer-events-none">
+        <div className="relative z-10 pointer-events-none">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
             {/* Back button */}
             <button
@@ -727,7 +728,7 @@ export default function GypulShowcase(): JSX.Element {
               </motion.div>
             </section>
           </div>
-        </main>
+        </div>
       </div>
       <Footer />
     </section>

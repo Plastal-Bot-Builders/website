@@ -1,6 +1,7 @@
 import React from 'react';
 import MetaTags from './MetaTags';
 import { OrganizationStructuredData, WebsiteStructuredData } from './StructuredData';
+import { SITE_URL } from '../../config/site';
 
 interface SEOConfigProps {
   title: string;
@@ -25,7 +26,7 @@ const SEOConfig: React.FC<SEOConfigProps> = ({
 }) => {
 const organizationData = {
   name: "Plastal-Bot Builders",
-  url: "https://plastalbotbuilders.com",
+  url: SITE_URL,
   logo: "/resources/Logo/fred.svg",
   description: "Empowering the next generation through robotics education and technology literacy",
   contactPoint: {
@@ -37,7 +38,7 @@ const organizationData = {
 
 const websiteData = {
   name: "Plastal-Bot Builders",
-  url: "https://plastalbotbuilders.com",
+  url: SITE_URL,
   description: "Robotics education and community programs for all ages",
   publisher: "Plastal-Bot Builders"
 };

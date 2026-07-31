@@ -4,28 +4,24 @@ const fs = require('fs');
 const path = require('path');
 
 // Configuration for sitemap generation
+const { ROUTES } = require('./seo/site-manifest');
+
+// Configuration for sitemap generation.
+// Routes come from scripts/seo/site-manifest.js — the same source the
+// prerenderer uses — so a new page appears in the sitemap automatically.
 const config = {
   // Must match the <link rel="canonical"> host used in the app.
-  baseUrl: 'https://plastalbotbuilders.com',
+  // Set REACT_APP_SITE_URL (see .env.production) once the domain is chosen.
+  baseUrl: (process.env.REACT_APP_SITE_URL || 'https://plastalbotbuilders.com').replace(/\/+$/, ''),
   routes: [
-    { path: '/', priority: '1.0', changefreq: 'daily' },
-    { path: '/home', priority: '1.0', changefreq: 'daily' },
-    { path: '/about', priority: '0.8', changefreq: 'weekly' },
-    { path: '/news', priority: '0.9', changefreq: 'weekly' },
-    { path: '/journey-to-geneva', priority: '0.9', changefreq: 'monthly' },
-    { path: '/membershipform', priority: '0.9', changefreq: 'monthly' },
-    { path: '/blogs', priority: '0.8', changefreq: 'weekly' },
-    { path: '/projects', priority: '0.8', changefreq: 'monthly' },
-    { path: '/projects/gypul', priority: '0.6', changefreq: 'monthly' },
-    { path: '/projects/enviro-monitor', priority: '0.6', changefreq: 'monthly' },
-    { path: '/events', priority: '0.8', changefreq: 'weekly' },
-    { path: '/support', priority: '0.6', changefreq: 'monthly' },
-    { path: '/support/donations', priority: '0.6', changefreq: 'monthly' },
-    { path: '/support/sponsorships', priority: '0.6', changefreq: 'monthly' },
-    { path: '/programs', priority: '0.7', changefreq: 'monthly' },
-    { path: '/team/technicbots', priority: '0.5', changefreq: 'monthly' }
+    { path: '/', priority: '1.0', changefreq: 'weekly' },
+    ...ROUTES.map(r => ({
+      path: r.path,
+      priority: r.priority || '0.7',
+      changefreq: r.changefreq || 'monthly',
+    })),
   ],
-  outputPath: path.join(__dirname, '../public/sitemap.xml')
+  outputPath: path.join(__dirname, '../public/sitemap.xml'),
 };
 
 // Generate sitemap XML

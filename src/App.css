@@ -1,5 +1,6 @@
-/* 1) Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+/* 1) Fonts — none. The UI uses system + monospace stacks (see `body` below).
+   A Roboto @import used to sit here: a CSS @import serialises (parse CSS →
+   fetch font CSS → fetch fonts) and no rule ever applied the Roboto webfont. */
 
 /* 2) Theme variables (light defaults) */
 :root {
@@ -1024,3 +1025,40 @@ a:hover > .logo-plate {
 }
 .video-loop__toggle:hover { opacity: 1; background: rgba(0, 0, 0, 0.65); transform: translateY(-1px); }
 .video-loop__toggle:focus-visible { opacity: 1; outline: none; box-shadow: 0 0 0 3px var(--focus-ring); }
+
+/* ── WCAG 2.2 SC 2.5.8 Target Size (Minimum) ───────────────────────────────
+   Navigation and footer links were 17–19px tall. Text size is unchanged; the
+   hit area is padded out to the 24px minimum. */
+.nav-link,
+.footer-link,
+.chapter-nav__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+}
+
+/* Checkbox/radio inputs keep a 24px hit area without changing the drawn box */
+input[type='checkbox'],
+input[type='radio'] {
+  min-width: 16px;
+  min-height: 16px;
+}
+label:has(> input[type='checkbox']),
+label:has(> input[type='radio']) {
+  min-height: 24px;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Honeypot: off-screen rather than display:none, since many bots skip hidden
+   fields. Paired with aria-hidden + tabIndex={-1} so screen readers and
+   keyboard users never reach it. */
+.hp-field {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}

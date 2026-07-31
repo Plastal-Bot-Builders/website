@@ -1,6 +1,7 @@
 import { FC, Suspense, useRef, useLayoutEffect, useEffect, useMemo } from 'react';
 import { Canvas, useFrame, useLoader, useThree, invalidate } from '@react-three/fiber';
-import { OrbitControls, useGLTF, useFBX, useProgress, Html, Environment, ContactShadows } from '@react-three/drei';
+import { OrbitControls, useGLTF, useFBX, useProgress, Html, ContactShadows } from '@react-three/drei';
+import StudioEnvironment from './StudioEnvironment';
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
 import * as THREE from 'three';
 
@@ -518,7 +519,7 @@ const ModelViewer: FC<ViewerProps> = ({
         camera={{ fov: 50, position: [0, 0, camZ], near: 0.01, far: 100 }}
         style={{ touchAction: 'pan-y pinch-zoom' }}
       >
-        {environmentPreset !== 'none' && <Environment preset={environmentPreset as any} background={false} />}
+        {environmentPreset !== 'none' && <StudioEnvironment />}
 
         <ambientLight intensity={ambientIntensity} />
         <directionalLight position={[5, 5, 5]} intensity={keyLightIntensity} castShadow />

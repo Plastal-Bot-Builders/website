@@ -9,6 +9,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import 'styled-components';
 import { SEOConfig } from '../components/SEO';
+import { FaBriefcase, FaCalendarAlt, FaCity, FaEnvelope, FaFacebook, FaGlobe, FaInstagram, FaLinkedin, FaPhone, FaTwitter, FaUser, FaVenusMars } from 'react-icons/fa';
 
 declare module 'styled-components' {
     export interface DefaultTheme {
@@ -139,6 +140,9 @@ const initialFormState = {
     // Additional Info
     referralSource: 'Website',
     comments: '',
+
+    // Anti-spam honeypot — must stay empty; see backend/middleware/formGuards.js
+    website: '',
 
     // Consents
     informationAccuracy: false,
@@ -385,30 +389,44 @@ const MembershipForm: React.FC = () => {
                         )}
 
                         {submitStatus === 'success' && (
-                            <div className="bg-green-100 dark:bg-green-900 border border-green-200 dark:border-green-800 text-green-800 dark:text-green-100 p-4 mb-6 rounded-lg">
+                            <div role="status" aria-live="polite" className="bg-green-100 dark:bg-green-900 border border-green-200 dark:border-green-800 text-green-800 dark:text-green-100 p-4 mb-6 rounded-lg">
                                 <h3 className="text-lg font-bold text-green-800 dark:text-green-100">Application Submitted Successfully!</h3>
                                 <p>Thank you for your interest in joining Plastal-Bot Builders. We will review your application and get back to you shortly.</p>
                             </div>
                         )}
 
                         {submitStatus === 'error' && (
-                            <div className="bg-red-100 dark:bg-red-900 border border-red-200 dark:border-red-800 text-red-800 dark:text-red-100 p-4 mb-6 rounded-lg">
+                            <div role="alert" aria-live="assertive" className="bg-red-100 dark:bg-red-900 border border-red-200 dark:border-red-800 text-red-800 dark:text-red-100 p-4 mb-6 rounded-lg">
                                 <h3 className="text-lg font-bold text-red-800 dark:text-red-100">Error Submitting Application</h3>
                                 <p>{errorMessage || 'Please check your information and try again.'}</p>
                             </div>
                         )}
 
                         <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                            {/* Anti-spam honeypot: invisible to people, tempting to bots */}
+                            <div className="hp-field" aria-hidden="true">
+                                <label htmlFor="website">Leave this field empty</label>
+                                <input
+                                    type="text"
+                                    id="website"
+                                    name="website"
+                                    value={formData.website}
+                                    onChange={handleInputChange}
+                                    tabIndex={-1}
+                                    autoComplete="off"
+                                />
+                            </div>
                             {/* Card 1: Section 1 - Personal Information */}
                             <div className="p-6 rounded-lg interactive-card">
                                 <h2 className="text-xl font-semibold mb-4"> <span className="text-hex "> Section 1: </span> Personal
                                     Information</h2>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div>
-                                        <label className="mb-4 flex items-center">
-                                            <i className="fas fa-user mr-2"></i> Full Name
+                                        <label className="mb-4 flex items-center" htmlFor="fullName">
+                                            <FaUser className="inline-block mr-2" aria-hidden="true" /> Full Name
                                         </label>
                                         <InputField
+                                            id="fullName"
                                             name="fullName"
                                             value={formData.fullName}
                                             onChange={handleInputChange}
@@ -418,10 +436,11 @@ const MembershipForm: React.FC = () => {
                                         />
                                     </div>
                                     <div>
-                                        <label className="mb-4 flex items-center">
-                                            <i className="fas fa-calendar-alt mr-2"></i> Date of Birth
+                                        <label className="mb-4 flex items-center" htmlFor="dateOfBirth">
+                                            <FaCalendarAlt className="inline-block mr-2" aria-hidden="true" /> Date of Birth
                                         </label>
                                         <InputField
+                                            id="dateOfBirth"
                                             type="date"
                                             name="dateOfBirth"
                                             value={formData.dateOfBirth}
@@ -430,10 +449,11 @@ const MembershipForm: React.FC = () => {
                                         />
                                     </div>
                                     <div>
-                                        <label className="mb-4 flex items-center">
-                                            <i className="fas fa-venus-mars mr-2"></i> Gender
+                                        <label className="mb-4 flex items-center" htmlFor="gender">
+                                            <FaVenusMars className="inline-block mr-2" aria-hidden="true" /> Gender
                                         </label>
                                         <SelectField
+                                            id="gender"
                                             name="gender"
                                             value={formData.gender}
                                             onChange={handleInputChange}
@@ -445,10 +465,11 @@ const MembershipForm: React.FC = () => {
                                         </SelectField>
                                     </div>
                                     <div>
-                                        <label className="mb-4 flex items-center">
-                                            <i className="fas fa-envelope mr-2"></i> Email Address
+                                        <label className="mb-4 flex items-center" htmlFor="email">
+                                            <FaEnvelope className="inline-block mr-2" aria-hidden="true" /> Email Address
                                         </label>
                                         <InputField
+                                            id="email"
                                             type="email"
                                             name="email"
                                             value={formData.email}
@@ -458,10 +479,11 @@ const MembershipForm: React.FC = () => {
                                         />
                                     </div>
                                     <div>
-                                        <label className="mb-4 flex items-center">
-                                            <i className="fas fa-phone mr-2"></i> Phone Number
+                                        <label className="mb-4 flex items-center" htmlFor="phoneNumber">
+                                            <FaPhone className="inline-block mr-2" aria-hidden="true" /> Phone Number
                                         </label>
                                         <InputField
+                                            id="phoneNumber"
                                             type="text"
                                             name="phoneNumber"
                                             value={formData.phoneNumber}
@@ -471,10 +493,11 @@ const MembershipForm: React.FC = () => {
                                         />
                                     </div>
                                     <div>
-                                        <label className="mb-4 flex items-center">
-                                            <i className="fas fa-city mr-2"></i> City & Country
+                                        <label className="mb-4 flex items-center" htmlFor="cityCountry">
+                                            <FaCity className="inline-block mr-2" aria-hidden="true" /> City & Country
                                         </label>
                                         <InputField
+                                            id="cityCountry"
                                             type="text"
                                             name="cityCountry"
                                             value={formData.cityCountry}
@@ -484,10 +507,11 @@ const MembershipForm: React.FC = () => {
                                         />
                                     </div>
                                     <div>
-                                        <label className="mb-4 flex items-center">
-                                            <i className="fas fa-briefcase mr-2"></i> Occupation/Profession
+                                        <label className="mb-4 flex items-center" htmlFor="occupation">
+                                            <FaBriefcase className="inline-block mr-2" aria-hidden="true" /> Occupation/Profession
                                         </label>
                                         <InputField
+                                            id="occupation"
                                             type="text"
                                             name="occupation"
                                             value={formData.occupation}
@@ -504,10 +528,11 @@ const MembershipForm: React.FC = () => {
                                     Links ( Optional ) </h2>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div>
-                                        <label className="mb-4 flex items-center">
-                                            <i className="fab fa-linkedin mr-2"></i> LinkedIn Profile
+                                        <label className="mb-4 flex items-center" htmlFor="linkedin">
+                                            <FaLinkedin className="inline-block mr-2" aria-hidden="true" /> LinkedIn Profile
                                         </label>
                                         <InputField
+                                            id="linkedin"
                                             type="url"
                                             name="linkedin"
                                             value={formData.linkedin}
@@ -515,10 +540,11 @@ const MembershipForm: React.FC = () => {
                                             placeholder="https://www.linkedin.com/in/username" />
                                     </div>
                                     <div>
-                                        <label className="mb-4 flex items-center">
-                                            <i className="fab fa-facebook mr-2"></i> Facebook Profile
+                                        <label className="mb-4 flex items-center" htmlFor="facebook">
+                                            <FaFacebook className="inline-block mr-2" aria-hidden="true" /> Facebook Profile
                                         </label>
                                         <InputField
+                                            id="facebook"
                                             type="url"
                                             name="facebook"
                                             value={formData.facebook}
@@ -527,10 +553,11 @@ const MembershipForm: React.FC = () => {
                                         />
                                     </div>
                                     <div>
-                                        <label className="mb-4 flex items-center">
-                                            <i className="fab fa-instagram mr-2"></i> Instagram Profile
+                                        <label className="mb-4 flex items-center" htmlFor="instagram">
+                                            <FaInstagram className="inline-block mr-2" aria-hidden="true" /> Instagram Profile
                                         </label>
                                         <InputField
+                                            id="instagram"
                                             type="url"
                                             name="instagram"
                                             value={formData.instagram}
@@ -539,10 +566,11 @@ const MembershipForm: React.FC = () => {
                                         />
                                     </div>
                                     <div>
-                                        <label className="mb-4 flex items-center">
-                                            <i className="fab fa-twitter mr-2"></i> Twitter Profile
+                                        <label className="mb-4 flex items-center" htmlFor="twitter">
+                                            <FaTwitter className="inline-block mr-2" aria-hidden="true" /> Twitter Profile
                                         </label>
                                         <InputField
+                                            id="twitter"
                                             type="url"
                                             name="twitter"
                                             value={formData.twitter}
@@ -551,10 +579,11 @@ const MembershipForm: React.FC = () => {
                                         />
                                     </div>
                                     <div>
-                                        <label className="mb-4 flex items-center">
-                                            <i className="fas fa-globe mr-2"></i> Other Platform
+                                        <label className="mb-4 flex items-center" htmlFor="otherSocial">
+                                            <FaGlobe className="inline-block mr-2" aria-hidden="true" /> Other Platform
                                         </label>
                                         <InputField
+                                            id="otherSocial"
                                             type="url"
                                             name="otherSocial"
                                             value={formData.otherSocial}
@@ -620,10 +649,11 @@ const MembershipForm: React.FC = () => {
 
                                     {/* Educational Background */}
                                     <div>
-                                        <label className="block mb-4">
+                                        <label className="block mb-4" htmlFor="educationalBackground">
                                             Educational Background/Current Institution (For Student Members)
                                         </label>
                                         <InputField
+                                            id="educationalBackground"
                                             type="text"
                                             name="educationalBackground"
                                             value={formData.educationalBackground}
@@ -700,9 +730,11 @@ const MembershipForm: React.FC = () => {
                                                 />
                                                 <span>Other:</span>
                                                 <InputField
-                                                    type="url"
-                                                    name="otherSocial" // This doesn't match state property name!
-                                                    value={formData.otherSocial}
+                                                    type="text"
+                                                    id="otherExpertise"
+                                                    aria-label="Other area of expertise"
+                                                    name="otherExpertise"
+                                                    value={formData.otherExpertise}
                                                     onChange={handleInputChange}
                                                 />
                                             </label>
@@ -788,6 +820,8 @@ const MembershipForm: React.FC = () => {
                                                 <span>Other:</span>
                                                 <InputField
                                                     type="text"
+                                                    id="otherInspiration"
+                                                    aria-label="Other source of inspiration"
                                                     name="otherInspiration"
                                                     value={formData.otherInspiration}
                                                     onChange={handleInputChange}
@@ -799,8 +833,9 @@ const MembershipForm: React.FC = () => {
 
                                     {/* Motivation to join */}
                                     <div>
-                                        <label className="block mb-2">Why do you want to become a member of Plastal-Bot Builders?</label>
+                                        <label className="block mb-2" htmlFor="motivation">Why do you want to become a member of Plastal-Bot Builders?</label>
                                         <TextAreaField
+                                            id="motivation"
                                             name="motivation"
                                             value={formData.motivation}
                                             onChange={handleInputChange}
@@ -835,6 +870,8 @@ const MembershipForm: React.FC = () => {
                                             </label>
                                         </div>
                                         <TextAreaField
+                                            id="experienceDescription"
+                                            aria-label="Describe your previous robotics, coding or STEM experience"
                                             name="experienceDescription"
                                             value={formData.experienceDescription}
                                             onChange={handleInputChange}
@@ -852,8 +889,9 @@ const MembershipForm: React.FC = () => {
                                     Commitments</h2>
                                 <div className="space-y-4">
                                     <div>
-                                        <label className="block mb-2">Time Availability</label>
+                                        <label className="block mb-2" htmlFor="timeAvailability">Time Availability</label>
                                         <SelectField
+                                            id="timeAvailability"
                                             name="timeAvailability"
                                             value={formData.timeAvailability}
                                             onChange={handleInputChange}
@@ -866,8 +904,9 @@ const MembershipForm: React.FC = () => {
                                         </SelectField>
                                     </div>
                                     <div>
-                                        <label className="block mb-2">In what ways do you think you can contribute to the organization?</label>
+                                        <label className="block mb-2" htmlFor="contribution">In what ways do you think you can contribute to the organization?</label>
                                         <TextAreaField
+                                            id="contribution"
                                             name="contribution"
                                             value={formData.contribution}
                                             onChange={handleInputChange}
@@ -910,8 +949,9 @@ const MembershipForm: React.FC = () => {
                                     Information</h2>
                                 <div className="space-y-4">
                                     <div>
-                                        <label className="block mb-2">How did you hear about Plastal-Bot Builders?</label>
+                                        <label className="block mb-2" htmlFor="referralSource">How did you hear about Plastal-Bot Builders?</label>
                                         <SelectField
+                                            id="referralSource"
                                             name="referralSource"
                                             value={formData.referralSource}
                                             onChange={handleInputChange}
@@ -924,8 +964,9 @@ const MembershipForm: React.FC = () => {
                                         </SelectField>
                                     </div>
                                     <div>
-                                        <label className="block mb-2">Do you have any other comments or questions?</label>
+                                        <label className="block mb-2" htmlFor="comments">Do you have any other comments or questions?</label>
                                         <TextAreaField
+                                            id="comments"
                                             name="comments"
                                             value={formData.comments}
                                             onChange={handleInputChange}

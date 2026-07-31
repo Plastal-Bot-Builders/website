@@ -20,6 +20,7 @@ const Home: React.FC = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'ok' | 'error'>('idle');
+  const [honeypot, setHoneypot] = useState('');
 
   useEffect(() => {
     const hash = window.location.hash;
@@ -40,7 +41,7 @@ const Home: React.FC = () => {
     try {
       const resp = await apiFetch('/subscribe', {
         method: 'POST',
-        json: { email }
+        json: { email, website: honeypot }
       });
       if (resp.ok) {
         setStatus('ok');
@@ -795,6 +796,19 @@ const Home: React.FC = () => {
                     onSubmit={handleSubscribe}
                     className="flex flex-col sm:flex-row items-stretch gap-3 sm:gap-4"
                   >
+                    {/* Anti-spam honeypot — see backend/middleware/formGuards.js */}
+                    <div className="hp-field" aria-hidden="true">
+                      <label htmlFor="website-nl">Leave this field empty</label>
+                      <input
+                        type="text"
+                        id="website-nl"
+                        name="website"
+                        value={honeypot}
+                        onChange={e => setHoneypot(e.target.value)}
+                        tabIndex={-1}
+                        autoComplete="off"
+                      />
+                    </div>
                     <input
                       id="newsletter-email"
                       type="email"
