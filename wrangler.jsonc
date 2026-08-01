@@ -22,8 +22,14 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "website",
   "compatibility_date": "2026-07-01",
+  // "html_handling": "drop-trailing-slash" serves build/<route>/index.html at
+  // /<route> directly. The default ("auto-trailing-slash") instead answers
+  // /journey-to-geneva with a 307 to /journey-to-geneva/, which contradicts the
+  // canonical URLs prerender.js writes (they have no trailing slash) and costs
+  // every crawler an extra round trip per page.
   "assets": {
     "directory": "./build",
-    "not_found_handling": "single-page-application"
+    "not_found_handling": "single-page-application",
+    "html_handling": "drop-trailing-slash"
   }
 }
