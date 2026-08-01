@@ -16,7 +16,6 @@ const DonationsPage: React.FC = () => {
     // Progress tracker data
     const goalAmount = 15000;
     const raisedAmount = 8000;
-    const progressPercentage = (raisedAmount / goalAmount) * 100;
 
     // Testimonials
     const testimonials = [

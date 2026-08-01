@@ -36,7 +36,7 @@ const FadeContent = ({
     observer.observe(ref.current);
 
     return () => observer.disconnect();
-  }, [threshold, delay]);
+  }, [threshold, delay, prefersReducedMotion]);
 
   return (
     <div

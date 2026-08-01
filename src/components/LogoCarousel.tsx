@@ -54,7 +54,7 @@ const logos: Logo[] = [
 const LogoCarousel: React.FC = () => {
   // Duplicate the list so the animation can loop seamlessly to 50%
   const looped = React.useMemo(() => [...logos, ...logos], []);
-  const { resolvedTheme, toggle } = useTheme();
+  const { resolvedTheme } = useTheme();
 
   return (
     <div className="max-w-7xl mx-auto p-6">

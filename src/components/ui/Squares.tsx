@@ -25,7 +25,7 @@ const Squares: React.FC<SquaresProps> = ({
   hoverFillColor: hoverFillColorProp
 }) => {
   // Get current theme from your theme context
-  const { theme, resolvedTheme } = useTheme(); // Adjust according to your theme API
+  const { resolvedTheme } = useTheme();
 
   // Derive colors from theme if not explicitly provided
   const borderColor = useMemo(() => {

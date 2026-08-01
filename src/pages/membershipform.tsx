@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { apiFetch } from '../api/client';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -235,76 +235,9 @@ const MembershipForm: React.FC = () => {
             setIsSubmitting(true);
             setSubmitStatus('idle');
             setErrorMessage('');
-
-            const transformedData = {
-                fullName: formData.fullName,
-                dateOfBirth: formData.dateOfBirth,
-                gender: formData.gender,
-                email: formData.email,
-                phoneNumber: formData.phoneNumber,
-                cityCountry: formData.cityCountry,
-                occupation: formData.occupation,
-
-                // Nest social media fields
-                socialMedia: {
-                    linkedin: formData.linkedin,
-                    facebook: formData.facebook,
-                    instagram: formData.instagram,
-                    twitter: formData.twitter,
-                    other: formData.otherSocial
-                },
-                // Nest membership type fields
-                membershipType: {
-                    type: formData.membershipType,
-                    educationalBackground: formData.educationalBackground,
-                    expertise: {
-                        engineering: formData.expertise.includes('Engineering'),
-                        programming: formData.expertise.includes('programmingCoding'),
-                        environmentalSciences: formData.expertise.includes('environmentScience'),
-                        education: formData.expertise.includes('Education'),
-                        projectManagement: formData.expertise.includes('projectManagement'),
-                        other: formData.otherExpertise
-                    }
-                },
-                // Nest interest fields
-                interest: {
-                    inspiration: {
-                        robotics: formData.inspiration.includes('Interest in Robotics'),
-                        stemEducation: formData.inspiration.includes('Passion for STEM Education'),
-                        environmentalAdvocacy: formData.inspiration.includes('Environmental Advocacy'),
-                        mentoring: formData.inspiration.includes('Desire to Mentor Young People'),
-                        networking: formData.inspiration.includes('Networking and Professional Growth'),
-                        other: formData.otherInspiration
-                    },
-                    motivation: formData.motivation,
-                    previousExperience: {
-                        hasExperience: formData.hasExperience === 'Yes',
-                        description: formData.experienceDescription
-                    }
-                },
-                // Nest commitment fields
-                commitments: {
-                    timeAvailability: formData.timeAvailability,
-                    contribution: formData.contribution,
-                    eventParticipation: formData.eventParticipation === 'Yes'
-                },
-
-                // Nest additional info
-                additionalInfo: {
-                    referralSource: formData.referralSource,
-                    comments: formData.comments
-                },
-
-                // Nest consents
-                consents: {
-                    informationAccuracy: formData.informationAccuracy,
-                    rulesAgreement: formData.rulesAgreement,
-                    dataProcessing: formData.dataProcessing
-                }
-            };
             const response = await apiFetch('/members/register', {
                 method: 'POST',
-                json: formData // This should use transformedData
+                json: formData // Backend expects flat fields; it builds the nested document
             });
 
             const data = await response.json();

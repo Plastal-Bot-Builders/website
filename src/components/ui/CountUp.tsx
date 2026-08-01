@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { useInView } from 'motion/react';
 
 interface CountUpProps {
@@ -37,7 +37,6 @@ export default function CountUp({
   onEnd
 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const [value, setValue] = useState(direction === 'down' ? to : from);
   const isInView = useInView(ref, { once: true, margin: '0px' });
 
   const getDecimalPlaces = (num: number): number => {
@@ -57,7 +56,7 @@ export default function CountUp({
     Math.max(getDecimalPlaces(from), getDecimalPlaces(to));
 
   // Format the displayed value
-  const formatValue = (value: number) => {
+  const formatValue = useCallback((value: number) => {
     const hasDecimals = calculatedDecimals > 0;
     const options: Intl.NumberFormatOptions = {
       useGrouping: !!separator,
@@ -67,7 +66,7 @@ export default function CountUp({
 
     const formattedNumber = Intl.NumberFormat('en-US', options).format(value);
     return separator ? formattedNumber.replace(/,/g, separator) : formattedNumber;
-  };
+  }, [calculatedDecimals, separator]);
 
   // Initialize with starting value
   useEffect(() => {
@@ -75,7 +74,7 @@ export default function CountUp({
       const initialValue = direction === 'down' ? to : from;
       ref.current.textContent = `${prefix}${formatValue(initialValue)}${suffix}`;
     }
-  }, [from, to, direction, separator, calculatedDecimals, prefix, suffix]);
+  }, [from, to, direction, separator, calculatedDecimals, prefix, suffix, formatValue]);
 
   // Animate the counting
   useEffect(() => {
@@ -88,7 +87,6 @@ export default function CountUp({
     const startValue = direction === 'down' ? to : from;
     const endValue = direction === 'down' ? from : to;
     const range = endValue - startValue;
-    const increment = range / (duration * 60); // 60fps
     let currentValue = startValue;
     let startTime: number | null = null;
     
@@ -131,7 +129,7 @@ export default function CountUp({
     return () => {
       clearTimeout(animationDelayId);
     };
-  }, [isInView, startWhen, from, to, duration, delay, direction, onStart, onEnd, prefix, suffix, useEasing, easingFn]);
+  }, [isInView, startWhen, from, to, duration, delay, direction, onStart, onEnd, prefix, suffix, useEasing, easingFn, formatValue]);
 
   return <span className={className} ref={ref} />;
 }

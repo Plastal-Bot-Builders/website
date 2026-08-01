@@ -48,7 +48,7 @@ const ReusableModal: React.FC<ReusableModalProps> = ({
                 </div>
                 <div className="text-center">
                     <h3 className="mb-5 text-lg font-normal text-text">{title}</h3>
-                    {image && <img src={asset(image)} alt="Modal Image" className="mx-auto mb-4 w-32 h-32 object-cover rounded-lg" />}
+                    {image && <img src={asset(image)} alt={title} className="mx-auto mb-4 w-32 h-32 object-cover rounded-lg" />}
                     <div className="flex flex-col items-center justify-center">
                         {content}
                     </div>
