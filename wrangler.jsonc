@@ -1,0 +1,22 @@
+{
+  // Cloudflare Workers static-assets deployment.
+  //
+  // This project is a Create React App build (a folder of static files), not a
+  // server. There is deliberately no "main" entry point: an assets-only Worker
+  // just serves ./build from Cloudflare's edge.
+  //
+  // "not_found_handling": "single-page-application" makes any unmatched path
+  // serve index.html so the React Router routes work on a hard refresh. Paths
+  // that DO have a prerendered file (build/journey-to-geneva/index.html, etc.)
+  // are served from disk, which is what keeps the per-page metadata and JSON-LD
+  // visible to crawlers — see scripts/prerender.js.
+  //
+  // _headers and _redirects in build/ are honoured here as well as on Pages.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "website",
+  "compatibility_date": "2026-07-01",
+  "assets": {
+    "directory": "./build",
+    "not_found_handling": "single-page-application"
+  }
+}

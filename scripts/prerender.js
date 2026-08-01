@@ -25,6 +25,9 @@
  * Run automatically via `postbuild`. Add routes in scripts/seo/site-manifest.js.
  */
 
+const { loadEnv } = require('./seo/load-env');
+loadEnv();
+
 const fs = require('fs');
 const path = require('path');
 const { ORG, UNVERIFIED, ROUTES, DEFAULT_IMAGE } = require('./seo/site-manifest');

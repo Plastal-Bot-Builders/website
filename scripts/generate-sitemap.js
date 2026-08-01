@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+const { loadEnv } = require('./seo/load-env');
+loadEnv();
+
 const fs = require('fs');
 const path = require('path');
 

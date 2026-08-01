@@ -18,7 +18,10 @@ services:
         value: production
       # Comma-separated list of allowed frontend origins
       - key: CORS_ORIGIN
-        value: https://plastal-bot-builders.github.io
+        # Comma-separated allowlist. The apex domain is the canonical origin;
+        # www and the Pages preview domain are included so the forms keep
+        # working from every host that serves the site.
+        value: https://plastalbotbuilders.com,https://www.plastalbotbuilders.com
       # Set these in the Render dashboard (never commit secrets):
       - key: MONGODB_URI
         sync: false
