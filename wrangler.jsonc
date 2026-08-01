@@ -11,7 +11,14 @@
   // are served from disk, which is what keeps the per-page metadata and JSON-LD
   // visible to crawlers — see scripts/prerender.js.
   //
-  // _headers and _redirects in build/ are honoured here as well as on Pages.
+  // _headers in build/ is honoured here (CSP, HSTS, caching).
+  //
+  // There is deliberately NO _redirects file: on Workers, a "/* /index.html 200"
+  // catch-all is rejected as an infinite loop (the asset server strips `/index`
+  // and `.html`, so the rewrite target re-enters the same rule). SPA routing is
+  // handled by not_found_handling above instead. If this project is ever moved
+  // to Cloudflare Pages, that file has to come back — Pages has no equivalent
+  // setting and relies on the catch-all.
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "website",
   "compatibility_date": "2026-07-01",
