@@ -1,10 +1,16 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Auto-deploy disabled: the site is hosted on Cloudflare Pages. This build
+  # Auto-deploy disabled: the site is hosted on Cloudflare Workers. This build
   # produces a root-relative bundle ("homepage": "/"), which GitHub Pages would
   # serve incorrectly from the /website subpath. Kept for reference / emergency
   # fallback only — run it manually from the Actions tab if ever needed.
+  #
+  # Do NOT set a custom domain under Settings > Pages, and do NOT add a CNAME
+  # file. plastalbotbuilders.com is served by Cloudflare Workers; a GitHub Pages
+  # claim on the same apex would, if its DNS check ever passed, silently serve a
+  # stale build over plain HTTP with no prerendered metadata and none of the
+  # security headers from public/_headers.
   workflow_dispatch:
 
 permissions:
