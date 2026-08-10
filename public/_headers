@@ -38,4 +38,4 @@
   #   blob: / data:              object URLs for GLB models, canvas and video
   # No external style or font hosts are listed: all webfont CDNs were removed
   # (nothing referenced those families) so the policy can stay tight.
-  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob: https:; media-src 'self' blob:; connect-src 'self' blob: data: https://plastalbot-backend-5lf9.onrender.com; worker-src 'self' blob:; manifest-src 'self'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self'; script-src 'self' 'wasm-unsafe-eval' 'sha256-ddSss8oywJ9kc9T3vwcVWpU4+tLFe/zrHH7GwmQP3ng='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob: https:; media-src 'self' blob:; connect-src 'self' blob: data: https://plastalbot-backend-5lf9.onrender.com; worker-src 'self' blob:; manifest-src 'self'; upgrade-insecure-requests
