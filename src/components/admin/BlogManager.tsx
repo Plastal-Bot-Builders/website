@@ -123,7 +123,7 @@ export function BlogManager({ posts, token, onPostsChange, loading, setError }: 
               <Label>Title</Label>
               <Input 
                 value={title} 
-                onChange={(e) => setTitle(e.target.value)} 
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)} 
                 required 
               />
             </FormGroup>
@@ -131,7 +131,7 @@ export function BlogManager({ posts, token, onPostsChange, loading, setError }: 
               <Label>Slug</Label>
               <Input 
                 value={slug} 
-                onChange={(e) => setSlug(e.target.value)} 
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSlug(e.target.value)} 
                 placeholder="auto from title" 
               />
             </FormGroup>
@@ -177,7 +177,7 @@ export function BlogManager({ posts, token, onPostsChange, loading, setError }: 
             <Label>Author</Label>
             <Input 
               value={author} 
-              onChange={(e) => setAuthor(e.target.value)} 
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setAuthor(e.target.value)} 
             />
           </FormGroup>
           

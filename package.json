@@ -7,9 +7,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "server": "nodemon --env-file ./backend/.env ./backend/server.js",
+    "server": "node --watch --env-file ./backend/.env ./backend/server.js",
     "dev": "react-scripts start",
     "generate-sitemap": "node scripts/generate-sitemap.js",
     "prebuild": "npm run generate-sitemap",
@@ -69,8 +67,6 @@
   "devDependencies": {
     "@types/react-router-dom": "^5.3.3",
     "autoprefixer": "^10.4.20",
-    "gh-pages": "^6.2.0",
-    "nodemon": "^3.1.14",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.13",
     "wrangler": "^4.120.0"
