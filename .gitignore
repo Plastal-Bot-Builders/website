@@ -147,4 +147,9 @@ public/resources/Geneva2026/*
 # Keep SVGs — they're tiny and often used as icons
 !*.svg
 
+# Social share card — referenced by og:image/twitter:image on every page,
+# so it must ship. (Negations have to come after the binary rules above,
+# which is also why new files in Geneva2026/web/ need `git add -f`.)
+!public/resources/social/*.jpg
+
 

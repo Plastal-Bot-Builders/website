@@ -88,7 +88,7 @@ const UNVERIFIED = {
 };
 
 /** Shared image used when a route doesn't specify its own. */
-const DEFAULT_IMAGE = '/resources/Geneva2026/web/geneva-stage-celebration.jpg';
+const DEFAULT_IMAGE = '/resources/social/og-default.jpg';
 
 /**
  * Routes. `body` drives the crawlable fallback content that non-JavaScript
@@ -163,7 +163,7 @@ const ROUTES = [
     title: 'The Road to Geneva — Representing Zambia at the AI for Good Robotics Competition',
     description:
       'The full story of how Plastal-Bot Builders went from a hand-made practice field in Lusaka to winning the AI for Good National Edition and competing as a Finalist Team in Geneva, Switzerland.',
-    image: '/resources/Geneva2026/web/geneva-stage-celebration.jpg',
+    image: '/resources/social/og-journey.jpg',
     breadcrumb: [
       { name: 'News & Achievements', path: '/news' },
       { name: 'The Road to Geneva', path: '/journey-to-geneva' },

@@ -235,6 +235,7 @@ function jsonLd(route) {
 
 function headTags(route) {
   const image = abs(route.image || DEFAULT_IMAGE);
+  const isCard = (route.image || DEFAULT_IMAGE).startsWith('/resources/social/');
   const url = abs(route.path);
   const robots = route.robots || 'index, follow, max-image-preview:large, max-snippet:-1';
   return [
@@ -248,11 +249,19 @@ function headTags(route) {
     `<meta property="og:description" content="${esc(route.description)}"/>`,
     `<meta property="og:url" content="${esc(url)}"/>`,
     `<meta property="og:image" content="${esc(image)}"/>`,
+    // Only cards from scripts/social/make-og-card.py are guaranteed 1200x630;
+    // never assert dimensions for an arbitrary photo.
+    ...(isCard ? [
+      `<meta property="og:image:width" content="1200"/>`,
+      `<meta property="og:image:height" content="630"/>`,
+    ] : []),
+    `<meta property="og:image:alt" content="${esc(ORG.name)} — robotics and STEM education in Zambia"/>`,
     `<meta property="og:locale" content="en_ZM"/>`,
     `<meta name="twitter:card" content="summary_large_image"/>`,
     `<meta name="twitter:title" content="${esc(route.title)}"/>`,
     `<meta name="twitter:description" content="${esc(route.description)}"/>`,
     `<meta name="twitter:image" content="${esc(image)}"/>`,
+    `<meta name="twitter:image:alt" content="${esc(ORG.name)} — robotics and STEM education in Zambia"/>`,
     `<script type="application/ld+json">${jsonLd(route)}</script>`,
   ].join('\n    ');
 }

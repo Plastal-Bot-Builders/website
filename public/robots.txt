@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://plastalbotbuilders.com/sitemap.xml
+Sitemap: https://www.plastalbotbuilders.com/sitemap.xml

@@ -6,7 +6,7 @@ const router = Router();
 // Generate sitemap.xml
 router.get('/sitemap.xml', async (req, res) => {
   try {
-    const baseUrl = 'https://plastalbotbuilders.com';
+    const baseUrl = 'https://www.plastalbotbuilders.com';
     
     // Get all published posts
     const posts = await Post.find({ published: true })
@@ -52,7 +52,7 @@ router.get('/robots.txt', (req, res) => {
   const robotsTxt = `User-agent: *
 Allow: /
 
-Sitemap: https://plastalbotbuilders.com/sitemap.xml
+Sitemap: https://www.plastalbotbuilders.com/sitemap.xml
 `;
   res.type('text/plain');
   res.send(robotsTxt);
