@@ -1,7 +1,7 @@
 """
-Generate 1200x630 social share cards (Open Graph / Twitter) in the
-Plastal-Bot Builders style: navy panel with the white logo and headline on
-the left, a photo on the right.
+Generate 1200x630 social share cards (Open Graph / Twitter) for
+Plastal-Bot Builders: a full-bleed photo, a navy fade along the bottom
+carrying the title, and the white logo in the top-right corner.
 
     python3 scripts/social/make-og-card.py
 
@@ -17,65 +17,60 @@ from PIL import Image, ImageDraw, ImageFont
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / 'public/resources/social'
 
-W, H, PANEL = 1200, 630, 560
-NAVY, MINT = (20, 17, 61), (12, 255, 187)
-SUBTLE = (190, 199, 222)
+W, H = 1200, 630
+NAVY, MINT, WHITE = (20, 17, 61), (12, 255, 187), (255, 255, 255)
+SUBTLE = (225, 230, 242)
 FONT = '/System/Library/Fonts/Avenir Next.ttc'   # macOS; index 2 = bold
 
 CARDS = {
     'og-default.jpg': {
-        'photo': 'resources/Geneva2026/web/geneva-hero.jpg',
-        'focus': (0.55, 0.30),
-        'headline': ['Robotics & STEM', 'education in Zambia'],
-        'sub': ['Youth-led, Lusaka-based.', 'AI for Good finalists, Geneva.'],
+        'photo': 'resources/Geneva2026/web/geneva-flag.jpg',
+        'focus': (0.5, 0.42),   # which part of the photo survives the crop
+        'title': 'Plastal-Bot Builders',
+        'sub': 'Youth robotics & STEM education  ·  Zambia',
     },
     'og-journey.jpg': {
         'photo': 'resources/Geneva2026/web/geneva-stage-celebration.jpg',
-        'focus': (0.50, 0.28),
-        'headline': ['The Road to', 'Geneva'],
-        'sub': ['From a hand-made practice field', 'in Lusaka to the AI for Good finals.'],
+        'focus': (0.5, 0.40),
+        'title': 'The Road to Geneva',
+        'sub': 'Plastal-Bot Builders  ·  AI for Good finalists',
     },
 }
 
 
 def card(spec):
-    img = Image.new('RGB', (W, H), NAVY)
-
-    # Photo fills the right side; `focus` picks which part of it survives the crop.
     src = Image.open(ROOT / 'public' / spec['photo']).convert('RGB')
-    pw = W - PANEL
-    scale = max(pw / src.width, H / src.height)
-    src = src.resize((round(src.width * scale), round(src.height * scale)), Image.LANCZOS)
+    s = max(W / src.width, H / src.height)
+    src = src.resize((round(src.width * s), round(src.height * s)), Image.LANCZOS)
     fx, fy = spec['focus']
-    left, top = int((src.width - pw) * fx), int((src.height - H) * fy)
-    img.paste(src.crop((left, top, left + pw, top + H)), (PANEL, 0))
+    l, t = int((src.width - W) * fx), int((src.height - H) * fy)
+    img = src.crop((l, t, l + W, t + H)).convert('RGBA')
 
-    # Feather the seam so the panel blends into the photo.
-    fade = Image.new('RGBA', (W, H), NAVY + (0,))
-    fd = ImageDraw.Draw(fade)
-    for i in range(130):
-        fd.line([(PANEL + i, 0), (PANEL + i, H)], fill=NAVY + (int(255 * (1 - i / 130) ** 1.3),))
-    img = Image.alpha_composite(img.convert('RGBA'), fade).convert('RGB')
+    overlay = Image.new('RGBA', (W, H), NAVY + (0,))
+    d = ImageDraw.Draw(overlay)
+    # Bottom fade: carries the title, near-opaque at the bottom edge.
+    y0 = int(H * 0.40)
+    for y in range(y0, H):
+        d.line([(0, y), (W, y)], fill=NAVY + (int(245 * ((y - y0) / (H - y0)) ** 1.1),))
+    img = Image.alpha_composite(img, overlay)
 
-    d = ImageDraw.Draw(img)
-    d.rectangle([PANEL - 4, 0, PANEL - 1, H], fill=MINT)
+    # Top-right vignette: seats the logo and quiets background clutter.
+    corner = Image.new('L', (W, H), 0)
+    cd = ImageDraw.Draw(corner)
+    for r in range(420, 0, -6):
+        cd.ellipse([W - r, -r, W + r, r], fill=int(200 * (1 - r / 420) ** 0.8))
+    img = Image.composite(Image.new('RGBA', (W, H), NAVY + (255,)), img, corner)
 
     logo = Image.open(ROOT / 'public/resources/Logo/logo_trans.png').convert('RGBA')
     logo = logo.crop(logo.split()[3].getbbox())
-    logo = logo.resize((round(logo.width * 168 / logo.height), 168), Image.LANCZOS)
-    img.paste(logo, (70, 62), logo)
+    logo = logo.resize((round(logo.width * 150 / logo.height), 150), Image.LANCZOS)
+    img.paste(logo, (W - logo.width - 52, 40), logo)
 
-    h1, sub, url = (ImageFont.truetype(FONT, s, index=i) for s, i in ((54, 2), (29, 0), (25, 2)))
-    y = 288
-    for line in spec['headline']:
-        d.text((70, y), line, font=h1, fill=(255, 255, 255)); y += 64
-    y += 14
-    d.rectangle([70, y, 156, y + 6], fill=MINT)
-    y += 36
-    for line in spec['sub']:
-        d.text((70, y), line, font=sub, fill=SUBTLE); y += 40
-    d.text((70, H - 66), 'plastalbotbuilders.com', font=url, fill=MINT)
-    return img
+    d = ImageDraw.Draw(img)
+    d.text((60, H - 186), spec['title'], font=ImageFont.truetype(FONT, 66, index=2), fill=WHITE)
+    d.rectangle([60, H - 100, 146, H - 94], fill=MINT)
+    d.text((60, H - 80), spec['sub'], font=ImageFont.truetype(FONT, 29, index=0), fill=SUBTLE)
+    return img.convert('RGB')
 
 
 if __name__ == '__main__':
