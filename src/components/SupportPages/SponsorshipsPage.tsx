@@ -297,10 +297,10 @@ const SponsorshipPage: React.FC = () => {
                                     package tailored to your organization's vision and our shared growth objectives.
                                 </p>
                                 <a
-                                    href="mailto:partnerships@plastalbotbuilders.org"
+                                    href="mailto:partnerships@plastalbotbuilders.com"
                                     className="text-accent hover:underline font-medium text-sm sm:text-base inline-block"
                                 >
-                                    partnerships@plastalbotbuilders.org
+                                    partnerships@plastalbotbuilders.com
                                 </a>
                             </div>
                         </section>
