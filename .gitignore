@@ -153,3 +153,6 @@ public/resources/Geneva2026/*
 !public/resources/social/*.jpg
 
 
+
+# Local state from `wrangler dev`
+.wrangler/
