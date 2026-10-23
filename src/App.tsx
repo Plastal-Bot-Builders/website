@@ -26,7 +26,9 @@ const NewsPage = lazy(() => import('./pages/news'));
 const JourneyToGeneva = lazy(() => import('./pages/journey-to-geneva'));
 const Error404 = lazy(() => import('./pages/error'));
 
-// RoboCore: the robot kit and coding app, a section of its own
+// RoboCore: a stand-alone section with its own header and footer (RoboCoreLayout). The Plastal-Bot site links in;
+// RoboCore pages don't link back. New RoboCore pages go in as child routes of /robocore below.
+const RoboCoreLayout = lazy(() => import('./components/RoboCore/RoboCoreLayout'));
 const RoboCorePage = lazy(() => import('./pages/robocore'));
 
 // Project subpages
@@ -154,12 +156,14 @@ const App: React.FC = () => {
                 <Route path="/support/educational-institutions" element={<EducationalPartnershipsPage />} />
                 <Route path="/support/nonprofits" element={<NonprofitPartnershipPage />} />
 
-                {/* RoboCore: /robocore, with room for subpages (/robocore/...) */}
+                {/* RoboCore: /robocore and, later, its own subpages (/robocore/...) */}
                 <Route path="/robocore" element={
                   <ErrorBoundary>
-                    <RoboCorePage />
+                    <RoboCoreLayout />
                   </ErrorBoundary>
-                } />
+                }>
+                  <Route index element={<RoboCorePage />} />
+                </Route>
 
                 {/* Project Pages */}
                 <Route path="/projects/gypul" element={
@@ -191,7 +195,8 @@ const App: React.FC = () => {
             </Suspense>
           </main>
         </div>
-        <Chatbot />
+        {/* The Plastal-Bot assistant belongs to the Plastal-Bot site, not to the stand-alone RoboCore pages. */}
+        {!location.pathname.startsWith('/robocore') && <Chatbot />}
       </Scrollbars>
     </HelmetProvider>
   );

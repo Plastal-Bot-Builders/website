@@ -1,5 +1,5 @@
 import React, { Suspense, lazy, useCallback, useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import type { IconType } from 'react-icons';
 import {
   LuActivity,
@@ -24,12 +24,10 @@ import {
   LuWand2,
   LuZap,
 } from 'react-icons/lu';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import { SEOConfig } from '../components/SEO';
 import RoboCoreLogo from '../components/RoboCore/RoboCoreLogo';
+import { CONTACT, LINKEDIN, scrollToSection } from '../components/RoboCore/shared';
 import { asset } from '../utils/asset';
-import '../components/RoboCore/robocore.css';
 
 // three.js only downloads when the hero is ready for it.
 const RobotViewer = lazy(() => import('../components/RoboCore/RobotViewer'));
@@ -79,9 +77,6 @@ const MAKE: [IconType, string][] = [
   [LuWand2, 'Your own idea'],
 ];
 
-const CONTACT = 'info@plastalbotbuilders.com';
-const LINKEDIN = 'https://www.linkedin.com/company/plastal-bot-builders/';
-
 /** Narrow screens and touch screens get the lighter model, and the robot turns by itself. */
 function useCompact(): boolean {
   const query = '(max-width: 767px), (pointer: coarse)';
@@ -104,14 +99,10 @@ function hasWebGL(): boolean {
   }
 }
 
-/** In-page links: the site scrolls inside its own scroll view, so scroll the section into view directly. */
+/** The hero's in-page buttons. */
 function jumpTo(id: string) {
   return (e: React.MouseEvent<HTMLAnchorElement>) => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    e.preventDefault();
-    const smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    el.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' });
+    if (scrollToSection(id)) e.preventDefault();
   };
 }
 
@@ -169,16 +160,27 @@ const HeroRobot: React.FC = () => {
   );
 };
 
-const RoboCorePage: React.FC = () => (
-  <>
-    <SEOConfig
-      title="RoboCore — the robot kit and coding app for young makers | Plastal-Bot Builders"
-      description="RoboCore is a robot you build yourself and a coding app to bring it to life: drag-and-drop blocks or Arduino C++, in the browser. Designed in Zambia by Plastal-Bot Builders."
-      image="/resources/social/og-robocore.jpg"
-    />
-    <Header />
+/**
+ * The RoboCore overview, the index page of /robocore. It renders inside RoboCoreLayout (RoboCore's own header and
+ * footer); its sections carry the ids the header links to.
+ */
+const RoboCorePage: React.FC = () => {
+  // Opened as /robocore#inside (from another RoboCore page, a QR code or a link): go to that section.
+  const { hash } = useLocation();
+  useEffect(() => {
+    if (!hash) return;
+    const t = window.setTimeout(() => scrollToSection(hash.slice(1), false), 60);
+    return () => window.clearTimeout(t);
+  }, [hash]);
 
-    <div className="rc">
+  return (
+    <>
+      <SEOConfig
+        title="RoboCore — the robot kit and coding app for young makers | Plastal-Bot Builders"
+        description="RoboCore is a robot you build yourself and a coding app to bring it to life: drag-and-drop blocks or Arduino C++, in the browser. Designed in Zambia by Plastal-Bot Builders."
+        image="/resources/social/og-robocore.jpg"
+      />
+
       {/* ---------- hero ---------- */}
       <section className="rc-hero" aria-labelledby="rc-title">
         <div className="rc-wrap">
@@ -220,7 +222,7 @@ const RoboCorePage: React.FC = () => (
       </section>
 
       {/* ---------- what it is ---------- */}
-      <section className="rc-section" aria-labelledby="rc-what">
+      <section id="what" className="rc-section" aria-labelledby="rc-what">
         <div className="rc-wrap">
           <div className="rc-section-head">
             <p className="rc-eyebrow">What is RoboCore?</p>
@@ -371,7 +373,7 @@ const RoboCorePage: React.FC = () => (
       </section>
 
       {/* ---------- where we are ---------- */}
-      <section className="rc-section" style={{ paddingTop: 0 }} aria-labelledby="rc-now">
+      <section id="now" className="rc-section" style={{ paddingTop: 0 }} aria-labelledby="rc-now">
         <div className="rc-wrap">
           <div className="rc-section-head">
             <p className="rc-eyebrow">Where we are</p>
@@ -386,12 +388,7 @@ const RoboCorePage: React.FC = () => (
             <li className="rc-card rc-step">
               <span className="rc-chip rc-step-tag">First</span>
               <h3 className="rc-h3">RoboCore V1: Gypul</h3>
-              <p className="rc-body">
-                Our first prototype: a self-balancing robot, built by hand with 3D-printed parts.{' '}
-                <Link className="rc-link" to="/projects/gypul">
-                  Meet Gypul
-                </Link>
-              </p>
+              <p className="rc-body">Our first prototype: a self-balancing robot, built by hand with 3D-printed parts.</p>
             </li>
             <li className="rc-card rc-step is-now" aria-current="step">
               <span className="rc-chip rc-step-tag">Now</span>
@@ -435,9 +432,9 @@ const RoboCorePage: React.FC = () => (
               <LuHeartHandshake className="rc-involve-icon" aria-hidden="true" />
               <h3 className="rc-h3">Partners and sponsors</h3>
               <p className="rc-body">Help us build and test the first RoboCore kits.</p>
-              <Link className="rc-link" to="/support/sponsorships">
-                Ways to support us
-              </Link>
+              <a className="rc-link" href={`mailto:${CONTACT}?subject=RoboCore%20partnership`}>
+                Talk to us about partnering
+              </a>
             </div>
             <div className="rc-card">
               <LuLinkedin className="rc-involve-icon" aria-hidden="true" />
@@ -450,25 +447,8 @@ const RoboCorePage: React.FC = () => (
           </div>
         </div>
       </section>
-
-      {/* ---------- closing band ---------- */}
-      <section className="rc-closing" aria-label="About Plastal-Bot Builders">
-        <div className="rc-contours" aria-hidden="true" />
-        <div className="rc-wrap">
-          <RoboCoreLogo className="rc-closing-logo" title="RoboCore" />
-          <p>
-            Plastal-Bot Builders is a robotics education team from Zambia. We design hands-on kits and tools that help
-            young people learn engineering by building real things.
-          </p>
-          <Link className="rc-btn rc-btn-outline" to="/about">
-            About Plastal-Bot Builders <LuArrowRight aria-hidden="true" />
-          </Link>
-        </div>
-      </section>
-    </div>
-
-    <Footer />
-  </>
-);
+    </>
+  );
+};
 
 export default RoboCorePage;

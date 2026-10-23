@@ -36,6 +36,8 @@
   --rc-art-filter: none;
 
   position: relative;
+  /* A whole screen at least, so the site's background never shows under a short page. */
+  min-height: 100vh;
   background: var(--rc-bg);
   color: var(--rc-ink);
   font-family: 'RC Barlow', system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -61,8 +63,8 @@ html.dark .rc {
 
 .rc *, .rc *::before, .rc *::after { box-sizing: border-box; }
 
-.rc-wrap { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-@media (min-width: 768px) { .rc-wrap { padding: 0 32px; } }
+.rc-wrap { --rc-gutter: 20px; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 var(--rc-gutter); }
+@media (min-width: 768px) { .rc-wrap { --rc-gutter: 32px; } }
 
 /* ---------- type ---------- */
 .rc-display,
@@ -83,7 +85,7 @@ html.dark .rc {
 .rc-section-head { max-width: 720px; display: grid; gap: 14px; margin-bottom: 40px; }
 
 .rc section { position: relative; }
-.rc-section { padding: 88px 0; scroll-margin-top: 24px; }
+.rc-section { padding: 88px 0; scroll-margin-top: 84px; } /* clear of the sticky header */
 @media (max-width: 767px) { .rc-section { padding: 64px 0; } }
 
 /* ---------- buttons and chips ---------- */
@@ -127,7 +129,7 @@ html.dark .rc {
 .rc-link:hover { text-decoration-color: currentColor; }
 
 /* ---------- hero: the box ---------- */
-.rc-hero { padding: 12px 0 0; }
+.rc-hero { padding: 16px 0 0; }
 .rc-hero-card {
   position: relative;
   overflow: hidden;
@@ -294,11 +296,78 @@ html.dark .rc {
 .rc-involve .rc-card { display: grid; gap: 12px; align-content: start; }
 .rc-involve-icon { font-size: 28px; }
 
-/* ---------- closing band ---------- */
-.rc-closing { overflow: hidden; background: var(--rc-yellow); color: var(--rc-navy); padding: 64px 0; }
-.rc-closing .rc-wrap { position: relative; z-index: 1; display: grid; gap: 18px; justify-items: start; }
-.rc-closing-logo { width: min(260px, 70%); height: auto; }
-.rc-closing p { max-width: 62ch; margin: 0; }
+/* ---------- RoboCore header: sticky inside the site's scroll view ---------- */
+.rc-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--rc-bg);
+  background: color-mix(in srgb, var(--rc-bg) 90%, transparent);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rc-line);
+}
+.rc-header-bar { display: flex; align-items: center; gap: 20px; height: 68px; }
+.rc-header-logo { display: flex; flex: none; color: var(--rc-ink); }
+.rc-header-logo svg { display: block; width: auto; height: 26px; }
+.rc-header-nav { display: none; gap: 4px; }
+.rc-header-link { padding: 8px 12px; border-radius: 8px; color: var(--rc-ink); text-decoration: none; font-weight: 600; font-size: 16px; }
+.rc-header-link:hover { background: var(--rc-sunk); }
+.rc-header-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+.rc-icon-btn {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid var(--rc-line);
+  background: transparent;
+  color: var(--rc-ink);
+  font-size: 20px;
+  cursor: pointer;
+}
+.rc-icon-btn:hover { background: var(--rc-sunk); }
+.rc-btn-small { height: 40px; padding: 0 16px; font-size: 16px; }
+.rc-header-cta { background: var(--rc-yellow); color: var(--rc-navy); border-color: var(--rc-yellow); }
+.rc-header-cta:hover { background: #D99A0F; border-color: #D99A0F; }
+.rc-header-link:focus-visible, .rc-icon-btn:focus-visible, .rc-menu-link:focus-visible, .rc-header-logo:focus-visible {
+  outline: 3px solid var(--rc-yellow);
+  outline-offset: 2px;
+}
+.rc-menu { border-top: 1px solid var(--rc-line); background: var(--rc-bg); }
+.rc-menu[hidden] { display: none; }
+.rc-menu nav { display: grid; padding-top: 4px; padding-bottom: 20px; }
+.rc-menu-link { padding: 14px 0; border-bottom: 1px solid var(--rc-line); color: var(--rc-ink); text-decoration: none; font-weight: 600; font-size: 18px; }
+.rc-menu .rc-header-cta { justify-self: start; margin-top: 16px; }
+@media (max-width: 479px) { .rc-header-actions > .rc-header-cta { display: none; } } /* it is in the menu */
+@media (min-width: 960px) {
+  .rc-header-nav { display: flex; }
+  .rc-menu-btn, .rc-menu { display: none !important; }
+}
+
+/* ---------- RoboCore footer: the box yellow ---------- */
+.rc-footer { position: relative; overflow: hidden; background: var(--rc-yellow); color: var(--rc-navy); }
+.rc-footer-inner { position: relative; z-index: 1; display: grid; gap: 32px; grid-template-columns: 1fr; padding-top: 56px; padding-bottom: 32px; }
+@media (min-width: 900px) { .rc-footer-inner { grid-template-columns: 2fr 1fr; align-items: end; } }
+.rc-footer-logo { display: block; width: min(240px, 66%); height: auto; margin-bottom: 18px; }
+.rc-footer-about p { max-width: 60ch; margin: 0; }
+.rc-footer-contact { display: grid; gap: 10px; justify-items: start; }
+.rc-footer-head { margin: 0; font: 600 15px/1 'RC Barlow Condensed', 'RC Barlow', system-ui, sans-serif; letter-spacing: 0.08em; text-transform: uppercase; }
+.rc-footer .rc-link { display: inline-flex; align-items: center; gap: 8px; text-decoration-color: var(--rc-navy); }
+.rc-footer-base {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 18px;
+  padding-bottom: 28px;
+  /* A divider as wide as the content, not the padded box. */
+  background: linear-gradient(rgba(27, 42, 65, 0.25), rgba(27, 42, 65, 0.25)) center top / calc(100% - 2 * var(--rc-gutter)) 1px no-repeat;
+  font-size: 14px;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .rc-hero-render, .rc-hero-canvas, .rc-hint, .rc-btn { transition: none; }

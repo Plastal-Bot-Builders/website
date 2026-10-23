@@ -1,12 +1,20 @@
 # RoboCore section (`/robocore`)
 
-RoboCore's page inside the Plastal-Bot Builders site: `www.plastalbotbuilders.com/robocore`. It uses the product's own
-look (the RoboCore V2 box: navy, RoboCore yellow, cream, contour lines, Barlow) inside the site's header and footer.
-Light mode is the cream paper; dark mode is the RoboCore IDE's Navy theme. More pages can go under `/robocore/…`.
+RoboCore's own site inside the Plastal-Bot Builders site: `www.plastalbotbuilders.com/robocore`. It stands alone: its
+own header and footer, the product's own look (the RoboCore V2 box: navy, RoboCore yellow, cream, contour lines, Barlow),
+no Plastal-Bot chat bubble. The Plastal-Bot site links in (its menu and the Projects page), but RoboCore pages don't
+link back; Plastal-Bot Builders appears only as the maker. Light mode is the cream paper; dark mode is the RoboCore
+IDE's Navy theme.
+
+**Adding a page:** make it in `src/pages/` (like `robocore.tsx`, without a header or footer), add it as a child route
+of `/robocore` in `src/App.tsx` (for example `<Route path="kit" element={<RoboCoreKit />} />` for `/robocore/kit`), add
+a link to `NAV` in `RoboCoreLayout.tsx`, and add the route to `scripts/seo/site-manifest.js`.
 
 | File | What it is |
 |---|---|
-| `src/pages/robocore.tsx` | The page. Its copy is the RoboCore print copy (see below). |
+| `src/components/RoboCore/RoboCoreLayout.tsx` | The frame: RoboCore header (links, light/dark, Get involved) and footer. |
+| `src/pages/robocore.tsx` | The overview (index of `/robocore`). Its copy is the RoboCore print copy (see below). |
+| `src/components/RoboCore/shared.ts` | Contact details, the maker line, and scrolling to a section. |
 | `src/components/RoboCore/robocore.css` | All its styles, scoped to `.rc`; the Barlow `@font-face` rules. |
 | `src/components/RoboCore/RobotViewer.tsx` | The 3D robot in the hero (three.js, loaded only when needed). |
 | `src/components/RoboCore/RoboCoreLogo.tsx` | The RoboCore lockup in `currentColor`. |
