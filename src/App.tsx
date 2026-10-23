@@ -30,6 +30,7 @@ const Error404 = lazy(() => import('./pages/error'));
 // RoboCore pages don't link back. New RoboCore pages go in as child routes of /robocore below.
 const RoboCoreLayout = lazy(() => import('./components/RoboCore/RoboCoreLayout'));
 const RoboCorePage = lazy(() => import('./pages/robocore'));
+const RoboCoreDownload = lazy(() => import('./pages/robocore-download'));
 
 // Project subpages
 const GypulShowcase = lazy(() => import('./components/Projects/GypulShowcase'));
@@ -163,6 +164,7 @@ const App: React.FC = () => {
                   </ErrorBoundary>
                 }>
                   <Route index element={<RoboCorePage />} />
+                  <Route path="download" element={<RoboCoreDownload />} />
                 </Route>
 
                 {/* Project Pages */}

@@ -1,10 +1,11 @@
 import React, { Suspense, lazy, useCallback, useEffect, useRef, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import type { IconType } from 'react-icons';
 import {
   LuActivity,
   LuArrowRight,
   LuBot,
+  LuDownload,
   LuGlobe,
   LuGrab,
   LuHeartHandshake,
@@ -25,6 +26,7 @@ import {
 } from 'react-icons/lu';
 import { SEOConfig } from '../components/SEO';
 import RoboCoreLogo from '../components/RoboCore/RoboCoreLogo';
+import Tile from '../components/RoboCore/Tile';
 import { CONTACT, LINKEDIN, scrollToSection } from '../components/RoboCore/shared';
 import { asset } from '../utils/asset';
 
@@ -68,23 +70,6 @@ const MAKE: [IconType, string][] = [
   [LuGrab, 'Pick-and-place arm'],
   [LuWand2, 'Your own idea'],
 ];
-
-/**
- * One cell of a bento grid. `span` sets its size on wide screens, for example 'rc-c7 rc-r2' (7 of 12 columns,
- * 2 rows); 'rc-full-md' makes it full width on tablets. Narrow screens stack every tile.
- */
-const Tile: React.FC<{
-  span?: string;
-  tone?: 'yellow' | 'navy' | 'soft';
-  contours?: boolean;
-  className?: string;
-  children: React.ReactNode;
-}> = ({ span = '', tone, contours, className = '', children }) => (
-  <div className={['rc-tile', tone ? `rc-tile--${tone}` : '', span, className].filter(Boolean).join(' ')}>
-    {contours && <div className="rc-contours" aria-hidden="true" />}
-    {children}
-  </div>
-);
 
 /** A tile about one thing the IDE does: icon, title, a sentence. */
 const AppTile: React.FC<{ item: [IconType, string, string]; span?: string }> = ({ item: [Icon, title, text], span = 'rc-c4' }) => (
@@ -372,7 +357,13 @@ const RoboCorePage: React.FC = () => {
             <h2 id="rc-ide" className="rc-h2">
               The RoboCore IDE
             </h2>
-            <p className="rc-lead">Blocks or Arduino C++, right in your browser.</p>
+            <p className="rc-lead">Blocks or Arduino C++, on your computer or right in your browser.</p>
+            <div className="rc-hero-actions" style={{ alignItems: 'center' }}>
+              <Link className="rc-btn rc-header-cta rc-btn-large" to="/robocore/download">
+                <LuDownload aria-hidden="true" /> Download the IDE
+              </Link>
+              <span className="rc-body">for Mac, Windows and Linux</span>
+            </div>
           </div>
           <div className="rc-bento">
             <Tile span="rc-c8 rc-r2 rc-full-md" className="rc-tile--shot">

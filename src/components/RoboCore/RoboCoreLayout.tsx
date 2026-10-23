@@ -20,6 +20,7 @@ const NAV = [
   { label: 'Inside', to: '/robocore#inside' },
   { label: 'The app', to: '/robocore#ide' },
   { label: 'Where we are', to: '/robocore#now' },
+  { label: 'Download', to: '/robocore/download' },
 ];
 
 /**
@@ -39,6 +40,7 @@ const SectionLink: React.FC<{ to: string; className?: string; onGo?: () => void;
     <a
       href={to}
       className={className}
+      aria-current={!id && location.pathname === path ? 'page' : undefined}
       onClick={(e) => {
         e.preventDefault();
         onGo?.();

@@ -381,6 +381,36 @@ const ROUTES = [
   },
 
   {
+    path: '/robocore/download',
+    priority: '0.7',
+    changefreq: 'monthly',
+    title: 'Download the RoboCore IDE for Mac, Windows and Linux | RoboCore',
+    description: 'Download the RoboCore IDE: blocks and Arduino C++ for the RoboCore robot, on Mac, Windows and Linux.',
+    image: '/resources/social/og-robocore.jpg',
+    imageAlt:
+      'Build a robot. Code it in your browser. The yellow RoboCore V2 robot beside a RoboCore IDE program made of blocks.',
+    breadcrumb: [
+      { name: 'RoboCore', path: '/robocore' },
+      { name: 'Download', path: '/robocore/download' },
+    ],
+    body: {
+      h1: 'Download the RoboCore IDE',
+      summary:
+        'The RoboCore IDE brings blocks and Arduino C++ for the RoboCore robot to your own computer. It is available for macOS, Windows and Linux, and in the browser.',
+      sections: [
+        {
+          h2: 'Systems',
+          list: [
+            'macOS 12 Monterey or later, Apple silicon or Intel',
+            'Windows 10 or 11, 64-bit',
+            '64-bit (x86-64) Linux with GTK 3, such as Ubuntu 24.04 or newer',
+          ],
+        },
+      ],
+    },
+  },
+
+  {
     path: '/projects/gypul',
     priority: '0.7',
     changefreq: 'monthly',

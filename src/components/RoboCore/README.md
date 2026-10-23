@@ -19,6 +19,8 @@ check new tiles at 1440, 800 and 390 px for gaps.
 |---|---|
 | `src/components/RoboCore/RoboCoreLayout.tsx` | The frame: RoboCore header (links, light/dark, Get involved) and footer. |
 | `src/pages/robocore.tsx` | The overview (index of `/robocore`). Its copy is the RoboCore print copy (see below). |
+| `src/pages/robocore-download.tsx` | `/robocore/download`: the IDE for Mac, Windows and Linux; the visitor's system first. |
+| `src/components/RoboCore/Tile.tsx` | One bento tile, used by every RoboCore page. |
 | `src/components/RoboCore/shared.ts` | Contact details, the maker line, and scrolling to a section. |
 | `src/components/RoboCore/robocore.css` | All its styles, scoped to `.rc`; the Barlow `@font-face` rules. |
 | `src/components/RoboCore/RobotViewer.tsx` | The 3D robot in the hero (three.js, loaded only when needed). |
@@ -28,6 +30,22 @@ check new tiles at 1440, 800 and 390 px for gaps.
 | `public/resources/RoboCore/` | Images and the 3D model (let through by `.gitignore`). |
 | `public/resources/social/og-robocore.jpg` | Social share card, 1200 × 630. |
 | `scripts/seo/site-manifest.js` (`/robocore`) | Title, description, crawlable content, FAQ and sitemap entry. |
+
+## Downloads
+
+`DOWNLOADS` in `shared.ts` sets each system's file, link, requirements and setup steps. The links point at the latest
+GitHub release of `Plastal-Bot-Builders/robocore-ide`
+(`https://github.com/Plastal-Bot-Builders/robocore-ide/releases/latest/download/<file>`), so publishing a release with
+these files attached makes every button work, and later releases replace them without touching this site:
+
+| System | File to attach | From the robocore-ide CI (`native-apps` branch, `build.yml`) |
+|---|---|---|
+| macOS | `robocore-ide-macos.zip` | the `robocore-ide-macos` artifact (RoboCore.app, zipped) |
+| Windows | `robocore-ide-windows-x64.zip` | the `robocore-ide-windows` artifact (the Release folder), zipped |
+| Linux | `robocore-ide-linux-x64.tar.gz` | the `robocore-ide-linux` artifact |
+
+Until such a release exists GitHub answers 404. `IDE_VERSION` follows the IDE's `pubspec.yaml`; `WEB_IDE` is the IDE
+the repository publishes to GitHub Pages.
 
 ## Copy
 
