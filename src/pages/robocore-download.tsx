@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import type { IconType } from 'react-icons';
 import { FaApple, FaLinux, FaWindows } from 'react-icons/fa';
-import { LuBot, LuDownload, LuGlobe, LuLaptop, LuUsb } from 'react-icons/lu';
+import { LuBot, LuDownload, LuLaptop, LuUsb } from 'react-icons/lu';
+import { SiGooglechrome, SiMicrosoftedge } from 'react-icons/si';
 import { SEOConfig } from '../components/SEO';
 import AppIcon from '../components/RoboCore/AppIcon';
 import Tile from '../components/RoboCore/Tile';
@@ -157,7 +158,10 @@ const RoboCoreDownload: React.FC = () => {
               </p>
             </Tile>
             <Tile span="rc-c4 rc-full-md" tone="navy">
-              <LuGlobe className="rc-tile-icon" aria-hidden="true" />
+              <p className="rc-marks" aria-label="Chrome and Edge">
+                <SiGooglechrome aria-hidden="true" />
+                <SiMicrosoftedge aria-hidden="true" />
+              </p>
               <h3 className="rc-tile-title">In the browser</h3>
               <p className="rc-body">On a computer with Chrome or Edge, you can also use the IDE without installing anything.</p>
               <a className="rc-link rc-tile-cta" href={WEB_IDE} target="_blank" rel="noopener noreferrer">

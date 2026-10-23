@@ -46,4 +46,12 @@ const RoboCoreLogo: React.FC<Props> = ({ zambia = true, className, title = 'Robo
   </svg>
 );
 
+/** The gear alone (the wordmark's second "o"): a small RoboCore mark, e.g. beside "RoboCore V2" in a list of boards. */
+export const GearMark: React.FC<{ className?: string }> = ({ className }) => (
+  <svg viewBox="1116 114 456 462" className={className} aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <path d={GEAR_BODY} fill="currentColor" fillRule="evenodd" />
+    <path d={GEAR_RING} fill="currentColor" fillRule="evenodd" />
+  </svg>
+);
+
 export default RoboCoreLogo;

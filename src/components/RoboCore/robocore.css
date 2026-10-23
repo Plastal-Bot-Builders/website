@@ -435,6 +435,57 @@ html.dark .rc .rc-tile--navy { border-color: var(--rc-line); }
   line-height: 1.35;
 }
 
+/* A piece of the IDE (a crop of a real screen), framed; 16:10 unless --natural */
+.rc-shot { flex: none; border-radius: 12px; overflow: hidden; border: 1px solid var(--rc-line); background: #FFFCF5; margin-bottom: 6px; }
+.rc-shot img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: left top; }
+.rc-shot--natural img { aspect-ratio: auto; }
+.rc-tile--yellow .rc-shot { border-color: rgba(27, 42, 65, 0.22); }
+.rc-band .rc-shot { border-color: var(--rc-band-line); }
+@media (min-width: 768px) {
+  .rc-tile--split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 24px; align-items: center; }
+  .rc-tile--split .rc-shot { margin: 0; }
+}
+
+/* Makers' marks (react-icons/si) and the RoboCore gear */
+.rc-brand { flex: none; width: 40px; height: 40px; }
+.rc-marks { display: flex; gap: 12px; margin: 0 0 8px; }
+.rc-marks svg { width: 30px; height: 30px; }
+.rc-libs { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 10px; }
+.rc-libs li { display: grid; grid-template-columns: 24px 1fr; gap: 10px; align-items: start; font-size: 15px; line-height: 1.4; color: var(--rc-muted); }
+.rc-libs strong { color: var(--rc-ink); font-weight: 600; }
+.rc-libs-mark { width: 22px; height: 22px; margin-top: 1px; color: var(--rc-ink); }
+.rc-platforms { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 16px; font-weight: 600; }
+.rc-platforms li { display: inline-flex; align-items: center; gap: 7px; }
+.rc-platforms svg { width: 20px; height: 20px; }
+
+/* What keeps working without internet */
+.rc-offline { list-style: none; margin: 0 0 6px; padding: 16px 18px; border-radius: 12px; border: 1px solid var(--rc-band-line); display: grid; gap: 10px; font-weight: 600; }
+.rc-offline li { display: flex; align-items: center; gap: 10px; }
+.rc-offline svg { flex: none; width: 22px; height: 22px; padding: 4px; border-radius: 50%; background: var(--rc-yellow); color: var(--rc-navy); }
+.rc-offline li.is-off { color: var(--rc-band-muted); font-weight: 500; }
+.rc-offline li.is-off svg { background: transparent; color: currentColor; box-shadow: inset 0 0 0 1.5px currentColor; }
+
+/* Photos and logos on the vision page and the overview */
+.rc-goal-photo { flex: none; border-radius: 12px; overflow: hidden; background: var(--rc-sunk); margin-bottom: 6px; }
+.rc-goal-photo img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; }
+.rc-goal-photo--render img { object-fit: contain; padding: 8px; }
+.rc-band .rc-goal-photo { background: rgba(247, 241, 227, 0.08); }
+.rc-tile--split .rc-goal-photo { margin: 0; }
+.rc-fill-photo { position: relative; flex: 1 1 auto; min-height: 200px; margin-top: 6px; border-radius: 12px; overflow: hidden; }
+.rc-tile > .rc-fill-photo { position: relative; }
+.rc-fill-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.rc-award { display: flex; align-items: center; gap: 14px; }
+.rc-award img { flex: none; width: 56px; height: auto; }
+.rc-supporters li { display: inline-flex; align-items: center; gap: 14px; }
+.rc-logo-plate { display: inline-flex; align-items: center; gap: 12px; height: 60px; padding: 8px 12px; border-radius: 12px; background: #ffffff; }
+.rc-logo-plate img { display: block; width: auto; height: 100%; }
+
+/* Spec tiles: the icon with the makers' marks beside it */
+.rc-spec-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.rc-marks--sm { margin: 0; gap: 10px; }
+.rc-marks--sm svg { width: 22px; height: 22px; opacity: 0.85; }
+.rc-sensors--two { flex: 1; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
 /* ---------- RoboCore header: sticky inside the site's scroll view ---------- */
 .rc-header {
   position: sticky;

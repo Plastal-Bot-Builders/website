@@ -12,6 +12,7 @@ import {
 } from 'react-icons/lu';
 import { SEOConfig } from '../components/SEO';
 import SubHero from '../components/RoboCore/SubHero';
+import Supporters from '../components/RoboCore/Supporters';
 import Tile from '../components/RoboCore/Tile';
 import { CONTACT } from '../components/RoboCore/shared';
 import { asset } from '../utils/asset';
@@ -78,20 +79,30 @@ const MORE: Photo[] = [
   },
 ];
 
-const GOALS: [IconType, string, string][] = [
+/** [icon, title, text, picture, alt, width, height, contain (a render, not a photo)] */
+const GOALS: [IconType, string, string, string, string, number, number, boolean?][] = [
   [
     LuSchool,
     'Pilots in schools and hubs',
     'Try RoboCore with schools and innovation hubs in Zambia, and measure learners’ skills and attitudes before and after, alongside learners who study the same topics without it.',
+    'vision-goal-pilots',
+    'Learners in school uniform at computers during a lesson',
+    900,
+    675,
   ],
   [
     LuFactory,
     'Make it in Zambia',
     'Print the bodies and assemble and package the kits here, and in time make the boards here too.',
+    'kit-box-open',
+    'The RoboCore V2 kit box, open',
+    900,
+    1067,
+    true,
   ],
-  [LuBookOpen, 'Lessons for teachers', 'Lessons and teacher training that fit the curriculum, so any teacher can run a RoboCore class.'],
-  [LuRepeat, 'One kit, many classes', 'A kit the school owns serves class after class, year after year.'],
-  [LuStars, 'Makers, not only users', 'Show young Zambians that they can design and build technology, not only use it.'],
+  [LuBookOpen, 'Lessons for teachers', 'Lessons and teacher training that fit the curriculum, so any teacher can run a RoboCore class.', 'vision-goal-lessons', 'Learners gather in front of a screen during a robotics lesson', 900, 675],
+  [LuRepeat, 'One kit, many classes', 'A kit the school owns serves class after class, year after year.', 'vision-goal-classes', 'A class of learners crowded around computers', 900, 675],
+  [LuStars, 'Makers, not only users', 'Show young Zambians that they can design and build technology, not only use it.', 'vision-goal-makers', 'Learners build and wire a small wheeled robot', 900, 1200],
 ];
 const GOAL_SPANS = ['rc-c8', 'rc-c4', 'rc-c4', 'rc-c6', 'rc-c6 rc-full-md'];
 
@@ -197,7 +208,10 @@ const RoboCoreVision: React.FC = () => (
             </p>
           </Tile>
           <Tile span="rc-c4" tone="navy">
-            <p className="rc-eyebrow">April 2026</p>
+            <div className="rc-award">
+              <img src={asset('resources/RoboCore/logo-ai-for-good.webp')} alt="AI for Good" width={203} height={200} loading="lazy" decoding="async" />
+              <p className="rc-eyebrow">April 2026</p>
+            </div>
             <p className="rc-tile-text">Winners of the AI for Good National Edition (Zambia), which took the team to Geneva.</p>
           </Tile>
           {DONE.map((p) => (
@@ -216,10 +230,10 @@ const RoboCoreVision: React.FC = () => (
           <Tile span="rc-c6" tone="soft">
             <div className="rc-tile-art">
               <img
-                src={asset('resources/RoboCore/board-v2-top.webp')}
+                src={asset('resources/RoboCore/robocore-controller-hero-front.webp')}
                 alt="The RoboCore V2 controller board"
-                width={1200}
-                height={891}
+                width={1600}
+                height={1067}
                 loading="lazy"
                 decoding="async"
               />
@@ -256,16 +270,24 @@ const RoboCoreVision: React.FC = () => (
         </div>
         <div className="rc-bento">
           <Tile span="rc-c4 rc-r2" tone="yellow" contours>
-            <LuUsers className="rc-tile-icon" aria-hidden="true" />
             <p className="rc-stat">5,000</p>
             <p className="rc-tile-text">young people reached with RoboCore in the next three to five years.</p>
+            <div className="rc-fill-photo">
+              <img src={asset('resources/RoboCore/vision-goal-reach.webp')} alt="A big group of young learners at one of our workshops" width={900} height={675} loading="lazy" decoding="async" />
+            </div>
           </Tile>
-          {GOALS.map(([Icon, title, text], i) => (
-            // Beside the 5,000: one wide and two narrow tiles; then two halves, the last one full width on tablets.
-            <Tile key={title} span={GOAL_SPANS[i]}>
-              <Icon className="rc-tile-icon" aria-hidden="true" />
-              <h3 className="rc-tile-title">{title}</h3>
-              <p className="rc-body">{text}</p>
+          {GOALS.map(([Icon, title, text, src, alt, w, h, contain], i) => (
+            // Beside the 5,000: one wide tile (picture beside the words) and two narrow ones; then two halves, the last
+            // one full width on tablets.
+            <Tile key={title} span={GOAL_SPANS[i]} className={i === 0 ? 'rc-tile--split' : undefined}>
+              <div className={contain ? 'rc-goal-photo rc-goal-photo--render' : 'rc-goal-photo'}>
+                <img src={asset(`resources/RoboCore/${src}.webp`)} alt={alt} width={w} height={h} loading="lazy" decoding="async" />
+              </div>
+              <div>
+                <Icon className="rc-tile-icon" aria-hidden="true" />
+                <h3 className="rc-tile-title">{title}</h3>
+                <p className="rc-body">{text}</p>
+              </div>
             </Tile>
           ))}
         </div>
@@ -282,13 +304,7 @@ const RoboCoreVision: React.FC = () => (
           </h2>
         </div>
         <div className="rc-bento">
-          <Tile span="rc-c12 rc-full-md" tone="soft" className="rc-tile--row">
-            <p className="rc-eyebrow">Supported by</p>
-            <ul className="rc-supporters">
-              <li>Mukuba UniPod (UNDP)</li>
-              <li>Copperbelt University</li>
-            </ul>
-          </Tile>
+          <Supporters />
           <Tile span="rc-c6 rc-full-md" tone="yellow" contours>
             <LuSchool className="rc-tile-icon" aria-hidden="true" />
             <h3 className="rc-tile-title">Schools and innovation hubs</h3>

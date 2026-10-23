@@ -24,9 +24,11 @@ import {
   LuWand2,
   LuZap,
 } from 'react-icons/lu';
+import { SiGooglechrome, SiMicrosoftedge } from 'react-icons/si';
 import { SEOConfig } from '../components/SEO';
 import AppIcon from '../components/RoboCore/AppIcon';
 import RoboCoreLogo from '../components/RoboCore/RoboCoreLogo';
+import Supporters from '../components/RoboCore/Supporters';
 import Tile from '../components/RoboCore/Tile';
 import { CONTACT, LINKEDIN, scrollToSection } from '../components/RoboCore/shared';
 import { asset } from '../utils/asset';
@@ -403,7 +405,14 @@ const RoboCorePage: React.FC = () => {
               </ul>
             </Tile>
             {/* Beside the screenshot: the 74 blocks, then the browser. Next: the code example, with the preview board and Cog stacked beside it. */}
-            <AppTile item={BROWSER} />
+            <Tile span="rc-c4">
+              <p className="rc-marks" aria-label="Chrome and Edge">
+                <SiGooglechrome aria-hidden="true" />
+                <SiMicrosoftedge aria-hidden="true" />
+              </p>
+              <h3 className="rc-tile-title">{BROWSER[1]}</h3>
+              <p className="rc-body">{BROWSER[2]}</p>
+            </Tile>
             <Tile span="rc-c6 rc-r2 rc-full-md">
               <LuPuzzle className="rc-tile-icon" aria-hidden="true" />
               <h3 className="rc-tile-title">Blocks or C++</h3>
@@ -480,19 +489,16 @@ const RoboCorePage: React.FC = () => {
               </p>
             </Tile>
             <Tile span="rc-c5" tone="navy">
-              <p className="rc-eyebrow">From the makers</p>
+              <div className="rc-award">
+                <img src={asset('resources/RoboCore/logo-ai-for-good.webp')} alt="AI for Good" width={203} height={200} loading="lazy" decoding="async" />
+                <p className="rc-eyebrow">From the makers</p>
+              </div>
               <p className="rc-tile-text">
                 Plastal-Bot Builders won the AI for Good National Edition (Zambia) in April 2026 and were finalists at the AI for
                 Good Global Summit in Geneva in July 2026.
               </p>
             </Tile>
-            <Tile span="rc-c12 rc-full-md" tone="soft" className="rc-tile--row">
-              <p className="rc-eyebrow">Supported by</p>
-              <ul className="rc-supporters">
-                <li>Mukuba UniPod (UNDP)</li>
-                <li>Copperbelt University</li>
-              </ul>
-            </Tile>
+            <Supporters />
           </div>
         </div>
       </section>

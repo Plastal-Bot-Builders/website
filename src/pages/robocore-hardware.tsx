@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import type { IconType } from 'react-icons';
-import { LuArrowRight, LuBatteryCharging, LuBox, LuCpu, LuGrab, LuLightbulb, LuRadio, LuSettings2 } from 'react-icons/lu';
+import { LuArrowRight, LuBatteryCharging, LuCpu, LuGrab, LuLightbulb, LuRadio, LuSettings2 } from 'react-icons/lu';
+import { SiBluetooth, SiEspressif, SiSparkfun, SiStmicroelectronics } from 'react-icons/si';
 import { SEOConfig } from '../components/SEO';
 import AppIcon from '../components/RoboCore/AppIcon';
 import SubHero from '../components/RoboCore/SubHero';
@@ -13,7 +14,8 @@ import { asset } from '../utils/asset';
  * and docs/RoboCore_V2_mechanical.md). V2 is a prototype: say so, and keep the runtimes labelled as estimates.
  */
 
-type Spec = { title: string; icon: IconType; span: string; tone?: 'navy'; rows: [string, string][] };
+/** `makers`: the marks of the companies whose parts or standards the tile names (react-icons/si). */
+type Spec = { title: string; icon: IconType; span: string; tone?: 'navy'; makers?: [IconType, string][]; rows: [string, string][] };
 
 const SPECS: Spec[] = [
   {
@@ -21,6 +23,10 @@ const SPECS: Spec[] = [
     icon: LuCpu,
     span: 'rc-c4',
     tone: 'navy',
+    makers: [
+      [SiEspressif, 'Espressif'],
+      [SiBluetooth, 'Bluetooth'],
+    ],
     rows: [
       ['Module', 'ESP32-S3-WROOM-1 (N8R2)'],
       ['Processor', 'Dual-core, up to 240 MHz'],
@@ -44,6 +50,10 @@ const SPECS: Spec[] = [
     title: 'Sensors',
     icon: LuRadio,
     span: 'rc-c4 rc-full-md',
+    makers: [
+      [SiStmicroelectronics, 'STMicroelectronics'],
+      [SiSparkfun, 'SparkFun Qwiic'],
+    ],
     rows: [
       ['Motion', 'LSM6DSOX 6-axis IMU on the board'],
       ['Distance', 'Ultrasonic sensor port, HC-SR04 pin order, 3.3 V'],
@@ -89,9 +99,18 @@ const RUNTIME: [string, string[]][] = [
   ['Full charge at 1 A, about', ['3.6 h', '6.6 h', '9.6 h']],
 ];
 
-const SpecTile: React.FC<{ spec: Spec }> = ({ spec: { title, icon: Icon, span, tone, rows } }) => (
+const SpecTile: React.FC<{ spec: Spec }> = ({ spec: { title, icon: Icon, span, tone, makers, rows } }) => (
   <Tile span={span} tone={tone}>
-    <Icon className="rc-tile-icon" aria-hidden="true" />
+    <div className="rc-spec-head">
+      <Icon className="rc-tile-icon" aria-hidden="true" />
+      {makers && (
+        <span className="rc-marks rc-marks--sm">
+          {makers.map(([Mark, name]) => (
+            <Mark key={name} title={name} />
+          ))}
+        </span>
+      )}
+    </div>
     <h3 className="rc-tile-title">{title}</h3>
     <dl className="rc-spec">
       {rows.map(([k, v]) => (
@@ -104,9 +123,18 @@ const SpecTile: React.FC<{ spec: Spec }> = ({ spec: { title, icon: Icon, span, t
   </Tile>
 );
 
-const Art: React.FC<{ src: string; alt: string; w: number; h: number; tall?: boolean }> = ({ src, alt, w, h, tall }) => (
+/** A render or drawing that fills the tile's free space; `line` drawings are inverted in dark mode. */
+const Art: React.FC<{ src: string; alt: string; w: number; h: number; tall?: boolean; line?: boolean }> = ({ src, alt, w, h, tall, line }) => (
   <div className={tall ? 'rc-tile-art rc-tile-art--tall' : 'rc-tile-art'}>
-    <img src={asset(`resources/RoboCore/${src}`)} alt={alt} width={w} height={h} loading="lazy" decoding="async" />
+    <img
+      src={asset(`resources/RoboCore/${src}`)}
+      alt={alt}
+      width={w}
+      height={h}
+      loading="lazy"
+      decoding="async"
+      className={line ? 'rc-art-line' : undefined}
+    />
   </div>
 );
 
@@ -133,10 +161,10 @@ const RoboCoreHardware: React.FC = () => (
       art={
         <img
           className="rc-sub-render"
-          src={asset('resources/RoboCore/board-v2-top.webp')}
-          alt="The RoboCore V2 controller board: the ESP32-S3 module, motor and servo ports, buttons and the battery plug"
-          width={1200}
-          height={891}
+          src={asset('resources/RoboCore/robocore-controller-hero-front.webp')}
+          alt="The RoboCore V2 controller board from the connector edge: the ESP32-S3 module, the yellow XT30 battery plug, USB-C, and the sensor and servo headers"
+          width={1600}
+          height={1067}
           decoding="async"
         />
       }
@@ -170,6 +198,12 @@ const RoboCoreHardware: React.FC = () => (
           <Tile span="rc-c5" tone="yellow">
             <p className="rc-stat rc-stat--sm">68 × 60 mm</p>
             <p className="rc-tile-text">Four layers, with every part on the top side.</p>
+            <Art
+              src="robocore-controller-hero-rear.webp"
+              alt="The board from the other end: the ESP32-S3 module's antenna and the two motor connectors"
+              w={1600}
+              h={1067}
+            />
           </Tile>
           <Tile span="rc-c5">
             <Art src="board-v1.webp" alt="The RoboCore V1 board design, with an ESP32-C3 module" w={1000} h={743} />
@@ -220,12 +254,15 @@ const RoboCoreHardware: React.FC = () => (
             <p className="rc-body">Servos lift the arm and open the gripper, so the robot can pick things up and put them down.</p>
           </Tile>
           <Tile span="rc-c4">
-            <LuBox className="rc-tile-icon" aria-hidden="true" />
+            <Art src="chassis.webp" alt="A line drawing of the robot's chassis" w={800} h={609} line />
             <h3 className="rc-tile-title">Made to be printed</h3>
             <p className="rc-body">The chassis, the arm and the sensor mounts are designed for 3D printing.</p>
           </Tile>
           <Tile span="rc-c4">
-            <LuRadio className="rc-tile-icon" aria-hidden="true" />
+            <div className="rc-sensors rc-sensors--two">
+              <Art src="sonar.webp" alt="A line drawing of the ultrasonic distance sensor" w={480} h={306} line />
+              <Art src="line-sensor.webp" alt="A line drawing of the 3-channel line sensor" w={480} h={288} line />
+            </div>
             <h3 className="rc-tile-title">Sensors in place</h3>
             <p className="rc-body">The ultrasonic sensor looks ahead and the 3-channel line sensor looks at the floor.</p>
           </Tile>
