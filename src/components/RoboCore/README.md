@@ -51,7 +51,11 @@ the stand, the flyer and the website say the same thing. The rules:
   51 mm above the board), merges same-colour materials, decimates the big parts to about 220k triangles in all, joins
   everything into one mesh and compresses it with Draco (the decoder is in `public/draco/`). A 110k-triangle copy lost
   the gear teeth on the arm, so phones get the same model.
-- **Project tile** (`robocore-card.webp`) and **share card** (`og-robocore.jpg`): the hero render on the box yellow with
-  the contour lines, drawn in HTML and captured with headless Chrome so they use the real fonts and logo.
+- **Share card** (`og-robocore.jpg`, 1200 × 630, about 130 KB, the image a shared link shows): "Build a robot. Code it in
+  your browser." with the hero render and a real block program (the "Robot obstacle avoider" example's forever stack,
+  captured from the IDE) on the box yellow. Drawn in HTML with the real fonts, logo and contour lines and captured with
+  headless Chrome. Its alt text is `imageAlt` in the manifest. Keep the headline readable at about 480 px wide (a
+  phone feed).
+- **Project tile** (`robocore-card.webp`): the hero render on the box yellow with the contour lines, made the same way.
 - **Plastal-Bot logo in navy** (`plastal-bot-builders-navy.svg`): `RoboCore_Event_Branding/assets/plastal_logo.svg`
   with its ink set to the RoboCore navy, for the yellow backgrounds.

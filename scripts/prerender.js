@@ -238,6 +238,8 @@ function headTags(route) {
   const isCard = (route.image || DEFAULT_IMAGE).startsWith('/resources/social/');
   const url = abs(route.path);
   const robots = route.robots || 'index, follow, max-image-preview:large, max-snippet:-1';
+  // A route with its own share card can describe it; the others use the organisation's line.
+  const imageAlt = route.imageAlt || `${ORG.name} — robotics and STEM education in Zambia`;
   return [
     `<title>${esc(route.title)}</title>`,
     `<meta name="description" content="${esc(route.description)}"/>`,
@@ -255,13 +257,13 @@ function headTags(route) {
       `<meta property="og:image:width" content="1200"/>`,
       `<meta property="og:image:height" content="630"/>`,
     ] : []),
-    `<meta property="og:image:alt" content="${esc(ORG.name)} — robotics and STEM education in Zambia"/>`,
+    `<meta property="og:image:alt" content="${esc(imageAlt)}"/>`,
     `<meta property="og:locale" content="en_ZM"/>`,
     `<meta name="twitter:card" content="summary_large_image"/>`,
     `<meta name="twitter:title" content="${esc(route.title)}"/>`,
     `<meta name="twitter:description" content="${esc(route.description)}"/>`,
     `<meta name="twitter:image" content="${esc(image)}"/>`,
-    `<meta name="twitter:image:alt" content="${esc(ORG.name)} — robotics and STEM education in Zambia"/>`,
+    `<meta name="twitter:image:alt" content="${esc(imageAlt)}"/>`,
     `<script type="application/ld+json">${jsonLd(route)}</script>`,
   ].join('\n    ');
 }

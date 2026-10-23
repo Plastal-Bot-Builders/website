@@ -328,6 +328,8 @@ const ROUTES = [
     description:
       'RoboCore is a robot you build yourself and a coding app to bring it to life: drag-and-drop blocks or Arduino C++, in the browser. Designed in Zambia by Plastal-Bot Builders.',
     image: '/resources/social/og-robocore.jpg',
+    imageAlt:
+      'Build a robot. Code it in your browser. The yellow RoboCore V2 robot beside a RoboCore IDE program made of blocks.',
     breadcrumb: [{ name: 'RoboCore', path: '/robocore' }],
     body: {
       h1: 'RoboCore — the robot kit and coding app for young makers',
