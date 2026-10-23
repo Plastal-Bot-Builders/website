@@ -12,6 +12,7 @@ const Header: React.FC = () => {
   const navLinks = [
     { path: '/home', label: '.home( )' },
     { path: '/about', label: '.about( )' },
+    { path: '/robocore', label: '.robocore( )' },
     { path: '/news', label: '.news( )' },
     { path: '/blogs', label: '.blogs( )' },
     { path: '/support', label: '.support( )' },
@@ -33,7 +34,7 @@ const Header: React.FC = () => {
     return (
       <Link
         to={path}
-        className={`nav-link ${active ? 'nav-link--active' : ''}`}
+        className={`nav-link whitespace-nowrap ${active ? 'nav-link--active' : ''}`}
         aria-current={active ? 'page' : undefined}
         onClick={() => setIsMenuOpen(false)}
       >
@@ -64,9 +65,9 @@ const Header: React.FC = () => {
             />
           </Link>
 
-          {/* Mobile Menu Button */}
+          {/* Menu button: below 1280 px the full menu (7 items) no longer fits on one line */}
           <button
-            className="md:hidden inline-flex h-11 w-11 flex-col items-center justify-center rounded-md"
+            className="xl:hidden inline-flex h-11 w-11 flex-col items-center justify-center rounded-md"
             aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
@@ -78,7 +79,7 @@ const Header: React.FC = () => {
           </button>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-3 lg:gap-4">
+          <div className="hidden xl:flex items-center gap-3 2xl:gap-4">
             {navLinks.map((link) => (
               <NavLink key={link.path} {...link} />
             ))}
@@ -96,7 +97,7 @@ const Header: React.FC = () => {
           </div>
 
           {/* Desktop Register Button */}
-          <div className="hidden md:block flex-shrink-0">
+          <div className="hidden xl:block flex-shrink-0">
             <Button label="Become a Member" href="/membershipform" />
           </div>
         </div>
@@ -104,7 +105,7 @@ const Header: React.FC = () => {
         {/* Mobile Navigation Menu */}
         <div
           id="mobile-menu"
-          className={`md:hidden mobile-menu ${isMenuOpen ? 'mobile-menu--open' : ''}`}
+          className={`xl:hidden mobile-menu ${isMenuOpen ? 'mobile-menu--open' : ''}`}
         >
           <div className="py-2 space-y-1">
             {navLinks.map((link) => (
