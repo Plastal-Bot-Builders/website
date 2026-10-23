@@ -196,16 +196,60 @@ html.dark .rc {
 }
 .rc-hero-stage.is-live .rc-hint { opacity: 1; }
 
-/* ---------- what it is: build, code, create ---------- */
-.rc-pillars { display: grid; gap: 16px; grid-template-columns: 1fr; }
-@media (min-width: 768px) { .rc-pillars { grid-template-columns: repeat(3, 1fr); } }
-.rc-card {
-  background: var(--rc-surface);
-  border: 1px solid var(--rc-line);
-  border-radius: 16px;
-  padding: 28px;
+/* ---------- bento grid: tiles of mixed sizes ---------- */
+.rc-section--bento { padding: 56px 0; }
+.rc-bento { display: grid; grid-template-columns: 1fr; grid-auto-flow: dense; gap: 16px; }
+@media (min-width: 640px) {
+  .rc-bento { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .rc-full-md { grid-column: 1 / -1; }
+  .rc-r2 { grid-row: span 2; } /* on tablets too, so two small tiles stack beside a tall one */
 }
-.rc-pillar { display: grid; gap: 12px; align-content: start; }
+@media (min-width: 1024px) {
+  .rc-bento { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+  .rc-full-md { grid-column: auto; }
+  .rc-c3 { grid-column: span 3; }
+  .rc-c4 { grid-column: span 4; }
+  .rc-c5 { grid-column: span 5; }
+  .rc-c6 { grid-column: span 6; }
+  .rc-c7 { grid-column: span 7; }
+  .rc-c8 { grid-column: span 8; }
+  .rc-c12 { grid-column: 1 / -1; }
+}
+
+.rc-tile {
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 26px;
+  border-radius: 20px;
+  border: 1px solid var(--rc-line);
+  background: var(--rc-surface);
+  color: var(--rc-ink);
+}
+.rc-tile > * { position: relative; z-index: 1; } /* above the contour lines */
+.rc-tile > .rc-contours { position: absolute; z-index: 0; }
+.rc-tile--yellow { background: var(--rc-yellow); color: var(--rc-navy); border-color: transparent; }
+.rc-tile--navy { background: var(--rc-navy); color: var(--rc-cream); border-color: transparent; }
+html.dark .rc .rc-tile--navy { border-color: var(--rc-line); }
+.rc-tile--soft { background: var(--rc-soft); border-color: transparent; }
+.rc-tile--yellow .rc-eyebrow, .rc-tile--yellow .rc-body { color: rgba(27, 42, 65, 0.8); }
+.rc-tile--navy .rc-eyebrow, .rc-tile--navy .rc-body { color: #C9CED6; }
+
+.rc-tile-title {
+  margin: 0;
+  font: 700 22px/1.1 'RC Barlow Condensed', 'RC Barlow', system-ui, sans-serif;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+.rc-tile-text { margin: 0; font-size: 18px; font-weight: 500; line-height: 1.4; }
+.rc-tile-icon { flex: none; font-size: 28px; }
+.rc-tile-cta { align-self: flex-start; margin-top: auto; }
+.rc-tile-foot { align-self: flex-start; }
+.rc-tile--intro { justify-content: center; gap: 16px; padding: 36px; }
+.rc-tile--intro .rc-h2 { font-size: clamp(30px, 3.4vw, 44px); }
 .rc-pillar-icon {
   width: 52px;
   height: 52px;
@@ -217,84 +261,73 @@ html.dark .rc {
   font-size: 24px;
 }
 
-/* ---------- inside the kit ---------- */
-.rc-inside { display: grid; gap: 40px; align-items: center; grid-template-columns: 1fr; }
-@media (min-width: 960px) { .rc-inside { grid-template-columns: 5fr 6fr; gap: 56px; } }
-.rc-inside-box img { width: 100%; max-width: 460px; height: auto; display: block; margin: 0 auto; }
-.rc-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
-.rc-list li { display: flex; align-items: center; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--rc-line); font-weight: 500; }
-.rc-list li:last-child { border-bottom: 0; }
-.rc-list svg { flex: none; font-size: 22px; color: var(--rc-ink); }
-.rc-size { margin-top: 18px; font-size: 15px; color: var(--rc-muted); }
+/* Big numbers */
+.rc-stat { margin: 0; font: 700 clamp(56px, 5.6vw, 76px)/0.9 'RC Barlow Condensed', 'RC Barlow', system-ui, sans-serif; }
+.rc-stat--sm { font-size: clamp(36px, 3.4vw, 46px); }
 
-.rc-parts { display: grid; gap: 16px; grid-template-columns: repeat(2, 1fr); margin-top: 56px; }
-@media (min-width: 960px) { .rc-parts { grid-template-columns: repeat(4, 1fr); } }
-.rc-part { margin: 0; display: grid; gap: 12px; align-content: start; }
-.rc-part-art { position: relative; aspect-ratio: 4 / 3; background: var(--rc-surface); border: 1px solid var(--rc-line); border-radius: 16px; }
-/* Absolutely placed: a grid or flex child would keep its natural height and stretch the card. */
-.rc-part-art img { position: absolute; inset: 16px; width: calc(100% - 32px); height: calc(100% - 32px); object-fit: contain; filter: var(--rc-art-filter); }
-.rc-part figcaption { font-weight: 600; font-size: 15px; }
+/* A render or drawing that takes the tile's free space */
+.rc-tile-art { position: relative; flex: 1 1 auto; min-height: 150px; }
+.rc-tile-art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.rc-art-line { filter: var(--rc-art-filter); }
+.rc-tile--navy .rc-art-line { filter: invert(1) brightness(0.96) sepia(0.15); }
+.rc-tile-art--icon { display: grid; place-items: center; font-size: 64px; }
+
+.rc-chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.rc-chips li { padding: 6px 12px; border-radius: 999px; border: 1.5px solid currentColor; font-size: 14px; font-weight: 600; line-height: 1.2; }
+
+.rc-sensors { flex: 1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.rc-sensors figure { margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.rc-sensors .rc-tile-art { min-height: 120px; }
+.rc-sensors figcaption { font-size: 15px; font-weight: 600; }
+@media (max-width: 639px) { .rc-sensors { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.rc-code {
+  margin: 4px 0 0;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #111C30;
+  color: #F7F1E3;
+  font: 13px/1.6 'SFMono-Regular', ui-monospace, Menlo, Consolas, monospace;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+.rc-tile--row { flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 32px; }
+.rc-make { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.rc-make li { display: inline-flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: 12px; border: 1px solid var(--rc-line); font-size: 16px; font-weight: 600; }
+.rc-make svg { flex: none; font-size: 20px; }
+.rc-supporters {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 40px;
+  font: 700 24px/1.2 'RC Barlow Condensed', 'RC Barlow', system-ui, sans-serif;
+  text-transform: uppercase;
+}
+
+/* The journey: First, Now, Next */
+.rc-steps { list-style: none; margin: 0; padding: 0; height: 100%; display: grid; align-content: center; }
+.rc-step { display: grid; grid-template-columns: 72px 1fr; gap: 16px; align-items: start; padding: 18px 0; border-bottom: 1px solid var(--rc-line); }
+.rc-step:last-child { border-bottom: 0; }
+.rc-step .rc-tile-title { margin-bottom: 4px; }
+.rc-step-tag { justify-self: start; }
+.rc-step.is-now .rc-step-tag { background: var(--rc-yellow); color: var(--rc-navy); border-color: var(--rc-yellow); }
 
 /* ---------- the IDE: an inverted band ---------- */
 .rc-band { background: var(--rc-band); color: var(--rc-band-ink); }
 .rc-band .rc-body, .rc-band .rc-eyebrow { color: var(--rc-band-muted); }
-.rc-band .rc-btn-outline { color: var(--rc-band-ink); border-color: var(--rc-band-ink); }
-.rc-ide { display: grid; gap: 40px; grid-template-columns: 1fr; align-items: start; }
-@media (min-width: 1024px) { .rc-ide { grid-template-columns: 4fr 7fr; gap: 56px; } }
-.rc-ide-points { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; }
-.rc-ide-points li { display: grid; grid-template-columns: 28px 1fr; gap: 12px; align-items: start; }
-.rc-ide-points svg { font-size: 22px; color: var(--rc-yellow); margin-top: 2px; }
-
-.rc-shots { display: grid; gap: 20px; }
-.rc-shot { margin: 0; }
-.rc-window {
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid var(--rc-band-line);
-  background: #ffffff;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
-}
+.rc-band .rc-tile { background: rgba(247, 241, 227, 0.05); border-color: var(--rc-band-line); color: var(--rc-band-ink); }
+.rc-band .rc-tile--yellow { background: var(--rc-yellow); border-color: transparent; color: var(--rc-navy); }
+.rc-band .rc-tile--yellow .rc-body { color: rgba(27, 42, 65, 0.8); }
+.rc-band .rc-make li { border-color: var(--rc-band-line); }
+.rc-tile--shot { padding: 16px; }
+.rc-tile-caption { margin: 4px 2px 0; font-size: 14px; color: var(--rc-band-muted); }
+.rc-window { border-radius: 12px; overflow: hidden; border: 1px solid var(--rc-band-line); background: #ffffff; }
 .rc-window-bar { display: flex; gap: 6px; padding: 10px 12px; background: #e9e6df; }
 .rc-window-bar span { width: 10px; height: 10px; border-radius: 50%; background: #c9c4b8; }
 .rc-window img { display: block; width: 100%; height: auto; }
-.rc-shot figcaption { margin-top: 10px; font-size: 14px; color: var(--rc-band-muted); }
-/* The Code shot overlaps the bottom right of the Blocks shot; the Blocks caption stays clear of it on the left. */
-.rc-shot-small { width: 70%; margin-left: auto; margin-top: -14%; position: relative; }
-.rc-shot:first-child figcaption { max-width: 28%; }
-@media (max-width: 767px) {
-  .rc-shot-small { width: 100%; margin-top: 0; }
-  .rc-shot:first-child figcaption { max-width: none; }
-}
-
-/* ---------- what you can make ---------- */
-.rc-make { display: grid; gap: 12px; grid-template-columns: repeat(2, 1fr); list-style: none; margin: 0; padding: 0; }
-@media (min-width: 768px) { .rc-make { grid-template-columns: repeat(3, 1fr); } }
-.rc-make li { display: flex; align-items: center; gap: 14px; padding: 18px 20px; font-weight: 600; font-size: 18px; }
-.rc-make svg { font-size: 24px; flex: none; }
-
-/* ---------- where we are ---------- */
-.rc-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; grid-template-columns: 1fr; }
-@media (min-width: 900px) { .rc-steps { grid-template-columns: repeat(3, 1fr); } }
-.rc-step { display: grid; gap: 10px; align-content: start; }
-.rc-step-tag { justify-self: start; }
-.rc-step.is-now { border: 2px solid var(--rc-ink); }
-.rc-step.is-now .rc-step-tag { background: var(--rc-yellow); color: var(--rc-navy); border-color: var(--rc-yellow); }
-.rc-impact {
-  margin-top: 40px;
-  padding: 28px;
-  border-radius: 16px;
-  background: var(--rc-soft);
-  display: grid;
-  gap: 8px;
-}
-.rc-impact p { margin: 0; }
-.rc-impact .rc-lead { font-weight: 600; }
-
-/* ---------- get involved ---------- */
-.rc-involve { display: grid; gap: 16px; grid-template-columns: 1fr; }
-@media (min-width: 900px) { .rc-involve { grid-template-columns: repeat(3, 1fr); } }
-.rc-involve .rc-card { display: grid; gap: 12px; align-content: start; }
-.rc-involve-icon { font-size: 28px; }
 
 /* ---------- RoboCore header: sticky inside the site's scroll view ---------- */
 .rc-header {

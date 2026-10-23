@@ -5,8 +5,6 @@ import {
   LuActivity,
   LuArrowRight,
   LuBot,
-  LuCpu,
-  LuGauge,
   LuGlobe,
   LuGrab,
   LuHeartHandshake,
@@ -14,10 +12,11 @@ import {
   LuLinkedin,
   LuMessageCircle,
   LuMonitor,
+  LuMove,
   LuMusic,
+  LuPlug,
   LuPuzzle,
   LuRadio,
-  LuRepeat,
   LuRotate3D,
   LuSchool,
   LuUsb,
@@ -43,29 +42,22 @@ const PILLARS: [string, IconType, string][] = [
   ['Create', LuZap, 'Make it drive, follow lines, dodge obstacles and play music.'],
 ];
 
-const INSIDE: [IconType, string][] = [
-  [LuCpu, 'ESP32-S3 controller with Wi-Fi and Bluetooth'],
-  [LuGauge, 'Two drive motors with encoders'],
-  [LuBot, 'Robot arm with a gripper on servo motors'],
-  [LuRadio, 'Ultrasonic distance sensor'],
-  [LuActivity, '3-channel line sensor'],
-  [LuRepeat, 'Motion sensor (6-axis IMU)'],
-  [LuLightbulb, 'RGB light, buzzer and a USER button'],
-  [LuUsb, 'USB-C and a rechargeable battery'],
-];
+/** Blocks made for the robot, as they read in the IDE. */
+const BLOCK_EXAMPLES = ['move forward for 10 cm', 'turn right for 90°', 'when an obstacle is closer than 20 cm'];
 
-const PARTS: [string, string, number, number][] = [
-  ['controller-board', 'ESP32-S3 controller board', 1000, 590],
-  ['chassis', 'Chassis', 800, 609],
-  ['sonar', 'Ultrasonic distance sensor', 480, 306],
-  ['line-sensor', '3-channel line sensor', 480, 288],
-];
+/** From the IDE's "Robot obstacle avoider" example: what the "if obstacle closer than 20 cm" blocks write. */
+const SNIPPET = `if (sonar.distanceCm() < 20) {
+  robot.stop();
+  RoboCore::beep(523, 200);  // C5
+  robot.turn(90);
+} else {
+  robot.start(FORWARD);
+}`;
 
-const APP: [IconType, string][] = [
-  [LuPuzzle, 'Blocks made for the robot: “move forward for 10 cm”, “turn right for 90°”, “when an obstacle is closer than 20 cm”.'],
-  [LuMonitor, 'Switch to Arduino C++ whenever you are ready: the blocks show you the code they write.'],
-  [LuUsb, 'Runs in the browser. Upload over USB-C, or test on the preview board with no robot at all.'],
-  [LuMessageCircle, 'Stuck? Ask Cog, the IDE’s learning partner, to explain an error or give you a hint.'],
+const [BROWSER, PREVIEW, COG]: [IconType, string, string][] = [
+  [LuMonitor, 'In the browser', 'Runs in Chrome or Edge on a computer. Upload to the robot over USB-C.'],
+  [LuBot, 'Preview board', 'No robot yet? The preview board simulates the motors, servo, sonar, line sensor, tilt and battery.'],
+  [LuMessageCircle, 'Ask Cog', 'Stuck? Cog, the IDE’s learning partner, explains an error or gives you a hint.'],
 ];
 
 const MAKE: [IconType, string][] = [
@@ -76,6 +68,47 @@ const MAKE: [IconType, string][] = [
   [LuGrab, 'Pick-and-place arm'],
   [LuWand2, 'Your own idea'],
 ];
+
+/**
+ * One cell of a bento grid. `span` sets its size on wide screens, for example 'rc-c7 rc-r2' (7 of 12 columns,
+ * 2 rows); 'rc-full-md' makes it full width on tablets. Narrow screens stack every tile.
+ */
+const Tile: React.FC<{
+  span?: string;
+  tone?: 'yellow' | 'navy' | 'soft';
+  contours?: boolean;
+  className?: string;
+  children: React.ReactNode;
+}> = ({ span = '', tone, contours, className = '', children }) => (
+  <div className={['rc-tile', tone ? `rc-tile--${tone}` : '', span, className].filter(Boolean).join(' ')}>
+    {contours && <div className="rc-contours" aria-hidden="true" />}
+    {children}
+  </div>
+);
+
+/** A tile about one thing the IDE does: icon, title, a sentence. */
+const AppTile: React.FC<{ item: [IconType, string, string]; span?: string }> = ({ item: [Icon, title, text], span = 'rc-c4' }) => (
+  <Tile span={span}>
+    <Icon className="rc-tile-icon" aria-hidden="true" />
+    <h3 className="rc-tile-title">{title}</h3>
+    <p className="rc-body">{text}</p>
+  </Tile>
+);
+
+/** A drawing or render that fills the free space of its tile. */
+const TileArt: React.FC<{ src: string; alt?: string; w: number; h: number; line?: boolean }> = ({ src, alt = '', w, h, line }) => (
+  <div className="rc-tile-art">
+    <img
+      src={asset(`resources/RoboCore/${src}`)}
+      alt={alt}
+      width={w}
+      height={h}
+      loading="lazy"
+      decoding="async"
+      className={line ? 'rc-art-line' : undefined}
+    />
+  </div>
+);
 
 /** Narrow screens and touch screens get the lighter model, and the robot turns by itself. */
 function useCompact(): boolean {
@@ -222,9 +255,9 @@ const RoboCorePage: React.FC = () => {
       </section>
 
       {/* ---------- what it is ---------- */}
-      <section id="what" className="rc-section" aria-labelledby="rc-what">
-        <div className="rc-wrap">
-          <div className="rc-section-head">
+      <section id="what" className="rc-section rc-section--bento" aria-labelledby="rc-what">
+        <div className="rc-wrap rc-bento">
+          <Tile span="rc-c7 rc-r2 rc-full-md" className="rc-tile--intro">
             <p className="rc-eyebrow">What is RoboCore?</p>
             <h2 id="rc-what" className="rc-h2">
               A robot you build, and an app to bring it to life
@@ -233,86 +266,116 @@ const RoboCorePage: React.FC = () => {
               RoboCore is a robot you build yourself and a coding app to bring it to life. Start with drag-and-drop blocks,
               move on to real Arduino C++, and watch your code drive, sense and react.
             </p>
-          </div>
-          <div className="rc-pillars">
-            {PILLARS.map(([title, Icon, text]) => (
-              <div key={title} className="rc-card rc-pillar">
-                <span className="rc-pillar-icon" aria-hidden="true">
-                  <Icon />
-                </span>
-                <h3 className="rc-h3">{title}</h3>
-                <p className="rc-body">{text}</p>
-              </div>
-            ))}
-          </div>
+          </Tile>
+          <Tile span="rc-c5 rc-r2 rc-full-md" tone="yellow" contours>
+            <TileArt src="robot-iso-fr.webp" alt="RoboCore V2 from the front right" w={1000} h={667} />
+            <span className="rc-chip rc-tile-foot">167 × 278 × 118 mm</span>
+          </Tile>
+          {PILLARS.map(([title, Icon, text], i) => (
+            // On tablets (two columns) the third one takes the whole row.
+            <Tile key={title} span={i === 2 ? 'rc-c4 rc-full-md' : 'rc-c4'}>
+              <span className="rc-pillar-icon" aria-hidden="true">
+                <Icon />
+              </span>
+              <h3 className="rc-tile-title">{title}</h3>
+              <p className="rc-body">{text}</p>
+            </Tile>
+          ))}
         </div>
       </section>
 
       {/* ---------- inside the kit ---------- */}
-      <section id="inside" className="rc-section" style={{ paddingTop: 0 }} aria-labelledby="rc-inside">
+      <section id="inside" className="rc-section rc-section--bento" aria-labelledby="rc-inside">
         <div className="rc-wrap">
-          <div className="rc-inside">
-            <div className="rc-inside-box">
-              <img
-                src={asset('resources/RoboCore/kit-box-open.webp')}
-                alt="The RoboCore V2 box, open"
-                width={900}
-                height={1067}
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div>
-              <div className="rc-section-head" style={{ marginBottom: 24 }}>
-                <p className="rc-eyebrow">What’s inside</p>
-                <h2 id="rc-inside" className="rc-h2">
-                  Inside RoboCore V2
-                </h2>
-              </div>
-              <ul className="rc-list">
-                {INSIDE.map(([Icon, text]) => (
-                  <li key={text}>
-                    <Icon aria-hidden="true" />
-                    {text}
-                  </li>
-                ))}
-              </ul>
-              <p className="rc-size">The robot measures 167 × 278 × 118 mm (width × length × height).</p>
-            </div>
+          <div className="rc-section-head">
+            <p className="rc-eyebrow">What’s inside</p>
+            <h2 id="rc-inside" className="rc-h2">
+              Inside RoboCore V2
+            </h2>
           </div>
-          <div className="rc-parts">
-            {PARTS.map(([file, caption, w, h]) => (
-              <figure key={file} className="rc-part">
-                <div className="rc-part-art">
-                  <img src={asset(`resources/RoboCore/${file}.webp`)} alt="" width={w} height={h} loading="lazy" decoding="async" />
-                </div>
-                <figcaption>{caption}</figcaption>
-              </figure>
-            ))}
+          <div className="rc-bento">
+            <Tile span="rc-c5 rc-r2 rc-full-md" tone="navy">
+              <p className="rc-eyebrow">The brain</p>
+              <h3 className="rc-tile-title">ESP32-S3 controller</h3>
+              <TileArt src="controller-board.webp" w={1000} h={590} line />
+              <ul className="rc-chips">
+                <li>Wi-Fi and Bluetooth LE</li>
+                <li>8 MB flash · 2 MB PSRAM</li>
+                <li>USB-C straight to the chip</li>
+              </ul>
+            </Tile>
+            <Tile span="rc-c7 rc-r2 rc-full-md">
+              <p className="rc-eyebrow">Sensors</p>
+              <h3 className="rc-tile-title">It sees, follows and feels</h3>
+              <div className="rc-sensors">
+                <figure>
+                  <TileArt src="sonar.webp" w={480} h={306} line />
+                  <figcaption>Ultrasonic distance sensor</figcaption>
+                </figure>
+                <figure>
+                  <TileArt src="line-sensor.webp" w={480} h={288} line />
+                  <figcaption>3-channel line sensor</figcaption>
+                </figure>
+                <figure>
+                  <div className="rc-tile-art rc-tile-art--icon" aria-hidden="true">
+                    <LuMove />
+                  </div>
+                  <figcaption>Motion sensor (6-axis IMU)</figcaption>
+                </figure>
+              </div>
+            </Tile>
+            <Tile span="rc-c3" tone="yellow">
+              <p className="rc-stat">2</p>
+              <p className="rc-tile-text">drive motors with encoders</p>
+            </Tile>
+            <Tile span="rc-c3">
+              <p className="rc-stat">4</p>
+              <p className="rc-tile-text">servo ports, for the arm and its gripper</p>
+            </Tile>
+            <Tile span="rc-c3">
+              <LuLightbulb className="rc-tile-icon" aria-hidden="true" />
+              <h3 className="rc-tile-title">Light and sound</h3>
+              <p className="rc-body">RGB light, buzzer and a USER button</p>
+            </Tile>
+            <Tile span="rc-c3">
+              <LuUsb className="rc-tile-icon" aria-hidden="true" />
+              <h3 className="rc-tile-title">Power</h3>
+              <p className="rc-body">USB-C and a rechargeable battery</p>
+            </Tile>
+            <Tile span="rc-c5 rc-r2 rc-full-md" tone="soft">
+              <TileArt src="kit-box-open.webp" alt="The RoboCore V2 box, open" w={900} h={1067} />
+              <h3 className="rc-tile-title">The kit box</h3>
+            </Tile>
+            <Tile span="rc-c4 rc-r2">
+              <TileArt src="chassis.webp" w={800} h={609} line />
+              <h3 className="rc-tile-title">Chassis</h3>
+              <p className="rc-body">Holds the controller, the motors, the arm and the sensors.</p>
+            </Tile>
+            <Tile span="rc-c3" tone="navy">
+              <p className="rc-stat rc-stat--sm">68 × 60 mm</p>
+              <p className="rc-tile-text">4-layer controller board</p>
+            </Tile>
+            <Tile span="rc-c3">
+              <LuPlug className="rc-tile-icon" aria-hidden="true" />
+              <h3 className="rc-tile-title">Room to grow</h3>
+              <p className="rc-body">A Qwiic (I²C) port and expansion headers for more sensors.</p>
+            </Tile>
           </div>
         </div>
       </section>
 
       {/* ---------- the IDE ---------- */}
       <section id="ide" className="rc-section rc-band" aria-labelledby="rc-ide">
-        <div className="rc-wrap rc-ide">
-          <div style={{ display: 'grid', gap: 22 }}>
+        <div className="rc-wrap">
+          <div className="rc-section-head">
             <p className="rc-eyebrow">The app</p>
             <h2 id="rc-ide" className="rc-h2">
               The RoboCore IDE
             </h2>
             <p className="rc-lead">Blocks or Arduino C++, right in your browser.</p>
-            <ul className="rc-ide-points">
-              {APP.map(([Icon, text]) => (
-                <li key={text}>
-                  <Icon aria-hidden="true" />
-                  <span>{text}</span>
-                </li>
-              ))}
-            </ul>
           </div>
-          <div className="rc-shots">
-            <figure className="rc-shot">
+          <div className="rc-bento">
+            <Tile span="rc-c8 rc-r2 rc-full-md" className="rc-tile--shot">
               <div className="rc-window">
                 <div className="rc-window-bar" aria-hidden="true">
                   <span />
@@ -328,52 +391,49 @@ const RoboCorePage: React.FC = () => {
                   decoding="async"
                 />
               </div>
-              <figcaption>Blocks, with the C++ they write beside them.</figcaption>
-            </figure>
-            <figure className="rc-shot rc-shot-small">
-              <div className="rc-window">
-                <div className="rc-window-bar" aria-hidden="true">
-                  <span />
-                  <span />
-                  <span />
-                </div>
-                <img
-                  src={asset('resources/RoboCore/ide-code.webp')}
-                  alt="The same program in Code mode: Arduino C++ in the code editor"
-                  width={1600}
-                  height={903}
-                  loading="lazy"
-                  decoding="async"
-                />
+              <p className="rc-tile-caption">Blocks, with the C++ they write beside them, and the preview board.</p>
+            </Tile>
+            <Tile span="rc-c4" tone="yellow">
+              <p className="rc-stat">74</p>
+              <p className="rc-tile-text">blocks in 10 categories, made for the robot</p>
+              <ul className="rc-chips">
+                {BLOCK_EXAMPLES.map((b) => (
+                  <li key={b}>{b}</li>
+                ))}
+              </ul>
+            </Tile>
+            {/* Beside the screenshot: the 74 blocks, then the browser. Next: the code example, with the preview board and Cog stacked beside it. */}
+            <AppTile item={BROWSER} />
+            <Tile span="rc-c6 rc-r2 rc-full-md">
+              <LuPuzzle className="rc-tile-icon" aria-hidden="true" />
+              <h3 className="rc-tile-title">Blocks or C++</h3>
+              <p className="rc-body">Switch to Arduino C++ whenever you are ready: the blocks show you the code they write.</p>
+              <pre className="rc-code" aria-label="C++ written by the blocks">
+                <code>{SNIPPET}</code>
+              </pre>
+            </Tile>
+            <AppTile item={PREVIEW} span="rc-c6" />
+            <AppTile item={COG} span="rc-c6" />
+            <Tile span="rc-c12 rc-full-md" className="rc-tile--row">
+              <div>
+                <h3 className="rc-tile-title">What you can make</h3>
+                <p className="rc-body">17 examples to start from, or your own idea.</p>
               </div>
-              <figcaption>The same program in Arduino C++.</figcaption>
-            </figure>
+              <ul className="rc-make">
+                {MAKE.map(([Icon, text]) => (
+                  <li key={text}>
+                    <Icon aria-hidden="true" />
+                    {text}
+                  </li>
+                ))}
+              </ul>
+            </Tile>
           </div>
-        </div>
-      </section>
-
-      {/* ---------- what you can make ---------- */}
-      <section className="rc-section" aria-labelledby="rc-make">
-        <div className="rc-wrap">
-          <div className="rc-section-head">
-            <p className="rc-eyebrow">What you can make</p>
-            <h2 id="rc-make" className="rc-h2">
-              Make it drive, sense and react
-            </h2>
-          </div>
-          <ul className="rc-make">
-            {MAKE.map(([Icon, text]) => (
-              <li key={text} className="rc-card">
-                <Icon aria-hidden="true" />
-                {text}
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 
       {/* ---------- where we are ---------- */}
-      <section id="now" className="rc-section" style={{ paddingTop: 0 }} aria-labelledby="rc-now">
+      <section id="now" className="rc-section rc-section--bento" aria-labelledby="rc-now">
         <div className="rc-wrap">
           <div className="rc-section-head">
             <p className="rc-eyebrow">Where we are</p>
@@ -384,34 +444,58 @@ const RoboCorePage: React.FC = () => {
               RoboCore V2 is our newest prototype. Pilots with schools and innovation hubs in Zambia come next.
             </p>
           </div>
-          <ol className="rc-steps">
-            <li className="rc-card rc-step">
-              <span className="rc-chip rc-step-tag">First</span>
-              <h3 className="rc-h3">RoboCore V1: Gypul</h3>
-              <p className="rc-body">Our first prototype: a self-balancing robot, built by hand with 3D-printed parts.</p>
-            </li>
-            <li className="rc-card rc-step is-now" aria-current="step">
-              <span className="rc-chip rc-step-tag">Now</span>
-              <h3 className="rc-h3">RoboCore V2</h3>
-              <p className="rc-body">A new controller board, a robot with an arm and sensors, and the RoboCore IDE.</p>
-            </li>
-            <li className="rc-card rc-step">
-              <span className="rc-chip rc-step-tag">Next</span>
-              <h3 className="rc-h3">Pilots</h3>
-              <p className="rc-body">Trying RoboCore with schools and innovation hubs in Zambia.</p>
-            </li>
-          </ol>
-          <div className="rc-impact">
-            <p className="rc-lead">
-              Our team has been part of initiatives that have reached more than 8,000 young people in Zambia.
-            </p>
-            <p className="rc-body">Supported by Mukuba UniPod (UNDP) and the Copperbelt University.</p>
+          <div className="rc-bento">
+            <Tile span="rc-c7 rc-r2 rc-full-md">
+              <ol className="rc-steps">
+                <li className="rc-step">
+                  <span className="rc-chip rc-step-tag">First</span>
+                  <div>
+                    <h3 className="rc-tile-title">RoboCore V1: Gypul</h3>
+                    <p className="rc-body">Our first prototype: a self-balancing robot, built by hand with 3D-printed parts.</p>
+                  </div>
+                </li>
+                <li className="rc-step is-now" aria-current="step">
+                  <span className="rc-chip rc-step-tag">Now</span>
+                  <div>
+                    <h3 className="rc-tile-title">RoboCore V2</h3>
+                    <p className="rc-body">A new controller board, a robot with an arm and sensors, and the RoboCore IDE.</p>
+                  </div>
+                </li>
+                <li className="rc-step">
+                  <span className="rc-chip rc-step-tag">Next</span>
+                  <div>
+                    <h3 className="rc-tile-title">Pilots</h3>
+                    <p className="rc-body">Trying RoboCore with schools and innovation hubs in Zambia.</p>
+                  </div>
+                </li>
+              </ol>
+            </Tile>
+            <Tile span="rc-c5" tone="yellow" contours>
+              <p className="rc-stat">8,000+</p>
+              <p className="rc-tile-text">
+                Our team has been part of initiatives that have reached more than 8,000 young people in Zambia.
+              </p>
+            </Tile>
+            <Tile span="rc-c5" tone="navy">
+              <p className="rc-eyebrow">From the makers</p>
+              <p className="rc-tile-text">
+                Plastal-Bot Builders won the AI for Good National Edition (Zambia) in April 2026 and were finalists at the AI for
+                Good Global Summit in Geneva in July 2026.
+              </p>
+            </Tile>
+            <Tile span="rc-c12 rc-full-md" tone="soft" className="rc-tile--row">
+              <p className="rc-eyebrow">Supported by</p>
+              <ul className="rc-supporters">
+                <li>Mukuba UniPod (UNDP)</li>
+                <li>Copperbelt University</li>
+              </ul>
+            </Tile>
           </div>
         </div>
       </section>
 
       {/* ---------- get involved ---------- */}
-      <section id="get-involved" className="rc-section" style={{ paddingTop: 0 }} aria-labelledby="rc-involve">
+      <section id="get-involved" className="rc-section rc-section--bento" aria-labelledby="rc-involve">
         <div className="rc-wrap">
           <div className="rc-section-head">
             <p className="rc-eyebrow">Get involved</p>
@@ -419,31 +503,31 @@ const RoboCorePage: React.FC = () => {
               Build RoboCore with us
             </h2>
           </div>
-          <div className="rc-involve">
-            <div className="rc-card">
-              <LuSchool className="rc-involve-icon" aria-hidden="true" />
-              <h3 className="rc-h3">Schools and hubs</h3>
-              <p className="rc-body">Would you like to try RoboCore with your learners? Tell us about your school or hub.</p>
-              <a className="rc-link" href={`mailto:${CONTACT}?subject=RoboCore%20pilot`}>
-                {CONTACT}
+          <div className="rc-bento">
+            <Tile span="rc-c6 rc-full-md" tone="yellow" contours>
+              <LuSchool className="rc-tile-icon" aria-hidden="true" />
+              <h3 className="rc-tile-title">Schools and innovation hubs</h3>
+              <p className="rc-tile-text">Would you like to try RoboCore with your learners? Tell us about your school or hub.</p>
+              <a className="rc-btn rc-btn-primary rc-tile-cta" href={`mailto:${CONTACT}?subject=RoboCore%20pilot`}>
+                Email us <LuArrowRight aria-hidden="true" />
               </a>
-            </div>
-            <div className="rc-card">
-              <LuHeartHandshake className="rc-involve-icon" aria-hidden="true" />
-              <h3 className="rc-h3">Partners and sponsors</h3>
+            </Tile>
+            <Tile span="rc-c3">
+              <LuHeartHandshake className="rc-tile-icon" aria-hidden="true" />
+              <h3 className="rc-tile-title">Partners and sponsors</h3>
               <p className="rc-body">Help us build and test the first RoboCore kits.</p>
-              <a className="rc-link" href={`mailto:${CONTACT}?subject=RoboCore%20partnership`}>
+              <a className="rc-link rc-tile-cta" href={`mailto:${CONTACT}?subject=RoboCore%20partnership`}>
                 Talk to us about partnering
               </a>
-            </div>
-            <div className="rc-card">
-              <LuLinkedin className="rc-involve-icon" aria-hidden="true" />
-              <h3 className="rc-h3">Follow the build</h3>
+            </Tile>
+            <Tile span="rc-c3">
+              <LuLinkedin className="rc-tile-icon" aria-hidden="true" />
+              <h3 className="rc-tile-title">Follow the build</h3>
               <p className="rc-body">Follow Plastal-Bot Builders for RoboCore news.</p>
-              <a className="rc-link" href={LINKEDIN} target="_blank" rel="noopener noreferrer">
+              <a className="rc-link rc-tile-cta" href={LINKEDIN} target="_blank" rel="noopener noreferrer">
                 LinkedIn
               </a>
-            </div>
+            </Tile>
           </div>
         </div>
       </section>

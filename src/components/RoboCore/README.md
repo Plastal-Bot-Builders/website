@@ -10,6 +10,11 @@ IDE's Navy theme.
 of `/robocore` in `src/App.tsx` (for example `<Route path="kit" element={<RoboCoreKit />} />` for `/robocore/kit`), add
 a link to `NAV` in `RoboCoreLayout.tsx`, and add the route to `scripts/seo/site-manifest.js`.
 
+**Layout:** sections are bento grids (`rc-bento`) of `Tile`s (in `robocore.tsx`): `span` sets a tile's size on wide
+screens (`rc-c3` … `rc-c12` of 12 columns, `rc-r2` for two rows), `rc-full-md` makes it full width on tablets (two
+columns), and phones stack every tile. Tones: paper (default), `yellow`, `navy`, `soft`. The grid packs densely, so
+check new tiles at 1440, 800 and 390 px for gaps.
+
 | File | What it is |
 |---|---|
 | `src/components/RoboCore/RoboCoreLayout.tsx` | The frame: RoboCore header (links, light/dark, Get involved) and footer. |

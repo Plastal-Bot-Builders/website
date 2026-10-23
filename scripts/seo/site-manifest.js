@@ -348,8 +348,12 @@ const ROUTES = [
           ],
         },
         {
+          h2: 'The controller board',
+          p: 'The controller is an ESP32-S3 with Wi-Fi, Bluetooth LE, 8 MB of flash and 2 MB of PSRAM, on a 68 × 60 mm, 4-layer board. It has two motor ports with encoders, four servo ports, ports for the distance and line sensors, a 6-axis motion sensor, a Qwiic (I²C) port and expansion headers, and USB-C straight to the chip.',
+        },
+        {
           h2: 'The RoboCore IDE',
-          p: 'The RoboCore IDE runs in the browser. It has blocks made for the robot, such as “move forward for 10 cm” and “when an obstacle is closer than 20 cm”, and switches to Arduino C++ whenever the student is ready: the blocks show the code they write. Programs upload over USB-C, or run on a preview board without a robot.',
+          p: 'The RoboCore IDE runs in the browser. It has blocks made for the robot, such as “move forward for 10 cm” and “when an obstacle is closer than 20 cm”, and switches to Arduino C++ whenever the student is ready: the blocks show the code they write. Programs upload over USB-C, or run on a preview board without a robot. It has 74 blocks in 10 categories and 17 example projects, and Cog, a learning partner that explains errors and gives hints.',
         },
         {
           h2: 'Where RoboCore is now',
