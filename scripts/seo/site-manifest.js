@@ -53,6 +53,7 @@ const VERIFIED_FACTS = {
     'Introduction to Robotics and Programming Workshop — an entry-level workshop covering electronics, Tinkercad simulation and Arduino programming',
   ],
   projects: [
+    'RoboCore — a robot kit and coding app for young makers, designed in Zambia (RoboCore V2 is a prototype)',
     'Gypul — a low-cost self-balancing education robot using an IMU for stabilisation and an ESP32 for control',
     'Environmental Monitoring Rover — an Arduino-based rover that logs air and water quality data',
   ],
@@ -315,6 +316,62 @@ const ROUTES = [
       sections: [{ h2: 'Featured projects', list: VERIFIED_FACTS.projects }],
     },
     schema: ['CollectionPage'],
+  },
+
+  // RoboCore's own section. Copy as on the RoboCore print pieces: "designed in Zambia", V2 is a prototype,
+  // pilots come next. No dates, prices or sales until they are real.
+  {
+    path: '/robocore',
+    priority: '0.9',
+    changefreq: 'monthly',
+    title: 'RoboCore — the robot kit and coding app for young makers | Plastal-Bot Builders',
+    description:
+      'RoboCore is a robot you build yourself and a coding app to bring it to life: drag-and-drop blocks or Arduino C++, in the browser. Designed in Zambia by Plastal-Bot Builders.',
+    image: '/resources/social/og-robocore.jpg',
+    breadcrumb: [{ name: 'RoboCore', path: '/robocore' }],
+    body: {
+      h1: 'RoboCore — the robot kit and coding app for young makers',
+      summary:
+        'RoboCore is a robot you build yourself and a coding app to bring it to life. Start with drag-and-drop blocks, move on to real Arduino C++, and watch your code drive, sense and react. It is designed in Zambia by Plastal-Bot Builders.',
+      sections: [
+        {
+          h2: 'Inside RoboCore V2',
+          list: [
+            'ESP32-S3 controller with Wi-Fi and Bluetooth',
+            'Two drive motors with encoders',
+            'Robot arm with a gripper on servo motors',
+            'Ultrasonic distance sensor',
+            '3-channel line sensor',
+            'Motion sensor (6-axis IMU)',
+            'RGB light, buzzer and a USER button',
+            'USB-C and a rechargeable battery',
+          ],
+        },
+        {
+          h2: 'The RoboCore IDE',
+          p: 'The RoboCore IDE runs in the browser. It has blocks made for the robot, such as “move forward for 10 cm” and “when an obstacle is closer than 20 cm”, and switches to Arduino C++ whenever the student is ready: the blocks show the code they write. Programs upload over USB-C, or run on a preview board without a robot.',
+        },
+        {
+          h2: 'Where RoboCore is now',
+          p: 'RoboCore V2 is the newest prototype, after the first, the self-balancing robot Gypul. Pilots with schools and innovation hubs in Zambia come next. RoboCore is supported by Mukuba UniPod (UNDP) and the Copperbelt University.',
+        },
+      ],
+    },
+    faq: [
+      {
+        q: 'What is RoboCore?',
+        a: 'RoboCore is a robot kit and coding app for young makers, designed in Zambia by Plastal-Bot Builders. Students build the robot, then code it with drag-and-drop blocks or Arduino C++.',
+      },
+      {
+        q: 'Can I buy RoboCore?',
+        a: 'Not yet. RoboCore V2 is a prototype. Pilots with schools and innovation hubs in Zambia come next.',
+      },
+      {
+        q: 'How do you program RoboCore?',
+        a: 'With the RoboCore IDE in a web browser: blocks made for the robot, or Arduino C++. The blocks show the C++ they write.',
+      },
+    ],
+    schema: ['CreativeWork'],
   },
 
   {

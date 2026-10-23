@@ -26,6 +26,9 @@ const NewsPage = lazy(() => import('./pages/news'));
 const JourneyToGeneva = lazy(() => import('./pages/journey-to-geneva'));
 const Error404 = lazy(() => import('./pages/error'));
 
+// RoboCore: the robot kit and coding app, a section of its own
+const RoboCorePage = lazy(() => import('./pages/robocore'));
+
 // Project subpages
 const GypulShowcase = lazy(() => import('./components/Projects/GypulShowcase'));
 const EnviroMonitorShowcase = lazy(() => import('./components/Projects/EnviroMonitorShowcase'));
@@ -150,6 +153,13 @@ const App: React.FC = () => {
                 <Route path="/support/corporate-partnerships" element={<CorporatePartnershipsPage />} />
                 <Route path="/support/educational-institutions" element={<EducationalPartnershipsPage />} />
                 <Route path="/support/nonprofits" element={<NonprofitPartnershipPage />} />
+
+                {/* RoboCore: /robocore, with room for subpages (/robocore/...) */}
+                <Route path="/robocore" element={
+                  <ErrorBoundary>
+                    <RoboCorePage />
+                  </ErrorBoundary>
+                } />
 
                 {/* Project Pages */}
                 <Route path="/projects/gypul" element={

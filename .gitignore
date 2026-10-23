@@ -152,4 +152,9 @@ public/resources/Geneva2026/*
 # which is also why new files in Geneva2026/web/ need `git add -f`.)
 !public/resources/social/*.jpg
 
+# RoboCore section (/robocore): its web-ready images and the 3D model ship with
+# the site. Where they come from: src/components/RoboCore/README.md.
+!public/resources/RoboCore/*.webp
+!public/resources/RoboCore/*.glb
+
 
