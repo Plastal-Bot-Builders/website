@@ -439,6 +439,7 @@ html.dark .rc .rc-tile--navy { border-color: var(--rc-line); }
 .rc-shot { flex: none; border-radius: 12px; overflow: hidden; border: 1px solid var(--rc-line); background: #FFFCF5; margin-bottom: 6px; }
 .rc-shot img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: left top; }
 .rc-shot--natural img { aspect-ratio: auto; }
+.rc-shot--render { background: #F4F2EC; } /* the renders' studio grey-white, so the transparent edges sit on something */
 .rc-tile--yellow .rc-shot { border-color: rgba(27, 42, 65, 0.22); }
 .rc-band .rc-shot { border-color: var(--rc-band-line); }
 @media (min-width: 768px) {

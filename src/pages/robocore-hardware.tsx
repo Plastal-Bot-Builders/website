@@ -15,7 +15,17 @@ import { asset } from '../utils/asset';
  */
 
 /** `makers`: the marks of the companies whose parts or standards the tile names (react-icons/si). */
-type Spec = { title: string; icon: IconType; span: string; tone?: 'navy'; makers?: [IconType, string][]; rows: [string, string][] };
+/** `pic`: a close-up from the controller renders [file, alt, width, height, object-position or 'natural'
+ *  (keep the picture's own shape, for the wide connector-edge strip)]. */
+type Spec = {
+  title: string;
+  icon: IconType;
+  span: string;
+  tone?: 'navy';
+  makers?: [IconType, string][];
+  pic?: [string, string, number, number, string?];
+  rows: [string, string][];
+};
 
 const SPECS: Spec[] = [
   {
@@ -27,6 +37,7 @@ const SPECS: Spec[] = [
       [SiEspressif, 'Espressif'],
       [SiBluetooth, 'Bluetooth'],
     ],
+    pic: ['robocore-controller-macro-esp32', 'Close-up of the ESP32-S3-WROOM-1 module between the two expansion sockets', 1600, 1067, 'center'],
     rows: [
       ['Module', 'ESP32-S3-WROOM-1 (N8R2)'],
       ['Processor', 'Dual-core, up to 240 MHz'],
@@ -39,6 +50,7 @@ const SPECS: Spec[] = [
     title: 'Motors and servos',
     icon: LuSettings2,
     span: 'rc-c4',
+    pic: ['robocore-controller-crop-motors', 'The MOTOR 2 connector, the Qwiic port and the SERVO 2 header (IO39, 5.5 V, GND), seen from above', 840, 900, 'center 18%'],
     rows: [
       ['Drive', '2 motor ports with encoders (JST SH, 6-pin)'],
       ['Driver', 'DRV8411A, limited to 1.0 A per motor'],
@@ -54,6 +66,7 @@ const SPECS: Spec[] = [
       [SiStmicroelectronics, 'STMicroelectronics'],
       [SiSparkfun, 'SparkFun Qwiic'],
     ],
+    pic: ['robocore-controller-crop-sensors', 'The connector edge from above: the ULTRASONIC header (3V3, TRIG, ECHO, GND), the battery plug, USB-C and the LINE header (3V3, GND, L, C, R)', 1200, 400, 'natural'],
     rows: [
       ['Motion', 'LSM6DSOX 6-axis IMU on the board'],
       ['Distance', 'Ultrasonic sensor port, HC-SR04 pin order, 3.3 V'],
@@ -65,6 +78,7 @@ const SPECS: Spec[] = [
     title: 'Power',
     icon: LuBatteryCharging,
     span: 'rc-c6',
+    pic: ['robocore-controller-edge-low', 'A low view along the connector edge: the yellow XT30 battery plug and the USB-C port', 1600, 1067, 'center 40%'],
     rows: [
       ['Battery', 'Rechargeable 1S Li-ion (3.0–4.2 V), XT30 plug'],
       ['Protection', 'Cuts off a reversed or over-voltage battery'],
@@ -77,6 +91,7 @@ const SPECS: Spec[] = [
     title: 'Light, sound and buttons',
     icon: LuLightbulb,
     span: 'rc-c6',
+    pic: ['robocore-controller-crop-buttons', 'The RESET and BOOT buttons, the IMU with its X and Y arrows, and the buzzer, seen from above', 960, 600, 'center'],
     rows: [
       ['Light', 'WS2812B RGB LED and 5 status LEDs'],
       ['Sound', 'Buzzer'],
@@ -99,8 +114,21 @@ const RUNTIME: [string, string[]][] = [
   ['Full charge at 1 A, about', ['3.6 h', '6.6 h', '9.6 h']],
 ];
 
-const SpecTile: React.FC<{ spec: Spec }> = ({ spec: { title, icon: Icon, span, tone, makers, rows } }) => (
+const SpecTile: React.FC<{ spec: Spec }> = ({ spec: { title, icon: Icon, span, tone, makers, pic, rows } }) => (
   <Tile span={span} tone={tone}>
+    {pic && (
+      <div className={pic[4] === 'natural' ? 'rc-shot rc-shot--render rc-shot--natural' : 'rc-shot rc-shot--render'}>
+        <img
+          src={asset(`resources/RoboCore/${pic[0]}.webp`)}
+          alt={pic[1]}
+          width={pic[2]}
+          height={pic[3]}
+          loading="lazy"
+          decoding="async"
+          style={pic[4] && pic[4] !== 'natural' ? { objectPosition: pic[4] } : undefined}
+        />
+      </div>
+    )}
     <div className="rc-spec-head">
       <Icon className="rc-tile-icon" aria-hidden="true" />
       {makers && (
@@ -186,10 +214,10 @@ const RoboCoreHardware: React.FC = () => (
           ))}
           <Tile span="rc-c7 rc-r2 rc-full-md" tone="soft">
             <Art
-              src="board-v2-back.webp"
+              src="robocore-controller-bottom.webp"
               alt="The back of the board: the RoboCore and Plastal-Bot Builders logos, “Designed in Zambia 2026”, and the name of every pin"
-              w={1000}
-              h={870}
+              w={1600}
+              h={1440}
               tall
             />
             <h3 className="rc-tile-title">The back tells you the pins</h3>

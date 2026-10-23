@@ -15,12 +15,10 @@ import {
   LuMonitor,
   LuMove,
   LuMusic,
-  LuPlug,
   LuPuzzle,
   LuRadio,
   LuRotate3D,
   LuSchool,
-  LuUsb,
   LuWand2,
   LuZap,
 } from 'react-icons/lu';
@@ -324,12 +322,16 @@ const RoboCorePage: React.FC = () => {
               <p className="rc-tile-text">servo ports, for the arm and its gripper</p>
             </Tile>
             <Tile span="rc-c3">
-              <LuLightbulb className="rc-tile-icon" aria-hidden="true" />
+              <div className="rc-shot rc-shot--render">
+                <img src={asset('resources/RoboCore/robocore-controller-crop-buttons.webp')} alt="The RESET and BOOT buttons, the motion sensor and the buzzer on the controller" width={960} height={600} loading="lazy" decoding="async" style={{ objectPosition: 'center' }} />
+              </div>
               <h3 className="rc-tile-title">Light and sound</h3>
               <p className="rc-body">RGB light, buzzer and a USER button</p>
             </Tile>
             <Tile span="rc-c3">
-              <LuUsb className="rc-tile-icon" aria-hidden="true" />
+              <div className="rc-shot rc-shot--render">
+                <img src={asset('resources/RoboCore/robocore-controller-edge-low.webp')} alt="The yellow XT30 battery plug and the USB-C port on the controller" width={1600} height={1067} loading="lazy" decoding="async" style={{ objectPosition: 'center 40%' }} />
+              </div>
               <h3 className="rc-tile-title">Power</h3>
               <p className="rc-body">USB-C and a rechargeable battery</p>
             </Tile>
@@ -347,7 +349,9 @@ const RoboCorePage: React.FC = () => {
               <p className="rc-tile-text">4-layer controller board</p>
             </Tile>
             <Tile span="rc-c3">
-              <LuPlug className="rc-tile-icon" aria-hidden="true" />
+              <div className="rc-shot rc-shot--render">
+                <img src={asset('resources/RoboCore/robocore-controller-crop-qwiic.webp')} alt="The Qwiic port beside an expansion socket and the MOTOR 2 connector" width={900} height={579} loading="lazy" decoding="async" style={{ objectPosition: 'center' }} />
+              </div>
               <h3 className="rc-tile-title">Room to grow</h3>
               <p className="rc-body">A Qwiic (I²C) port and expansion headers for more sensors.</p>
             </Tile>

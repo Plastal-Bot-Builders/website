@@ -79,7 +79,9 @@ the stand, the flyer and the website say the same thing. The rules:
 - **Controller board** (`robocore-controller-*`): the studio renders of the V2 controller (Blender, from the KiCad
   model), shared by every RoboCore project in `~/RoboCoreProjects/RoboCore/hardware/controller_v2/renders/` (its README
   lists the shots and the part-position files). Use the `web/` copies; don't edit them, ask the PCB chat for new shots.
-- **Board and robot** (`board-v2-back`, `board-v1`, `robot-front`, `robot-left`, `robot-top`, `arm-poses`): KiCad 3D
+  The `robocore-controller-crop-*` close-ups are cut from `full/robocore-controller-top.png` (40 px per mm) at the boxes in
+  `robocore-controller-top-parts.json`.
+- **Board and robot** (`board-v1`, `robot-front`, `robot-left`, `robot-top`, `arm-poses`): KiCad 3D
   renders of the boards and orthographic renders of the Fusion model, on transparent backgrounds.
 - **IDE features** (`ide-feat-*`): crops of the RoboCore IDE (the app built from the Figma design, file
   `P7i2WBM8G96B2fTPHpp8yi`), captured from the web build at 1440 × 1000, 2×, with the Blink LED project; a few are
