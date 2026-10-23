@@ -3,6 +3,7 @@ import type { IconType } from 'react-icons';
 import { FaApple, FaLinux, FaWindows } from 'react-icons/fa';
 import { LuBot, LuDownload, LuGlobe, LuLaptop, LuUsb } from 'react-icons/lu';
 import { SEOConfig } from '../components/SEO';
+import AppIcon from '../components/RoboCore/AppIcon';
 import Tile from '../components/RoboCore/Tile';
 import { DOWNLOADS, IDE_VERSION, Platform, WEB_IDE, detectPlatform, scrollToSection } from '../components/RoboCore/shared';
 import { asset } from '../utils/asset';
@@ -26,7 +27,7 @@ const RoboCoreDownload: React.FC = () => {
       <SEOConfig
         title="Download the RoboCore IDE for Mac, Windows and Linux | RoboCore"
         description="Download the RoboCore IDE: blocks and Arduino C++ for the RoboCore robot, on Mac, Windows and Linux."
-        image="/resources/social/og-robocore.jpg"
+        image="/resources/social/og-robocore-ide.jpg"
       />
 
       {/* ---------- hero ---------- */}
@@ -35,7 +36,10 @@ const RoboCoreDownload: React.FC = () => {
           <div className="rc-hero-card rc-dl-hero">
             <div className="rc-contours" aria-hidden="true" />
             <div className="rc-hero-text">
-              <p className="rc-eyebrow rc-dl-eyebrow">RoboCore IDE · version {IDE_VERSION}</p>
+              <div className="rc-app-id">
+                <AppIcon size={64} appearance="dark" className="rc-app-icon" title="" />
+                <p className="rc-eyebrow rc-dl-eyebrow">RoboCore IDE · version {IDE_VERSION}</p>
+              </div>
               <h1 id="rc-dl-title" className="rc-display rc-dl-title">
                 Download the RoboCore IDE
               </h1>

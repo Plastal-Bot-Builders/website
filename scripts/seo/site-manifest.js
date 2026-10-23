@@ -91,6 +91,10 @@ const UNVERIFIED = {
 /** Shared image used when a route doesn't specify its own. */
 const DEFAULT_IMAGE = '/resources/social/og-default.jpg';
 
+/** The RoboCore IDE's share card (og-robocore-ide.jpg), used by the IDE and download pages. */
+const IDE_IMAGE_ALT =
+  'Code your robot your way. The RoboCore IDE app icon beside a RoboCore IDE program made of blocks.';
+
 /**
  * Routes. `body` drives the crawlable fallback content that non-JavaScript
  * clients (most AI crawlers) receive; `schema` adds page-specific JSON-LD.
@@ -381,14 +385,123 @@ const ROUTES = [
   },
 
   {
+    path: '/robocore/ide',
+    priority: '0.8',
+    changefreq: 'monthly',
+    title: 'The RoboCore IDE: blocks, Arduino C++ and Cog | RoboCore',
+    description:
+      'The RoboCore IDE: robot blocks or Arduino C++, Cog the learning partner, a preview board, and support for RoboCore V2, Arduino Uno and ESP32 boards.',
+    image: '/resources/social/og-robocore-ide.jpg',
+    imageAlt: IDE_IMAGE_ALT,
+    breadcrumb: [
+      { name: 'RoboCore', path: '/robocore' },
+      { name: 'IDE', path: '/robocore/ide' },
+    ],
+    body: {
+      h1: 'Code it your way',
+      summary:
+        'The RoboCore IDE lets you start with blocks made for the robot, move on to real Arduino C++, and get help from Cog, a learning partner that helps you find the answer yourself.',
+      sections: [
+        {
+          h2: 'Blocks, then C++',
+          p: '74 blocks in 10 categories, made for the robot. The blocks show the Arduino C++ they write, and the code editor offers suggestions, explanations and problems marked in the code.',
+        },
+        {
+          h2: 'Cog, your learning partner',
+          p: 'Cog explains errors and blocks first, then gives hints one at a time. It changes code only when you press Apply. Teachers choose the help style, and writing code for a learner needs the teacher’s PIN.',
+        },
+        {
+          h2: 'Works with the boards you have',
+          list: [
+            'RoboCore V2 (ESP32-S3): every block, the RoboCore library and the preview board',
+            'Arduino Uno R3 (ATmega328P): uploads through its own bootloader over USB',
+            'ESP32 DevKit V1 and NodeMCU-32S (ESP32): upload over USB',
+          ],
+        },
+      ],
+    },
+  },
+
+  {
+    path: '/robocore/hardware',
+    priority: '0.8',
+    changefreq: 'monthly',
+    title: 'RoboCore V2 hardware specifications | RoboCore',
+    description:
+      'The RoboCore V2 controller board and robot: ESP32-S3, encoder motor ports, four servo ports, IMU, ultrasonic and line sensor ports, USB-C charging and a 3D-printed body.',
+    image: '/resources/social/og-robocore.jpg',
+    breadcrumb: [
+      { name: 'RoboCore', path: '/robocore' },
+      { name: 'Hardware', path: '/robocore/hardware' },
+    ],
+    body: {
+      h1: 'Hardware specifications',
+      summary:
+        'What is on the RoboCore V2 controller board, and the robot built around it. V2 is our newest prototype, so details may still change before the pilot kits.',
+      sections: [
+        {
+          h2: 'The controller board',
+          list: [
+            'ESP32-S3-WROOM-1 (N8R2): dual-core up to 240 MHz, 8 MB flash, 2 MB PSRAM, Wi-Fi and Bluetooth LE, USB-C',
+            '2 encoder motor ports (DRV8411A, 1.0 A per motor) and 4 servo ports at 5.5 V',
+            'LSM6DSOX 6-axis IMU, ultrasonic and 3-channel line sensor ports, Qwiic (I²C)',
+            '1S Li-ion battery on XT30 with reverse and over-voltage cut-off; USB-C charging up to 1 A',
+            'WS2812B RGB LED, buzzer, RESET, BOOT and USER buttons, two 14-pin expansion headers',
+            '68 × 60 mm, four layers',
+          ],
+        },
+        { h2: 'The robot', p: '167 × 278 × 118 mm, with two driven wheels, an arm with a gripper and a 3D-printed body.' },
+      ],
+    },
+  },
+
+  {
+    path: '/robocore/vision',
+    priority: '0.7',
+    changefreq: 'monthly',
+    title: 'Our vision: young Zambians who build technology | RoboCore',
+    description:
+      'Why we are building RoboCore, what Plastal-Bot Builders has done so far, and what we hope to achieve: pilots in Zambian schools, kits assembled in Zambia, and 5,000 young people reached.',
+    image: '/resources/social/og-robocore.jpg',
+    breadcrumb: [
+      { name: 'RoboCore', path: '/robocore' },
+      { name: 'Vision', path: '/robocore/vision' },
+    ],
+    body: {
+      h1: 'Young Zambians who build technology',
+      summary:
+        'When students build and program real machines, they learn science and engineering more deeply. When the tools are affordable and made for their classrooms, far more schools can offer that.',
+      sections: [
+        {
+          h2: 'What we’ve done',
+          list: [
+            'Winners of the AI for Good National Edition (Zambia), April 2026, and finalists at the AI for Good Global Summit, Geneva, July 2026',
+            'Our team has been part of initiatives that have reached more than 8,000 young people in Zambia',
+            'Workshops and bootcamps in robotics, electronics and programming',
+            'RoboCore V1 (Gypul) and the RoboCore V2 prototype: board, robot and IDE',
+          ],
+        },
+        {
+          h2: 'What we hope to achieve',
+          list: [
+            'Pilots with schools and innovation hubs in Zambia, measuring learners’ skills and attitudes',
+            'Kits printed, assembled and packaged in Zambia, and in time the boards too',
+            'Lessons and teacher training that fit the curriculum',
+            '5,000 young people reached in the next three to five years',
+          ],
+        },
+      ],
+    },
+  },
+
+  {
     path: '/robocore/download',
     priority: '0.7',
     changefreq: 'monthly',
     title: 'Download the RoboCore IDE for Mac, Windows and Linux | RoboCore',
     description: 'Download the RoboCore IDE: blocks and Arduino C++ for the RoboCore robot, on Mac, Windows and Linux.',
-    image: '/resources/social/og-robocore.jpg',
-    imageAlt:
-      'Build a robot. Code it in your browser. The yellow RoboCore V2 robot beside a RoboCore IDE program made of blocks.',
+    image: '/resources/social/og-robocore-ide.jpg',
+    imageAlt: IDE_IMAGE_ALT,
     breadcrumb: [
       { name: 'RoboCore', path: '/robocore' },
       { name: 'Download', path: '/robocore/download' },

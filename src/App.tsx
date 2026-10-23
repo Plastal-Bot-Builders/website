@@ -31,6 +31,9 @@ const Error404 = lazy(() => import('./pages/error'));
 const RoboCoreLayout = lazy(() => import('./components/RoboCore/RoboCoreLayout'));
 const RoboCorePage = lazy(() => import('./pages/robocore'));
 const RoboCoreDownload = lazy(() => import('./pages/robocore-download'));
+const RoboCoreIde = lazy(() => import('./pages/robocore-ide'));
+const RoboCoreHardware = lazy(() => import('./pages/robocore-hardware'));
+const RoboCoreVision = lazy(() => import('./pages/robocore-vision'));
 
 // Project subpages
 const GypulShowcase = lazy(() => import('./components/Projects/GypulShowcase'));
@@ -157,13 +160,16 @@ const App: React.FC = () => {
                 <Route path="/support/educational-institutions" element={<EducationalPartnershipsPage />} />
                 <Route path="/support/nonprofits" element={<NonprofitPartnershipPage />} />
 
-                {/* RoboCore: /robocore and, later, its own subpages (/robocore/...) */}
+                {/* RoboCore: /robocore and its own subpages (/robocore/...) */}
                 <Route path="/robocore" element={
                   <ErrorBoundary>
                     <RoboCoreLayout />
                   </ErrorBoundary>
                 }>
                   <Route index element={<RoboCorePage />} />
+                  <Route path="ide" element={<RoboCoreIde />} />
+                  <Route path="hardware" element={<RoboCoreHardware />} />
+                  <Route path="vision" element={<RoboCoreVision />} />
                   <Route path="download" element={<RoboCoreDownload />} />
                 </Route>
 

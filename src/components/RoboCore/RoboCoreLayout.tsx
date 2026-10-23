@@ -14,12 +14,11 @@ import './robocore.css';
  * link in NAV.
  */
 
-/** The header's links: sections of the overview for now; later pages are plain paths such as '/robocore/kit'. */
+/** The header's links: RoboCore's pages (the logo leads to the overview). A section would be '/robocore#now'. */
 const NAV = [
-  { label: 'What it is', to: '/robocore#what' },
-  { label: 'Inside', to: '/robocore#inside' },
-  { label: 'The app', to: '/robocore#ide' },
-  { label: 'Where we are', to: '/robocore#now' },
+  { label: 'IDE', to: '/robocore/ide' },
+  { label: 'Hardware', to: '/robocore/hardware' },
+  { label: 'Vision', to: '/robocore/vision' },
   { label: 'Download', to: '/robocore/download' },
 ];
 

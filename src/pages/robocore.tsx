@@ -25,6 +25,7 @@ import {
   LuZap,
 } from 'react-icons/lu';
 import { SEOConfig } from '../components/SEO';
+import AppIcon from '../components/RoboCore/AppIcon';
 import RoboCoreLogo from '../components/RoboCore/RoboCoreLogo';
 import Tile from '../components/RoboCore/Tile';
 import { CONTACT, LINKEDIN, scrollToSection } from '../components/RoboCore/shared';
@@ -277,6 +278,9 @@ const RoboCorePage: React.FC = () => {
             <h2 id="rc-inside" className="rc-h2">
               Inside RoboCore V2
             </h2>
+            <Link className="rc-link" to="/robocore/hardware" style={{ justifySelf: 'start' }}>
+              Full specifications
+            </Link>
           </div>
           <div className="rc-bento">
             <Tile span="rc-c5 rc-r2 rc-full-md" tone="navy">
@@ -353,16 +357,21 @@ const RoboCorePage: React.FC = () => {
       <section id="ide" className="rc-section rc-band" aria-labelledby="rc-ide">
         <div className="rc-wrap">
           <div className="rc-section-head">
-            <p className="rc-eyebrow">The app</p>
+            <div className="rc-app-id">
+              <AppIcon size={64} className="rc-app-icon" title="" />
+              <p className="rc-eyebrow">The app</p>
+            </div>
             <h2 id="rc-ide" className="rc-h2">
               The RoboCore IDE
             </h2>
             <p className="rc-lead">Blocks or Arduino C++, on your computer or right in your browser.</p>
-            <div className="rc-hero-actions" style={{ alignItems: 'center' }}>
+            <div className="rc-hero-actions" style={{ alignItems: 'center', gap: '12px 24px' }}>
               <Link className="rc-btn rc-header-cta rc-btn-large" to="/robocore/download">
                 <LuDownload aria-hidden="true" /> Download the IDE
               </Link>
-              <span className="rc-body">for Mac, Windows and Linux</span>
+              <Link className="rc-link" to="/robocore/ide">
+                More about the IDE
+              </Link>
             </div>
           </div>
           <div className="rc-bento">
@@ -434,6 +443,9 @@ const RoboCorePage: React.FC = () => {
             <p className="rc-lead">
               RoboCore V2 is our newest prototype. Pilots with schools and innovation hubs in Zambia come next.
             </p>
+            <Link className="rc-link" to="/robocore/vision" style={{ justifySelf: 'start' }}>
+              Our vision
+            </Link>
           </div>
           <div className="rc-bento">
             <Tile span="rc-c7 rc-r2 rc-full-md">

@@ -19,8 +19,13 @@ check new tiles at 1440, 800 and 390 px for gaps.
 |---|---|
 | `src/components/RoboCore/RoboCoreLayout.tsx` | The frame: RoboCore header (links, light/dark, Get involved) and footer. |
 | `src/pages/robocore.tsx` | The overview (index of `/robocore`). Its copy is the RoboCore print copy (see below). |
+| `src/pages/robocore-ide.tsx` | `/robocore/ide`: the IDE's features, Cog, and the other boards it programs (Arduino Uno, ESP32). |
+| `src/pages/robocore-hardware.tsx` | `/robocore/hardware`: the V2 controller board's specifications, the robot, battery estimates. |
+| `src/pages/robocore-vision.tsx` | `/robocore/vision`: why RoboCore, what the team has done (photos), what it hopes to achieve. |
 | `src/pages/robocore-download.tsx` | `/robocore/download`: the IDE for Mac, Windows and Linux; the visitor's system first. |
 | `src/components/RoboCore/Tile.tsx` | One bento tile, used by every RoboCore page. |
+| `src/components/RoboCore/SubHero.tsx` | The yellow opening card of a subpage (IDE, Hardware, Vision). |
+| `src/components/RoboCore/AppIcon.tsx` | The RoboCore IDE's app icon (Geared Ring), wherever the IDE is offered. |
 | `src/components/RoboCore/shared.ts` | Contact details, the maker line, and scrolling to a section. |
 | `src/components/RoboCore/robocore.css` | All its styles, scoped to `.rc`; the Barlow `@font-face` rules. |
 | `src/components/RoboCore/RobotViewer.tsx` | The 3D robot in the hero (three.js, loaded only when needed). |
@@ -29,6 +34,7 @@ check new tiles at 1440, 800 and 390 px for gaps.
 | `src/components/RoboCore/fonts/` | Barlow and Barlow Condensed (woff2), SIL Open Font License (`OFL.txt`). |
 | `public/resources/RoboCore/` | Images and the 3D model (let through by `.gitignore`). |
 | `public/resources/social/og-robocore.jpg` | Social share card, 1200 × 630. |
+| `public/resources/social/og-robocore-ide.jpg` | The IDE and download pages' share card, with the app icon. |
 | `scripts/seo/site-manifest.js` (`/robocore`) | Title, description, crawlable content, FAQ and sitemap entry. |
 
 ## Downloads
@@ -56,14 +62,23 @@ the stand, the flyer and the website say the same thing. The rules:
 - RoboCore V2 is a prototype; pilots with schools and innovation hubs come next. No dates, prices or sales until
   they are real.
 - Impact line: "Our team has been part of initiatives that have reached more than 8,000 young people in Zambia."
+- Anything not done yet is in the future tense ("we will", "we hope to"); making RoboCore in Zambia, boards included,
+  is a goal. The battery times on the hardware page are estimates until they are measured on the prototype.
 
 ## Where the assets come from
 
 - **Renders** (`robot-hero`, `kit-box-open`, and the line drawings `controller-board`, `chassis`, `sonar`,
   `line-sensor`): `RoboCore_Event_Branding/assets/`, from the Fusion model v36 (see that folder's README), resized and
   saved as WebP (quality 82).
-- **IDE screenshots** (`ide-blocks`, `ide-code`): the RoboCore IDE in Chrome at 1440 × 900, 2×, with the
-  "Robot obstacle avoider" example; saved at 1600 px wide.
+- **IDE screenshots** (`ide-blocks`, `ide-code`, `ide-boards`, `ide-cog`): the RoboCore IDE in Chrome at 1440 × 900,
+  2×, with the "Robot obstacle avoider" example; saved at 1600 px wide (Cog's panel at 560).
+- **App icon** (`AppIcon.tsx`): the Geared Ring paths from the robocore-ide repository (`assets/images/app_icon.svg`
+  and `app_mark.svg`, made by `tools/gen_app_icons.py`); 32 px and smaller use the small glyph. On yellow it takes the
+  app's Dark appearance (navy plate, yellow ink). If the icon changes, copy the new paths in.
+- **Board and robot** (`board-v2-top`, `board-v2-back`, `board-v1`, `robot-front`, `robot-left`, `robot-top`,
+  `arm-poses`): KiCad 3D renders of the boards and orthographic renders of the Fusion model, on transparent backgrounds.
+- **Photos** (`vision-*`): from the site's own albums (`public/resources/Geneva2026`, `IntroRoboticsWorkshop`,
+  `SpikePrime` and others), cropped and saved as WebP. Captions follow the news items in `src/pages/news.tsx`.
 - **3D model** (`robocore-v2.glb`, 0.9 MB): `RoboCore_Event_Branding/3d/robot_v36.glb` (17 MB) through
   `scripts/robocore/glb_web.py` in Blender. It drops parts that touch nothing (the Fusion model has a capacitor floating
   51 mm above the board), merges same-colour materials, decimates the big parts to about 220k triangles in all, joins
