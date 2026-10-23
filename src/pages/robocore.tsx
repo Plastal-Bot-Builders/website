@@ -1,5 +1,5 @@
 import React, { Suspense, lazy, useCallback, useEffect, useRef, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import type { IconType } from 'react-icons';
 import {
   LuActivity,
@@ -26,9 +26,10 @@ import { SiGooglechrome, SiMicrosoftedge } from 'react-icons/si';
 import { SEOConfig } from '../components/SEO';
 import AppIcon from '../components/RoboCore/AppIcon';
 import RoboCoreLogo from '../components/RoboCore/RoboCoreLogo';
+import Gallery, { GalleryItem } from '../components/RoboCore/Gallery';
 import Supporters from '../components/RoboCore/Supporters';
 import Tile from '../components/RoboCore/Tile';
-import { CONTACT, LINKEDIN, scrollToSection } from '../components/RoboCore/shared';
+import { CONTACT, LINKEDIN, scrollToSection, useScrollToHash } from '../components/RoboCore/shared';
 import { asset } from '../utils/asset';
 
 // three.js only downloads when the hero is ready for it.
@@ -43,6 +44,18 @@ const PILLARS: [string, IconType, string][] = [
   ['Build', LuBot, 'Put together a real robot: motors, sensors, an arm and a smart controller.'],
   ['Code', LuPuzzle, 'Drag blocks or write Arduino C++ in the RoboCore IDE, right in your browser.'],
   ['Create', LuZap, 'Make it drive, follow lines, dodge obstacles and play music.'],
+];
+
+/** The "See it" gallery: the MIT Solve pitch video (Fred's YouTube channel) first, then the renders. */
+const GALLERY: GalleryItem[] = [
+  { kind: 'video', youtube: '_jnTEealU_8', title: 'RoboCore: A Low-Cost Robotics Kit Designed in Zambia (MIT Solve 2027 pitch)', poster: 'pitch-video-poster.webp' },
+  { kind: 'image', src: 'robot-hero.webp', alt: 'The RoboCore V2 robot: yellow, on two wheels, with an arm, a gripper and a distance sensor', w: 1400, h: 930, contain: true },
+  { kind: 'image', src: 'robot-iso-fr.webp', alt: 'RoboCore V2 from the front right', w: 1000, h: 667, contain: true },
+  { kind: 'image', src: 'robot-arm-motion.webp', alt: 'The arm in its three positions: down at the floor, carrying, and straight up', w: 892, h: 813, contain: true },
+  { kind: 'image', src: 'robocore-controller-hero-front.webp', alt: 'The RoboCore V2 controller board from the connector edge', w: 1600, h: 1067, contain: true },
+  { kind: 'image', src: 'robocore-controller-macro-esp32.webp', alt: 'Close-up of the ESP32-S3 module on the controller', w: 1600, h: 1067, contain: true },
+  { kind: 'image', src: 'robocore-controller-bottom.webp', alt: 'The back of the controller: RoboCore Zambia, Plastal-Bot Builders, Designed in Zambia 2026, and every pin name', w: 1600, h: 1440, contain: true },
+  { kind: 'image', src: 'kit-box-open.webp', alt: 'The RoboCore V2 kit box, open', w: 900, h: 1067, contain: true },
 ];
 
 /** Blocks made for the robot, as they read in the IDE. */
@@ -185,12 +198,7 @@ const HeroRobot: React.FC = () => {
  */
 const RoboCorePage: React.FC = () => {
   // Opened as /robocore#inside (from another RoboCore page, a QR code or a link): go to that section.
-  const { hash } = useLocation();
-  useEffect(() => {
-    if (!hash) return;
-    const t = window.setTimeout(() => scrollToSection(hash.slice(1), false), 60);
-    return () => window.clearTimeout(t);
-  }, [hash]);
+  useScrollToHash();
 
   return (
     <>
@@ -270,6 +278,20 @@ const RoboCorePage: React.FC = () => {
         </div>
       </section>
 
+      {/* ---------- see it: the pitch video and the renders ---------- */}
+      <section id="see" className="rc-section rc-section--bento" style={{ paddingTop: 0 }} aria-labelledby="rc-see">
+        <div className="rc-wrap">
+          <div className="rc-section-head">
+            <p className="rc-eyebrow">See it</p>
+            <h2 id="rc-see" className="rc-h2">
+              RoboCore up close
+            </h2>
+            <p className="rc-lead">Watch our pitch, then look around the robot, its board and the box.</p>
+          </div>
+          <Gallery items={GALLERY} label="RoboCore pictures and video" />
+        </div>
+      </section>
+
       {/* ---------- inside the kit ---------- */}
       <section id="inside" className="rc-section rc-section--bento" aria-labelledby="rc-inside">
         <div className="rc-wrap">
@@ -338,6 +360,9 @@ const RoboCorePage: React.FC = () => {
             <Tile span="rc-c5 rc-r2 rc-full-md" tone="soft">
               <TileArt src="kit-box-open.webp" alt="The RoboCore V2 box, open" w={900} h={1067} />
               <h3 className="rc-tile-title">The kit box</h3>
+              <Link className="rc-link rc-tile-foot" to="/robocore/hardware#kit">
+                What’s in the kit
+              </Link>
             </Tile>
             <Tile span="rc-c4 rc-r2">
               <TileArt src="chassis.webp" w={800} h={609} line />

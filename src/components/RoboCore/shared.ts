@@ -1,4 +1,6 @@
 /** Shared by the RoboCore frame (RoboCoreLayout) and its pages. */
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 export const CONTACT = 'info@plastalbotbuilders.com';
 export const LINKEDIN = 'https://www.linkedin.com/company/plastal-bot-builders/';
@@ -68,4 +70,17 @@ export function scrollToSection(id: string, smooth = true): boolean {
   const motion = smooth && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   el.scrollIntoView({ behavior: motion ? 'smooth' : 'auto', block: 'start' });
   return true;
+}
+
+/**
+ * For a page opened as /robocore/...#section (from another RoboCore page, a QR code or a link): scroll to that section
+ * once the page has rendered.
+ */
+export function useScrollToHash(): void {
+  const { hash } = useLocation();
+  useEffect(() => {
+    if (!hash) return;
+    const t = window.setTimeout(() => scrollToSection(hash.slice(1), false), 60);
+    return () => window.clearTimeout(t);
+  }, [hash]);
 }

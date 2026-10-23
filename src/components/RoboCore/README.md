@@ -26,6 +26,7 @@ check new tiles at 1440, 800 and 390 px for gaps.
 | `src/components/RoboCore/Tile.tsx` | One bento tile, used by every RoboCore page. |
 | `src/components/RoboCore/SubHero.tsx` | The yellow opening card of a subpage (IDE, Hardware, Vision). |
 | `src/components/RoboCore/AppIcon.tsx` | The RoboCore IDE's app icon (Geared Ring), wherever the IDE is offered. |
+| `src/components/RoboCore/Gallery.tsx` | Pictures and the pitch video with thumbnails (overview, "See it"). |
 | `src/components/RoboCore/Supporters.tsx` | The "Supported by" row with the supporters' logos (overview and vision). |
 | `src/components/RoboCore/shared.ts` | Contact details, the maker line, and scrolling to a section. |
 | `src/components/RoboCore/robocore.css` | All its styles, scoped to `.rc`; the Barlow `@font-face` rules. |
@@ -81,8 +82,21 @@ the stand, the flyer and the website say the same thing. The rules:
   lists the shots and the part-position files). Use the `web/` copies; don't edit them, ask the PCB chat for new shots.
   The `robocore-controller-crop-*` close-ups are cut from `full/robocore-controller-top.png` (40 px per mm) at the boxes in
   `robocore-controller-top-parts.json`.
-- **Board and robot** (`board-v1`, `robot-front`, `robot-left`, `robot-top`, `arm-poses`): KiCad 3D
+- **Board and robot** (`board-v1`, `robot-front`, `robot-left`, `robot-top`): KiCad 3D
   renders of the boards and orthographic renders of the Fusion model, on transparent backgrounds.
+- **Arm motion** (`robot-arm-motion`): the three arm poses from `RoboCore_V2/docs/posters/src_robot/arm_poses.png` (Fusion
+  renders, 1000 px apart) stacked on the chassis, the carrying pose solid and the floor and up poses at 30 %. The arrow and
+  labels are drawn in the page (`ArmMotion` in `robocore-hardware.tsx`), centred on the shoulder joint.
+- **Kit parts** (`kit-*`): Blender renders of single parts of the robot model (`RoboCore_Event_Branding/3d/robot_v36.glb`)
+  with the event renders' studio set-up (`render_views.py`, one part kept at a time; the motor's CAD red rendered as dark
+  plastic) and the floor shadow faded towards the edges. The line sensor is the existing drawing: the kit uses a bought-in
+  module, not the RoboCore line-sensor board in the model. The list follows `RoboCore_V2/docs/RoboCore_V2_component_list.xlsx`.
+- **Pitch video** (`pitch-video-poster`): the YouTube thumbnail of the MIT Solve pitch (Fred's channel, `_jnTEealU_8`). The
+  gallery loads `youtube-nocookie.com` only on play; `public/_headers` allows that frame (`frame-src`) and lets it autoplay
+  and use encrypted media (Permissions-Policy).
+- **Downloads** (`downloads/`): `RoboCore-V2-pinout.pdf` is pages 1–2 of `RoboCore_V2/docs/posters/RoboCore_posters_A4.pdf`
+  (board overview; connectors, expansion headers and GPIO map). `RoboCore-Arduino-library.zip` is `firmware/RoboCore` from
+  the robocore-ide repository (`git archive`, with its 16 examples). Rebuild both when the sources change.
 - **IDE features** (`ide-feat-*`): crops of the RoboCore IDE (the app built from the Figma design, file
   `P7i2WBM8G96B2fTPHpp8yi`), captured from the web build at 1440 × 1000, 2×, with the Blink LED project; a few are
   composites of two parts of the same screen (`verify`, `explain`, `cog-blocks`) or of the two themes (`themes`).

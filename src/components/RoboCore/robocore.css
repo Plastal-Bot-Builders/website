@@ -487,6 +487,56 @@ html.dark .rc .rc-tile--navy { border-color: var(--rc-line); }
 .rc-marks--sm svg { width: 22px; height: 22px; opacity: 0.85; }
 .rc-sensors--two { flex: 1; grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
+/* Visually hidden, read by screen readers */
+.rc-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Gallery: one big picture and a row of thumbnails; the video loads only on play */
+.rc-gallery { display: grid; gap: 12px; }
+.rc-gallery-stage { position: relative; aspect-ratio: 16 / 9; border-radius: 20px; overflow: hidden; background: var(--rc-soft); }
+.rc-gallery-stage > img, .rc-gallery-stage > iframe, .rc-gallery-play { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.rc-gallery-stage > img { object-fit: cover; }
+.rc-gallery-stage > img.is-contain { object-fit: contain; padding: 4% 6%; }
+.rc-gallery-play { padding: 0; cursor: pointer; background: #000; }
+.rc-gallery-play img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.rc-gallery-play-icon {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  display: grid; place-items: center; width: 84px; height: 84px; border-radius: 50%;
+  background: var(--rc-yellow); color: var(--rc-navy); font-size: 34px; box-shadow: 0 10px 30px rgba(15, 24, 40, 0.35);
+  transition: transform 0.15s ease;
+}
+.rc-gallery-play:hover .rc-gallery-play-icon { transform: translate(-50%, -50%) scale(1.06); }
+.rc-gallery-play:focus-visible { outline: 3px solid var(--rc-yellow); outline-offset: -3px; }
+.rc-gallery-caption { margin: 0; font-size: 15px; color: var(--rc-muted); }
+.rc-gallery-thumbs { display: flex; gap: 10px; overflow-x: auto; padding: 2px 2px 6px; scrollbar-width: thin; }
+.rc-gallery-thumb {
+  position: relative; flex: none; width: 112px; aspect-ratio: 4 / 3; padding: 0; border-radius: 12px; overflow: hidden; cursor: pointer;
+  border: 2px solid transparent; background: var(--rc-soft); opacity: 0.75; transition: opacity 0.15s ease, border-color 0.15s ease;
+}
+.rc-gallery-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.rc-gallery-thumb img.is-contain { object-fit: contain; padding: 6px; }
+.rc-gallery-thumb:hover { opacity: 1; }
+.rc-gallery-thumb[aria-current='true'] { opacity: 1; border-color: var(--rc-ink); }
+.rc-gallery-thumb:focus-visible { outline: 3px solid var(--rc-yellow); outline-offset: 2px; }
+.rc-gallery-thumb-play { position: absolute; inset: 0; display: grid; place-items: center; color: #fff; font-size: 26px; background: rgba(15, 24, 40, 0.35); }
+@media (max-width: 639px) { .rc-gallery-thumb { width: 84px; } .rc-gallery-play-icon { width: 64px; height: 64px; font-size: 26px; } }
+
+/* What's in the kit: a picture, a big count, the part */
+.rc-kit-pic { position: relative; flex: 1 1 auto; min-height: 150px; display: grid; place-items: center; font-size: 56px; color: var(--rc-muted); }
+.rc-tile > .rc-kit-pic { position: relative; }
+.rc-kit-pic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.rc-kit-count { margin: 4px 0 0; font: 700 44px/1 'RC Barlow Condensed', 'RC Barlow', system-ui, sans-serif; }
+.rc-kit-count span { margin-left: 2px; font-size: 0.7em; color: var(--rc-yellow-deep); }
+.rc-r2 > .rc-kit-pic { min-height: 320px; }
+
+/* The arm's swing: the poses with an arrow on the shoulder */
+.rc-arm-motion { display: block; width: 100%; height: auto; max-height: 360px; color: var(--rc-ink); }
+.rc-arm-label { font: 600 30px 'RC Barlow Condensed', 'RC Barlow', system-ui, sans-serif; fill: currentColor; letter-spacing: 0.04em; text-transform: uppercase; }
+
+/* The wiring note */
+.rc-wiring { border-color: var(--rc-yellow); box-shadow: inset 0 0 0 1px var(--rc-yellow); }
+.rc-wiring-list { margin: 8px 0 0; padding-left: 20px; display: grid; gap: 8px; color: var(--rc-muted); font-size: 15px; line-height: 1.45; }
+.rc-wiring-list strong { color: var(--rc-ink); }
+
 /* ---------- RoboCore header: sticky inside the site's scroll view ---------- */
 .rc-header {
   position: sticky;

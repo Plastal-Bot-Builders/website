@@ -1,12 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import type { IconType } from 'react-icons';
-import { LuArrowRight, LuBatteryCharging, LuCpu, LuGrab, LuLightbulb, LuRadio, LuSettings2 } from 'react-icons/lu';
-import { SiBluetooth, SiEspressif, SiSparkfun, SiStmicroelectronics } from 'react-icons/si';
+import {
+  LuAlertTriangle,
+  LuBatteryCharging,
+  LuCpu,
+  LuDownload,
+  LuFileText,
+  LuGrab,
+  LuLightbulb,
+  LuRadio,
+  LuSettings2,
+  LuWrench,
+} from 'react-icons/lu';
+import { SiArduino, SiBluetooth, SiEspressif, SiSparkfun, SiStmicroelectronics } from 'react-icons/si';
 import { SEOConfig } from '../components/SEO';
 import AppIcon from '../components/RoboCore/AppIcon';
 import SubHero from '../components/RoboCore/SubHero';
 import Tile from '../components/RoboCore/Tile';
+import { useScrollToHash } from '../components/RoboCore/shared';
 import { asset } from '../utils/asset';
 
 /*
@@ -166,7 +178,63 @@ const Art: React.FC<{ src: string; alt: string; w: number; h: number; tall?: boo
   </div>
 );
 
-const RoboCoreHardware: React.FC = () => (
+/**
+ * The planned kit for the pilots, one robot's worth, from RoboCore_V2/docs/RoboCore_V2_component_list.xlsx.
+ * [count, name, note, picture, width, height, picture kind]. The part renders come from the robot model (Fusion v36)
+ * with the controller renders' studio set-up; the line sensor is a drawing because the kit uses a bought-in module.
+ */
+const KIT: [string, string, string, string | null, number, number, ('render' | 'line')?][] = [
+  ['1', 'RoboCore V2 controller', 'The board on this page, assembled, with the ESP32-S3 and every port.', 'robocore-controller-hero-front.webp', 1600, 1067],
+  ['2', 'Motors with encoders', 'XRP-type gear motors (1 : 48) that drive and measure distance.', 'kit-motor.webp', 720, 536],
+  ['2', 'Metal-gear servos', 'MG90S: one lifts the arm, one works the gripper.', 'kit-servo.webp', 720, 546],
+  ['1', 'Ultrasonic sensor', 'A 3.3 V HC-SR04-type module in the sonar pod at the front.', 'kit-ultrasonic.webp', 720, 664],
+  ['1', 'Line sensor', 'A 3-channel TCRT5000-type module underneath.', 'line-sensor.webp', 480, 288, 'line'],
+  ['3', '18650 cells and holder', 'About 3000 mAh each, in parallel, charged over USB-C.', 'kit-battery.webp', 720, 489],
+  ['2', 'Wheels with TPU tyres', 'Printed wheels with soft, grippy tyres.', 'kit-wheel.webp', 527, 720],
+  ['1', 'Set of printed parts', 'Chassis, arm, gripper, sonar pod and clips, printed in PETG.', 'kit-printed.webp', 720, 492],
+  ['1', 'Screws, inserts and cables', 'M2 and M3 screws, heat-set inserts, jumper wires and two steel caster balls.', null, 0, 0],
+];
+/** Bento spans for KIT, in order: the board big, then a row of four, and the box beside the note at the end. */
+const KIT_SPANS = ['rc-c6 rc-r2 rc-full-md', 'rc-c3', 'rc-c3', 'rc-c3', 'rc-c3', 'rc-c3', 'rc-c3', 'rc-c3', 'rc-c3'];
+
+/** Files to download: the first two pages of the V2 technical reference, and the Arduino library from robocore-ide. */
+const FILES: [IconType, string, string, string, string][] = [
+  [LuFileText, 'Pinout and board overview', 'Two A4 pages: every connector, both expansion headers and the GPIO map.', 'RoboCore-V2-pinout.pdf', 'PDF · 2.2 MB'],
+  [SiArduino, 'RoboCore Arduino library', 'Motors, encoders, servos, sensors and the driving base, with 16 examples. In Arduino IDE: Sketch › Include Library › Add .ZIP Library.', 'RoboCore-Arduino-library.zip', 'ZIP · 35 KB · version 1.0.0'],
+];
+
+/**
+ * The arm's three positions in one picture: carrying in front, down at the floor and straight up faded behind it, and
+ * an arrow for the way it swings. The arc is centred on the shoulder joint (x 537, y 466 in the picture).
+ */
+const ArmMotion: React.FC = () => (
+  <svg className="rc-arm-motion" viewBox="0 0 990 813" role="img" aria-labelledby="rc-arm-motion-title">
+    <title id="rc-arm-motion-title">The arm swings from the floor, through the carrying position, to straight up</title>
+    <defs>
+      <marker id="rc-arm-head" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+        <path d="M0 0 L10 5 L0 10 Z" fill="currentColor" />
+      </marker>
+    </defs>
+    <image href={asset('resources/RoboCore/robot-arm-motion.webp')} width="892" height="813" />
+    <path
+      d="M 860 718 A 410 410 0 0 0 608 62"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="5"
+      strokeLinecap="round"
+      markerStart="url(#rc-arm-head)"
+      markerEnd="url(#rc-arm-head)"
+    />
+    <text x="868" y="782" className="rc-arm-label">Floor</text>
+    <text x="930" y="420" className="rc-arm-label">Carry</text>
+    <text x="640" y="40" className="rc-arm-label">Up</text>
+  </svg>
+);
+
+const RoboCoreHardware: React.FC = () => {
+  // Opened as /robocore/hardware#kit (from the overview's kit box): go to that section.
+  useScrollToHash();
+  return (
   <>
     <SEOConfig
       title="RoboCore V2 hardware specifications | RoboCore"
@@ -277,7 +345,7 @@ const RoboCoreHardware: React.FC = () => (
             </div>
           </Tile>
           <Tile span="rc-c8">
-            <Art src="arm-poses.webp" alt="The arm in three positions: folded down, reaching forward and raised straight up" w={1400} h={472} />
+            <ArmMotion />
             <h3 className="rc-tile-title">An arm that reaches</h3>
             <p className="rc-body">Servos lift the arm and open the gripper, so the robot can pick things up and put them down.</p>
           </Tile>
@@ -298,6 +366,67 @@ const RoboCoreHardware: React.FC = () => (
             <LuGrab className="rc-tile-icon" aria-hidden="true" />
             <h3 className="rc-tile-title">Common parts</h3>
             <p className="rc-body">Hobby servos (MG90S or SG90), encoder motors and widely available sensor modules.</p>
+          </Tile>
+        </div>
+      </div>
+    </section>
+
+    {/* ---------- what's in the kit ---------- */}
+    <section id="kit" className="rc-section rc-section--bento" style={{ paddingTop: 0 }} aria-labelledby="rc-hw-kit">
+      <div className="rc-wrap">
+        <div className="rc-section-head">
+          <p className="rc-eyebrow">The kit</p>
+          <h2 id="rc-hw-kit" className="rc-h2">
+            What’s in the box
+          </h2>
+          <p className="rc-lead">Everything one robot needs, from the parts list for the V2 prototype.</p>
+        </div>
+        <div className="rc-bento">
+          {KIT.map(([count, name, note, src, w, h, kind], i) => (
+            <Tile key={name} span={KIT_SPANS[i]} className="rc-kit">
+              <div className="rc-kit-pic">
+                {src ? (
+                  <img
+                    src={asset(`resources/RoboCore/${src}`)}
+                    alt=""
+                    width={w}
+                    height={h}
+                    loading="lazy"
+                    decoding="async"
+                    className={kind === 'line' ? 'rc-art-line' : undefined}
+                  />
+                ) : (
+                  <LuWrench aria-hidden="true" />
+                )}
+              </div>
+              <p className="rc-kit-count" aria-hidden="true">
+                {count}
+                <span>×</span>
+              </p>
+              <h3 className="rc-tile-title">
+                <span className="rc-sr">{count} × </span>
+                {name}
+              </h3>
+              <p className="rc-body">{note}</p>
+            </Tile>
+          ))}
+          <Tile span="rc-c6" className="rc-kit">
+            <div className="rc-kit-pic">
+              <img src={asset('resources/RoboCore/kit-box-open.webp')} alt="" width={900} height={1067} loading="lazy" decoding="async" />
+            </div>
+            <p className="rc-kit-count" aria-hidden="true">
+              1<span>×</span>
+            </p>
+            <h3 className="rc-tile-title">
+              <span className="rc-sr">1 × </span>Box and quick-start guide
+            </h3>
+            <p className="rc-body">A mailer box, printed inside, with a quick-start guide.</p>
+          </Tile>
+          <Tile span="rc-c6" tone="yellow" contours>
+            <h3 className="rc-tile-title">The planned pilot kit</h3>
+            <p className="rc-tile-text">
+              This is what we plan to put in each kit for the pilots. V2 is a prototype, so the contents may still change.
+            </p>
           </Tile>
         </div>
       </div>
@@ -345,22 +474,75 @@ const RoboCoreHardware: React.FC = () => (
               prototype and update them here.
             </p>
           </Tile>
-          <Tile span="rc-c12 rc-full-md" tone="navy" className="rc-tile--row">
-            <div className="rc-app-id">
-              <AppIcon size={64} className="rc-app-icon" title="" />
-              <div>
-                <h3 className="rc-tile-title">Program it in the RoboCore IDE</h3>
-                <p className="rc-body">Blocks for the motors, servos, sensors, light and sound, or Arduino C++.</p>
-              </div>
-            </div>
-            <Link className="rc-btn rc-header-cta" to="/robocore/ide">
-              About the IDE <LuArrowRight aria-hidden="true" />
+        </div>
+      </div>
+    </section>
+
+    {/* ---------- documentation and downloads ---------- */}
+    <section id="downloads" className="rc-section rc-section--bento" style={{ paddingTop: 0 }} aria-labelledby="rc-hw-files">
+      <div className="rc-wrap">
+        <div className="rc-section-head">
+          <p className="rc-eyebrow">Documentation</p>
+          <h2 id="rc-hw-files" className="rc-h2">
+            Downloads
+          </h2>
+        </div>
+        <div className="rc-bento">
+          {FILES.map(([Icon, title, text, file, meta]) => (
+            <Tile key={file} span="rc-c4">
+              <Icon className="rc-tile-icon" aria-hidden="true" />
+              <h3 className="rc-tile-title">{title}</h3>
+              <p className="rc-body">{text}</p>
+              <p className="rc-dl-file">{meta}</p>
+              <a className="rc-btn rc-btn-outline rc-tile-cta" href={asset(`resources/RoboCore/downloads/${file}`)} download={file}>
+                <LuDownload aria-hidden="true" /> Download
+              </a>
+            </Tile>
+          ))}
+          <Tile span="rc-c4 rc-full-md" tone="navy">
+            <AppIcon size={48} className="rc-app-icon" title="" />
+            <h3 className="rc-tile-title">Or use the RoboCore IDE</h3>
+            <p className="rc-body">The library and the examples are built in, with blocks for every part of the robot.</p>
+            <Link className="rc-link rc-tile-cta" to="/robocore/ide">
+              About the IDE
             </Link>
+          </Tile>
+          <Tile span="rc-c12 rc-full-md" className="rc-tile--split rc-wiring">
+            <div>
+              <LuAlertTriangle className="rc-tile-icon" aria-hidden="true" />
+              <h3 className="rc-tile-title">Plug the sensors in the right way round</h3>
+              <p className="rc-body">The sensor headers are not keyed, so a cable fits either way. Check pin 1 (3V3) before you switch on.</p>
+              <ul className="rc-wiring-list">
+                <li>
+                  <strong>Ultrasonic:</strong> 3V3, TRIG, ECHO, GND, the same order as an HC-SR04, so a straight cable fits. Use a
+                  3.3 V module such as the HC-SR04P. Plugged in backwards, the sensor is likely to be ruined within seconds.
+                </li>
+                <li>
+                  <strong>Line sensor:</strong> 3V3, GND, L, C, R. Check your module’s pin order first: modules with a comparator
+                  chip can be damaged if their supply is reversed.
+                </li>
+                <li>
+                  <strong>Servos:</strong> signal, 5.5 V, GND, with 5.5 V in the middle, so a servo plug turned round does no
+                  harm. Don’t let the plug slide one pin off the end.
+                </li>
+              </ul>
+            </div>
+            <div className="rc-shot rc-shot--render rc-shot--natural">
+              <img
+                src={asset('resources/RoboCore/robocore-controller-crop-sensors.webp')}
+                alt="The connector edge from above: the ULTRASONIC header labelled 3V3, TRIG, ECHO, GND and the LINE header labelled 3V3, GND, L, C, R"
+                width={1200}
+                height={400}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
           </Tile>
         </div>
       </div>
     </section>
   </>
-);
+  );
+};
 
 export default RoboCoreHardware;

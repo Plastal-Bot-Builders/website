@@ -29,16 +29,18 @@
   X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin-when-cross-origin
   # Deny hardware and APIs the site never uses.
-  Permissions-Policy: accelerometer=(), autoplay=(self), camera=(), display-capture=(), encrypted-media=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), usb=(), interest-cohort=()
+  Permissions-Policy: accelerometer=(), autoplay=(self "https://www.youtube-nocookie.com"), camera=(), display-capture=(), encrypted-media=("https://www.youtube-nocookie.com"), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), usb=(), interest-cohort=()
   Cross-Origin-Opener-Policy: same-origin
   # CSP — every source below is required by something real in this project:
   #   'unsafe-inline' (style)    styled-components injects runtime <style> tags
   #   'wasm-unsafe-eval'         Draco decoder (public/draco/*.wasm) for the 3D models
   #   onrender.com               the Express API this frontend calls
   #   blob: / data:              object URLs for GLB models, canvas and video
+  #   youtube-nocookie.com       the RoboCore pitch video, loaded only when someone presses play
+  #                              (privacy-enhanced YouTube; Permissions-Policy lets it autoplay and use encrypted media)
   #   cloudflareinsights.com     Cloudflare Web Analytics (visitor counts): Cloudflare
   #                              adds its beacon script from static.cloudflareinsights.com,
   #                              which reports page views to cloudflareinsights.com
   # No external style or font hosts are listed: all webfont CDNs were removed
   # (nothing referenced those families) so the policy can stay tight.
-  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self'; script-src 'self' 'wasm-unsafe-eval' 'sha256-ddSss8oywJ9kc9T3vwcVWpU4+tLFe/zrHH7GwmQP3ng=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob: https:; media-src 'self' blob:; connect-src 'self' blob: data: https://plastalbot-backend-5lf9.onrender.com https://cloudflareinsights.com; worker-src 'self' blob:; manifest-src 'self'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self'; script-src 'self' 'wasm-unsafe-eval' 'sha256-ddSss8oywJ9kc9T3vwcVWpU4+tLFe/zrHH7GwmQP3ng=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob: https:; media-src 'self' blob:; connect-src 'self' blob: data: https://plastalbot-backend-5lf9.onrender.com https://cloudflareinsights.com; worker-src 'self' blob:; frame-src https://www.youtube-nocookie.com; manifest-src 'self'; upgrade-insecure-requests
