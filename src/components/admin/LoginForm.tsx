@@ -39,7 +39,7 @@ export function LoginForm({ onLoginSuccess }: LoginFormProps) {
             <Label>Username</Label>
             <Input 
               value={username} 
-              onChange={(e) => setUsername(e.target.value)} 
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUsername(e.target.value)} 
               required 
               disabled={loading}
             />
@@ -50,7 +50,7 @@ export function LoginForm({ onLoginSuccess }: LoginFormProps) {
             <Input 
               type="password" 
               value={password} 
-              onChange={(e) => setPassword(e.target.value)} 
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)} 
               required 
               disabled={loading}
             />

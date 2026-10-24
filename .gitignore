@@ -158,3 +158,6 @@ public/resources/Geneva2026/*
 !public/resources/RoboCore/*.glb
 
 
+
+# Local state from `wrangler dev`
+.wrangler/
