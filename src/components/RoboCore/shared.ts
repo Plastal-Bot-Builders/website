@@ -18,13 +18,25 @@ export const WEB_IDE = 'https://plastal-bot-builders.github.io/robocore-ide/';
 
 export type Platform = 'mac' | 'windows' | 'linux';
 
+export interface PlatformDownload {
+  name: string;
+  file: string;
+  url: string;
+  label?: string;
+  altFile?: string;
+  altUrl?: string;
+  altLabel?: string;
+  needs: string;
+  steps: string[];
+}
+
 /**
  * The desktop app. The files are attached to the latest GitHub release of Plastal-Bot-Builders/robocore-ide, so the
  * links always fetch the newest version; the names match what that repository's CI builds (README.md here). Until a
  * release with these files exists, GitHub answers 404.
  */
 const RELEASE = 'https://github.com/Plastal-Bot-Builders/robocore-ide/releases/latest/download/';
-export const DOWNLOADS: Record<Platform, { name: string; file: string; url: string; needs: string; steps: string[] }> = {
+export const DOWNLOADS: Record<Platform, PlatformDownload> = {
   mac: {
     name: 'macOS',
     file: 'robocore-ide-macos.zip',
@@ -41,10 +53,17 @@ export const DOWNLOADS: Record<Platform, { name: string; file: string; url: stri
   },
   linux: {
     name: 'Linux',
-    file: 'robocore-ide-linux-x64.tar.gz',
-    url: RELEASE + 'robocore-ide-linux-x64.tar.gz',
-    needs: '64-bit (x86-64) Linux with GTK 3, such as Ubuntu 24.04 or newer',
-    steps: ['Extract the downloaded .tar.gz file.', 'Open the bundle folder in a terminal.', 'Run ./robocore'],
+    file: 'robocore-ide-linux-x64.rpm',
+    url: RELEASE + 'robocore-ide-linux-x64.rpm',
+    label: 'Download .rpm (Fedora)',
+    altFile: 'robocore-ide-linux-x64.tar.gz',
+    altUrl: RELEASE + 'robocore-ide-linux-x64.tar.gz',
+    altLabel: 'Download .tar.gz (other Linux)',
+    needs: '64-bit (x86-64) Linux with GTK 3, such as Fedora, Ubuntu 24.04 or newer',
+    steps: [
+      'On Fedora or RPM Linux: install the .rpm package (sudo dnf install ./robocore-ide-linux-x64.rpm), then open RoboCore from Applications.',
+      'On Ubuntu or other Linux: extract the .tar.gz file and run ./bundle/robocore.',
+    ],
   },
 };
 

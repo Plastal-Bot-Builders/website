@@ -46,11 +46,12 @@ GitHub release of `Plastal-Bot-Builders/robocore-ide`
 (`https://github.com/Plastal-Bot-Builders/robocore-ide/releases/latest/download/<file>`), so publishing a release with
 these files attached makes every button work, and later releases replace them without touching this site:
 
-| System | File to attach | From the robocore-ide CI (`native-apps` branch, `build.yml`) |
+| System | File to attach | From the robocore-ide CI (`build.yml`) |
 |---|---|---|
 | macOS | `robocore-ide-macos.zip` | the `robocore-ide-macos` artifact (RoboCore.app, zipped) |
 | Windows | `robocore-ide-windows-x64.zip` | the `robocore-ide-windows` artifact (the Release folder), zipped |
-| Linux | `robocore-ide-linux-x64.tar.gz` | the `robocore-ide-linux` artifact |
+| Linux (Fedora / RPM) | `robocore-ide-linux-x64.rpm` | the `robocore-ide-linux` artifact |
+| Linux (bundle) | `robocore-ide-linux-x64.tar.gz` | the `robocore-ide-linux` artifact |
 
 Until such a release exists GitHub answers 404. `IDE_VERSION` follows the IDE's `pubspec.yaml`; `WEB_IDE` is the IDE
 the repository publishes to GitHub Pages.

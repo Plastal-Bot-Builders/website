@@ -516,7 +516,7 @@ const ROUTES = [
           list: [
             'macOS 12 Monterey or later, Apple silicon or Intel',
             'Windows 10 or 11, 64-bit',
-            '64-bit (x86-64) Linux with GTK 3, such as Ubuntu 24.04 or newer',
+            '64-bit (x86-64) Linux with GTK 3, such as Fedora (.rpm) or Ubuntu 24.04 or newer (.tar.gz)',
           ],
         },
       ],

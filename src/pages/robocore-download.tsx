@@ -49,8 +49,13 @@ const RoboCoreDownload: React.FC = () => {
                 <>
                   <div className="rc-hero-actions">
                     <a className="rc-btn rc-btn-primary rc-btn-large" href={primary.url}>
-                      <PrimaryIcon aria-hidden="true" /> Download for {primary.name}
+                      <PrimaryIcon aria-hidden="true" /> {primary.label ?? `Download for ${primary.name}`}
                     </a>
+                    {primary.altUrl && (
+                      <a className="rc-btn rc-btn-outline rc-btn-large" href={primary.altUrl}>
+                        <LuDownload aria-hidden="true" /> {primary.altLabel ?? primary.altFile}
+                      </a>
+                    )}
                     <a
                       className="rc-btn rc-btn-outline rc-btn-large"
                       href="#platforms"
@@ -62,7 +67,7 @@ const RoboCoreDownload: React.FC = () => {
                     </a>
                   </div>
                   <p className="rc-dl-meta">
-                    {primary.file} · {primary.needs}
+                    {primary.altFile ? `${primary.file} · ${primary.altFile}` : primary.file} · {primary.needs}
                   </p>
                 </>
               ) : (
@@ -124,10 +129,15 @@ const RoboCoreDownload: React.FC = () => {
                       <li key={s}>{s}</li>
                     ))}
                   </ol>
-                  <p className="rc-dl-file">{d.file}</p>
+                  <p className="rc-dl-file">{d.altFile ? `${d.file} · ${d.altFile}` : d.file}</p>
                   <a className={`rc-btn ${isMine ? 'rc-btn-primary' : 'rc-btn-outline'} rc-tile-cta rc-platform-cta`} href={d.url}>
-                    <LuDownload aria-hidden="true" /> Download for {d.name}
+                    <LuDownload aria-hidden="true" /> {d.label ?? `Download for ${d.name}`}
                   </a>
+                  {d.altUrl && (
+                    <a className="rc-btn rc-btn-outline rc-platform-cta" href={d.altUrl}>
+                      <LuDownload aria-hidden="true" /> {d.altLabel ?? d.altFile}
+                    </a>
+                  )}
                 </Tile>
               );
             })}
