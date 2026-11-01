@@ -25,7 +25,7 @@ const SAMPLE_PROJECTS: Project[] = [
   {
     id: 'robocore',
     title: 'RoboCore — Robot Kit and Coding App',
-    short: 'A robot you build yourself, and an app to code it with blocks or Arduino C++. Designed in Zambia.',
+    short: 'A robot you build yourself, and an app to code it with blocks or Arduino C++. Made in Zambia.',
     description:
       'RoboCore is a robot you build yourself and a coding app to bring it to life. Start with drag-and-drop blocks, move on to real Arduino C++, and watch your code drive, sense and react. RoboCore V2 is our newest prototype; pilots with schools and innovation hubs in Zambia come next.',
     image: '/resources/RoboCore/robocore-card.webp',

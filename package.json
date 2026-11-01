@@ -12,7 +12,7 @@
     "server": "nodemon --env-file ./backend/.env ./backend/server.js",
     "dev": "react-scripts start",
     "generate-sitemap": "node scripts/generate-sitemap.js",
-    "prebuild": "npm run generate-sitemap",
+    "prebuild": "npm run generate-sitemap && node scripts/generate-robocore-seo.js",
     "postbuild": "node scripts/prerender.js"
   },
   "dependencies": {

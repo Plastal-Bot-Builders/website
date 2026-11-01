@@ -125,11 +125,24 @@ function pageNodes(route) {
     name: route.title,
     description: route.description,
     isPartOf: { '@id': abs('/#website') },
-    about: { '@id': abs('/#organization') },
+    about: { '@id': abs(route.path.startsWith('/robocore') ? '/robocore#project' : '/#organization') },
     primaryImageOfPage: { '@type': 'ImageObject', url: abs(image) },
     breadcrumb: { '@id': abs(`${route.path}#breadcrumbs`) },
     inLanguage: 'en',
   });
+
+  if (route.path === '/robocore/ide' || route.path === '/robocore/download') {
+    nodes.push({
+      '@type': 'SoftwareApplication', '@id': abs('/robocore/ide#software'),
+      name: 'RoboCore IDE', url: abs('/robocore/ide'),
+      description: 'A coding app with drag-and-drop blocks, Arduino C++, a simulated preview board and Cog learning assistance.',
+      applicationCategory: 'EducationalApplication',
+      operatingSystem: 'macOS, Windows, Linux, Web browser',
+      creator: { '@id': abs('/#organization') },
+      downloadUrl: abs('/robocore/download'),
+    });
+    nodes[0].mainEntity = { '@id': abs('/robocore/ide#software') };
+  }
 
   if (has('Article') && route.article) {
     nodes.push({
@@ -265,7 +278,7 @@ function headTags(route) {
     `<meta name="twitter:image" content="${esc(image)}"/>`,
     `<meta name="twitter:image:alt" content="${esc(imageAlt)}"/>`,
     `<script type="application/ld+json">${jsonLd(route)}</script>`,
-  ].join('\n    ');
+  ].map(tag => tag.replace(/^<(meta|link|script) /, '<$1 data-rh="true" ')).join('\n    ');
 }
 
 /** Readable content served to clients that don't execute JavaScript. */
@@ -368,4 +381,5 @@ function main() {
   console.log(`✅ Prerendered ${count} routes with metadata, JSON-LD and crawlable content`);
 }
 
-main();
+if (require.main === module) main();
+module.exports = { jsonLd };

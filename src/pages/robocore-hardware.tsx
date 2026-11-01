@@ -251,7 +251,7 @@ const RoboCoreHardware: React.FC = () => {
         <>
           <span className="rc-chip">ESP32-S3</span>
           <span className="rc-chip">68 × 60 mm, 4 layers</span>
-          <span className="rc-chip">Designed in Zambia</span>
+          <span className="rc-chip">Made in Zambia</span>
         </>
       }
       art={

@@ -613,3 +613,32 @@ html.dark .rc .rc-tile--navy { border-color: var(--rc-line); }
 @media (prefers-reduced-motion: reduce) {
   .rc-hero-render, .rc-hero-canvas, .rc-hint, .rc-btn { transition: none; }
 }
+
+/* Reader-first headings and routes into the kit and coding app. */
+.rc-h2, .rc-h3, .rc-tile-title {
+  text-transform: none;
+  line-height: 1.18;
+  text-wrap: balance;
+}
+.rc-sub-title, .rc-dl-title { text-transform: none; line-height: 1.08; }
+.rc-body { line-height: 1.65; }
+.rc-lead { max-width: 60ch; }
+.rc-hero-description, .rc-hero-status { margin: 0; max-width: 48ch; }
+.rc-hero-status { font-size: 15px; line-height: 1.6; }
+.rc-hero-status .rc-link { text-decoration-color: currentColor; }
+.rc-btn { min-height: 48px; height: auto; padding-top: 12px; padding-bottom: 12px; line-height: 1.3; text-align: center; }
+.rc a:focus-visible, .rc button:focus-visible { outline: 3px solid currentColor; outline-offset: 4px; }
+.rc-first-projects { padding-top: 0; }
+.rc-project-ideas { margin: 0 0 28px; padding: 0; list-style: none; }
+.rc-start-panel { display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: 28px; border-radius: 16px; background: var(--rc-soft); }
+.rc-start-panel .rc-body { margin-top: 10px; max-width: 60ch; }
+.rc-start-panel .rc-btn { flex-shrink: 0; }
+@media (max-width: 767px) {
+  .rc-start-panel { flex-direction: column; align-items: flex-start; padding: 24px; }
+  .rc-hero-actions > .rc-btn { max-width: 100%; }
+}
+
+.rc-faq { border-bottom: 1px solid var(--rc-line); padding: 20px 0; max-width: 76ch; }
+.rc-faq summary { cursor: pointer; font-weight: 600; font-size: 20px; }
+.rc-faq summary:focus-visible { outline: 3px solid currentColor; outline-offset: 4px; }
+.rc-faq .rc-body { margin-top: 12px; }

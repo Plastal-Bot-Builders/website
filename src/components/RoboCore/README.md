@@ -60,7 +60,7 @@ the repository publishes to GitHub Pages.
 The words come from the RoboCore print pieces (`COPY` in `RoboCore_Event_Branding/figma-plugin/src/02_parts.js`), so
 the stand, the flyer and the website say the same thing. The rules:
 
-- "Designed in Zambia", never "made in Zambia".
+- "Made in Zambia" (updated at the product owner’s request).
 - RoboCore V2 is a prototype; pilots with schools and innovation hubs come next. No dates, prices or sales until
   they are real.
 - Impact line: "Our team has been part of initiatives that have reached more than 8,000 young people in Zambia."

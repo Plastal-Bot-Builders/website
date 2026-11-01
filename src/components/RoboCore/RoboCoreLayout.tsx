@@ -139,7 +139,7 @@ const RoboCoreFooter: React.FC = () => (
     </div>
     <div className="rc-wrap rc-footer-base">
       <span className="rc-maker">
-        Designed in Zambia by
+        Made in Zambia by
         <img src={asset('resources/RoboCore/plastal-bot-builders-navy.svg')} alt="Plastal-Bot Builders" width={98} height={34} />
       </span>
       <span>© {new Date().getFullYear()} Plastal-Bot Builders</span>
