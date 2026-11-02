@@ -2,7 +2,7 @@
 
 ## Content and build
 
-Edit RoboCore metadata, crawler summaries and FAQ in `scripts/seo/site-manifest.js`. Keep summaries faithful to the visible pages. `npm run build` generates `src/data/robocore-seo.json`, public AI-readable resources and static HTML for all routes. Do not edit generated files by hand. The visible FAQ and client-side metadata use the generated data; JSON-LD is identical in static and browser versions.
+Edit RoboCore metadata, crawler summaries and FAQ in `scripts/seo/site-manifest.js`. Keep summaries faithful to the visible pages. `npm run build` generates `src/data/robocore-seo.json`, public AI-readable resources and static HTML for all routes. Do not edit generated files by hand. The visible FAQ and client-side metadata use the generated data; JSON-LD is identical in static and browser versions. The crawler-readable body inside `#root` is hidden by a stylesheet rule (not an inline style or the `hidden` attribute, which text extractors drop) so it never flashes before React mounts; a `<noscript>` override shows it to visitors without JavaScript.
 
 Run `node scripts/check-robocore-seo.js` after building. This checks all five routes, canonical links, structured data parity, crawler content, sitemap entries and AI-readable resources. It does not replace browser QA or a live indexing check.
 

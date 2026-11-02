@@ -18,9 +18,10 @@
  *     page-specific types such as Article, Event, Course, FAQPage, VideoObject)
  *   - real, readable body content inside #root so a non-JS client sees the page
  *
- * React replaces the fallback content when it mounts, so users see no change —
- * but the static markup also means something meaningful paints before the
- * bundle arrives.
+ * React clears the fallback content when it mounts. For clients that run
+ * JavaScript the fallback is hidden by a <style> rule until then, so its
+ * unstyled text never flashes before the bundle arrives; a <noscript> override
+ * shows it when JavaScript is off, and crawlers read the HTML regardless of CSS.
  *
  * Run automatically via `postbuild`. Add routes in scripts/seo/site-manifest.js.
  */
@@ -331,6 +332,33 @@ function fallbackBody(route) {
   return `<div id="prerendered-content">${parts.join('')}</div>`;
 }
 
+/**
+ * The fallback body is for crawlers and non-JS clients. With JavaScript on it
+ * would otherwise paint as a block of unstyled text on every hard load until
+ * React mounts — and on the SPA fallback (build/index.html, served for routes
+ * without a prerendered file such as /blogs/:slug) that text is the homepage's,
+ * whatever the URL. On a slow connection that flash lasts seconds. Hide it
+ * until React clears #root; the <noscript> override keeps it readable with
+ * JavaScript off. A stylesheet rule rather than an inline style or the hidden
+ * attribute, because some HTML-to-text extractors drop elements that look
+ * hidden inline. The CSP in public/_headers allows inline styles.
+ */
+const FALLBACK_STYLE =
+  '<style>#prerendered-content{display:none}</style>\n' +
+  '    <noscript><style>#prerendered-content{display:block}</style></noscript>';
+
+/** The shell with one route's head tags and fallback body in place of the generic ones. */
+function renderRoute(shell, route) {
+  let html = shell;
+  // Replace the generic title/description from the shell with per-route tags
+  html = html.replace(/<title>.*?<\/title>/s, '');
+  html = html.replace(/<meta\s+name="description"[^>]*\/?>/gi, '');
+  html = html.replace('</head>', `  ${headTags(route)}\n    ${FALLBACK_STYLE}\n</head>`);
+  // Give non-JS clients real content; React clears this when it mounts.
+  html = html.replace('<div id="root"></div>', `<div id="root">${fallbackBody(route)}</div>`);
+  return html;
+}
+
 // ── Main ────────────────────────────────────────────────────────────────────
 
 function main() {
@@ -350,32 +378,19 @@ function main() {
 
   let count = 0;
   for (const route of ROUTES) {
-    let html = shell;
-
-    // Replace the generic title/description from the shell with per-route tags
-    html = html.replace(/<title>.*?<\/title>/s, '');
-    html = html.replace(/<meta\s+name="description"[^>]*\/?>/gi, '');
-    html = html.replace('</head>', `  ${headTags(route)}\n</head>`);
-
-    // Give non-JS clients real content; React clears this when it mounts.
-    html = html.replace('<div id="root"></div>', `<div id="root">${fallbackBody(route)}</div>`);
-
+    const html = renderRoute(shell, route);
     const outDir = path.join(BUILD_DIR, route.path.replace(/^\//, ''));
     fs.mkdirSync(outDir, { recursive: true });
     fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf8');
     count++;
   }
 
-  // The SPA fallback (_redirects) serves build/index.html for unknown paths;
-  // give it the homepage's metadata rather than the generic shell.
+  // The Workers SPA fallback (not_found_handling: single-page-application in
+  // wrangler.jsonc) serves build/index.html for unknown paths; give it the
+  // homepage's metadata rather than the generic shell.
   const home = ROUTES.find(r => r.path === '/home');
   if (home) {
-    let html = shell;
-    html = html.replace(/<title>.*?<\/title>/s, '');
-    html = html.replace(/<meta\s+name="description"[^>]*\/?>/gi, '');
-    html = html.replace('</head>', `  ${headTags(home)}\n</head>`);
-    html = html.replace('<div id="root"></div>', `<div id="root">${fallbackBody(home)}</div>`);
-    fs.writeFileSync(shellPath, html, 'utf8');
+    fs.writeFileSync(shellPath, renderRoute(shell, home), 'utf8');
   }
 
   console.log(`✅ Prerendered ${count} routes with metadata, JSON-LD and crawlable content`);
