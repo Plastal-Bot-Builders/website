@@ -158,4 +158,4 @@ The RoboCore IDE brings blocks and Arduino C++ for the RoboCore robot to your ow
 
 - Windows 10 or 11, 64-bit
 
-- 64-bit (x86-64) Linux with GTK 3, such as Ubuntu 24.04 or newer
+- 64-bit (x86-64) Linux with GTK 3, such as Fedora (.rpm) or Ubuntu 24.04 or newer (.tar.gz)
