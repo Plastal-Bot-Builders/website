@@ -41,20 +41,21 @@ check new tiles at 1440, 800 and 390 px for gaps.
 
 ## Downloads
 
-`DOWNLOADS` in `shared.ts` sets each system's file, link, requirements and setup steps. The links point at the latest
-GitHub release of `Plastal-Bot-Builders/robocore-ide`
-(`https://github.com/Plastal-Bot-Builders/robocore-ide/releases/latest/download/<file>`), so publishing a release with
-these files attached makes every button work, and later releases replace them without touching this site:
+`DOWNLOADS` in `shared.ts` sets each system's file, link, requirements and setup steps. The links point at the GitHub
+release of `Plastal-Bot-Builders/robocore-ide` for `IDE_VERSION`
+(`https://github.com/Plastal-Bot-Builders/robocore-ide/releases/download/v<IDE_VERSION>/<file>`). The robocore-ide CI
+attaches these files when a version tag is pushed (the `windows` and `release-assets` jobs in `build.yml`):
 
-| System | File to attach | From the robocore-ide CI (`build.yml`) |
-|---|---|---|
-| macOS | `robocore-ide-macos.zip` | the `robocore-ide-macos` artifact (RoboCore.app, zipped) |
-| Windows | `robocore-ide-windows-x64.zip` | the `robocore-ide-windows` artifact (the Release folder), zipped |
-| Linux (Fedora / RPM) | `robocore-ide-linux-x64.rpm` | the `robocore-ide-linux` artifact |
-| Linux (bundle) | `robocore-ide-linux-x64.tar.gz` | the `robocore-ide-linux` artifact |
+| System | File on the release |
+|---|---|
+| macOS, Apple silicon | `RoboCore-<version>-mac-apple-silicon.dmg` (with the compilers, works offline) |
+| macOS, Intel | `RoboCore-<version>-mac-intel.dmg` |
+| Windows | `RoboCore-Setup-<version>.exe` (installer) |
+| Linux (Fedora / RPM) | `RoboCore-<version>-linux-x64.rpm` |
+| Linux (bundle) | `RoboCore-<version>-linux-x64.tar.gz` |
 
-Until such a release exists GitHub answers 404. `IDE_VERSION` follows the IDE's `pubspec.yaml`; `WEB_IDE` is the IDE
-the repository publishes to GitHub Pages.
+The names carry the version, so after a new IDE release raise `IDE_VERSION` here to the release's version (its
+`pubspec.yaml`), check the links, and deploy. `WEB_IDE` is the IDE the repository publishes to GitHub Pages.
 
 ## Copy
 

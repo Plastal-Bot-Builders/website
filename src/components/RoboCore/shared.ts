@@ -11,7 +11,7 @@ export const ABOUT =
   'people learn engineering by building real things.';
 
 /** The RoboCore IDE's version (its pubspec.yaml), shown on the download page. */
-export const IDE_VERSION = '1.0.0';
+export const IDE_VERSION = '1.0.2';
 
 /** The IDE in the browser, published by the robocore-ide repository to GitHub Pages. */
 export const WEB_IDE = 'https://plastal-bot-builders.github.io/robocore-ide/';
@@ -31,37 +31,55 @@ export interface PlatformDownload {
 }
 
 /**
- * The desktop app. The files are attached to the latest GitHub release of Plastal-Bot-Builders/robocore-ide, so the
- * links always fetch the newest version; the names match what that repository's CI builds (README.md here). Until a
- * release with these files exists, GitHub answers 404.
+ * The desktop app: the files the robocore-ide CI attaches to the GitHub release of version IDE_VERSION (its
+ * release-assets job names them RoboCore-<version>-…). Their names carry the version, so a new release needs
+ * IDE_VERSION raised here (README.md here).
  */
-const RELEASE = 'https://github.com/Plastal-Bot-Builders/robocore-ide/releases/latest/download/';
+const RELEASE = `https://github.com/Plastal-Bot-Builders/robocore-ide/releases/download/v${IDE_VERSION}/`;
+const MAC = `RoboCore-${IDE_VERSION}-mac-apple-silicon.dmg`;
+const MAC_INTEL = `RoboCore-${IDE_VERSION}-mac-intel.dmg`;
+const WINDOWS = `RoboCore-Setup-${IDE_VERSION}.exe`;
+const RPM = `RoboCore-${IDE_VERSION}-linux-x64.rpm`;
+const TARBALL = `RoboCore-${IDE_VERSION}-linux-x64.tar.gz`;
 export const DOWNLOADS: Record<Platform, PlatformDownload> = {
   mac: {
     name: 'macOS',
-    file: 'robocore-ide-macos.zip',
-    url: RELEASE + 'robocore-ide-macos.zip',
-    needs: 'macOS 12 Monterey or later, Apple silicon or Intel',
-    steps: ['Open the downloaded .zip file.', 'Drag RoboCore into your Applications folder.', 'Open RoboCore from Applications.'],
+    file: MAC,
+    url: RELEASE + MAC,
+    label: 'Download for Apple silicon',
+    altFile: MAC_INTEL,
+    altUrl: RELEASE + MAC_INTEL,
+    altLabel: 'Download for Intel Macs',
+    needs: 'macOS 12 Monterey or later. About 420 MB: the compilers come inside, so it works offline.',
+    steps: [
+      'Pick your Mac: in Apple menu > About This Mac, a Chip line means Apple silicon; a Processor line naming Intel means Intel.',
+      'Open the downloaded .dmg file and drag RoboCore into Applications.',
+      'Open RoboCore from Applications. The first time, macOS may stop it because Apple has not checked it yet: open System Settings, then Privacy & Security, and click Open Anyway.',
+      'On an Apple silicon Mac, the Arduino Uno needs Apple’s Rosetta. RoboCore tells you how to install it the first time you build for the Uno.',
+    ],
   },
   windows: {
     name: 'Windows',
-    file: 'robocore-ide-windows-x64.zip',
-    url: RELEASE + 'robocore-ide-windows-x64.zip',
+    file: WINDOWS,
+    url: RELEASE + WINDOWS,
     needs: 'Windows 10 or 11, 64-bit',
-    steps: ['Unzip the downloaded file.', 'Open the RoboCore folder.', 'Run RoboCore.exe. Keep it with the other files in its folder.'],
+    steps: [
+      'Run the downloaded installer.',
+      'If Windows says it protected your PC, click More info, then Run anyway.',
+      'Open RoboCore from the Start menu.',
+    ],
   },
   linux: {
     name: 'Linux',
-    file: 'robocore-ide-linux-x64.rpm',
-    url: RELEASE + 'robocore-ide-linux-x64.rpm',
+    file: RPM,
+    url: RELEASE + RPM,
     label: 'Download .rpm (Fedora)',
-    altFile: 'robocore-ide-linux-x64.tar.gz',
-    altUrl: RELEASE + 'robocore-ide-linux-x64.tar.gz',
+    altFile: TARBALL,
+    altUrl: RELEASE + TARBALL,
     altLabel: 'Download .tar.gz (other Linux)',
     needs: '64-bit (x86-64) Linux with GTK 3, such as Fedora, Ubuntu 24.04 or newer',
     steps: [
-      'On Fedora or RPM Linux: install the .rpm package (sudo dnf install ./robocore-ide-linux-x64.rpm), then open RoboCore from Applications.',
+      `On Fedora or RPM Linux: install the .rpm package (sudo dnf install ./${RPM}), then open RoboCore from Applications.`,
       'On Ubuntu or other Linux: extract the .tar.gz file and run ./bundle/robocore.',
     ],
   },

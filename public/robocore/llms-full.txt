@@ -154,8 +154,8 @@ The RoboCore IDE brings blocks and Arduino C++ for the RoboCore robot to your ow
 
 
 
-- macOS 12 Monterey or later, Apple silicon or Intel
+- macOS 12 Monterey or later: a .dmg for Apple silicon Macs and one for Intel Macs
 
-- Windows 10 or 11, 64-bit
+- Windows 10 or 11, 64-bit (.exe installer)
 
 - 64-bit (x86-64) Linux with GTK 3, such as Fedora (.rpm) or Ubuntu 24.04 or newer (.tar.gz)

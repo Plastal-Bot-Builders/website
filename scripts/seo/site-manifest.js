@@ -522,8 +522,8 @@ const ROUTES = [
         {
           h2: 'Systems',
           list: [
-            'macOS 12 Monterey or later, Apple silicon or Intel',
-            'Windows 10 or 11, 64-bit',
+            'macOS 12 Monterey or later: a .dmg for Apple silicon Macs and one for Intel Macs',
+            'Windows 10 or 11, 64-bit (.exe installer)',
             '64-bit (x86-64) Linux with GTK 3, such as Fedora (.rpm) or Ubuntu 24.04 or newer (.tar.gz)',
           ],
         },
