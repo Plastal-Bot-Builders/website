@@ -53,7 +53,7 @@ const VERIFIED_FACTS = {
     'Introduction to Robotics and Programming Workshop — an entry-level workshop covering electronics, Tinkercad simulation and Arduino programming',
   ],
   projects: [
-    'RoboCore — a robot kit and coding app for young makers, designed in Zambia (RoboCore V2 is a prototype)',
+    'RoboCore — a robot kit and coding app for young makers, made in Zambia (RoboCore V2 is a prototype)',
     'Gypul — a low-cost self-balancing education robot using an IMU for stabilisation and an ESP32 for control',
     'Environmental Monitoring Rover — an Arduino-based rover that logs air and water quality data',
   ],
@@ -322,7 +322,7 @@ const ROUTES = [
     schema: ['CollectionPage'],
   },
 
-  // RoboCore's own section. Copy as on the RoboCore print pieces: "designed in Zambia", V2 is a prototype,
+  // RoboCore's own section. Copy as on the RoboCore print pieces: "made in Zambia", V2 is a prototype,
   // pilots come next. No dates, prices or sales until they are real.
   {
     path: '/robocore',
@@ -330,7 +330,7 @@ const ROUTES = [
     changefreq: 'monthly',
     title: 'RoboCore — the robot kit and coding app for young makers | Plastal-Bot Builders',
     description:
-      'RoboCore is a robot you build yourself and a coding app to bring it to life: drag-and-drop blocks or Arduino C++, in the browser. Designed in Zambia by Plastal-Bot Builders.',
+      'RoboCore is a robot you build yourself and a coding app to bring it to life: drag-and-drop blocks or Arduino C++, in the browser. Made in Zambia by Plastal-Bot Builders.',
     image: '/resources/social/og-robocore.jpg',
     imageAlt:
       'Build a robot. Code it in your browser. The yellow RoboCore V2 robot beside a RoboCore IDE program made of blocks.',
@@ -338,7 +338,7 @@ const ROUTES = [
     body: {
       h1: 'RoboCore — the robot kit and coding app for young makers',
       summary:
-        'RoboCore is a robot you build yourself and a coding app to bring it to life. Start with drag-and-drop blocks, move on to real Arduino C++, and watch your code drive, sense and react. It is designed in Zambia by Plastal-Bot Builders.',
+        'RoboCore is a robot you build yourself and a coding app to bring it to life. Start with drag-and-drop blocks, move on to real Arduino C++, and watch your code drive, sense and react. It is made in Zambia by Plastal-Bot Builders.',
       sections: [
         {
           h2: 'Inside RoboCore V2',
@@ -370,7 +370,15 @@ const ROUTES = [
     faq: [
       {
         q: 'What is RoboCore?',
-        a: 'RoboCore is a robot kit and coding app for young makers, designed in Zambia by Plastal-Bot Builders. Students build the robot, then code it with drag-and-drop blocks or Arduino C++.',
+        a: 'RoboCore is a robot kit and coding app for young makers, made in Zambia by Plastal-Bot Builders. Students build the robot, then code it with drag-and-drop blocks or Arduino C++.',
+      },
+      {
+        q: 'Can I try RoboCore without a robot?',
+        a: 'Yes. The coding app includes a simulated preview board for exploring programs without physical hardware. Open the browser app in Chrome or Edge on a computer.',
+      },
+      {
+        q: 'Where is RoboCore made?',
+        a: 'RoboCore is made in Zambia by Plastal-Bot Builders. V2 is currently a prototype, with school and innovation-hub pilots planned next.',
       },
       {
         q: 'Can I buy RoboCore?',
@@ -378,7 +386,7 @@ const ROUTES = [
       },
       {
         q: 'How do you program RoboCore?',
-        a: 'With the RoboCore IDE in a web browser: blocks made for the robot, or Arduino C++. The blocks show the C++ they write.',
+        a: 'Use the RoboCore IDE on macOS, Windows or Linux, or in Chrome or Edge on a computer. Start with blocks or write Arduino C++. The blocks show the C++ they create.',
       },
     ],
     schema: ['CreativeWork'],

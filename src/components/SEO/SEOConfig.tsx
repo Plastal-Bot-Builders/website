@@ -1,5 +1,8 @@
 import React from 'react';
 import MetaTags from './MetaTags';
+import { Helmet } from 'react-helmet-async';
+import { useLocation } from 'react-router-dom';
+import roboSeo from '../../data/robocore-seo.json';
 import { OrganizationStructuredData, WebsiteStructuredData } from './StructuredData';
 import { SITE_URL } from '../../config/site';
 
@@ -24,6 +27,8 @@ const SEOConfig: React.FC<SEOConfigProps> = ({
   includeOrganizationData = false,
   includeWebsiteData = false
 }) => {
+const { pathname } = useLocation();
+const robo = roboSeo[pathname.replace(/\/+$/, '') as keyof typeof roboSeo];
 const organizationData = {
   name: "Plastal-Bot Builders",
   url: SITE_URL,
@@ -46,14 +51,15 @@ const websiteData = {
   return (
     <>
       <MetaTags
-        title={title}
-        description={description}
+        title={robo?.title || title}
+        description={robo?.description || description}
         keywords={keywords}
-        image={image}
+        image={robo?.image || image}
         url={url}
         type={type}
       />
       
+      {robo && <Helmet><script type="application/ld+json">{JSON.stringify(robo.graph).replace(/</g, '\\u003c')}</script></Helmet>}
       {includeOrganizationData && (
         <OrganizationStructuredData {...organizationData} />
       )}

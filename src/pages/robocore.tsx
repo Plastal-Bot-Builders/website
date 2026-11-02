@@ -1,3 +1,4 @@
+import roboSeo from '../data/robocore-seo.json';
 import React, { Suspense, lazy, useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import type { IconType } from 'react-icons';
@@ -29,7 +30,7 @@ import RoboCoreLogo from '../components/RoboCore/RoboCoreLogo';
 import Gallery, { GalleryItem } from '../components/RoboCore/Gallery';
 import Supporters from '../components/RoboCore/Supporters';
 import Tile from '../components/RoboCore/Tile';
-import { CONTACT, LINKEDIN, scrollToSection, useScrollToHash } from '../components/RoboCore/shared';
+import { CONTACT, LINKEDIN, WEB_IDE, scrollToSection, useScrollToHash } from '../components/RoboCore/shared';
 import { asset } from '../utils/asset';
 
 // three.js only downloads when the hero is ready for it.
@@ -37,7 +38,7 @@ const RobotViewer = lazy(() => import('../components/RoboCore/RobotViewer'));
 
 /*
  * Copy: the same lines as the RoboCore print pieces (COPY in RoboCore_Event_Branding/figma-plugin/src/02_parts.js),
- * so the stand, the flyer and the website say the same thing. Rules: "designed in Zambia", never "made in Zambia";
+ * so the stand, the flyer and the website say the same thing. Current website wording: "Made in Zambia";
  * V2 is a prototype and pilots come next, so nothing here promises dates, prices or sales.
  */
 const PILLARS: [string, IconType, string][] = [
@@ -48,7 +49,7 @@ const PILLARS: [string, IconType, string][] = [
 
 /** The "See it" gallery: the MIT Solve pitch video (Fred's YouTube channel) first, then the renders. */
 const GALLERY: GalleryItem[] = [
-  { kind: 'video', youtube: '_jnTEealU_8', title: 'RoboCore: A Low-Cost Robotics Kit Designed in Zambia (MIT Solve 2027 pitch)', poster: 'pitch-video-poster.webp' },
+  { kind: 'video', youtube: '_jnTEealU_8', title: 'RoboCore: A Low-Cost Robotics Kit Made in Zambia (MIT Solve 2027 pitch)', poster: 'pitch-video-poster.webp' },
   { kind: 'image', src: 'robot-hero.webp', alt: 'The RoboCore V2 robot: yellow, on two wheels, with an arm, a gripper and a distance sensor', w: 1400, h: 930, contain: true },
   { kind: 'image', src: 'robot-iso-fr.webp', alt: 'RoboCore V2 from the front right', w: 1000, h: 667, contain: true },
   { kind: 'image', src: 'robot-arm-motion.webp', alt: 'The arm in its three positions: down at the floor, carrying, and straight up', w: 892, h: 813, contain: true },
@@ -204,7 +205,7 @@ const RoboCorePage: React.FC = () => {
     <>
       <SEOConfig
         title="RoboCore — the robot kit and coding app for young makers | Plastal-Bot Builders"
-        description="RoboCore is a robot you build yourself and a coding app to bring it to life: drag-and-drop blocks or Arduino C++, in the browser. Designed in Zambia by Plastal-Bot Builders."
+        description="RoboCore is a robot you build yourself and a coding app to bring it to life: drag-and-drop blocks or Arduino C++, in the browser. Made in Zambia by Plastal-Bot Builders."
         image="/resources/social/og-robocore.jpg"
       />
 
@@ -224,18 +225,20 @@ const RoboCorePage: React.FC = () => {
                 <br />
                 Create.
               </p>
-              <p className="rc-lead">The robot kit and coding app for young makers.</p>
+              <p className="rc-lead">Build a robot. Give it instructions. See your ideas move.</p>
+              <p className="rc-hero-description">A robot kit and coding app for young makers, from your first blocks to Arduino C++.</p>
               <div className="rc-hero-actions">
-                <a className="rc-btn rc-btn-primary" href="#get-involved" onClick={jumpTo('get-involved')}>
-                  Get involved <LuArrowRight aria-hidden="true" />
+                <a className="rc-btn rc-btn-primary" href={WEB_IDE} target="_blank" rel="noopener noreferrer">
+                  Try the coding app <LuArrowRight aria-hidden="true" />
                 </a>
                 <a className="rc-btn rc-btn-outline" href="#inside" onClick={jumpTo('inside')}>
-                  What’s inside
+                  Explore the kit
                 </a>
               </div>
+              <p className="rc-hero-status">V2 is a prototype. School pilots in Zambia come next. <a className="rc-link" href="#get-involved" onClick={jumpTo('get-involved')}>Ask about a pilot</a></p>
               <div className="rc-hero-actions" style={{ alignItems: 'center', gap: 18 }}>
                 <span className="rc-chip">
-                  <LuGlobe aria-hidden="true" /> Designed in Zambia
+                  <LuGlobe aria-hidden="true" /> Made in Zambia
                 </span>
                 <span className="rc-maker">
                   by
@@ -254,11 +257,11 @@ const RoboCorePage: React.FC = () => {
           <Tile span="rc-c7 rc-r2 rc-full-md" className="rc-tile--intro">
             <p className="rc-eyebrow">What is RoboCore?</p>
             <h2 id="rc-what" className="rc-h2">
-              A robot you build, and an app to bring it to life
+              Learn by making things move
             </h2>
             <p className="rc-lead">
-              RoboCore is a robot you build yourself and a coding app to bring it to life. Start with drag-and-drop blocks,
-              move on to real Arduino C++, and watch your code drive, sense and react.
+              Connect motors and sensors, then decide what your robot should do. Start with drag-and-drop blocks,
+              see the Arduino C++ they create, and experiment with how your robot moves and reacts.
             </p>
           </Tile>
           <Tile span="rc-c5 rc-r2 rc-full-md" tone="yellow" contours>
@@ -278,6 +281,26 @@ const RoboCorePage: React.FC = () => {
         </div>
       </section>
 
+      <section className="rc-section rc-section--bento rc-first-projects" aria-labelledby="rc-first-projects">
+        <div className="rc-wrap">
+          <div className="rc-section-head">
+            <p className="rc-eyebrow">Start with an idea</p>
+            <h2 id="rc-first-projects" className="rc-h2">What will you make your robot do?</h2>
+            <p className="rc-lead">Follow a line, avoid an obstacle or pick up an object. Change the instructions and discover what happens next.</p>
+          </div>
+          <ul className="rc-make rc-project-ideas">
+            {MAKE.map(([Icon, text]) => <li key={text}><Icon aria-hidden="true" />{text}</li>)}
+          </ul>
+          <div className="rc-start-panel">
+            <div>
+              <h3 className="rc-tile-title">No robot yet? Start here.</h3>
+              <p className="rc-body">Explore an example and try your code on the app’s simulated preview board. Use Chrome or Edge on a computer.</p>
+            </div>
+            <a className="rc-btn rc-btn-primary" href={WEB_IDE} target="_blank" rel="noopener noreferrer">Try the coding app <LuArrowRight aria-hidden="true" /></a>
+          </div>
+        </div>
+      </section>
+
       {/* ---------- see it: the pitch video and the renders ---------- */}
       <section id="see" className="rc-section rc-section--bento" style={{ paddingTop: 0 }} aria-labelledby="rc-see">
         <div className="rc-wrap">
@@ -286,7 +309,7 @@ const RoboCorePage: React.FC = () => {
             <h2 id="rc-see" className="rc-h2">
               RoboCore up close
             </h2>
-            <p className="rc-lead">Watch our pitch, then look around the robot, its board and the box.</p>
+            <p className="rc-lead">Meet RoboCore and explore the robot, controller and kit.</p>
           </div>
           <Gallery items={GALLERY} label="RoboCore pictures and video" />
         </div>
@@ -311,27 +334,27 @@ const RoboCorePage: React.FC = () => {
               <TileArt src="controller-board.webp" w={1000} h={590} line />
               <ul className="rc-chips">
                 <li>Wi-Fi and Bluetooth LE</li>
-                <li>8 MB flash · 2 MB PSRAM</li>
-                <li>USB-C straight to the chip</li>
+                <li>Runs the instructions you write</li>
+                <li>Upload your code over USB-C</li>
               </ul>
             </Tile>
             <Tile span="rc-c7 rc-r2 rc-full-md">
               <p className="rc-eyebrow">Sensors</p>
-              <h3 className="rc-tile-title">It sees, follows and feels</h3>
+              <h3 className="rc-tile-title">Sense the world around it</h3>
               <div className="rc-sensors">
                 <figure>
                   <TileArt src="sonar.webp" w={480} h={306} line />
-                  <figcaption>Ultrasonic distance sensor</figcaption>
+                  <figcaption>Detect obstacles with a distance sensor</figcaption>
                 </figure>
                 <figure>
                   <TileArt src="line-sensor.webp" w={480} h={288} line />
-                  <figcaption>3-channel line sensor</figcaption>
+                  <figcaption>Follow a path with a line sensor</figcaption>
                 </figure>
                 <figure>
                   <div className="rc-tile-art rc-tile-art--icon" aria-hidden="true">
                     <LuMove />
                   </div>
-                  <figcaption>Motion sensor (6-axis IMU)</figcaption>
+                  <figcaption>Sense tilt and movement</figcaption>
                 </figure>
               </div>
             </Tile>
@@ -393,15 +416,15 @@ const RoboCorePage: React.FC = () => {
               <p className="rc-eyebrow">The app</p>
             </div>
             <h2 id="rc-ide" className="rc-h2">
-              The RoboCore IDE
+              Your ideas, in blocks or code
             </h2>
-            <p className="rc-lead">Blocks or Arduino C++, on your computer or right in your browser.</p>
+            <p className="rc-lead">The RoboCore coding app (IDE) helps you write, test and upload your programs.</p>
             <div className="rc-hero-actions" style={{ alignItems: 'center', gap: '12px 24px' }}>
               <Link className="rc-btn rc-header-cta rc-btn-large" to="/robocore/download">
                 <LuDownload aria-hidden="true" /> Download the IDE
               </Link>
               <Link className="rc-link" to="/robocore/ide">
-                More about the IDE
+                Explore the coding app
               </Link>
             </div>
           </div>
@@ -426,7 +449,7 @@ const RoboCorePage: React.FC = () => {
             </Tile>
             <Tile span="rc-c4" tone="yellow">
               <p className="rc-stat">74</p>
-              <p className="rc-tile-text">blocks in 10 categories, made for the robot</p>
+              <p className="rc-tile-text">blocks for movement, sensors, lights and sound</p>
               <ul className="rc-chips">
                 {BLOCK_EXAMPLES.map((b) => (
                   <li key={b}>{b}</li>
@@ -532,6 +555,17 @@ const RoboCorePage: React.FC = () => {
         </div>
       </section>
 
+      <section className="rc-section" aria-labelledby="rc-faq">
+        <div className="rc-wrap">
+          <div className="rc-section-head"><h2 id="rc-faq" className="rc-h2">Questions about RoboCore</h2></div>
+          {roboSeo['/robocore'].faq.map(({ q, a }) => (
+            <details className="rc-faq" key={q}>
+              <summary>{q}</summary><p className="rc-body">{a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
       {/* ---------- get involved ---------- */}
       <section id="get-involved" className="rc-section rc-section--bento" aria-labelledby="rc-involve">
         <div className="rc-wrap">
@@ -547,7 +581,7 @@ const RoboCorePage: React.FC = () => {
               <h3 className="rc-tile-title">Schools and innovation hubs</h3>
               <p className="rc-tile-text">Would you like to try RoboCore with your learners? Tell us about your school or hub.</p>
               <a className="rc-btn rc-btn-primary rc-tile-cta" href={`mailto:${CONTACT}?subject=RoboCore%20pilot`}>
-                Email us <LuArrowRight aria-hidden="true" />
+                Ask about a school pilot <LuArrowRight aria-hidden="true" />
               </a>
             </Tile>
             <Tile span="rc-c3">

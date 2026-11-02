@@ -3,7 +3,8 @@ import styled from 'styled-components';
 export const AdminContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 32px 20px 64px;
+  min-height: 70vh;
   background-color: var(--bg);
   color: var(--text);
 `;
@@ -12,8 +13,10 @@ export const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+  padding-bottom: 28px;
   border-bottom: 1px solid var(--surface-border);
 `;
 
@@ -24,15 +27,21 @@ export const SelectedRowStyles = `
 
 export const TabContainer = styled.div`
   display: flex;
+  overflow-x: auto;
+  gap: 4px;
+  padding: 4px 0;
   margin-bottom: 20px;
   border-bottom: 1px solid var(--surface-border);
 `;
 
 export const Tab = styled.button<{ $active: boolean }>`
-  padding: 10px 20px;
+  flex-shrink: 0;
+  min-height: 48px;
+  padding: 12px 18px;
   background: transparent;
   border: none;
-  border-bottom: 2px solid ${props => props.$active ? 'var(--accent)' : 'transparent'};
+  border-radius: 8px 8px 0 0;
+  border-bottom: 3px solid ${props => props.$active ? 'var(--accent)' : 'transparent'};
   color: ${props => props.$active ? 'var(--accent)' : 'var(--text)'};
   cursor: pointer;
   font-weight: ${props => props.$active ? 'bold' : 'normal'};
@@ -57,9 +66,7 @@ export const Panel = styled.div`
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   border: 1px solid var(--surface-border);
   
-  &:hover {
-    background-color: var(--surface-hover-bg);
-  }
+  @media (max-width: 600px) { padding: 16px; }
 `;
 
 export const FormGroup = styled.div`
@@ -181,8 +188,8 @@ export const Badge = styled.span<{ type: 'pending' | 'approved' | 'rejected' }>`
 `;
 
 export const ErrorMessage = styled.div`
-  color: #e53e3e;
-  padding: 10px;
+  color: #991b1b;
+  padding: 14px 16px;
   margin-bottom: 15px;
   background-color: #fee2e2;
   border-radius: 4px;
@@ -214,7 +221,7 @@ export const StatsCard = styled.div`
   padding: 20px;
   background-color: var(--surface-bg);
   border-radius: 8px;
-  text-align: center;
+  text-align: left;
   border: 1px solid var(--surface-border);
   transition: transform 0.2s ease, border-color 0.2s ease;
   

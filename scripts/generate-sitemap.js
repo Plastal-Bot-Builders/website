@@ -29,7 +29,7 @@ const config = {
 
 // Generate sitemap XML
 function generateSitemap() {
-  const currentDate = new Date().toISOString().split('T')[0];
+  // Omit lastmod until a reliable per-page content modification date is available.
   
   let sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -38,7 +38,6 @@ function generateSitemap() {
   config.routes.forEach(route => {
     sitemapContent += `  <url>
     <loc>${config.baseUrl}${route.path}</loc>
-    <lastmod>${currentDate}</lastmod>
     <changefreq>${route.changefreq}</changefreq>
     <priority>${route.priority}</priority>
   </url>
@@ -55,7 +54,17 @@ function generateSitemap() {
 
 // Generate robots.txt
 function generateRobotsTxt() {
-  const robotsContent = `User-agent: *
+  const robotsContent = `# Public pages remain accessible to search and AI-search crawlers.
+User-agent: *
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Claude-SearchBot
 Allow: /
 
 Sitemap: ${config.baseUrl}/sitemap.xml

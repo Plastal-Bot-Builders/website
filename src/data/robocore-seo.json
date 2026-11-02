@@ -1,0 +1,680 @@
+{
+  "/robocore": {
+    "title": "RoboCore — the robot kit and coding app for young makers | Plastal-Bot Builders",
+    "description": "RoboCore is a robot you build yourself and a coding app to bring it to life: drag-and-drop blocks or Arduino C++, in the browser. Made in Zambia by Plastal-Bot Builders.",
+    "image": "/resources/social/og-robocore.jpg",
+    "graph": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": [
+            "Organization",
+            "EducationalOrganization"
+          ],
+          "@id": "https://www.plastalbotbuilders.com/#organization",
+          "name": "Plastal-Bot Builders",
+          "legalName": "Plastal-Bot Builders",
+          "description": "Plastal-Bot Builders is a youth robotics and STEM education organisation based in Lusaka, Zambia. It runs hands-on robotics workshops, bootcamps and community outreach programmes, builds open student engineering projects, and represents Zambia at international robotics competitions.",
+          "url": "https://www.plastalbotbuilders.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.plastalbotbuilders.com/resources/Logo/fred.svg"
+          },
+          "email": "info@plastalbotbuilders.com",
+          "telephone": "+260 975 608103",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Lusaka",
+            "addressCountry": "ZM"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "Zambia"
+          },
+          "knowsAbout": [
+            "Robotics education",
+            "STEM education",
+            "Embedded systems",
+            "Arduino",
+            "LEGO Spike Prime",
+            "Youth innovation"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/company/plastal-bot-builders/",
+            "https://www.facebook.com/plastalbotbuiders",
+            "https://medium.com/@plastalbotbuilders",
+            "https://www.instagram.com"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.plastalbotbuilders.com/#website",
+          "name": "Plastal-Bot Builders",
+          "description": "Plastal-Bot Builders is a youth robotics and STEM education organisation based in Lusaka, Zambia. It runs hands-on robotics workshops, bootcamps and community outreach programmes, builds open student engineering projects, and represents Zambia at international robotics competitions.",
+          "url": "https://www.plastalbotbuilders.com/",
+          "publisher": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          },
+          "inLanguage": "en",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://www.plastalbotbuilders.com/news?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.plastalbotbuilders.com/robocore#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.plastalbotbuilders.com/home"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "RoboCore",
+              "item": "https://www.plastalbotbuilders.com/robocore"
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.plastalbotbuilders.com/robocore#webpage",
+          "url": "https://www.plastalbotbuilders.com/robocore",
+          "name": "RoboCore — the robot kit and coding app for young makers | Plastal-Bot Builders",
+          "description": "RoboCore is a robot you build yourself and a coding app to bring it to life: drag-and-drop blocks or Arduino C++, in the browser. Made in Zambia by Plastal-Bot Builders.",
+          "isPartOf": {
+            "@id": "https://www.plastalbotbuilders.com/#website"
+          },
+          "about": {
+            "@id": "https://www.plastalbotbuilders.com/robocore#project"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.plastalbotbuilders.com/resources/social/og-robocore.jpg"
+          },
+          "breadcrumb": {
+            "@id": "https://www.plastalbotbuilders.com/robocore#breadcrumbs"
+          },
+          "inLanguage": "en"
+        },
+        {
+          "@type": "CreativeWork",
+          "@id": "https://www.plastalbotbuilders.com/robocore#project",
+          "name": "RoboCore — the robot kit and coding app for young makers",
+          "description": "RoboCore is a robot you build yourself and a coding app to bring it to life: drag-and-drop blocks or Arduino C++, in the browser. Made in Zambia by Plastal-Bot Builders.",
+          "creator": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          },
+          "image": "https://www.plastalbotbuilders.com/resources/social/og-robocore.jpg"
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.plastalbotbuilders.com/robocore#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is RoboCore?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "RoboCore is a robot kit and coding app for young makers, made in Zambia by Plastal-Bot Builders. Students build the robot, then code it with drag-and-drop blocks or Arduino C++."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I try RoboCore without a robot?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. The coding app includes a simulated preview board for exploring programs without physical hardware. Open the browser app in Chrome or Edge on a computer."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where is RoboCore made?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "RoboCore is made in Zambia by Plastal-Bot Builders. V2 is currently a prototype, with school and innovation-hub pilots planned next."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I buy RoboCore?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Not yet. RoboCore V2 is a prototype. Pilots with schools and innovation hubs in Zambia come next."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do you program RoboCore?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Use the RoboCore IDE on macOS, Windows or Linux, or in Chrome or Edge on a computer. Start with blocks or write Arduino C++. The blocks show the C++ they create."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "faq": [
+      {
+        "q": "What is RoboCore?",
+        "a": "RoboCore is a robot kit and coding app for young makers, made in Zambia by Plastal-Bot Builders. Students build the robot, then code it with drag-and-drop blocks or Arduino C++."
+      },
+      {
+        "q": "Can I try RoboCore without a robot?",
+        "a": "Yes. The coding app includes a simulated preview board for exploring programs without physical hardware. Open the browser app in Chrome or Edge on a computer."
+      },
+      {
+        "q": "Where is RoboCore made?",
+        "a": "RoboCore is made in Zambia by Plastal-Bot Builders. V2 is currently a prototype, with school and innovation-hub pilots planned next."
+      },
+      {
+        "q": "Can I buy RoboCore?",
+        "a": "Not yet. RoboCore V2 is a prototype. Pilots with schools and innovation hubs in Zambia come next."
+      },
+      {
+        "q": "How do you program RoboCore?",
+        "a": "Use the RoboCore IDE on macOS, Windows or Linux, or in Chrome or Edge on a computer. Start with blocks or write Arduino C++. The blocks show the C++ they create."
+      }
+    ]
+  },
+  "/robocore/ide": {
+    "title": "The RoboCore IDE: blocks, Arduino C++ and Cog | RoboCore",
+    "description": "The RoboCore IDE: robot blocks or Arduino C++, Cog the learning partner, a preview board, and support for RoboCore V2, Arduino Uno and ESP32 boards.",
+    "image": "/resources/social/og-robocore-ide.jpg",
+    "graph": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": [
+            "Organization",
+            "EducationalOrganization"
+          ],
+          "@id": "https://www.plastalbotbuilders.com/#organization",
+          "name": "Plastal-Bot Builders",
+          "legalName": "Plastal-Bot Builders",
+          "description": "Plastal-Bot Builders is a youth robotics and STEM education organisation based in Lusaka, Zambia. It runs hands-on robotics workshops, bootcamps and community outreach programmes, builds open student engineering projects, and represents Zambia at international robotics competitions.",
+          "url": "https://www.plastalbotbuilders.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.plastalbotbuilders.com/resources/Logo/fred.svg"
+          },
+          "email": "info@plastalbotbuilders.com",
+          "telephone": "+260 975 608103",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Lusaka",
+            "addressCountry": "ZM"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "Zambia"
+          },
+          "knowsAbout": [
+            "Robotics education",
+            "STEM education",
+            "Embedded systems",
+            "Arduino",
+            "LEGO Spike Prime",
+            "Youth innovation"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/company/plastal-bot-builders/",
+            "https://www.facebook.com/plastalbotbuiders",
+            "https://medium.com/@plastalbotbuilders",
+            "https://www.instagram.com"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.plastalbotbuilders.com/#website",
+          "name": "Plastal-Bot Builders",
+          "description": "Plastal-Bot Builders is a youth robotics and STEM education organisation based in Lusaka, Zambia. It runs hands-on robotics workshops, bootcamps and community outreach programmes, builds open student engineering projects, and represents Zambia at international robotics competitions.",
+          "url": "https://www.plastalbotbuilders.com/",
+          "publisher": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          },
+          "inLanguage": "en",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://www.plastalbotbuilders.com/news?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.plastalbotbuilders.com/robocore/ide#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.plastalbotbuilders.com/home"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "RoboCore",
+              "item": "https://www.plastalbotbuilders.com/robocore"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "IDE",
+              "item": "https://www.plastalbotbuilders.com/robocore/ide"
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.plastalbotbuilders.com/robocore/ide#webpage",
+          "url": "https://www.plastalbotbuilders.com/robocore/ide",
+          "name": "The RoboCore IDE: blocks, Arduino C++ and Cog | RoboCore",
+          "description": "The RoboCore IDE: robot blocks or Arduino C++, Cog the learning partner, a preview board, and support for RoboCore V2, Arduino Uno and ESP32 boards.",
+          "isPartOf": {
+            "@id": "https://www.plastalbotbuilders.com/#website"
+          },
+          "about": {
+            "@id": "https://www.plastalbotbuilders.com/robocore#project"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.plastalbotbuilders.com/resources/social/og-robocore-ide.jpg"
+          },
+          "breadcrumb": {
+            "@id": "https://www.plastalbotbuilders.com/robocore/ide#breadcrumbs"
+          },
+          "inLanguage": "en",
+          "mainEntity": {
+            "@id": "https://www.plastalbotbuilders.com/robocore/ide#software"
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://www.plastalbotbuilders.com/robocore/ide#software",
+          "name": "RoboCore IDE",
+          "url": "https://www.plastalbotbuilders.com/robocore/ide",
+          "description": "A coding app with drag-and-drop blocks, Arduino C++, a simulated preview board and Cog learning assistance.",
+          "applicationCategory": "EducationalApplication",
+          "operatingSystem": "macOS, Windows, Linux, Web browser",
+          "creator": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          },
+          "downloadUrl": "https://www.plastalbotbuilders.com/robocore/download"
+        }
+      ]
+    },
+    "faq": []
+  },
+  "/robocore/hardware": {
+    "title": "RoboCore V2 hardware specifications | RoboCore",
+    "description": "The RoboCore V2 controller board and robot: ESP32-S3, encoder motor ports, four servo ports, IMU, ultrasonic and line sensor ports, USB-C charging and a 3D-printed body.",
+    "image": "/resources/social/og-robocore.jpg",
+    "graph": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": [
+            "Organization",
+            "EducationalOrganization"
+          ],
+          "@id": "https://www.plastalbotbuilders.com/#organization",
+          "name": "Plastal-Bot Builders",
+          "legalName": "Plastal-Bot Builders",
+          "description": "Plastal-Bot Builders is a youth robotics and STEM education organisation based in Lusaka, Zambia. It runs hands-on robotics workshops, bootcamps and community outreach programmes, builds open student engineering projects, and represents Zambia at international robotics competitions.",
+          "url": "https://www.plastalbotbuilders.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.plastalbotbuilders.com/resources/Logo/fred.svg"
+          },
+          "email": "info@plastalbotbuilders.com",
+          "telephone": "+260 975 608103",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Lusaka",
+            "addressCountry": "ZM"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "Zambia"
+          },
+          "knowsAbout": [
+            "Robotics education",
+            "STEM education",
+            "Embedded systems",
+            "Arduino",
+            "LEGO Spike Prime",
+            "Youth innovation"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/company/plastal-bot-builders/",
+            "https://www.facebook.com/plastalbotbuiders",
+            "https://medium.com/@plastalbotbuilders",
+            "https://www.instagram.com"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.plastalbotbuilders.com/#website",
+          "name": "Plastal-Bot Builders",
+          "description": "Plastal-Bot Builders is a youth robotics and STEM education organisation based in Lusaka, Zambia. It runs hands-on robotics workshops, bootcamps and community outreach programmes, builds open student engineering projects, and represents Zambia at international robotics competitions.",
+          "url": "https://www.plastalbotbuilders.com/",
+          "publisher": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          },
+          "inLanguage": "en",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://www.plastalbotbuilders.com/news?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.plastalbotbuilders.com/robocore/hardware#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.plastalbotbuilders.com/home"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "RoboCore",
+              "item": "https://www.plastalbotbuilders.com/robocore"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Hardware",
+              "item": "https://www.plastalbotbuilders.com/robocore/hardware"
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.plastalbotbuilders.com/robocore/hardware#webpage",
+          "url": "https://www.plastalbotbuilders.com/robocore/hardware",
+          "name": "RoboCore V2 hardware specifications | RoboCore",
+          "description": "The RoboCore V2 controller board and robot: ESP32-S3, encoder motor ports, four servo ports, IMU, ultrasonic and line sensor ports, USB-C charging and a 3D-printed body.",
+          "isPartOf": {
+            "@id": "https://www.plastalbotbuilders.com/#website"
+          },
+          "about": {
+            "@id": "https://www.plastalbotbuilders.com/robocore#project"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.plastalbotbuilders.com/resources/social/og-robocore.jpg"
+          },
+          "breadcrumb": {
+            "@id": "https://www.plastalbotbuilders.com/robocore/hardware#breadcrumbs"
+          },
+          "inLanguage": "en"
+        }
+      ]
+    },
+    "faq": []
+  },
+  "/robocore/vision": {
+    "title": "Our vision: young Zambians who build technology | RoboCore",
+    "description": "Why we are building RoboCore, what Plastal-Bot Builders has done so far, and what we hope to achieve: pilots in Zambian schools, kits assembled in Zambia, and 5,000 young people reached.",
+    "image": "/resources/social/og-robocore.jpg",
+    "graph": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": [
+            "Organization",
+            "EducationalOrganization"
+          ],
+          "@id": "https://www.plastalbotbuilders.com/#organization",
+          "name": "Plastal-Bot Builders",
+          "legalName": "Plastal-Bot Builders",
+          "description": "Plastal-Bot Builders is a youth robotics and STEM education organisation based in Lusaka, Zambia. It runs hands-on robotics workshops, bootcamps and community outreach programmes, builds open student engineering projects, and represents Zambia at international robotics competitions.",
+          "url": "https://www.plastalbotbuilders.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.plastalbotbuilders.com/resources/Logo/fred.svg"
+          },
+          "email": "info@plastalbotbuilders.com",
+          "telephone": "+260 975 608103",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Lusaka",
+            "addressCountry": "ZM"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "Zambia"
+          },
+          "knowsAbout": [
+            "Robotics education",
+            "STEM education",
+            "Embedded systems",
+            "Arduino",
+            "LEGO Spike Prime",
+            "Youth innovation"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/company/plastal-bot-builders/",
+            "https://www.facebook.com/plastalbotbuiders",
+            "https://medium.com/@plastalbotbuilders",
+            "https://www.instagram.com"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.plastalbotbuilders.com/#website",
+          "name": "Plastal-Bot Builders",
+          "description": "Plastal-Bot Builders is a youth robotics and STEM education organisation based in Lusaka, Zambia. It runs hands-on robotics workshops, bootcamps and community outreach programmes, builds open student engineering projects, and represents Zambia at international robotics competitions.",
+          "url": "https://www.plastalbotbuilders.com/",
+          "publisher": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          },
+          "inLanguage": "en",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://www.plastalbotbuilders.com/news?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.plastalbotbuilders.com/robocore/vision#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.plastalbotbuilders.com/home"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "RoboCore",
+              "item": "https://www.plastalbotbuilders.com/robocore"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Vision",
+              "item": "https://www.plastalbotbuilders.com/robocore/vision"
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.plastalbotbuilders.com/robocore/vision#webpage",
+          "url": "https://www.plastalbotbuilders.com/robocore/vision",
+          "name": "Our vision: young Zambians who build technology | RoboCore",
+          "description": "Why we are building RoboCore, what Plastal-Bot Builders has done so far, and what we hope to achieve: pilots in Zambian schools, kits assembled in Zambia, and 5,000 young people reached.",
+          "isPartOf": {
+            "@id": "https://www.plastalbotbuilders.com/#website"
+          },
+          "about": {
+            "@id": "https://www.plastalbotbuilders.com/robocore#project"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.plastalbotbuilders.com/resources/social/og-robocore.jpg"
+          },
+          "breadcrumb": {
+            "@id": "https://www.plastalbotbuilders.com/robocore/vision#breadcrumbs"
+          },
+          "inLanguage": "en"
+        }
+      ]
+    },
+    "faq": []
+  },
+  "/robocore/download": {
+    "title": "Download the RoboCore IDE for Mac, Windows and Linux | RoboCore",
+    "description": "Download the RoboCore IDE: blocks and Arduino C++ for the RoboCore robot, on Mac, Windows and Linux.",
+    "image": "/resources/social/og-robocore-ide.jpg",
+    "graph": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": [
+            "Organization",
+            "EducationalOrganization"
+          ],
+          "@id": "https://www.plastalbotbuilders.com/#organization",
+          "name": "Plastal-Bot Builders",
+          "legalName": "Plastal-Bot Builders",
+          "description": "Plastal-Bot Builders is a youth robotics and STEM education organisation based in Lusaka, Zambia. It runs hands-on robotics workshops, bootcamps and community outreach programmes, builds open student engineering projects, and represents Zambia at international robotics competitions.",
+          "url": "https://www.plastalbotbuilders.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.plastalbotbuilders.com/resources/Logo/fred.svg"
+          },
+          "email": "info@plastalbotbuilders.com",
+          "telephone": "+260 975 608103",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Lusaka",
+            "addressCountry": "ZM"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "Zambia"
+          },
+          "knowsAbout": [
+            "Robotics education",
+            "STEM education",
+            "Embedded systems",
+            "Arduino",
+            "LEGO Spike Prime",
+            "Youth innovation"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/company/plastal-bot-builders/",
+            "https://www.facebook.com/plastalbotbuiders",
+            "https://medium.com/@plastalbotbuilders",
+            "https://www.instagram.com"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.plastalbotbuilders.com/#website",
+          "name": "Plastal-Bot Builders",
+          "description": "Plastal-Bot Builders is a youth robotics and STEM education organisation based in Lusaka, Zambia. It runs hands-on robotics workshops, bootcamps and community outreach programmes, builds open student engineering projects, and represents Zambia at international robotics competitions.",
+          "url": "https://www.plastalbotbuilders.com/",
+          "publisher": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          },
+          "inLanguage": "en",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://www.plastalbotbuilders.com/news?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.plastalbotbuilders.com/robocore/download#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.plastalbotbuilders.com/home"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "RoboCore",
+              "item": "https://www.plastalbotbuilders.com/robocore"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Download",
+              "item": "https://www.plastalbotbuilders.com/robocore/download"
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.plastalbotbuilders.com/robocore/download#webpage",
+          "url": "https://www.plastalbotbuilders.com/robocore/download",
+          "name": "Download the RoboCore IDE for Mac, Windows and Linux | RoboCore",
+          "description": "Download the RoboCore IDE: blocks and Arduino C++ for the RoboCore robot, on Mac, Windows and Linux.",
+          "isPartOf": {
+            "@id": "https://www.plastalbotbuilders.com/#website"
+          },
+          "about": {
+            "@id": "https://www.plastalbotbuilders.com/robocore#project"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.plastalbotbuilders.com/resources/social/og-robocore-ide.jpg"
+          },
+          "breadcrumb": {
+            "@id": "https://www.plastalbotbuilders.com/robocore/download#breadcrumbs"
+          },
+          "inLanguage": "en",
+          "mainEntity": {
+            "@id": "https://www.plastalbotbuilders.com/robocore/ide#software"
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://www.plastalbotbuilders.com/robocore/ide#software",
+          "name": "RoboCore IDE",
+          "url": "https://www.plastalbotbuilders.com/robocore/ide",
+          "description": "A coding app with drag-and-drop blocks, Arduino C++, a simulated preview board and Cog learning assistance.",
+          "applicationCategory": "EducationalApplication",
+          "operatingSystem": "macOS, Windows, Linux, Web browser",
+          "creator": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          },
+          "downloadUrl": "https://www.plastalbotbuilders.com/robocore/download"
+        }
+      ]
+    },
+    "faq": []
+  }
+}

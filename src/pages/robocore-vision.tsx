@@ -20,7 +20,7 @@ import { asset } from '../utils/asset';
 /*
  * /robocore/vision: why RoboCore exists, what the team has done, and what it hopes to do. Wording follows the MIT Solve
  * application (theory of change) and the site's own news items. Everything not done yet is in the future tense, and
- * RoboCore is "designed in Zambia": making it here is a goal.
+ * RoboCore uses "Made in Zambia" wording, as requested by the product owner.
  */
 
 type Photo = { src: string; w: number; h: number; alt: string; caption: string; span: string };
@@ -239,7 +239,7 @@ const RoboCoreVision: React.FC = () => (
               />
             </div>
             <h3 className="rc-tile-title">RoboCore V2</h3>
-            <p className="rc-body">A new controller board, a robot with an arm and sensors, and the RoboCore IDE, designed in Zambia.</p>
+            <p className="rc-body">A new controller board, a robot with an arm and sensors, and the RoboCore IDE, made in Zambia.</p>
             <p className="rc-tile-links">
               <Link className="rc-link" to="/robocore/hardware">
                 The hardware

@@ -1,0 +1,161 @@
+# RoboCore — the robot kit and coding app for young makers
+
+Source: https://www.plastalbotbuilders.com/robocore
+
+RoboCore is a robot you build yourself and a coding app to bring it to life. Start with drag-and-drop blocks, move on to real Arduino C++, and watch your code drive, sense and react. It is made in Zambia by Plastal-Bot Builders.
+
+## Inside RoboCore V2
+
+
+
+- ESP32-S3 controller with Wi-Fi and Bluetooth
+
+- Two drive motors with encoders
+
+- Robot arm with a gripper on servo motors
+
+- Ultrasonic distance sensor
+
+- 3-channel line sensor
+
+- Motion sensor (6-axis IMU)
+
+- RGB light, buzzer and a USER button
+
+- USB-C and a rechargeable battery
+
+## The controller board
+
+The controller is an ESP32-S3 with Wi-Fi, Bluetooth LE, 8 MB of flash and 2 MB of PSRAM, on a 68 × 60 mm, 4-layer board. It has two motor ports with encoders, four servo ports, ports for the distance and line sensors, a 6-axis motion sensor, a Qwiic (I²C) port and expansion headers, and USB-C straight to the chip.
+
+## The RoboCore IDE
+
+The RoboCore IDE runs in the browser. It has blocks made for the robot, such as “move forward for 10 cm” and “when an obstacle is closer than 20 cm”, and switches to Arduino C++ whenever the student is ready: the blocks show the code they write. Programs upload over USB-C, or run on a preview board without a robot. It has 74 blocks in 10 categories and 17 example projects, and Cog, a learning partner that explains errors and gives hints.
+
+## Where RoboCore is now
+
+RoboCore V2 is the newest prototype, after the first, the self-balancing robot Gypul. Pilots with schools and innovation hubs in Zambia come next. RoboCore is supported by Mukuba UniPod (UNDP) and the Copperbelt University.
+
+## What is RoboCore?
+
+RoboCore is a robot kit and coding app for young makers, made in Zambia by Plastal-Bot Builders. Students build the robot, then code it with drag-and-drop blocks or Arduino C++.
+
+## Can I try RoboCore without a robot?
+
+Yes. The coding app includes a simulated preview board for exploring programs without physical hardware. Open the browser app in Chrome or Edge on a computer.
+
+## Where is RoboCore made?
+
+RoboCore is made in Zambia by Plastal-Bot Builders. V2 is currently a prototype, with school and innovation-hub pilots planned next.
+
+## Can I buy RoboCore?
+
+Not yet. RoboCore V2 is a prototype. Pilots with schools and innovation hubs in Zambia come next.
+
+## How do you program RoboCore?
+
+Use the RoboCore IDE on macOS, Windows or Linux, or in Chrome or Edge on a computer. Start with blocks or write Arduino C++. The blocks show the C++ they create.
+
+---
+
+# Code it your way
+
+Source: https://www.plastalbotbuilders.com/robocore/ide
+
+The RoboCore IDE lets you start with blocks made for the robot, move on to real Arduino C++, and get help from Cog, a learning partner that helps you find the answer yourself.
+
+## Blocks, then C++
+
+74 blocks in 10 categories, made for the robot. The blocks show the Arduino C++ they write, and the code editor offers suggestions, explanations and problems marked in the code.
+
+## Cog, your learning partner
+
+Cog explains errors and blocks first, then gives hints one at a time. It changes code only when you press Apply. Teachers choose the help style, and writing code for a learner needs the teacher’s PIN.
+
+## Works with the boards you have
+
+
+
+- RoboCore V2 (ESP32-S3): every block, the RoboCore library and the preview board
+
+- Arduino Uno R3 (ATmega328P): uploads through its own bootloader over USB
+
+- ESP32 DevKit V1 and NodeMCU-32S (ESP32): upload over USB
+
+---
+
+# Hardware specifications
+
+Source: https://www.plastalbotbuilders.com/robocore/hardware
+
+What is on the RoboCore V2 controller board, and the robot built around it. V2 is our newest prototype, so details may still change before the pilot kits.
+
+## The controller board
+
+
+
+- ESP32-S3-WROOM-1 (N8R2): dual-core up to 240 MHz, 8 MB flash, 2 MB PSRAM, Wi-Fi and Bluetooth LE, USB-C
+
+- 2 encoder motor ports (DRV8411A, 1.0 A per motor) and 4 servo ports at 5.5 V
+
+- LSM6DSOX 6-axis IMU, ultrasonic and 3-channel line sensor ports, Qwiic (I²C)
+
+- 1S Li-ion battery on XT30 with reverse and over-voltage cut-off; USB-C charging up to 1 A
+
+- WS2812B RGB LED, buzzer, RESET, BOOT and USER buttons, two 14-pin expansion headers
+
+- 68 × 60 mm, four layers
+
+## The robot
+
+167 × 278 × 118 mm, with two driven wheels, an arm with a gripper and a 3D-printed body.
+
+---
+
+# Young Zambians who build technology
+
+Source: https://www.plastalbotbuilders.com/robocore/vision
+
+When students build and program real machines, they learn science and engineering more deeply. When the tools are affordable and made for their classrooms, far more schools can offer that.
+
+## What we’ve done
+
+
+
+- Winners of the AI for Good National Edition (Zambia), April 2026, and finalists at the AI for Good Global Summit, Geneva, July 2026
+
+- Our team has been part of initiatives that have reached more than 8,000 young people in Zambia
+
+- Workshops and bootcamps in robotics, electronics and programming
+
+- RoboCore V1 (Gypul) and the RoboCore V2 prototype: board, robot and IDE
+
+## What we hope to achieve
+
+
+
+- Pilots with schools and innovation hubs in Zambia, measuring learners’ skills and attitudes
+
+- Kits printed, assembled and packaged in Zambia, and in time the boards too
+
+- Lessons and teacher training that fit the curriculum
+
+- 5,000 young people reached in the next three to five years
+
+---
+
+# Download the RoboCore IDE
+
+Source: https://www.plastalbotbuilders.com/robocore/download
+
+The RoboCore IDE brings blocks and Arduino C++ for the RoboCore robot to your own computer. It is available for macOS, Windows and Linux, and in the browser.
+
+## Systems
+
+
+
+- macOS 12 Monterey or later, Apple silicon or Intel
+
+- Windows 10 or 11, 64-bit
+
+- 64-bit (x86-64) Linux with GTK 3, such as Ubuntu 24.04 or newer

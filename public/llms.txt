@@ -1,0 +1,15 @@
+# Plastal-Bot Builders — RoboCore
+
+> RoboCore is a robot kit and coding app for young makers, made in Zambia. V2 is a prototype; school and innovation-hub pilots come next.
+
+## RoboCore pages
+
+- [RoboCore — the robot kit and coding app for young makers](https://www.plastalbotbuilders.com/robocore): RoboCore is a robot you build yourself and a coding app to bring it to life: drag-and-drop blocks or Arduino C++, in the browser. Made in Zambia by Plastal-Bot Builders.
+- [Code it your way](https://www.plastalbotbuilders.com/robocore/ide): The RoboCore IDE: robot blocks or Arduino C++, Cog the learning partner, a preview board, and support for RoboCore V2, Arduino Uno and ESP32 boards.
+- [Hardware specifications](https://www.plastalbotbuilders.com/robocore/hardware): The RoboCore V2 controller board and robot: ESP32-S3, encoder motor ports, four servo ports, IMU, ultrasonic and line sensor ports, USB-C charging and a 3D-printed body.
+- [Young Zambians who build technology](https://www.plastalbotbuilders.com/robocore/vision): Why we are building RoboCore, what Plastal-Bot Builders has done so far, and what we hope to achieve: pilots in Zambian schools, kits assembled in Zambia, and 5,000 young people reached.
+- [Download the RoboCore IDE](https://www.plastalbotbuilders.com/robocore/download): Download the RoboCore IDE: blocks and Arduino C++ for the RoboCore robot, on Mac, Windows and Linux.
+
+## Optional
+
+- [RoboCore text reference](https://www.plastalbotbuilders.com/robocore/llms-full.txt): Plain-text summaries of the public pages.

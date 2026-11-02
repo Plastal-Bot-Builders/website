@@ -44,7 +44,7 @@ const RoboCoreDownload: React.FC = () => {
               <h1 id="rc-dl-title" className="rc-display rc-dl-title">
                 Download the RoboCore IDE
               </h1>
-              <p className="rc-lead">Blocks and Arduino C++ on your own computer, for Mac, Windows and Linux.</p>
+              <p className="rc-lead">Build programs with blocks or Arduino C++. Available for Mac, Windows and Linux.</p>
               {primary ? (
                 <>
                   <div className="rc-hero-actions">
@@ -158,7 +158,7 @@ const RoboCoreDownload: React.FC = () => {
             <Tile span="rc-c4">
               <LuUsb className="rc-tile-icon" aria-hidden="true" />
               <h3 className="rc-tile-title">Connect the robot</h3>
-              <p className="rc-body">Plug RoboCore V2 into your computer with a USB-C cable, then press Upload in the IDE.</p>
+              <p className="rc-body">Connect RoboCore V2 with a USB-C data cable, choose your board in Board Setup, then open an example and upload it.</p>
             </Tile>
             <Tile span="rc-c4">
               <LuBot className="rc-tile-icon" aria-hidden="true" />

@@ -10,7 +10,8 @@ import { useBlogPosts } from '../components/admin/hooks/useBlogPosts';
 import { useMembers } from '../components/admin/hooks/useMembers';
 import { EventManager } from '../components/admin/EventManager';
 import { SubscribersPanel } from '../components/admin/SubscribersPanel';
-import { SEOConfig } from '../components/SEO';
+import { Helmet } from 'react-helmet-async';
+import { Button } from '../components/admin/AdminStyles';
 
 // Update type definition to include 'events'
 type TabType = 'dashboard' | 'blog' | 'members' | 'events' | 'subscribers';
@@ -24,6 +25,7 @@ export default function Admin() {
   // Add events state
   const [events, setEvents] = useState<any[]>([]);
   const [eventsLoading, setEventsLoading] = useState(false);
+  const [eventsError, setEventsError] = useState<string | null>(null);
 
   // Use custom hooks for data management
   const {
@@ -47,6 +49,7 @@ export default function Admin() {
     statusFilter: membersStatusFilter,
     applyStatusFilter: applyMembersStatusFilter,
     loadMembers,
+    loadStats,
     loadMemberDetails,
     handleUpdateMemberStatus,
     handleDeleteMember,
@@ -54,7 +57,7 @@ export default function Admin() {
   } = useMembers(token);
 
   // Get consolidated error state
-  const error = postsError || membersError;
+  const error = postsError || membersError || eventsError;
 
   // Handle setting errors
   const setError = (e: string | null) => {
@@ -66,25 +69,24 @@ export default function Admin() {
   const loadEvents = useCallback(async () => {
     if (!token) return;
     setEventsLoading(true);
+    setEventsError(null);
     try {
       const data = await getJson<{ data?: any[] }>('/events', { token });
       setEvents(data.data || []);
     } catch (err) {
-      setPostsError('Failed to load events');
-      setMembersError('Failed to load events');
+      setEventsError('Events could not be loaded. Please try refreshing the overview.');
     } finally {
       setEventsLoading(false);
     }
-  }, [token, setPostsError, setMembersError]);
+  }, [token]);
 
   // Load initial data
   useEffect(() => {
     if (token) {
       loadPosts();
-      loadMembers();
       loadEvents();
     }
-  }, [token, loadPosts, loadMembers, loadEvents]);
+  }, [token, loadPosts, loadEvents]);
 
   function handleLogout() {
     logout();
@@ -93,65 +95,48 @@ export default function Admin() {
 
   // If not authenticated, show login form
   if (!token) {
-    return <LoginForm onLoginSuccess={setToken} />;
+    return <><Helmet><title>Admin sign in | Plastal-Bot Builders</title><meta name="robots" content="noindex, nofollow" /></Helmet><LoginForm onLoginSuccess={setToken} /></>;
   }
 
   return (
     <>
-      <SEOConfig
-        title="About | Plastal-Bot Builders"
-        description="Learn more about Plastal-Bot Builders, our mission, and the team behind our innovative programs."
-        image="/resources/Photos/fredmpelembe.jpeg"
-      />
+      <Helmet><title>Admin dashboard | Plastal-Bot Builders</title><meta name="robots" content="noindex, nofollow" /></Helmet>
       <AdminContainer>
         <Header>
-          <h1>Admin Dashboard</h1>
-          <button
-            onClick={handleLogout}
-            style={{
-              backgroundColor: '#0CFFBB',
-              color: '#000',
-              border: 'none',
-              padding: '10px 15px',
-              borderRadius: '4px',
-              cursor: 'pointer',
-              fontWeight: 'bold'
-            }}
-          >
-            Log out
-          </button>
+          <div><p style={{ margin: '0 0 6px', fontSize: 14 }}>Plastal-Bot Builders · Administration</p><h1 style={{ margin: 0 }}>Your workspace</h1><p style={{ margin: '8px 0 0' }}>Manage stories, events and the people in your community.</p></div>
+          <Button onClick={handleLogout}>Log out</Button>
         </Header>
 
-        {error && <ErrorMessage>{error}</ErrorMessage>}
+        {error && <ErrorMessage role="alert">{error}</ErrorMessage>}
 
-        <TabContainer>
+        <TabContainer role="navigation" aria-label="Admin sections">
           <Tab
-            $active={activeTab === 'dashboard'}
+            $active={activeTab === 'dashboard'} aria-current={activeTab === 'dashboard' ? 'page' : undefined}
             onClick={() => setActiveTab('dashboard')}
           >
             Dashboard
           </Tab>
           <Tab
-            $active={activeTab === 'blog'}
+            $active={activeTab === 'blog'} aria-current={activeTab === 'blog' ? 'page' : undefined}
             onClick={() => setActiveTab('blog')}
           >
             Blog Posts
           </Tab>
           <Tab
-            $active={activeTab === 'members'}
+            $active={activeTab === 'members'} aria-current={activeTab === 'members' ? 'page' : undefined}
             onClick={() => setActiveTab('members')}
           >
             Membership
           </Tab>
           {/* Add the Events tab here */}
           <Tab
-            $active={activeTab === 'events'}
+            $active={activeTab === 'events'} aria-current={activeTab === 'events' ? 'page' : undefined}
             onClick={() => setActiveTab('events')}
           >
             Events
           </Tab>
           <Tab
-            $active={activeTab === 'subscribers'}
+            $active={activeTab === 'subscribers'} aria-current={activeTab === 'subscribers' ? 'page' : undefined}
             onClick={() => setActiveTab('subscribers')}
           >
             Subscribers
@@ -159,7 +144,10 @@ export default function Admin() {
         </TabContainer>
 
         {activeTab === 'dashboard' && (
-          <DashboardPanel posts={posts} members={members} stats={memberStats} />
+          <DashboardPanel posts={posts} members={members} stats={memberStats}
+            loading={postsLoading || membersLoading || eventsLoading} error={!!error}
+            onRefresh={() => { loadPosts(); loadMembers(); loadStats(); loadEvents(); }}
+            onNavigate={(tab) => { if (tab === 'members') { applyMembersSearch(''); applyMembersStatusFilter('pending'); } setActiveTab(tab); }} />
         )}
 
         {activeTab === 'blog' && (

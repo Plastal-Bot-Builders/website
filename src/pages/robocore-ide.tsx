@@ -88,9 +88,9 @@ const RoboCoreIde: React.FC = () => (
 
     <SubHero
       id="rc-ide-title"
-      eyebrow="The RoboCore IDE"
+      eyebrow="The RoboCore coding app"
       title="Code it your way"
-      lead="Start with blocks made for the robot, move on to real Arduino C++, and get help from Cog, a learning partner that helps you find the answer yourself."
+      lead="Start with blocks made for the robot, explore Arduino C++, and get help from Cog, a learning partner that helps you find the answer yourself."
       icon={<AppIcon size={64} appearance="dark" className="rc-app-icon" title="" />}
       actions={
         <>
@@ -132,7 +132,7 @@ const RoboCoreIde: React.FC = () => (
         <div className="rc-bento">
           <Tile span="rc-c5 rc-r2 rc-full-md" tone="yellow">
             <p className="rc-stat">74</p>
-            <p className="rc-tile-text">blocks in 10 categories, made for the robot</p>
+            <p className="rc-tile-text">blocks for movement, sensors, lights and sound</p>
             <Shot
               src="ide-feat-blocks"
               alt="The block categories (Events, Movement, Motors, Light & Sound, Sensors, Control, Operators, Variables, My Blocks, Pins & Serial) with the Light & Sound blocks open: turn LED, set LED to red, play beep and more"
@@ -167,8 +167,8 @@ const RoboCoreIde: React.FC = () => (
               </p>
               <h3 className="rc-tile-title">Arduino C++, with help</h3>
               <p className="rc-body">
-                The code editor is the one in VS Code: suggestions and explanations for Arduino and RoboCore functions, find,
-                and problems marked in the code. The blocks show the C++ they write, so the step from one to the other is small.
+                Get suggestions as you type and see where your code needs attention. Your blocks also show the Arduino C++
+                they create, helping you connect familiar instructions with written code.
               </p>
             </div>
             <Shot
@@ -226,7 +226,7 @@ const RoboCoreIde: React.FC = () => (
               h={600}
             />
             <h3 className="rc-tile-title">Explain any error</h3>
-            <p className="rc-body">Explain sits on every problem, on a failed build, and on the squiggle in the code.</p>
+            <p className="rc-body">When an error appears, choose Explain to get help understanding what went wrong.</p>
           </Tile>
           <Tile span="rc-c4">
             <Shot
