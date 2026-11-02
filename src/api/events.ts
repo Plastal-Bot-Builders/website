@@ -1,7 +1,9 @@
+import type { StorySection } from '../components/content/Story';
 import { getJson, postJson, putJson, delJson } from './client';
 
 // Base URL for all event endpoints
-const BASE_PATH = '/api/events';
+const BASE_PATH = '/events';
+interface EventResponse<T> { status: string; data: T; }
 
 /**
  * Event interface
@@ -11,6 +13,7 @@ export interface Event {
   title: string;
   slug: string;
   description: string;
+  sections?: StorySection[];
   date: string | Date;
   location: string;
   image?: string;
@@ -25,6 +28,7 @@ export interface Event {
 export interface NewEvent {
   title: string;
   description: string;
+  sections?: StorySection[];
   date: Date | string;
   location: string;
   image?: string;
@@ -45,14 +49,16 @@ export interface RegistrationData {
  * Fetch all events
  */
 export async function fetchEvents(): Promise<Event[]> {
-  return getJson<Event[]>(BASE_PATH);
+  const result = await getJson<EventResponse<Event[]>>(BASE_PATH);
+  return result.data;
 }
 
 /**
  * Get an event by slug
  */
 export async function getEventBySlug(slug: string): Promise<Event> {
-  return getJson<Event>(`${BASE_PATH}/${slug}`);
+  const result = await getJson<EventResponse<Event>>(`${BASE_PATH}/slug/${encodeURIComponent(slug)}`);
+  return result.data;
 }
 
 /**
@@ -66,7 +72,8 @@ export async function registerForEvent(eventId: string, data: RegistrationData):
  * Create a new event (admin only)
  */
 export async function createEvent(event: NewEvent, token: string): Promise<Event> {
-  return postJson(BASE_PATH, event, { token }); // Fixed: use { token } instead of { Authorization }
+  const result = await postJson<EventResponse<Event>>(BASE_PATH, event, { token });
+  return result.data;
 }
 
 /**
@@ -80,5 +87,6 @@ export async function deleteEvent(id: string, token: string): Promise<void> {
  * Update an event (admin only)
  */
 export async function updateEvent(id: string, event: Partial<NewEvent>, token: string): Promise<Event> {
-  return putJson(`${BASE_PATH}/${id}`, event, { token }); // Fixed: use { token } instead of { Authorization }
+  const result = await putJson<EventResponse<Event>>(`${BASE_PATH}/${encodeURIComponent(id)}`, event, { token });
+  return result.data;
 }

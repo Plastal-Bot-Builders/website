@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -88,7 +89,8 @@ const EventsPage: React.FC = () => {
                     
                     {/* Event Details */}
                     <div className="md:w-2/3 p-6">
-                      <h2 className="text-2xl font-bold mb-2">{event.title}</h2>
+                      <h2 className="text-2xl font-bold mb-2"><Link to={`/events/${encodeURIComponent(event.slug)}`}>{event.title}</Link></h2>
+                      <Link className="underline" to={`/events/${encodeURIComponent(event.slug)}`}>Read event details →</Link>
                       
                       <div className="flex flex-wrap gap-4 mb-4">
                         <div className="flex items-center">

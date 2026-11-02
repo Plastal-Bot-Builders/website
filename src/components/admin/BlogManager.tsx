@@ -1,5 +1,8 @@
+import { formatPostDate } from '../../utils/postDate';
+import { Story, StorySection } from '../content/Story';
+import { SectionEditor } from './SectionEditor';
 import React, { useState, useEffect } from 'react';
-import { createPost, deletePost, type Post, type NewPost } from '../../api/posts';
+import { createPost, updatePost, deletePost, type Post, type NewPost } from '../../api/posts';
 import { uploadImage } from '../../api/uploads';
 import { 
   Panel, 
@@ -27,13 +30,22 @@ export function BlogManager({ posts, token, onPostsChange, loading, setError }: 
   const [authorAvatarUrl, setAuthorAvatarUrl] = useState<string>('');
   const [title, setTitle] = useState('');
   const [slug, setSlug] = useState('');
+  const [slugEdited, setSlugEdited] = useState(false);
   const [author, setAuthor] = useState('Admin');
   const [content, setContent] = useState('');
+  const [sections, setSections] = useState<StorySection[]>([]);
+  const [excerpt, setExcerpt] = useState('');
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [saving, setSaving] = useState(false);
+  const [notice, setNotice] = useState('');
+  function resetEditor() { setEditingId(null); setTitle(''); setSlugEdited(false); setSlug(''); setContent(''); setExcerpt(''); setSections([]); setCoverImageUrl(''); setAuthorAvatarUrl(''); setAuthor('Admin'); }
+  function editPost(post: Post) { setEditingId(post._id); setSlugEdited(true); setTitle(post.title); setSlug(post.slug); setContent(post.content); setExcerpt(post.excerpt || ''); setSections(post.sections || []); setCoverImageUrl(post.coverImage || ''); setAuthorAvatarUrl(post.authorAvatar || ''); setAuthor(post.author); setNotice('Editing selected post. Save to publish your changes.'); }
+
 
   // Update slug when title changes
   useEffect(() => {
-    setSlug((prev) => (prev ? prev : title ? slugify(title) : ''));
-  }, [title]);
+    if (!slugEdited && !editingId) setSlug(slugify(title));
+  }, [title, slugEdited, editingId]);
 
   // Image upload handlers
   async function onCoverChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -68,17 +80,22 @@ export function BlogManager({ posts, token, onPostsChange, loading, setError }: 
     if (!token) return setError('Not authenticated');
     setError(null);
     
+    if (saving) return;
+    setSaving(true);
     try {
       const payload: NewPost = {
         title: title.trim(),
         slug: (slug || slugify(title)).trim(),
-        content,
+        content, sections, excerpt,
         author: author.trim() || undefined,
         coverImage: coverImageUrl || undefined,
         authorAvatar: authorAvatarUrl || undefined
       };
       
-      await createPost(payload, token);
+      if (editingId) await updatePost(editingId, payload, token);
+      else await createPost(payload, token);
+      resetEditor();
+      setNotice('Post saved and published.');
       
       // Reset form
       setTitle('');
@@ -91,8 +108,8 @@ export function BlogManager({ posts, token, onPostsChange, loading, setError }: 
       // Refresh posts list
       onPostsChange();
     } catch (e: any) {
-      setError(e?.message || 'Failed to create post');
-    }
+      setError(e?.message || 'Failed to save post');
+    } finally { setSaving(false); }
   }
 
   // Post deletion handler
@@ -116,8 +133,9 @@ export function BlogManager({ posts, token, onPostsChange, loading, setError }: 
   return (
     <>
       <Panel style={{ marginBottom: '20px' }}>
-        <h2 style={{ marginBottom: '20px' }}>Create New Post</h2>
-        <form onSubmit={handleCreatePost}>
+        <h2 style={{ marginBottom: '20px' }}>{editingId ? 'Edit post' : 'Create new post'}</h2>
+        {notice && <p role="status">{notice}</p>}
+        <form onSubmit={handleCreatePost}><fieldset disabled={saving} style={{border:0,padding:0,minWidth:0}}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
             <FormGroup>
               <Label>Title</Label>
@@ -131,13 +149,15 @@ export function BlogManager({ posts, token, onPostsChange, loading, setError }: 
               <Label>Slug</Label>
               <Input 
                 value={slug} 
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSlug(e.currentTarget.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setSlugEdited(true); setSlug(e.currentTarget.value); }}
                 placeholder="auto from title" 
               />
             </FormGroup>
           </div>
           
           <FormGroup>
+            <label>Hosted cover image URL<Input value={coverImageUrl} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCoverImageUrl(e.currentTarget.value)} placeholder="https://…" /></label>
+            <p>Use a permanently hosted image URL for production. Local server uploads need persistent storage to survive redeployments.</p>
             <Label>Cover Image</Label>
             <Input 
               type="file" 
@@ -184,13 +204,18 @@ export function BlogManager({ posts, token, onPostsChange, loading, setError }: 
           <FormGroup>
             <Label>Content</Label>
                <TextArea
-                    value={content}
+                    aria-label="Introduction" required value={content}
                     onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setContent(e.target.value)}
                     rows={8}
                />
           </FormGroup>
           
-          <Button type="submit">Create Post</Button>
+          <label>Card summary (up to 600 characters)<TextArea value={excerpt} maxLength={600} onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setExcerpt(e.target.value)} /></label>
+          <SectionEditor value={sections} onChange={setSections} />
+          <details style={{margin:'24px 0'}}><summary>Preview public layout</summary><Story title={title} summary={excerpt} image={coverImageUrl} content={content} sections={sections} /></details>
+          <p>Saving publishes this post on the blog. Existing page URLs stay the same unless you change the slug.</p>
+          <Button type="submit">{saving ? 'Saving…' : editingId ? 'Save changes' : 'Publish post'}</Button>
+          <Button type="button" onClick={resetEditor}>Start a new post</Button></fieldset>
         </form>
       </Panel>
 
@@ -216,8 +241,9 @@ export function BlogManager({ posts, token, onPostsChange, loading, setError }: 
                     <small style={{ opacity: 0.7 }}>/{post.slug}</small>
                   </td>
                   <td>{post.author}</td>
-                  <td>{new Date(post.date).toLocaleDateString()}</td>
+                  <td>{formatPostDate(post)}</td>
                   <td>
+                    <Button onClick={() => editPost(post)}>Edit</Button>
                     <DeleteButton onClick={() => handleDeletePost(post._id)}>
                       Delete
                     </DeleteButton>

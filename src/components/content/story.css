@@ -1,0 +1,15 @@
+.story { max-width: 860px; margin: 0 auto; color: var(--text); overflow-wrap: anywhere; }
+.story h1 { font-size: clamp(32px, 5vw, 60px); line-height: 1.12; font-weight: 700; margin: 0 0 24px; }
+.story h2 { font-size: clamp(24px, 3vw, 34px); font-weight: 650; line-height: 1.25; margin-bottom: 16px; }
+.story-lead { font-size: 22px; line-height: 1.6; margin-bottom: 28px; }
+.story section { margin: 40px 0; }
+.story-copy { white-space: pre-wrap; font-size: 18px; line-height: 1.8; }
+.story img { width: 100%; max-height: 620px; object-fit: contain; border-radius: 16px; margin-bottom: 24px; }
+.story .story-cover { object-fit: cover; }
+.story figcaption, .story cite { display: block; font-size: 15px; margin-top: 12px; }
+.story blockquote { border-left: 4px solid var(--accent); padding: 20px 28px; font-size: 24px; white-space: pre-wrap; background: var(--surface-bg); }
+.story ul { list-style: disc; padding-left: 28px; line-height: 1.8; font-size: 18px; }
+.section-editor { border: 1px solid var(--surface-border); padding: 20px; border-radius: 12px; margin: 16px 0; }
+.section-editor label { display: block; margin: 12px 0; }
+.section-editor input, .section-editor textarea, .section-editor select { width: 100%; padding: 10px; color: var(--text); background: var(--surface-bg); border: 1px solid var(--surface-border); border-radius: 6px; }
+.section-tools { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }

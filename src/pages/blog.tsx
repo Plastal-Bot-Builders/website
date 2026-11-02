@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { fetchPosts, Post } from '../api/posts';
+import { imageSource } from '../components/content/Story';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import SmartImage from '../components/ui/SmartImage';
@@ -7,6 +10,11 @@ import FadeContent from '../components/ui/FadeContent';
 import DecryptedText from '../components/ui/DecryptedText';
 
 const Blog: React.FC = () => {
+    const [managedPosts, setManagedPosts] = useState<Post[]>([]);
+    const [loadError, setLoadError] = useState('');
+    const [loading, setLoading] = useState(true);
+    useEffect(() => { let active = true; fetchPosts().then(response => { if (active) setManagedPosts(response.data); }).catch(() => { if (active) setLoadError('Recent stories could not be loaded. Please refresh to try again.'); }).finally(() => { if (active) setLoading(false); }); return () => { active = false; }; }, []);
+
 
     const blogPosts = [
         {
@@ -106,6 +114,16 @@ const Blog: React.FC = () => {
                     </section>
                 </FadeContent>
 
+                <section className="max-w-7xl mx-auto px-4 py-8">
+                 <h2 className="text-3xl font-bold mb-6">Latest stories</h2>
+                 {loading && <p role="status">Loading recent stories…</p>}{loadError && <p role="alert">{loadError}</p>}
+                 {!loading && !loadError && managedPosts.length === 0 && <p>New stories will appear here when published.</p>}
+                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">{managedPosts.map(post => <article key={post._id} className="interactive-card p-6">
+                  {imageSource(post.coverImage) && <SmartImage src={imageSource(post.coverImage)!} alt={post.title} className="w-full h-56 object-cover rounded-lg mb-4" />}
+                  <h3 className="text-2xl font-bold mb-3">{post.title}</h3><p className="line-clamp-4 mb-4">{post.excerpt || post.content}</p><p className="mb-4">By {post.author}</p>
+                  <Link className="custom-button" to={`/blogs/${encodeURIComponent(post.slug)}`}>Read story →</Link>
+                 </article>)}</div>
+                </section>
                 {/* Blog Posts Grid */}
                 <FadeContent blur={true} duration={1200} easing="ease-out" initialOpacity={0} delay={200}>
                     <section className="w-full px-4 sm:px-6 lg:px-8 py-6 lg:py-12">

@@ -1,6 +1,8 @@
 import mongoose from 'mongoose';
+import { storyFields } from './StorySection.js';
 
 const postSchema = new mongoose.Schema({
+  ...storyFields,
   title: {
     type: String,
     required: true,
@@ -16,6 +18,9 @@ const postSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  coverImage: String,
+  authorAvatar: String,
+  excerpt: { type: String, maxlength: 600 },
   // New SEO fields
   description: {
     type: String,

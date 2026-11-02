@@ -13,8 +13,6 @@ export const EventsList: React.FC = () => {
     let isMounted = true;
     
     async function loadEvents() {
-      // Don't fetch if already loading
-      if (loading) return;
       
       try {
         setLoading(true);

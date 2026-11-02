@@ -1,3 +1,5 @@
+import { Story, StorySection } from '../content/Story';
+import { SectionEditor } from './SectionEditor';
 import React, { useState } from 'react';
 import { 
   Panel, 
@@ -8,7 +10,7 @@ import {
   DeleteButton, 
   Table
 } from '../../components/admin/AdminStyles';  // Fixed import path
-import { createEvent, deleteEvent, Event } from '../../api/events';
+import { createEvent, updateEvent, deleteEvent, Event } from '../../api/events';
 import { getJson } from '../../api/client';
 
 interface EventRegistration {
@@ -42,6 +44,13 @@ export function EventManager({
   const [location, setLocation] = useState('');
   const [capacity, setCapacity] = useState('');
   const [imageUrl, setImageUrl] = useState('');
+  const [sections, setSections] = useState<StorySection[]>([]);
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [saving, setSaving] = useState(false);
+  const [notice, setNotice] = useState('');
+  function resetEditor() { setEditingId(null); setTitle(''); setDescription(''); setDate(''); setLocation(''); setCapacity(''); setImageUrl(''); setSections([]); }
+  function editEvent(event: Event) { setEditingId(event._id); setTitle(event.title); setDescription(event.description); setDate(new Date(event.date).toISOString().slice(0,10)); setLocation(event.location); setCapacity(event.capacity?.toString() || ''); setImageUrl(event.image || ''); setSections(event.sections || []); setNotice('Editing selected event. Save to publish your changes.'); }
+
 
   // Event creation handler
   async function handleCreateEvent(e: React.FormEvent) {
@@ -49,8 +58,11 @@ export function EventManager({
     if (!token) return setError('Not authenticated');
     setError(null);
     
+    if (saving) return;
+    setSaving(true);
     try {
       const payload = {
+        sections,
         title: title.trim(),
         description: description.trim(),
         date: new Date(date),
@@ -59,7 +71,10 @@ export function EventManager({
         image: imageUrl || undefined
       };
       
-      await createEvent(payload, token);
+      if (editingId) await updateEvent(editingId, payload, token);
+      else await createEvent(payload, token);
+      resetEditor();
+      setNotice('Event saved and published.');
       
       // Reset form
       setTitle('');
@@ -72,8 +87,8 @@ export function EventManager({
       // Refresh events list
       onEventsChange();
     } catch (e: any) {
-      setError(e?.message || 'Failed to create event');
-    }
+      setError(e?.message || 'Failed to save event');
+    } finally { setSaving(false); }
   }
 
   // Registrations viewer state
@@ -121,8 +136,9 @@ export function EventManager({
   return (
     <>
       <Panel style={{ marginBottom: '20px' }}>
-        <h2 style={{ marginBottom: '20px' }}>Create New Event</h2>
-        <form onSubmit={handleCreateEvent}>
+        <h2 style={{ marginBottom: '20px' }}>{editingId ? 'Edit event' : 'Create new event'}</h2>
+        {notice && <p role="status">{notice}</p>}
+        <form onSubmit={handleCreateEvent}><fieldset disabled={saving} style={{border:0,padding:0,minWidth:0}}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
             <FormGroup>
               <Label>Title</Label>
@@ -187,7 +203,11 @@ export function EventManager({
             />
           </FormGroup>
           
-          <Button type="submit">Create Event</Button>
+          <SectionEditor value={sections} onChange={setSections} />
+          <details style={{margin:'24px 0'}}><summary>Preview public layout</summary><Story title={title} summary={description} image={imageUrl} sections={sections} /></details>
+          <p>Saving publishes this event. Title changes keep the existing event URL.</p>
+          <Button type="submit">{saving ? 'Saving…' : editingId ? 'Save changes' : 'Publish event'}</Button>
+          <Button type="button" onClick={resetEditor}>Start a new event</Button></fieldset>
         </form>
       </Panel>
 
@@ -217,6 +237,7 @@ export function EventManager({
                   <td>{(event.registrations || []).length}</td>
                   <td>
                     <div style={{ display: 'flex', gap: '5px' }}>
+                      <Button onClick={() => editEvent(event)}>Edit</Button>
                       <Button onClick={() => handleViewRegistrations(event)}>
                         {openEventId === event._id ? 'Hide' : 'Registrations'}
                       </Button>

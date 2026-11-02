@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
     const search = req.query.search;
 
     // Build query
-    const query = {};
+    const query = { published: { $ne: false } };
     if (category) query.category = category;
     if (search) {
       query.$or = [
@@ -73,7 +73,7 @@ router.get('/', async (req, res) => {
 router.get('/:slug', async (req, res) => {
   try {
     const slug = String(req.params.slug).toLowerCase();
-    const post = await Post.findOne({ slug });
+    const post = await Post.findOne({ slug, published: { $ne: false } });
     
     if (!post) {
       return res.status(404).json({ 
@@ -102,7 +102,7 @@ router.get('/:slug', async (req, res) => {
  */
 router.post('/', requireAuth, async (req, res) => {
   try {
-    const { title, slug, content, author, category, coverImage } = req.body || {};
+    const { title, slug, content, author, category, coverImage, authorAvatar, excerpt, sections } = req.body || {};
     
     // Validate required fields
     if (!title || !slug || !content) {
@@ -119,6 +119,7 @@ router.post('/', requireAuth, async (req, res) => {
       content: String(content),
       author: author ? String(author) : undefined,
       category,
+      sections, excerpt, authorAvatar,
       coverImage
     });
     
@@ -138,6 +139,7 @@ router.post('/', requireAuth, async (req, res) => {
       });
     }
     
+    if (error.name === 'ValidationError') return res.status(400).json({ message: error.message });
     console.error('Error creating post:', error);
     res.status(500).json({ 
       status: 'error',

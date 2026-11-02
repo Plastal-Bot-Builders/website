@@ -1,7 +1,9 @@
 import mongoose from 'mongoose';
+import { storyFields } from './StorySection.js';
 import slugify from 'slugify';
 
 const eventSchema = new mongoose.Schema({
+  ...storyFields,
   title: {
     type: String,
     required: [true, 'Event title is required'],
@@ -42,7 +44,7 @@ const eventSchema = new mongoose.Schema({
 
 // Generate slug before saving
 eventSchema.pre('save', function(next) {
-  if (!this.slug || this.isModified('title')) {
+  if (!this.slug) {
     this.slug = slugify(this.title, { lower: true });
   }
   next();

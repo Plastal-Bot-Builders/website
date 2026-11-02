@@ -71,7 +71,7 @@ export default function Admin() {
     setEventsLoading(true);
     setEventsError(null);
     try {
-      const data = await getJson<{ data?: any[] }>('/events', { token });
+      const data = await getJson<{ data?: any[] }>('/events', { token, query: { all: true } });
       setEvents(data.data || []);
     } catch (err) {
       setEventsError('Events could not be loaded. Please try refreshing the overview.');

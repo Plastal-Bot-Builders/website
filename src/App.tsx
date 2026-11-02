@@ -16,6 +16,7 @@ import { SITE_URL } from './config/site';
 
 // Route-level code splitting: each page loads only when visited.
 const About = lazy(() => import('./pages/about'));
+const StoryPage = lazy(() => import('./pages/story'));
 const Blog = lazy(() => import('./pages/blog'));
 const Support = lazy(() => import('./pages/support'));
 const Programs = lazy(() => import('./pages/programs'));
@@ -142,6 +143,8 @@ const App: React.FC = () => {
                   </ErrorBoundary>
                 } />
                 <Route path="/blogs" element={<Blog />} />
+                <Route path="/blogs/:slug" element={<StoryPage kind="blog" />} />
+                <Route path="/events/:slug" element={<StoryPage kind="event" />} />
                 <Route path="/support" element={<Support />} />
                 <Route path="/programs" element={<Programs />} />
                 <Route path="/events" element={<EventsPage />} />

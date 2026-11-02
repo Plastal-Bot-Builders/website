@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { apiFetch } from '../api/client';
+import { apiFetch, handleJson } from '../api/client';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ImageCarousel from '../components/ImageCarousel';
@@ -19,6 +19,7 @@ import AutoLoopVideo from '../components/ui/AutoLoopVideo';
 const Home: React.FC = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
+  const [subscribeError, setSubscribeError] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'ok' | 'error'>('idle');
   const [honeypot, setHoneypot] = useState('');
 
@@ -38,16 +39,21 @@ const Home: React.FC = () => {
     e.preventDefault();
     if (!email || status === 'loading') return;
     setStatus('loading');
+    setSubscribeError('');
     try {
       const resp = await apiFetch('/subscribe', {
         method: 'POST',
-        json: { email, website: honeypot }
+        json: { email: email.trim(), website: honeypot },
+        timeoutMs: 65000
       });
-      if (resp.ok) {
-        setStatus('ok');
-        setEmail('');
-      } else setStatus('error');
-    } catch {
+      await handleJson(resp);
+      setStatus('ok');
+      setEmail('');
+    } catch (error) {
+      setSubscribeError(error instanceof Error && error.name === 'AbortError'
+        ? 'The server took too long to respond. Please try again.'
+        : error instanceof TypeError ? 'Could not connect. Please check your connection and try again.'
+        : error instanceof Error ? error.message : 'Could not subscribe. Please try again.');
       setStatus('error');
     }
   };
@@ -831,7 +837,7 @@ const Home: React.FC = () => {
                     <p className="text-sm text-green-500">Subscribed successfully!</p>
                   )}
                   {status === 'error' && (
-                    <p className="text-sm text-red-500">Something went wrong. Please try again.</p>
+                    <p role="alert" className="text-sm text-red-500">{subscribeError}</p>
                   )}
                 </div>
                 <div className="flex items-center justify-center">
