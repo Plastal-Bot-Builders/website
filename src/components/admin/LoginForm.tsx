@@ -7,8 +7,8 @@ interface LoginFormProps {
 }
 
 export function LoginForm({ onLoginSuccess }: LoginFormProps) {
-  const [username, setUsername] = useState('admin');
-  const [password, setPassword] = useState('changeMe123');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
@@ -30,15 +30,16 @@ export function LoginForm({ onLoginSuccess }: LoginFormProps) {
 
   return (
     <AdminContainer>
-      <Panel>
-        <h1 style={{ marginBottom: '20px' }}>Admin Login</h1>
-        {error && <p style={{ color: '#e53e3e', marginBottom: '15px' }}>{error}</p>}
+      <Panel style={{ maxWidth: 480, margin: '48px auto', padding: 32 }}>
+        <h1 style={{ marginBottom: '20px' }}>Welcome back</h1>
+        <p style={{ marginBottom: 24 }}>Sign in to manage the Plastal-Bot Builders website.</p>
+        {error && <p role="alert" style={{ color: '#e53e3e', marginBottom: '15px' }}>{error}</p>}
         
         <form onSubmit={handleLogin}>
           <FormGroup>
-            <Label>Username</Label>
+            <Label htmlFor="admin-username">Username</Label>
             <Input 
-              value={username} 
+              id="admin-username" name="username" autoComplete="username" value={username}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUsername(e.currentTarget.value)}
               required 
               disabled={loading}
@@ -46,9 +47,9 @@ export function LoginForm({ onLoginSuccess }: LoginFormProps) {
           </FormGroup>
           
           <FormGroup>
-            <Label>Password</Label>
+            <Label htmlFor="admin-password">Password</Label>
             <Input 
-              type="password" 
+              id="admin-password" name="password" autoComplete="current-password" type="password"
               value={password} 
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.currentTarget.value)}
               required 
