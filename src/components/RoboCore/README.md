@@ -32,7 +32,7 @@ check new tiles at 1440, 800 and 390 px for gaps.
 | `src/components/RoboCore/robocore.css` | All its styles, scoped to `.rc`; the Barlow `@font-face` rules. |
 | `src/components/RoboCore/RobotViewer.tsx` | The 3D robot in the hero (three.js, loaded only when needed). |
 | `src/components/RoboCore/RoboCoreLogo.tsx` | The RoboCore lockup in `currentColor`. |
-| `src/components/RoboCore/contours.svg` | The box's contour lines, used as a CSS mask. |
+| `src/components/RoboCore/contours.svg` | Contour lines of the real Copperbelt terrain (Copernicus GLO-30 DEM; the same as the event branding, made by RoboCore_Event_Branding/topo/copperbelt_contours.py), used as a CSS mask. |
 | `src/components/RoboCore/fonts/` | Barlow and Barlow Condensed (woff2), SIL Open Font License (`OFL.txt`). |
 | `public/resources/RoboCore/` | Images and the 3D model (let through by `.gitignore`). |
 | `public/resources/social/og-robocore.jpg` | Social share card, 1200 × 630. |
