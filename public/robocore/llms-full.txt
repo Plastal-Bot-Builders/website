@@ -108,7 +108,7 @@ What is on the RoboCore V2 controller board, and the robot built around it. Robo
 
 ## The robot
 
-167 × 278 × 118 mm, with two driven wheels, an arm with a gripper and a 3D-printed body.
+154 × 286 × 111 mm, with two driven wheels, four V-wheels, a lift with a gripper and a 3D-printed frame.
 
 ---
 

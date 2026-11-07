@@ -458,7 +458,7 @@ const ROUTES = [
             '68 × 60 mm, four layers',
           ],
         },
-        { h2: 'The robot', p: '167 × 278 × 118 mm, with two driven wheels, an arm with a gripper and a 3D-printed body.' },
+        { h2: 'The robot', p: '154 × 286 × 111 mm, with two driven wheels, four V-wheels, a lift with a gripper and a 3D-printed frame.' },
       ],
     },
   },
