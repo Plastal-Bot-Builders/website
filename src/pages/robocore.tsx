@@ -50,13 +50,13 @@ const PILLARS: [string, IconType, string][] = [
 /** The "See it" gallery: the MIT Solve pitch video (Fred's YouTube channel) first, then the renders. */
 const GALLERY: GalleryItem[] = [
   { kind: 'video', youtube: '_jnTEealU_8', title: 'RoboCore: A Low-Cost Robotics Kit Made in Zambia (MIT Solve 2027 pitch)', poster: 'pitch-video-poster.webp' },
-  { kind: 'image', src: 'robot-hero.webp', alt: 'The RoboCore V2 robot: yellow, on two wheels, with an arm, a gripper and a distance sensor', w: 1400, h: 930, contain: true },
-  { kind: 'image', src: 'robot-iso-fr.webp', alt: 'RoboCore V2 from the front right', w: 1000, h: 667, contain: true },
-  { kind: 'image', src: 'robot-arm-motion.webp', alt: 'The arm in its three positions: down at the floor, carrying, and straight up', w: 892, h: 813, contain: true },
+  { kind: 'image', src: 'robot-hero.webp', alt: 'The RoboCore robot: a navy frame on two wheels, with a yellow lift, a gripper and a distance sensor', w: 1400, h: 823, contain: true },
+  { kind: 'image', src: 'robot-iso-fr.webp', alt: 'RoboCore from the front right', w: 1000, h: 614, contain: true },
+  { kind: 'image', src: 'robot-arm-motion.webp', alt: 'The lift in its three positions: down at the floor, carrying, and up', w: 892, h: 487, contain: true },
   { kind: 'image', src: 'robocore-controller-hero-front.webp', alt: 'The RoboCore V2 controller board from the connector edge', w: 1600, h: 1067, contain: true },
   { kind: 'image', src: 'robocore-controller-macro-esp32.webp', alt: 'Close-up of the ESP32-S3 module on the controller', w: 1600, h: 1067, contain: true },
   { kind: 'image', src: 'robocore-controller-bottom.webp', alt: 'The back of the controller: RoboCore Zambia, Plastal-Bot Builders, Designed in Zambia 2026, and every pin name', w: 1600, h: 1440, contain: true },
-  { kind: 'image', src: 'kit-box-open.webp', alt: 'The RoboCore V2 kit box, open', w: 900, h: 1067, contain: true },
+  { kind: 'image', src: 'kit-box-open.webp', alt: 'The RoboCore kit box, open', w: 900, h: 1057, contain: true },
 ];
 
 /** Blocks made for the robot, as they read in the IDE. */
@@ -171,7 +171,7 @@ const HeroRobot: React.FC = () => {
       <div className="rc-hero-render">
         <img
           src={asset('resources/RoboCore/robot-hero.webp')}
-          alt="The RoboCore V2 robot: a yellow robot on two wheels with an arm, a gripper and a distance sensor"
+          alt="The RoboCore robot: a navy frame on two wheels with a yellow lift, a gripper and a distance sensor"
           width={1400}
           height={930}
           decoding="async"
@@ -235,7 +235,7 @@ const RoboCorePage: React.FC = () => {
                   Explore the kit
                 </a>
               </div>
-              <p className="rc-hero-status">V2 is a prototype. School pilots in Zambia come next. <a className="rc-link" href="#get-involved" onClick={jumpTo('get-involved')}>Ask about a pilot</a></p>
+              <p className="rc-hero-status">RoboCore is a prototype. School pilots in Zambia come next. <a className="rc-link" href="#get-involved" onClick={jumpTo('get-involved')}>Ask about a pilot</a></p>
               <div className="rc-hero-actions" style={{ alignItems: 'center', gap: 18 }}>
                 <span className="rc-chip">
                   <LuGlobe aria-hidden="true" /> Made in Zambia
@@ -265,8 +265,8 @@ const RoboCorePage: React.FC = () => {
             </p>
           </Tile>
           <Tile span="rc-c5 rc-r2 rc-full-md" tone="yellow" contours>
-            <TileArt src="robot-iso-fr.webp" alt="RoboCore V2 from the front right" w={1000} h={667} />
-            <span className="rc-chip rc-tile-foot">167 × 278 × 118 mm</span>
+            <TileArt src="robot-iso-fr.webp" alt="RoboCore from the front right" w={1000} h={614} />
+            <span className="rc-chip rc-tile-foot">154 × 286 × 111 mm</span>
           </Tile>
           {PILLARS.map(([title, Icon, text], i) => (
             // On tablets (two columns) the third one takes the whole row.
@@ -321,7 +321,7 @@ const RoboCorePage: React.FC = () => {
           <div className="rc-section-head">
             <p className="rc-eyebrow">What’s inside</p>
             <h2 id="rc-inside" className="rc-h2">
-              Inside RoboCore V2
+              Inside RoboCore
             </h2>
             <Link className="rc-link" to="/robocore/hardware" style={{ justifySelf: 'start' }}>
               Full specifications
@@ -381,16 +381,16 @@ const RoboCorePage: React.FC = () => {
               <p className="rc-body">USB-C and a rechargeable battery</p>
             </Tile>
             <Tile span="rc-c5 rc-r2 rc-full-md" tone="soft">
-              <TileArt src="kit-box-open.webp" alt="The RoboCore V2 box, open" w={900} h={1067} />
+              <TileArt src="kit-box-open.webp" alt="The RoboCore box, open" w={900} h={1057} />
               <h3 className="rc-tile-title">The kit box</h3>
               <Link className="rc-link rc-tile-foot" to="/robocore/hardware#kit">
                 What’s in the kit
               </Link>
             </Tile>
             <Tile span="rc-c4 rc-r2">
-              <TileArt src="chassis.webp" w={800} h={609} line />
+              <TileArt src="chassis.webp" w={800} h={536} line />
               <h3 className="rc-tile-title">Chassis</h3>
-              <p className="rc-body">Holds the controller, the motors, the arm and the sensors.</p>
+              <p className="rc-body">Holds the controller, the motors, the lift and the sensors.</p>
             </Tile>
             <Tile span="rc-c3" tone="navy">
               <p className="rc-stat rc-stat--sm">68 × 60 mm</p>
@@ -502,7 +502,7 @@ const RoboCorePage: React.FC = () => {
               From prototype to pilot
             </h2>
             <p className="rc-lead">
-              RoboCore V2 is our newest prototype. Pilots with schools and innovation hubs in Zambia come next.
+              The RoboCore robot is our newest prototype. Pilots with schools and innovation hubs in Zambia come next.
             </p>
             <Link className="rc-link" to="/robocore/vision" style={{ justifySelf: 'start' }}>
               Our vision
@@ -521,8 +521,8 @@ const RoboCorePage: React.FC = () => {
                 <li className="rc-step is-now" aria-current="step">
                   <span className="rc-chip rc-step-tag">Now</span>
                   <div>
-                    <h3 className="rc-tile-title">RoboCore V2</h3>
-                    <p className="rc-body">A new controller board, a robot with an arm and sensors, and the RoboCore IDE.</p>
+                    <h3 className="rc-tile-title">RoboCore V2 controller</h3>
+                    <p className="rc-body">A new controller board, a robot with a lift, a gripper and sensors, and the RoboCore IDE.</p>
                   </div>
                 </li>
                 <li className="rc-step">

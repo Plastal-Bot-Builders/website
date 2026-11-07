@@ -139,7 +139,7 @@
               "name": "Where is RoboCore made?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "RoboCore is made in Zambia by Plastal-Bot Builders. V2 is currently a prototype, with school and innovation-hub pilots planned next."
+                "text": "RoboCore is made in Zambia by Plastal-Bot Builders. It is currently a prototype, with school and innovation-hub pilots planned next."
               }
             },
             {
@@ -173,7 +173,7 @@
       },
       {
         "q": "Where is RoboCore made?",
-        "a": "RoboCore is made in Zambia by Plastal-Bot Builders. V2 is currently a prototype, with school and innovation-hub pilots planned next."
+        "a": "RoboCore is made in Zambia by Plastal-Bot Builders. It is currently a prototype, with school and innovation-hub pilots planned next."
       },
       {
         "q": "Can I buy RoboCore?",

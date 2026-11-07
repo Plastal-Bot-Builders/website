@@ -71,9 +71,12 @@ the stand, the flyer and the website say the same thing. The rules:
 
 ## Where the assets come from
 
-- **Renders** (`robot-hero`, `kit-box-open`, and the line drawings `controller-board`, `chassis`, `sonar`,
-  `line-sensor`): `RoboCore_Event_Branding/assets/`, from the Fusion model v36 (see that folder's README), resized and
-  saved as WebP (quality 82).
+- **Robot renders** (`robot-hero`, `robot-iso-fr`, `robot-front`, `robot-left`, `robot-top`, `kit-printed`,
+  `kit-battery`, `kit-wheel`, `kit-vwheel`, `kit-box-open`, and the frame drawing `chassis`): the V3 robot (Stage 18
+  V-wheel version, lift level), made in `~/RoboCoreProjects/RoboCore_V3_Renders` (read-only Fusion export, Blender
+  Cycles studio set-up of the event renders, Freestyle line drawings); `tools/publish_assets.py --site <worktree> site`
+  writes them here at these sizes. The other line drawings (`controller-board`, `sonar`, `line-sensor`) are from
+  `RoboCore_Event_Branding/assets/`.
 - **IDE screenshots** (`ide-blocks`, `ide-code`, `ide-boards`, `ide-cog`): the RoboCore IDE in Chrome at 1440 × 900,
   2×, with the "Robot obstacle avoider" example; saved at 1600 px wide (Cog's panel at 560).
 - **App icon** (`AppIcon.tsx`): the Geared Ring paths from the robocore-ide repository (`assets/images/app_icon.svg`
@@ -84,15 +87,15 @@ the stand, the flyer and the website say the same thing. The rules:
   lists the shots and the part-position files). Use the `web/` copies; don't edit them, ask the PCB chat for new shots.
   The `robocore-controller-crop-*` close-ups are cut from `full/robocore-controller-top.png` (40 px per mm) at the boxes in
   `robocore-controller-top-parts.json`.
-- **Board and robot** (`board-v1`, `robot-front`, `robot-left`, `robot-top`): KiCad 3D
-  renders of the boards and orthographic renders of the Fusion model, on transparent backgrounds.
-- **Arm motion** (`robot-arm-motion`): the three arm poses from `RoboCore_V2/docs/posters/src_robot/arm_poses.png` (Fusion
-  renders, 1000 px apart) stacked on the chassis, the carrying pose solid and the floor and up poses at 30 %. The arrow and
-  labels are drawn in the page (`ArmMotion` in `robocore-hardware.tsx`), centred on the shoulder joint.
-- **Kit parts** (`kit-*`): Blender renders of single parts of the robot model (`RoboCore_Event_Branding/3d/robot_v36.glb`)
-  with the event renders' studio set-up (`render_views.py`, one part kept at a time; the motor's CAD red rendered as dark
-  plastic) and the floor shadow faded towards the edges. The line sensor is the existing drawing: the kit uses a bought-in
-  module, not the RoboCore line-sensor board in the model. The list follows `RoboCore_V2/docs/RoboCore_V2_component_list.xlsx`.
+- **Board** (`board-v1`): KiCad 3D render on a transparent background.
+- **Lift motion** (`robot-arm-motion`): three side views from one camera (lift at -44, 0 and +40 degrees), the level
+  carrying pose solid and the floor and up poses at 36 % (`RoboCore_V3_Renders/tools/arm_motion.py`, which also writes
+  the head positions). The arrow and labels are drawn in the page (`ArmMotion` in `robocore-hardware.tsx`) on the
+  circle the gripper head travels.
+- **Kit parts** (`kit-*`): `kit-motor`, `kit-servo` and `kit-ultrasonic` are the V2 single-part renders (same bought
+  parts; the motor's CAD red rendered as dark plastic); `kit-printed`, `kit-battery`, `kit-wheel` and `kit-vwheel` are
+  V3 renders (see Robot renders; `ONLY`/`ONLY_MAT` in `render_v3.py` keep one part). The line sensor is the existing
+  drawing: the kit uses a bought-in module, not the RoboCore line-sensor board in the model.
 - **Pitch video** (`pitch-video-poster`): the YouTube thumbnail of the MIT Solve pitch (Fred's channel, `_jnTEealU_8`). The
   gallery loads `youtube-nocookie.com` only on play; `public/_headers` allows that frame (`frame-src`) and lets it autoplay
   and use encrypted media (Permissions-Policy).
@@ -108,16 +111,16 @@ the stand, the flyer and the website say the same thing. The rules:
   colours, on white plates (`Supporters.tsx`).
 - **Photos** (`vision-*`): from the site's own albums (`public/resources/Geneva2026`, `IntroRoboticsWorkshop`,
   `SpikePrime` and others), cropped and saved as WebP. Captions follow the news items in `src/pages/news.tsx`.
-- **3D model** (`robocore-v2.glb`, 0.9 MB): `RoboCore_Event_Branding/3d/robot_v36.glb` (17 MB) through
-  `scripts/robocore/glb_web.py` in Blender. It drops parts that touch nothing (the Fusion model has a capacitor floating
-  51 mm above the board), merges same-colour materials, decimates the big parts to about 220k triangles in all, joins
-  everything into one mesh and compresses it with Draco (the decoder is in `public/draco/`). A 110k-triangle copy lost
-  the gear teeth on the arm, so phones get the same model.
+- **3D model** (`robocore-v3.glb`, 0.95 MB): `RoboCore_V3_Renders/renders/robocore_v3_full.glb` (24 MB, from
+  `tools/export_glb.py`, lift level, KiCad board) through `scripts/robocore/glb_web.py` in Blender. It drops parts that
+  touch nothing, merges same-colour materials, decimates the big parts to about 220k triangles in all, joins everything
+  into one mesh and compresses it with Draco (the decoder is in `public/draco/`). Phones get the same model.
 - **Share card** (`og-robocore.jpg`, 1200 × 630, about 130 KB, the image a shared link shows): "Build a robot. Code it in
-  your browser." with the hero render and a real block program (the "Robot obstacle avoider" example's forever stack,
-  captured from the IDE) on the box yellow. Drawn in HTML with the real fonts, logo and contour lines and captured with
+  your browser." with the V3 hero render and a real block program (the "Robot obstacle avoider" example's forever stack,
+  captured from the IDE) on the box yellow (source: `RoboCore_V3_Renders/cards/share.html`). Drawn in HTML with the real fonts, logo and contour lines and captured with
   headless Chrome. Its alt text is `imageAlt` in the manifest. Keep the headline readable at about 480 px wide (a
   phone feed).
-- **Project tile** (`robocore-card.webp`): the hero render on the box yellow with the contour lines, made the same way.
+- **Project tile** (`robocore-card.webp`): the hero render on the box yellow with the contour lines, made the same way
+  (`RoboCore_V3_Renders/cards/tile.html`).
 - **Plastal-Bot logo in navy** (`plastal-bot-builders-navy.svg`): `RoboCore_Event_Branding/assets/plastal_logo.svg`
   with its ink set to the RoboCore navy, for the yellow backgrounds.

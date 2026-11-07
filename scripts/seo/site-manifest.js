@@ -333,7 +333,7 @@ const ROUTES = [
       'RoboCore is a robot you build yourself and a coding app to bring it to life: drag-and-drop blocks or Arduino C++, in the browser. Made in Zambia by Plastal-Bot Builders.',
     image: '/resources/social/og-robocore.jpg',
     imageAlt:
-      'Build a robot. Code it in your browser. The yellow RoboCore V2 robot beside a RoboCore IDE program made of blocks.',
+      'Build a robot. Code it in your browser. The RoboCore robot, a navy frame with a yellow lift and gripper, beside a RoboCore IDE program made of blocks.',
     breadcrumb: [{ name: 'RoboCore', path: '/robocore' }],
     body: {
       h1: 'RoboCore — the robot kit and coding app for young makers',
@@ -378,7 +378,7 @@ const ROUTES = [
       },
       {
         q: 'Where is RoboCore made?',
-        a: 'RoboCore is made in Zambia by Plastal-Bot Builders. V2 is currently a prototype, with school and innovation-hub pilots planned next.',
+        a: 'RoboCore is made in Zambia by Plastal-Bot Builders. It is currently a prototype, with school and innovation-hub pilots planned next.',
       },
       {
         q: 'Can I buy RoboCore?',
@@ -445,7 +445,7 @@ const ROUTES = [
     body: {
       h1: 'Hardware specifications',
       summary:
-        'What is on the RoboCore V2 controller board, and the robot built around it. V2 is our newest prototype, so details may still change before the pilot kits.',
+        'What is on the RoboCore V2 controller board, and the robot built around it. RoboCore is our newest prototype, so details may still change before the pilot kits.',
       sections: [
         {
           h2: 'The controller board',

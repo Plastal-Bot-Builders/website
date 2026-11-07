@@ -6,16 +6,16 @@ import StudioEnvironment from '../ui/StudioEnvironment';
 import { asset } from '../../utils/asset';
 
 /**
- * RoboCore V2 in 3D for the /robocore hero: a slow turntable the visitor can drag around.
+ * The RoboCore robot in 3D for the /robocore hero: a slow turntable the visitor can drag around.
  *
- * The model is a web copy of the Fusion model (v36): a stray part removed, same-colour materials merged, big parts
- * decimated, one mesh, Draco-compressed, about 220k triangles and 0.9 MB (see README.md here).
- * A lighter copy lost the arm's gear teeth, so phones get the same one. The Draco decoder is self-hosted in
+ * The model is a web copy of the Fusion model (the V3 robot, Stage 18 V-wheel version, lift level): same-colour materials
+ * merged, big parts decimated, one mesh, Draco-compressed, about 220k triangles and 0.95 MB (see README.md here).
+ * A lighter copy loses the gripper's gear teeth, so phones get the same one. The Draco decoder is self-hosted in
  * public/draco/. Zoom and pan are off so the mouse wheel keeps scrolling the page; on touch screens the robot only
  * turns by itself, so a swipe over it still scrolls the page.
  */
 const DRACO_PATH = asset('draco/');
-const MODEL = asset('resources/RoboCore/robocore-v2.glb');
+const MODEL = asset('resources/RoboCore/robocore-v3.glb');
 
 /** The robot's length in scene units once fitted: room for the arm as it turns. */
 const LENGTH = 1.4;

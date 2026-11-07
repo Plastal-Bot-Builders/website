@@ -46,7 +46,7 @@ Yes. The coding app includes a simulated preview board for exploring programs wi
 
 ## Where is RoboCore made?
 
-RoboCore is made in Zambia by Plastal-Bot Builders. V2 is currently a prototype, with school and innovation-hub pilots planned next.
+RoboCore is made in Zambia by Plastal-Bot Builders. It is currently a prototype, with school and innovation-hub pilots planned next.
 
 ## Can I buy RoboCore?
 
@@ -88,7 +88,7 @@ Cog explains errors and blocks first, then gives hints one at a time. It changes
 
 Source: https://www.plastalbotbuilders.com/robocore/hardware
 
-What is on the RoboCore V2 controller board, and the robot built around it. V2 is our newest prototype, so details may still change before the pilot kits.
+What is on the RoboCore V2 controller board, and the robot built around it. RoboCore is our newest prototype, so details may still change before the pilot kits.
 
 ## The controller board
 

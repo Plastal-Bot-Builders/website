@@ -114,8 +114,8 @@ const SPECS: Spec[] = [
 ];
 
 const VIEWS: [string, string, number, number, string][] = [
-  ['robot-front.webp', 'Front', 700, 494, '167 mm wide'],
-  ['robot-left.webp', 'Side', 700, 297, '278 mm long'],
+  ['robot-front.webp', 'Front', 700, 503, '154 mm wide'],
+  ['robot-left.webp', 'Side', 700, 271, '286 mm long'],
 ];
 
 /** Estimates for 3000 mAh 18650 cells in parallel, from the board's power budget. */
@@ -186,16 +186,17 @@ const Art: React.FC<{ src: string; alt: string; w: number; h: number; tall?: boo
 const KIT: [string, string, string, string | null, number, number, ('render' | 'line')?][] = [
   ['1', 'RoboCore V2 controller', 'The board on this page, assembled, with the ESP32-S3 and every port.', 'robocore-controller-hero-front.webp', 1600, 1067],
   ['2', 'Motors with encoders', 'XRP-type gear motors (1 : 48) that drive and measure distance.', 'kit-motor.webp', 720, 536],
-  ['2', 'Metal-gear servos', 'MG90S: one lifts the arm, one works the gripper.', 'kit-servo.webp', 720, 546],
-  ['1', 'Ultrasonic sensor', 'A 3.3 V HC-SR04-type module in the sonar pod at the front.', 'kit-ultrasonic.webp', 720, 664],
+  ['2', 'Metal-gear servos', 'MG90S: one drives the lift, one works the gripper.', 'kit-servo.webp', 720, 546],
+  ['1', 'Ultrasonic sensor', 'A 3.3 V HC-SR04-type module in the sonar housing at the front.', 'kit-ultrasonic.webp', 720, 664],
   ['1', 'Line sensor', 'A 3-channel TCRT5000-type module underneath.', 'line-sensor.webp', 480, 288, 'line'],
-  ['3', '18650 cells and holder', 'About 3000 mAh each, in parallel, charged over USB-C.', 'kit-battery.webp', 720, 489],
-  ['2', 'Wheels with TPU tyres', 'Printed wheels with soft, grippy tyres.', 'kit-wheel.webp', 527, 720],
-  ['1', 'Set of printed parts', 'Chassis, arm, gripper, sonar pod and clips, printed in PETG.', 'kit-printed.webp', 720, 492],
-  ['1', 'Screws, inserts and cables', 'M2 and M3 screws, heat-set inserts, jumper wires and two steel caster balls.', null, 0, 0],
+  ['3', '18650 cells', 'About 3000 mAh each, in parallel in a printed cradle, charged over USB-C.', 'kit-battery.webp', 720, 516],
+  ['2', 'Wheels with TPU tyres', 'Printed 56 mm wheels with soft, grippy tyres.', 'kit-wheel.webp', 590, 720],
+  ['4', 'V-wheels', '24 mm POM wheels on ball bearings, in the four corners of the frame.', 'kit-vwheel.webp', 671, 720],
+  ['1', 'Set of printed parts', 'Frame, lift, gripper, battery cradle, carry handle and rear deck, printed in PETG.', 'kit-printed.webp', 720, 424],
+  ['1', 'Screws, bearings and cables', 'M2, M3 and M5 screws and nuts, heat-set inserts, ten 683ZZ bearings and the cables.', null, 0, 0],
 ];
 /** Bento spans for KIT, in order: the board big, then a row of four, and the box beside the note at the end. */
-const KIT_SPANS = ['rc-c6 rc-r2 rc-full-md', 'rc-c3', 'rc-c3', 'rc-c3', 'rc-c3', 'rc-c3', 'rc-c3', 'rc-c3', 'rc-c3'];
+const KIT_SPANS = ['rc-c6 rc-r2 rc-full-md', 'rc-c3', 'rc-c3', 'rc-c3', 'rc-c3', 'rc-c3', 'rc-c3', 'rc-c3', 'rc-c3', 'rc-c3'];
 
 /** Files to download: the first two pages of the V2 technical reference, and the Arduino library from robocore-ide. */
 const FILES: [IconType, string, string, string, string][] = [
@@ -204,20 +205,21 @@ const FILES: [IconType, string, string, string, string][] = [
 ];
 
 /**
- * The arm's three positions in one picture: carrying in front, down at the floor and straight up faded behind it, and
- * an arrow for the way it swings. The arc is centred on the shoulder joint (x 537, y 466 in the picture).
+ * The lift's three positions in one picture: carrying (level) in front, down at the floor and up faded behind it, and
+ * an arrow for the way the gripper travels. The lift is a parallel four-bar, so the gripper head moves on a circle
+ * (centre x 543, y 263 in the picture, through the three head positions) without tilting; the arrow runs outside it.
  */
 const ArmMotion: React.FC = () => (
-  <svg className="rc-arm-motion" viewBox="0 0 990 813" role="img" aria-labelledby="rc-arm-motion-title">
-    <title id="rc-arm-motion-title">The arm swings from the floor, through the carrying position, to straight up</title>
+  <svg className="rc-arm-motion" viewBox="0 0 1000 560" role="img" aria-labelledby="rc-arm-motion-title">
+    <title id="rc-arm-motion-title">The lift swings the gripper from the floor, through the carrying position, up</title>
     <defs>
       <marker id="rc-arm-head" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
         <path d="M0 0 L10 5 L0 10 Z" fill="currentColor" />
       </marker>
     </defs>
-    <image href={asset('resources/RoboCore/robot-arm-motion.webp')} width="892" height="813" />
+    <image href={asset('resources/RoboCore/robot-arm-motion.webp')} width="892" height="487" />
     <path
-      d="M 860 718 A 410 410 0 0 0 608 62"
+      d="M 804 511 A 359 359 0 0 0 803 16"
       fill="none"
       stroke="currentColor"
       strokeWidth="5"
@@ -225,9 +227,9 @@ const ArmMotion: React.FC = () => (
       markerStart="url(#rc-arm-head)"
       markerEnd="url(#rc-arm-head)"
     />
-    <text x="868" y="782" className="rc-arm-label">Floor</text>
-    <text x="930" y="420" className="rc-arm-label">Carry</text>
-    <text x="640" y="40" className="rc-arm-label">Up</text>
+    <text x="822" y="548" className="rc-arm-label">Floor</text>
+    <text x="914" y="266" className="rc-arm-label">Carry</text>
+    <text x="824" y="30" className="rc-arm-label">Up</text>
   </svg>
 );
 
@@ -244,9 +246,9 @@ const RoboCoreHardware: React.FC = () => {
 
     <SubHero
       id="rc-hw-title"
-      eyebrow="RoboCore V2 · prototype"
+      eyebrow="RoboCore · prototype"
       title="Hardware specifications"
-      lead="What is on the RoboCore V2 controller board, and the robot built around it. V2 is our newest prototype, so details may still change before the pilot kits."
+      lead="What is on the RoboCore V2 controller board, and the robot built around it. RoboCore is our newest prototype, so details may still change before the pilot kits."
       actions={
         <>
           <span className="rc-chip">ESP32-S3</span>
@@ -319,23 +321,23 @@ const RoboCoreHardware: React.FC = () => {
         <div className="rc-section-head">
           <p className="rc-eyebrow">The robot</p>
           <h2 id="rc-hw-robot" className="rc-h2">
-            167 × 278 × 118 mm
+            154 × 286 × 111 mm
           </h2>
-          <p className="rc-lead">Two driven wheels, an arm with a gripper, a distance sensor at the front and a line sensor underneath.</p>
+          <p className="rc-lead">Two driven wheels, four V-wheels, a lift with a gripper, a distance sensor at the front and a line sensor underneath.</p>
         </div>
         <div className="rc-bento">
-          <Tile span="rc-c4 rc-r2" tone="yellow" contours>
-            <Art src="robot-top.webp" alt="RoboCore V2 from above: the controller board in the middle, the wheels at the sides and the gripper in front" w={700} h={1165} tall />
+          <Tile span="rc-c4 rc-r2" tone="soft" contours>
+            <Art src="robot-top.webp" alt="RoboCore from above: the controller board in the middle, the wheels at the sides and the gripper in front" w={700} h={1303} tall />
             <p className="rc-view">
               <span>From above</span>
-              <span className="rc-dim">167 × 278 mm</span>
+              <span className="rc-dim">154 × 286 mm</span>
             </p>
           </Tile>
           <Tile span="rc-c8">
             <div className="rc-views">
               {VIEWS.map(([src, label, w, h, dim]) => (
                 <figure key={src}>
-                  <Art src={src} alt={`RoboCore V2, ${label.toLowerCase()} view`} w={w} h={h} />
+                  <Art src={src} alt={`RoboCore, ${label.toLowerCase()} view`} w={w} h={h} />
                   <figcaption className="rc-view">
                     <span>{label}</span>
                     <span className="rc-dim">{dim}</span>
@@ -346,13 +348,13 @@ const RoboCoreHardware: React.FC = () => {
           </Tile>
           <Tile span="rc-c8">
             <ArmMotion />
-            <h3 className="rc-tile-title">An arm that reaches</h3>
-            <p className="rc-body">Servos lift the arm and open the gripper, so the robot can pick things up and put them down.</p>
+            <h3 className="rc-tile-title">A lift that reaches</h3>
+            <p className="rc-body">One servo swings the parallel lift, another opens the gripper, so the robot can pick things up and put them down.</p>
           </Tile>
           <Tile span="rc-c4">
-            <Art src="chassis.webp" alt="A line drawing of the robot's chassis" w={800} h={609} line />
+            <Art src="chassis.webp" alt="A line drawing of the robot's frame" w={800} h={536} line />
             <h3 className="rc-tile-title">Made to be printed</h3>
-            <p className="rc-body">The chassis, the arm and the sensor mounts are designed for 3D printing.</p>
+            <p className="rc-body">The frame, the lift and the gripper are designed for 3D printing, flat on the bed with no supports.</p>
           </Tile>
           <Tile span="rc-c4">
             <div className="rc-sensors rc-sensors--two">
@@ -365,7 +367,7 @@ const RoboCoreHardware: React.FC = () => {
           <Tile span="rc-c4 rc-full-md">
             <LuGrab className="rc-tile-icon" aria-hidden="true" />
             <h3 className="rc-tile-title">Common parts</h3>
-            <p className="rc-body">Hobby servos (MG90S or SG90), encoder motors and widely available sensor modules.</p>
+            <p className="rc-body">Hobby servos (MG90S), encoder motors, V-slot wheels and widely available sensor modules.</p>
           </Tile>
         </div>
       </div>
@@ -412,7 +414,7 @@ const RoboCoreHardware: React.FC = () => {
           ))}
           <Tile span="rc-c6" className="rc-kit">
             <div className="rc-kit-pic">
-              <img src={asset('resources/RoboCore/kit-box-open.webp')} alt="" width={900} height={1067} loading="lazy" decoding="async" />
+              <img src={asset('resources/RoboCore/kit-box-open.webp')} alt="" width={900} height={1057} loading="lazy" decoding="async" />
             </div>
             <p className="rc-kit-count" aria-hidden="true">
               1<span>×</span>
