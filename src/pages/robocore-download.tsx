@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import type { IconType } from 'react-icons';
 import { FaApple, FaLinux, FaWindows } from 'react-icons/fa';
-import { LuBot, LuDownload, LuLaptop, LuUsb } from 'react-icons/lu';
-import { SiGooglechrome, SiMicrosoftedge } from 'react-icons/si';
+import { LuDownload, LuLaptop } from 'react-icons/lu';
+
 import { SEOConfig } from '../components/SEO';
 import AppIcon from '../components/RoboCore/AppIcon';
 import Tile from '../components/RoboCore/Tile';
@@ -156,22 +156,16 @@ const RoboCoreDownload: React.FC = () => {
           </div>
           <div className="rc-bento">
             <Tile span="rc-c4">
-              <LuUsb className="rc-tile-icon" aria-hidden="true" />
               <h3 className="rc-tile-title">Connect the robot</h3>
-              <p className="rc-body">Connect RoboCore V2 with a USB-C data cable, choose your board in Board Setup, then open an example and upload it.</p>
+              <p className="rc-body">Plug in your robot, open an example and see your code come to life.</p>
             </Tile>
             <Tile span="rc-c4">
-              <LuBot className="rc-tile-icon" aria-hidden="true" />
               <h3 className="rc-tile-title">No robot yet?</h3>
               <p className="rc-body">
-                Try your programs on the preview board: it simulates the motors, servo, sonar, line sensor, tilt and battery.
+                Start with the preview board to explore how your programs behave before trying them on a robot.
               </p>
             </Tile>
             <Tile span="rc-c4 rc-full-md" tone="navy">
-              <p className="rc-marks" aria-label="Chrome and Edge">
-                <SiGooglechrome aria-hidden="true" />
-                <SiMicrosoftedge aria-hidden="true" />
-              </p>
               <h3 className="rc-tile-title">In the browser</h3>
               <p className="rc-body">On a computer with Chrome or Edge, you can also use the IDE without installing anything.</p>
               <a className="rc-link rc-tile-cta" href={WEB_IDE} target="_blank" rel="noopener noreferrer">

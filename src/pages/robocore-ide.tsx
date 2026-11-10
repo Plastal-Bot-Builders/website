@@ -130,7 +130,7 @@ const RoboCoreIde: React.FC = () => (
           </h2>
         </div>
         <div className="rc-bento">
-          <Tile span="rc-c5 rc-r2 rc-full-md" tone="yellow">
+          <Tile span="rc-c5 rc-r2 rc-full-md" tone="yellow" className="rc-blocks-feature">
             <p className="rc-stat">74</p>
             <p className="rc-tile-text">blocks for movement, sensors, lights and sound</p>
             <Shot

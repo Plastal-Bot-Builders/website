@@ -317,8 +317,8 @@
     "faq": []
   },
   "/robocore/hardware": {
-    "title": "RoboCore V2 hardware specifications | RoboCore",
-    "description": "The RoboCore V2 controller board and robot: ESP32-S3, encoder motor ports, four servo ports, IMU, ultrasonic and line sensor ports, USB-C charging and a 3D-printed body.",
+    "title": "Explore the RoboCore robot and kit | RoboCore",
+    "description": "Explore what you can build with RoboCore: a programmable robot with a lift, gripper and sensors, plus a coding app for hands-on learning.",
     "image": "/resources/social/og-robocore.jpg",
     "graph": {
       "@context": "https://schema.org",
@@ -410,8 +410,8 @@
           "@type": "WebPage",
           "@id": "https://www.plastalbotbuilders.com/robocore/hardware#webpage",
           "url": "https://www.plastalbotbuilders.com/robocore/hardware",
-          "name": "RoboCore V2 hardware specifications | RoboCore",
-          "description": "The RoboCore V2 controller board and robot: ESP32-S3, encoder motor ports, four servo ports, IMU, ultrasonic and line sensor ports, USB-C charging and a 3D-printed body.",
+          "name": "Explore the RoboCore robot and kit | RoboCore",
+          "description": "Explore what you can build with RoboCore: a programmable robot with a lift, gripper and sensors, plus a coding app for hands-on learning.",
           "isPartOf": {
             "@id": "https://www.plastalbotbuilders.com/#website"
           },

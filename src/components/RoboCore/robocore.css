@@ -172,7 +172,14 @@ html.dark .rc {
 }
 .rc-hero-render { display: flex; align-items: center; justify-content: center; padding: 12px 20px 40px; }
 .rc-hero-render img { width: 100%; max-width: 680px; height: auto; }
-.rc-hero-canvas { opacity: 0; }
+.rc-hero-canvas {
+  opacity: 0;
+  background: transparent;
+  /* Only the soft ground shadow reaches the edge; blend it into the shared
+     contour background instead of revealing a rectangular canvas boundary. */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
 .rc-hero-stage.is-live .rc-hero-canvas { opacity: 1; }
 .rc-hero-stage.is-live .rc-hero-render { opacity: 0; }
 .rc-hint {
@@ -642,3 +649,42 @@ html.dark .rc .rc-tile--navy { border-color: var(--rc-line); }
 .rc-faq summary { cursor: pointer; font-weight: 600; font-size: 20px; }
 .rc-faq summary:focus-visible { outline: 3px solid currentColor; outline-offset: 4px; }
 .rc-faq .rc-body { margin-top: 12px; }
+
+/* Product pages: let content set the card height and keep images consistent. */
+#board .rc-bento { align-items: stretch; }
+#board .rc-shot { height: 180px; }
+#board .rc-shot img { width: 100%; height: 100%; object-fit: cover; }
+#board .rc-spec { margin-top: 0; }
+.rc-blocks-feature { align-self: start; }
+
+@media (max-width: 639px) { #board .rc-shot { height: 200px; } }
+
+.rc-technical-details { margin-bottom: 48px; }
+.rc-technical-details > summary { cursor: pointer; font-size: 22px; font-weight: 700; padding: 20px 0; }
+.rc-technical-details[open] > summary { margin-bottom: 24px; }
+
+/* Hardware cards: stable image areas and complete rows at each breakpoint. */
+#board .rc-shot { flex: none; margin: 0 0 8px; }
+#board .rc-spec { gap: 8px; }
+#board .rc-spec > div { grid-template-columns: 1fr; gap: 4px; }
+#board .rc-tile-title { min-height: 2.2em; }
+#board .rc-shot--natural { display: flex; align-items: center; }
+#board .rc-shot--natural img { height: auto; object-fit: contain; }
+#kit .rc-kit-pic { flex: none; height: 180px; min-height: 0; }
+#kit .rc-kit-count { font-size: 30px; margin-top: 8px; }
+#kit .rc-kit .rc-tile-title { min-height: 2.2em; }
+.rc-hardware-note { gap: 12px; }
+@media (min-width: 640px) and (max-width: 1023px) {
+  #robot .rc-r2 { grid-row: auto; }
+  #robot .rc-views { grid-template-columns: 1fr; }
+  #robot .rc-tile-art--tall { min-height: 360px; }
+}
+@media (min-width: 640px) {
+  .rc-hardware-note { flex-direction: row; align-items: center; gap: 28px; }
+  .rc-hardware-note .rc-tile-title { flex: 0 0 220px; }
+  .rc-hardware-note p { max-width: 70ch; }
+}
+@media (max-width: 639px) {
+  #board .rc-tile, #robot .rc-tile, #kit .rc-tile { padding: 22px; }
+  #board .rc-tile-title, #kit .rc-kit .rc-tile-title { min-height: 0; }
+}

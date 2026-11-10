@@ -1,15 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import type { IconType } from 'react-icons';
-import {
-  LuArrowRight,
-  LuBookOpen,
-  LuFactory,
-  LuRepeat,
-  LuSchool,
-  LuStars,
-  LuUsers,
-} from 'react-icons/lu';
+import { LuArrowRight, LuBookOpen, LuFactory, LuRepeat, LuSchool, LuStars } from 'react-icons/lu';
 import { SEOConfig } from '../components/SEO';
 import SubHero from '../components/RoboCore/SubHero';
 import Supporters from '../components/RoboCore/Supporters';
@@ -92,8 +84,8 @@ const GOALS: [IconType, string, string, string, string, number, number, boolean?
   ],
   [
     LuFactory,
-    'Make it in Zambia',
-    'Print the bodies and assemble and package the kits here, and in time make the boards here too.',
+    'Built around local learning',
+    'Our goal is to give more learners in Zambia the chance to build, code and experiment with robotics.',
     'kit-box-open',
     'The RoboCore V2 kit box, open',
     900,
@@ -276,7 +268,7 @@ const RoboCoreVision: React.FC = () => (
               <img src={asset('resources/RoboCore/vision-goal-reach.webp')} alt="A big group of young learners at one of our workshops" width={900} height={675} loading="lazy" decoding="async" />
             </div>
           </Tile>
-          {GOALS.map(([Icon, title, text, src, alt, w, h, contain], i) => (
+          {GOALS.map(([, title, text, src, alt, w, h, contain], i) => (
             // Beside the 5,000: one wide tile (picture beside the words) and two narrow ones; then two halves, the last
             // one full width on tablets.
             <Tile key={title} span={GOAL_SPANS[i]} className={i === 0 ? 'rc-tile--split' : undefined}>
@@ -284,7 +276,6 @@ const RoboCoreVision: React.FC = () => (
                 <img src={asset(`resources/RoboCore/${src}.webp`)} alt={alt} width={w} height={h} loading="lazy" decoding="async" />
               </div>
               <div>
-                <Icon className="rc-tile-icon" aria-hidden="true" />
                 <h3 className="rc-tile-title">{title}</h3>
                 <p className="rc-body">{text}</p>
               </div>
@@ -306,7 +297,6 @@ const RoboCoreVision: React.FC = () => (
         <div className="rc-bento">
           <Supporters />
           <Tile span="rc-c6 rc-full-md" tone="yellow" contours>
-            <LuSchool className="rc-tile-icon" aria-hidden="true" />
             <h3 className="rc-tile-title">Schools and innovation hubs</h3>
             <p className="rc-tile-text">Would you like to try RoboCore with your learners? Tell us about your school or hub.</p>
             <a className="rc-btn rc-btn-primary rc-tile-cta" href={`mailto:${CONTACT}?subject=RoboCore%20pilot`}>
@@ -314,7 +304,6 @@ const RoboCoreVision: React.FC = () => (
             </a>
           </Tile>
           <Tile span="rc-c6 rc-full-md">
-            <LuUsers className="rc-tile-icon" aria-hidden="true" />
             <h3 className="rc-tile-title">Partners and sponsors</h3>
             <p className="rc-body">Help us build and test the first RoboCore kits, and bring them to more schools.</p>
             <a className="rc-link rc-tile-cta" href={`mailto:${CONTACT}?subject=RoboCore%20partnership`}>

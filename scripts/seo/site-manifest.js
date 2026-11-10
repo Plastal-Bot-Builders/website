@@ -355,7 +355,7 @@ const ROUTES = [
         },
         {
           h2: 'The controller board',
-          p: 'The controller is an ESP32-S3 with Wi-Fi, Bluetooth LE, 8 MB of flash and 2 MB of PSRAM, on a 68 × 60 mm, 4-layer board. It has two motor ports with encoders, four servo ports, ports for the distance and line sensors, a 6-axis motion sensor, a Qwiic (I²C) port and expansion headers, and USB-C straight to the chip.',
+          p: 'Connect movement, lights, sound and sensors in one place. Program the controller over USB-C and combine its features into your own robotics projects.',
         },
         {
           h2: 'The RoboCore IDE',
@@ -434,28 +434,26 @@ const ROUTES = [
     path: '/robocore/hardware',
     priority: '0.8',
     changefreq: 'monthly',
-    title: 'RoboCore V2 hardware specifications | RoboCore',
+    title: 'Explore the RoboCore robot and kit | RoboCore',
     description:
-      'The RoboCore V2 controller board and robot: ESP32-S3, encoder motor ports, four servo ports, IMU, ultrasonic and line sensor ports, USB-C charging and a 3D-printed body.',
+      'Explore what you can build with RoboCore: a programmable robot with a lift, gripper and sensors, plus a coding app for hands-on learning.',
     image: '/resources/social/og-robocore.jpg',
     breadcrumb: [
       { name: 'RoboCore', path: '/robocore' },
       { name: 'Hardware', path: '/robocore/hardware' },
     ],
     body: {
-      h1: 'Hardware specifications',
+      h1: 'Meet your next robotics project',
       summary:
         'What is on the RoboCore V2 controller board, and the robot built around it. RoboCore is our newest prototype, so details may still change before the pilot kits.',
       sections: [
         {
           h2: 'The controller board',
           list: [
-            'ESP32-S3-WROOM-1 (N8R2): dual-core up to 240 MHz, 8 MB flash, 2 MB PSRAM, Wi-Fi and Bluetooth LE, USB-C',
-            '2 encoder motor ports (DRV8411A, 1.0 A per motor) and 4 servo ports at 5.5 V',
-            'LSM6DSOX 6-axis IMU, ultrasonic and 3-channel line sensor ports, Qwiic (I²C)',
-            '1S Li-ion battery on XT30 with reverse and over-voltage cut-off; USB-C charging up to 1 A',
-            'WS2812B RGB LED, buzzer, RESET, BOOT and USER buttons, two 14-pin expansion headers',
-            '68 × 60 mm, four layers',
+            'Write a program and see the robot respond.',
+            'Drive, lift and grip with motors and servos.',
+            'Explore distance, line following and motion sensing.',
+            'Start with lights, sounds and buttons.',
           ],
         },
         { h2: 'The robot', p: '154 × 286 × 111 mm, with two driven wheels, four V-wheels, a lift with a gripper and a 3D-printed frame.' },

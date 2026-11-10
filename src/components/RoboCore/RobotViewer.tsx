@@ -1,5 +1,5 @@
-import React, { Suspense, useEffect, useMemo, useState } from 'react';
-import { Canvas } from '@react-three/fiber';
+import React, { Suspense, useEffect, useLayoutEffect, useMemo, useState } from 'react';
+import { Canvas, useThree } from '@react-three/fiber';
 import { ContactShadows, OrbitControls, useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
 import StudioEnvironment from '../ui/StudioEnvironment';
@@ -24,9 +24,11 @@ const LENGTH = 1.4;
  * render (robot_iso_fl), so the still image and the 3D model line up when one replaces the other.
  */
 const CAMERA: [number, number, number] = [2.05, 2.05, -2.05];
+const TARGET = new THREE.Vector3(0, 0.3, 0);
 
 function Robot({ url, onReady }: { url: string; onReady: () => void }) {
   const { scene } = useGLTF(url, DRACO_PATH);
+  const { camera, size: viewport, invalidate } = useThree();
 
   const fitted = useMemo(() => {
     scene.scale.setScalar(1);
@@ -38,14 +40,32 @@ function Robot({ url, onReady }: { url: string; onReady: () => void }) {
     const s = LENGTH / Math.max(size.x, size.z);
     scene.scale.setScalar(s);
     scene.position.set(-center.x * s, -box.min.y * s, -center.z * s);
-    return scene;
+    // Bound the entire turn around the controls' target, including the raised gripper.
+    const half = size.clone().multiplyScalar(s / 2);
+    const centreOffset = Math.abs(size.y * s / 2 - TARGET.y);
+    const radius = Math.hypot(half.x, half.y + centreOffset, half.z);
+    return { scene, radius };
   }, [scene]);
+
+  useLayoutEffect(() => {
+    if (!(camera instanceof THREE.PerspectiveCamera)) return;
+    // Fit the whole orbit, not just the initial angle. Tall desktop panels have
+    // a narrower horizontal field of view than the fixed camera assumed.
+    const vertical = THREE.MathUtils.degToRad(camera.fov) / 2;
+    const horizontal = Math.atan(Math.tan(vertical) * viewport.width / viewport.height);
+    const distance = fitted.radius * 1.12 / Math.sin(Math.min(vertical, horizontal));
+    const direction = camera.position.clone().sub(TARGET).normalize();
+    camera.position.copy(TARGET).addScaledVector(direction, distance);
+    camera.lookAt(TARGET);
+    camera.updateProjectionMatrix();
+    invalidate();
+  }, [camera, viewport.width, viewport.height, fitted.radius, invalidate]);
 
   useEffect(() => {
     onReady();
   }, [fitted, onReady]);
 
-  return <primitive object={fitted} />;
+  return <primitive object={fitted.scene} />;
 }
 
 function prefersReducedMotion(): boolean {

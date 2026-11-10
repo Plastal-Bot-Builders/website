@@ -2,27 +2,7 @@ import roboSeo from '../data/robocore-seo.json';
 import React, { Suspense, lazy, useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import type { IconType } from 'react-icons';
-import {
-  LuActivity,
-  LuArrowRight,
-  LuBot,
-  LuDownload,
-  LuGlobe,
-  LuGrab,
-  LuHeartHandshake,
-  LuLightbulb,
-  LuLinkedin,
-  LuMessageCircle,
-  LuMonitor,
-  LuMove,
-  LuMusic,
-  LuPuzzle,
-  LuRadio,
-  LuRotate3D,
-  LuSchool,
-  LuWand2,
-  LuZap,
-} from 'react-icons/lu';
+import { LuActivity, LuArrowRight, LuBot, LuDownload, LuGlobe, LuGrab, LuLightbulb, LuMessageCircle, LuMonitor, LuMove, LuMusic, LuPuzzle, LuRadio, LuRotate3D, LuWand2, LuZap } from 'react-icons/lu';
 import { SiGooglechrome, SiMicrosoftedge } from 'react-icons/si';
 import { SEOConfig } from '../components/SEO';
 import AppIcon from '../components/RoboCore/AppIcon';
@@ -87,9 +67,8 @@ const MAKE: [IconType, string][] = [
 ];
 
 /** A tile about one thing the IDE does: icon, title, a sentence. */
-const AppTile: React.FC<{ item: [IconType, string, string]; span?: string }> = ({ item: [Icon, title, text], span = 'rc-c4' }) => (
+const AppTile: React.FC<{ item: [IconType, string, string]; span?: string }> = ({ item: [, title, text], span = 'rc-c4' }) => (
   <Tile span={span}>
-    <Icon className="rc-tile-icon" aria-hidden="true" />
     <h3 className="rc-tile-title">{title}</h3>
     <p className="rc-body">{text}</p>
   </Tile>
@@ -266,14 +245,10 @@ const RoboCorePage: React.FC = () => {
           </Tile>
           <Tile span="rc-c5 rc-r2 rc-full-md" tone="yellow" contours>
             <TileArt src="robot-iso-fr.webp" alt="RoboCore from the front right" w={1000} h={614} />
-            <span className="rc-chip rc-tile-foot">154 × 286 × 111 mm</span>
           </Tile>
-          {PILLARS.map(([title, Icon, text], i) => (
+          {PILLARS.map(([title, , text], i) => (
             // On tablets (two columns) the third one takes the whole row.
             <Tile key={title} span={i === 2 ? 'rc-c4 rc-full-md' : 'rc-c4'}>
-              <span className="rc-pillar-icon" aria-hidden="true">
-                <Icon />
-              </span>
               <h3 className="rc-tile-title">{title}</h3>
               <p className="rc-body">{text}</p>
             </Tile>
@@ -393,8 +368,8 @@ const RoboCorePage: React.FC = () => {
               <p className="rc-body">Holds the controller, the motors, the lift and the sensors.</p>
             </Tile>
             <Tile span="rc-c3" tone="navy">
-              <p className="rc-stat rc-stat--sm">68 × 60 mm</p>
-              <p className="rc-tile-text">4-layer controller board</p>
+              <h3 className="rc-tile-title">One controller. Many projects.</h3>
+              <p className="rc-tile-text">Connect movement, lights, sound and sensors in one place.</p>
             </Tile>
             <Tile span="rc-c3">
               <div className="rc-shot rc-shot--render">
@@ -466,7 +441,6 @@ const RoboCorePage: React.FC = () => {
               <p className="rc-body">{BROWSER[2]}</p>
             </Tile>
             <Tile span="rc-c6 rc-r2 rc-full-md">
-              <LuPuzzle className="rc-tile-icon" aria-hidden="true" />
               <h3 className="rc-tile-title">Blocks or C++</h3>
               <p className="rc-body">Switch to Arduino C++ whenever you are ready: the blocks show you the code they write.</p>
               <pre className="rc-code" aria-label="C++ written by the blocks">
@@ -511,13 +485,6 @@ const RoboCorePage: React.FC = () => {
           <div className="rc-bento">
             <Tile span="rc-c7 rc-r2 rc-full-md">
               <ol className="rc-steps">
-                <li className="rc-step">
-                  <span className="rc-chip rc-step-tag">First</span>
-                  <div>
-                    <h3 className="rc-tile-title">RoboCore V1: Gypul</h3>
-                    <p className="rc-body">Our first prototype: a self-balancing robot, built by hand with 3D-printed parts.</p>
-                  </div>
-                </li>
                 <li className="rc-step is-now" aria-current="step">
                   <span className="rc-chip rc-step-tag">Now</span>
                   <div>
@@ -577,7 +544,6 @@ const RoboCorePage: React.FC = () => {
           </div>
           <div className="rc-bento">
             <Tile span="rc-c6 rc-full-md" tone="yellow" contours>
-              <LuSchool className="rc-tile-icon" aria-hidden="true" />
               <h3 className="rc-tile-title">Schools and innovation hubs</h3>
               <p className="rc-tile-text">Would you like to try RoboCore with your learners? Tell us about your school or hub.</p>
               <a className="rc-btn rc-btn-primary rc-tile-cta" href={`mailto:${CONTACT}?subject=RoboCore%20pilot`}>
@@ -585,7 +551,6 @@ const RoboCorePage: React.FC = () => {
               </a>
             </Tile>
             <Tile span="rc-c3">
-              <LuHeartHandshake className="rc-tile-icon" aria-hidden="true" />
               <h3 className="rc-tile-title">Partners and sponsors</h3>
               <p className="rc-body">Help us build and test the first RoboCore kits.</p>
               <a className="rc-link rc-tile-cta" href={`mailto:${CONTACT}?subject=RoboCore%20partnership`}>
@@ -593,7 +558,6 @@ const RoboCorePage: React.FC = () => {
               </a>
             </Tile>
             <Tile span="rc-c3">
-              <LuLinkedin className="rc-tile-icon" aria-hidden="true" />
               <h3 className="rc-tile-title">Follow the build</h3>
               <p className="rc-body">Follow Plastal-Bot Builders for RoboCore news.</p>
               <a className="rc-link rc-tile-cta" href={LINKEDIN} target="_blank" rel="noopener noreferrer">

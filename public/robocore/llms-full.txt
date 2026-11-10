@@ -26,7 +26,7 @@ RoboCore is a robot you build yourself and a coding app to bring it to life. Sta
 
 ## The controller board
 
-The controller is an ESP32-S3 with Wi-Fi, Bluetooth LE, 8 MB of flash and 2 MB of PSRAM, on a 68 × 60 mm, 4-layer board. It has two motor ports with encoders, four servo ports, ports for the distance and line sensors, a 6-axis motion sensor, a Qwiic (I²C) port and expansion headers, and USB-C straight to the chip.
+Connect movement, lights, sound and sensors in one place. Program the controller over USB-C and combine its features into your own robotics projects.
 
 ## The RoboCore IDE
 
@@ -84,7 +84,7 @@ Cog explains errors and blocks first, then gives hints one at a time. It changes
 
 ---
 
-# Hardware specifications
+# Meet your next robotics project
 
 Source: https://www.plastalbotbuilders.com/robocore/hardware
 
@@ -94,17 +94,13 @@ What is on the RoboCore V2 controller board, and the robot built around it. Robo
 
 
 
-- ESP32-S3-WROOM-1 (N8R2): dual-core up to 240 MHz, 8 MB flash, 2 MB PSRAM, Wi-Fi and Bluetooth LE, USB-C
+- Write a program and see the robot respond.
 
-- 2 encoder motor ports (DRV8411A, 1.0 A per motor) and 4 servo ports at 5.5 V
+- Drive, lift and grip with motors and servos.
 
-- LSM6DSOX 6-axis IMU, ultrasonic and 3-channel line sensor ports, Qwiic (I²C)
+- Explore distance, line following and motion sensing.
 
-- 1S Li-ion battery on XT30 with reverse and over-voltage cut-off; USB-C charging up to 1 A
-
-- WS2812B RGB LED, buzzer, RESET, BOOT and USER buttons, two 14-pin expansion headers
-
-- 68 × 60 mm, four layers
+- Start with lights, sounds and buttons.
 
 ## The robot
 
