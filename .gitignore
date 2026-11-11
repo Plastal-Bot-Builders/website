@@ -158,4 +158,9 @@ public/resources/Geneva2026/*
 !public/resources/RoboCore/*.glb
 !public/resources/RoboCore/icons/*.png
 
+# The Plastal-Bot favicons public/index.html links to: PNG fallbacks for browsers without SVG icons (the light
+# logo_light.svg mark) and the Apple touch icon (that mark on the site's cream).
+!public/resources/Logo/favicon-*.png
+!public/resources/Logo/apple-touch-icon.png
+
 
