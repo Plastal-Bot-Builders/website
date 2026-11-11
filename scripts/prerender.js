@@ -347,9 +347,30 @@ const FALLBACK_STYLE =
   '<style>#prerendered-content{display:none}</style>\n' +
   '    <noscript><style>#prerendered-content{display:block}</style></noscript>';
 
+/**
+ * RoboCore's own browser icon (the Geared Ring app icon, light/dark by itself) and browser-bar colour, the same tags
+ * as src/components/RoboCore/browserIcon.ts. The site's are switched off, not removed (rel / name move to
+ * data-site-rel / data-site-name), so the app can give them back if the visitor goes on to a Plastal-Bot page.
+ */
+const ROBOCORE_HEAD = [
+  '<link rel="icon" type="image/png" sizes="32x32" href="/resources/RoboCore/icons/robocore-icon-32.png" data-robocore>',
+  '<link rel="icon" type="image/svg+xml" href="/resources/RoboCore/icons/robocore-icon.svg" data-robocore>',
+  '<link rel="apple-touch-icon" sizes="180x180" href="/resources/RoboCore/icons/robocore-apple-touch-icon.png" data-robocore>',
+  '<meta name="theme-color" content="#F7F1E3" media="(prefers-color-scheme: light)" data-robocore>',
+  '<meta name="theme-color" content="#0F1828" media="(prefers-color-scheme: dark)" data-robocore>',
+];
+
+function robocoreBrowserIcon(html) {
+  return html
+    .replace(/<link rel="(icon|apple-touch-icon)"/g, '<link data-site-rel="$1"')
+    .replace(/<meta name="theme-color"/g, '<meta data-site-name="theme-color"')
+    .replace('</head>', `  ${ROBOCORE_HEAD.join('\n    ')}\n</head>`);
+}
+
 /** The shell with one route's head tags and fallback body in place of the generic ones. */
 function renderRoute(shell, route) {
   let html = shell;
+  if (route.path === '/robocore' || route.path.startsWith('/robocore/')) html = robocoreBrowserIcon(html);
   // Replace the generic title/description from the shell with per-route tags
   html = html.replace(/<title>.*?<\/title>/s, '');
   html = html.replace(/<meta\s+name="description"[^>]*\/?>/gi, '');

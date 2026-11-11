@@ -26,6 +26,8 @@ check new tiles at 1440, 800 and 390 px for gaps.
 | `src/components/RoboCore/Tile.tsx` | One bento tile, used by every RoboCore page. |
 | `src/components/RoboCore/SubHero.tsx` | The yellow opening card of a subpage (IDE, Hardware, Vision). |
 | `src/components/RoboCore/AppIcon.tsx` | The RoboCore IDE's app icon (Geared Ring), wherever the IDE is offered. |
+| `src/components/RoboCore/RoboCoreLoader.tsx` | RoboCore's loading screen (not the site's grid): the lockup putting itself together, the gear turning while "Rob" and "Core" slide out of it and "Zambia" appears (paths from `RoboCoreLogo.tsx`). Covers the whole window, header and footer too, on the way in (`App.tsx`) and between RoboCore pages, for exactly as long as the page's code takes to arrive. CSS animations and own colours in `RoboCoreLoader.css`. |
+| `src/components/RoboCore/browserIcon.ts` | RoboCore's browser icon and bar colour on RoboCore pages; `scripts/prerender.js` writes the same tags into each page. Icons in `public/resources/RoboCore/icons/` are the IDE web app's (`web/favicon.svg` follows the browser's light/dark theme). |
 | `src/components/RoboCore/Gallery.tsx` | Pictures and the pitch video with thumbnails (overview, "See it"). |
 | `src/components/RoboCore/Supporters.tsx` | The "Supported by" row with the supporters' logos (overview and vision). |
 | `src/components/RoboCore/shared.ts` | Contact details, the maker line, and scrolling to a section. |

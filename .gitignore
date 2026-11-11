@@ -156,5 +156,6 @@ public/resources/Geneva2026/*
 # the site. Where they come from: src/components/RoboCore/README.md.
 !public/resources/RoboCore/*.webp
 !public/resources/RoboCore/*.glb
+!public/resources/RoboCore/icons/*.png
 
 

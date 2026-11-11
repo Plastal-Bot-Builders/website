@@ -9,6 +9,7 @@ import { Grid } from 'react-loader-spinner';
 import { Scrollbars } from 'rc-scrollbars';
 import Chatbot from './components/Chatbot/Chatbot';
 import ErrorBoundary from './components/ErrorBoundary';
+import RoboCoreLoader from './components/RoboCore/RoboCoreLoader'; // not lazy: it shows while RoboCore's code loads
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 import { DefaultSEO } from './components/SEO';
 import Squares from './components/ui/Squares';
@@ -55,26 +56,31 @@ const NonprofitPartnershipPage = lazy(() => import('./components/SupportPages/No
 const Technicbots = lazy(() => import('./components/Technibots/technicbots'));
 const DavidProfile = lazy(() => import('./components/Technibots/David'));
 
-const RouteLoader: React.FC = () => (
-  <div
-    className="loader-background visible"
-    role="status"
-    aria-live="polite"
-    aria-label="Page loading"
-  >
-    <div className="loader-container">
-      <Grid
-        visible={true}
-        height="80"
-        width="80"
-        color={'var(--loader-spinner, #0CFFBB)'}
-        ariaLabel="page-loading"
-        radius="12.5"
-      />
-      <span className="sr-only">Loading page content...</span>
+const RouteLoader: React.FC = () => {
+  const location = useLocation();
+  // RoboCore has its own loader (its app icon, the gear ring spinning) in place of the site's grid.
+  if (location.pathname.startsWith('/robocore')) return <RoboCoreLoader />;
+  return (
+    <div
+      className="loader-background visible"
+      role="status"
+      aria-live="polite"
+      aria-label="Page loading"
+    >
+      <div className="loader-container">
+        <Grid
+          visible={true}
+          height="80"
+          width="80"
+          color={'var(--loader-spinner, #0CFFBB)'}
+          ariaLabel="page-loading"
+          radius="12.5"
+        />
+        <span className="sr-only">Loading page content...</span>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const App: React.FC = () => {
   const location = useLocation();
@@ -122,13 +128,17 @@ const App: React.FC = () => {
         }
       >
         <div style={{ position: 'relative', minHeight: '100vh' }} className="overflow-x-clip">
-          <div className="fixed inset-0 overflow-hidden" style={{ zIndex: 0 }}>
-            <Squares
-              speed={0.3}
-              squareSize={50}
-              direction="diagonal"
-            />
-          </div>
+          {/* The site's moving grid. Not under RoboCore pages: they cover the whole window with their own colours, and
+              while one loads the grid would show through. */}
+          {!location.pathname.startsWith('/robocore') && (
+            <div className="fixed inset-0 overflow-hidden" style={{ zIndex: 0 }}>
+              <Squares
+                speed={0.3}
+                squareSize={50}
+                direction="diagonal"
+              />
+            </div>
+          )}
 
           {/* Render your routes */}
           <main id="main-content" className="relative" style={{ zIndex: 1 }}>

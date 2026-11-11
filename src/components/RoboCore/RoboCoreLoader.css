@@ -1,0 +1,122 @@
+/*
+ * RoboCoreLoader. It shows before robocore.css has loaded (that stylesheet comes with the RoboCore pages), so it
+ * carries its own copy of the colours: the page background (--rc-bg, cream or the IDE's navy) and the logo ink
+ * (navy on cream, cream on navy, as in the RoboCore header). It covers the whole window, header and footer too, with
+ * a backdrop that is solid from the first frame, so nothing of the page underneath shows; only the logo moves.
+ *
+ * 0.10 s the gear appears and starts turning (one turn every 2 s, for as long as the page loads)
+ * 0.25 s "Rob" and "Core" slide out of the gear
+ * 0.65 s "Zambia" rises in, 0.75 s its rules draw outwards
+ */
+.rc-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F7F1E3;
+}
+
+html.dark .rc-loader {
+  background: #0F1828;
+}
+
+.rc-loader-logo {
+  width: min(320px, 72vw);
+  height: auto;
+  color: #1B2A41;
+  fill: currentColor;
+}
+
+html.dark .rc-loader-logo {
+  color: #F7F1E3;
+}
+
+.rc-loader-rule {
+  stroke: currentColor;
+  stroke-dasharray: 1;
+  animation: rc-loader-rule 0.45s ease-out 0.75s both;
+}
+
+.rc-loader-gear {
+  transform-box: view-box;
+  transform-origin: 1344.38px 352.98px;
+  animation: rc-loader-gear 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s both;
+}
+
+.rc-loader-spin {
+  transform-box: view-box;
+  transform-origin: 1344.38px 352.98px;
+  animation: rc-loader-spin 2s linear 0.1s infinite;
+}
+
+.rc-loader-rob {
+  animation: rc-loader-rob 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) 0.25s both;
+}
+
+.rc-loader-core {
+  animation: rc-loader-core 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) 0.25s both;
+}
+
+.rc-loader-zambia {
+  animation: rc-loader-zambia 0.4s ease-out 0.65s both;
+}
+
+@keyframes rc-loader-gear {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rc-loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* from just behind the gear (fully clipped) to their places */
+@keyframes rc-loader-rob {
+  from {
+    transform: translateX(1040px);
+  }
+}
+
+@keyframes rc-loader-core {
+  from {
+    transform: translateX(-1300px);
+  }
+}
+
+@keyframes rc-loader-zambia {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+}
+
+@keyframes rc-loader-rule {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Reduce motion: the whole lockup, still */
+@media (prefers-reduced-motion: reduce) {
+  .rc-loader-rule,
+  .rc-loader-gear,
+  .rc-loader-spin,
+  .rc-loader-rob,
+  .rc-loader-core,
+  .rc-loader-zambia {
+    animation: none;
+  }
+}

@@ -3,6 +3,8 @@ import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { LuLinkedin, LuMail, LuMenu, LuMoon, LuSun, LuX } from 'react-icons/lu';
 import { useTheme } from '../../theme/ThemeProvider';
 import { asset } from '../../utils/asset';
+import { useRoboCoreBrowserIcon } from './browserIcon';
+import RoboCoreLoader from './RoboCoreLoader';
 import RoboCoreLogo from './RoboCoreLogo';
 import { ABOUT, CONTACT, LINKEDIN, scrollToSection } from './shared';
 import './robocore.css';
@@ -147,17 +149,20 @@ const RoboCoreFooter: React.FC = () => (
   </footer>
 );
 
-const RoboCoreLayout: React.FC = () => (
-  <div className="rc">
-    <RoboCoreHeader />
-    {/* App.tsx already wraps every route in <main id="main-content">. The header and footer stay put while a page loads. */}
-    <div className="rc-page">
-      <Suspense fallback={null}>
-        <Outlet />
-      </Suspense>
+const RoboCoreLayout: React.FC = () => {
+  useRoboCoreBrowserIcon();
+  return (
+    <div className="rc">
+      <RoboCoreHeader />
+      {/* App.tsx already wraps every route in <main id="main-content">. While a page loads, the loader covers it all. */}
+      <div className="rc-page">
+        <Suspense fallback={<RoboCoreLoader />}>
+          <Outlet />
+        </Suspense>
+      </div>
+      <RoboCoreFooter />
     </div>
-    <RoboCoreFooter />
-  </div>
-);
+  );
+};
 
 export default RoboCoreLayout;
