@@ -2,7 +2,7 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-export const CONTACT = 'info@plastalbotbuilders.com';
+export const CONTACT = 'plastalbotbuilders@gmail.com';
 export const LINKEDIN = 'https://www.linkedin.com/company/plastal-bot-builders/';
 
 /** The enquiry page: every "ask about a pilot" and "partner with us" button leads here (src/pages/robocore-pilot.tsx). */
@@ -12,7 +12,7 @@ export const PILOT = '/robocore/pilot';
  * The WhatsApp number for enquiries: digits only, country code first, no "+" or spaces (for example '260971234567').
  * While it is empty, the pages show no WhatsApp button and the enquiry page sends by email only.
  */
-export const WHATSAPP = '';
+export const WHATSAPP = '260975608103';
 
 /** A WhatsApp chat with us, with `text` already typed for the visitor to send. Empty while WHATSAPP is not set. */
 export const whatsappLink = (text?: string): string =>

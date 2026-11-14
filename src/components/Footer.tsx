@@ -134,8 +134,8 @@ const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-2">
                 <FaEnvelope aria-hidden="true" className="text-hex flex-shrink-0" />
-                <a href="mailto:info@plastalbotbuilders.com" className="footer-link">
-                  info@plastalbotbuilders.com
+                <a href="mailto:plastalbotbuilders@gmail.com" className="footer-link">
+                  plastalbotbuilders@gmail.com
                 </a>
               </li>
             </ul>

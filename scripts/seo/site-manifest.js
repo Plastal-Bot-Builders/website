@@ -28,7 +28,7 @@ const ORG = {
     'Plastal-Bot Builders is a youth robotics and STEM education organisation based in Lusaka, Zambia. ' +
     'It runs hands-on robotics workshops, bootcamps and community outreach programmes, builds open student ' +
     'engineering projects, and represents Zambia at international robotics competitions.',
-  email: 'info@plastalbotbuilders.com',
+  email: 'plastalbotbuilders@gmail.com',
   telephone: '+260 975 608103',
   city: 'Lusaka',
   country: 'ZM',
@@ -666,7 +666,7 @@ const ROUTES = [
     faq: [
       {
         q: 'How can I support Plastal-Bot Builders?',
-        a: 'You can donate, sponsor a specific programme or competition team, volunteer as a mentor, or partner with Plastal-Bot Builders as a company, school or nonprofit. Contact info@plastalbotbuilders.com to discuss support.',
+        a: 'You can donate, sponsor a specific programme or competition team, volunteer as a mentor, or partner with Plastal-Bot Builders as a company, school or nonprofit. Contact plastalbotbuilders@gmail.com to discuss support.',
       },
       {
         q: 'What does a donation pay for?',
