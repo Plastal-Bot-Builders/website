@@ -106,7 +106,7 @@ const About: React.FC = () => {
                 {/* Text Content */}
                 <div className="w-full md:w-1/2 space-y-6">
                   <h1 className="type-h1">
-                    <span className="text-hex">About</span> Plastal-Bot Builders Org
+                    <span className="text-hex">About</span> Plastal-Bot Builders
                   </h1>
                   <DecryptedText
                     text="Empowering the next generation through robotics, technology, and sustainability lies at the heart of our mission. We believe that by equipping young minds with the tools to innovate, create, and solve problems, we can inspire a future driven by ingenuity and responsibility."

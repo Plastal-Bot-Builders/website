@@ -13,7 +13,6 @@ import RoboCoreLoader from './components/RoboCore/RoboCoreLoader'; // not lazy: 
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 import { DefaultSEO } from './components/SEO';
 import Squares from './components/ui/Squares';
-import { SITE_URL } from './config/site';
 
 // Route-level code splitting: each page loads only when visited.
 const About = lazy(() => import('./pages/about'));
@@ -101,8 +100,6 @@ const App: React.FC = () => {
         <html lang="en" />
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="Plastal-Bot Builders - Robotics education and community programs" />
-        <link rel="canonical" href={SITE_URL} />
       </Helmet>
       <a href="#main-content" className="skip-link">Skip to main content</a>
       <Scrollbars

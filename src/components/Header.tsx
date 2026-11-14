@@ -10,7 +10,7 @@ const Header: React.FC = () => {
   const { resolvedTheme, toggle } = useTheme();
 
   const navLinks = [
-    { path: '/home', label: '.home( )' },
+    { path: '/', label: '.home( )' },
     { path: '/about', label: '.about( )' },
     { path: '/robocore', label: '.robocore( )' },
     { path: '/news', label: '.news( )' },
@@ -30,7 +30,7 @@ const Header: React.FC = () => {
   }, [isMenuOpen]);
 
   const NavLink = ({ path, label }: { path: string; label: string }) => {
-    const active = location.pathname.startsWith(path);
+    const active = path === '/' ? location.pathname === '/' : location.pathname.startsWith(path);
     return (
       <Link
         to={path}
@@ -55,7 +55,7 @@ const Header: React.FC = () => {
       <div className="site-header__bar max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center gap-4 max-sm:py-1.5 py-2">
           {/* Logo (served from public/resources/...) */}
-          <Link to="/home" className="flex-shrink-0" aria-label="Plastal-Bot Builders — Home">
+          <Link to="/" className="flex-shrink-0" aria-label="Plastal-Bot Builders — Home">
             <img
               src={logoSrc}
               alt="Plastal-Bot Builders Logo"

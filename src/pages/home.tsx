@@ -75,6 +75,11 @@ const Home: React.FC = () => {
               <div className="flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8 lg:gap-12">
                 <div className="w-full md:w-1/2 space-y-6">
                   <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
+                    {/* Part of the heading on purpose: it says what the organisation is and where, in the words
+                        people search for. "Empowering Innovation" alone names neither. */}
+                    <span className="block mb-3 text-sm sm:text-base font-semibold uppercase tracking-wide opacity-75">
+                      Robotics &amp; STEM education in Zambia
+                    </span>{' '}
                     <span className="text-hex">Empowering</span> Innovation
                   </h1>
 

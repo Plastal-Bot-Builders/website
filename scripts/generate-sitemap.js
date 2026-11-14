@@ -16,14 +16,11 @@ const config = {
   // Must match the <link rel="canonical"> host used in the app.
   // Set REACT_APP_SITE_URL (see .env.production) once the domain is chosen.
   baseUrl: (process.env.REACT_APP_SITE_URL || 'https://plastalbotbuilders.com').replace(/\/+$/, ''),
-  routes: [
-    { path: '/', priority: '1.0', changefreq: 'weekly' },
-    ...ROUTES.map(r => ({
-      path: r.path,
-      priority: r.priority || '0.7',
-      changefreq: r.changefreq || 'monthly',
-    })),
-  ],
+  routes: ROUTES.map(r => ({
+    path: r.path,
+    priority: r.priority || '0.7',
+    changefreq: r.changefreq || 'monthly',
+  })),
   outputPath: path.join(__dirname, '../public/sitemap.xml'),
 };
 

@@ -11,6 +11,9 @@ const Error404 = () => {
         title="404 Not Found | Plastal-Bot Builders"
         description="The page you are looking for does not exist."
         image="/resources/Photos/fredmpelembe.jpeg"
+        // The server answers every unknown address with the app (status 200), so this tag is what tells search
+        // engines the page doesn't exist.
+        noindex
       />
       <div className="min-h-screen bg-gray-900 flex flex-col justify-center items-center px-4">
         <div className="max-w-lg text-center">

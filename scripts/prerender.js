@@ -101,7 +101,7 @@ function websiteNode() {
 }
 
 function breadcrumbNode(route) {
-  const crumbs = [{ name: 'Home', path: '/home' }, ...(route.breadcrumb || [])];
+  const crumbs = [{ name: 'Home', path: '/' }, ...(route.breadcrumb || [])];
   return {
     '@type': 'BreadcrumbList',
     '@id': abs(`${route.path}#breadcrumbs`),
@@ -235,25 +235,40 @@ function pageNodes(route) {
   return nodes;
 }
 
+/** The graph nodes every page carries, and the ones that belong to one route. */
+const sharedNodes = () => [organizationNode(), websiteNode()];
+const routeNodes = route => [breadcrumbNode(route), ...pageNodes(route)];
+
 function jsonLd(route) {
-  const graph = [
-    organizationNode(),
-    websiteNode(),
-    breadcrumbNode(route),
-    ...pageNodes(route),
-  ];
+  const graph = [...sharedNodes(), ...routeNodes(route)];
   return JSON.stringify({ '@context': 'https://schema.org', '@graph': graph });
+}
+
+/**
+ * A route's head values. The static HTML (headTags below) and the running app (src/data/site-seo.json, written by
+ * scripts/generate-site-seo.js) both take them from here, so the two never disagree.
+ */
+function routeMeta(route) {
+  const imagePath = route.image || DEFAULT_IMAGE;
+  return {
+    title: route.title,
+    description: route.description,
+    url: abs(route.path),
+    image: abs(imagePath),
+    // Only cards from scripts/social/make-og-card.py are guaranteed 1200x630;
+    // never assert dimensions for an arbitrary photo.
+    isCard: imagePath.startsWith('/resources/social/'),
+    // A route with its own share card can describe it; the others use the organisation's line.
+    imageAlt: route.imageAlt || `${ORG.name} — robotics and STEM education in Zambia`,
+    robots: route.robots || 'index, follow, max-image-preview:large, max-snippet:-1',
+    siteName: ORG.name,
+  };
 }
 
 // ── HTML builders ───────────────────────────────────────────────────────────
 
 function headTags(route) {
-  const image = abs(route.image || DEFAULT_IMAGE);
-  const isCard = (route.image || DEFAULT_IMAGE).startsWith('/resources/social/');
-  const url = abs(route.path);
-  const robots = route.robots || 'index, follow, max-image-preview:large, max-snippet:-1';
-  // A route with its own share card can describe it; the others use the organisation's line.
-  const imageAlt = route.imageAlt || `${ORG.name} — robotics and STEM education in Zambia`;
+  const { image, isCard, url, robots, imageAlt } = routeMeta(route);
   return [
     `<title>${esc(route.title)}</title>`,
     `<meta name="description" content="${esc(route.description)}"/>`,
@@ -265,8 +280,6 @@ function headTags(route) {
     `<meta property="og:description" content="${esc(route.description)}"/>`,
     `<meta property="og:url" content="${esc(url)}"/>`,
     `<meta property="og:image" content="${esc(image)}"/>`,
-    // Only cards from scripts/social/make-og-card.py are guaranteed 1200x630;
-    // never assert dimensions for an arbitrary photo.
     ...(isCard ? [
       `<meta property="og:image:width" content="1200"/>`,
       `<meta property="og:image:height" content="630"/>`,
@@ -285,7 +298,7 @@ function headTags(route) {
 /** Readable content served to clients that don't execute JavaScript. */
 function fallbackBody(route) {
   const b = route.body || {};
-  const crumbs = [{ name: 'Home', path: '/home' }, ...(route.breadcrumb || [])];
+  const crumbs = [{ name: 'Home', path: '/' }, ...(route.breadcrumb || [])];
   const parts = [];
 
   parts.push(
@@ -397,6 +410,10 @@ function main() {
     );
   }
 
+  // The home page is "/", so its file is build/index.html itself. The Workers SPA fallback
+  // (not_found_handling: single-page-application in wrangler.jsonc) serves that same file for paths without a
+  // file of their own, so those get the homepage's metadata (canonical "/") rather than the generic shell until
+  // the app runs and sets the page's own tags.
   let count = 0;
   for (const route of ROUTES) {
     const html = renderRoute(shell, route);
@@ -406,16 +423,8 @@ function main() {
     count++;
   }
 
-  // The Workers SPA fallback (not_found_handling: single-page-application in
-  // wrangler.jsonc) serves build/index.html for unknown paths; give it the
-  // homepage's metadata rather than the generic shell.
-  const home = ROUTES.find(r => r.path === '/home');
-  if (home) {
-    fs.writeFileSync(shellPath, renderRoute(shell, home), 'utf8');
-  }
-
   console.log(`✅ Prerendered ${count} routes with metadata, JSON-LD and crawlable content`);
 }
 
 if (require.main === module) main();
-module.exports = { jsonLd };
+module.exports = { jsonLd, routeMeta, sharedNodes, routeNodes };

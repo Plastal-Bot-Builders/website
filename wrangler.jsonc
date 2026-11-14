@@ -13,12 +13,13 @@
   //
   // _headers in build/ is honoured here (CSP, HSTS, caching).
   //
-  // There is deliberately NO _redirects file: on Workers, a "/* /index.html 200"
-  // catch-all is rejected as an infinite loop (the asset server strips `/index`
-  // and `.html`, so the rewrite target re-enters the same rule). SPA routing is
-  // handled by not_found_handling above instead. If this project is ever moved
-  // to Cloudflare Pages, that file has to come back — Pages has no equivalent
-  // setting and relies on the catch-all.
+  // public/_redirects holds only real redirects (the old /home address). It
+  // deliberately has NO "/* /index.html 200" catch-all: on Workers that is
+  // rejected as an infinite loop (the asset server strips `/index` and `.html`,
+  // so the rewrite target re-enters the same rule). SPA routing is handled by
+  // not_found_handling above instead. If this project is ever moved to
+  // Cloudflare Pages, the catch-all has to come back — Pages has no equivalent
+  // setting and relies on it.
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "website",
   "compatibility_date": "2026-07-01",

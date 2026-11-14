@@ -4,6 +4,10 @@
  * Consumed by:
  *   - scripts/prerender.js       → writes per-route static HTML (head + crawlable body)
  *   - scripts/generate-sitemap.js → sitemap.xml + robots.txt
+ *   - scripts/generate-site-seo.js → src/data/site-seo.json, which the running app reads so the tags it sets
+ *     after loading are the same ones the static HTML carries (Google indexes the page as it runs)
+ *
+ * The home page is "/". "/home" is only an old address that redirects to it (public/_redirects).
  *
  * TO ADD A PAGE: add a route object below and add the <Route> in src/App.tsx.
  * Metadata, JSON-LD, breadcrumbs, sitemap entry and the crawlable fallback
@@ -34,7 +38,7 @@ const ORG = {
     'https://www.linkedin.com/company/plastal-bot-builders/',
     'https://www.facebook.com/plastalbotbuiders',
     'https://medium.com/@plastalbotbuilders',
-    'https://www.instagram.com',
+    'https://www.instagram.com/plastal_bot_builders/',
   ],
 };
 
@@ -101,7 +105,7 @@ const IDE_IMAGE_ALT =
  */
 const ROUTES = [
   {
-    path: '/home',
+    path: '/',
     priority: '1.0',
     changefreq: 'weekly',
     title: 'Plastal-Bot Builders — Robotics & STEM Education in Zambia',

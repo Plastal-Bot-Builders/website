@@ -1,0 +1,1243 @@
+{
+  "shared": [
+    {
+      "@type": [
+        "Organization",
+        "EducationalOrganization"
+      ],
+      "@id": "https://www.plastalbotbuilders.com/#organization",
+      "name": "Plastal-Bot Builders",
+      "legalName": "Plastal-Bot Builders",
+      "description": "Plastal-Bot Builders is a youth robotics and STEM education organisation based in Lusaka, Zambia. It runs hands-on robotics workshops, bootcamps and community outreach programmes, builds open student engineering projects, and represents Zambia at international robotics competitions.",
+      "url": "https://www.plastalbotbuilders.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.plastalbotbuilders.com/resources/Logo/fred.svg"
+      },
+      "email": "info@plastalbotbuilders.com",
+      "telephone": "+260 975 608103",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lusaka",
+        "addressCountry": "ZM"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Zambia"
+      },
+      "knowsAbout": [
+        "Robotics education",
+        "STEM education",
+        "Embedded systems",
+        "Arduino",
+        "LEGO Spike Prime",
+        "Youth innovation"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/company/plastal-bot-builders/",
+        "https://www.facebook.com/plastalbotbuiders",
+        "https://medium.com/@plastalbotbuilders",
+        "https://www.instagram.com/plastal_bot_builders/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.plastalbotbuilders.com/#website",
+      "name": "Plastal-Bot Builders",
+      "description": "Plastal-Bot Builders is a youth robotics and STEM education organisation based in Lusaka, Zambia. It runs hands-on robotics workshops, bootcamps and community outreach programmes, builds open student engineering projects, and represents Zambia at international robotics competitions.",
+      "url": "https://www.plastalbotbuilders.com/",
+      "publisher": {
+        "@id": "https://www.plastalbotbuilders.com/#organization"
+      },
+      "inLanguage": "en",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://www.plastalbotbuilders.com/news?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+  ],
+  "routes": {
+    "/": {
+      "title": "Plastal-Bot Builders — Robotics & STEM Education in Zambia",
+      "description": "Plastal-Bot Builders is a Lusaka-based youth robotics organisation running hands-on STEM workshops and bootcamps, building student engineering projects, and representing Zambia at international robotics competitions.",
+      "image": "https://www.plastalbotbuilders.com/resources/social/og-default.jpg",
+      "isCard": true,
+      "imageAlt": "Plastal-Bot Builders — robotics and STEM education in Zambia",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1",
+      "nodes": [
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.plastalbotbuilders.com/#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.plastalbotbuilders.com/"
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.plastalbotbuilders.com/#webpage",
+          "url": "https://www.plastalbotbuilders.com/",
+          "name": "Plastal-Bot Builders — Robotics & STEM Education in Zambia",
+          "description": "Plastal-Bot Builders is a Lusaka-based youth robotics organisation running hands-on STEM workshops and bootcamps, building student engineering projects, and representing Zambia at international robotics competitions.",
+          "isPartOf": {
+            "@id": "https://www.plastalbotbuilders.com/#website"
+          },
+          "about": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.plastalbotbuilders.com/resources/social/og-default.jpg"
+          },
+          "breadcrumb": {
+            "@id": "https://www.plastalbotbuilders.com/#breadcrumbs"
+          },
+          "inLanguage": "en"
+        }
+      ]
+    },
+    "/about": {
+      "title": "About Plastal-Bot Builders — Our Mission and Team",
+      "description": "Learn who Plastal-Bot Builders are: a Zambian youth robotics and STEM education organisation, our mission to empower young innovators, and the team behind our programmes.",
+      "image": "https://www.plastalbotbuilders.com/resources/social/og-default.jpg",
+      "isCard": true,
+      "imageAlt": "Plastal-Bot Builders — robotics and STEM education in Zambia",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1",
+      "nodes": [
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.plastalbotbuilders.com/about#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.plastalbotbuilders.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "About",
+              "item": "https://www.plastalbotbuilders.com/about"
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.plastalbotbuilders.com/about#webpage",
+          "url": "https://www.plastalbotbuilders.com/about",
+          "name": "About Plastal-Bot Builders — Our Mission and Team",
+          "description": "Learn who Plastal-Bot Builders are: a Zambian youth robotics and STEM education organisation, our mission to empower young innovators, and the team behind our programmes.",
+          "isPartOf": {
+            "@id": "https://www.plastalbotbuilders.com/#website"
+          },
+          "about": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.plastalbotbuilders.com/resources/social/og-default.jpg"
+          },
+          "breadcrumb": {
+            "@id": "https://www.plastalbotbuilders.com/about#breadcrumbs"
+          },
+          "inLanguage": "en"
+        }
+      ]
+    },
+    "/journey-to-geneva": {
+      "title": "The Road to Geneva — Representing Zambia at the AI for Good Robotics Competition",
+      "description": "The full story of how Plastal-Bot Builders went from a hand-made practice field in Lusaka to winning the AI for Good National Edition and competing as a Finalist Team in Geneva, Switzerland.",
+      "image": "https://www.plastalbotbuilders.com/resources/social/og-journey.jpg",
+      "isCard": true,
+      "imageAlt": "Plastal-Bot Builders — robotics and STEM education in Zambia",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1",
+      "nodes": [
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.plastalbotbuilders.com/journey-to-geneva#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.plastalbotbuilders.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "News & Achievements",
+              "item": "https://www.plastalbotbuilders.com/news"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "The Road to Geneva",
+              "item": "https://www.plastalbotbuilders.com/journey-to-geneva"
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.plastalbotbuilders.com/journey-to-geneva#webpage",
+          "url": "https://www.plastalbotbuilders.com/journey-to-geneva",
+          "name": "The Road to Geneva — Representing Zambia at the AI for Good Robotics Competition",
+          "description": "The full story of how Plastal-Bot Builders went from a hand-made practice field in Lusaka to winning the AI for Good National Edition and competing as a Finalist Team in Geneva, Switzerland.",
+          "isPartOf": {
+            "@id": "https://www.plastalbotbuilders.com/#website"
+          },
+          "about": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.plastalbotbuilders.com/resources/social/og-journey.jpg"
+          },
+          "breadcrumb": {
+            "@id": "https://www.plastalbotbuilders.com/journey-to-geneva#breadcrumbs"
+          },
+          "inLanguage": "en"
+        },
+        {
+          "@type": "Article",
+          "@id": "https://www.plastalbotbuilders.com/journey-to-geneva#article",
+          "headline": "Plastal-Bot Builders represents Zambia at the AI for Good Robotics Competition in Geneva",
+          "description": "The full story of how Plastal-Bot Builders went from a hand-made practice field in Lusaka to winning the AI for Good National Edition and competing as a Finalist Team in Geneva, Switzerland.",
+          "image": "https://www.plastalbotbuilders.com/resources/social/og-journey.jpg",
+          "datePublished": "2026-07-20",
+          "dateModified": "2026-07-20",
+          "articleSection": "Robotics competition",
+          "author": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          },
+          "publisher": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          },
+          "mainEntityOfPage": {
+            "@id": "https://www.plastalbotbuilders.com/journey-to-geneva#webpage"
+          },
+          "inLanguage": "en"
+        },
+        {
+          "@type": "Event",
+          "@id": "https://www.plastalbotbuilders.com/journey-to-geneva#event",
+          "name": "AI for Good Robotics Competition — AI for Good Global Summit",
+          "description": "International robotics competition at the AI for Good Global Summit, where Plastal-Bot Builders represented Zambia and was recognised as a Finalist Team.",
+          "startDate": "2026-07-08",
+          "eventStatus": "https://schema.org/EventScheduled",
+          "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+          "location": {
+            "@type": "Place",
+            "name": "AI for Good Global Summit",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Geneva",
+              "addressCountry": "CH"
+            }
+          },
+          "performer": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          },
+          "image": "https://www.plastalbotbuilders.com/resources/social/og-journey.jpg"
+        },
+        {
+          "@type": "VideoObject",
+          "@id": "https://www.plastalbotbuilders.com/journey-to-geneva#video",
+          "name": "Competition highlights — AI for Good Robotics Competition, Geneva",
+          "description": "Highlights of Plastal-Bot Builders competing in Geneva, Switzerland.",
+          "contentUrl": "https://www.plastalbotbuilders.com/resources/Geneva2026/web/geneva-highlight.mp4",
+          "thumbnailUrl": "https://www.plastalbotbuilders.com/resources/Geneva2026/web/geneva-highlight-poster.jpg",
+          "uploadDate": "2026-07-20",
+          "publisher": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.plastalbotbuilders.com/journey-to-geneva#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What competition did Plastal-Bot Builders compete in?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Plastal-Bot Builders won the AI for Good National Edition in Zambia in April 2026 and went on to compete in the AI for Good Robotics Competition at the AI for Good Global Summit in Geneva, Switzerland, in July 2026, where the team was recognised as a Finalist Team."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which country did Plastal-Bot Builders represent?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Plastal-Bot Builders represented Zambia at the international competition in Geneva, Switzerland."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Who supported the team’s journey to Switzerland?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Zambian organisations including MTN Zambia, Zamtel, KoBold Metals, Absa Bank Zambia, E-Mark, EO Robotics Lab and the Government of Zambia supported the team, alongside international robotics partners including Mr. Chandra Polisetty, Technicbots (FTC 8565), Sounder Bots (FTC 23270) and The Spartabots (FRC 2976)."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "/news": {
+      "title": "News & Achievements — Plastal-Bot Builders",
+      "description": "Milestones from Plastal-Bot Builders: international robotics competitions, workshops, partnerships, awards and community outreach across Zambia and beyond.",
+      "image": "https://www.plastalbotbuilders.com/resources/social/og-default.jpg",
+      "isCard": true,
+      "imageAlt": "Plastal-Bot Builders — robotics and STEM education in Zambia",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1",
+      "nodes": [
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.plastalbotbuilders.com/news#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.plastalbotbuilders.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "News & Achievements",
+              "item": "https://www.plastalbotbuilders.com/news"
+            }
+          ]
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://www.plastalbotbuilders.com/news#webpage",
+          "url": "https://www.plastalbotbuilders.com/news",
+          "name": "News & Achievements — Plastal-Bot Builders",
+          "description": "Milestones from Plastal-Bot Builders: international robotics competitions, workshops, partnerships, awards and community outreach across Zambia and beyond.",
+          "isPartOf": {
+            "@id": "https://www.plastalbotbuilders.com/#website"
+          },
+          "about": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.plastalbotbuilders.com/resources/social/og-default.jpg"
+          },
+          "breadcrumb": {
+            "@id": "https://www.plastalbotbuilders.com/news#breadcrumbs"
+          },
+          "inLanguage": "en"
+        }
+      ]
+    },
+    "/programs": {
+      "title": "Robotics Programmes & STEM Workshops — Plastal-Bot Builders",
+      "description": "Hands-on robotics bootcamps and STEM workshops from Plastal-Bot Builders, covering LEGO Spike Prime, Arduino, electronics, CAD, 3D printing and programming for young learners in Zambia.",
+      "image": "https://www.plastalbotbuilders.com/resources/social/og-default.jpg",
+      "isCard": true,
+      "imageAlt": "Plastal-Bot Builders — robotics and STEM education in Zambia",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1",
+      "nodes": [
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.plastalbotbuilders.com/programs#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.plastalbotbuilders.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Programmes",
+              "item": "https://www.plastalbotbuilders.com/programs"
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.plastalbotbuilders.com/programs#webpage",
+          "url": "https://www.plastalbotbuilders.com/programs",
+          "name": "Robotics Programmes & STEM Workshops — Plastal-Bot Builders",
+          "description": "Hands-on robotics bootcamps and STEM workshops from Plastal-Bot Builders, covering LEGO Spike Prime, Arduino, electronics, CAD, 3D printing and programming for young learners in Zambia.",
+          "isPartOf": {
+            "@id": "https://www.plastalbotbuilders.com/#website"
+          },
+          "about": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.plastalbotbuilders.com/resources/social/og-default.jpg"
+          },
+          "breadcrumb": {
+            "@id": "https://www.plastalbotbuilders.com/programs#breadcrumbs"
+          },
+          "inLanguage": "en"
+        },
+        {
+          "@type": "Course",
+          "@id": "https://www.plastalbotbuilders.com/programs#course",
+          "name": "Robotics and programming programmes",
+          "description": "Hands-on robotics bootcamps and STEM workshops from Plastal-Bot Builders, covering LEGO Spike Prime, Arduino, electronics, CAD, 3D printing and programming for young learners in Zambia.",
+          "provider": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          },
+          "inLanguage": "en"
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.plastalbotbuilders.com/programs#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What robotics programmes does Plastal-Bot Builders offer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Plastal-Bot Builders runs the Spike Prime Robotics Bootcamp — a 6-week hands-on LEGO Spike Prime programme delivered with the CBU Robotics Club — and the Introduction to Robotics and Programming Workshop, an entry-level course covering electronics, Tinkercad simulation and Arduino programming."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Who can join a Plastal-Bot Builders workshop?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Programmes are designed for young people, including complete beginners. Past workshops have included learners as young as six, alongside secondary school and university-age participants."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where are the workshops held?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Workshops and bootcamps are delivered in schools and community venues in Lusaka and across Zambia."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "/projects": {
+      "title": "Student Robotics Projects — Plastal-Bot Builders",
+      "description": "Open, hands-on robotics projects built by Plastal-Bot Builders students, including the Gypul self-balancing robot and an Arduino-based environmental monitoring rover.",
+      "image": "https://www.plastalbotbuilders.com/resources/social/og-default.jpg",
+      "isCard": true,
+      "imageAlt": "Plastal-Bot Builders — robotics and STEM education in Zambia",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1",
+      "nodes": [
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.plastalbotbuilders.com/projects#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.plastalbotbuilders.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Projects",
+              "item": "https://www.plastalbotbuilders.com/projects"
+            }
+          ]
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://www.plastalbotbuilders.com/projects#webpage",
+          "url": "https://www.plastalbotbuilders.com/projects",
+          "name": "Student Robotics Projects — Plastal-Bot Builders",
+          "description": "Open, hands-on robotics projects built by Plastal-Bot Builders students, including the Gypul self-balancing robot and an Arduino-based environmental monitoring rover.",
+          "isPartOf": {
+            "@id": "https://www.plastalbotbuilders.com/#website"
+          },
+          "about": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.plastalbotbuilders.com/resources/social/og-default.jpg"
+          },
+          "breadcrumb": {
+            "@id": "https://www.plastalbotbuilders.com/projects#breadcrumbs"
+          },
+          "inLanguage": "en"
+        }
+      ]
+    },
+    "/robocore": {
+      "title": "RoboCore — the robot kit and coding app for young makers | Plastal-Bot Builders",
+      "description": "RoboCore is a robot you build yourself and a coding app to bring it to life: drag-and-drop blocks or Arduino C++, in the browser. Made in Zambia by Plastal-Bot Builders.",
+      "image": "https://www.plastalbotbuilders.com/resources/social/og-robocore.jpg",
+      "isCard": true,
+      "imageAlt": "Build a robot. Code it in your browser. The RoboCore robot, a navy frame with a yellow lift and gripper, beside a RoboCore IDE program made of blocks.",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1",
+      "nodes": [
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.plastalbotbuilders.com/robocore#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.plastalbotbuilders.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "RoboCore",
+              "item": "https://www.plastalbotbuilders.com/robocore"
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.plastalbotbuilders.com/robocore#webpage",
+          "url": "https://www.plastalbotbuilders.com/robocore",
+          "name": "RoboCore — the robot kit and coding app for young makers | Plastal-Bot Builders",
+          "description": "RoboCore is a robot you build yourself and a coding app to bring it to life: drag-and-drop blocks or Arduino C++, in the browser. Made in Zambia by Plastal-Bot Builders.",
+          "isPartOf": {
+            "@id": "https://www.plastalbotbuilders.com/#website"
+          },
+          "about": {
+            "@id": "https://www.plastalbotbuilders.com/robocore#project"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.plastalbotbuilders.com/resources/social/og-robocore.jpg"
+          },
+          "breadcrumb": {
+            "@id": "https://www.plastalbotbuilders.com/robocore#breadcrumbs"
+          },
+          "inLanguage": "en"
+        },
+        {
+          "@type": "CreativeWork",
+          "@id": "https://www.plastalbotbuilders.com/robocore#project",
+          "name": "RoboCore — the robot kit and coding app for young makers",
+          "description": "RoboCore is a robot you build yourself and a coding app to bring it to life: drag-and-drop blocks or Arduino C++, in the browser. Made in Zambia by Plastal-Bot Builders.",
+          "creator": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          },
+          "image": "https://www.plastalbotbuilders.com/resources/social/og-robocore.jpg"
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.plastalbotbuilders.com/robocore#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is RoboCore?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "RoboCore is a robot kit and coding app for young makers, made in Zambia by Plastal-Bot Builders. Students build the robot, then code it with drag-and-drop blocks or Arduino C++."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I try RoboCore without a robot?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. The coding app includes a simulated preview board for exploring programs without physical hardware. Open the browser app in Chrome or Edge on a computer."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where is RoboCore made?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "RoboCore is made in Zambia by Plastal-Bot Builders. It is currently a prototype, with school and innovation-hub pilots planned next."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I buy RoboCore?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Not yet. RoboCore V2 is a prototype. Pilots with schools and innovation hubs in Zambia come next."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do you program RoboCore?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Use the RoboCore IDE on macOS, Windows or Linux, or in Chrome or Edge on a computer. Start with blocks or write Arduino C++. The blocks show the C++ they create."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "/robocore/ide": {
+      "title": "The RoboCore IDE: blocks, Arduino C++ and Cog | RoboCore",
+      "description": "The RoboCore IDE: robot blocks or Arduino C++, Cog the learning partner, a preview board, and support for RoboCore V2, Arduino Uno and ESP32 boards.",
+      "image": "https://www.plastalbotbuilders.com/resources/social/og-robocore-ide.jpg",
+      "isCard": true,
+      "imageAlt": "Code your robot your way. The RoboCore IDE app icon beside a RoboCore IDE program made of blocks.",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1",
+      "nodes": [
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.plastalbotbuilders.com/robocore/ide#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.plastalbotbuilders.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "RoboCore",
+              "item": "https://www.plastalbotbuilders.com/robocore"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "IDE",
+              "item": "https://www.plastalbotbuilders.com/robocore/ide"
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.plastalbotbuilders.com/robocore/ide#webpage",
+          "url": "https://www.plastalbotbuilders.com/robocore/ide",
+          "name": "The RoboCore IDE: blocks, Arduino C++ and Cog | RoboCore",
+          "description": "The RoboCore IDE: robot blocks or Arduino C++, Cog the learning partner, a preview board, and support for RoboCore V2, Arduino Uno and ESP32 boards.",
+          "isPartOf": {
+            "@id": "https://www.plastalbotbuilders.com/#website"
+          },
+          "about": {
+            "@id": "https://www.plastalbotbuilders.com/robocore#project"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.plastalbotbuilders.com/resources/social/og-robocore-ide.jpg"
+          },
+          "breadcrumb": {
+            "@id": "https://www.plastalbotbuilders.com/robocore/ide#breadcrumbs"
+          },
+          "inLanguage": "en",
+          "mainEntity": {
+            "@id": "https://www.plastalbotbuilders.com/robocore/ide#software"
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://www.plastalbotbuilders.com/robocore/ide#software",
+          "name": "RoboCore IDE",
+          "url": "https://www.plastalbotbuilders.com/robocore/ide",
+          "description": "A coding app with drag-and-drop blocks, Arduino C++, a simulated preview board and Cog learning assistance.",
+          "applicationCategory": "EducationalApplication",
+          "operatingSystem": "macOS, Windows, Linux, Web browser",
+          "creator": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          },
+          "downloadUrl": "https://www.plastalbotbuilders.com/robocore/download"
+        }
+      ]
+    },
+    "/robocore/hardware": {
+      "title": "Explore the RoboCore robot and kit | RoboCore",
+      "description": "Explore what you can build with RoboCore: a programmable robot with a lift, gripper and sensors, plus a coding app for hands-on learning.",
+      "image": "https://www.plastalbotbuilders.com/resources/social/og-robocore.jpg",
+      "isCard": true,
+      "imageAlt": "Plastal-Bot Builders — robotics and STEM education in Zambia",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1",
+      "nodes": [
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.plastalbotbuilders.com/robocore/hardware#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.plastalbotbuilders.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "RoboCore",
+              "item": "https://www.plastalbotbuilders.com/robocore"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Hardware",
+              "item": "https://www.plastalbotbuilders.com/robocore/hardware"
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.plastalbotbuilders.com/robocore/hardware#webpage",
+          "url": "https://www.plastalbotbuilders.com/robocore/hardware",
+          "name": "Explore the RoboCore robot and kit | RoboCore",
+          "description": "Explore what you can build with RoboCore: a programmable robot with a lift, gripper and sensors, plus a coding app for hands-on learning.",
+          "isPartOf": {
+            "@id": "https://www.plastalbotbuilders.com/#website"
+          },
+          "about": {
+            "@id": "https://www.plastalbotbuilders.com/robocore#project"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.plastalbotbuilders.com/resources/social/og-robocore.jpg"
+          },
+          "breadcrumb": {
+            "@id": "https://www.plastalbotbuilders.com/robocore/hardware#breadcrumbs"
+          },
+          "inLanguage": "en"
+        }
+      ]
+    },
+    "/robocore/vision": {
+      "title": "Our vision: young Zambians who build technology | RoboCore",
+      "description": "Why we are building RoboCore, what Plastal-Bot Builders has done so far, and what we hope to achieve: pilots in Zambian schools, kits assembled in Zambia, and 5,000 young people reached.",
+      "image": "https://www.plastalbotbuilders.com/resources/social/og-robocore.jpg",
+      "isCard": true,
+      "imageAlt": "Plastal-Bot Builders — robotics and STEM education in Zambia",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1",
+      "nodes": [
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.plastalbotbuilders.com/robocore/vision#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.plastalbotbuilders.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "RoboCore",
+              "item": "https://www.plastalbotbuilders.com/robocore"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Vision",
+              "item": "https://www.plastalbotbuilders.com/robocore/vision"
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.plastalbotbuilders.com/robocore/vision#webpage",
+          "url": "https://www.plastalbotbuilders.com/robocore/vision",
+          "name": "Our vision: young Zambians who build technology | RoboCore",
+          "description": "Why we are building RoboCore, what Plastal-Bot Builders has done so far, and what we hope to achieve: pilots in Zambian schools, kits assembled in Zambia, and 5,000 young people reached.",
+          "isPartOf": {
+            "@id": "https://www.plastalbotbuilders.com/#website"
+          },
+          "about": {
+            "@id": "https://www.plastalbotbuilders.com/robocore#project"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.plastalbotbuilders.com/resources/social/og-robocore.jpg"
+          },
+          "breadcrumb": {
+            "@id": "https://www.plastalbotbuilders.com/robocore/vision#breadcrumbs"
+          },
+          "inLanguage": "en"
+        }
+      ]
+    },
+    "/robocore/download": {
+      "title": "Download the RoboCore IDE for Mac, Windows and Linux | RoboCore",
+      "description": "Download the RoboCore IDE: blocks and Arduino C++ for the RoboCore robot, on Mac, Windows and Linux.",
+      "image": "https://www.plastalbotbuilders.com/resources/social/og-robocore-ide.jpg",
+      "isCard": true,
+      "imageAlt": "Code your robot your way. The RoboCore IDE app icon beside a RoboCore IDE program made of blocks.",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1",
+      "nodes": [
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.plastalbotbuilders.com/robocore/download#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.plastalbotbuilders.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "RoboCore",
+              "item": "https://www.plastalbotbuilders.com/robocore"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Download",
+              "item": "https://www.plastalbotbuilders.com/robocore/download"
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.plastalbotbuilders.com/robocore/download#webpage",
+          "url": "https://www.plastalbotbuilders.com/robocore/download",
+          "name": "Download the RoboCore IDE for Mac, Windows and Linux | RoboCore",
+          "description": "Download the RoboCore IDE: blocks and Arduino C++ for the RoboCore robot, on Mac, Windows and Linux.",
+          "isPartOf": {
+            "@id": "https://www.plastalbotbuilders.com/#website"
+          },
+          "about": {
+            "@id": "https://www.plastalbotbuilders.com/robocore#project"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.plastalbotbuilders.com/resources/social/og-robocore-ide.jpg"
+          },
+          "breadcrumb": {
+            "@id": "https://www.plastalbotbuilders.com/robocore/download#breadcrumbs"
+          },
+          "inLanguage": "en",
+          "mainEntity": {
+            "@id": "https://www.plastalbotbuilders.com/robocore/ide#software"
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://www.plastalbotbuilders.com/robocore/ide#software",
+          "name": "RoboCore IDE",
+          "url": "https://www.plastalbotbuilders.com/robocore/ide",
+          "description": "A coding app with drag-and-drop blocks, Arduino C++, a simulated preview board and Cog learning assistance.",
+          "applicationCategory": "EducationalApplication",
+          "operatingSystem": "macOS, Windows, Linux, Web browser",
+          "creator": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          },
+          "downloadUrl": "https://www.plastalbotbuilders.com/robocore/download"
+        }
+      ]
+    },
+    "/projects/gypul": {
+      "title": "Gypul — Self-Balancing Education Robot | Plastal-Bot Builders",
+      "description": "Gypul is a low-cost self-balancing robot built by Plastal-Bot Builders for classrooms and makerspaces, using an IMU for stabilisation, an ESP32 for control and 3D-printed parts.",
+      "image": "https://www.plastalbotbuilders.com/resources/social/og-default.jpg",
+      "isCard": true,
+      "imageAlt": "Plastal-Bot Builders — robotics and STEM education in Zambia",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1",
+      "nodes": [
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.plastalbotbuilders.com/projects/gypul#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.plastalbotbuilders.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Projects",
+              "item": "https://www.plastalbotbuilders.com/projects"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Gypul",
+              "item": "https://www.plastalbotbuilders.com/projects/gypul"
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.plastalbotbuilders.com/projects/gypul#webpage",
+          "url": "https://www.plastalbotbuilders.com/projects/gypul",
+          "name": "Gypul — Self-Balancing Education Robot | Plastal-Bot Builders",
+          "description": "Gypul is a low-cost self-balancing robot built by Plastal-Bot Builders for classrooms and makerspaces, using an IMU for stabilisation, an ESP32 for control and 3D-printed parts.",
+          "isPartOf": {
+            "@id": "https://www.plastalbotbuilders.com/#website"
+          },
+          "about": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.plastalbotbuilders.com/resources/social/og-default.jpg"
+          },
+          "breadcrumb": {
+            "@id": "https://www.plastalbotbuilders.com/projects/gypul#breadcrumbs"
+          },
+          "inLanguage": "en"
+        },
+        {
+          "@type": "CreativeWork",
+          "@id": "https://www.plastalbotbuilders.com/projects/gypul#project",
+          "name": "Gypul — self-balancing education robot",
+          "description": "Gypul is a low-cost self-balancing robot built by Plastal-Bot Builders for classrooms and makerspaces, using an IMU for stabilisation, an ESP32 for control and 3D-printed parts.",
+          "creator": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          },
+          "image": "https://www.plastalbotbuilders.com/resources/social/og-default.jpg"
+        }
+      ]
+    },
+    "/projects/enviro-monitor": {
+      "title": "Environmental Monitoring Rover | Plastal-Bot Builders",
+      "description": "An Arduino-based rover built by Plastal-Bot Builders students that measures and logs air and water quality data for analysis.",
+      "image": "https://www.plastalbotbuilders.com/resources/social/og-default.jpg",
+      "isCard": true,
+      "imageAlt": "Plastal-Bot Builders — robotics and STEM education in Zambia",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1",
+      "nodes": [
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.plastalbotbuilders.com/projects/enviro-monitor#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.plastalbotbuilders.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Projects",
+              "item": "https://www.plastalbotbuilders.com/projects"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Environmental Monitoring Rover",
+              "item": "https://www.plastalbotbuilders.com/projects/enviro-monitor"
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.plastalbotbuilders.com/projects/enviro-monitor#webpage",
+          "url": "https://www.plastalbotbuilders.com/projects/enviro-monitor",
+          "name": "Environmental Monitoring Rover | Plastal-Bot Builders",
+          "description": "An Arduino-based rover built by Plastal-Bot Builders students that measures and logs air and water quality data for analysis.",
+          "isPartOf": {
+            "@id": "https://www.plastalbotbuilders.com/#website"
+          },
+          "about": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.plastalbotbuilders.com/resources/social/og-default.jpg"
+          },
+          "breadcrumb": {
+            "@id": "https://www.plastalbotbuilders.com/projects/enviro-monitor#breadcrumbs"
+          },
+          "inLanguage": "en"
+        },
+        {
+          "@type": "CreativeWork",
+          "@id": "https://www.plastalbotbuilders.com/projects/enviro-monitor#project",
+          "name": "Environmental Monitoring Rover",
+          "description": "An Arduino-based rover built by Plastal-Bot Builders students that measures and logs air and water quality data for analysis.",
+          "creator": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          },
+          "image": "https://www.plastalbotbuilders.com/resources/social/og-default.jpg"
+        }
+      ]
+    },
+    "/events": {
+      "title": "Upcoming Robotics Events & Workshops — Plastal-Bot Builders",
+      "description": "Register for upcoming Plastal-Bot Builders robotics workshops, bootcamps and STEM events in Zambia.",
+      "image": "https://www.plastalbotbuilders.com/resources/social/og-default.jpg",
+      "isCard": true,
+      "imageAlt": "Plastal-Bot Builders — robotics and STEM education in Zambia",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1",
+      "nodes": [
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.plastalbotbuilders.com/events#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.plastalbotbuilders.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Events",
+              "item": "https://www.plastalbotbuilders.com/events"
+            }
+          ]
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://www.plastalbotbuilders.com/events#webpage",
+          "url": "https://www.plastalbotbuilders.com/events",
+          "name": "Upcoming Robotics Events & Workshops — Plastal-Bot Builders",
+          "description": "Register for upcoming Plastal-Bot Builders robotics workshops, bootcamps and STEM events in Zambia.",
+          "isPartOf": {
+            "@id": "https://www.plastalbotbuilders.com/#website"
+          },
+          "about": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.plastalbotbuilders.com/resources/social/og-default.jpg"
+          },
+          "breadcrumb": {
+            "@id": "https://www.plastalbotbuilders.com/events#breadcrumbs"
+          },
+          "inLanguage": "en"
+        }
+      ]
+    },
+    "/support": {
+      "title": "Support Plastal-Bot Builders — Donate, Sponsor or Partner",
+      "description": "Ways to support robotics and STEM education in Zambia: donate, sponsor a programme, volunteer as a mentor, or partner with Plastal-Bot Builders as a company, school or nonprofit.",
+      "image": "https://www.plastalbotbuilders.com/resources/social/og-default.jpg",
+      "isCard": true,
+      "imageAlt": "Plastal-Bot Builders — robotics and STEM education in Zambia",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1",
+      "nodes": [
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.plastalbotbuilders.com/support#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.plastalbotbuilders.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Support",
+              "item": "https://www.plastalbotbuilders.com/support"
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.plastalbotbuilders.com/support#webpage",
+          "url": "https://www.plastalbotbuilders.com/support",
+          "name": "Support Plastal-Bot Builders — Donate, Sponsor or Partner",
+          "description": "Ways to support robotics and STEM education in Zambia: donate, sponsor a programme, volunteer as a mentor, or partner with Plastal-Bot Builders as a company, school or nonprofit.",
+          "isPartOf": {
+            "@id": "https://www.plastalbotbuilders.com/#website"
+          },
+          "about": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.plastalbotbuilders.com/resources/social/og-default.jpg"
+          },
+          "breadcrumb": {
+            "@id": "https://www.plastalbotbuilders.com/support#breadcrumbs"
+          },
+          "inLanguage": "en"
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.plastalbotbuilders.com/support#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How can I support Plastal-Bot Builders?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can donate, sponsor a specific programme or competition team, volunteer as a mentor, or partner with Plastal-Bot Builders as a company, school or nonprofit. Contact info@plastalbotbuilders.com to discuss support."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What does a donation pay for?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Donations fund robotics kits and components, workshop delivery in schools and communities, and participation in national and international robotics competitions."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "/blogs": {
+      "title": "Blog — Robotics, STEM Education and Innovation in Zambia",
+      "description": "Articles from Plastal-Bot Builders on robotics education, STEM workshops, student projects and technology innovation in Zambia.",
+      "image": "https://www.plastalbotbuilders.com/resources/social/og-default.jpg",
+      "isCard": true,
+      "imageAlt": "Plastal-Bot Builders — robotics and STEM education in Zambia",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1",
+      "nodes": [
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.plastalbotbuilders.com/blogs#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.plastalbotbuilders.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Blog",
+              "item": "https://www.plastalbotbuilders.com/blogs"
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.plastalbotbuilders.com/blogs#webpage",
+          "url": "https://www.plastalbotbuilders.com/blogs",
+          "name": "Blog — Robotics, STEM Education and Innovation in Zambia",
+          "description": "Articles from Plastal-Bot Builders on robotics education, STEM workshops, student projects and technology innovation in Zambia.",
+          "isPartOf": {
+            "@id": "https://www.plastalbotbuilders.com/#website"
+          },
+          "about": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.plastalbotbuilders.com/resources/social/og-default.jpg"
+          },
+          "breadcrumb": {
+            "@id": "https://www.plastalbotbuilders.com/blogs#breadcrumbs"
+          },
+          "inLanguage": "en"
+        }
+      ]
+    },
+    "/membershipform": {
+      "title": "Become a Member — Join Plastal-Bot Builders",
+      "description": "Apply to join Plastal-Bot Builders as a student or professional member and take part in robotics programmes, mentorship and community projects in Zambia.",
+      "image": "https://www.plastalbotbuilders.com/resources/social/og-default.jpg",
+      "isCard": true,
+      "imageAlt": "Plastal-Bot Builders — robotics and STEM education in Zambia",
+      "robots": "index, follow",
+      "nodes": [
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.plastalbotbuilders.com/membershipform#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.plastalbotbuilders.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Become a Member",
+              "item": "https://www.plastalbotbuilders.com/membershipform"
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.plastalbotbuilders.com/membershipform#webpage",
+          "url": "https://www.plastalbotbuilders.com/membershipform",
+          "name": "Become a Member — Join Plastal-Bot Builders",
+          "description": "Apply to join Plastal-Bot Builders as a student or professional member and take part in robotics programmes, mentorship and community projects in Zambia.",
+          "isPartOf": {
+            "@id": "https://www.plastalbotbuilders.com/#website"
+          },
+          "about": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.plastalbotbuilders.com/resources/social/og-default.jpg"
+          },
+          "breadcrumb": {
+            "@id": "https://www.plastalbotbuilders.com/membershipform#breadcrumbs"
+          },
+          "inLanguage": "en"
+        }
+      ]
+    },
+    "/team/technicbots": {
+      "title": "Technicbots FTC Team 8565 — International Partner | Plastal-Bot Builders",
+      "description": "How Technicbots, FIRST Tech Challenge Team 8565, partners with Plastal-Bot Builders to provide mentorship, equipment support and international competition pathways for Zambian students.",
+      "image": "https://www.plastalbotbuilders.com/resources/social/og-default.jpg",
+      "isCard": true,
+      "imageAlt": "Plastal-Bot Builders — robotics and STEM education in Zambia",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1",
+      "nodes": [
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.plastalbotbuilders.com/team/technicbots#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.plastalbotbuilders.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "About",
+              "item": "https://www.plastalbotbuilders.com/about"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Technicbots",
+              "item": "https://www.plastalbotbuilders.com/team/technicbots"
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.plastalbotbuilders.com/team/technicbots#webpage",
+          "url": "https://www.plastalbotbuilders.com/team/technicbots",
+          "name": "Technicbots FTC Team 8565 — International Partner | Plastal-Bot Builders",
+          "description": "How Technicbots, FIRST Tech Challenge Team 8565, partners with Plastal-Bot Builders to provide mentorship, equipment support and international competition pathways for Zambian students.",
+          "isPartOf": {
+            "@id": "https://www.plastalbotbuilders.com/#website"
+          },
+          "about": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.plastalbotbuilders.com/resources/social/og-default.jpg"
+          },
+          "breadcrumb": {
+            "@id": "https://www.plastalbotbuilders.com/team/technicbots#breadcrumbs"
+          },
+          "inLanguage": "en"
+        }
+      ]
+    }
+  }
+}

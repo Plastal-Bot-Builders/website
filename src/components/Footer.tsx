@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaLinkedin, FaInstagram, FaFacebook, FaMediumM, FaArrowUp, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
 const quickLinks = [
-  { to: '/home', label: 'Home' },
+  { to: '/', label: 'Home' },
   { to: '/about', label: 'About Us' },
   { to: '/news', label: 'News & Achievements' },
   { to: '/journey-to-geneva', label: 'The Road to Geneva' },
@@ -32,7 +32,7 @@ const socials = [
     label: 'LinkedIn',
     Icon: FaLinkedin,
   },
-  { href: 'https://www.instagram.com', label: 'Instagram', Icon: FaInstagram },
+  { href: 'https://www.instagram.com/plastal_bot_builders/', label: 'Instagram', Icon: FaInstagram },
   { href: 'https://www.facebook.com/plastalbotbuiders', label: 'Facebook', Icon: FaFacebook },
   { href: 'https://medium.com/@plastalbotbuilders', label: 'Medium', Icon: FaMediumM },
 ];
