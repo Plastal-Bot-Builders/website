@@ -23,6 +23,7 @@ check new tiles at 1440, 800 and 390 px for gaps.
 | `src/pages/robocore-hardware.tsx` | `/robocore/hardware`: the V2 controller board's specifications, the robot, battery estimates. |
 | `src/pages/robocore-vision.tsx` | `/robocore/vision`: why RoboCore, what the team has done (photos), what it hopes to achieve. |
 | `src/pages/robocore-download.tsx` | `/robocore/download`: the IDE for Mac, Windows and Linux; the visitor's system first. |
+| `src/pages/robocore-pilot.tsx` | `/robocore/pilot`: the enquiry form for schools, hubs and partners. No server: it opens WhatsApp or the visitor's email app with the message written; `#partner` opens it for a partner. Every "ask about a pilot" button leads here. |
 | `src/components/RoboCore/Tile.tsx` | One bento tile, used by every RoboCore page. |
 | `src/components/RoboCore/SubHero.tsx` | The yellow opening card of a subpage (IDE, Hardware, Vision). |
 | `src/components/RoboCore/AppIcon.tsx` | The RoboCore IDE's app icon (Geared Ring), wherever the IDE is offered. |
@@ -30,7 +31,7 @@ check new tiles at 1440, 800 and 390 px for gaps.
 | `src/components/RoboCore/browserIcon.ts` | RoboCore's browser icon and bar colour on RoboCore pages; `scripts/prerender.js` writes the same tags into each page. Icons in `public/resources/RoboCore/icons/` are the IDE web app's (`web/favicon.svg` follows the browser's light/dark theme). |
 | `src/components/RoboCore/Gallery.tsx` | Pictures and the pitch video with thumbnails (overview, "See it"). |
 | `src/components/RoboCore/Supporters.tsx` | The "Supported by" row with the supporters' logos (overview and vision). |
-| `src/components/RoboCore/shared.ts` | Contact details, the maker line, and scrolling to a section. |
+| `src/components/RoboCore/shared.ts` | Contact details (email, `WHATSAPP` number: empty hides every WhatsApp button, `PILOT` page), the maker line, and scrolling to a section. |
 | `src/components/RoboCore/robocore.css` | All its styles, scoped to `.rc`; the Barlow `@font-face` rules. |
 | `src/components/RoboCore/RobotViewer.tsx` | The 3D robot in the hero (three.js, loaded only when needed). |
 | `src/components/RoboCore/RoboCoreLogo.tsx` | The RoboCore lockup in `currentColor`. |

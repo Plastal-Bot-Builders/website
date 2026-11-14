@@ -534,6 +534,39 @@ const ROUTES = [
   },
 
   {
+    path: '/robocore/pilot',
+    priority: '0.7',
+    changefreq: 'monthly',
+    title: 'Bring RoboCore to your school | RoboCore',
+    description:
+      'Ask about a RoboCore pilot for your school or innovation hub in Zambia, or about partnering with the team that builds it.',
+    image: '/resources/social/og-robocore.jpg',
+    breadcrumb: [
+      { name: 'RoboCore', path: '/robocore' },
+      { name: 'Pilot', path: '/robocore/pilot' },
+    ],
+    body: {
+      h1: 'Bring RoboCore to your school',
+      summary:
+        'Schools, innovation hubs, partners and sponsors can write to the RoboCore team from this page. RoboCore is a prototype and pilots come next, so there are no dates or prices yet.',
+      sections: [
+        {
+          h2: 'What to tell us',
+          list: [
+            'Your name and your school or organisation',
+            'Your town or city',
+            'About how many learners you have in mind',
+          ],
+        },
+        {
+          h2: 'What happens next',
+          p: 'We reply, ask about your learners and what you would like to do with RoboCore, and tell you when pilot kits are ready and what a pilot would involve.',
+        },
+      ],
+    },
+  },
+
+  {
     path: '/projects/gypul',
     priority: '0.7',
     changefreq: 'monthly',

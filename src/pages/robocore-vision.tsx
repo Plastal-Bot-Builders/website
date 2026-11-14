@@ -6,7 +6,7 @@ import { SEOConfig } from '../components/SEO';
 import SubHero from '../components/RoboCore/SubHero';
 import Supporters from '../components/RoboCore/Supporters';
 import Tile from '../components/RoboCore/Tile';
-import { CONTACT } from '../components/RoboCore/shared';
+import { PILOT } from '../components/RoboCore/shared';
 import { asset } from '../utils/asset';
 
 /*
@@ -121,9 +121,9 @@ const RoboCoreVision: React.FC = () => (
       title="Young Zambians who build technology"
       lead="When students build and program real machines, they learn science and engineering more deeply. When the tools are affordable and made for their classrooms, far more schools can offer that."
       actions={
-        <a className="rc-btn rc-btn-primary rc-btn-large" href={`mailto:${CONTACT}?subject=RoboCore`}>
+        <Link className="rc-btn rc-btn-primary rc-btn-large" to={PILOT}>
           Work with us <LuArrowRight aria-hidden="true" />
-        </a>
+        </Link>
       }
       art={
         <figure className="rc-sub-photo">
@@ -299,16 +299,16 @@ const RoboCoreVision: React.FC = () => (
           <Tile span="rc-c6 rc-full-md" tone="yellow" contours>
             <h3 className="rc-tile-title">Schools and innovation hubs</h3>
             <p className="rc-tile-text">Would you like to try RoboCore with your learners? Tell us about your school or hub.</p>
-            <a className="rc-btn rc-btn-primary rc-tile-cta" href={`mailto:${CONTACT}?subject=RoboCore%20pilot`}>
-              Email us <LuArrowRight aria-hidden="true" />
-            </a>
+            <Link className="rc-btn rc-btn-primary rc-tile-cta" to={PILOT}>
+              Ask about a school pilot <LuArrowRight aria-hidden="true" />
+            </Link>
           </Tile>
           <Tile span="rc-c6 rc-full-md">
             <h3 className="rc-tile-title">Partners and sponsors</h3>
             <p className="rc-body">Help us build and test the first RoboCore kits, and bring them to more schools.</p>
-            <a className="rc-link rc-tile-cta" href={`mailto:${CONTACT}?subject=RoboCore%20partnership`}>
+            <Link className="rc-link rc-tile-cta" to={`${PILOT}#partner`}>
               Talk to us about partnering
-            </a>
+            </Link>
           </Tile>
         </div>
       </div>

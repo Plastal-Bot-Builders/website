@@ -35,6 +35,7 @@ const RoboCoreDownload = lazy(() => import('./pages/robocore-download'));
 const RoboCoreIde = lazy(() => import('./pages/robocore-ide'));
 const RoboCoreHardware = lazy(() => import('./pages/robocore-hardware'));
 const RoboCoreVision = lazy(() => import('./pages/robocore-vision'));
+const RoboCorePilot = lazy(() => import('./pages/robocore-pilot'));
 
 // Project subpages
 const GypulShowcase = lazy(() => import('./components/Projects/GypulShowcase'));
@@ -181,6 +182,7 @@ const App: React.FC = () => {
                   <Route path="hardware" element={<RoboCoreHardware />} />
                   <Route path="vision" element={<RoboCoreVision />} />
                   <Route path="download" element={<RoboCoreDownload />} />
+                  <Route path="pilot" element={<RoboCorePilot />} />
                 </Route>
 
                 {/* Project Pages */}

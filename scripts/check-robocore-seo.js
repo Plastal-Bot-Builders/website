@@ -25,4 +25,4 @@ for (const bot of ['OAI-SearchBot', 'PerplexityBot', 'Claude-SearchBot']) {
   assert(read('robots.txt').includes(`User-agent: ${bot}\nAllow: /`));
 }
 assert(read('robocore/llms-full.txt').includes('prototype'));
-console.log('Passed SEO checks for all five RoboCore pages, structured data, sitemap and AI-readable assets.');
+console.log('Passed SEO checks for every RoboCore page, structured data, sitemap and AI-readable assets.');

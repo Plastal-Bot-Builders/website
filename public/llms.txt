@@ -9,6 +9,7 @@
 - [Meet your next robotics project](https://www.plastalbotbuilders.com/robocore/hardware): Explore what you can build with RoboCore: a programmable robot with a lift, gripper and sensors, plus a coding app for hands-on learning.
 - [Young Zambians who build technology](https://www.plastalbotbuilders.com/robocore/vision): Why we are building RoboCore, what Plastal-Bot Builders has done so far, and what we hope to achieve: pilots in Zambian schools, kits assembled in Zambia, and 5,000 young people reached.
 - [Download the RoboCore IDE](https://www.plastalbotbuilders.com/robocore/download): Download the RoboCore IDE: blocks and Arduino C++ for the RoboCore robot, on Mac, Windows and Linux.
+- [Bring RoboCore to your school](https://www.plastalbotbuilders.com/robocore/pilot): Ask about a RoboCore pilot for your school or innovation hub in Zambia, or about partnering with the team that builds it.
 
 ## Optional
 

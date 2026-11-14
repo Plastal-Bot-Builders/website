@@ -1,12 +1,13 @@
 import React, { Suspense, useEffect, useState } from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { FaWhatsapp } from 'react-icons/fa';
 import { LuLinkedin, LuMail, LuMenu, LuMoon, LuSun, LuX } from 'react-icons/lu';
 import { useTheme } from '../../theme/ThemeProvider';
 import { asset } from '../../utils/asset';
 import { useRoboCoreBrowserIcon } from './browserIcon';
 import RoboCoreLoader from './RoboCoreLoader';
 import RoboCoreLogo from './RoboCoreLogo';
-import { ABOUT, CONTACT, LINKEDIN, scrollToSection } from './shared';
+import { ABOUT, CONTACT, LINKEDIN, PILOT, WHATSAPP, scrollToSection, whatsappLink } from './shared';
 import './robocore.css';
 
 /*
@@ -90,7 +91,7 @@ const RoboCoreHeader: React.FC = () => {
           >
             {dark ? <LuSun aria-hidden="true" /> : <LuMoon aria-hidden="true" />}
           </button>
-          <SectionLink to="/robocore#get-involved" className="rc-btn rc-btn-small rc-header-cta" onGo={() => setOpen(false)}>
+          <SectionLink to={PILOT} className="rc-btn rc-btn-small rc-header-cta" onGo={() => setOpen(false)}>
             Get involved
           </SectionLink>
           <button
@@ -112,7 +113,7 @@ const RoboCoreHeader: React.FC = () => {
               {n.label}
             </SectionLink>
           ))}
-          <SectionLink to="/robocore#get-involved" className="rc-btn rc-btn-small rc-header-cta" onGo={() => setOpen(false)}>
+          <SectionLink to={PILOT} className="rc-btn rc-btn-small rc-header-cta" onGo={() => setOpen(false)}>
             Get involved
           </SectionLink>
         </nav>
@@ -131,6 +132,11 @@ const RoboCoreFooter: React.FC = () => (
       </div>
       <div className="rc-footer-contact">
         <p className="rc-footer-head">Contact</p>
+        {WHATSAPP && (
+          <a className="rc-link" href={whatsappLink()} target="_blank" rel="noopener noreferrer">
+            <FaWhatsapp aria-hidden="true" /> Chat on WhatsApp
+          </a>
+        )}
         <a className="rc-link" href={`mailto:${CONTACT}`}>
           <LuMail aria-hidden="true" /> {CONTACT}
         </a>

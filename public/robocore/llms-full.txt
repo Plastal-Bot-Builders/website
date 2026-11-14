@@ -155,3 +155,25 @@ The RoboCore IDE brings blocks and Arduino C++ for the RoboCore robot to your ow
 - Windows 10 or 11, 64-bit (.exe installer)
 
 - 64-bit (x86-64) Linux with GTK 3, such as Fedora (.rpm) or Ubuntu 24.04 or newer (.tar.gz)
+
+---
+
+# Bring RoboCore to your school
+
+Source: https://www.plastalbotbuilders.com/robocore/pilot
+
+Schools, innovation hubs, partners and sponsors can write to the RoboCore team from this page. RoboCore is a prototype and pilots come next, so there are no dates or prices yet.
+
+## What to tell us
+
+
+
+- Your name and your school or organisation
+
+- Your town or city
+
+- About how many learners you have in mind
+
+## What happens next
+
+We reply, ask about your learners and what you would like to do with RoboCore, and tell you when pilot kits are ready and what a pilot would involve.

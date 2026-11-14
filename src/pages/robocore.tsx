@@ -10,7 +10,7 @@ import RoboCoreLogo from '../components/RoboCore/RoboCoreLogo';
 import Gallery, { GalleryItem } from '../components/RoboCore/Gallery';
 import Supporters from '../components/RoboCore/Supporters';
 import Tile from '../components/RoboCore/Tile';
-import { CONTACT, LINKEDIN, WEB_IDE, scrollToSection, useScrollToHash } from '../components/RoboCore/shared';
+import { LINKEDIN, PILOT, WEB_IDE, scrollToSection, useScrollToHash } from '../components/RoboCore/shared';
 import { asset } from '../utils/asset';
 
 // three.js only downloads when the hero is ready for it.
@@ -214,7 +214,7 @@ const RoboCorePage: React.FC = () => {
                   Explore the kit
                 </a>
               </div>
-              <p className="rc-hero-status">RoboCore is a prototype. School pilots in Zambia come next. <a className="rc-link" href="#get-involved" onClick={jumpTo('get-involved')}>Ask about a pilot</a></p>
+              <p className="rc-hero-status">RoboCore is a prototype. School pilots in Zambia come next. <Link className="rc-link" to={PILOT}>Ask about a pilot</Link></p>
               <div className="rc-hero-actions" style={{ alignItems: 'center', gap: 18 }}>
                 <span className="rc-chip">
                   <LuGlobe aria-hidden="true" /> Made in Zambia
@@ -546,16 +546,16 @@ const RoboCorePage: React.FC = () => {
             <Tile span="rc-c6 rc-full-md" tone="yellow" contours>
               <h3 className="rc-tile-title">Schools and innovation hubs</h3>
               <p className="rc-tile-text">Would you like to try RoboCore with your learners? Tell us about your school or hub.</p>
-              <a className="rc-btn rc-btn-primary rc-tile-cta" href={`mailto:${CONTACT}?subject=RoboCore%20pilot`}>
+              <Link className="rc-btn rc-btn-primary rc-tile-cta" to={PILOT}>
                 Ask about a school pilot <LuArrowRight aria-hidden="true" />
-              </a>
+              </Link>
             </Tile>
             <Tile span="rc-c3">
               <h3 className="rc-tile-title">Partners and sponsors</h3>
               <p className="rc-body">Help us build and test the first RoboCore kits.</p>
-              <a className="rc-link rc-tile-cta" href={`mailto:${CONTACT}?subject=RoboCore%20partnership`}>
+              <Link className="rc-link rc-tile-cta" to={`${PILOT}#partner`}>
                 Talk to us about partnering
-              </a>
+              </Link>
             </Tile>
             <Tile span="rc-c3">
               <h3 className="rc-tile-title">Follow the build</h3>
