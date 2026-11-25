@@ -41,6 +41,7 @@ const FadeContent = ({
   return (
     <div
       ref={ref}
+      data-motion="fade"
       className={className}
       style={{
         opacity: inView ? 1 : initialOpacity,

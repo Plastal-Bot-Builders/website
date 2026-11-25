@@ -3,7 +3,7 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Group } from 'three';
 import { Html, useProgress, ContactShadows, useGLTF, useAnimations } from '@react-three/drei';
 import StudioEnvironment from '../ui/StudioEnvironment';
-import { motion, useMotionValue, useTransform, Variants } from 'framer-motion';
+import { motion, useMotionValue, useTransform, Variants } from 'motion/react';
 import { useNavigate } from 'react-router-dom';
 import * as THREE from 'three';
 import { gsap } from 'gsap';

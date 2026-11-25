@@ -211,6 +211,51 @@ html.dark body {
   box-shadow: var(--shadow-card);
 }
 
+/* Scroll progress: a hairline of accent along the bottom of the header bar (src/components/ui/ScrollProgress.tsx).
+   Inset by the bar's corner radius so it never pokes out past the rounded corners. */
+.site-header__bar { position: relative; }
+.scroll-progress {
+  position: absolute;
+  left: var(--radius-lg, 12px);
+  right: var(--radius-lg, 12px);
+  bottom: -1px;
+  height: 2px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.scroll-progress[data-active] { opacity: 1; }
+.scroll-progress__bar {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  will-change: transform;
+}
+
+/* Typed headings (src/lib/typewriter.ts): after typing, the caret blinks a few times. The negative margin cancels
+   the caret's own width, so it can never push the heading onto another line. */
+[data-typing="caret"]::after {
+  content: '_';
+  display: inline-block;
+  width: 1ch;
+  margin-right: -1ch;
+  color: var(--accent);
+  animation: caret-blink .5s steps(1) 3;
+}
+@keyframes caret-blink { 50% { opacity: 0; } }
+
+/* Grid stagger (src/lib/useSiteMotion.ts): a grid below the fold holds its items back, then they rise in one by
+   one. The attribute is removed once they've landed, so the items' own hover transitions apply again. */
+[data-reveal="hold"] > * { opacity: 0; transform: translateY(18px); }
+[data-reveal="in"] > * {
+  transition: opacity .6s cubic-bezier(.2, .7, .2, 1) var(--reveal-delay, 0ms),
+    transform .6s cubic-bezier(.2, .7, .2, 1) var(--reveal-delay, 0ms);
+}
+
 .themed-border { border-color: var(--header-border) !important;}
 
 .site-header a { color: inherit; }

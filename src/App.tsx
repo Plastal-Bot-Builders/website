@@ -13,6 +13,7 @@ import RoboCoreLoader from './components/RoboCore/RoboCoreLoader'; // not lazy: 
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 import { DefaultSEO } from './components/SEO';
 import Squares from './components/ui/Squares';
+import { useSiteMotion } from './lib/useSiteMotion';
 
 // Route-level code splitting: each page loads only when visited.
 const About = lazy(() => import('./pages/about'));
@@ -86,6 +87,11 @@ const RouteLoader: React.FC = () => {
 const App: React.FC = () => {
   const location = useLocation();
   const scrollbarsRef = useRef<Scrollbars>(null);
+  const mainRef = useRef<HTMLElement>(null);
+
+  // Scroll motion (text decrypts, headings type, grids stagger in) on every page except RoboCore's, which has its
+  // own look. See src/lib/useSiteMotion.ts.
+  useSiteMotion(mainRef, !location.pathname.startsWith('/robocore'), location.pathname);
 
   // Scroll back to the top whenever the route changes (the app scrolls
   // inside the rc-scrollbars view, not the window).
@@ -140,7 +146,7 @@ const App: React.FC = () => {
           )}
 
           {/* Render your routes */}
-          <main id="main-content" className="relative" style={{ zIndex: 1 }}>
+          <main ref={mainRef} id="main-content" className="relative" style={{ zIndex: 1 }}>
             <Suspense fallback={<RouteLoader />}>
               <Routes>
                 <Route path="/" element={<Home />} />

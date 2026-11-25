@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import ScrollProgress from './ui/ScrollProgress';
 import Button from './Button';
 import { useLocation, Link } from 'react-router-dom';
 import { useTheme } from '../theme/ThemeProvider';
@@ -53,6 +54,7 @@ const Header: React.FC = () => {
       {/* The visible bar is constrained to the content width so it lines up
           with the page container rather than running edge to edge. */}
       <div className="site-header__bar max-w-7xl mx-auto px-4 sm:px-6">
+        <ScrollProgress />
         <div className="flex justify-between items-center gap-4 max-sm:py-1.5 py-2">
           {/* Logo (served from public/resources/...) */}
           <Link to="/" className="flex-shrink-0" aria-label="Plastal-Bot Builders — Home">
