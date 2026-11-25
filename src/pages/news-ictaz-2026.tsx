@@ -19,32 +19,26 @@ const PHOTOS: Photo[] = [
   {
     src: `${P}/ictaz-stand-visitors.jpg`,
     alt: 'Fredrick Mwepu (white shirt) and Fred Mukuna (yellow shirt) show RoboCore to two visitors at the ICTAZ Tech Fair, with the robot’s parts on the table between them.',
-    caption: 'Showing RoboCore to visitors at our stand.',
   },
   {
     src: `${P}/ictaz-first-global-student.jpg`,
     alt: 'Fredrick Mwepu and Fred Mukuna talk with a student wearing a FIRST Global Zambia jersey.',
-    caption: 'Talking robotics with a student from FIRST Global Zambia.',
   },
   {
     src: `${P}/ictaz-fredrick-explains.jpg`,
     alt: 'Fredrick Mwepu explains RoboCore at the stand, with the robot’s parts in front of him.',
-    caption: 'Fredrick Mwepu explains how RoboCore works.',
   },
   {
     src: `${P}/ictaz-interview.jpg`,
     alt: 'Fredrick Mwepu is interviewed on camera at the ICTAZ Tech Fair.',
-    caption: 'Fredrick Mwepu being interviewed on camera.',
   },
   {
     src: `${P}/ictaz-fred-mukuna-laptop.jpg`,
     alt: 'Fred Mukuna works at a laptop at the RoboCore stand.',
-    caption: 'Fred Mukuna at the RoboCore stand.',
   },
   {
     src: `${P}/ictaz-group-photo.jpg`,
     alt: 'A large group photo of participants at the ICTAZ Tech Fair 2026 in Lusaka.',
-    caption: 'Group photo at the ICTAZ Tech Fair 2026.',
   },
 ];
 
@@ -100,16 +94,16 @@ const IctazTechFair2026: React.FC = () => (
       {/* The story */}
       <FadeContent blur duration={1000} easing="ease-out" initialOpacity={0} delay={100}>
         <section className="w-full px-4 sm:px-6 lg:px-8 py-6 lg:py-8" aria-labelledby="ictaz-hands-on">
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             <h2 id="ictaz-hands-on" className="type-h2 mb-4">
               <span className="text-hex">Hands on</span> the board
             </h2>
-            <p className="type-body mb-4">
+            <p className="max-w-3xl type-body mb-4">
               Visitors picked up the RoboCore controller board and played Ring Run, a game where you tilt the board to
               fly a plane through rings on screen. The moment someone picks it up and starts playing is exactly what we
               want for every classroom.
             </p>
-            <p className="type-body">
+            <p className="max-w-3xl type-body">
               People stopped by to see the robot’s parts up close, ask how it works and give us honest feedback on the
               board and the robot’s frame, among them a student from FIRST Global Zambia.
             </p>
@@ -137,11 +131,11 @@ const IctazTechFair2026: React.FC = () => (
       {/* What's next */}
       <FadeContent blur duration={1000} easing="ease-out" initialOpacity={0} delay={200}>
         <section className="w-full px-4 sm:px-6 lg:px-8 py-8 lg:py-12" aria-labelledby="ictaz-next">
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             <h2 id="ictaz-next" className="type-h2 mb-4">
               <span className="text-hex">What</span> comes next
             </h2>
-            <p className="type-body mb-6">
+            <p className="max-w-3xl type-body mb-6">
               Next, RoboCore goes into its first school pilots. If your school or innovation hub would like to be one
               of them, tell us. Thank you to ICTAZ for the platform, and to everyone who stopped by our stand.
             </p>
