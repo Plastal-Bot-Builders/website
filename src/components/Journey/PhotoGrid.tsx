@@ -92,9 +92,11 @@ const PhotoGrid: React.FC<PhotoGridProps> = ({
       <ul className={className}>
         {photos.map((p, i) => (
           <li key={p.src} className={itemClassName}>
+            {/* A photo fills its cell only without a caption: with one, a full-height button pushed the caption out
+                of the cell and over the next row (seen on the ICTAZ story, 2026-11-25). */}
             <button
               type="button"
-              className="block w-full h-full rounded-lg overflow-hidden"
+              className={`block w-full ${p.caption ? '' : 'h-full'} rounded-lg overflow-hidden`}
               onClick={() => setOpen(i)}
               aria-label={`Enlarge photo: ${p.alt}`}
             >

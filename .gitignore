@@ -151,6 +151,9 @@ public/resources/Geneva2026/*
 # so it must ship. (Negations have to come after the binary rules above,
 # which is also why new files in Geneva2026/web/ need `git add -f`.)
 !public/resources/social/*.jpg
+# The ICTAZ Tech Fair story's photos (news-ictaz-2026.tsx).
+!public/resources/ICTAZ2026/web/*.jpg
+!public/resources/ICTAZ2026/web/*.webp
 
 # RoboCore section (/robocore): its web-ready images and the 3D model ship with
 # the site. Where they come from: src/components/RoboCore/README.md.

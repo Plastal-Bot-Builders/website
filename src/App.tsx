@@ -24,6 +24,7 @@ const MembershipForm = lazy(() => import('./pages/membershipform'));
 const ProjectsPage = lazy(() => import('./pages/projects'));
 const EventsPage = lazy(() => import('./pages/events'));
 const NewsPage = lazy(() => import('./pages/news'));
+const IctazTechFair2026 = lazy(() => import('./pages/news-ictaz-2026'));
 const JourneyToGeneva = lazy(() => import('./pages/journey-to-geneva'));
 const Error404 = lazy(() => import('./pages/error'));
 
@@ -158,6 +159,7 @@ const App: React.FC = () => {
                 <Route path="/events" element={<EventsPage />} />
                 <Route path="/projects" element={<ProjectsPage />} />
                 <Route path="/news" element={<NewsPage />} />
+                <Route path="/news/ictaz-tech-fair-2026" element={<IctazTechFair2026 />} />
                 <Route path="/journey-to-geneva" element={<JourneyToGeneva />} />
 
                 {/* Support pages */}

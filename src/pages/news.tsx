@@ -25,6 +25,16 @@ type NewsItem = {
 
 const NEWS_ITEMS: NewsItem[] = [
   {
+    id: 'ictaz-tech-fair-2026',
+    date: 'November 2026',
+    category: 'Event',
+    title: 'RoboCore meets the public at the ICTAZ Tech Fair',
+    summary:
+      'At the ICTAZ Tech Fair in Lusaka, visitors got their hands on RoboCore, our classroom robotics platform, for the first time: they played Ring Run on its controller board and gave us honest feedback.',
+    image: 'resources/ICTAZ2026/web/ictaz-stand-visitors.jpg',
+    link: { to: '/news/ictaz-tech-fair-2026', label: 'Read the story and see the photos' },
+  },
+  {
     id: 'pdu-recognition',
     date: 'July 2026',
     category: 'Recognition',

@@ -261,6 +261,7 @@ const ROUTES = [
         {
           h2: 'Recent milestones',
           list: [
+            'RoboCore’s first public showing, at the ICTAZ Tech Fair in Lusaka — November 2026',
             'Finalist Team, AI for Good Robotics Competition, Geneva, Switzerland — July 2026',
             'Winner, AI for Good National Edition, Zambia — April 2026',
             'Hosted by Zambia’s Presidential Delivery Unit, where the team demonstrated their robot to government officials — July 2026',
@@ -270,6 +271,50 @@ const ROUTES = [
       ],
     },
     schema: ['CollectionPage'],
+  },
+
+  {
+    path: '/news/ictaz-tech-fair-2026',
+    priority: '0.7',
+    changefreq: 'monthly',
+    title: 'RoboCore at the ICTAZ Tech Fair 2026 — Plastal-Bot Builders',
+    description:
+      'On 13 November 2026 Plastal-Bot Builders brought RoboCore, its classroom robotics platform, to the ICTAZ Tech Fair in Lusaka, Zambia: its first public showing. Photos and the story.',
+    image: '/resources/social/og-ictaz.jpg',
+    imageAlt:
+      'Fredrick Mwepu and Fred Mukuna of Plastal-Bot Builders show RoboCore to two visitors at the ICTAZ Tech Fair in Lusaka.',
+    breadcrumb: [
+      { name: 'News & Achievements', path: '/news' },
+      { name: 'RoboCore at the ICTAZ Tech Fair', path: '/news/ictaz-tech-fair-2026' },
+    ],
+    body: {
+      h1: 'RoboCore meets the public at the ICTAZ Tech Fair',
+      summary:
+        'On 13 November 2026 Plastal-Bot Builders brought RoboCore, its classroom robotics platform, to the ICTAZ Tech Fair in Lusaka, Zambia. It was the first time the public could get their hands on it.',
+      sections: [
+        {
+          h2: 'Hands on the board',
+          p: 'Visitors picked up the RoboCore controller board and played Ring Run, a game where you tilt the board to fly a plane through rings on screen. People stopped by to see the robot’s parts up close, ask how it works and give honest feedback on the board and the robot’s frame, among them a student from FIRST Global Zambia.',
+        },
+        {
+          h2: 'What comes next',
+          p: 'RoboCore goes into its first school pilots next. Schools and innovation hubs can register their interest at plastalbotbuilders.com/robocore/pilot. Photos: Avant Media ZM.',
+        },
+      ],
+    },
+    schema: ['Article', 'Event'],
+    article: {
+      headline: 'RoboCore meets the public at the ICTAZ Tech Fair in Lusaka',
+      datePublished: '2026-11-25',
+      section: 'Events',
+    },
+    event: {
+      name: 'ICTAZ Tech Fair 2026',
+      startDate: '2026-11-13',
+      location: { name: 'ICTAZ Tech Fair', city: 'Lusaka', country: 'ZM' },
+      description:
+        'Technology fair in Lusaka where Plastal-Bot Builders showed RoboCore, its classroom robotics platform, to the public for the first time.',
+    },
   },
 
   {
