@@ -3,8 +3,6 @@ import MetaTags from './MetaTags';
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
 import siteSeo from '../../data/site-seo.json';
-import { OrganizationStructuredData, WebsiteStructuredData } from './StructuredData';
-import { SITE_URL } from '../../config/site';
 
 /**
  * Sets the page's head tags (title, description, share preview, canonical, structured data).
@@ -23,8 +21,6 @@ interface SEOConfigProps {
   image?: string;
   url?: string;
   type?: 'website' | 'article' | 'profile';
-  includeOrganizationData?: boolean;
-  includeWebsiteData?: boolean;
   /** Ask search engines not to index this page (the "not found" page). Leaves the canonical link out too. */
   noindex?: boolean;
   /**
@@ -53,32 +49,12 @@ const SEOConfig: React.FC<SEOConfigProps> = ({
   image,
   url,
   type = 'website',
-  includeOrganizationData = false,
-  includeWebsiteData = false,
   noindex = false,
   canonical = true,
 }) => {
 const { pathname } = useLocation();
 const listed = noindex ? undefined : ROUTES_SEO[pathname.replace(/\/+$/, '') || '/'];
 const graph = listed && { '@context': 'https://schema.org', '@graph': [...siteSeo.shared, ...listed.nodes] };
-const organizationData = {
-  name: "Plastal-Bot Builders",
-  url: SITE_URL,
-  logo: "/resources/Logo/fred.svg",
-  description: "Empowering the next generation through robotics education and technology literacy",
-  contactPoint: {
-    "@type": "ContactPoint",
-    telephone: "+260 975 608103",
-    contactType: "customer service"
-  }
-};
-
-const websiteData = {
-  name: "Plastal-Bot Builders",
-  url: SITE_URL,
-  description: "Robotics education and community programs for all ages",
-  publisher: "Plastal-Bot Builders"
-};
 
   return (
     <>
@@ -96,13 +72,6 @@ const websiteData = {
       />
       
       {graph && <Helmet><script type="application/ld+json">{JSON.stringify(graph).replace(/</g, '\\u003c')}</script></Helmet>}
-      {includeOrganizationData && (
-        <OrganizationStructuredData {...organizationData} />
-      )}
-      
-      {includeWebsiteData && (
-        <WebsiteStructuredData {...websiteData} />
-      )}
     </>
   );
 };
