@@ -297,6 +297,10 @@ const ROUTES = [
           p: 'Visitors picked up the RoboCore controller board and played Ring Run, a game where you tilt the board to fly a plane through rings on screen. People stopped by to see the robot’s parts up close, ask how it works and give honest feedback on the board and the robot’s frame, among them a student from FIRST Global Zambia.',
         },
         {
+          h2: 'Watch: RoboCore at our stand',
+          p: 'ICTAZ (the ICT Association of Zambia) filmed Fredrick Mwepu at the stand, explaining RoboCore, the controller board at its heart, and how far the work has come: https://www.youtube.com/watch?v=9J71Q-bwPAo',
+        },
+        {
           h2: 'What comes next',
           p: 'RoboCore goes into its first school pilots next. Schools and innovation hubs can register their interest at plastalbotbuilders.com/robocore/pilot. Photos: Avant Media ZM.',
         },
