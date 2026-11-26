@@ -376,60 +376,6 @@ const NonprofitPartnershipPage: React.FC = () => {
                         </section>
                     </FadeContent>
 
-                    {/* Impact Story */}
-                    <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0} delay={300}>
-                        <section className="mb-8 lg:mb-12">
-                            <div className="bg-surface-hover-bg rounded-lg overflow-hidden p-4 sm:p-6 lg:p-8">
-                                <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">Partnership Impact Story</h2>
-
-                                <div className="flex flex-col md:flex-row gap-6 lg:gap-8">
-                                    <div className="w-full md:w-1/2">
-                                        <ThemedImage
-                                            src="resources/Illustrations/Nonprofit.svg"
-                                            className="w-full h-auto object-contain rounded-lg"
-                                            alt="Partnership project in action"
-                                        />
-                                    </div>
-
-                                    <div className="w-full md:w-1/2 space-y-4">
-                                        <h3 className="text-lg sm:text-xl font-bold">Robotics for Environmental Monitoring</h3>
-                                        <p className="text-sm sm:text-base leading-relaxed">
-                                            In partnership with EcoTech Zambia, we developed a program teaching
-                                            students to build simple water quality monitoring robots. The initiative
-                                            combined environmental education with practical technology skills.
-                                        </p>
-
-                                        <div className="bg-surface rounded-lg p-4">
-                                            <h4 className="font-bold mb-2 sm:mb-3 text-sm sm:text-base">Results:</h4>
-                                            <ul className="space-y-1 sm:space-y-2">
-                                                <li className="flex items-start">
-                                                    <span className="text-accent mr-2 flex-shrink-0">•</span>
-                                                    <span className="text-xs sm:text-sm">120 students trained across 6 communities</span>
-                                                </li>
-                                                <li className="flex items-start">
-                                                    <span className="text-accent mr-2 flex-shrink-0">•</span>
-                                                    <span className="text-xs sm:text-sm">15 functional water monitoring devices built and deployed</span>
-                                                </li>
-                                                <li className="flex items-start">
-                                                    <span className="text-accent mr-2 flex-shrink-0">•</span>
-                                                    <span className="text-xs sm:text-sm">Data collected now used by local environmental agencies</span>
-                                                </li>
-                                                <li className="flex items-start">
-                                                    <span className="text-accent mr-2 flex-shrink-0">•</span>
-                                                    <span className="text-xs sm:text-sm">Project featured in national environmental conference</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-
-                                        <a href="#case-studies" className="text-accent hover:underline text-sm sm:text-base inline-block">
-                                            Read more partnership stories →
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    </FadeContent>
-
                     {/* Partnership Process */}
                     <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0} delay={100}>
                         <section className="mb-8 lg:mb-12">
