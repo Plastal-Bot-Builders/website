@@ -1,5 +1,6 @@
 import React from 'react';
 import SmartImage from '../ui/SmartImage';
+import { PhotoStrip, StepFlow } from '../ui/SectionMedia';
 import { Link } from 'react-router-dom';
 import Header from '../Header';
 import Footer from '../Footer';
@@ -228,6 +229,13 @@ const SponsorshipPage: React.FC = () => {
                                         that will cultivate the next generation of engineers, inventors, and problem-solvers. 
                                         Your early investment will be recognized throughout our growth journey.
                                     </p>
+                                    <PhotoStrip
+                                        photos={[{
+                                            src: 'resources/Geneva2026/web/partners-with-team.jpg',
+                                            alt: 'The Plastal-Bot team in Geneva with a supporter, in front of MTN and partner branding',
+                                            caption: 'Supporters like MTN Zambia, Zamtel, KoBold Metals and Absa Bank Zambia helped take our team to the AI for Good finals in Geneva.',
+                                        }]}
+                                    />
                                 </div>
 
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -489,6 +497,19 @@ const SponsorshipPage: React.FC = () => {
                             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 pb-2">
                                 Transparent Growth & Impact Tracking
                             </h2>
+
+                            <div className="interactive-card p-4 sm:p-6 mb-8">
+                                <h3 className="text-xl sm:text-2xl font-bold mb-6">Our Track Record So Far</h3>
+                                <StepFlow
+                                    steps={[
+                                        { title: 'Intro to Robotics workshops', text: 'Hands-on electronics, Tinkercad and Arduino for secondary-school learners.' },
+                                        { tag: '2025', title: 'Spike Prime Bootcamp', text: 'Six weeks with the CBU Robotics Club; 50+ learners certified.' },
+                                        { tag: 'April 2026', title: 'National champions', text: 'Winners of the AI for Good National Edition (Zambia).' },
+                                        { tag: 'July 2026', title: 'Finalists in Geneva', text: 'Represented Zambia at the AI for Good Global Summit.' },
+                                        { tag: 'November 2026', title: 'RoboCore goes public', text: 'First public showing at the ICTAZ Tech Fair, Lusaka. 600+ young people reached so far.' },
+                                    ]}
+                                />
+                            </div>
 
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
                                 <div className="space-y-4">

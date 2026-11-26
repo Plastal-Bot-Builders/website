@@ -8,6 +8,7 @@ import {
     FaHandsHelping, FaChartLine, FaLaptop, FaCamera, FaLink, FaCogs
 } from 'react-icons/fa';
 import ThemedImage from '../../theme/ThemedImage';
+import { PhotoStrip } from '../ui/SectionMedia';
 import CountUp from '../../components/ui/CountUp';
 import { SEOConfig } from '../../components/SEO';
 import FadeContent from '../../components/ui/FadeContent';
@@ -148,6 +149,13 @@ const EventCoordinationPage: React.FC = () => {
                     <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0} delay={100}>
                         <section className="mb-8 lg:mb-12">
                             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 pb-2">Our Event Objectives</h2>
+                            <PhotoStrip
+                                className="mb-6"
+                                photos={[
+                                    { src: "resources/SpikePrime/web/bootcamp-robot-presentation.jpg", alt: "A facilitator presents with Spike Prime robots on the podium", caption: "The Spike Prime Bootcamp, 2025." },
+                                    { src: "resources/ICTAZ2026/web/ictaz-group-photo.jpg", alt: "A large group photo of participants at the ICTAZ Tech Fair", caption: "ICTAZ Tech Fair, Lusaka, November 2026." },
+                                ]}
+                            />
                             
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                                 <div className="bg-surface-hover-bg rounded-lg p-4 sm:p-5 interactive-card">
@@ -501,6 +509,12 @@ const EventCoordinationPage: React.FC = () => {
                     <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0} delay={100}>
                         <section id="upcoming" className="mb-8 lg:mb-12">
                             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 pb-2">Upcoming Events</h2>
+                            <PhotoStrip
+                                className="mb-6"
+                                photos={[
+                                    { src: "resources/SpikePrime/web/bootcamp-first-robot-test.jpg", alt: "Learners lean over a table to watch their robot run", caption: "Every event ends with robots that work." },
+                                ]}
+                            />
                             
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                                 <div className="interactive-card rounded-lg p-4 sm:p-5">

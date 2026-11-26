@@ -154,6 +154,10 @@ public/resources/Geneva2026/*
 # The ICTAZ Tech Fair story's photos (news-ictaz-2026.tsx).
 !public/resources/ICTAZ2026/web/*.jpg
 !public/resources/ICTAZ2026/web/*.webp
+# Web-sized copies made by scripts/media/make_web_derivatives.py, in a web/ folder beside their raw sources
+# (bootcamp, workshop, project and event photos). The raw originals stay local.
+!public/resources/*/web/*.jpg
+!public/resources/*/web/*.webp
 
 # RoboCore section (/robocore): its web-ready images and the 3D model ship with
 # the site. Where they come from: src/components/RoboCore/README.md.

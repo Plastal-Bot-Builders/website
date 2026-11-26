@@ -8,6 +8,7 @@ import {
     FaUsers, FaHandshake, FaAward, FaRocket
 } from 'react-icons/fa';
 import ThemedImage from '../../theme/ThemedImage';
+import SmartImage from '../ui/SmartImage';
 import { SEOConfig } from '../../components/SEO';
 import FadeContent from '../../components/ui/FadeContent';
 
@@ -170,6 +171,7 @@ const EducationalPartnershipsPage: React.FC = () => {
                             <div className="space-y-6 lg:space-y-8">
                                 {/* School Collaborations */}
                                 <div className="interactive-card rounded-lg overflow-hidden">
+                                    <SmartImage src="resources/IntroRoboticsWorkshop/web/intro-class-presentation.jpg" alt="Pupils in school uniform present their robotics work on a projector screen" className="w-full h-44 sm:h-56 object-cover object-[center_28%]" />
                                     <div className="p-4 sm:p-5 lg:p-6">
                                         <div className="flex items-center mb-3 sm:mb-4">
                                             <div className="w-10 h-10 sm:w-12 sm:h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 flex-shrink-0 border-2 border-accent p-2">
@@ -183,7 +185,7 @@ const EducationalPartnershipsPage: React.FC = () => {
                                             train teachers, and engage students in hands-on technology learning.
                                         </p>
                                         
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mt-4">
+                                        <div className="mt-4">
                                             <div>
                                                 <h4 className="font-bold mb-2 sm:mb-3 text-sm sm:text-base">We offer schools:</h4>
                                                 <ul className="space-y-2">
@@ -206,20 +208,13 @@ const EducationalPartnershipsPage: React.FC = () => {
                                                 </ul>
                                             </div>
                                             
-                                            <div className="bg-surface-hover-bg p-4 rounded-lg">
-                                                <h4 className="font-bold mb-2 sm:mb-3 text-sm sm:text-base">Success Story:</h4>
-                                                <p className="italic text-xs sm:text-sm mb-2 leading-relaxed">
-                                                    "Since partnering with Plastal-Bot, our students have built their first robots and 
-                                                    even won a provincial competition. The excitement for STEM subjects has transformed our school."
-                                                </p>
-                                                <p className="text-xs sm:text-sm font-bold">— Mrs. Banda, Head Teacher, Ndola STEM Academy</p>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 
                                 {/* University & College Partnerships */}
                                 <div className="interactive-card rounded-lg overflow-hidden">
+                                    <SmartImage src="resources/SpikePrime/web/bootcamp-organising-team.jpg" alt="Facilitators and organisers of the Spike Prime Bootcamp, run with the CBU Robotics Club" className="w-full h-44 sm:h-56 object-cover object-[center_28%]" />
                                     <div className="p-4 sm:p-5 lg:p-6">
                                         <div className="flex items-center mb-3 sm:mb-4">
                                             <div className="w-10 h-10 sm:w-12 sm:h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 flex-shrink-0 border-2 border-accent p-2">
@@ -273,6 +268,7 @@ const EducationalPartnershipsPage: React.FC = () => {
                                 
                                 {/* Training and Innovation Centers */}
                                 <div className="interactive-card rounded-lg overflow-hidden">
+                                    <SmartImage src="resources/Projects/web/printer-chassis-rails.jpg" alt="A 3D printer producing robot chassis rails" className="w-full h-44 sm:h-56 object-cover object-[center_28%]" />
                                     <div className="p-4 sm:p-5 lg:p-6">
                                         <div className="flex items-center mb-3 sm:mb-4">
                                             <div className="w-10 h-10 sm:w-12 sm:h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 flex-shrink-0 border-2 border-accent p-2">
@@ -305,6 +301,7 @@ const EducationalPartnershipsPage: React.FC = () => {
                                 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                                     <div className="interactive-card rounded-lg overflow-hidden">
+                                        <SmartImage src="resources/IntroRoboticsWorkshop/web/intro-laptop-sim.jpg" alt="A Tinkercad circuit simulation beside the real breadboard a learner is wiring" className="w-full h-44 sm:h-56 object-cover object-[center_28%]" />
                                         <div className="p-4 sm:p-5 lg:p-6">
                                             <div className="flex items-center mb-3 sm:mb-4">
                                                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 flex-shrink-0 border-2 border-accent p-2">
@@ -336,6 +333,7 @@ const EducationalPartnershipsPage: React.FC = () => {
                                     </div>
                                     
                                     <div className="interactive-card rounded-lg overflow-hidden">
+                                        <SmartImage src="resources/Geneva2026/web/geneva-swiss-team.jpg" alt="Plastal-Bot team members with a Swiss robotics team in Geneva" className="w-full h-44 sm:h-56 object-cover object-[center_28%]" />
                                         <div className="p-4 sm:p-5 lg:p-6">
                                             <div className="flex items-center mb-3 sm:mb-4">
                                                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-surface-hover-bg rounded-full flex items-center justify-center mr-3 flex-shrink-0 border-2 border-accent p-2">

@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { asset } from '../utils/asset';
 import ThemedImage from '../theme/ThemedImage';
 import SmartImage from '../components/ui/SmartImage';
+import { PhotoStrip } from '../components/ui/SectionMedia';
 import DecryptedText from '../components/ui/DecryptedText';
 import { SEOConfig } from '../components/SEO';
 import FadeContent from '../components/ui/FadeContent';
@@ -261,6 +262,20 @@ const About: React.FC = () => {
                     revealDirection="start"
                   />
                 </div>
+              </div>
+
+              {/* Mission in action: the programmes the words above describe */}
+              <div className="mt-10 lg:mt-14">
+                <h3 className="text-xl sm:text-2xl font-bold mb-4">
+                  <span className="text-hex">Our mission</span> in action
+                </h3>
+                <PhotoStrip
+                  photos={[
+                    { src: 'resources/SpikePrime/web/bootcamp-coding-the-robot.jpg', alt: 'A learner programs a LEGO Spike Prime robot while teammates watch', caption: 'Spike Prime Bootcamp, 2025: six weeks of building and coding.' },
+                    { src: 'resources/Geneva2026/web/geneva-ambassador.jpg', alt: 'The team at their AI for Good competition table in Geneva with a visiting dignitary', caption: 'AI for Good, Geneva, July 2026: finalists representing Zambia.' },
+                    { src: 'resources/ICTAZ2026/web/ictaz-stand-visitors.jpg', alt: 'Visitors at the Plastal-Bot stand at the ICTAZ Tech Fair', caption: 'ICTAZ Tech Fair, November 2026: RoboCore’s first public showing.' },
+                  ]}
+                />
               </div>
             </div>
           </section>

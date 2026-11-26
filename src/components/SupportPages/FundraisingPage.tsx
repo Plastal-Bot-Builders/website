@@ -9,6 +9,7 @@ import {
     FaRegLightbulb, FaRobot, FaLaptopCode, FaSchool
 } from 'react-icons/fa';
 import ThemedImage from '../../theme/ThemedImage';
+import { PhotoStrip } from '../ui/SectionMedia';
 import CountUp from '../../components/ui/CountUp';
 import { SEOConfig } from '../../components/SEO';
 import FadeContent from '../../components/ui/FadeContent';
@@ -145,6 +146,13 @@ const FundraisingPage: React.FC = () => {
                     <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
                         <section className="mb-12">
                             <h2 className="text-2xl font-bold mb-6 pb-2">Our Fundraising Objectives</h2>
+                            <PhotoStrip
+                                className="mb-6"
+                                photos={[
+                                    { src: "resources/SpikePrime/web/bootcamp-kit-unboxing.jpg", alt: "Learners build from an open LEGO Spike Prime kit", caption: "Funding puts kits like these in learners\u2019 hands." },
+                                    { src: "resources/IntroRoboticsWorkshop/web/intro-wiring-circuit.jpg", alt: "A learner wires a breadboard circuit next to a laptop", caption: "Components and laptops turn lessons into real circuits." },
+                                ]}
+                            />
 
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                                 <div className="bg-surface-hover-bg rounded-lg">
@@ -319,6 +327,13 @@ const FundraisingPage: React.FC = () => {
                     <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
                         <section className="mb-12 bg-surface-hover-bg rounded-lg">
                             <h2 className="text-2xl font-bold mb-6">How We Engage Our Supporters</h2>
+                            <PhotoStrip
+                                className="mb-6"
+                                photos={[
+                                    { src: "resources/Geneva2026/web/home-recognition-01.jpg", alt: "The team and pupils with officials at a recognition event", caption: "Celebrating with supporters and officials after Geneva, July 2026." },
+                                    { src: "resources/ICTAZ2026/web/ictaz-interview.jpg", alt: "A team member is interviewed at the ICTAZ Tech Fair", caption: "Sharing our work with the media and the public." },
+                                ]}
+                            />
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 <div>

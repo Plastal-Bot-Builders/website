@@ -695,7 +695,8 @@ const Home: React.FC = () => {
 
               {/* Key Initiatives Grid */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-                <div className="interactive-card p-6">
+                <div className="interactive-card p-6 overflow-hidden">
+                  <SmartImage src="resources/SpikePrime/web/bootcamp-kit-unboxing.jpg" alt="Learners building from a LEGO Spike Prime kit" className="-mx-6 -mt-6 mb-5 block w-[calc(100%+3rem)] max-w-none h-40 object-cover" />
                   <div className="flex items-center gap-4 mb-4">
                     <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-accent flex items-center justify-center text-white flex-shrink-0">
                       <FaHandshake className="text-xl sm:text-2xl" />
@@ -711,7 +712,8 @@ const Home: React.FC = () => {
                   />
                 </div>
 
-                <div className="interactive-card p-6">
+                <div className="interactive-card p-6 overflow-hidden">
+                  <SmartImage src="resources/Projects/web/gypul-cad-and-print.jpg" alt="A 3D-printed self-balancing robot frame in front of its CAD model" className="-mx-6 -mt-6 mb-5 block w-[calc(100%+3rem)] max-w-none h-40 object-cover" />
                   <div className="flex items-center gap-4 mb-4">
                     <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-accent flex items-center justify-center text-white flex-shrink-0">
                       <FaGraduationCap className="text-xl sm:text-2xl" />
@@ -727,7 +729,8 @@ const Home: React.FC = () => {
                   />
                 </div>
 
-                <div className="interactive-card p-6">
+                <div className="interactive-card p-6 overflow-hidden">
+                  <SmartImage src="resources/Geneva2026/web/geneva-swiss-team.jpg" alt="Plastal-Bot team members with a Swiss robotics team in Geneva" className="-mx-6 -mt-6 mb-5 block w-[calc(100%+3rem)] max-w-none h-40 object-cover" />
                   <div className="flex items-center gap-4 mb-4">
                     <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-accent flex items-center justify-center text-white flex-shrink-0">
                       <FaGlobe className="text-xl sm:text-2xl" />

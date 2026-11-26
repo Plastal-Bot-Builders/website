@@ -9,6 +9,7 @@ import {
     FaRobot, FaChalkboardTeacher, FaSeedling, FaExchangeAlt
 } from 'react-icons/fa';
 import ThemedImage from '../../theme/ThemedImage';
+import { PhotoStrip } from '../ui/SectionMedia';
 import { SEOConfig } from '../../components/SEO';
 import FadeContent from '../../components/ui/FadeContent';
 
@@ -156,6 +157,13 @@ const NonprofitPartnershipPage: React.FC = () => {
                     <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0} delay={100}>
                         <section className="mb-8 lg:mb-12">
                             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 pb-2">The Power of Partnership</h2>
+                            <PhotoStrip
+                                className="mb-6"
+                                photos={[
+                                    { src: "resources/Geneva2026/web/home-recognition-03.jpg", alt: "The team and pupils gathered with officials and guests at a recognition event", caption: "Many organisations came together behind our Geneva team." },
+                                    { src: "resources/SpikePrime/web/bootcamp-facilitators-and-learners.jpg", alt: "Facilitators and learners read a challenge sheet together", caption: "Facilitators from partner organisations at the Spike Prime Bootcamp." },
+                                ]}
+                            />
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
                                 <div className="space-y-4">

@@ -7,6 +7,7 @@ import {
     FaRobot, FaComment, FaBriefcase, FaChalkboardTeacher, FaUserTie, FaCalendarAlt
 } from 'react-icons/fa';
 import ThemedImage from '../../theme/ThemedImage';
+import { PhotoStrip } from '../ui/SectionMedia';
 import { SEOConfig } from '../../components/SEO';
 import FadeContent from '../../components/ui/FadeContent';
 
@@ -165,6 +166,13 @@ const MentorshipPage: React.FC = () => {
                     <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0} delay={100}>
                         <section className="mb-8 lg:mb-12">
                             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 pb-2">Program Vision</h2>
+                            <PhotoStrip
+                                className="mb-6"
+                                photos={[
+                                    { src: "resources/Geneva2026/web/swiss-prep-team-02.jpg", alt: "A mentor works with a learner building a robot", caption: "Mentoring during our Geneva preparation." },
+                                    { src: "resources/ICTAZ2026/web/ictaz-fredrick-explains.jpg", alt: "A team member explains a project across a table", caption: "Students learn fastest from people a few steps ahead." },
+                                ]}
+                            />
 
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
                                 <div className="space-y-4">

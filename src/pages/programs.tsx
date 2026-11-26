@@ -7,34 +7,34 @@ import ThemedImage from '../theme/ThemedImage';
 import { SEOConfig } from '../components/SEO';
 import FadeContent from '../components/ui/FadeContent';
 import SmartImage from '../components/ui/SmartImage';
+import PhotoGrid, { Photo } from '../components/Journey/PhotoGrid';
 
 const Programs: React.FC = () => {
   const [tab, setTab] = useState<'completed' | 'upcoming'>('completed');
   
-  const spikeGallery = [
-    'resources/SpikePrime/SCAVENGERHUNT1.jpg',
-    'resources/SpikePrime/SCAVENGERHUNT2.jpg',
-    'resources/SpikePrime/SCAVENGERHUNT3.jpg',
-    'resources/SpikePrime/SCAVENGERHUNT4.jpg',
-    'resources/SpikePrime/SCAVENGERHUNT5.jpg',
-    'resources/SpikePrime/SCAVENGERHUNT6.jpg',
-    'resources/SpikePrime/SCAVENGERHUNT7.jpg',
-    'resources/SpikePrime/SCAVENGERHUNT8.jpg',
-    'resources/SpikePrime/SCAVENGERHUNT9.jpg',
-    'resources/SpikePrime/SCAVENGERHUNT10.jpg'
+  // Photos from the bootcamp's scavenger-hunt day (web copies in resources/SpikePrime/web/, made by
+  // scripts/media/make_web_derivatives.py from the photographer's originals).
+  const spikeGallery: Photo[] = [
+    { src: 'resources/SpikePrime/web/bootcamp-building-together.jpg', alt: 'A learner positions a LEGO Spike Prime robot on the challenge mat', caption: 'Setting the robot on its course' },
+    { src: 'resources/SpikePrime/web/bootcamp-kit-unboxing.jpg', alt: 'Three learners work from an open Spike Prime kit with a robot beside them', caption: 'Building from the kit' },
+    { src: 'resources/SpikePrime/web/bootcamp-coding-the-robot.jpg', alt: 'A learner programs the robot while teammates watch', caption: 'Programming the next move' },
+    { src: 'resources/SpikePrime/web/bootcamp-team-at-laptop.jpg', alt: 'A group of boys gathers around a laptop and their robot', caption: 'Team problem-solving' },
+    { src: 'resources/SpikePrime/web/bootcamp-team-debugging.jpg', alt: 'Two learners smile while working at a laptop together', caption: 'Debugging together' },
+    { src: 'resources/SpikePrime/web/bootcamp-first-robot-test.jpg', alt: 'Learners lean over a table to watch their robot run', caption: 'First test run' },
+    { src: 'resources/SpikePrime/web/bootcamp-facilitators-and-learners.jpg', alt: 'Facilitators and learners read a challenge sheet together', caption: 'Reading the next clue' },
+    { src: 'resources/SpikePrime/web/bootcamp-robot-presentation.jpg', alt: 'A facilitator presents with Spike Prime robots on the podium', caption: 'Presenting the challenge' },
+    { src: 'resources/SpikePrime/SCAVENGERHUNT7.jpg', alt: 'A facilitator hands a learner a certificate', caption: 'Certificate handover' },
+    { src: 'resources/SpikePrime/SCAVENGERHUNT6.jpg', alt: 'Bootcamp learners hold up their certificates in a group photo', caption: 'Every learner, certified' },
+    { src: 'resources/SpikePrime/web/bootcamp-organising-team.jpg', alt: 'The organising team and facilitators stand together at the front of the room', caption: 'The team behind the bootcamp' },
+    { src: 'resources/SpikePrime/SCAVENGERHUNT1.jpg', alt: 'Three facilitators pose together', caption: 'Facilitators' },
   ];
-  
-  const introGallery = [
-    'resources/IntroRoboticsWorkshop/IMG_4428.jpg',
-    'resources/IntroRoboticsWorkshop/IMG_4433.jpg',
-    'resources/IntroRoboticsWorkshop/IMG_4555.jpg',
-    'resources/IntroRoboticsWorkshop/IMG_4565.jpg',
-    'resources/IntroRoboticsWorkshop/IMG_4592.jpg',
-    'resources/IntroRoboticsWorkshop/IMG_4622.jpg',
-    'resources/IntroRoboticsWorkshop/IMG_4754.jpg',
-    'resources/IntroRoboticsWorkshop/IMG_4765.jpg',
-    'resources/IntroRoboticsWorkshop/IMG_4596.jpg'
-  ];
+
+  const introGallery: Photo[] = [
+    'IMG_4428', 'IMG_4433', 'IMG_4555', 'IMG_4565', 'IMG_4592', 'IMG_4622', 'IMG_4754', 'IMG_4765', 'IMG_4596',
+  ].map((name, i) => ({
+    src: `resources/IntroRoboticsWorkshop/${name}.jpg`,
+    alt: `Learners at the Introduction to Robotics and Programming Workshop, photo ${i + 1}`,
+  }));
 
   const days = [
     {
@@ -197,20 +197,23 @@ const Programs: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Gallery */}
-                  <div className="w-full md:w-1/3">
-                    <h2 className="text-2xl font-bold mb-4">Event Gallery</h2>
-                    <div className="grid grid-cols-2 gap-3">
-                      {spikeGallery.map((p, i) => (
-                        <SmartImage
-                          key={i}
-                          src={p}
-                          alt={`Spike Prime event ${i + 1}`}
-                          className="w-full h-28 md:h-32 lg:h-36 object-cover rounded-lg img-hover-tilt"
-                        />
-                      ))}
-                    </div>
-                  </div>
+                  {/* Feature photo */}
+                  <figure className="w-full md:w-1/3 md:sticky md:top-28">
+                    <SmartImage
+                      src="resources/SpikePrime/web/bootcamp-robot-ready.jpg"
+                      alt="A learner adjusts his Spike Prime robot while teammates look on"
+                      className="w-full aspect-[4/5] object-cover rounded-xl interactive-card"
+                    />
+                    <figcaption className="mt-2 text-sm opacity-75">
+                      Final checks before a run on the scavenger-hunt day.
+                    </figcaption>
+                  </figure>
+                </div>
+
+                {/* Bootcamp in pictures */}
+                <div className="mt-12">
+                  <h2 className="text-2xl font-bold mb-4">Bootcamp in Pictures</h2>
+                  <PhotoGrid photos={spikeGallery} />
                 </div>
               </div>
             </FadeContent>
@@ -242,7 +245,7 @@ const Programs: React.FC = () => {
                 </div>
 
                 {/* Program Overview */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
                   <div className="interactive-card p-6">
                     <h3 className="text-xl font-bold mb-2 text-hex">Why Robotics in Zambia?</h3>
                     <p className="opacity-90">
@@ -259,6 +262,13 @@ const Programs: React.FC = () => {
                       <li>Promote STEM pathways for long-term growth</li>
                     </ul>
                   </div>
+                  <figure className="interactive-card overflow-hidden">
+                    <SmartImage
+                      src="resources/IntroRoboticsWorkshop/web/intro-wiring-circuit.jpg"
+                      alt="A learner wires a breadboard circuit next to a laptop"
+                      className="w-full h-full min-h-[14rem] object-cover"
+                    />
+                  </figure>
                 </div>
 
                 {/* Impact Areas */}
@@ -267,10 +277,20 @@ const Programs: React.FC = () => {
                   {[
                     {
                       title: 'Addressing Challenges in the Zambian Landscape',
+                      photo: { src: 'resources/IntroRoboticsWorkshop/web/intro-laptop-sim.jpg', alt: 'A Tinkercad circuit simulation on a laptop beside the real breadboard a learner is wiring' },
                       points: [
                         'Filling educational gaps with blended learning',
                         'Tinkercad integration for safe circuit prototyping',
                         'Hands-on activities for lasting understanding'
+                      ]
+                    },
+                    {
+                      title: 'Promoting Inclusivity and Community Development',
+                      photo: { src: 'resources/IntroRoboticsWorkshop/web/intro-class-presentation.jpg', alt: 'Pupils in school uniform present their work on a projector screen' },
+                      points: [
+                        'Broad age range participation (as young as 6)',
+                        'Reducing gender disparities via outreach',
+                        'Community showcases and parent engagement'
                       ]
                     },
                     {
@@ -289,20 +309,17 @@ const Programs: React.FC = () => {
                         'Creativity through design and iteration'
                       ]
                     },
-                    {
-                      title: 'Promoting Inclusivity and Community Development',
-                      points: [
-                        'Broad age range participation (as young as 6)',
-                        'Reducing gender disparities via outreach',
-                        'Community showcases and parent engagement'
-                      ]
-                    }
-                  ].map((block, i) => (
-                    <div key={i} className="interactive-card p-6">
+                  ].map((block: { title: string; points: string[]; photo?: { src: string; alt: string } }, i) => (
+                    <div key={i} className="interactive-card overflow-hidden">
+                      {block.photo && (
+                        <SmartImage src={block.photo.src} alt={block.photo.alt} className="w-full h-44 sm:h-52 object-cover" />
+                      )}
+                      <div className="p-6">
                       <h3 className="text-xl font-bold mb-2 text-hex">{block.title}</h3>
                       <ul className="list-disc list-inside space-y-1 opacity-90">
                         {block.points.map((pt, j) => <li key={j}>{pt}</li>)}
                       </ul>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -323,12 +340,19 @@ const Programs: React.FC = () => {
                 </div>
 
                 {/* Community & National Impact */}
-                <div className="interactive-card p-6 mb-10">
-                  <h2 className="text-2xl font-bold mb-2">Community & National Impact</h2>
-                  <p className="opacity-90">
-                    Robotics education strengthens the local economy, attracts investment, and nurtures an innovation culture.
-                    By equipping youth with modern skills, workshops like this accelerate Zambia's progress and competitiveness.
-                  </p>
+                <div className="interactive-card overflow-hidden mb-10 grid grid-cols-1 md:grid-cols-5">
+                  <SmartImage
+                    src="resources/IntroRoboticsWorkshop/web/intro-wiring-closeup.jpg"
+                    alt="A learner looks up from the circuit he is building with a facilitator"
+                    className="w-full h-64 md:h-72 object-cover object-top md:col-span-2"
+                  />
+                  <div className="p-6 md:col-span-3 flex flex-col justify-center">
+                    <h2 className="text-2xl font-bold mb-2">Community & National Impact</h2>
+                    <p className="opacity-90">
+                      Robotics education strengthens the local economy, attracts investment, and nurtures an innovation culture.
+                      By equipping youth with modern skills, workshops like this accelerate Zambia's progress and competitiveness.
+                    </p>
+                  </div>
                 </div>
 
                 {/* Role of Stakeholders */}
@@ -359,16 +383,7 @@ const Programs: React.FC = () => {
                 {/* Gallery */}
                 <div>
                   <h2 className="text-2xl font-bold mb-4">Workshop Gallery</h2>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                    {introGallery.map((p, i) => (
-                      <SmartImage
-                        key={i}
-                        src={p}
-                        alt={`Intro Robotics Workshop ${i + 1}`}
-                        className="w-full h-28 md:h-40 object-cover rounded-lg img-hover-tilt"
-                      />
-                    ))}
-                  </div>
+                  <PhotoGrid photos={introGallery} className="grid grid-cols-2 md:grid-cols-3 gap-3" tileClassName="w-full h-28 md:h-40 object-cover rounded-lg" />
                 </div>
               </div>
             </FadeContent>

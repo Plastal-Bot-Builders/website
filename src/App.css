@@ -248,6 +248,20 @@ html.dark body {
 }
 @keyframes caret-blink { 50% { opacity: 0; } }
 
+/* Step flow (src/components/ui/SectionMedia.tsx): the line joining the numbered steps. Down the left edge on
+   phones, along the top on wide screens. */
+.step-flow__item::before {
+  content: '';
+  position: absolute;
+  background: var(--accent);
+  opacity: .35;
+  left: 19px; top: 44px; bottom: -20px; width: 2px;
+}
+.step-flow__item:last-child::before { display: none; }
+@media (min-width: 1024px) {
+  .step-flow__item::before { left: 48px; right: -20px; top: 19px; bottom: auto; width: auto; height: 2px; }
+}
+
 /* Grid stagger (src/lib/useSiteMotion.ts): a grid below the fold holds its items back, then they rise in one by
    one. The attribute is removed once they've landed, so the items' own hover transitions apply again. */
 [data-reveal="hold"] > * { opacity: 0; transform: translateY(18px); }

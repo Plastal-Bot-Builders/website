@@ -1,5 +1,4 @@
 import React from 'react';
-import SmartImage from '../ui/SmartImage';
 import { Link } from 'react-router-dom';
 import Header from '../Header';
 import Footer from '../Footer';
@@ -18,6 +17,7 @@ import {
     DocumentTextIcon,
 } from '@heroicons/react/24/solid';
 import ThemedImage from '../../theme/ThemedImage';
+import { PhotoStrip } from '../ui/SectionMedia';
 import { SEOConfig } from '../../components/SEO';
 import FadeContent from '../../components/ui/FadeContent';
 
@@ -59,22 +59,6 @@ const TechnicalSupportPage: React.FC = () => {
             description: "Creating technical guides and training materials for educators and students.",
             icon: <DocumentTextIcon className="text-accent text-2xl" />,
             skills: "Technical writing, curriculum development, video production"
-        }
-    ];
-
-    // Current technical partners
-    const technicalPartners = [
-        {
-            name: "ZamTech Solutions",
-            contribution: "Provides monthly hardware maintenance workshops and donates electronic components for educational kits.",
-            image: "resources/Photos/IMG_5087.jpg",
-            expertise: "Hardware & Electronics"
-        },
-        {
-            name: "University of Zambia Engineering Department",
-            contribution: "Offers student mentors and lab space for advanced robotics projects and prototype testing.",
-            image: "resources/Photos/unnclerextalk.jpg",
-            expertise: "Academic & Research"
         }
     ];
 
@@ -232,6 +216,14 @@ const TechnicalSupportPage: React.FC = () => {
                     <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
                         <section id="support-network" className="mb-12 bg-surface-hover-bg rounded-lg">
                             <h2 className="text-2xl font-bold mb-5">Our Technical Support Network</h2>
+                            <PhotoStrip
+                                className="mb-6"
+                                photos={[
+                                    { src: "resources/Projects/web/gypul-render-angle.jpg", alt: "A CAD render of the Gypul self-balancing robot", caption: "Gypul, our self-balancing robot, designed in CAD..." },
+                                    { src: "resources/Projects/web/gypul-cad-and-print.jpg", alt: "A 3D-printed robot frame held in front of its CAD model on a laptop", caption: "...printed in-house..." },
+                                    { src: "resources/Projects/web/gypul-printed-wheel.jpg", alt: "A 3D-printed robot wheel mounted on the chassis", caption: "...and assembled, part by part." },
+                                ]}
+                            />
                             <div className="flex flex-col md:flex-row gap-8">
                                 <div className="md:w-1/2">
                                     <h3 className="text-xl font-bold mb-3">A Community of Technical Experts</h3>
@@ -288,101 +280,6 @@ const TechnicalSupportPage: React.FC = () => {
                             </div>
                         </section>
                     </FadeContent>
-                    {/* Technical Partners */}
-                    <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
-                        <section id="current-partners" className="mb-12">
-                            <h2 className="text-2xl font-bold mb-6 pb-2">Featured Technical Partners</h2>
-
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                {technicalPartners.map((partner, index) => (
-                                    <div key={index} className="interactive-card rounded-lg overflow-hidden">
-                                        <div className="h-48 overflow-hidden">
-                                            <SmartImage
-                                                src={partner.image}
-                                                alt={partner.name}
-                                                className="w-full h-full object-cover rounded-lg"
-                                            />
-                                        </div>
-                                        <div className="p-5">
-                                            <div className="flex justify-between items-center mb-3">
-                                                <h3 className="text-xl font-bold">{partner.name}</h3>
-                                                <span className="bg-accent text-black text-sm py-1 px-2 rounded">{partner.expertise}</span>
-                                            </div>
-                                            <p className="mb-4">{partner.contribution}</p>
-
-                                            <a
-                                                href="#partner-details"
-                                                className="text-accent hover:underline"
-                                            >
-                                                Read partnership details →
-                                            </a>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-
-                            <div className="mt-6 text-center">
-                                <a href="#all-partners" className="text-accent hover:underline">
-                                    View all technical partners →
-                                </a>
-                            </div>
-                        </section>
-                    </FadeContent>
-                    {/* Impact Story */}
-                    <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
-                        <section className="mb-12">
-                            <div className="bg-surface-hover-bg rounded-lg overflow-hidden">
-                                <h2 className="text-2xl font-bold mb-6">Technical Support Success Story</h2>
-
-                                <div className="flex flex-col md:flex-row gap-8">
-                                    <div className="md:w-1/2">
-                                        <ThemedImage
-                                            src="resources/Illustrations/Support.svg"
-                                            alt="Students working with upgraded robotics kits"
-                                            className="w-full h-auto object-cove"
-                                        />
-                                    </div>
-
-                                    <div className="md:w-1/2">
-                                        <h3 className="text-xl font-bold mb-3">Kit Durability Breakthrough</h3>
-                                        <p className="mb-4">
-                                            When our robotics kits began showing wear after repeated workshops,
-                                            a team of volunteer engineers redesigned critical components using
-                                            more durable materials and improved connections.
-                                        </p>
-
-                                        <div className="bg-surface rounded-lg p-4 mb-4">
-                                            <h4 className="font-bold mb-2">Results:</h4>
-                                            <ul className="space-y-1">
-                                                <li className="flex items-start">
-                                                    <span className="text-accent mr-2">•</span>
-                                                    <span>Kit lifespan increased by over 300%</span>
-                                                </li>
-                                                <li className="flex items-start">
-                                                    <span className="text-accent mr-2">•</span>
-                                                    <span>Reduced maintenance time by 70%</span>
-                                                </li>
-                                                <li className="flex items-start">
-                                                    <span className="text-accent mr-2">•</span>
-                                                    <span>Created detailed assembly guides for students</span>
-                                                </li>
-                                                <li className="flex items-start">
-                                                    <span className="text-accent mr-2">•</span>
-                                                    <span>Design shared with other educational programs</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-
-                                        <blockquote className="italic border-l-4 border-accent pl-4">
-                                            "The redesigned kits have been a game-changer. We can now run multiple
-                                            workshops without worrying about component failure."
-                                            <p className="mt-2 font-bold">— Maria Tembo, Workshop Coordinator</p>
-                                        </blockquote>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    </FadeContent>
                     {/* Skills Needed */}
                     <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
                         <section className="mb-12">
@@ -421,6 +318,12 @@ const TechnicalSupportPage: React.FC = () => {
                     <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
                         <section className="mb-12 bg-surface-hover-bg rounded-lg">
                             <h2 className="text-2xl font-bold mb-5">Current Technical Projects</h2>
+                            <PhotoStrip
+                                className="mb-6"
+                                photos={[
+                                    { src: "resources/Geneva2026/web/geneva-teamwork.jpg", alt: "Team members work on their robot\u2019s wiring and laptop code in the pit", caption: "Tuning hardware and code between matches in Geneva." },
+                                ]}
+                            />
 
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                                 <div className="bg-surface rounded-lg">

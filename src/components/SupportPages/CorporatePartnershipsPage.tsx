@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '../Header';
 import Footer from '../Footer';
 import ThemedImage from '../../theme/ThemedImage';
+import { PhotoStrip } from '../ui/SectionMedia';
 import { SEOConfig } from '../../components/SEO';
 import { 
   BuildingOfficeIcon, 
@@ -190,6 +191,14 @@ const CorporatePartnershipsPage: React.FC = () => {
                     <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0} delay={200}>
                         <section className="mb-8 lg:mb-12">
                             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 pb-2">Types of Partnership</h2>
+                            <PhotoStrip
+                                className="mb-6"
+                                photos={[
+                                    { src: "resources/Geneva2026/web/partners-with-team.jpg", alt: "The team in Geneva with a supporter, in front of MTN and partner branding", caption: "Brand partners backed our journey to the AI for Good finals in Geneva." },
+                                    { src: "resources/Geneva2026/web/geneva-ambassador.jpg", alt: "The team with a visiting dignitary at their AI for Good competition table", caption: "Partners and dignitaries visited our team at the Geneva summit." },
+                                    { src: "resources/ICTAZ2026/web/ictaz-stand-visitors.jpg", alt: "Visitors talk with team members at the Plastal-Bot stand at the ICTAZ Tech Fair", caption: "Industry conversations at the ICTAZ Tech Fair, Lusaka, November 2026." },
+                                ]}
+                            />
                             
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                                 <div className="interactive-card rounded-lg p-4 sm:p-5 lg:p-6 hover:border-accent transition-colors flex flex-col h-full">
