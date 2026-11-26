@@ -202,7 +202,7 @@ const Home: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
                 {[
                   { Icon: FaGlobeAfrica, title: 'Global Stage', text: 'Represented Zambia internationally in Switzerland' },
-                  { Icon: FaGraduationCap, title: '8,000+ Learners', text: 'Reached through hands-on STEM programmes' },
+                  { Icon: FaGraduationCap, title: '600+ Learners', text: 'Reached through hands-on STEM programmes' },
                   { Icon: FaSchool, title: 'Schools & Communities', text: 'Workshops delivered across Zambia' },
                   { Icon: FaRecycle, title: 'Sustainable Builds', text: 'Robotics built with recycled materials' },
                   { Icon: FaRobot, title: 'Next Generation', text: 'Inspiring young African innovators' },

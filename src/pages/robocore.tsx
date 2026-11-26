@@ -502,9 +502,9 @@ const RoboCorePage: React.FC = () => {
               </ol>
             </Tile>
             <Tile span="rc-c5" tone="yellow" contours>
-              <p className="rc-stat">8,000+</p>
+              <p className="rc-stat">600+</p>
               <p className="rc-tile-text">
-                Our team has been part of initiatives that have reached more than 8,000 young people in Zambia.
+                Our team has been part of initiatives that have reached more than 600 young people in Zambia.
               </p>
             </Tile>
             <Tile span="rc-c5" tone="navy">

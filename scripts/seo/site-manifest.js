@@ -79,15 +79,16 @@ const VERIFIED_FACTS = {
 
 /**
  * ⚠️  NOT published in structured data — needs confirmation from the team.
- * The site currently states 8,000+, 500+, 350+ and 30 students in different
- * places, and no founding date appears anywhere. Publishing a figure that
+ * Students reached: the team confirmed 600+ (Nov 2026) and the site now says 600+ wherever it states its own
+ * reach (the 8,000+ on the home and Technicbots pages is Technicbots' figure, not ours). Other counts on the
+ * site (500+, 350+, 30 students) still differ and are unconfirmed, and no founding date appears anywhere. Publishing a figure that
  * later proves wrong is worse than publishing none, because AI assistants
  * repeat it confidently. Fill these in and set `publish: true` to include them.
  */
 const UNVERIFIED = {
   publish: false,
   foundingDate: null,          // e.g. '2022'
-  studentsReached: null,       // site says 8,000+ / 500+ / 350+ in different places
+  studentsReached: null,       // confirmed 600+ (Nov 2026); left null until publish is turned on
   workshopsDelivered: null,
   schoolsReached: null,
 };
@@ -535,7 +536,7 @@ const ROUTES = [
           h2: 'What we’ve done',
           list: [
             'Winners of the AI for Good National Edition (Zambia), April 2026, and finalists at the AI for Good Global Summit, Geneva, July 2026',
-            'Our team has been part of initiatives that have reached more than 8,000 young people in Zambia',
+            'Our team has been part of initiatives that have reached more than 600 young people in Zambia',
             'Workshops and bootcamps in robotics, electronics and programming',
             'RoboCore V1 (Gypul) and the RoboCore V2 prototype: board, robot and IDE',
           ],

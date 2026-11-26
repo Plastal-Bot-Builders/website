@@ -68,7 +68,7 @@ the stand, the flyer and the website say the same thing. The rules:
 - "Made in Zambia" (updated at the product owner’s request).
 - RoboCore V2 is a prototype; pilots with schools and innovation hubs come next. No dates, prices or sales until
   they are real.
-- Impact line: "Our team has been part of initiatives that have reached more than 8,000 young people in Zambia."
+- Impact line: "Our team has been part of initiatives that have reached more than 600 young people in Zambia."
 - Anything not done yet is in the future tense ("we will", "we hope to"); making RoboCore in Zambia, boards included,
   is a goal. The battery times on the hardware page are estimates until they are measured on the prototype.
 

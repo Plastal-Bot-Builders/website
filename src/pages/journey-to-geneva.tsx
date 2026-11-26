@@ -653,7 +653,7 @@ const JourneyToGeneva: React.FC = () => {
               </p>
               <ul className="grid grid-cols-2 gap-3">
                 {[
-                  { big: '8,000+', small: 'Learners reached through our programmes' },
+                  { big: '600+', small: 'Learners reached through our programmes' },
                   { big: '3', small: 'Robot generations built in four months' },
                   { big: '1st', small: 'Place at the national edition' },
                   { big: 'Finalist', small: 'AI for Good, Geneva' },
