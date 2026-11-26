@@ -394,7 +394,7 @@ const Programs: React.FC = () => {
                   </div>
                   <div className="w-full md:w-1/2">
                     <ThemedImage
-                      alt="Empowering Innovation"
+                      alt="Illustration of an orange industrial robot arm reaching out its hand"
                       src="resources/Illustrations/Robotarmbro.svg"
                       className="w-full h-auto object-cover"
                     />
