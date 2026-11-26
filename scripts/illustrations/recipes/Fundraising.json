@@ -1,0 +1,92 @@
+{
+  "light": {
+    "source": "public/resources/Illustrations/Fundraising1.svg",
+    "parts": [
+      {
+        "name": "cloud-1",
+        "from": 2,
+        "to": 2,
+        "anim": "drift",
+        "duration": 11,
+        "phase": 0
+      },
+      {
+        "name": "cloud-2",
+        "from": 3,
+        "to": 3,
+        "anim": "drift",
+        "duration": 13.5,
+        "phase": -3.1
+      },
+      {
+        "name": "cloud-3",
+        "from": 4,
+        "to": 4,
+        "anim": "drift",
+        "duration": 16,
+        "phase": -6.2
+      },
+      {
+        "name": "cloud-4",
+        "from": 5,
+        "to": 5,
+        "anim": "drift",
+        "duration": 11,
+        "phase": -9.3
+      },
+      {
+        "name": "cloud-5",
+        "from": 6,
+        "to": 6,
+        "anim": "drift",
+        "duration": 13.5,
+        "phase": -12.4
+      }
+    ]
+  },
+  "dark": {
+    "source": "public/resources/Illustrations/Fundraising.svg",
+    "parts": [
+      {
+        "name": "cloud-1",
+        "from": 0,
+        "to": 0,
+        "anim": "drift",
+        "duration": 11,
+        "phase": 0
+      },
+      {
+        "name": "cloud-2",
+        "from": 1,
+        "to": 1,
+        "anim": "drift",
+        "duration": 13.5,
+        "phase": -3.1
+      },
+      {
+        "name": "cloud-3",
+        "from": 2,
+        "to": 2,
+        "anim": "drift",
+        "duration": 16,
+        "phase": -6.2
+      },
+      {
+        "name": "cloud-4",
+        "from": 3,
+        "to": 3,
+        "anim": "drift",
+        "duration": 11,
+        "phase": -9.3
+      },
+      {
+        "name": "cloud-5",
+        "from": 4,
+        "to": 4,
+        "anim": "drift",
+        "duration": 13.5,
+        "phase": -12.4
+      }
+    ]
+  }
+}

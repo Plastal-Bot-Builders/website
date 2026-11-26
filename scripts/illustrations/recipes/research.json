@@ -1,0 +1,93 @@
+{
+  "light": {
+    "source": "public/resources/Illustrations/research1.svg",
+    "replace": {
+      "#0CFFBB": "#D27D2D"
+    },
+    "parts": [
+      {
+        "name": "molecule-board",
+        "from": 185,
+        "to": 203,
+        "anim": "float",
+        "duration": 5.2,
+        "phase": -1.59,
+        "enter": "pop",
+        "delay": 0.35
+      },
+      {
+        "name": "virus",
+        "from": 35,
+        "to": 53,
+        "anim": "float",
+        "duration": 3.85,
+        "phase": -2.96,
+        "enter": "pop",
+        "delay": 0.47
+      },
+      {
+        "name": "particles-right",
+        "from": 54,
+        "to": 68,
+        "anim": "float",
+        "duration": 4.3,
+        "phase": -0.33,
+        "enter": "pop",
+        "delay": 0.59
+      },
+      {
+        "name": "particles-left",
+        "from": 69,
+        "to": 111,
+        "anim": "float",
+        "duration": 4.75,
+        "phase": -1.7,
+        "enter": "pop",
+        "delay": 0.71
+      },
+      {
+        "name": "badge",
+        "from": 206,
+        "to": 207,
+        "anim": "float",
+        "duration": 3.8,
+        "phase": -1.1,
+        "enter": "pop",
+        "delay": 0.83
+      },
+      {
+        "name": "badge-icon",
+        "from": 233,
+        "to": 239,
+        "anim": "float",
+        "duration": 3.8,
+        "phase": -1.1,
+        "enter": "pop",
+        "delay": 0.83
+      },
+      {
+        "name": "magnifier",
+        "from": 241,
+        "to": 246,
+        "anim": "float",
+        "duration": 3.85,
+        "phase": -1.81,
+        "enter": "pop",
+        "delay": 0.95
+      },
+      {
+        "name": "plant",
+        "from": 132,
+        "to": 153,
+        "anim": "sway-base",
+        "duration": 4.6,
+        "phase": -3.18,
+        "amp": 1.6
+      }
+    ]
+  },
+  "dark": {
+    "source": "public/resources/Illustrations/research.svg",
+    "parts": "same"
+  }
+}

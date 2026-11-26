@@ -1,0 +1,144 @@
+{
+  "light": {
+    "source": "public/resources/Illustrations/Storyboard-bro1.svg",
+    "parts": [
+      {
+        "name": "blob",
+        "from": 0,
+        "to": 1,
+        "anim": "breathe",
+        "enter": "grow",
+        "origin": [
+          338,
+          260
+        ],
+        "delay": 0
+      },
+      {
+        "name": "lamp",
+        "from": 56,
+        "to": 59,
+        "anim": "sway-top",
+        "duration": 5.5,
+        "amp": 2.5,
+        "enter": "drop",
+        "delay": 0.2
+      },
+      {
+        "name": "card-1",
+        "from": 60,
+        "to": 82,
+        "enter": "pop",
+        "delay": 0.4
+      },
+      {
+        "name": "card-2",
+        "from": 83,
+        "to": 113,
+        "enter": "pop",
+        "delay": 0.55
+      },
+      {
+        "name": "card-3",
+        "from": 114,
+        "to": 142,
+        "enter": "pop",
+        "delay": 0.7
+      },
+      {
+        "name": "card-4",
+        "from": 143,
+        "to": 175,
+        "enter": "pop",
+        "delay": 0.85
+      },
+      {
+        "name": "card-5",
+        "from": 176,
+        "to": 197,
+        "enter": "pop",
+        "delay": 1
+      },
+      {
+        "name": "plant",
+        "from": 198,
+        "to": 218,
+        "anim": "sway-base",
+        "duration": 4.6,
+        "phase": -3.62,
+        "amp": 1.6
+      }
+    ]
+  },
+  "dark": {
+    "source": "public/resources/Illustrations/Storyboard-bro.svg",
+    "parts": [
+      {
+        "name": "blob",
+        "from": 0,
+        "to": 1,
+        "anim": "breathe",
+        "enter": "grow",
+        "origin": [
+          338,
+          260
+        ],
+        "delay": 0
+      },
+      {
+        "name": "lamp",
+        "from": 57,
+        "to": 59,
+        "anim": "sway-top",
+        "duration": 5.5,
+        "amp": 2.5,
+        "enter": "drop",
+        "delay": 0.2
+      },
+      {
+        "name": "card-1",
+        "from": 60,
+        "to": 82,
+        "enter": "pop",
+        "delay": 0.4
+      },
+      {
+        "name": "card-2",
+        "from": 83,
+        "to": 113,
+        "enter": "pop",
+        "delay": 0.55
+      },
+      {
+        "name": "card-3",
+        "from": 114,
+        "to": 142,
+        "enter": "pop",
+        "delay": 0.7
+      },
+      {
+        "name": "card-4",
+        "from": 143,
+        "to": 174,
+        "enter": "pop",
+        "delay": 0.85
+      },
+      {
+        "name": "card-5",
+        "from": 175,
+        "to": 196,
+        "enter": "pop",
+        "delay": 1
+      },
+      {
+        "name": "plant",
+        "from": 197,
+        "to": 217,
+        "anim": "sway-base",
+        "duration": 4.6,
+        "phase": -3.62,
+        "amp": 1.6
+      }
+    ]
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "light": {
+    "source": "public/resources/Illustrations/Nonprofit1.svg",
+    "parts": [
+      {
+        "name": "blob",
+        "from": 2,
+        "to": 3,
+        "anim": "breathe",
+        "enter": "grow",
+        "origin": [
+          344,
+          252
+        ],
+        "delay": 0
+      },
+      {
+        "name": "lamp-right",
+        "from": 63,
+        "to": 64,
+        "anim": "sway-top",
+        "duration": 5.2,
+        "amp": 2.5,
+        "phase": -1,
+        "enter": "drop",
+        "delay": 0.2
+      },
+      {
+        "name": "lamp-left",
+        "from": 65,
+        "to": 66,
+        "anim": "sway-top",
+        "duration": 5.8,
+        "amp": 2.5,
+        "phase": -3,
+        "enter": "drop",
+        "delay": 0.35
+      },
+      {
+        "name": "plant",
+        "from": 85,
+        "to": 106,
+        "anim": "sway-base",
+        "duration": 4.6,
+        "phase": -1.43,
+        "amp": 1.6
+      },
+      {
+        "name": "table-plant",
+        "from": 107,
+        "to": 108,
+        "anim": "sway-base",
+        "duration": 5.3,
+        "phase": -2.8,
+        "amp": 2.5
+      }
+    ]
+  },
+  "dark": {
+    "source": "public/resources/Illustrations/Nonprofit.svg",
+    "parts": [
+      {
+        "name": "blob",
+        "from": 0,
+        "to": 1,
+        "anim": "breathe",
+        "enter": "grow",
+        "origin": [
+          344,
+          252
+        ],
+        "delay": 0
+      },
+      {
+        "name": "lamp-right",
+        "from": 61,
+        "to": 62,
+        "anim": "sway-top",
+        "duration": 5.2,
+        "amp": 2.5,
+        "phase": -1,
+        "enter": "drop",
+        "delay": 0.2
+      },
+      {
+        "name": "lamp-left",
+        "from": 63,
+        "to": 64,
+        "anim": "sway-top",
+        "duration": 5.8,
+        "amp": 2.5,
+        "phase": -3,
+        "enter": "drop",
+        "delay": 0.35
+      },
+      {
+        "name": "plant",
+        "from": 83,
+        "to": 104,
+        "anim": "sway-base",
+        "duration": 4.6,
+        "phase": -1.43,
+        "amp": 1.6
+      },
+      {
+        "name": "table-plant",
+        "from": 105,
+        "to": 106,
+        "anim": "sway-base",
+        "duration": 5.3,
+        "phase": -2.8,
+        "amp": 2.5
+      }
+    ]
+  }
+}

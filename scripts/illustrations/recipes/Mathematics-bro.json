@@ -1,0 +1,56 @@
+{
+  "light": {
+    "source": "public/resources/Illustrations/Mathematics-bro1.svg",
+    "parts": [
+      {
+        "name": "blob",
+        "from": 0,
+        "to": 1,
+        "anim": "breathe",
+        "enter": "grow",
+        "origin": [
+          229,
+          204
+        ],
+        "delay": 0
+      },
+      {
+        "name": "formulas",
+        "from": 48,
+        "to": 337,
+        "anim": "float",
+        "duration": 6,
+        "phase": 0,
+        "enter": "rise",
+        "delay": 0.3
+      }
+    ]
+  },
+  "dark": {
+    "source": "public/resources/Illustrations/Mathematics-bro.svg",
+    "parts": [
+      {
+        "name": "blob",
+        "from": 0,
+        "to": 1,
+        "anim": "breathe",
+        "enter": "grow",
+        "origin": [
+          229,
+          204
+        ],
+        "delay": 0
+      },
+      {
+        "name": "formulas",
+        "from": 52,
+        "to": 341,
+        "anim": "float",
+        "duration": 6,
+        "phase": 0,
+        "enter": "rise",
+        "delay": 0.3
+      }
+    ]
+  }
+}

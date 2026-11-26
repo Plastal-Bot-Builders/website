@@ -1,0 +1,112 @@
+/*
+ * Live illustrations (LiveIllustration.tsx): the motion. Colours are as drawn; each theme has its own file.
+ * The SVGs are built by scripts/illustrations/build-live.mjs, which groups the moving parts:
+ * data-anim = a loop, data-enter = an entrance, --o = pivot in artwork units, --dur / --ph = length / phase,
+ * --amp = how far a sway swings (degrees).
+ */
+
+.illo {
+  display: block;
+  width: 100%;
+}
+.illo > svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.illo [data-anim],
+.illo [data-enter] {
+  transform-box: view-box;
+  transform-origin: var(--o, 50% 50%);
+}
+/* These turn or swing about their own box. */
+.illo [data-anim='breathe'],
+.illo [data-anim='beat'],
+.illo [data-anim='twinkle'],
+.illo [data-anim='spin'],
+.illo [data-anim='spin-rev'] {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+}
+.illo [data-anim='sway-base'] {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+}
+.illo [data-anim='sway-top'] {
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+}
+
+/* Entrances: once, the first time it comes on screen. Hidden until then. */
+.illo:not(.is-live) [data-enter] { opacity: 0; }
+.illo.is-live [data-enter='grow'] { animation: il-grow 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) var(--delay, 0s) both; }
+.illo.is-live [data-enter='drop'] { animation: il-drop 1s cubic-bezier(0.2, 0.8, 0.25, 1) var(--delay, 0s) both; }
+.illo.is-live [data-enter='rise'] { animation: il-rise 0.8s cubic-bezier(0.2, 0.8, 0.25, 1) var(--delay, 0s) both; }
+.illo.is-live [data-enter='pop'] { animation: il-pop 0.55s cubic-bezier(0.3, 1.5, 0.5, 1) var(--delay, 0s) both; }
+/* After the entrance (or when the theme's file is swapped in), the parts just stay put. */
+.illo.is-settled [data-enter] { animation: none; opacity: 1; }
+
+/* Loops. */
+.illo.is-live [data-anim='breathe'] { animation: il-breathe 9s ease-in-out infinite; }
+.illo.is-live [data-anim='spin'] { animation: il-spin var(--dur, 30s) linear infinite; }
+.illo.is-live [data-anim='spin-rev'] { animation: il-spin var(--dur, 30s) linear infinite reverse; }
+/* turn: like spin, but about the pivot --o (a clock hand). */
+.illo.is-live [data-anim='turn'] { animation: il-spin var(--dur, 20s) linear infinite; }
+.illo.is-live [data-anim='twinkle'] { animation: il-twinkle var(--dur, 2.8s) ease-in-out var(--ph, 0s) infinite; }
+.illo.is-live [data-anim='sway'],
+.illo.is-live [data-anim='sway-base'],
+.illo.is-live [data-anim='sway-top'] { animation: il-sway var(--dur, 6s) ease-in-out var(--ph, 0s) infinite alternate; }
+.illo.is-live [data-anim='float'] { animation: il-float var(--dur, 4s) ease-in-out var(--ph, 0s) infinite alternate; }
+.illo.is-live [data-anim='drift'] { animation: il-drift var(--dur, 12s) ease-in-out var(--ph, 0s) infinite alternate; }
+.illo.is-live [data-anim='tilt'] { animation: il-tilt 7s ease-in-out 1.8s infinite; }
+.illo.is-live [data-anim='glow'] { animation: il-glow 2.6s ease-in-out var(--ph, 0s) infinite; }
+.illo.is-live [data-anim='wake'] { animation: il-wake 9s ease-in-out 2.5s infinite; }
+.illo.is-live [data-anim='beat'] { animation: il-beat var(--dur, 2.4s) ease-in-out var(--ph, 0s) infinite; }
+.illo.is-live [data-anim='type'] > * { animation: il-type 3.6s steps(1, end) infinite; }
+.illo.is-live [data-anim='type'] > :nth-child(2) { animation-delay: 0.3s; }
+.illo.is-live [data-anim='type'] > :nth-child(3) { animation-delay: 0.6s; }
+.illo.is-live [data-anim='type'] > :nth-child(4) { animation-delay: 0.9s; }
+.illo.is-live [data-anim='type'] > :nth-child(5) { animation-delay: 1.2s; }
+.illo.is-live [data-anim='type'] > :nth-child(6) { animation-delay: 1.5s; }
+.illo.is-live [data-anim='type'] > :nth-child(7) { animation-delay: 1.8s; }
+.illo.is-live [data-anim='type'] > :nth-child(8) { animation-delay: 2.1s; }
+
+/* Nothing moves while it is off screen. */
+.illo:not(.is-inview) [data-anim],
+.illo:not(.is-inview) [data-anim] > *,
+.illo:not(.is-inview) [data-enter] {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .illo [data-anim],
+  .illo [data-anim] > *,
+  .illo [data-enter] {
+    animation: none !important;
+  }
+  .illo [data-enter] { opacity: 1; }
+}
+
+@keyframes il-grow { from { transform: scale(0.9); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes il-drop { from { transform: translateY(-70px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes il-rise { from { transform: translateY(24px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes il-pop { from { transform: scale(0.3); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes il-breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.025); } }
+@keyframes il-spin { to { transform: rotate(360deg); } }
+@keyframes il-sway { from { transform: rotate(calc(var(--amp, 1.4) * -1deg)); } to { transform: rotate(calc(var(--amp, 1.4) * 1deg)); } }
+@keyframes il-float { from { transform: translateY(-3px); } to { transform: translateY(3px); } }
+@keyframes il-drift { from { transform: translateX(-8px); } to { transform: translateX(8px); } }
+@keyframes il-tilt {
+  0%, 60%, 100% { transform: rotate(0deg); }
+  68% { transform: rotate(-7deg); }
+  78% { transform: rotate(5deg); }
+  86% { transform: rotate(-2deg); }
+  92% { transform: rotate(0deg); }
+}
+@keyframes il-glow { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+@keyframes il-twinkle { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.2; transform: scale(0.6); } }
+@keyframes il-wake { 0%, 70%, 100% { opacity: 0.25; } 75%, 90% { opacity: 1; } }
+@keyframes il-beat { 0%, 100% { transform: scale(1); } 15% { transform: scale(1.12); } 30% { transform: scale(1); } 45% { transform: scale(1.08); } 60% { transform: scale(1); } }
+@keyframes il-type { 0% { opacity: 0.25; } 12% { opacity: 1; } 82% { opacity: 1; } 92% { opacity: 0.25; } }

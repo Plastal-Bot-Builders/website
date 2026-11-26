@@ -1,0 +1,156 @@
+{
+  "light": {
+    "source": "public/resources/Illustrations/Cyborg-bro1.svg",
+    "parts": [
+      {
+        "name": "blob",
+        "from": 0,
+        "to": 1,
+        "anim": "breathe",
+        "enter": "grow",
+        "origin": [
+          245,
+          232
+        ],
+        "delay": 0
+      },
+      {
+        "name": "chart-3",
+        "from": 71,
+        "to": 102,
+        "anim": "float",
+        "duration": 3.4,
+        "phase": -3.29,
+        "enter": "pop",
+        "delay": 0.35
+      },
+      {
+        "name": "graphic",
+        "from": 103,
+        "to": 109,
+        "anim": "float",
+        "duration": 3.85,
+        "phase": -0.66,
+        "enter": "pop",
+        "delay": 0.47
+      },
+      {
+        "name": "data",
+        "from": 110,
+        "to": 114,
+        "anim": "float",
+        "duration": 4.3,
+        "phase": -2.03,
+        "enter": "pop",
+        "delay": 0.59
+      },
+      {
+        "name": "progress",
+        "from": 115,
+        "to": 119,
+        "anim": "float",
+        "duration": 4.75,
+        "phase": -3.4,
+        "enter": "pop",
+        "delay": 0.71
+      },
+      {
+        "name": "chart-2",
+        "from": 120,
+        "to": 146,
+        "anim": "float",
+        "duration": 3.4,
+        "phase": -0.77,
+        "enter": "pop",
+        "delay": 0.83
+      },
+      {
+        "name": "chart-1",
+        "from": 147,
+        "to": 159,
+        "anim": "float",
+        "duration": 3.85,
+        "phase": -2.14,
+        "enter": "pop",
+        "delay": 0.95
+      }
+    ]
+  },
+  "dark": {
+    "source": "public/resources/Illustrations/Cyborg-bro.svg",
+    "parts": [
+      {
+        "name": "blob",
+        "from": 0,
+        "to": 1,
+        "anim": "breathe",
+        "enter": "grow",
+        "origin": [
+          245,
+          232
+        ],
+        "delay": 0
+      },
+      {
+        "name": "chart-3",
+        "from": 74,
+        "to": 105,
+        "anim": "float",
+        "duration": 3.4,
+        "phase": -3.29,
+        "enter": "pop",
+        "delay": 0.35
+      },
+      {
+        "name": "graphic",
+        "from": 106,
+        "to": 112,
+        "anim": "float",
+        "duration": 3.85,
+        "phase": -0.66,
+        "enter": "pop",
+        "delay": 0.47
+      },
+      {
+        "name": "data",
+        "from": 113,
+        "to": 117,
+        "anim": "float",
+        "duration": 4.3,
+        "phase": -2.03,
+        "enter": "pop",
+        "delay": 0.59
+      },
+      {
+        "name": "progress",
+        "from": 118,
+        "to": 122,
+        "anim": "float",
+        "duration": 4.75,
+        "phase": -3.4,
+        "enter": "pop",
+        "delay": 0.71
+      },
+      {
+        "name": "chart-2",
+        "from": 123,
+        "to": 149,
+        "anim": "float",
+        "duration": 3.4,
+        "phase": -0.77,
+        "enter": "pop",
+        "delay": 0.83
+      },
+      {
+        "name": "chart-1",
+        "from": 150,
+        "to": 162,
+        "anim": "float",
+        "duration": 3.85,
+        "phase": -2.14,
+        "enter": "pop",
+        "delay": 0.95
+      }
+    ]
+  }
+}

@@ -1,0 +1,398 @@
+{
+  "light": {
+    "source": "public/resources/Illustrations/Sponsorship1.svg",
+    "parts": [
+      {
+        "name": "blob",
+        "from": 2,
+        "to": 3,
+        "anim": "breathe",
+        "enter": "grow",
+        "origin": [
+          346,
+          253
+        ],
+        "delay": 0
+      },
+      {
+        "name": "sparkle-1",
+        "from": 5,
+        "to": 6,
+        "anim": "twinkle",
+        "duration": 2.2,
+        "phase": 0
+      },
+      {
+        "name": "sparkle-2",
+        "from": 7,
+        "to": 8,
+        "anim": "twinkle",
+        "duration": 2.55,
+        "phase": -0.53
+      },
+      {
+        "name": "sparkle-3",
+        "from": 9,
+        "to": 10,
+        "anim": "twinkle",
+        "duration": 2.9,
+        "phase": -1.06
+      },
+      {
+        "name": "sparkle-4",
+        "from": 11,
+        "to": 12,
+        "anim": "twinkle",
+        "duration": 3.25,
+        "phase": -1.59
+      },
+      {
+        "name": "sparkle-5",
+        "from": 13,
+        "to": 14,
+        "anim": "twinkle",
+        "duration": 3.6,
+        "phase": -2.12
+      },
+      {
+        "name": "sparkle-6",
+        "from": 15,
+        "to": 16,
+        "anim": "twinkle",
+        "duration": 2.2,
+        "phase": -2.65
+      },
+      {
+        "name": "sparkle-7",
+        "from": 17,
+        "to": 18,
+        "anim": "twinkle",
+        "duration": 2.55,
+        "phase": -0.38
+      },
+      {
+        "name": "sparkle-8",
+        "from": 19,
+        "to": 19,
+        "anim": "twinkle",
+        "duration": 2.9,
+        "phase": -0.91
+      },
+      {
+        "name": "sparkle-9",
+        "from": 20,
+        "to": 20,
+        "anim": "twinkle",
+        "duration": 3.25,
+        "phase": -1.44
+      },
+      {
+        "name": "sparkle-10",
+        "from": 21,
+        "to": 21,
+        "anim": "twinkle",
+        "duration": 3.6,
+        "phase": -1.97
+      },
+      {
+        "name": "sparkle-11",
+        "from": 22,
+        "to": 22,
+        "anim": "twinkle",
+        "duration": 2.2,
+        "phase": -2.5
+      },
+      {
+        "name": "sparkle-12",
+        "from": 23,
+        "to": 23,
+        "anim": "twinkle",
+        "duration": 2.55,
+        "phase": -0.23
+      },
+      {
+        "name": "sparkle-13",
+        "from": 24,
+        "to": 24,
+        "anim": "twinkle",
+        "duration": 2.9,
+        "phase": -0.76
+      },
+      {
+        "name": "sparkle-14",
+        "from": 25,
+        "to": 25,
+        "anim": "twinkle",
+        "duration": 3.25,
+        "phase": -1.29
+      },
+      {
+        "name": "sparkle-15",
+        "from": 142,
+        "to": 143,
+        "anim": "twinkle",
+        "duration": 3.6,
+        "phase": -1.82
+      },
+      {
+        "name": "sparkle-16",
+        "from": 144,
+        "to": 145,
+        "anim": "twinkle",
+        "duration": 2.2,
+        "phase": -2.35
+      },
+      {
+        "name": "sparkle-17",
+        "from": 146,
+        "to": 147,
+        "anim": "twinkle",
+        "duration": 2.55,
+        "phase": -0.08
+      },
+      {
+        "name": "sparkle-18",
+        "from": 148,
+        "to": 149,
+        "anim": "twinkle",
+        "duration": 2.9,
+        "phase": -0.61
+      },
+      {
+        "name": "ray-1",
+        "from": 138,
+        "to": 138,
+        "anim": "glow",
+        "phase": 0
+      },
+      {
+        "name": "ray-2",
+        "from": 139,
+        "to": 139,
+        "anim": "glow",
+        "phase": -0.6
+      },
+      {
+        "name": "ray-3",
+        "from": 140,
+        "to": 140,
+        "anim": "glow",
+        "phase": -1.2
+      },
+      {
+        "name": "ray-4",
+        "from": 141,
+        "to": 141,
+        "anim": "glow",
+        "phase": -1.7999999999999998
+      },
+      {
+        "name": "plant",
+        "from": 26,
+        "to": 76,
+        "anim": "sway-base",
+        "duration": 4.6,
+        "phase": -1.54,
+        "amp": 1.6
+      }
+    ]
+  },
+  "dark": {
+    "source": "public/resources/Illustrations/Sponsorship.svg",
+    "parts": [
+      {
+        "name": "blob",
+        "from": 0,
+        "to": 1,
+        "anim": "breathe",
+        "enter": "grow",
+        "origin": [
+          346,
+          253
+        ],
+        "delay": 0
+      },
+      {
+        "name": "sparkle-1",
+        "from": 3,
+        "to": 4,
+        "anim": "twinkle",
+        "duration": 2.2,
+        "phase": 0
+      },
+      {
+        "name": "sparkle-2",
+        "from": 5,
+        "to": 6,
+        "anim": "twinkle",
+        "duration": 2.55,
+        "phase": -0.53
+      },
+      {
+        "name": "sparkle-3",
+        "from": 7,
+        "to": 8,
+        "anim": "twinkle",
+        "duration": 2.9,
+        "phase": -1.06
+      },
+      {
+        "name": "sparkle-4",
+        "from": 9,
+        "to": 10,
+        "anim": "twinkle",
+        "duration": 3.25,
+        "phase": -1.59
+      },
+      {
+        "name": "sparkle-5",
+        "from": 11,
+        "to": 12,
+        "anim": "twinkle",
+        "duration": 3.6,
+        "phase": -2.12
+      },
+      {
+        "name": "sparkle-6",
+        "from": 13,
+        "to": 14,
+        "anim": "twinkle",
+        "duration": 2.2,
+        "phase": -2.65
+      },
+      {
+        "name": "sparkle-7",
+        "from": 15,
+        "to": 16,
+        "anim": "twinkle",
+        "duration": 2.55,
+        "phase": -0.38
+      },
+      {
+        "name": "sparkle-8",
+        "from": 17,
+        "to": 17,
+        "anim": "twinkle",
+        "duration": 2.9,
+        "phase": -0.91
+      },
+      {
+        "name": "sparkle-9",
+        "from": 18,
+        "to": 18,
+        "anim": "twinkle",
+        "duration": 3.25,
+        "phase": -1.44
+      },
+      {
+        "name": "sparkle-10",
+        "from": 19,
+        "to": 19,
+        "anim": "twinkle",
+        "duration": 3.6,
+        "phase": -1.97
+      },
+      {
+        "name": "sparkle-11",
+        "from": 20,
+        "to": 20,
+        "anim": "twinkle",
+        "duration": 2.2,
+        "phase": -2.5
+      },
+      {
+        "name": "sparkle-12",
+        "from": 21,
+        "to": 21,
+        "anim": "twinkle",
+        "duration": 2.55,
+        "phase": -0.23
+      },
+      {
+        "name": "sparkle-13",
+        "from": 22,
+        "to": 22,
+        "anim": "twinkle",
+        "duration": 2.9,
+        "phase": -0.76
+      },
+      {
+        "name": "sparkle-14",
+        "from": 23,
+        "to": 23,
+        "anim": "twinkle",
+        "duration": 3.25,
+        "phase": -1.29
+      },
+      {
+        "name": "sparkle-15",
+        "from": 140,
+        "to": 141,
+        "anim": "twinkle",
+        "duration": 3.6,
+        "phase": -1.82
+      },
+      {
+        "name": "sparkle-16",
+        "from": 142,
+        "to": 143,
+        "anim": "twinkle",
+        "duration": 2.2,
+        "phase": -2.35
+      },
+      {
+        "name": "sparkle-17",
+        "from": 144,
+        "to": 145,
+        "anim": "twinkle",
+        "duration": 2.55,
+        "phase": -0.08
+      },
+      {
+        "name": "sparkle-18",
+        "from": 146,
+        "to": 147,
+        "anim": "twinkle",
+        "duration": 2.9,
+        "phase": -0.61
+      },
+      {
+        "name": "ray-1",
+        "from": 136,
+        "to": 136,
+        "anim": "glow",
+        "phase": 0
+      },
+      {
+        "name": "ray-2",
+        "from": 137,
+        "to": 137,
+        "anim": "glow",
+        "phase": -0.6
+      },
+      {
+        "name": "ray-3",
+        "from": 138,
+        "to": 138,
+        "anim": "glow",
+        "phase": -1.2
+      },
+      {
+        "name": "ray-4",
+        "from": 139,
+        "to": 139,
+        "anim": "glow",
+        "phase": -1.7999999999999998
+      },
+      {
+        "name": "plant",
+        "from": 24,
+        "to": 74,
+        "anim": "sway-base",
+        "duration": 4.6,
+        "phase": -1.54,
+        "amp": 1.6
+      }
+    ]
+  }
+}

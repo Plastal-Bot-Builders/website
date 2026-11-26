@@ -1,0 +1,130 @@
+{
+  "light": {
+    "source": "public/resources/Illustrations/Support1.svg",
+    "parts": [
+      {
+        "name": "blob",
+        "from": 2,
+        "to": 3,
+        "anim": "breathe",
+        "enter": "grow",
+        "origin": [
+          352,
+          258
+        ],
+        "delay": 0
+      },
+      {
+        "name": "megaphone",
+        "from": 7,
+        "to": 16,
+        "anim": "beat",
+        "duration": 2.6,
+        "phase": -0.5
+      },
+      {
+        "name": "rosette",
+        "from": 26,
+        "to": 35,
+        "anim": "sway-top",
+        "duration": 4.6,
+        "amp": 3
+      },
+      {
+        "name": "handshake",
+        "from": 43,
+        "to": 56,
+        "anim": "float",
+        "duration": 3.4,
+        "phase": -2.91,
+        "enter": "pop",
+        "delay": 0.35
+      },
+      {
+        "name": "gear-big",
+        "from": 72,
+        "to": 72,
+        "anim": "spin",
+        "duration": 18
+      },
+      {
+        "name": "gear-orange",
+        "from": 73,
+        "to": 73,
+        "anim": "spin-rev",
+        "duration": 12
+      },
+      {
+        "name": "gear-white",
+        "from": 74,
+        "to": 74,
+        "anim": "spin-rev",
+        "duration": 12
+      }
+    ]
+  },
+  "dark": {
+    "source": "public/resources/Illustrations/Support.svg",
+    "parts": [
+      {
+        "name": "blob",
+        "from": 0,
+        "to": 1,
+        "anim": "breathe",
+        "enter": "grow",
+        "origin": [
+          352,
+          258
+        ],
+        "delay": 0
+      },
+      {
+        "name": "megaphone",
+        "from": 5,
+        "to": 14,
+        "anim": "beat",
+        "duration": 2.6,
+        "phase": -0.5
+      },
+      {
+        "name": "rosette",
+        "from": 24,
+        "to": 33,
+        "anim": "sway-top",
+        "duration": 4.6,
+        "amp": 3
+      },
+      {
+        "name": "handshake",
+        "from": 41,
+        "to": 54,
+        "anim": "float",
+        "duration": 3.4,
+        "phase": -2.91,
+        "enter": "pop",
+        "delay": 0.35
+      },
+      {
+        "name": "gear-big",
+        "from": 70,
+        "to": 70,
+        "anim": "spin",
+        "duration": 18
+      },
+      {
+        "name": "gear-orange",
+        "from": 71,
+        "to": 71,
+        "anim": "spin-rev",
+        "duration": 12
+      },
+      {
+        "name": "gear-white",
+        "from": 72,
+        "to": 72,
+        "anim": "spin-rev",
+        "duration": 12
+      }
+    ]
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "light": {
+    "source": "public/resources/Illustrations/Education1.svg",
+    "parts": [
+      {
+        "name": "blob",
+        "from": 0,
+        "to": 1,
+        "anim": "breathe",
+        "enter": "grow",
+        "origin": [
+          379,
+          245
+        ],
+        "delay": 0
+      },
+      {
+        "name": "cloud-1",
+        "from": 4,
+        "to": 4,
+        "anim": "drift",
+        "duration": 11,
+        "phase": 0
+      },
+      {
+        "name": "cloud-2",
+        "from": 5,
+        "to": 5,
+        "anim": "drift",
+        "duration": 13.5,
+        "phase": -3.1
+      },
+      {
+        "name": "cloud-3",
+        "from": 6,
+        "to": 6,
+        "anim": "drift",
+        "duration": 16,
+        "phase": -6.2
+      },
+      {
+        "name": "cloud-4",
+        "from": 7,
+        "to": 7,
+        "anim": "drift",
+        "duration": 11,
+        "phase": -9.3
+      },
+      {
+        "name": "tree-1",
+        "from": 96,
+        "to": 124,
+        "anim": "sway-base",
+        "duration": 4.6,
+        "phase": -2.47,
+        "amp": 1
+      },
+      {
+        "name": "tree-2",
+        "from": 125,
+        "to": 153,
+        "anim": "sway-base",
+        "duration": 5.3,
+        "phase": -3.84,
+        "amp": 1
+      },
+      {
+        "name": "tree-3",
+        "from": 154,
+        "to": 182,
+        "anim": "sway-base",
+        "duration": 6,
+        "phase": -1.21,
+        "amp": 1
+      },
+      {
+        "name": "tree-4",
+        "from": 183,
+        "to": 211,
+        "anim": "sway-base",
+        "duration": 4.6,
+        "phase": -2.58,
+        "amp": 1
+      }
+    ]
+  },
+  "dark": {
+    "source": "public/resources/Illustrations/Education.svg",
+    "parts": [
+      {
+        "name": "blob",
+        "from": 0,
+        "to": 1,
+        "anim": "breathe",
+        "enter": "grow",
+        "origin": [
+          379,
+          245
+        ],
+        "delay": 0
+      },
+      {
+        "name": "cloud-1",
+        "from": 4,
+        "to": 4,
+        "anim": "drift",
+        "duration": 11,
+        "phase": 0
+      },
+      {
+        "name": "cloud-2",
+        "from": 5,
+        "to": 5,
+        "anim": "drift",
+        "duration": 13.5,
+        "phase": -3.1
+      },
+      {
+        "name": "cloud-3",
+        "from": 6,
+        "to": 6,
+        "anim": "drift",
+        "duration": 16,
+        "phase": -6.2
+      },
+      {
+        "name": "cloud-4",
+        "from": 7,
+        "to": 7,
+        "anim": "drift",
+        "duration": 11,
+        "phase": -9.3
+      },
+      {
+        "name": "tree-1",
+        "from": 96,
+        "to": 124,
+        "anim": "sway-base",
+        "duration": 4.6,
+        "phase": -2.47,
+        "amp": 1
+      },
+      {
+        "name": "tree-2",
+        "from": 125,
+        "to": 153,
+        "anim": "sway-base",
+        "duration": 5.3,
+        "phase": -3.84,
+        "amp": 1
+      },
+      {
+        "name": "tree-3",
+        "from": 154,
+        "to": 182,
+        "anim": "sway-base",
+        "duration": 6,
+        "phase": -1.21,
+        "amp": 1
+      },
+      {
+        "name": "tree-4",
+        "from": 183,
+        "to": 211,
+        "anim": "sway-base",
+        "duration": 4.6,
+        "phase": -2.58,
+        "amp": 1
+      }
+    ]
+  }
+}

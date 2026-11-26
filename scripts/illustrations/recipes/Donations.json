@@ -1,0 +1,180 @@
+{
+  "light": {
+    "source": "public/resources/Illustrations/Donations1.svg",
+    "parts": [
+      {
+        "name": "blob",
+        "from": 0,
+        "to": 1,
+        "anim": "breathe",
+        "enter": "grow",
+        "origin": [
+          327,
+          254
+        ],
+        "delay": 0
+      },
+      {
+        "name": "cloud-1",
+        "from": 2,
+        "to": 2,
+        "anim": "drift",
+        "duration": 11,
+        "phase": 0
+      },
+      {
+        "name": "cloud-2",
+        "from": 3,
+        "to": 3,
+        "anim": "drift",
+        "duration": 13.5,
+        "phase": -3.1
+      },
+      {
+        "name": "cloud-3",
+        "from": 4,
+        "to": 4,
+        "anim": "drift",
+        "duration": 16,
+        "phase": -6.2
+      },
+      {
+        "name": "cloud-4",
+        "from": 5,
+        "to": 5,
+        "anim": "drift",
+        "duration": 11,
+        "phase": -9.3
+      },
+      {
+        "name": "balloon-1",
+        "from": 6,
+        "to": 45,
+        "anim": "float",
+        "duration": 3.4,
+        "phase": -0.99,
+        "enter": "pop",
+        "delay": 0.35
+      },
+      {
+        "name": "balloon-2",
+        "from": 46,
+        "to": 63,
+        "anim": "float",
+        "duration": 3.85,
+        "phase": -2.36,
+        "enter": "pop",
+        "delay": 0.47
+      },
+      {
+        "name": "balloon-3",
+        "from": 64,
+        "to": 79,
+        "anim": "float",
+        "duration": 4.3,
+        "phase": -3.73,
+        "enter": "pop",
+        "delay": 0.59
+      },
+      {
+        "name": "balloon-4",
+        "from": 80,
+        "to": 97,
+        "anim": "float",
+        "duration": 4.75,
+        "phase": -1.1,
+        "enter": "pop",
+        "delay": 0.71
+      }
+    ]
+  },
+  "dark": {
+    "source": "public/resources/Illustrations/Donations.svg",
+    "parts": [
+      {
+        "name": "blob",
+        "from": 0,
+        "to": 1,
+        "anim": "breathe",
+        "enter": "grow",
+        "origin": [
+          327,
+          254
+        ],
+        "delay": 0
+      },
+      {
+        "name": "cloud-1",
+        "from": 2,
+        "to": 2,
+        "anim": "drift",
+        "duration": 11,
+        "phase": 0
+      },
+      {
+        "name": "cloud-2",
+        "from": 3,
+        "to": 3,
+        "anim": "drift",
+        "duration": 13.5,
+        "phase": -3.1
+      },
+      {
+        "name": "cloud-3",
+        "from": 4,
+        "to": 4,
+        "anim": "drift",
+        "duration": 16,
+        "phase": -6.2
+      },
+      {
+        "name": "cloud-4",
+        "from": 5,
+        "to": 5,
+        "anim": "drift",
+        "duration": 11,
+        "phase": -9.3
+      },
+      {
+        "name": "balloon-1",
+        "from": 6,
+        "to": 44,
+        "anim": "float",
+        "duration": 3.4,
+        "phase": -0.99,
+        "enter": "pop",
+        "delay": 0.35
+      },
+      {
+        "name": "balloon-2",
+        "from": 45,
+        "to": 61,
+        "anim": "float",
+        "duration": 3.85,
+        "phase": -2.36,
+        "enter": "pop",
+        "delay": 0.47
+      },
+      {
+        "name": "balloon-3",
+        "from": 62,
+        "to": 77,
+        "anim": "float",
+        "duration": 4.3,
+        "phase": -3.73,
+        "enter": "pop",
+        "delay": 0.59
+      },
+      {
+        "name": "balloon-4",
+        "from": 78,
+        "to": 94,
+        "anim": "float",
+        "duration": 4.75,
+        "phase": -1.1,
+        "enter": "pop",
+        "delay": 0.71
+      }
+    ]
+  }
+}

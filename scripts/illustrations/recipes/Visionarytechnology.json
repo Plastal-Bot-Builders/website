@@ -1,0 +1,164 @@
+{
+  "light": {
+    "source": "public/resources/Illustrations/Visionarytechnology1.svg",
+    "parts": [
+      {
+        "name": "blob",
+        "from": 0,
+        "to": 1,
+        "anim": "breathe",
+        "enter": "grow",
+        "origin": [
+          243,
+          245
+        ],
+        "delay": 0
+      },
+      {
+        "name": "connection",
+        "from": 2,
+        "to": 32,
+        "anim": "float",
+        "duration": 3.4,
+        "phase": 0,
+        "enter": "pop",
+        "delay": 0.35
+      },
+      {
+        "name": "chip",
+        "from": 33,
+        "to": 60,
+        "anim": "float",
+        "duration": 3.85,
+        "phase": -1.37,
+        "enter": "pop",
+        "delay": 0.47
+      },
+      {
+        "name": "virtual-reality",
+        "from": 61,
+        "to": 82,
+        "anim": "float",
+        "duration": 4.3,
+        "phase": -2.74,
+        "enter": "pop",
+        "delay": 0.59
+      },
+      {
+        "name": "tools",
+        "from": 83,
+        "to": 118,
+        "anim": "float",
+        "duration": 4.75,
+        "phase": -0.11,
+        "enter": "pop",
+        "delay": 0.71
+      },
+      {
+        "name": "device-2",
+        "from": 119,
+        "to": 127,
+        "anim": "float",
+        "duration": 3.4,
+        "phase": -1.48,
+        "enter": "pop",
+        "delay": 0.83
+      },
+      {
+        "name": "device-1",
+        "from": 128,
+        "to": 137,
+        "anim": "float",
+        "duration": 3.85,
+        "phase": -2.85,
+        "enter": "pop",
+        "delay": 0.95
+      },
+      {
+        "name": "speech-bubble",
+        "from": 138,
+        "to": 149,
+        "anim": "float",
+        "duration": 4.3,
+        "phase": -0.22,
+        "enter": "pop",
+        "delay": 1.07
+      }
+    ]
+  },
+  "dark": {
+    "source": "public/resources/Illustrations/Visionarytechnology.svg",
+    "parts": [
+      {
+        "name": "connection",
+        "from": 0,
+        "to": 30,
+        "anim": "float",
+        "duration": 3.4,
+        "phase": 0,
+        "enter": "pop",
+        "delay": 0.35
+      },
+      {
+        "name": "chip",
+        "from": 31,
+        "to": 58,
+        "anim": "float",
+        "duration": 3.85,
+        "phase": -1.37,
+        "enter": "pop",
+        "delay": 0.47
+      },
+      {
+        "name": "virtual-reality",
+        "from": 59,
+        "to": 80,
+        "anim": "float",
+        "duration": 4.3,
+        "phase": -2.74,
+        "enter": "pop",
+        "delay": 0.59
+      },
+      {
+        "name": "tools",
+        "from": 81,
+        "to": 116,
+        "anim": "float",
+        "duration": 4.75,
+        "phase": -0.11,
+        "enter": "pop",
+        "delay": 0.71
+      },
+      {
+        "name": "device-2",
+        "from": 117,
+        "to": 125,
+        "anim": "float",
+        "duration": 3.4,
+        "phase": -1.48,
+        "enter": "pop",
+        "delay": 0.83
+      },
+      {
+        "name": "device-1",
+        "from": 126,
+        "to": 135,
+        "anim": "float",
+        "duration": 3.85,
+        "phase": -2.85,
+        "enter": "pop",
+        "delay": 0.95
+      },
+      {
+        "name": "speech-bubble",
+        "from": 136,
+        "to": 147,
+        "anim": "float",
+        "duration": 4.3,
+        "phase": -0.22,
+        "enter": "pop",
+        "delay": 1.07
+      }
+    ]
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "light": {
+    "source": "public/resources/Illustrations/mentor1.svg",
+    "parts": [
+      {
+        "name": "panel",
+        "from": 3,
+        "to": 3,
+        "enter": "grow",
+        "origin": [
+          469,
+          302
+        ],
+        "delay": 0
+      },
+      {
+        "name": "raised-arm",
+        "from": 5,
+        "to": 6,
+        "anim": "sway",
+        "origin": [
+          300,
+          330
+        ],
+        "amp": 2,
+        "duration": 3.4,
+        "phase": 0
+      }
+    ]
+  },
+  "dark": {
+    "source": "public/resources/Illustrations/mentor.svg",
+    "parts": [
+      {
+        "name": "panel",
+        "from": 2,
+        "to": 2,
+        "enter": "grow",
+        "origin": [
+          469,
+          302
+        ],
+        "delay": 0
+      },
+      {
+        "name": "raised-arm",
+        "from": 4,
+        "to": 5,
+        "anim": "sway",
+        "origin": [
+          300,
+          330
+        ],
+        "amp": 2,
+        "duration": 3.4,
+        "phase": 0
+      }
+    ]
+  }
+}

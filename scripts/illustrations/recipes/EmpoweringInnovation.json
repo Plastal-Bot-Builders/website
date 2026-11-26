@@ -1,0 +1,40 @@
+{
+  "light": {
+    "source": "public/resources/Illustrations/EmpoweringInnovation1.svg",
+    "recolor": [
+      { "shape": 0, "fill": "#D27D2D" }
+    ],
+    "parts": [
+      { "name": "blob", "from": 0, "to": 1, "anim": "breathe", "enter": "grow", "origin": [362, 260], "delay": 0 },
+
+      { "name": "gear-centre-low", "from": 11, "to": 11, "anim": "spin", "duration": 28 },
+      { "name": "gear-centre-low-small", "from": 12, "to": 12, "anim": "spin-rev", "duration": 15 },
+      { "name": "gear-centre-high", "from": 13, "to": 13, "anim": "spin-rev", "duration": 30 },
+      { "name": "gear-centre-high-small", "from": 14, "to": 14, "anim": "spin", "duration": 16 },
+      { "name": "gear-left", "from": 15, "to": 15, "anim": "spin", "duration": 32 },
+      { "name": "gear-left-small", "from": 16, "to": 16, "anim": "spin-rev", "duration": 17 },
+      { "name": "gear-right", "from": 17, "to": 17, "anim": "spin-rev", "duration": 26 },
+      { "name": "gear-right-small", "from": 18, "to": 18, "anim": "spin", "duration": 14 },
+
+      { "name": "desk-screen-code", "from": 25, "to": 29, "anim": "type" },
+
+      { "name": "hello-bubble", "from": 67, "to": 75, "anim": "float", "duration": 3.6, "enter": "pop", "origin": [340, 94], "delay": 1.1 },
+
+      { "name": "arm-right", "from": 147, "to": 167, "anim": "sway", "origin": [698, 10], "duration": 6.5, "phase": -1.2, "enter": "drop", "delay": 0.25 },
+      { "name": "arm-spare-head", "from": 168, "to": 186, "anim": "sway", "origin": [628, 10], "duration": 5.4, "phase": -3.1, "enter": "drop", "delay": 0.4 },
+      { "name": "spare-head-eye", "from": 174, "to": 175, "anim": "wake" },
+
+      { "name": "robot-head", "from": 250, "to": 257, "anim": "tilt", "origin": [389, 131] },
+      { "name": "robot-eye", "from": 256, "to": 257, "anim": "glow" },
+
+      { "name": "arm-left", "from": 261, "to": 291, "anim": "sway", "origin": [65, 10], "duration": 6, "phase": -2.4, "enter": "drop", "delay": 0.1 },
+
+      { "name": "code-panel", "from": 292, "to": 297, "anim": "float", "duration": 4.4, "phase": -1.6 },
+      { "name": "code-panel-lines", "from": 293, "to": 297, "anim": "type" }
+    ]
+  },
+  "dark": {
+    "source": "public/resources/Illustrations/EmpoweringInnovation.svg",
+    "parts": "same"
+  }
+}

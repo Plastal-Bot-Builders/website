@@ -1,0 +1,44 @@
+{
+  "light": {
+    "source": "public/resources/Illustrations/Connecting_teams_bro1.svg",
+    "parts": [
+      {
+        "name": "blob",
+        "from": 10,
+        "to": 11,
+        "anim": "breathe",
+        "enter": "grow",
+        "origin": [
+          252,
+          256
+        ],
+        "delay": 0
+      },
+      {
+        "name": "gear-3",
+        "from": 41,
+        "to": 42,
+        "anim": "spin",
+        "duration": 24
+      },
+      {
+        "name": "gear-2",
+        "from": 80,
+        "to": 81,
+        "anim": "spin-rev",
+        "duration": 24
+      },
+      {
+        "name": "gear-1",
+        "from": 108,
+        "to": 109,
+        "anim": "spin",
+        "duration": 24
+      }
+    ]
+  },
+  "dark": {
+    "source": "public/resources/Illustrations/Connecting_teams_bro.svg",
+    "parts": "same"
+  }
+}

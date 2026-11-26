@@ -1,0 +1,54 @@
+{
+  "light": {
+    "source": "public/resources/Illustrations/Eventplan1.svg",
+    "parts": [
+      {
+        "name": "blob",
+        "from": 1,
+        "to": 2,
+        "anim": "breathe",
+        "enter": "grow",
+        "origin": [
+          344,
+          222
+        ],
+        "delay": 0
+      },
+      {
+        "name": "plant",
+        "from": 5,
+        "to": 6,
+        "anim": "sway-base",
+        "duration": 4.6,
+        "phase": -3.95,
+        "amp": 2
+      }
+    ]
+  },
+  "dark": {
+    "source": "public/resources/Illustrations/Eventplan.svg",
+    "parts": [
+      {
+        "name": "blob",
+        "from": 0,
+        "to": 1,
+        "anim": "breathe",
+        "enter": "grow",
+        "origin": [
+          344,
+          222
+        ],
+        "delay": 0
+      },
+      {
+        "name": "plant",
+        "from": 4,
+        "to": 5,
+        "anim": "sway-base",
+        "duration": 4.6,
+        "phase": -3.95,
+        "amp": 2
+      }
+    ]
+  }
+}

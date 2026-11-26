@@ -1,0 +1,150 @@
+{
+  "light": {
+    "source": "public/resources/Illustrations/Mentorship1.svg",
+    "parts": [
+      {
+        "name": "blob",
+        "from": 2,
+        "to": 3,
+        "anim": "breathe",
+        "enter": "grow",
+        "origin": [
+          360,
+          259
+        ],
+        "delay": 0
+      },
+      {
+        "name": "clock-short-hand",
+        "from": 33,
+        "to": 33,
+        "anim": "turn",
+        "origin": [
+          550,
+          111
+        ],
+        "duration": 90
+      },
+      {
+        "name": "clock-long-hand",
+        "from": 34,
+        "to": 34,
+        "anim": "turn",
+        "origin": [
+          550,
+          111
+        ],
+        "duration": 12
+      },
+      {
+        "name": "question-bubble",
+        "from": 48,
+        "to": 49,
+        "anim": "float",
+        "duration": 3.4,
+        "phase": -1.32,
+        "enter": "pop",
+        "delay": 0.35
+      },
+      {
+        "name": "chat-bubble",
+        "from": 50,
+        "to": 53,
+        "anim": "float",
+        "duration": 3.85,
+        "phase": -2.69,
+        "enter": "pop",
+        "delay": 0.47
+      },
+      {
+        "name": "chat-dots",
+        "from": 51,
+        "to": 53,
+        "anim": "type"
+      },
+      {
+        "name": "plant",
+        "from": 54,
+        "to": 143,
+        "anim": "sway-base",
+        "duration": 4.6,
+        "phase": -0.06,
+        "amp": 1.6
+      }
+    ]
+  },
+  "dark": {
+    "source": "public/resources/Illustrations/Mentorship.svg",
+    "parts": [
+      {
+        "name": "blob",
+        "from": 0,
+        "to": 1,
+        "anim": "breathe",
+        "enter": "grow",
+        "origin": [
+          360,
+          259
+        ],
+        "delay": 0
+      },
+      {
+        "name": "clock-short-hand",
+        "from": 31,
+        "to": 31,
+        "anim": "turn",
+        "origin": [
+          550,
+          111
+        ],
+        "duration": 90
+      },
+      {
+        "name": "clock-long-hand",
+        "from": 32,
+        "to": 32,
+        "anim": "turn",
+        "origin": [
+          550,
+          111
+        ],
+        "duration": 12
+      },
+      {
+        "name": "question-bubble",
+        "from": 46,
+        "to": 47,
+        "anim": "float",
+        "duration": 3.4,
+        "phase": -1.32,
+        "enter": "pop",
+        "delay": 0.35
+      },
+      {
+        "name": "chat-bubble",
+        "from": 48,
+        "to": 51,
+        "anim": "float",
+        "duration": 3.85,
+        "phase": -2.69,
+        "enter": "pop",
+        "delay": 0.47
+      },
+      {
+        "name": "chat-dots",
+        "from": 49,
+        "to": 51,
+        "anim": "type"
+      },
+      {
+        "name": "plant",
+        "from": 52,
+        "to": 141,
+        "anim": "sway-base",
+        "duration": 4.6,
+        "phase": -0.06,
+        "amp": 1.6
+      }
+    ]
+  }
+}

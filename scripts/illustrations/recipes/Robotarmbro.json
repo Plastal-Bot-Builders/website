@@ -1,0 +1,37 @@
+{
+  "light": {
+    "source": "public/resources/Illustrations/Robotarmbro1.svg",
+    "parts": [
+      {
+        "name": "blob",
+        "from": 0,
+        "to": 1,
+        "anim": "breathe",
+        "enter": "grow",
+        "origin": [
+          254,
+          254
+        ],
+        "delay": 0
+      },
+      {
+        "name": "rings-top",
+        "from": 8,
+        "to": 16,
+        "anim": "spin",
+        "duration": 40
+      },
+      {
+        "name": "rings-bottom",
+        "from": 17,
+        "to": 26,
+        "anim": "spin-rev",
+        "duration": 34
+      }
+    ]
+  },
+  "dark": {
+    "source": "public/resources/Illustrations/Robotarmbro.svg",
+    "parts": "same"
+  }
+}
