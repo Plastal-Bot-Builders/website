@@ -397,6 +397,20 @@ nav a {
 .surface-hover:hover { background-color: var(--surface-hover-bg); }
 .border-surface { border-color: var(--surface-border) !important; }
 
+/* The surface colours under the names many pages already use. They look like Tailwind colour classes, but the
+   Tailwind config has no theme colours, so until 28 Nov 2026 they did nothing: boxes and divider lines took the
+   browser's default light-grey border, and progress-bar tracks were invisible. Plain classes, like .surface above.
+   They sit before .interactive-card on purpose, so a card that also carries one keeps its own border. */
+.border-surface-border { border-color: var(--surface-border); }
+.bg-surface-border { background-color: var(--surface-border); }
+/* The two fill names (bg-surface, bg-surface-hover-bg) take effect only inside a card, where they make the small
+   inset tiles and icon discs the pages meant, like the tiles in the home page's cards. On the page itself they
+   stay see-through, as they always were: about forty whole sections carry them, and filling those would turn
+   open text into flat slabs. */
+.interactive-card .bg-surface { background-color: var(--surface-bg); }
+.interactive-card .bg-surface-hover-bg { background-color: var(--surface-hover-bg); }
+.interactive-card .bg-surface-hover-bg\/30 { background-color: color-mix(in srgb, var(--surface-hover-bg) 30%, transparent); }
+
 
 /* Table helpers */
 .table-head { background-color: var(--surface-bg); }

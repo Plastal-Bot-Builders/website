@@ -63,7 +63,7 @@ const DonationsPage: React.FC = () => {
                                 <p className="text-gray-600 dark:text-gray-300 mb-4 text-lg">
                                     Your financial support helps us prepare young Zambians for the future of technology.
                                 </p>
-                                <div className="bg-gradient-to-r from-surface-hover-bg to-surface p-6 rounded-lg interactive-card shadow-sm">
+                                <div className="p-6 rounded-lg interactive-card shadow-sm">
                                     <div className="flex flex-col space-y-4">
                                         {/* Header with improved visual hierarchy */}
                                         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
