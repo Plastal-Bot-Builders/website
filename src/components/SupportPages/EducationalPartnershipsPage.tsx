@@ -354,7 +354,7 @@ const EducationalPartnershipsPage: React.FC = () => {
                                                 </li>
                                                 <li className="flex items-start">
                                                     <span className="text-accent mr-2 flex-shrink-0">•</span>
-                                                    <span className="text-xs sm:text-sm">Partnerships with FIRST Robotics, ITU AI for Good, and African Robotics Network</span>
+                                                    <span className="text-xs sm:text-sm">International competition pathways such as ITU’s AI for Good, where our team were finalists in 2026</span>
                                                 </li>
                                                 <li className="flex items-start">
                                                     <span className="text-accent mr-2 flex-shrink-0">•</span>

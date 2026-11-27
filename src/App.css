@@ -211,31 +211,6 @@ html.dark body {
   box-shadow: var(--shadow-card);
 }
 
-/* Scroll progress: a hairline of accent along the bottom of the header bar (src/components/ui/ScrollProgress.tsx).
-   Inset by the bar's corner radius so it never pokes out past the rounded corners. */
-.site-header__bar { position: relative; }
-.scroll-progress {
-  position: absolute;
-  left: var(--radius-lg, 12px);
-  right: var(--radius-lg, 12px);
-  bottom: -1px;
-  height: 2px;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity .3s ease;
-}
-.scroll-progress[data-active] { opacity: 1; }
-.scroll-progress__bar {
-  display: block;
-  height: 100%;
-  border-radius: 999px;
-  background: var(--accent);
-  box-shadow: 0 0 8px var(--accent);
-  transform: scaleX(0);
-  transform-origin: left center;
-  will-change: transform;
-}
-
 /* Typed headings (src/lib/typewriter.ts): after typing, the caret blinks a few times. The negative margin cancels
    the caret's own width, so it can never push the heading onto another line. */
 [data-typing="caret"]::after {
@@ -259,7 +234,7 @@ html.dark body {
 }
 .step-flow__item:last-child::before { display: none; }
 @media (min-width: 1024px) {
-  .step-flow__item::before { left: 48px; right: -20px; top: 19px; bottom: auto; width: auto; height: 2px; }
+  .step-flow:not(.step-flow--vertical) .step-flow__item::before { left: 48px; right: -20px; top: 19px; bottom: auto; width: auto; height: 2px; }
 }
 
 /* Grid stagger (src/lib/useSiteMotion.ts): a grid below the fold holds its items back, then they rise in one by

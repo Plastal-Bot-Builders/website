@@ -308,15 +308,18 @@ const Home: React.FC = () => {
                 {[{
                   img: 'research.svg',
                   title: 'Research Opportunities',
-                  text: 'Join programs in robotics, AI, and sustainable technology.'
+                  text: 'See how we design, simulate and teach our robots to move, and help us do it.',
+                  to: '/research'
                 }, {
                   img: 'mentor.svg',
                   title: 'Mentorship Program',
-                  text: 'Guidance from experienced engineers and tech professionals.'
+                  text: 'Guidance from experienced engineers and tech professionals.',
+                  to: '/support/mentorship'
                 }, {
                   img: 'team.svg',
                   title: 'Partner With Us',
-                  text: 'Support our mission to empower young innovators.'
+                  text: 'Support our mission to empower young innovators.',
+                  to: '/support'
                 }].map((c, i) => (
                   <div
                     key={i}
@@ -343,6 +346,9 @@ const Home: React.FC = () => {
                         <p className="text-sm leading-relaxed">
                           {c.text}
                         </p>
+                        <Link to={c.to} className="inline-block mt-3 text-sm font-semibold text-accent hover:underline">
+                          Learn more →
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -494,7 +500,7 @@ const Home: React.FC = () => {
                     </div>
                   </div>
                   <p className="text-sm sm:text-base md:text-lg leading-relaxed mb-4">
-                    500+ students trained, 50+ projects launched, and growing partnerships across tech.
+                    600+ young people reached, 50+ projects launched, and growing partnerships across tech.
                   </p>
                   <button
                     className="custom-button"

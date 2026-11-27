@@ -56,7 +56,7 @@ const FundraisingPage: React.FC = () => {
             title: "Crowdfunding",
             description: "Targeted online campaigns that reach wider global audiences.",
             icon: <FaBullhorn className="text-accent text-2xl" />,
-            example: "Our \"Train 500 Students\" campaign on GlobalGiving reached 120% of goal.",
+            example: "Online campaigns that fund robotics kits for our next workshops.",
             link: "#crowdfunding"
         }
     ];
@@ -376,7 +376,7 @@ const FundraisingPage: React.FC = () => {
                             <div className="border-t border-surface-border mt-4 pt-4">
                                 <blockquote className="italic text-center">
                                     "A big thank you to everyone who contributed to our Ndola Robotics Workshop —
-                                    your support helped 40 young innovators learn to build their first autonomous robots!"
+                                    your support helped young innovators learn to build their first autonomous robots!"
                                 </blockquote>
                             </div>
                         </section>

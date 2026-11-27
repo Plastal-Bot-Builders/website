@@ -36,16 +36,26 @@ export type Step = { title: string; text?: string; tag?: string };
 
 /**
  * A numbered sequence: across the page on wide screens, down it on phones, joined by a line in the accent colour.
- * `tag` is a small label above the title (a date, "Done", …).
+ * `tag` is a small label above the title (a date, "Done", …). `vertical` keeps it a top-to-bottom list on every screen.
  */
-export const StepFlow: React.FC<{ steps: Step[]; className?: string }> = ({ steps, className = '' }) => (
+export const StepFlow: React.FC<{ steps: Step[]; className?: string; vertical?: boolean }> = ({
+  steps,
+  className = '',
+  vertical = false,
+}) => (
   <ol
     className={`step-flow grid grid-cols-1 gap-6 ${
-      steps.length >= 5 ? 'lg:grid-cols-5' : steps.length === 4 ? 'lg:grid-cols-4' : 'lg:grid-cols-3'
+      vertical
+        ? 'step-flow--vertical'
+        : steps.length >= 5
+          ? 'lg:grid-cols-5'
+          : steps.length === 4
+            ? 'lg:grid-cols-4'
+            : 'lg:grid-cols-3'
     } ${className}`}
   >
     {steps.map((s, i) => (
-      <li key={s.title} className="step-flow__item relative pl-14 lg:pl-0 lg:pt-14">
+      <li key={s.title} className={`step-flow__item relative pl-14 ${vertical ? '' : 'lg:pl-0 lg:pt-14'}`}>
         <span className="step-flow__num absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-full border-2 border-accent font-bold text-accent">
           {i + 1}
         </span>

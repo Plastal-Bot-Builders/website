@@ -27,6 +27,7 @@ const EventsPage = lazy(() => import('./pages/events'));
 const NewsPage = lazy(() => import('./pages/news'));
 const IctazTechFair2026 = lazy(() => import('./pages/news-ictaz-2026'));
 const JourneyToGeneva = lazy(() => import('./pages/journey-to-geneva'));
+const Research = lazy(() => import('./pages/research'));
 const Privacy = lazy(() => import('./pages/privacy'));
 const Terms = lazy(() => import('./pages/terms'));
 const Error404 = lazy(() => import('./pages/error'));
@@ -169,6 +170,7 @@ const App: React.FC = () => {
                 <Route path="/news" element={<NewsPage />} />
                 <Route path="/news/ictaz-tech-fair-2026" element={<IctazTechFair2026 />} />
                 <Route path="/journey-to-geneva" element={<JourneyToGeneva />} />
+                <Route path="/research" element={<Research />} />
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="/terms" element={<Terms />} />
 

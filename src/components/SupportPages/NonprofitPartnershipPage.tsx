@@ -52,7 +52,7 @@ const NonprofitPartnershipPage: React.FC = () => {
     const featuredPartnerships = [
         {
             name: "Zambia STEM Foundation",
-            description: "Collaborative workshop series reaching 12 schools across three provinces, introducing over 500 students to robotics basics.",
+            description: "Collaborative workshop series reaching 12 schools across three provinces and introducing their students to robotics basics.",
             image: "resources/Photos/sepoteaching.jpeg",
             focus: "Education Access"
         },

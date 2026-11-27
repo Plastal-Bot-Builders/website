@@ -80,8 +80,9 @@ const VERIFIED_FACTS = {
 /**
  * ⚠️  NOT published in structured data — needs confirmation from the team.
  * Students reached: the team confirmed 600+ (Nov 2026) and the site now says 600+ wherever it states its own
- * reach (the 8,000+ on the home and Technicbots pages is Technicbots' figure, not ours). Other counts on the
- * site (500+, 350+, 30 students) still differ and are unconfirmed, and no founding date appears anywhere. Publishing a figure that
+ * reach (the 8,000+ on the home and Technicbots pages is Technicbots' figure, not ours). Other reach counts were
+ * removed (Nov 2026); what remains is the bootcamp's 50+ participants and future goals (RoboCore's 5,000, the
+ * sponsorship projections), which are labelled as such, and no founding date appears anywhere. Publishing a figure that
  * later proves wrong is worse than publishing none, because AI assistants
  * repeat it confidently. Fill these in and set `publish: true` to include them.
  */
@@ -374,6 +375,47 @@ const ROUTES = [
       sections: [{ h2: 'Featured projects', list: VERIFIED_FACTS.projects }],
     },
     schema: ['CollectionPage'],
+  },
+
+  // Research & Development (src/pages/research.tsx). Figures from the RoboCoreAI repository's docs. The learned
+  // controller has only run in simulation: keep saying so until it has run on the real robot.
+  {
+    path: '/research',
+    priority: '0.7',
+    changefreq: 'monthly',
+    title: 'Research & Development — RoboCore AI | Plastal-Bot Builders',
+    description:
+      'How Plastal-Bot Builders designs, simulates and tests its robots in Zambia, and RoboCore AI: a robot on the RoboCore V2 controller that taught itself to balance, drive and turn in simulation.',
+    image: '/resources/Research/web/rcai-anatomy.jpg',
+    imageAlt: 'The RoboCore AI wheel-leg robot with its parts labelled: RoboCore V2 controller, hip servos, parallelogram legs, gearmotors and 80 mm wheels.',
+    breadcrumb: [{ name: 'Research & Development', path: '/research' }],
+    body: {
+      h1: 'Research & Development',
+      summary:
+        'Plastal-Bot Builders designs its robots in CAD, turns them into physics simulations and tests them before building. The current research project, RoboCore AI, is a two-wheeled robot with jointed legs on the RoboCore V2 controller (ESP32-S3) that learned to balance, drive, turn and change its height through reinforcement learning in simulation.',
+      sections: [
+        {
+          h2: 'RoboCore AI: a robot that taught itself to balance',
+          list: [
+            'Trained with reinforcement learning (PPO) in a MuJoCo simulation of its own CAD, motors, servos and sensors',
+            '111 hours of practice simulated in 58 minutes on a laptop; the learned controller is a 52 kB file',
+            'About 10,000 calculations per decision, 100 decisions a second: small enough for the ESP32-S3',
+            'Tested on 20 randomised robots; follows speed commands 1.6 to 4 times more closely than a reference controller; hard pushes remain its weak spot',
+            'Status: simulation. Testing on the physical robot comes next',
+            'Open source under the MIT licence: github.com/Plastal-Bot-Builders/RoboCoreAI',
+          ],
+        },
+        {
+          h2: 'Our builds so far',
+          list: [
+            'Gypul (RoboCore V1), an open-source self-balancing robot',
+            'Three competition robot generations for the AI for Good finals in Geneva, 2026',
+            'RoboCore V2: controller board, robot kit and IDE (prototype)',
+            'RoboCore AI: a learned controller for a wheel-leg robot on the V2 board',
+          ],
+        },
+      ],
+    },
   },
 
   // RoboCore's own section. Copy as on the RoboCore print pieces: "made in Zambia", V2 is a prototype,

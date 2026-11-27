@@ -158,6 +158,7 @@ public/resources/Geneva2026/*
 # (bootcamp, workshop, project and event photos). The raw originals stay local.
 !public/resources/*/web/*.jpg
 !public/resources/*/web/*.webp
+!public/resources/*/web/*.mp4
 
 # RoboCore section (/robocore): its web-ready images and the 3D model ship with
 # the site. Where they come from: src/components/RoboCore/README.md.

@@ -350,7 +350,7 @@ const DonationsPage: React.FC = () => {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="rounded-lg interactive-card p-6">
                                     <h3 className="text-lg font-bold mb-2">Recent Workshop Success</h3>
-                                    <p className="mb-4">Your support helped 30 students in Chililabobwe build and program their first autonomous robots last weekend!</p>
+                                    <p className="mb-4">Your support helps students build and program their first autonomous robots.</p>
                                     <SmartImage
                                         src="resources/Photos/IMG_5087.jpg"
                                         alt="Recent workshop in Ndola"
@@ -364,7 +364,7 @@ const DonationsPage: React.FC = () => {
                                     <h3 className="text-lg font-bold mb-2">2025 Impact Report</h3>
                                     <ul className="space-y-2 mb-4">
                                         <li className="flex items-center"><span className="text-accent mr-2">•</span> 4 schools equipped with robotics kits</li>
-                                        <li className="flex items-center"><span className="text-accent mr-2">•</span> 120 students trained this term</li>
+                                        <li className="flex items-center"><span className="text-accent mr-2">•</span> 600+ young people reached so far</li>
                                         <li className="flex items-center"><span className="text-accent mr-2">•</span> 8 teacher training workshops completed</li>
                                         <li className="flex items-center"><span className="text-accent mr-2">•</span> 2 teams qualified for national competition</li>
                                     </ul>

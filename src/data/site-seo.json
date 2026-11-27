@@ -586,6 +586,55 @@
         }
       ]
     },
+    "/research": {
+      "title": "Research & Development — RoboCore AI | Plastal-Bot Builders",
+      "description": "How Plastal-Bot Builders designs, simulates and tests its robots in Zambia, and RoboCore AI: a robot on the RoboCore V2 controller that taught itself to balance, drive and turn in simulation.",
+      "image": "https://www.plastalbotbuilders.com/resources/Research/web/rcai-anatomy.jpg",
+      "isCard": false,
+      "imageAlt": "The RoboCore AI wheel-leg robot with its parts labelled: RoboCore V2 controller, hip servos, parallelogram legs, gearmotors and 80 mm wheels.",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1",
+      "nodes": [
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.plastalbotbuilders.com/research#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.plastalbotbuilders.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Research & Development",
+              "item": "https://www.plastalbotbuilders.com/research"
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.plastalbotbuilders.com/research#webpage",
+          "url": "https://www.plastalbotbuilders.com/research",
+          "name": "Research & Development — RoboCore AI | Plastal-Bot Builders",
+          "description": "How Plastal-Bot Builders designs, simulates and tests its robots in Zambia, and RoboCore AI: a robot on the RoboCore V2 controller that taught itself to balance, drive and turn in simulation.",
+          "isPartOf": {
+            "@id": "https://www.plastalbotbuilders.com/#website"
+          },
+          "about": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.plastalbotbuilders.com/resources/Research/web/rcai-anatomy.jpg"
+          },
+          "breadcrumb": {
+            "@id": "https://www.plastalbotbuilders.com/research#breadcrumbs"
+          },
+          "inLanguage": "en"
+        }
+      ]
+    },
     "/robocore": {
       "title": "RoboCore — the robot kit and coding app for young makers | Plastal-Bot Builders",
       "description": "RoboCore is a robot you build yourself and a coding app to bring it to life: drag-and-drop blocks or Arduino C++, in the browser. Made in Zambia by Plastal-Bot Builders.",
