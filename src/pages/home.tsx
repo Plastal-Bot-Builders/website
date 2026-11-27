@@ -10,7 +10,7 @@ import ThemedImage from '../theme/ThemedImage';
 import { SEOConfig } from '../components/SEO';
 import DecryptedText from '../components/ui/DecryptedText';
 import CountUp from '../components/ui/CountUp';
-import { FaHandshake, FaGraduationCap, FaGlobe, FaTrophy, FaRobot, FaSchool, FaRecycle, FaGlobeAfrica } from 'react-icons/fa';
+import { FaHandshake, FaGraduationCap, FaGlobe, FaRobot, FaSchool, FaRecycle, FaGlobeAfrica } from 'react-icons/fa';
 import FadeContent from '../components/ui/FadeContent';
 import SmartImage from '../components/ui/SmartImage';
 import RoboCorePreview from '../components/RoboCorePreview';
@@ -130,11 +130,6 @@ const Home: React.FC = () => {
                       className="absolute inset-0 w-full h-full object-cover"
                       style={{ objectPosition: '50% 55%' }}
                     />
-                    <div className="absolute top-4 left-4">
-                      <span className="badge-accent">
-                        <FaTrophy aria-hidden="true" /> Latest Achievement
-                      </span>
-                    </div>
                   </div>
 
                   <div className="p-6 sm:p-8 lg:p-10 flex flex-col justify-center">

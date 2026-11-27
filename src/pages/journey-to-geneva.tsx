@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { SEOConfig } from '../components/SEO';
@@ -17,16 +17,6 @@ import {
 } from 'react-icons/fa';
 
 const M = 'resources/Geneva2026/web';
-
-const CHAPTERS = [
-  { id: 'building', label: '01 · Building' },
-  { id: 'nationals', label: '02 · National Champions' },
-  { id: 'levelling-up', label: '03 · Levelling Up' },
-  { id: 'partners', label: '04 · Our Partners' },
-  { id: 'global-community', label: '05 · Global Community' },
-  { id: 'geneva', label: '06 · Geneva' },
-  { id: 'bringing-it-home', label: '07 · Bringing It Home' },
-];
 
 const BENTO_BUILD: Photo[] = [
   { src: `${M}/prep-build-01.jpg`, alt: 'The first competition robot mid-build, standing on the team’s practice field' },
@@ -99,31 +89,17 @@ const SUPPORTERS = [
   { name: 'AI for Good', src: `${M}/logos/AI_For_Good-logo.webp`, role: 'Competition host', href: 'https://aiforgood.itu.int' },
 ];
 
-/** Breathing room between the floating header bar and the chapter nav bar */
-const NAV_STACK_GAP = 12;
-
 const JourneyToGeneva: React.FC = () => {
-  const [active, setActive] = useState<string>(CHAPTERS[0].id);
-  const [headerH, setHeaderH] = useState<number | null>(null);
-  const [pinned, setPinned] = useState(false);
-  const [navH, setNavH] = useState(0);
-  const sentinelRef = useRef<HTMLDivElement>(null);
-  const navRef = useRef<HTMLElement>(null);
-
-  const pinTop = (headerH ?? 0) + NAV_STACK_GAP;
-
   /**
-   * The site header floats and its height changes with the responsive logo, so
-   * measure it. The measurement positions the pinned chapter nav and also
-   * feeds --header-h, which anchor scroll-margins use.
+   * The site header floats and its height changes with the responsive logo, so measure it: --header-h feeds the
+   * chapters' scroll-margin, so links to a chapter (e.g. /journey-to-geneva#geneva) land just below the header.
+   * (The sticky chapter bar that used to sit under the header was removed on Fred's request, 27 Nov 2026.)
    */
   useEffect(() => {
     const header = document.querySelector('.site-header') as HTMLElement | null;
     if (!header) return;
     const apply = () => {
-      const h = header.offsetHeight;
-      setHeaderH(h);
-      document.documentElement.style.setProperty('--header-h', `${h}px`);
+      document.documentElement.style.setProperty('--header-h', `${header.offsetHeight}px`);
     };
     apply();
     const ro = new ResizeObserver(apply);
@@ -136,45 +112,14 @@ const JourneyToGeneva: React.FC = () => {
     };
   }, []);
 
-  // Keep a spacer the same height as the bar so pinning doesn't jump the page
+  // Opened as /journey-to-geneva#chapter (e.g. home's "View Competition Highlights" → #geneva): go to that chapter
+  // once the page has drawn. The app scrolls inside its own container, so the browser doesn't do this by itself.
+  const { hash } = useLocation();
   useEffect(() => {
-    const el = navRef.current;
-    if (!el) return;
-    const ro = new ResizeObserver(() => setNavH(el.offsetHeight));
-    ro.observe(el);
-    setNavH(el.offsetHeight);
-    return () => ro.disconnect();
-  }, []);
-
-  // Pin the bar once its place in the flow scrolls under the header
-  useEffect(() => {
-    const el = sentinelRef.current;
-    if (!el || !headerH) return;
-    const io = new IntersectionObserver(
-      ([entry]) => setPinned(!entry.isIntersecting),
-      { rootMargin: `-${pinTop}px 0px 0px 0px`, threshold: 0 }
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, [headerH, pinTop]);
-
-  // Highlight the chapter currently in view.
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      entries => {
-        const visible = entries
-          .filter(e => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) setActive(visible.target.id);
-      },
-      { rootMargin: '-25% 0px -60% 0px', threshold: [0, 0.25, 0.5] }
-    );
-    CHAPTERS.forEach(c => {
-      const el = document.getElementById(c.id);
-      if (el) observer.observe(el);
-    });
-    return () => observer.disconnect();
-  }, []);
+    if (!hash) return undefined;
+    const t = window.setTimeout(() => document.getElementById(hash.slice(1))?.scrollIntoView({ block: 'start' }), 300);
+    return () => window.clearTimeout(t);
+  }, [hash]);
 
   const jumpTo = (e: React.MouseEvent, id: string) => {
     e.preventDefault();
@@ -197,16 +142,15 @@ const JourneyToGeneva: React.FC = () => {
             <div className="max-w-7xl mx-auto">
               <div className="story-hero">
                 <SmartImage
-                  src={`${M}/geneva-stage-celebration.jpg`}
-                  alt="The Plastal-Bot Builders team celebrating on stage with their robot and certificate at the AI for Good Global Summit in Geneva"
+                  src={`${M}/geneva-swiss-team-hero.jpg`}
+                  alt="Two Plastal-Bot Builders team members with a Swiss team in yellow, holding the Swiss flag in Hall 2 at the AI for Good Global Summit in Geneva"
                   className="story-hero__img"
                   loading="eager"
+                  /* Show the lower part of the photo: the faces sit above the title instead of behind it. */
+                  style={{ objectPosition: '50% 85%' }}
                 />
                 <div className="story-hero__scrim" aria-hidden="true" />
                 <div className="story-hero__body">
-                  <span className="badge-accent mb-4">
-                    <FaTrophy aria-hidden="true" /> Our Biggest Milestone
-                  </span>
                   <h1 id="journey-title" className="type-h1 mb-3">
                     The Road to Geneva
                   </h1>
@@ -237,33 +181,6 @@ const JourneyToGeneva: React.FC = () => {
           </section>
         </FadeContent>
 
-        {/* ---------- Chapter navigation ---------- */}
-        {/* Sentinel marks where the bar sits in the flow; once it passes under
-            the header the bar switches to fixed positioning. */}
-        <div ref={sentinelRef} aria-hidden="true" />
-        {pinned && <div style={{ height: navH }} aria-hidden="true" />}
-        <nav
-          ref={navRef}
-          className={`chapter-nav px-4 sm:px-6 lg:px-8 ${pinned ? 'chapter-nav--pinned' : ''}`}
-          aria-label="Story chapters"
-          style={pinned ? { top: pinTop } : undefined}
-        >
-          <div className="chapter-nav__bar max-w-7xl mx-auto px-4">
-            <div className="chapter-nav__track">
-              {CHAPTERS.map(c => (
-                <a
-                  key={c.id}
-                  href={`#${c.id}`}
-                  onClick={e => jumpTo(e, c.id)}
-                  className={`chapter-nav__link ${active === c.id ? 'chapter-nav__link--active' : ''}`}
-                  aria-current={active === c.id ? 'true' : undefined}
-                >
-                  {c.label}
-                </a>
-              ))}
-            </div>
-          </div>
-        </nav>
 
         {/* ---------- 01 Building ---------- */}
         <StoryChapter
@@ -273,7 +190,8 @@ const JourneyToGeneva: React.FC = () => {
           title={<><span className="text-hex">Building the dream</span> on a hand-made practice field</>}
           lede="Before any stage, any flag and any flight, there was a wooden board, a roll of black tape and a lot of late evenings."
         >
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center mb-8">
+          {/* Text top-aligned; the media block stretches to the text's height (MediaBento), so the two sides are even. */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 mb-8">
             <div className="lg:col-span-7">
               <p className="type-body mb-4">
                 Preparation for the AI for Good National Edition began weeks before the event
@@ -312,7 +230,8 @@ const JourneyToGeneva: React.FC = () => {
           title={<><span className="text-hex">National champions</span> — and a ticket to Switzerland</>}
           lede="At the beginning of April, the team took their robot to the AI for Good National Edition. They won — earning the right to represent Zambia internationally."
         >
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center mb-8">
+          {/* Text top-aligned; the media block stretches to the text's height (MediaBento), so the two sides are even. */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 mb-8">
             <div className="lg:col-span-7">
               <p className="type-body mb-4">
                 Winning the national edition changed everything. It was validation that a team
@@ -363,7 +282,8 @@ const JourneyToGeneva: React.FC = () => {
           title={<><span className="text-hex">Levelling up</span> for the world stage</>}
           lede="International competition meant more advanced engineering and far more testing. So the team rebuilt — not once, but through a series of prototypes."
         >
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center mb-8">
+          {/* Text top-aligned; the media block stretches to the text's height (MediaBento), so the two sides are even. */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 mb-8">
             <div className="lg:col-span-7">
               <p className="type-body mb-4">
                 With additional robotics kits available to them for the first time (see{' '}
@@ -508,17 +428,15 @@ const JourneyToGeneva: React.FC = () => {
             </div>
           </article>
 
-          {/* Partner teams.
-              To show a team's real logo, save it as
-              public/resources/Geneva2026/web/logos/partners/<team>.png and pass
-              logo={`${M}/logos/partners/<team>.png`} below. Until then the card
-              renders a branded monogram rather than requesting a missing file. */}
+          {/* Partner teams, with their own logos (square web copies in public/resources/Geneva2026/web/team-*.jpg/.webp;
+              the Sounder Bots image had a screenshot strip cropped off). The monogram only shows if a logo fails to load. */}
           <h3 className="type-h4 mb-4">The teams behind that support</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             <PartnerCard
               name="Sounder Bots"
               subtitle="FIRST Tech Challenge · Team 23270"
               description="A FIRST Tech Challenge team from Sammamish, Washington, known for their community programmes — from free FTC and FLL coaching clinics to expert Tech Talks on robotics, sensors and control. Their encouragement and outreach spirit helped carry our team toward Geneva."
+              logo={`${M}/team-sounderbots.webp`}
               monogram="SB"
               monogramBg="#111318"
               monogramFg="#EF4B4B"
@@ -531,6 +449,7 @@ const JourneyToGeneva: React.FC = () => {
               name="The Spartabots"
               subtitle="FIRST Robotics Competition · Team 2976"
               description="Skyline High School's robotics team from Sammamish, Washington and 2018 World Champions. Alongside their competitive record, they run summer FIRST LEGO League programmes for younger students — the same mission of widening access to robotics that drives our own work."
+              logo={`${M}/team-spartabots.webp`}
               monogram="2976"
               monogramBg="#14543F"
               monogramFg="#FFFFFF"
@@ -578,12 +497,15 @@ const JourneyToGeneva: React.FC = () => {
           title={<><span className="text-hex">Geneva</span> — representing Zambia on the world stage</>}
           lede="The AI for Good Global Summit, Switzerland. Teams from around the world, one competition floor, and five young Zambians with a robot they had rebuilt three times."
         >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center mb-10">
-            <SmartImage
-              src={`${M}/geneva-flag.jpg`}
-              alt="The Plastal-Bot Builders team holding the Zambian flag while travelling to the competition"
-              className="w-full h-64 sm:h-80 object-cover rounded-lg"
-            />
+          {/* The photo stretches to the height of the text beside it (no gap above or below either side). */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 mb-10">
+            <div className="relative h-64 sm:h-80 lg:h-auto">
+              <SmartImage
+                src={`${M}/geneva-flag.jpg`}
+                alt="The Plastal-Bot Builders team holding the Zambian flag while travelling to the competition"
+                className="absolute inset-0 w-full h-full object-cover rounded-lg"
+              />
+            </div>
             <div>
               <p className="type-body mb-4">
                 They arrived carrying the flag — and the expectations of every learner back home
@@ -610,12 +532,15 @@ const JourneyToGeneva: React.FC = () => {
               label="Competition highlights from the AI for Good Robotics Competition in Geneva"
               caption="Competition highlights from the challenge floor in Geneva."
             />
-            <figure>
-              <SmartImage
-                src={`${M}/geneva-certificate.jpg`}
-                alt="The team’s AI for Good Robotics Competition Finalist Team certificate, alongside a robotics kit"
-                className="w-full h-64 sm:h-80 object-cover rounded-lg"
-              />
+            {/* Fills the same height as the video beside it, so both captions line up at the bottom. */}
+            <figure className="flex flex-col">
+              <div className="relative flex-1 min-h-[16rem] sm:min-h-[20rem] lg:min-h-0">
+                <SmartImage
+                  src={`${M}/geneva-certificate.jpg`}
+                  alt="The team’s AI for Good Robotics Competition Finalist Team certificate, alongside a robotics kit"
+                  className="absolute inset-0 w-full h-full object-cover rounded-lg"
+                />
+              </div>
               <figcaption className="type-caption mt-2">
                 Recognised as a Finalist Team at the AI for Good Robotics Competition.
               </figcaption>
@@ -634,12 +559,15 @@ const JourneyToGeneva: React.FC = () => {
           title={<><span className="text-hex">Bringing it home</span> — and passing it on</>}
           lede="The story does not end in Switzerland. It ends — and begins again — in classrooms and community halls across Zambia."
         >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-start mb-10">
-            <SmartImage
-              src={`${M}/home-recognition-01.jpg`}
-              alt="The team and school pupils photographed with officials at Zambia’s Presidential Delivery Unit"
-              className="w-full h-72 sm:h-96 object-cover rounded-lg"
-            />
+          {/* The photo stretches to the height of the text beside it. */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 mb-10">
+            <div className="relative h-72 sm:h-96 lg:h-auto">
+              <SmartImage
+                src={`${M}/home-recognition-01.jpg`}
+                alt="The team and school pupils photographed with officials at Zambia’s Presidential Delivery Unit"
+                className="absolute inset-0 w-full h-full object-cover rounded-lg"
+              />
+            </div>
             <div>
               <p className="type-body mb-4">
                 Back in Zambia, the team was hosted by the Presidential Delivery Unit, where they

@@ -7,6 +7,11 @@
       ],
       "@id": "https://www.plastalbotbuilders.com/#organization",
       "name": "Plastal-Bot Builders",
+      "alternateName": [
+        "Plastal Bot Builders",
+        "PlastalBot Builders",
+        "Plastal-Bot"
+      ],
       "legalName": "Plastal-Bot Builders",
       "description": "Plastal-Bot Builders is a youth robotics and STEM education organisation based in Lusaka, Zambia. It runs hands-on robotics workshops, bootcamps and community outreach programmes, builds open student engineering projects, and represents Zambia at international robotics competitions.",
       "url": "https://www.plastalbotbuilders.com/",
@@ -44,6 +49,11 @@
       "@type": "WebSite",
       "@id": "https://www.plastalbotbuilders.com/#website",
       "name": "Plastal-Bot Builders",
+      "alternateName": [
+        "Plastal Bot Builders",
+        "PlastalBot Builders",
+        "Plastal-Bot"
+      ],
       "description": "Plastal-Bot Builders is a youth robotics and STEM education organisation based in Lusaka, Zambia. It runs hands-on robotics workshops, bootcamps and community outreach programmes, builds open student engineering projects, and represents Zambia at international robotics competitions.",
       "url": "https://www.plastalbotbuilders.com/",
       "publisher": {

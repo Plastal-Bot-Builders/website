@@ -58,12 +58,16 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center gap-4 max-sm:py-1.5 py-2">
           {/* Logo (served from public/resources/...) */}
           <Link to="/" className="flex-shrink-0" aria-label="Plastal-Bot Builders — Home">
+            {/* The logo's drawing fills 90% of the file's width but only half its height (8000x4500 canvas), so a
+                square box showed it tiny. The box keeps the old heights (the bar's height stays the same) but is wider;
+                object-cover trims the empty top and bottom, and the negative margin lines the drawing up with the
+                bar's padding. */}
             <img
               src={logoSrc}
               alt="Plastal-Bot Builders Logo"
-              width={112}
-              height={112}
-              className="h-12 w-12 sm:h-20 sm:w-20 lg:h-24 lg:w-24 object-contain"
+              width={180}
+              height={96}
+              className="h-12 w-[112px] -ml-[5px] sm:h-20 sm:w-[150px] sm:-ml-[7px] lg:h-24 lg:w-[180px] lg:-ml-[9px] object-cover"
             />
           </Link>
 

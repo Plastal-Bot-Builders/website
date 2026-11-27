@@ -49,11 +49,18 @@ const abs = p => (SITE_URL ? `${SITE_URL}${p}` : p);
 
 // ── JSON-LD builders ────────────────────────────────────────────────────────
 
+/**
+ * Other ways people write the name. With `name` on the home page's WebSite node, Google uses these to pick the site
+ * name it shows above the result ("Plastal-Bot Builders" rather than the bare domain).
+ */
+const ALTERNATE_NAMES = ['Plastal Bot Builders', 'PlastalBot Builders', 'Plastal-Bot'];
+
 function organizationNode() {
   const node = {
     '@type': ['Organization', 'EducationalOrganization'],
     '@id': abs('/#organization'),
     name: ORG.name,
+    alternateName: ALTERNATE_NAMES,
     legalName: ORG.legalName,
     description: ORG.description,
     url: abs('/'),
@@ -88,6 +95,7 @@ function websiteNode() {
     '@type': 'WebSite',
     '@id': abs('/#website'),
     name: ORG.name,
+    alternateName: ALTERNATE_NAMES,
     description: ORG.description,
     url: abs('/'),
     publisher: { '@id': abs('/#organization') },

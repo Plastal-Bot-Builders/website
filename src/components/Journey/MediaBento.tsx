@@ -13,12 +13,12 @@ type MediaBentoProps = {
 };
 
 /**
- * Media mosaic for a story chapter.
+ * Media mosaic for a story chapter: the 9:16 phone clip on the left, two photos stacked on the right.
  *
- * The chapter clips are 9:16 phone video. Given a full column they tower over
- * the prose and leave a dead gap beside it, so the video takes a half-width
- * cell spanning two rows and two photos stack alongside — the 9:16 cell is
- * exactly the height of two stacked tiles, so the block ends up flush.
+ * It takes the height of the prose beside it rather than its own: the chapter's grid row stretches the figure, and
+ * the video and photos are drawn absolutely inside their cells (object-cover), so tall portrait photos can no longer
+ * push the block far past the text (Nationals was 926 px tall beside 347 px of text). On phones, where it sits
+ * under the text, it gets a fixed height instead.
  */
 const MediaBento: React.FC<MediaBentoProps> = ({
   videoBase,
@@ -27,11 +27,12 @@ const MediaBento: React.FC<MediaBentoProps> = ({
   photos,
   className = '',
 }) => (
-  <figure className={className}>
-    <div className="grid grid-cols-2 gap-3">
-      <div className="row-span-2 aspect-[9/16] rounded-lg overflow-hidden border border-surface bg-black">
+  <figure className={`flex flex-col ${className}`}>
+    {/* Column split and height per screen size keep the video cell close to the clip's own 9:16 shape. */}
+    <div className="grid grid-cols-2 sm:grid-cols-[2fr_3fr] lg:grid-cols-2 xl:grid-cols-[2fr_3fr] gap-3 flex-1 min-h-[22rem] sm:min-h-[34rem] lg:min-h-[20rem]">
+      <div className="relative rounded-lg overflow-hidden border border-surface bg-black">
         <video
-          className="w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover"
           controls
           preload="none"
           playsInline
@@ -45,9 +46,9 @@ const MediaBento: React.FC<MediaBentoProps> = ({
 
       <PhotoGrid
         photos={photos.slice(0, 2)}
-        className="col-start-2 row-span-2 grid grid-rows-2 gap-3 h-full"
-        itemClassName="min-h-0"
-        tileClassName="w-full h-full object-cover rounded-lg"
+        className="grid grid-rows-2 gap-3"
+        itemClassName="relative min-h-0"
+        tileClassName="absolute inset-0 w-full h-full object-cover rounded-lg"
       />
     </div>
     {videoCaption && <figcaption className="type-caption mt-2">{videoCaption}</figcaption>}

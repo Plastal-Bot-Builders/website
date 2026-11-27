@@ -1004,22 +1004,23 @@ a:hover > .logo-plate {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 4.5rem;
+  height: 4.5rem;
   flex-shrink: 0;
-  border-radius: 14px;
+  border-radius: 16px;
   font-weight: 800;
-  font-size: 1.05rem;
+  font-size: 1.2rem;
   letter-spacing: 0.02em;
 }
+/* The team logos are full square tiles with their own backgrounds (Sounder Bots black, Spartabots green), so they
+   are shown edge to edge rather than framed on white. */
 .partner-logo {
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 4.5rem;
+  height: 4.5rem;
   flex-shrink: 0;
-  border-radius: 14px;
-  object-fit: contain;
-  background: #fff;
-  padding: 0.3rem;
+  border-radius: 16px;
+  object-fit: cover;
+  border: 1px solid var(--surface-border);
 }
 .partner-link {
   display: inline-flex;
@@ -1058,8 +1059,8 @@ a:hover > .logo-plate {
   background: var(--accent);
 }
 
-/* Anchor targets clear both the site header and the sticky chapter nav */
-.chapter-anchor { scroll-margin-top: calc(var(--header-h, 4.5rem) + 4.5rem); }
+/* Anchor targets clear the floating site header (the sticky chapter nav was removed, 27 Nov 2026) */
+.chapter-anchor { scroll-margin-top: calc(var(--header-h, 4.5rem) + 1rem); }
 
 /* --- Looping "living photo" video control --- */
 .video-loop__toggle {

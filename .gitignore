@@ -169,5 +169,7 @@ public/resources/Geneva2026/*
 # logo_light.svg mark) and the Apple touch icon (that mark on the site's cream).
 !public/resources/Logo/favicon-*.png
 !public/resources/Logo/apple-touch-icon.png
+# /favicon.ico (16-64 px, what Google and browsers ask for first; without it the address returned the home page).
+!public/favicon.ico
 
 

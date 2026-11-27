@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaLaptopCode, FaPuzzlePiece, FaRobot, FaTools } from 'react-icons/fa';
+import { FaLaptopCode, FaPuzzlePiece, FaTools } from 'react-icons/fa';
 import SmartImage from './ui/SmartImage';
+import RoboCoreLogo from './RoboCore/RoboCoreLogo';
 
 /**
  * The home page's way into RoboCore (it left the main menu on 27 Nov 2026). Styled as a Plastal-Bot Builders section,
@@ -57,11 +58,13 @@ const RoboCorePreview: React.FC = () => {
         >
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="p-6 sm:p-8 lg:p-10 flex flex-col justify-center order-2 lg:order-1">
-              <span className="badge-accent self-start mb-4">
-                <FaRobot aria-hidden="true" /> Our Robotics Kit
-              </span>
+              {/* The RoboCore logo leads the section (Fred's choice), in the page's title colour: never RoboCore's
+                  navy and yellow on a Plastal page. It is the "RoboCore" of the heading (named "RoboCore" for screen readers). */}
               <h2 id="robocore-preview-title" className="type-h2 mb-4">
-                <span className="text-hex">RoboCore</span>: Build a Robot, Then Code It
+                <span className="block mb-4" style={{ color: 'var(--title-color)' }}>
+                  <RoboCoreLogo className="h-16 sm:h-20 w-auto" title="RoboCore:" />
+                </span>
+                <span className="text-hex">Build a Robot</span>, Then Code It
               </h2>
               <p className="type-body mb-4">
                 RoboCore is the robot kit and coding app our team is building for young makers. Learners put the robot
