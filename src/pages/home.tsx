@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { apiFetch, handleJson } from '../api/client';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -10,10 +10,10 @@ import ThemedImage from '../theme/ThemedImage';
 import { SEOConfig } from '../components/SEO';
 import DecryptedText from '../components/ui/DecryptedText';
 import CountUp from '../components/ui/CountUp';
-import { FaHandshake, FaGraduationCap, FaGlobe, FaTrophy, FaRobot, FaSchool, FaRecycle, FaGlobeAfrica, FaMapMarkerAlt, FaCalendarAlt, FaFlag } from 'react-icons/fa';
+import { FaHandshake, FaGraduationCap, FaGlobe, FaTrophy, FaRobot, FaSchool, FaRecycle, FaGlobeAfrica } from 'react-icons/fa';
 import FadeContent from '../components/ui/FadeContent';
 import SmartImage from '../components/ui/SmartImage';
-import AutoLoopVideo from '../components/ui/AutoLoopVideo';
+import RoboCorePreview from '../components/RoboCorePreview';
 
 
 const Home: React.FC = () => {
@@ -123,11 +123,12 @@ const Home: React.FC = () => {
             <div className="max-w-7xl mx-auto">
               <div className="interactive-card overflow-hidden">
                 <div className="grid grid-cols-1 lg:grid-cols-2">
-                  <div className="relative min-h-[16rem] sm:min-h-[20rem]">
-                    <AutoLoopVideo
-                      base="resources/Geneva2026/web/geneva-celebration-loop"
-                      label="Slow-motion footage of the Plastal-Bot Builders team celebrating on stage with their robot and Finalist Team certificate at the AI for Good Global Summit in Geneva, Switzerland"
+                  <div className="relative min-h-[21rem] sm:min-h-[26rem]">
+                    <SmartImage
+                      src="resources/Geneva2026/web/geneva-finalists-stage.jpg"
+                      alt="The Plastal-Bot Builders team celebrates on stage at the AI for Good Global Summit in Geneva, holding their robots and their Finalist Team certificate"
                       className="absolute inset-0 w-full h-full object-cover"
+                      style={{ objectPosition: '50% 55%' }}
                     />
                     <div className="absolute top-4 left-4">
                       <span className="badge-accent">
@@ -153,17 +154,41 @@ const Home: React.FC = () => {
 
                     <div className="grid grid-cols-3 gap-3 sm:gap-4 mb-8">
                       <div className="text-center p-3 rounded-lg surface border border-surface">
-                        <FaMapMarkerAlt aria-hidden="true" className="mx-auto mb-2 text-hex" />
+                        <div className="h-8 mb-2 flex items-center justify-center" aria-hidden="true">
+                          <SmartImage
+                            src="resources/Geneva2026/web/flag-switzerland.jpg"
+                            alt=""
+                            width={28}
+                            height={28}
+                            className="h-7 w-7 rounded-[4px] shadow-sm ring-1 ring-black/10"
+                          />
+                        </div>
                         <p className="text-sm font-bold">Geneva</p>
                         <p className="text-xs opacity-75">Switzerland</p>
                       </div>
                       <div className="text-center p-3 rounded-lg surface border border-surface">
-                        <FaFlag aria-hidden="true" className="mx-auto mb-2 text-hex" />
+                        <div className="h-8 mb-2 flex items-center justify-center" aria-hidden="true">
+                          <SmartImage
+                            src="resources/Geneva2026/web/flag-zambia.jpg"
+                            alt=""
+                            width={42}
+                            height={28}
+                            className="h-7 w-auto rounded-[4px] shadow-sm ring-1 ring-black/10"
+                          />
+                        </div>
                         <p className="text-sm font-bold">Team Zambia</p>
                         <p className="text-xs opacity-75">Country represented</p>
                       </div>
                       <div className="text-center p-3 rounded-lg surface border border-surface">
-                        <FaCalendarAlt aria-hidden="true" className="mx-auto mb-2 text-hex" />
+                        <div className="h-8 mb-2 flex items-center justify-center" aria-hidden="true">
+                          <SmartImage
+                            src="resources/Geneva2026/web/logos/AI_For_Good-logo.png"
+                            alt=""
+                            width={64}
+                            height={32}
+                            className="h-8 w-auto"
+                          />
+                        </div>
                         <p className="text-sm font-bold">2026</p>
                         <p className="text-xs opacity-75">AI for Good Summit</p>
                       </div>
@@ -190,6 +215,11 @@ const Home: React.FC = () => {
               </div>
             </div>
           </section>
+        </FadeContent>
+
+        {/* RoboCore: the way into the RoboCore pages (no longer in the main menu) */}
+        <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0} delay={120}>
+          <RoboCorePreview />
         </FadeContent>
 
         {/* Impact strip */}
@@ -841,6 +871,10 @@ const Home: React.FC = () => {
                       {status === 'loading' ? 'Sending...' : 'Subscribe'}
                     </button>
                   </form>
+                  <p className="text-xs sm:text-sm opacity-75" data-no-decrypt>
+                    We&apos;ll only use your email to send our newsletter. See our{' '}
+                    <Link to="/privacy" className="underline hover:text-accent">Privacy Policy</Link>.
+                  </p>
                   {status === 'ok' && (
                     <p className="text-sm text-green-500">Subscribed successfully!</p>
                   )}

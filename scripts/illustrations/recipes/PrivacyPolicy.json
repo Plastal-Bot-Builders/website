@@ -1,0 +1,24 @@
+{
+  "light": {
+    "source": "public/resources/Illustrations/PrivacyPolicy1.svg",
+    "parts": [
+      { "name": "blob", "from": 0, "to": 1, "anim": "breathe", "enter": "grow", "origin": [261, 245], "delay": 0 },
+      { "name": "sparkle-1", "from": 2, "to": 3, "anim": "twinkle", "duration": 2.8, "phase": 0 },
+      { "name": "sparkle-2", "from": 4, "to": 5, "anim": "twinkle", "duration": 2.8, "phase": -0.5 },
+      { "name": "sparkle-3", "from": 6, "to": 7, "anim": "twinkle", "duration": 2.8, "phase": -1 },
+      { "name": "sparkle-4", "from": 8, "to": 9, "anim": "twinkle", "duration": 2.8, "phase": -1.5 },
+      { "name": "sparkle-5", "from": 10, "to": 11, "anim": "twinkle", "duration": 3.2, "phase": -2 },
+      { "name": "sparkle-6", "from": 12, "to": 13, "anim": "twinkle", "duration": 3.2, "phase": -2.5 },
+      { "name": "dots", "from": 14, "to": 19, "anim": "glow", "phase": -1 },
+      { "name": "plant-top", "from": 24, "to": 26, "anim": "sway-base", "duration": 5.5, "amp": 2.2 },
+      { "name": "plant-bottom", "from": 27, "to": 29, "anim": "sway-base", "duration": 6.5, "phase": -1.5, "amp": 2.5 },
+      { "name": "window", "from": 30, "to": 57, "anim": "float", "duration": 4, "enter": "drop", "origin": [336, 236], "delay": 0.2 },
+      { "name": "shield", "from": 38, "to": 44, "anim": "beat", "duration": 2.6, "phase": -0.4 },
+      { "name": "person", "from": 58, "to": 91, "enter": "rise", "origin": [207, 311], "delay": 0.45 }
+    ]
+  },
+  "dark": {
+    "source": "public/resources/Illustrations/PrivacyPolicy.svg",
+    "parts": "same"
+  }
+}

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaLinkedin, FaInstagram, FaFacebook, FaMediumM, FaArrowUp, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import { useTheme } from '../theme/ThemeProvider';
+import { asset } from '../utils/asset';
 
 const quickLinks = [
   { to: '/', label: 'Home' },
@@ -63,6 +65,7 @@ const scrollAppToTop = () => {
 
 const Footer: React.FC = () => {
   const year = new Date().getFullYear();
+  const { resolvedTheme } = useTheme();
 
   return (
     <footer className="site-footer">
@@ -71,9 +74,18 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
           {/* Brand / mission */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <p className="text-lg font-extrabold title mb-3">
-              <span className="text-hex">Plastal-Bot</span> Builders
-            </p>
+            {/* The header's logo files (already cached by the time anyone reaches the footer). Their artwork sits
+                centred on a wide 8000x4500 canvas: object-fit cover trims the empty top and bottom, and the negative
+                margin lines the drawing up with the text below. */}
+            <Link to="/" aria-label="Plastal-Bot Builders home page" className="inline-block mb-1" style={{ marginLeft: -12 }}>
+              <img
+                src={asset(resolvedTheme === 'dark' ? 'resources/Logo/fred.svg' : 'resources/Logo/fred1.svg')}
+                alt=""
+                width={240}
+                height={68}
+                style={{ width: 240, height: 68, objectFit: 'cover', display: 'block' }}
+              />
+            </Link>
             <p className="text-sm leading-relaxed opacity-85 mb-5 max-w-xs">
               Empowering Zambia's next generation of innovators through robotics,
               programming and hands-on STEM education.
@@ -144,9 +156,19 @@ const Footer: React.FC = () => {
 
         {/* Bottom bar */}
         <div className="mt-10 pt-6 border-t border-surface flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm opacity-80 text-center sm:text-left">
-            ©️{year} Plastal-Bot Builders. All rights reserved.
-          </p>
+          <div className="text-sm opacity-80 text-center sm:text-left space-y-1">
+            <p>©️{year} Plastal-Bot Builders. All rights reserved.</p>
+            <p>
+              <Link to="/privacy" className="footer-link">Privacy Policy</Link>
+              <span aria-hidden="true"> · </span>
+              <Link to="/terms" className="footer-link">Terms of Use</Link>
+              <span aria-hidden="true"> · </span>
+              Illustrations by{' '}
+              <a href="https://storyset.com" target="_blank" rel="noopener noreferrer" className="footer-link">
+                Storyset
+              </a>
+            </p>
+          </div>
           <button type="button" className="back-to-top" onClick={scrollAppToTop}>
             <FaArrowUp aria-hidden="true" />
             Back to top

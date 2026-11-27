@@ -398,14 +398,19 @@ const Programs: React.FC = () => {
               <div className="max-w-7xl mx-auto px-4 py-12">
                 <div className="flex flex-col md:flex-row items-center gap-8">
                   <div className="w-full md:w-1/2">
+                    <span className="badge-accent mb-4">Planned for 2027</span>
                     <h1 className="type-h1 mb-4">
                       <span className="text-hex">Plastal-Bot</span> 5-Day Robotics & AI Bootcamp
                     </h1>
-                    <p className="mb-6 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
-                      Experience an intensive hands-on journey into robotics and AI. Master essential tools
-                      like TinkerCad, Fusion 360, ROS2, and more while building real-world projects.
+                    <p className="mb-4 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
+                      We're planning an intensive, hands-on week of robotics and AI: learn tools like Tinkercad,
+                      Fusion 360 and ROS 2 while you build real projects.
                     </p>
-                    <Button label="Register Now" href="/events" />
+                    <p className="mb-6 text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
+                      Dates and venue are still being set. Register your interest and we'll tell you first when
+                      registration opens.
+                    </p>
+                    <InterestButtons />
                   </div>
                   <div className="w-full md:w-1/2">
                     <ThemedImage
@@ -421,7 +426,8 @@ const Programs: React.FC = () => {
             {/* Daily Schedule */}
             <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0} delay={0.2}>
               <div className="max-w-7xl mx-auto px-4">
-                <h2 className="text-3xl font-bold mb-8">Daily Schedule</h2>
+                <h2 className="text-3xl font-bold mb-2">Planned Daily Schedule</h2>
+                <p className="mb-8 opacity-85">The programme may still change as we prepare it.</p>
                 <div className="overflow-x-auto">
                   <table className="w-full min-w-[640px] border-collapse">
                     <thead className="sticky top-0 table-head">
@@ -453,7 +459,8 @@ const Programs: React.FC = () => {
                                   <img
                                     key={i}
                                     src={asset(tool.icon)}
-                                    alt="Tool icon"
+                                    alt={toolName(tool.icon)}
+                                    title={toolName(tool.icon)}
                                     className="w-8 h-8 hover:scale-110 transition-transform"
                                   />
                                 ) : null
@@ -491,13 +498,13 @@ const Programs: React.FC = () => {
             {/* CTA Section */}
             <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0} delay={0.4}>
               <div className="max-w-7xl mx-auto px-4 text-center mb-4">
-                <h2 className="text-3xl font-bold mb-6">Ready to Start Your Journey?</h2>
+                <h2 className="text-3xl font-bold mb-6">Want a Place?</h2>
                 <p className="mb-8 max-w-2xl mx-auto text-sm sm:text-base md:text-lg lg:text-lg xl:text-lg">
-                  Limited spots available. Secure your place in this transformative
-                  5-day bootcamp and take your first step into the world of robotics and AI.
+                  Places will be limited. Register your interest now and we'll contact you as soon as the dates
+                  are set and registration opens.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
-                  <Button label="Register Now" href="/events" />
+                  <InterestButtons center />
                   <Button label="Ask a Question" href="/support" />
                 </div>
               </div>
@@ -510,5 +517,50 @@ const Programs: React.FC = () => {
     </>
   );
 };
+
+/*
+ * The bootcamp is planned for 2027 with no dates yet, so instead of registering on /events (no event to register
+ * for) people register their interest with us directly. Same WhatsApp number and inbox as the RoboCore pilot page
+ * (src/components/RoboCore/shared.ts).
+ */
+const BOOTCAMP_INTEREST =
+  "Hello Plastal-Bot Builders, I'd like to register my interest in the 5-Day Robotics & AI Bootcamp in 2027. " +
+  'My name is … and I am a … (student / parent / teacher).';
+const INTEREST_WHATSAPP = `https://wa.me/260975608103?text=${encodeURIComponent(BOOTCAMP_INTEREST)}`;
+const INTEREST_EMAIL = `mailto:plastalbotbuilders@gmail.com?subject=${encodeURIComponent(
+  'Bootcamp 2027: register my interest'
+)}&body=${encodeURIComponent(BOOTCAMP_INTEREST)}`;
+
+const InterestButtons: React.FC<{ center?: boolean }> = ({ center }) => (
+  <div className={`flex flex-col sm:flex-row gap-4 ${center ? 'justify-center items-center' : 'items-start'}`}>
+    <a
+      href={INTEREST_WHATSAPP}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="custom-button text-center"
+      style={{ textDecoration: 'none' }}
+    >
+      Register interest on WhatsApp
+    </a>
+    <a href={INTEREST_EMAIL} className="custom-button text-center" style={{ textDecoration: 'none' }}>
+      Register by email
+    </a>
+  </div>
+);
+
+/** The bootcamp tools, named from their icon files, for alt text and hover titles. */
+const TOOL_NAMES: Record<string, string> = {
+  Fusion360: 'Fusion 360',
+  Gazebo: 'Gazebo',
+  RaspberryPi: 'Raspberry Pi',
+  Ros: 'ROS 2',
+  arduino: 'Arduino',
+  esp32: 'ESP32',
+  googlecolab: 'Google Colab',
+  tensorflow: 'TensorFlow',
+  tinkercad: 'Tinkercad',
+  yolo: 'YOLO',
+};
+const toolName = (icon: string) => TOOL_NAMES[icon.replace(/^.*\//, '').replace(/\.\w+$/, '')] ?? 'Tool';
 
 export default Programs;

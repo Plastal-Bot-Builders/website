@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { FaWhatsapp } from 'react-icons/fa';
-import { LuCopy, LuLinkedin, LuMail } from 'react-icons/lu';
+import { LuCopy, LuMail } from 'react-icons/lu';
 import { SEOConfig } from '../components/SEO';
 import Tile from '../components/RoboCore/Tile';
-import { CONTACT, LINKEDIN, WHATSAPP, scrollToSection, whatsappLink } from '../components/RoboCore/shared';
+import { CONTACT, SOCIALS, WHATSAPP, scrollToSection, whatsappLink } from '../components/RoboCore/shared';
 
 /*
  * /robocore/pilot: where a school, a hub or a partner writes to us. Every "ask about a pilot" and "partner with us"
@@ -315,11 +315,13 @@ const RoboCorePilot: React.FC = () => {
                     <LuMail aria-hidden="true" /> {CONTACT}
                   </a>
                 </li>
-                <li>
-                  <a className="rc-link" href={LINKEDIN} target="_blank" rel="noopener noreferrer">
-                    <LuLinkedin aria-hidden="true" /> LinkedIn
-                  </a>
-                </li>
+                {SOCIALS.map(({ label, href, Icon }) => (
+                  <li key={label}>
+                    <a className="rc-link" href={href} target="_blank" rel="noopener noreferrer">
+                      <Icon aria-hidden="true" /> {label}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </Tile>
           </div>

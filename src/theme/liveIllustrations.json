@@ -1,4 +1,7 @@
 {
+  "AcceptTerms": {
+    "ratio": "500 / 500"
+  },
   "Connecting_teams_bro": {
     "ratio": "500 / 500"
   },
@@ -31,6 +34,9 @@
   },
   "Partnerships": {
     "ratio": "700 / 500"
+  },
+  "PrivacyPolicy": {
+    "ratio": "500 / 500"
   },
   "Robotarmbro": {
     "ratio": "500 / 500"

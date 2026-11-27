@@ -1,9 +1,17 @@
 /** Shared by the RoboCore frame (RoboCoreLayout) and its pages. */
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import type { IconType } from 'react-icons';
+import { LuFacebook, LuInstagram, LuLinkedin } from 'react-icons/lu';
 
 export const CONTACT = 'plastalbotbuilders@gmail.com';
-export const LINKEDIN = 'https://www.linkedin.com/company/plastal-bot-builders/';
+
+/** RoboCore's own social pages ("RoboCore Zambia", @robocorezambia). Plastal-Bot Builders has separate ones (Footer.tsx). */
+export const SOCIALS: { label: string; href: string; Icon: IconType }[] = [
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/showcase/robocorezambia/', Icon: LuLinkedin },
+  { label: 'Instagram', href: 'https://www.instagram.com/robocorezambia/', Icon: LuInstagram },
+  { label: 'Facebook', href: 'https://www.facebook.com/robocorezambia', Icon: LuFacebook },
+];
 
 /** The enquiry page: every "ask about a pilot" and "partner with us" button leads here (src/pages/robocore-pilot.tsx). */
 export const PILOT = '/robocore/pilot';

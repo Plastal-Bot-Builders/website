@@ -27,6 +27,8 @@ const EventsPage = lazy(() => import('./pages/events'));
 const NewsPage = lazy(() => import('./pages/news'));
 const IctazTechFair2026 = lazy(() => import('./pages/news-ictaz-2026'));
 const JourneyToGeneva = lazy(() => import('./pages/journey-to-geneva'));
+const Privacy = lazy(() => import('./pages/privacy'));
+const Terms = lazy(() => import('./pages/terms'));
 const Error404 = lazy(() => import('./pages/error'));
 
 // RoboCore: a stand-alone section with its own header and footer (RoboCoreLayout). The Plastal-Bot site links in;
@@ -167,6 +169,8 @@ const App: React.FC = () => {
                 <Route path="/news" element={<NewsPage />} />
                 <Route path="/news/ictaz-tech-fair-2026" element={<IctazTechFair2026 />} />
                 <Route path="/journey-to-geneva" element={<JourneyToGeneva />} />
+                <Route path="/privacy" element={<Privacy />} />
+                <Route path="/terms" element={<Terms />} />
 
                 {/* Support pages */}
                 <Route path="/support/donations" element={<DonationsPage />} />

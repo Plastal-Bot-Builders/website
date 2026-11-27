@@ -1,0 +1,18 @@
+{
+  "light": {
+    "source": "public/resources/Illustrations/AcceptTerms1.svg",
+    "parts": [
+      { "name": "blob", "from": 9, "to": 10, "anim": "breathe", "enter": "grow", "origin": [247, 229], "delay": 0 },
+      { "name": "plant-back", "from": 13, "to": 18, "anim": "sway-base", "duration": 5, "amp": 2.5 },
+      { "name": "bush", "from": 19, "to": 24, "anim": "sway-base", "duration": 6.5, "phase": -2, "amp": 2 },
+      { "name": "terms-page", "from": 25, "to": 131, "anim": "float", "duration": 4.5, "enter": "drop", "origin": [238, 167], "delay": 0.2 },
+      { "name": "accept-button", "from": 104, "to": 110, "anim": "beat", "duration": 2.4, "phase": -0.6 },
+      { "name": "person", "from": 132, "to": 173, "enter": "rise", "origin": [307, 334], "delay": 0.45 },
+      { "name": "arm", "from": 132, "to": 143, "anim": "sway", "origin": [314, 262], "duration": 3, "amp": 2 }
+    ]
+  },
+  "dark": {
+    "source": "public/resources/Illustrations/AcceptTerms.svg",
+    "parts": "same"
+  }
+}

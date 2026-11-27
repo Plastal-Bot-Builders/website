@@ -779,6 +779,44 @@ const ROUTES = [
     },
     schema: ['WebPage'],
   },
+
+  {
+    path: '/privacy',
+    priority: '0.3',
+    changefreq: 'yearly',
+    title: 'Privacy Policy — Plastal-Bot Builders',
+    description:
+      'How Plastal-Bot Builders collects, uses and protects personal information on its website, and the choices you have.',
+    breadcrumb: [{ name: 'Privacy Policy', path: '/privacy' }],
+    body: {
+      h1: 'Privacy Policy',
+      summary:
+        'What personal information Plastal-Bot Builders collects through its website (membership applications, event registrations, the newsletter, messages and the chat assistant), why, who helps handle it, how long it is kept, and your rights under Zambia’s Data Protection Act No. 3 of 2021.',
+      sections: [
+        {
+          h2: 'Your rights',
+          p: 'You can ask Plastal-Bot Builders for a copy of the information it holds about you, and ask it to correct or delete that information, stop using it, or stop sending you emails. Email plastalbotbuilders@gmail.com.',
+        },
+      ],
+    },
+    schema: ['WebPage'],
+  },
+
+  {
+    path: '/terms',
+    priority: '0.3',
+    changefreq: 'yearly',
+    title: 'Terms of Use — Plastal-Bot Builders',
+    description: 'The terms for using the Plastal-Bot Builders website, including the RoboCore pages and downloads.',
+    breadcrumb: [{ name: 'Terms of Use', path: '/terms' }],
+    body: {
+      h1: 'Terms of Use',
+      summary:
+        'The terms for using the Plastal-Bot Builders website and the RoboCore pages: using the site, our content, RoboCore downloads, forms, the chat assistant, links to other sites, and the law that applies (Zambia).',
+      sections: [],
+    },
+    schema: ['WebPage'],
+  },
 ];
 
 module.exports = { ORG, VERIFIED_FACTS, UNVERIFIED, ROUTES, DEFAULT_IMAGE };

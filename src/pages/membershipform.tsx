@@ -307,7 +307,8 @@ const MembershipForm: React.FC = () => {
                         {showPrivacyNotice && (
                             <div className="surface border border-surface rounded-lg p-4 mb-6 relative flex justify-between items-center gap-3">
                                 <p className="text-current">
-                                    <span className="text-hex">🔒</span> Your Privacy Matters: Rest assured, all information provided in this application will be kept confidential and will not be shared with any third party.
+                                    <span className="text-hex">🔒</span> Your privacy matters: we use what you share here only to review your application and run your membership, and we never sell it. If you're under 18, please ask a parent or guardian to agree before you apply. Read our{' '}
+                                    <a href="/privacy" target="_blank" rel="noopener noreferrer" className="text-hex underline">Privacy Policy</a> (opens in a new tab).
                                 </p>
                                 <button
                                     onClick={() => setShowPrivacyNotice(false)}
@@ -918,7 +919,7 @@ const MembershipForm: React.FC = () => {
                                     {([
                                         ['informationAccuracy', 'I hereby declare that the information provided is true and accurate to the best of my knowledge.'],
                                         ['rulesAgreement', 'I agree to abide by the rules and regulations of Plastal-Bot Builders.'],
-                                        ['dataProcessing', "I consent to the processing of my personal data in accordance with the organization's data privacy policy."],
+                                        ['dataProcessing', 'I consent to Plastal-Bot Builders processing my personal data as described in its Privacy Policy.'],
                                     ] as const).map(([name, label]) => (
                                         <label key={name} className="flex items-start cursor-pointer">
                                             <Checkbox
@@ -932,6 +933,13 @@ const MembershipForm: React.FC = () => {
                                         </label>
                                     ))}
                                 </div>
+                                <p className="text-sm opacity-85 mt-4">
+                                    Read the{' '}
+                                    <a href="/privacy" target="_blank" rel="noopener noreferrer" className="text-hex underline">Privacy Policy</a>
+                                    {' '}and{' '}
+                                    <a href="/terms" target="_blank" rel="noopener noreferrer" className="text-hex underline">Terms of Use</a>
+                                    {' '}(each opens in a new tab, so you won't lose your answers).
+                                </p>
                             </div>
                             <CodeOfConductNotice standalone={false} />
                             {/* <!-- Submit Button --> */}

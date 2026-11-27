@@ -1390,6 +1390,104 @@
           "inLanguage": "en"
         }
       ]
+    },
+    "/privacy": {
+      "title": "Privacy Policy — Plastal-Bot Builders",
+      "description": "How Plastal-Bot Builders collects, uses and protects personal information on its website, and the choices you have.",
+      "image": "https://www.plastalbotbuilders.com/resources/social/og-default.jpg",
+      "isCard": true,
+      "imageAlt": "Plastal-Bot Builders — robotics and STEM education in Zambia",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1",
+      "nodes": [
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.plastalbotbuilders.com/privacy#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.plastalbotbuilders.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Privacy Policy",
+              "item": "https://www.plastalbotbuilders.com/privacy"
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.plastalbotbuilders.com/privacy#webpage",
+          "url": "https://www.plastalbotbuilders.com/privacy",
+          "name": "Privacy Policy — Plastal-Bot Builders",
+          "description": "How Plastal-Bot Builders collects, uses and protects personal information on its website, and the choices you have.",
+          "isPartOf": {
+            "@id": "https://www.plastalbotbuilders.com/#website"
+          },
+          "about": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.plastalbotbuilders.com/resources/social/og-default.jpg"
+          },
+          "breadcrumb": {
+            "@id": "https://www.plastalbotbuilders.com/privacy#breadcrumbs"
+          },
+          "inLanguage": "en"
+        }
+      ]
+    },
+    "/terms": {
+      "title": "Terms of Use — Plastal-Bot Builders",
+      "description": "The terms for using the Plastal-Bot Builders website, including the RoboCore pages and downloads.",
+      "image": "https://www.plastalbotbuilders.com/resources/social/og-default.jpg",
+      "isCard": true,
+      "imageAlt": "Plastal-Bot Builders — robotics and STEM education in Zambia",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1",
+      "nodes": [
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.plastalbotbuilders.com/terms#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.plastalbotbuilders.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Terms of Use",
+              "item": "https://www.plastalbotbuilders.com/terms"
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.plastalbotbuilders.com/terms#webpage",
+          "url": "https://www.plastalbotbuilders.com/terms",
+          "name": "Terms of Use — Plastal-Bot Builders",
+          "description": "The terms for using the Plastal-Bot Builders website, including the RoboCore pages and downloads.",
+          "isPartOf": {
+            "@id": "https://www.plastalbotbuilders.com/#website"
+          },
+          "about": {
+            "@id": "https://www.plastalbotbuilders.com/#organization"
+          },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://www.plastalbotbuilders.com/resources/social/og-default.jpg"
+          },
+          "breadcrumb": {
+            "@id": "https://www.plastalbotbuilders.com/terms#breadcrumbs"
+          },
+          "inLanguage": "en"
+        }
+      ]
     }
   }
 }

@@ -120,7 +120,7 @@ When students build and program real machines, they learn science and engineerin
 
 - Winners of the AI for Good National Edition (Zambia), April 2026, and finalists at the AI for Good Global Summit, Geneva, July 2026
 
-- Our team has been part of initiatives that have reached more than 8,000 young people in Zambia
+- Our team has been part of initiatives that have reached more than 600 young people in Zambia
 
 - Workshops and bootcamps in robotics, electronics and programming
 

@@ -13,7 +13,7 @@ const Header: React.FC = () => {
   const navLinks = [
     { path: '/', label: '.home( )' },
     { path: '/about', label: '.about( )' },
-    { path: '/robocore', label: '.robocore( )' },
+    // RoboCore is reached from its preview section on the home page (src/components/RoboCorePreview.tsx).
     { path: '/news', label: '.news( )' },
     { path: '/blogs', label: '.blogs( )' },
     { path: '/support', label: '.support( )' },

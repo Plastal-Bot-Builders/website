@@ -119,7 +119,13 @@ export const EventRegistrationForm: React.FC<EventRegistrationFormProps> = ({
               className="w-full p-2 border rounded-md bg-transparent"
             />
           </div>
-          
+
+          <p className="text-sm opacity-85">
+            We use these details only to organise this event and contact you about it. Under 18? Please ask a parent
+            or guardian to agree first. See our{' '}
+            <a href="/privacy" target="_blank" rel="noopener noreferrer" className="text-hex underline">Privacy Policy</a>.
+          </p>
+
           <button
             type="submit"
             disabled={isSubmitting}

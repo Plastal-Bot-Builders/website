@@ -1,13 +1,13 @@
 import React, { Suspense, useEffect, useState } from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { FaWhatsapp } from 'react-icons/fa';
-import { LuLinkedin, LuMail, LuMenu, LuMoon, LuSun, LuX } from 'react-icons/lu';
+import { LuMail, LuMenu, LuMoon, LuSun, LuX } from 'react-icons/lu';
 import { useTheme } from '../../theme/ThemeProvider';
 import { asset } from '../../utils/asset';
 import { useRoboCoreBrowserIcon } from './browserIcon';
 import RoboCoreLoader from './RoboCoreLoader';
 import RoboCoreLogo from './RoboCoreLogo';
-import { ABOUT, CONTACT, LINKEDIN, PILOT, WHATSAPP, scrollToSection, whatsappLink } from './shared';
+import { ABOUT, CONTACT, PILOT, SOCIALS, WHATSAPP, scrollToSection, whatsappLink } from './shared';
 import './robocore.css';
 
 /*
@@ -140,9 +140,11 @@ const RoboCoreFooter: React.FC = () => (
         <a className="rc-link" href={`mailto:${CONTACT}`}>
           <LuMail aria-hidden="true" /> {CONTACT}
         </a>
-        <a className="rc-link" href={LINKEDIN} target="_blank" rel="noopener noreferrer">
-          <LuLinkedin aria-hidden="true" /> LinkedIn
-        </a>
+        {SOCIALS.map(({ label, href, Icon }) => (
+          <a key={label} className="rc-link" href={href} target="_blank" rel="noopener noreferrer">
+            <Icon aria-hidden="true" /> {label}
+          </a>
+        ))}
       </div>
     </div>
     <div className="rc-wrap rc-footer-base">

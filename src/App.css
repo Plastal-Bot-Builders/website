@@ -513,7 +513,8 @@ nav a {
   color: var(--text);
   border-top: 1px solid var(--header-border);
 }
-.site-footer a { color: inherit; margin: 0 10px; text-decoration: none; }
+/* No side margin on footer links: it pushed every link off its column's left edge (and away from its icon). */
+.site-footer a { color: inherit; text-decoration: none; }
 .site-footer p { margin: 10px 0; }
 
 /* Icons (use accent on hover) */

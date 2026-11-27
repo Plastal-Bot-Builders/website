@@ -10,7 +10,7 @@ import RoboCoreLogo from '../components/RoboCore/RoboCoreLogo';
 import Gallery, { GalleryItem } from '../components/RoboCore/Gallery';
 import Supporters from '../components/RoboCore/Supporters';
 import Tile from '../components/RoboCore/Tile';
-import { LINKEDIN, PILOT, WEB_IDE, scrollToSection, useScrollToHash } from '../components/RoboCore/shared';
+import { PILOT, SOCIALS, WEB_IDE, scrollToSection, useScrollToHash } from '../components/RoboCore/shared';
 import { asset } from '../utils/asset';
 
 // three.js only downloads when the hero is ready for it.
@@ -559,10 +559,21 @@ const RoboCorePage: React.FC = () => {
             </Tile>
             <Tile span="rc-c3">
               <h3 className="rc-tile-title">Follow the build</h3>
-              <p className="rc-body">Follow Plastal-Bot Builders for RoboCore news.</p>
-              <a className="rc-link rc-tile-cta" href={LINKEDIN} target="_blank" rel="noopener noreferrer">
-                LinkedIn
-              </a>
+              <p className="rc-body">Follow RoboCore Zambia for news from the build.</p>
+              <span className="rc-tile-cta" style={{ display: 'flex', flexWrap: 'wrap', gap: '8px 16px' }}>
+                {SOCIALS.map(({ label, href, Icon }) => (
+                  <a
+                    key={label}
+                    className="rc-link"
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}
+                  >
+                    <Icon aria-hidden="true" /> {label}
+                  </a>
+                ))}
+              </span>
             </Tile>
           </div>
         </div>
