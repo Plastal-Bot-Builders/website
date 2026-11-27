@@ -18,7 +18,7 @@ export default function StoryPage({ kind }: { kind: 'blog' | 'event' }) {
  }, [kind, slug]);
  const item = post || event;
  return <><Header /><main style={{padding:'48px 24px',maxWidth:1000,margin:'auto'}}>
- <Link to={kind === 'blog' ? '/blogs' : '/events'}>← Back to {kind === 'blog' ? 'blogs' : 'events'}</Link>
+ <Link to={kind === 'blog' ? '/news' : '/programs'}>← Back to {kind === 'blog' ? 'news' : 'programmes'}</Link>
  {error ? <p role="alert">{error}</p> : !item ? <p role="status">Loading…</p> : <>
  <SEOConfig title={`${item.title} | Plastal-Bot Builders`} description={post?.excerpt || event?.description || post?.content.slice(0,160) || item.title} image={imageSource(post?.coverImage || event?.image)} />
  {post && <p style={{margin:'24px 0'}}>By {post.author}</p>}

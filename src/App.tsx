@@ -18,12 +18,10 @@ import { useSiteMotion } from './lib/useSiteMotion';
 // Route-level code splitting: each page loads only when visited.
 const About = lazy(() => import('./pages/about'));
 const StoryPage = lazy(() => import('./pages/story'));
-const Blog = lazy(() => import('./pages/blog'));
 const Support = lazy(() => import('./pages/support'));
 const Programs = lazy(() => import('./pages/programs'));
 const MembershipForm = lazy(() => import('./pages/membershipform'));
 const ProjectsPage = lazy(() => import('./pages/projects'));
-const EventsPage = lazy(() => import('./pages/events'));
 const NewsPage = lazy(() => import('./pages/news'));
 const IctazTechFair2026 = lazy(() => import('./pages/news-ictaz-2026'));
 const JourneyToGeneva = lazy(() => import('./pages/journey-to-geneva'));
@@ -44,7 +42,6 @@ const RoboCorePilot = lazy(() => import('./pages/robocore-pilot'));
 
 // Project subpages
 const GypulShowcase = lazy(() => import('./components/Projects/GypulShowcase'));
-const EnviroMonitorShowcase = lazy(() => import('./components/Projects/EnviroMonitorShowcase'));
 
 // Support subpages
 const DonationsPage = lazy(() => import('./components/SupportPages/DonationsPage'));
@@ -160,12 +157,14 @@ const App: React.FC = () => {
                     <MembershipForm />
                   </ErrorBoundary>
                 } />
-                <Route path="/blogs" element={<Blog />} />
+                {/* The Blog list, the Events list and the Environmental Rover page were removed (28 Nov 2026). Their old
+                    addresses forward to the nearest page that still exists; single stories keep their own addresses. */}
+                <Route path="/blogs" element={<Navigate to="/news" replace />} />
                 <Route path="/blogs/:slug" element={<StoryPage kind="blog" />} />
                 <Route path="/events/:slug" element={<StoryPage kind="event" />} />
                 <Route path="/support" element={<Support />} />
                 <Route path="/programs" element={<Programs />} />
-                <Route path="/events" element={<EventsPage />} />
+                <Route path="/events" element={<Navigate to="/programs" replace />} />
                 <Route path="/projects" element={<ProjectsPage />} />
                 <Route path="/news" element={<NewsPage />} />
                 <Route path="/news/ictaz-tech-fair-2026" element={<IctazTechFair2026 />} />
@@ -205,11 +204,7 @@ const App: React.FC = () => {
                     <GypulShowcase />
                   </ErrorBoundary>
                   } />
-                <Route path="/projects/enviro-monitor" element={
-                  <ErrorBoundary>
-                    <EnviroMonitorShowcase />
-                  </ErrorBoundary>
-                } />
+                <Route path="/projects/enviro-monitor" element={<Navigate to="/projects" replace />} />
 
                 {/* Team/Partner Pages */}
                 <Route path="/team/technicbots" element={

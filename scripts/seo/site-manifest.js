@@ -683,52 +683,7 @@ const ROUTES = [
     schema: ['CreativeWork'],
   },
 
-  {
-    path: '/projects/enviro-monitor',
-    priority: '0.7',
-    changefreq: 'monthly',
-    title: 'Environmental Monitoring Rover | Plastal-Bot Builders',
-    description:
-      'An Arduino-based rover built by Plastal-Bot Builders students that measures and logs air and water quality data for analysis.',
-    breadcrumb: [
-      { name: 'Projects', path: '/projects' },
-      { name: 'Environmental Monitoring Rover', path: '/projects/enviro-monitor' },
-    ],
-    body: {
-      h1: 'Environmental Monitoring Rover',
-      summary:
-        'A student-built rover that logs environmental data using Arduino-based sensors and uploads results to a central dashboard for analysis and visualisation.',
-      sections: [
-        {
-          h2: 'What it measures',
-          p: 'The rover carries sensors for air and water quality measurements, giving students a practical introduction to sensing, data logging and sustainability-focused engineering.',
-        },
-      ],
-    },
-    schema: ['CreativeWork'],
-  },
 
-  {
-    path: '/events',
-    priority: '0.8',
-    changefreq: 'weekly',
-    title: 'Upcoming Robotics Events & Workshops — Plastal-Bot Builders',
-    description:
-      'Register for upcoming Plastal-Bot Builders robotics workshops, bootcamps and STEM events in Zambia.',
-    breadcrumb: [{ name: 'Events', path: '/events' }],
-    body: {
-      h1: 'Upcoming events and workshops',
-      summary:
-        'Plastal-Bot Builders runs hands-on robotics workshops, bootcamps and community STEM events. Upcoming sessions and registration details are listed on this page.',
-      sections: [
-        {
-          h2: 'How to take part',
-          p: 'Events are open to young people and are announced on this page. Registration is handled directly through the site.',
-        },
-      ],
-    },
-    schema: ['CollectionPage'],
-  },
 
   {
     path: '/support',
@@ -767,22 +722,6 @@ const ROUTES = [
     ],
   },
 
-  {
-    path: '/blogs',
-    priority: '0.8',
-    changefreq: 'weekly',
-    title: 'Blog — Robotics, STEM Education and Innovation in Zambia',
-    description:
-      'Articles from Plastal-Bot Builders on robotics education, STEM workshops, student projects and technology innovation in Zambia.',
-    breadcrumb: [{ name: 'Blog', path: '/blogs' }],
-    body: {
-      h1: 'Blog',
-      summary:
-        'Writing from the Plastal-Bot Builders team on robotics education, workshops, student projects and technology in Zambia.',
-      sections: [],
-    },
-    schema: ['Blog'],
-  },
 
   {
     path: '/membershipform',

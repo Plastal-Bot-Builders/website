@@ -581,12 +581,6 @@ const EventCoordinationPage: React.FC = () => {
                                     </div>
                                 </div>
                             </div>
-                            
-                            <div className="mt-4 sm:mt-6 text-center">
-                                <a href="/events" className="inline-flex items-center text-accent hover:underline text-sm sm:text-base">
-                                    View full events calendar <FaCalendarAlt className="ml-2" />
-                                </a>
-                            </div>
                         </section>
                     </FadeContent>
                 </div>              

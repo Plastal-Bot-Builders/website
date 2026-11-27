@@ -412,7 +412,7 @@ const MentorshipPage: React.FC = () => {
                                             <span className="text-xs sm:text-sm">Networking opportunities for all participants</span>
                                         </li>
                                     </ul>
-                                    <a href="/events" className="text-accent hover:underline inline-block text-sm sm:text-base">
+                                    <a href="/support/event-coordination" className="text-accent hover:underline inline-block text-sm sm:text-base">
                                         Learn about our event plans →
                                     </a>
                                 </div>

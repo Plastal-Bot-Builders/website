@@ -10,8 +10,6 @@ const quickLinks = [
   { to: '/news', label: 'News & Achievements' },
   { to: '/journey-to-geneva', label: 'The Road to Geneva' },
   { to: '/projects', label: 'Projects' },
-  { to: '/events', label: 'Events' },
-  { to: '/blogs', label: 'Blog' },
 ];
 
 const programLinks = [
@@ -147,7 +145,8 @@ const Footer: React.FC = () => {
               <li className="flex items-center gap-2">
                 <FaEnvelope aria-hidden="true" className="text-hex flex-shrink-0" />
                 <a href="mailto:plastalbotbuilders@gmail.com" className="footer-link">
-                  plastalbotbuilders@gmail.com
+                  {/* If the column is too narrow, break before the @ rather than in the middle of a word. */}
+                  plastalbotbuilders<wbr />@gmail.com
                 </a>
               </li>
             </ul>

@@ -10,9 +10,7 @@ export default (
     <Route path="/news" />
     <Route path="/journey-to-geneva" />
     <Route path="/membershipform" />
-    <Route path="/blogs" />
     <Route path="/programs" />
-    <Route path="/events" />
     <Route path="/projects" />
     
     {/* Support Pages */}
@@ -29,7 +27,6 @@ export default (
     
     {/* Project Showcase Pages */}
     <Route path="/projects/gypul" />
-    <Route path="/projects/enviro-monitor" />
     
     {/* Team/Partner Pages */}
     <Route path="/team/technicbots" />

@@ -16,7 +16,7 @@ In essence, Plastal-Bot Builders stands as a beacon of innovation and sustainabi
 
 - Home Page
 - About Page
-- Blogs Page
+- News Page
 - Programs Page
 
 ## Usage

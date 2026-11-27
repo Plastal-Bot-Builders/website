@@ -14,7 +14,6 @@ const Header: React.FC = () => {
     { path: '/about', label: '.about( )' },
     // RoboCore is reached from its preview section on the home page (src/components/RoboCorePreview.tsx).
     { path: '/news', label: '.news( )' },
-    { path: '/blogs', label: '.blogs( )' },
     { path: '/support', label: '.support( )' },
     { path: '/programs', label: '.program( )' },
   ];

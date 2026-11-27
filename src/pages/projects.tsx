@@ -45,16 +45,6 @@ const SAMPLE_PROJECTS: Project[] = [
     route: '/projects/gypul'
   },
   {
-    id: 'enviro-monitor',
-    title: 'Environmental Monitoring Rover',
-    short: 'Arduino-based rover for air and water quality measurements.',
-    description:
-      'A student-built rover that logs environmental data using Arduino sensors and uploads results to a central dashboard for analysis and visualization.',
-    image: '/resources/Photos/group.png',
-    tags: ['sensors', 'sustainability'],
-    route: '/projects/enviro-monitor'
-  },
-  {
     id: 'vision-bot',
     title: 'Vision Bot',
     short: 'Intro to CV: object detection and obstacle avoidance.',
