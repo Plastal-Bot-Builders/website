@@ -953,9 +953,9 @@ const MembershipForm: React.FC = () => {
                                 </button>
                             </div>
                         </form>
-
-                        <Footer />
                     </div>
+                    {/* Outside the content column, so the footer runs the full width of the window, as on every other page. */}
+                    <Footer />
                 </section>
             </StyledThemeProvider>
         </>
