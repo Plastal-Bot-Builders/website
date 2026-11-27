@@ -36,6 +36,8 @@ check new tiles at 1440, 800 and 390 px for gaps.
 | `src/components/RoboCore/RobotViewer.tsx` | The 3D robot in the hero (three.js, loaded only when needed). |
 | `src/components/RoboCore/RoboCoreLogo.tsx` | The RoboCore lockup in `currentColor`. |
 | `src/components/RoboCore/contours.svg` | Contour lines of the real Copperbelt terrain (Copernicus GLO-30 DEM; the same as the event branding, made by RoboCore_Event_Branding/topo/copperbelt_contours.py), used as a CSS mask. |
+| `src/components/RoboCore/LiveContours.tsx` | The same contour lines, moving (the overview's hero): a WebGL canvas over the still drawing, which stays when the canvas cannot run (no WebGL, reduced motion, data saver). The lines slide slowly downhill and never jump: after five levels each sits where the fifth line below it began. Styles in `LiveContours.css`. Use it in place of `<div className="rc-contours" />`. |
+| `public/resources/RoboCore/contours-height.bin` | The land `LiveContours.tsx` draws from: 192 × 192 heights, 16 bits each (low byte first), over 40 contour levels. Made from the same terrain data as `contours.svg` by `RoboCoreProjects/videos/robocore-contour-loop/tools/contour_loop.py web`. |
 | `src/components/RoboCore/fonts/` | Barlow and Barlow Condensed (woff2), SIL Open Font License (`OFL.txt`). |
 | `public/resources/RoboCore/` | Images and the 3D model (let through by `.gitignore`). |
 | `public/resources/social/og-robocore.jpg` | Social share card, 1200 × 630. |

@@ -8,6 +8,7 @@ import { SEOConfig } from '../components/SEO';
 import AppIcon from '../components/RoboCore/AppIcon';
 import RoboCoreLogo from '../components/RoboCore/RoboCoreLogo';
 import Gallery, { GalleryItem } from '../components/RoboCore/Gallery';
+import LiveContours from '../components/RoboCore/LiveContours';
 import Supporters from '../components/RoboCore/Supporters';
 import Tile from '../components/RoboCore/Tile';
 import { PILOT, SOCIALS, WEB_IDE, scrollToSection, useScrollToHash } from '../components/RoboCore/shared';
@@ -192,7 +193,7 @@ const RoboCorePage: React.FC = () => {
       <section className="rc-hero" aria-labelledby="rc-title">
         <div className="rc-wrap">
           <div className="rc-hero-card">
-            <div className="rc-contours" aria-hidden="true" />
+            <LiveContours />
             <div className="rc-hero-text">
               <h1 id="rc-title" style={{ margin: 0 }}>
                 <RoboCoreLogo className="rc-hero-logo" title="RoboCore" />
