@@ -198,12 +198,13 @@ const RoboCorePage: React.FC = () => {
               <h1 id="rc-title" style={{ margin: 0 }}>
                 <RoboCoreLogo className="rc-hero-logo" title="RoboCore" />
               </h1>
-              <p className="rc-display">
-                Build.
+              {/* Three lines, the same breaks as the covers and the event branding. */}
+              <p className="rc-display rc-hero-headline">
+                Robotics that
                 <br />
-                Code.
+                Zambian classrooms
                 <br />
-                Create.
+                can own.
               </p>
               <p className="rc-lead">Build a robot. Give it instructions. See your ideas move.</p>
               <p className="rc-hero-description">A robot kit and coding app for young makers, from your first blocks to Arduino C++.</p>

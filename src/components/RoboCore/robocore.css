@@ -158,6 +158,10 @@ html.dark .rc {
 @media (min-width: 960px) { .rc-hero-text { padding: 56px 0 56px 64px; } }
 .rc-hero-logo { width: min(300px, 72%); height: auto; display: block; }
 .rc-hero .rc-lead { max-width: 30ch; font-weight: 500; }
+/* The headline is a sentence on three fixed lines. Its longest line, "Zambian classrooms", is about 8.2 times
+   the font size wide, so the size follows the width of the text column and that line never wraps. */
+.rc-hero-headline { font-size: clamp(26px, calc(11.7vw - 11.5px), 56px); line-height: 0.98; }
+@media (min-width: 960px) { .rc-hero-headline { font-size: clamp(40px, calc(5.3vw - 11.5px), 53px); } }
 .rc-maker { display: inline-flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 500; }
 .rc-maker img { height: 34px; width: auto; }
 .rc-hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
