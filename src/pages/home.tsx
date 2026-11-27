@@ -14,6 +14,7 @@ import { FaHandshake, FaGraduationCap, FaGlobe, FaRobot, FaSchool, FaRecycle, Fa
 import FadeContent from '../components/ui/FadeContent';
 import SmartImage from '../components/ui/SmartImage';
 import RoboCorePreview from '../components/RoboCorePreview';
+import RadarRing from '../components/ui/RadarRing';
 
 
 const Home: React.FC = () => {
@@ -105,12 +106,21 @@ const Home: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="w-full md:w-1/2 flex items-center justify-center">
-                  <ThemedImage
-                    alt="Empowering Innovation"
-                    src="resources/Illustrations/EmpoweringInnovation.svg"
-                    className="w-full max-w-lg h-auto object-contain"
-                  />
+                <div className="w-full md:w-1/2 flex flex-col items-center justify-center">
+                  {/* Workbench theme: a radar ring turns behind the illustration, with where we are under it. */}
+                  <div className="wb-hero-stage">
+                    <RadarRing />
+                    <ThemedImage
+                      alt="Empowering Innovation"
+                      src="resources/Illustrations/EmpoweringInnovation.svg"
+                      className="w-full max-w-lg h-auto object-contain"
+                    />
+                  </div>
+                  {/* data-no-decrypt: coordinates must never show as scrambled digits. */}
+                  <p className="wb-status" data-no-decrypt>
+                    <span className="wb-status-dot" aria-hidden="true" />
+                    Lusaka, Zambia · 15.42°S 28.28°E · since 2022
+                  </p>
                 </div>
               </div>
             </div>
@@ -224,19 +234,23 @@ const Home: React.FC = () => {
               <h2 id="impact-strip-title" className="type-h2 mb-8">
                 <span className="text-hex">Building Zambia's Future</span> Through Robotics
               </h2>
+              {/* Five cards: on tablets (two columns) the last one spans the row instead of sitting alone on the left. */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
                 {[
                   { Icon: FaGlobeAfrica, title: 'Global Stage', text: 'Represented Zambia internationally in Switzerland' },
-                  { Icon: FaGraduationCap, title: '600+ Learners', text: 'Reached through hands-on STEM programmes' },
+                  { Icon: FaGraduationCap, title: '600+ Learners', count: 600, rest: '+ Learners', text: 'Reached through hands-on STEM programmes' },
                   { Icon: FaSchool, title: 'Schools & Communities', text: 'Workshops delivered across Zambia' },
                   { Icon: FaRecycle, title: 'Sustainable Builds', text: 'Robotics built with recycled materials' },
                   { Icon: FaRobot, title: 'Next Generation', text: 'Inspiring young African innovators' },
-                ].map(({ Icon, title, text }, i) => (
-                  <div key={i} className="interactive-card p-5 text-center flex flex-col items-center">
+                ].map(({ Icon, title, text, count, rest }, i) => (
+                  <div key={i} className="interactive-card wb-glass p-5 text-center flex flex-col items-center sm:last:col-span-2 lg:last:col-span-1">
                     <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center text-white mb-3 flex-shrink-0">
                       <Icon aria-hidden="true" className="text-xl on-accent" />
                     </div>
-                    <h3 className="type-h4 mb-1">{title}</h3>
+                    {/* A number counts up; the workbench theme draws a meter under any counted number in a card. */}
+                    <h3 className="type-h4 mb-1" aria-label={title}>
+                      {count ? <><CountUp to={count} duration={2} />{rest}</> : title}
+                    </h3>
                     <p className="text-sm leading-relaxed opacity-85">{text}</p>
                   </div>
                 ))}
@@ -452,14 +466,14 @@ const Home: React.FC = () => {
                   <button
                     className="custom-button"
                     type="button"
-                    onClick={() => navigate('/events')}
+                    onClick={() => navigate('/programs')}
                   >
                     Join Our Next Workshop
                   </button>
                 </div>
 
                 <div className="space-y-4">
-                  <div className="interactive-card p-6 flex flex-col justify-center items-center text-center h-full">
+                  <div className="interactive-card wb-glass p-6 flex flex-col justify-center items-center text-center h-full">
                     <h4 className="mb-3 text-xl sm:text-2xl font-extrabold title">
                       <span className="text-hex">Tech</span> Training
                     </h4>
@@ -472,7 +486,7 @@ const Home: React.FC = () => {
 
               {/* Second Bento Grid */}
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-                <div className="interactive-card p-6 flex flex-col justify-center items-center text-center">
+                <div className="interactive-card wb-glass p-6 flex flex-col justify-center items-center text-center">
                   <h4 className="mb-3 text-xl sm:text-2xl font-extrabold title">
                     <span className="text-hex">Youth</span> Programs
                   </h4>
@@ -505,7 +519,7 @@ const Home: React.FC = () => {
                   <button
                     className="custom-button"
                     type="button"
-                    onClick={() => navigate('/events')}
+                    onClick={() => navigate('/programs')}
                   >
                     Join Our Next Workshop
                   </button>
@@ -526,7 +540,7 @@ const Home: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="interactive-card p-6 flex flex-col justify-center items-center text-center">
+                <div className="interactive-card wb-glass p-6 flex flex-col justify-center items-center text-center">
                   <h4 className="mb-3 text-xl sm:text-2xl font-extrabold title">
                     <span className="text-hex">Join</span> Us
                   </h4>
@@ -712,7 +726,7 @@ const Home: React.FC = () => {
               </div>
 
               {/* Global Reach Card */}
-              <div className="interactive-card p-6 flex flex-col justify-center items-center text-center">
+              <div className="interactive-card wb-glass p-6 flex flex-col justify-center items-center text-center">
                 <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-accent flex items-center justify-center text-white mb-4">
                   <FaGlobe className="text-3xl sm:text-4xl" />
                 </div>

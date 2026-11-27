@@ -1,6 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SEOConfig } from '../components/SEO';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const Error404 = () => {
   const navigate = useNavigate();
@@ -15,18 +17,20 @@ const Error404 = () => {
         // engines the page doesn't exist.
         noindex
       />
-      <div className="min-h-screen bg-gray-900 flex flex-col justify-center items-center px-4">
+      {/* The site's own header, colours and buttons, in both themes; the page background shows through. */}
+      <Header />
+      <div className="min-h-[70vh] flex flex-col justify-center items-center px-4">
         <div className="max-w-lg text-center">
           {/* Error Code */}
           <h1 className="text-8xl font-extrabold text-hex mb-4">404</h1>
 
           {/* Error Message */}
-          <h2 className="text-3xl font-bold text-white mb-8">
+          <h2 className="text-3xl font-bold mb-8">
             Oops! Page Not Found
           </h2>
 
           {/* Description */}
-          <p className="text-gray-400 mb-8">
+          <p className="opacity-75 mb-8">
             The page you are looking for might have been removed, had its name changed,
             or is temporarily unavailable.
           </p>
@@ -35,20 +39,21 @@ const Error404 = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => navigate(-1)}
-              className="px-6 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors"
+              className="custom-button--ghost"
             >
               Go Back
             </button>
 
             <button
               onClick={() => navigate('/')}
-              className="px-6 py-3 bg-hex text-white rounded-lg hover:bg-hex/90 transition-colors"
+              className="custom-button"
             >
               Return Home
             </button>
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

@@ -12,7 +12,7 @@ import ErrorBoundary from './components/ErrorBoundary';
 import RoboCoreLoader from './components/RoboCore/RoboCoreLoader'; // not lazy: it shows while RoboCore's code loads
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 import { DefaultSEO } from './components/SEO';
-import Squares from './components/ui/Squares';
+import WorkbenchGrid from './components/ui/WorkbenchGrid';
 import { useSiteMotion } from './lib/useSiteMotion';
 
 // Route-level code splitting: each page loads only when visited.
@@ -133,15 +133,11 @@ const App: React.FC = () => {
         }
       >
         <div style={{ position: 'relative', minHeight: '100vh' }} className="overflow-x-clip">
-          {/* The site's moving grid. Not under RoboCore pages: they cover the whole window with their own colours, and
-              while one loads the grid would show through. */}
+          {/* The site's workbench: measured grid, rulers and crosshair. Not under RoboCore pages: they cover the whole
+              window with their own colours, and while one loads the grid would show through. */}
           {!location.pathname.startsWith('/robocore') && (
             <div className="fixed inset-0 overflow-hidden" style={{ zIndex: 0 }}>
-              <Squares
-                speed={0.3}
-                squareSize={50}
-                direction="diagonal"
-              />
+              <WorkbenchGrid />
             </div>
           )}
 

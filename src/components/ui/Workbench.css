@@ -1,0 +1,369 @@
+/*
+ * The workbench theme of the Plastal-Bot pages (WorkbenchGrid.tsx switches it on with html[data-workbench]; RoboCore
+ * pages never get it). A drafting sheet as the calm base: measured grid, rulers, sheet numbers, corner marks.
+ * Instruments only at key moments: the hero's radar ring, meters that fill beside numbers.
+ */
+
+.wb-grid {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ---------- the sheet: paper grain under the grid ---------- */
+/* Two layers of generated noise (no image files): fine grain over soft, uneven mottling. Dark specks on the light
+   sheet. The dark sheet gets one layer only: sparse, fine pale specks, so the black is not lifted into a haze
+   (dense grain and mottling read as static and cloud there). Tiled and drawn once, so scrolling costs nothing. */
+.wb-paper {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.15 0 0 0 0 0.15 0 0 0 0 0.15 0 0 0 1.5 -0.62'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") 0 0 / 240px 240px, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.011' numOctaves='3' seed='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.35 0 0 0 0 0.35 0 0 0 0 0.35 0 0 0 0.9 -0.36'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") 0 0 / 900px 900px;
+  opacity: 0.55;
+}
+html.dark .wb-paper {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='1' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 3.2 -1.84'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") 0 0 / 256px 256px;
+  opacity: 0.5;
+}
+
+/* ---------- section headings: a sheet number above, a ruler line that draws in below ---------- */
+html[data-workbench] #main-content { counter-reset: wb-sheet; }
+html[data-workbench] #main-content section h2:not(.interactive-card h2):not(article h2) { counter-increment: wb-sheet; }
+html[data-workbench] #main-content section h2:not(.interactive-card h2):not(article h2)::before {
+  content: counter(wb-sheet, decimal-leading-zero) ' /';
+  display: block;
+  margin-bottom: 0.75rem;
+  font: 600 12px/1 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+}
+html[data-workbench] #main-content section h2:not(.interactive-card h2):not(article h2)::after {
+  content: '';
+  display: block;
+  width: min(100%, 300px);
+  height: 9px;
+  margin-top: 0.9rem;
+  opacity: 0.5;
+  /* a base line, a short tick every 10 px, a long tick every 50 px */
+  background:
+    linear-gradient(currentColor, currentColor) left bottom / 100% 1px no-repeat,
+    repeating-linear-gradient(90deg, currentColor 0 1px, transparent 1px 10px) left bottom / 100% 4px no-repeat,
+    repeating-linear-gradient(90deg, currentColor 0 1px, transparent 1px 50px) left bottom / 100% 9px no-repeat;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) 0.15s;
+}
+html[data-workbench] #main-content section h2.text-center:not(.interactive-card h2):not(article h2)::after { margin-left: auto; margin-right: auto; }
+html[data-workbench] #main-content section h2.wb-seen:not(.interactive-card h2):not(article h2)::after { clip-path: inset(0 0 0 0); }
+
+/* ---------- cards: the measured size on hover ---------- */
+html[data-workbench] #main-content .interactive-card:not(.absolute):not(.fixed):not(.sticky) { position: relative; }
+html[data-workbench] #main-content .interactive-card[data-wb-size]::before {
+  content: attr(data-wb-size);
+  position: absolute;
+  right: 14px;
+  bottom: 7px;
+  z-index: 2;
+  pointer-events: none;
+  font: 500 11px/1 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+html[data-workbench] #main-content .interactive-card[data-wb-size]:hover::before { opacity: 0.9; }
+@media (hover: none) {
+  html[data-workbench] #main-content .interactive-card[data-wb-size]::before { display: none; }
+}
+
+/* ---------- instruments ---------- */
+/* A meter under every number that counts up inside a card (CountUp marks its number .count-up, and WorkbenchGrid
+   adds .wb-seen when it comes into view): a thin gauge that fills as the number arrives. It hangs on the number's
+   own line (its parent), so it sits under "600+ Learners" as well as under a bare "92%". Not where that parent
+   is a round badge or a flex row, where a bar would land inside the disc or beside the number. */
+html[data-workbench] #main-content :is(.interactive-card, .glass-card) :not(.interactive-card, .rounded-full, .flex, .inline-flex):has(> .count-up)::after {
+  content: '';
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 150px;
+  height: 7px;
+  margin: 0.5rem 0 0.6rem;
+  padding: 1px;
+  border: 1px solid color-mix(in srgb, currentColor 35%, transparent);
+  background: linear-gradient(var(--accent), var(--accent)) left center / 0% 100% no-repeat content-box;
+  transition: background-size 2s cubic-bezier(0.2, 0.7, 0.2, 1) 0.2s;
+}
+html[data-workbench] #main-content :is(.interactive-card, .glass-card).text-center :not(.interactive-card, .rounded-full, .flex, .inline-flex):has(> .count-up)::after,
+html[data-workbench] #main-content .interactive-card .text-center:has(> .count-up)::after,
+html[data-workbench] #main-content .interactive-card .text-center :has(> .count-up)::after { margin-left: auto; margin-right: auto; }
+html[data-workbench] #main-content :is(.interactive-card, .glass-card) :not(.interactive-card, .rounded-full, .flex, .inline-flex):has(> .count-up.wb-seen)::after { background-size: 100% 100%; }
+
+/* The hero's radar ring, behind the illustration. */
+.wb-hero-stage { position: relative; width: 100%; max-width: 32rem; }
+.wb-hero-stage > :not(.wb-radar) { position: relative; z-index: 1; }
+.wb-radar {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 0;
+  width: min(116%, 100vw - 2rem);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  color: var(--accent);
+  pointer-events: none;
+}
+.wb-radar-ring { fill: none; stroke: currentColor; stroke-width: 1; opacity: 0.32; }
+.wb-radar-tick { stroke: currentColor; stroke-width: 1; opacity: 0.45; }
+.wb-radar-sweep { transform-origin: 200px 200px; animation: wb-turn 7s linear infinite; }
+.wb-radar-blip { fill: currentColor; opacity: 0; animation: wb-blip 7s linear infinite; }
+@keyframes wb-turn { to { transform: rotate(360deg); } }
+@keyframes wb-blip { 0% { opacity: 0.95; } 35% { opacity: 0; } 100% { opacity: 0; } }
+
+/* The status line under it. */
+.wb-status {
+  position: relative;
+  z-index: 1;
+  margin-top: 0.9rem;
+  text-align: center;
+  font: 500 12px/1.6 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  letter-spacing: 0.06em;
+  opacity: 0.8;
+}
+.wb-status-dot { display: inline-block; width: 7px; height: 7px; margin-right: 0.55rem; border-radius: 50%; background: var(--accent); vertical-align: 1px; animation: wb-pulse 2.4s ease-in-out infinite; }
+@media (max-width: 420px) { .wb-status { font-size: 11px; letter-spacing: 0.02em; } }
+@keyframes wb-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-workbench] #main-content section h2:not(.interactive-card h2):not(article h2)::after { clip-path: none; transition: none; }
+  html[data-workbench] #main-content :is(.interactive-card, .glass-card) :not(.interactive-card, .rounded-full, .flex, .inline-flex):has(> .count-up)::after { background-size: 100% 100%; transition: none; }
+  .wb-radar-sweep, .wb-status-dot { animation: none; }
+  .wb-radar-blip { animation: none; opacity: 0.6; }
+}
+
+/* ---------- solid sheets: soft light and film grain ---------- */
+/* Three materials on the bench. The page is grained paper ruled with a grid; glass plates let it show through;
+   the solid boxes (reading cards, photo cards, and panels marked .wb-sheet) are matte card under a soft light: a
+   faint glow of the accent colour from the top-right corner, a second from the bottom-left, and fine film grain
+   over both. No pattern (Fred did not like a dot lattice, 27 Nov 2026). Drawn under the content: each sheet is
+   its own stacking context. */
+html[data-workbench] {
+  --wb-sheet-images:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' seed='5' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.15 0 0 0 0 0.15 0 0 0 0 0.15 0 0 0 2.2 -1.08'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.4'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    radial-gradient(110% 95% at 100% 0%, color-mix(in srgb, var(--accent) 17%, transparent), transparent 58%),
+    radial-gradient(95% 85% at 0% 100%, color-mix(in srgb, var(--accent) 9%, transparent), transparent 62%);
+  --wb-sheet-sizes: 200px 200px, 100% 100%, 100% 100%, 100% 100%;
+}
+html.dark[data-workbench] {
+  --wb-sheet-images:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' seed='5' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 3.2 -1.92'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.42'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    radial-gradient(110% 95% at 100% 0%, color-mix(in srgb, var(--accent) 11%, transparent), transparent 58%),
+    radial-gradient(95% 85% at 0% 100%, rgba(98, 110, 255, 0.14), transparent 62%),
+    linear-gradient(165deg, rgba(255, 255, 255, 0.035), transparent 42%);
+}
+html[data-workbench] #main-content .interactive-card:not(.wb-glass):not(.text-center),
+html[data-workbench] #main-content .wb-sheet { isolation: isolate; }
+html[data-workbench] #main-content .wb-sheet { position: relative; }
+html[data-workbench] #main-content .interactive-card:not(.wb-glass):not(.text-center)::after,
+html[data-workbench] #main-content .wb-sheet::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  background-image: var(--wb-sheet-images);
+  background-size: var(--wb-sheet-sizes);
+}
+/* Panels that are not cards and have a plain surface of their own wear the same texture straight on their
+   background: the legal pages' hero, contents list and document, a boxed call to action, and notice strips
+   (.surface.border boxes that stand on the page itself, not the small tiles inside a card). */
+html[data-workbench] #main-content :is(.legal-hero, .legal-toc, .legal-doc, section.bg-surface.border-2),
+html[data-workbench] #main-content .surface.border:not(.interactive-card *):not(.wb-sheet *) {
+  background-image: var(--wb-sheet-images);
+  background-size: var(--wb-sheet-sizes);
+}
+
+/* ---------- quiet lines you can still see (dark mode) ---------- */
+/* --surface-border draws the site's quiet lines: dividers, the small tiles inside cards, table rows, progress-bar
+   tracks, the legal pages' panels. Its dark value (#1F243B) is almost the card's own navy, so on the lit cards
+   those lines disappeared. In the workbench's dark mode it becomes a thin veil of white instead (the same light
+   as the glass plates' rim), which stays visible on any surface without shouting. Light mode keeps its sand. */
+html.dark[data-workbench] { --surface-border: rgba(255, 255, 255, 0.16); }
+
+/* ---------- form fields: an outline you can see ---------- */
+/* Fields draw their outline with --surface-border on a see-through fill. In dark mode that colour (#1F243B) is
+   almost the card's own navy, and the soft light on the cards hid it completely (Fred, 28 Nov 2026). Inside the
+   workbench the fields get a clearer value for that one variable, set on the field itself: every form picks it
+   up whatever styles it (styled-components, Tailwind's border-surface, .newsletter-input, the chat box, which
+   sits outside #main-content), and the hover, focus
+   and error colours those forms set are left alone because no border property is overridden here. */
+html[data-workbench] :is(input, textarea, select) {
+  --surface-border: color-mix(in srgb, var(--text) 42%, #EADFB4); /* the light theme's sand, darkened; a variable can't be built from itself */
+}
+html.dark[data-workbench] :is(input, textarea, select) {
+  --surface-border: color-mix(in srgb, var(--text) 38%, transparent);
+}
+
+/* Some forms (Mentorship, Donations) ask for `border-surface-border` and `bg-surface`, classes that don't exist, so
+   their fields fell back to the browser's own grey box, which follows the visitor's computer, not the site's
+   theme. This gives every field the site's look as a starting point: the themed outline on a see-through fill.
+   Kept at the weight of a bare tag selector (:where adds none), so any form's own styling still wins. */
+:where(html[data-workbench] #main-content) :is(input, textarea, select):where(:not([type='checkbox']):not([type='radio']):not([type='range']):not([type='file']):not([type='color']):not([type='submit']):not([type='button']):not([type='image'])) {
+  border-color: var(--surface-border);
+  background-color: transparent;
+}
+
+/* ---------- glass plates ---------- */
+/* Some boxes are a plate of glass laid on the sheet instead of a sheet of paper: the header bar, and every card
+   whose content is centred (.interactive-card.text-center: the small ones with an icon, a title and a line or two,
+   on every page), plus any card marked .wb-glass by hand. Reading cards stay solid. The drawing shows through,
+   softened and a little brighter; light catches the top edge; a glint follows the pointer across the plate
+   (WorkbenchGrid.tsx writes --wb-gx / --wb-gy). Browsers without backdrop-filter, and visitors who ask for less
+   transparency, keep the solid surface. */
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  /* A plate is its own stacking context even where its blur is switched off (phones), so the glint stays inside it. */
+  html[data-workbench] #main-content .interactive-card:is(.wb-glass, .text-center) { isolation: isolate; }
+  html[data-workbench] #main-content .interactive-card:is(.wb-glass, .text-center),
+  html[data-workbench] .site-header__bar {
+    --wb-glass-tint: rgba(255, 255, 255, 0.34);
+    --wb-glass-tint-hover: rgba(255, 255, 255, 0.5);
+    --wb-glass-rim: rgba(255, 255, 255, 0.9);
+    --wb-glass-edge: rgba(96, 70, 20, 0.16);
+    --wb-glass-shine: rgba(255, 255, 255, 0.95);
+    --wb-glass-glint: rgba(255, 255, 255, 0.55);
+    --wb-glass-drop: rgba(96, 66, 14, 0.3);
+    background-color: var(--wb-glass-tint);
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 34%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.12) 100%);
+    border-color: var(--wb-glass-rim);
+    -webkit-backdrop-filter: blur(3px) saturate(160%) brightness(1.04);
+    backdrop-filter: blur(3px) saturate(160%) brightness(1.04);
+    box-shadow:
+      0 0 0 1px var(--wb-glass-edge),
+      inset 0 1px 0 var(--wb-glass-shine),
+      inset 0 0 18px rgba(255, 255, 255, 0.1),
+      0 16px 30px -20px var(--wb-glass-drop);
+  }
+  html.dark[data-workbench] #main-content .interactive-card:is(.wb-glass, .text-center),
+  html.dark[data-workbench] .site-header__bar {
+    --wb-glass-tint: rgba(255, 255, 255, 0.045);
+    --wb-glass-tint-hover: rgba(255, 255, 255, 0.08);
+    --wb-glass-rim: rgba(255, 255, 255, 0.17);
+    --wb-glass-edge: rgba(0, 0, 0, 0.5);
+    --wb-glass-shine: rgba(255, 255, 255, 0.34);
+    --wb-glass-glint: rgba(255, 255, 255, 0.13);
+    --wb-glass-drop: rgba(0, 0, 0, 0.85);
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0) 34%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.035) 100%);
+    -webkit-backdrop-filter: blur(3px) saturate(170%) brightness(1.5);
+    backdrop-filter: blur(3px) saturate(170%) brightness(1.5);
+  }
+  html[data-workbench] #main-content .interactive-card:is(.wb-glass, .text-center):hover {
+    background-color: var(--wb-glass-tint-hover);
+    border-color: color-mix(in srgb, var(--accent) 70%, var(--wb-glass-rim));
+  }
+  /* The header floats over photos and text as the page scrolls: a deeper tint and more blur keep the menu readable. */
+  html[data-workbench] .site-header__bar {
+    --wb-glass-tint: rgba(255, 251, 234, 0.6);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    backdrop-filter: blur(16px) saturate(180%);
+  }
+  html.dark[data-workbench] .site-header__bar {
+    --wb-glass-tint: rgba(11, 10, 31, 0.58);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    backdrop-filter: blur(16px) saturate(180%);
+  }
+  /* The glint: under the content, over the tint (the plate is its own stacking context). */
+  html[data-workbench] .site-header__bar { position: relative; }
+  html[data-workbench] #main-content .interactive-card:is(.wb-glass, .text-center)::after,
+  html[data-workbench] .site-header__bar::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
+    background: radial-gradient(240px circle at var(--wb-gx, 50%) var(--wb-gy, 0%), var(--wb-glass-glint), transparent 68%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+  html[data-workbench] #main-content .interactive-card:is(.wb-glass, .text-center):hover::after,
+  html[data-workbench] .site-header__bar:hover::after { opacity: 1; }
+  @media (hover: none) {
+    html[data-workbench] #main-content .interactive-card:is(.wb-glass, .text-center)::after,
+    html[data-workbench] .site-header__bar::after { display: none; }
+  }
+  /* The 3D showcase pages' own frosted panels (.glass-card, App.css) keep their deeper tint, which keeps text
+     readable over a moving model, and take the plates' rim and edge light so they read as the same glass. */
+  html[data-workbench] #main-content .glass-card {
+    border-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 0 1px rgba(96, 70, 20, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 16px 30px -20px rgba(96, 66, 14, 0.3);
+  }
+  html.dark[data-workbench] #main-content .glass-card {
+    border-color: rgba(255, 255, 255, 0.17);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.34), 0 16px 30px -20px rgba(0, 0, 0, 0.85);
+  }
+  @media (prefers-reduced-transparency: reduce) {
+    html[data-workbench] #main-content .interactive-card:is(.wb-glass, .text-center) {
+      background-color: var(--surface-bg);
+      background-image: none;
+      border-color: var(--card-border-initial);
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+      box-shadow: none;
+    }
+    html[data-workbench] .site-header__bar,
+    html.dark[data-workbench] .site-header__bar {
+      background-color: var(--header-bg);
+      background-image: none;
+      border-color: var(--header-border);
+    }
+  }
+}
+
+/* ---------- small and touch screens ---------- */
+/* Phones: the glass cards lose their blur. It is light enough to be almost invisible over this grid, but every
+   blurred plate makes the phone redraw what is behind it on each scroll frame, and on modest Android phones that
+   is what makes scrolling stutter. The plates keep their tint, rim and edge light. The header keeps a smaller blur:
+   it is one element, and it needs it to stay readable over photos. */
+@media (max-width: 767px) {
+  html[data-workbench] #main-content .interactive-card:is(.wb-glass, .text-center),
+  html.dark[data-workbench] #main-content .interactive-card:is(.wb-glass, .text-center) {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  html[data-workbench] .site-header__bar,
+  html.dark[data-workbench] .site-header__bar {
+    -webkit-backdrop-filter: blur(10px) saturate(160%);
+    backdrop-filter: blur(10px) saturate(160%);
+  }
+}
+/* Touch screens have no hover: after a tap the card would stay lifted until the next tap somewhere else. */
+@media (hover: none) {
+  html[data-workbench] #main-content .interactive-card:hover { transform: none; }
+}
+@media (pointer: coarse), (max-width: 767px) {
+  /* iPhones zoom the whole page in when a field's text is smaller than 16 px, and don't zoom back out. */
+  html[data-workbench] :is(input, textarea, select):where(:not([type='checkbox']):not([type='radio']):not([type='range'])) { font-size: 16px; }
+  /* Room for a thumb: the menu's links and the footer's links were 24 to 27 px tall. */
+  html[data-workbench] .mobile-menu .nav-link { min-height: 40px; padding-right: 1.5rem; }
+  html[data-workbench] .mobile-menu :has(> .nav-link) { padding-top: 2px; padding-bottom: 2px; }
+  html[data-workbench] .site-footer .footer-link { min-height: 40px; }
+  /* A long link or address wraps instead of sticking out of its card on a narrow phone. */
+  html[data-workbench] #main-content { overflow-wrap: break-word; }
+  html[data-workbench] #main-content a { overflow-wrap: anywhere; max-width: 100%; } /* e.g. a long email address in a boxed link */
+}
+
+/* The footer email is one long word in a narrow column: around 1024 px wide (small laptops, tablets on their
+   side) it ran past the right edge of the window. It may now break across two lines. */
+html[data-workbench] .site-footer .footer-link { overflow-wrap: anywhere; max-width: 100%; }
+
+/* ---------- large screens ---------- */
+/* The page's content column is 80 rem wide: 1280 px, which on a 2560 px monitor or a classroom projector is half
+   the screen with small type in the middle. The site's sizes are almost all in rem, so raising the root size lets
+   everything grow together (type, spacing, the column itself) on big screens. The grid keeps its 20 px squares. */
+@media (min-width: 1920px) { html[data-workbench] { font-size: 112.5%; } }
+@media (min-width: 2560px) { html[data-workbench] { font-size: 125%; } }
+/* The header logo is the one image with its width in pixels (180) and its height in rem, cropped to fit: its width
+   has to grow by the same factor or the wider crop cuts the ends off the name. */
+@media (min-width: 1920px) { html[data-workbench] .site-header__bar img.object-cover { width: 202px; } }
+@media (min-width: 2560px) { html[data-workbench] .site-header__bar img.object-cover { width: 225px; } }

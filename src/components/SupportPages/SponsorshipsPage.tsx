@@ -12,6 +12,7 @@ import {
 import ThemedImage from '../../theme/ThemedImage';
 import { SEOConfig } from '../../components/SEO';
 import FadeContent from '../../components/ui/FadeContent';
+import StatNumber from '../ui/StatNumber';
 
 const SponsorshipPage: React.FC = () => {
     // Sponsorship benefits data
@@ -559,7 +560,7 @@ const SponsorshipPage: React.FC = () => {
                                                 <div className="flex justify-center mb-2 border-2 border-accent w-12 h-12 sm:w-16 sm:h-16 rounded-full items-center mx-auto">
                                                     {item.icon}
                                                 </div>
-                                                <div className="text-xl sm:text-2xl font-bold text-accent mb-1">{item.metric}</div>
+                                                <div className="text-xl sm:text-2xl font-bold text-accent mb-1"><StatNumber value={item.metric} /></div>
                                                 <p className="text-xs sm:text-sm leading-relaxed">{item.description}</p>
                                             </div>
                                         ))}

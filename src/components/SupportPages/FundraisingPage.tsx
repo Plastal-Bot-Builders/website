@@ -388,7 +388,7 @@ const FundraisingPage: React.FC = () => {
 
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
                                 {impactMetrics.map((item, index) => (
-                                    <div key={index} className="text-center p-4">
+                                    <div key={index} className="interactive-card text-center p-4">
                                         <div className="flex justify-center mb-4 border-2 border-accent w-16 h-16 rounded-full items-center mx-auto bg-surface-hover-bg">
                                             {item.icon}
                                         </div>

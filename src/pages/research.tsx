@@ -8,6 +8,7 @@ import AutoLoopVideo from '../components/ui/AutoLoopVideo';
 import ThemedImage from '../theme/ThemedImage';
 import { StepFlow } from '../components/ui/SectionMedia';
 import { FaGithub } from 'react-icons/fa';
+import StatNumber from '../components/ui/StatNumber';
 
 /**
  * Research & Development: how Plastal-Bot builds robots, and the current research project, RoboCore AI (a wheel-leg
@@ -110,7 +111,7 @@ const Research: React.FC = () => (
           <ul className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {stats.map(s => (
               <li key={s.unit} className="interactive-card p-5">
-                <p className="text-2xl sm:text-3xl font-bold text-accent">{s.value}</p>
+                <p className="text-2xl sm:text-3xl font-bold text-accent"><StatNumber value={s.value} /></p>
                 <p className="font-semibold">{s.unit}</p>
                 <p className="text-xs sm:text-sm opacity-80 mt-1">{s.note}</p>
               </li>

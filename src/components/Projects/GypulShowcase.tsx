@@ -11,6 +11,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Header from '../Header';
 import Footer from '../Footer';
 import { asset } from '../../utils/asset';
+import StatNumber from '../ui/StatNumber';
 
 const isMeshObject = (object: THREE.Object3D): object is THREE.Mesh => {
   return 'isMesh' in object && object.isMesh === true;
@@ -608,7 +609,7 @@ export default function GypulShowcase(): JSX.Element {
                 <motion.div variants={itemVariants} className="grid grid-cols-3 gap-3 sm:gap-4 mb-8">
                   {stats.map((stat) => (
                     <div key={stat.label} className="glass-card rounded-xl px-3 py-3 sm:px-4 sm:py-4 text-center">
-                      <div className="text-xl sm:text-2xl font-bold text-hex">{stat.value}</div>
+                      <div className="text-xl sm:text-2xl font-bold text-hex"><StatNumber value={stat.value} /></div>
                       <div className="text-xs sm:text-sm opacity-70 mt-1">{stat.label}</div>
                     </div>
                   ))}

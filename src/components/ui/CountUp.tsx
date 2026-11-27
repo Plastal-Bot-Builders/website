@@ -131,5 +131,6 @@ export default function CountUp({
     };
   }, [isInView, startWhen, from, to, duration, delay, direction, onStart, onEnd, prefix, suffix, useEasing, easingFn, formatValue]);
 
-  return <span className={className} ref={ref} />;
+  // `count-up` lets the site's theme find a counted number (Workbench.css draws a meter under it inside a card).
+  return <span className={className ? `count-up ${className}` : 'count-up'} ref={ref} />;
 }
